@@ -1,0 +1,130 @@
+.rs-services {
+  overflow: hidden;
+  padding-bottom: 100px;
+  display: none;
+}
+.rs-services__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.rs-services__slider {
+  margin-top: 25px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  width: 100%;
+  overflow: visible;
+}
+.rs-services__slide {
+  min-height: 100px;
+  height: auto;
+}
+.rs-services__item {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.rs-services__item.rs-services--green {
+  background-color: var(--item-green-bg);
+}
+.rs-services__item.rs-services--blue {
+  background-color: var(--item-blue-bg);
+}
+.rs-services__item.rs-services--pink {
+  background-color: var(--item-pink-bg);
+}
+.rs-services__item.rs-services--yellow {
+  background-color: var(--item-yellow-bg);
+}
+.rs-services__item.rs-services--orange {
+  background-color: var(--item-orange-bg);
+}
+.rs-services__item.rs-services--red {
+  background-color: var(--item-red-bg);
+}
+.rs-services__img {
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.rs-services__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.rs-services__description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 50px 45px;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.rs-services__description h4 {
+  margin-bottom: 15px;
+}
+.rs-services__description p {
+  max-width: 345px;
+  margin: 0 auto;
+}
+.rs-services__icons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.rs-services__icon {
+  position: absolute;
+  z-index: 3;
+}
+.rs-services__icon.rs-services__line {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.rs-services__icon.rs-services__line svg {
+  width: 100%;
+  height: 100%;
+}
+.rs-services__icon.rs-services__icon-1 {
+  top: 106px;
+  right: 94px;
+}
+.rs-services__icon.rs-services__icon-3 {
+  top: 81px;
+  left: 6px;
+}
+.rs-services__icon.rs-services__icon-4 {
+  bottom: -17px;
+  right: 22px;
+}
+.rs-services__icon.rs-services__icon-6 {
+  top: 130px;
+  right: 21px;
+}
+.rs-services__icon.rs-services__icon-7 {
+  bottom: 78px;
+  left: 9px;
+}
+.rs-services__icon.rs-services__icon-8 {
+  bottom: -5px;
+  right: 21px;
+}

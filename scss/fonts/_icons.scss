@@ -1,0 +1,70 @@
+._rs-icon-arrow-next:before {
+	content: "\e900";
+}
+._rs-icon-arrow-prev:before {
+	content: "\e901";
+}
+._rs-icon-calendar:before {
+	content: "\e902";
+}
+._rs-icon-call:before {
+	content: "\e903";
+}
+._rs-icon-caret-down:before {
+	content: "\e904";
+}
+._rs-icon-circle-arrow-down:before {
+	content: "\e905";
+}
+._rs-icon-close:before {
+	content: "\e906";
+}
+._rs-icon-download:before {
+	content: "\e907";
+}
+._rs-icon-question:before {
+	content: "\e908";
+}
+._rs-icon-info:before {
+	content: "\e909";
+}
+._rs-icon-instagram:before {
+	content: "\e90a";
+}
+._rs-icon-message:before {
+	content: "\e90b";
+}
+._rs-icon-pen:before {
+	// content: "\e90c";
+	content: "";
+	display: block;
+	width: 20px;
+	height: 20px;
+	background-image: url("../../img/icons/pen.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	@media (max-width: 767.98px) {
+		width: 18px;
+		height: 18px;
+	}
+}
+._rs-icon-picture:before {
+	content: "\e90d";
+}
+._rs-icon-pin:before {
+	content: "\e90e";
+}
+._rs-icon-telegram:before {
+	content: "\e90f";
+}
+._rs-icon-update:before {
+	content: "\e910";
+}
+._rs-icon-vk:before {
+	content: "\e911";
+}
+._rs-icon-whatsapp:before {
+	content: "\e912";
+}

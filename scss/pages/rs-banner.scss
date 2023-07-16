@@ -1,0 +1,148 @@
+.rs-banner {
+	padding: 20px 80px 100px;
+
+	@media (max-width: 1350px) {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	@media (max-width: 1170px) {
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 10px;
+	}
+
+	@media (max-width: 991.98px) {
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-top: 0px;
+	}
+
+	&__wrapper {
+		position: relative;
+		padding-top: 83px;
+
+		@media (max-width: 991.98px) {
+			padding-top: 50px;
+		}
+
+		@media (max-width: 767.98px) {
+			padding-top: 48px;
+		}
+	}
+
+	// .rs-banner__bg
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		border-radius: 30px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+
+			&.rs-banner__bg--desktop {
+				@media (max-width: 991.98px) {
+					display: none;
+				}
+			}
+			&.rs-banner__bg--tablet {
+				@media (min-width: 991.98px), (max-width: 767.98px) {
+					display: none;
+				}
+			}
+			&.rs-banner__bg--mobile {
+				@media (min-width: 767.98px) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// .rs-banner__container
+	&__container {
+	}
+
+	// .rs-banner__content
+	&__content {
+		padding: 137px 0px 197px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+
+		@media (max-width: 991.98px) {
+			padding: 96px 0px 126px;
+		}
+
+		@media (max-width: 767.98px) {
+			padding: 42px 0px 414px;
+		}
+	}
+
+	// .rs-banner__body
+	&__body {
+		max-width: 837px;
+
+		@media (max-width: 767.98px) {
+			text-align: center;
+		}
+
+		& > h1 {
+			@media (max-width: 991.98px) {
+				max-width: 260px;
+			}
+
+			@media (max-width: 767.98px) {
+max-width: 100%;}
+		}
+
+		& > h5 {
+			margin-top: 15px;
+			max-width: 650px;
+
+			@media (max-width: 991.98px) {
+				margin-top: 8px;
+				max-width: 300px;
+			}
+
+			@media (max-width: 767.98px) {
+				margin: 10px auto 0px;
+			}
+		}
+	}
+
+	// .rs-banner__buttons
+	&__buttons {
+		margin-top: 40px;
+		display: flex;
+		align-items: center;
+
+		@media (max-width: 991.98px) {
+			margin-top: 24px;
+		}
+
+		@media (max-width: 767.98px) {
+			margin-top: 20px;
+			justify-content: center;
+
+			.rs-btn:nth-child(2) {
+				display: none;
+			}
+		}
+
+		@media (min-width: 767.98px) {
+			.rs-btn {
+				&:not(:last-child) {
+					margin-right: 25px;
+				}
+			}
+		}
+	}
+}
