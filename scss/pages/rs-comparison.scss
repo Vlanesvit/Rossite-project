@@ -1,7 +1,18 @@
 .rs-comparison {
 	text-align: center;
 	padding-bottom: 100px;
-	display: none;
+
+	@media (max-width: 1350px) {
+		padding-bottom: 75px;
+	}
+
+	@media (max-width: 991.98px) {
+		padding-bottom: 47px;
+	}
+
+	@media (max-width: 991.98px) {
+		display: none;
+	}
 
 	// .rs-comparison__container
 	&__container {
@@ -49,6 +60,11 @@
 				width: 76px;
 				height: 76px;
 				opacity: 1;
+
+				@media (max-width: 991.98px) {
+					width: 45px;
+					height: 45px;
+				}
 			}
 		}
 

@@ -460,6 +460,17 @@ section {
   font-weight: 500;
   line-height: normal;
 }
+@media (max-width: 1350px) {
+  .mrp-med-21 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 991.98px) {
+  .mrp-med-21 {
+    font-size: 16px;
+    line-height: 130%;
+  }
+}
 
 .mrp-reg-25 {
   color: var(--gray-font-color);
@@ -467,6 +478,12 @@ section {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+}
+@media (max-width: 991.98px) {
+  .mrp-reg-25 {
+    font-size: 19px;
+    line-height: 130%;
+  }
 }
 
 .mrp-reg-21 {

@@ -1,7 +1,21 @@
 .rs-comparison {
   text-align: center;
   padding-bottom: 100px;
-  display: none;
+}
+@media (max-width: 1350px) {
+  .rs-comparison {
+    padding-bottom: 75px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-comparison {
+    padding-bottom: 47px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-comparison {
+    display: none;
+  }
 }
 .rs-comparison__container > p {
   max-width: 991.98px;
@@ -46,6 +60,12 @@
   width: 76px;
   height: 76px;
   opacity: 1;
+}
+@media (max-width: 991.98px) {
+  .rs-comparison__compare .icv__circle.cursor__active {
+    width: 45px;
+    height: 45px;
+  }
 }
 .rs-comparison__compare .icv__arrow-wrapper {
   display: none;
