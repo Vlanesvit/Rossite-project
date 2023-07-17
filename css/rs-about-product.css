@@ -23,9 +23,19 @@
   width: 100%;
   overflow: visible;
 }
+@media (max-width: 991.98px) {
+  .rs-about-product__slider {
+    margin-top: 20px;
+  }
+}
 .rs-about-product__slide {
-  min-height: 100px;
+  min-height: 541px;
   height: auto;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__slide {
+    min-height: 401px;
+  }
 }
 .rs-about-product__item {
   height: 100%;
@@ -73,8 +83,23 @@
   width: 100%;
   height: 100%;
 }
+@media (max-width: 1350px) {
+  .rs-about-product__description {
+    padding: 35px 35px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__description {
+    padding: 22px 20px;
+  }
+}
 .rs-about-product__description h4 {
   margin-bottom: 7px;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__description h4 {
+    margin-bottom: 8px;
+  }
 }
 .rs-about-product__icons {
   position: absolute;
@@ -86,6 +111,10 @@
 .rs-about-product__icon {
   position: absolute;
   z-index: 3;
+}
+.rs-about-product__icon img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .rs-about-product__icon.rs-about-product__line {
   bottom: 0;
@@ -99,53 +128,119 @@
   height: 100%;
 }
 .rs-about-product__icon.rs-about-product__icon-1 {
-  bottom: 214px;
-  left: 37px;
+  top: 37%;
+  left: 8%;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-1 {
+    width: 93px;
+    height: 93px;
+    top: 36.6%;
+    left: 10%;
+  }
 }
 .rs-about-product__icon.rs-about-product__icon-2 {
-  bottom: 8px;
-  right: 0px;
+  bottom: 0%;
+  right: 0%;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-2 {
+    display: none;
+  }
 }
 .rs-about-product__icon.rs-about-product__icon-3 {
-  bottom: 154px;
-  left: 81px;
+  bottom: 28.7%;
+  left: 18%;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-3 {
+    width: 85px;
+    height: 85px;
+    bottom: 19.7%;
+    left: 17%;
+  }
 }
 .rs-about-product__icon.rs-about-product__icon-4 {
-  left: -10px;
-  bottom: 223px;
+  left: -1.3%;
+  top: 35%;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-4 {
+    width: 85px;
+    height: 85px;
+    left: -0.3%;
+    top: 36%;
+  }
 }
 .rs-about-product__icon.rs-about-product__icon-5 {
-  right: -22px;
-  bottom: -15px;
+  right: -5%;
+  bottom: -3%;
 }
-.rs-about-product__icon.rs-about-product__icon-6 {
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-.rs-about-product__icon.rs-about-product__icon-6 svg {
-  width: 100%;
-  height: 100%;
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-5 {
+    width: 85px;
+    height: 85px;
+    right: -3%;
+    bottom: -1%;
+  }
 }
 .rs-about-product__icon.rs-about-product__icon-7 {
-  right: 0px;
-  top: 125px;
+  right: 0%;
+  top: 23%;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-7 {
+    width: 95px;
+    height: 95px;
+    right: -5%;
+    top: 29.5%;
+  }
 }
 .rs-about-product__icon.rs-about-product__icon-8 {
-  top: 165px;
-  right: 80px;
+  top: 31%;
+  right: 18%;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-8 {
+    width: 95px;
+    height: 95px;
+    top: 37%;
+    right: 18%;
+  }
 }
 .rs-about-product__icon.rs-about-product__icon-9 {
-  bottom: 196px;
-  left: 7px;
+  bottom: 36%;
+  left: 1%;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-9 {
+    width: 90px;
+    height: 90px;
+    bottom: 37%;
+    left: 1%;
+  }
 }
 .rs-about-product__icon.rs-about-product__icon-10 {
-  bottom: 2px;
-  left: 135px;
+  bottom: 0%;
+  left: 29%;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-10 {
+    width: 85px;
+    height: 85px;
+    bottom: 2%;
+    left: 27%;
+  }
 }
 .rs-about-product__icon.rs-about-product__icon-11 {
-  right: -6px;
-  top: 133px;
+  right: -0.6%;
+  top: 25%;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__icon.rs-about-product__icon-11 {
+    width: 80px;
+    height: 80px;
+    right: 3%;
+    top: 28%;
+  }
 }

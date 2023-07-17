@@ -411,6 +411,12 @@ section {
 @media (max-width: 991.98px) {
   .mrp-med-40 {
     font-size: 24px;
+    line-height: 291.667%;
+  }
+}
+@media (max-width: 768.98px) {
+  .mrp-med-40 {
+    line-height: 122%;
   }
 }
 
@@ -419,6 +425,12 @@ section {
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
+}
+@media (max-width: 991.98px) {
+  .mrp-med-25 {
+    font-size: 19px;
+    line-height: 130%;
+  }
 }
 
 .mrp-med-21 {
@@ -464,6 +476,12 @@ section {
 }
 .mrp-reg-18 a {
   color: var(--primary-color);
+}
+@media (max-width: 991.98px) {
+  .mrp-reg-18 {
+    font-size: 16px;
+    line-height: 130%;
+  }
 }
 
 .mrp-reg-16 {

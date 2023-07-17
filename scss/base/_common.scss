@@ -75,6 +75,11 @@ section {
 
 	@media (max-width: 991.98px) {
 		font-size: 24px;
+		line-height: 291.667%;
+	}
+
+	@media (max-width: 768.98px){
+		line-height: 122%;
 	}
 }
 
@@ -83,6 +88,11 @@ section {
 	font-style: normal;
 	font-weight: 500;
 	line-height: 140%;
+
+	@media (max-width: 991.98px) {
+		font-size: 19px;
+		line-height: 130%;
+	}
 }
 
 .mrp-med-21 {
@@ -126,6 +136,11 @@ section {
 
 	a {
 		color: var(--primary-color);
+	}
+
+	@media (max-width: 991.98px) {
+		font-size: 16px;
+		line-height: 130%;
 	}
 }
 
