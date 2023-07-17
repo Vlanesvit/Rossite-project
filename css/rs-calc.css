@@ -585,7 +585,7 @@
 .rs-calc__cost_img {
   margin: -5px -50px 0px;
 }
-@media (max-width: 1170px) {
+@media (max-width: 1350px) {
   .rs-calc__cost_img {
     margin: -5px -15px 0px;
     display: -webkit-box;
