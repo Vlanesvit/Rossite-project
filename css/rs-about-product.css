@@ -2,6 +2,16 @@
   padding-bottom: 95px;
   overflow: hidden;
 }
+@media (max-width: 1350px) {
+  .rs-about-product {
+    padding-bottom: 75px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-about-product {
+    padding-bottom: 47px;
+  }
+}
 .rs-about-product__container {
   display: -webkit-box;
   display: -ms-flexbox;

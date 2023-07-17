@@ -391,6 +391,27 @@ section {
   font-weight: 500;
   line-height: 130%;
 }
+@media (max-width: 1350px) {
+  .mrp-med-45 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 1170px) {
+  .mrp-med-45 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 991.98px) {
+  .mrp-med-45 {
+    font-size: 24px;
+    line-height: 122%;
+  }
+}
+@media (max-width: 767.98px) {
+  .mrp-med-45 {
+    line-height: 122%;
+  }
+}
 
 .mrp-med-40 {
   font-size: 40px;
@@ -411,10 +432,10 @@ section {
 @media (max-width: 991.98px) {
   .mrp-med-40 {
     font-size: 24px;
-    line-height: 291.667%;
+    line-height: 122%;
   }
 }
-@media (max-width: 768.98px) {
+@media (max-width: 767.98px) {
   .mrp-med-40 {
     line-height: 122%;
   }

@@ -255,6 +255,12 @@
   font-weight: 500;
   line-height: 23.4px;
 }
+@media (max-width: 1350px) and (min-width: 991.98px) {
+  .rs-header .menu__list > li > a {
+    font-size: 14px;
+    line-height: 21.4px;
+  }
+}
 @media (min-width: 991.98px) {
   .rs-header .menu__list > li > a {
     padding: 29.5px 0px;
@@ -416,6 +422,17 @@
     overflow-x: hidden;
     top: 100%;
     left: 0;
+    display: block;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1350px) {
+  .rs-header .dropdown {
+    padding: 35px 0px 35px;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1170px) {
+  .rs-header .dropdown {
+    padding: 25px 0px 25px;
   }
 }
 @media (max-width: 991.98px) {
@@ -437,6 +454,16 @@
     gap: 85px;
   }
 }
+@media (min-width: 991.98px) and (max-width: 1350px) {
+  .rs-header .dropdown__columns {
+    gap: 50px;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1170px) {
+  .rs-header .dropdown__columns {
+    gap: 20px;
+  }
+}
 @media (max-width: 991.98px) {
   .rs-header .dropdown__columns > li:not(:last-child) {
     margin-bottom: 15px;
@@ -448,6 +475,12 @@
   font-weight: 600;
   line-height: 28.08px;
   letter-spacing: 0.16px;
+}
+@media (max-width: 1350px) and (min-width: 991.98px) {
+  .rs-header .dropdown__columns > li > a {
+    font-size: 14px;
+    line-height: 26.08px;
+  }
 }
 @media (max-width: 991.98px) {
   .rs-header .dropdown__columns > li > a {
@@ -463,6 +496,11 @@
 .rs-header .dropdown__list {
   margin-top: 5.5px;
 }
+@media (min-width: 991.98px) {
+  .rs-header .dropdown__list {
+    display: block;
+  }
+}
 .rs-header .dropdown__list > li > a {
   color: var(--gray-font-color);
   font-size: 16px;
@@ -471,6 +509,11 @@
   line-height: 140%;
   letter-spacing: 0.16px;
   padding: 5.5px 0px;
+}
+@media (max-width: 1350px) and (min-width: 991.98px) {
+  .rs-header .dropdown__list > li > a {
+    font-size: 14px;
+  }
 }
 @media (max-width: 767.98px) {
   .rs-header .dropdown__list > li > a {
@@ -580,6 +623,12 @@
   font-style: normal;
   font-weight: 500;
   line-height: 23.4px;
+}
+@media (max-width: 1350px) and (min-width: 991.98px) {
+  .rs-header__actions_item a {
+    font-size: 14px;
+    line-height: 21.4px;
+  }
 }
 @media (max-width: 767.98px) {
   .rs-header__actions_item a {

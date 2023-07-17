@@ -9,7 +9,7 @@ function initProjectSlider() {
 	if (document.querySelector('.rs-project__slider')) {
 		'use strict';
 		// До этой ширины слайдер будет неактивным
-		const breakpoint = window.matchMedia('(min-width: 993px)');
+		const breakpoint = window.matchMedia('(min-width: 991.98px)');
 
 		let projectSlider;
 
@@ -59,19 +59,25 @@ function initProjectSlider() {
 				// Курсор перетаскивания
 				grabCursor: true,
 
+				// Бесконечность
+				loop: true,
+
 				// Брекпоинты (адаптив)
 				breakpoints: {
 					320: {
-						slidesPerView: 1.1,
+						slidesPerView: 1.6,
 						spaceBetween: 20,
+						centeredSlides: true,
 					},
 					540: {
-						slidesPerView: 2,
-						spaceBetween: 20,
-					},
-					768: {
 						slidesPerView: 3,
 						spaceBetween: 20,
+						centeredSlides: false,
+					},
+					768: {
+						slidesPerView: 2.39,
+						spaceBetween: 20,
+						centeredSlides: false,
 					},
 				},
 			});
