@@ -91,18 +91,14 @@ function initReviewsSlider() {
 				// Шрина экрана
 				breakpoints: {
 					320: {
-						slidesPerView: 1.1,
+						slidesPerView: 1.22,
 						spaceBetween: 20,
 					},
-					540: {
-						slidesPerView: 2,
+					768: {
+						slidesPerView: 2.4,
 						spaceBetween: 20,
 					},
 					992: {
-						slidesPerView: 2,
-						spaceBetween: 20,
-					},
-					1350: {
 						slidesPerView: 1,
 						spaceBetween: 30,
 					},

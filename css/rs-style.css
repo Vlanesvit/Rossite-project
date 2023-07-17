@@ -188,7 +188,7 @@ body {
 body {
   color: var(--main-font-color);
   line-height: 1;
-  font-family: "Manrope";
+  font-family: "Manrope", sans-serif;
   font-size: 14px;
   background: var(--bg-color);
   -ms-text-size-adjust: 100%;
@@ -210,7 +210,7 @@ input,
 button,
 textarea {
   outline: none;
-  font-family: "Manrope";
+  font-family: "Manrope", sans-serif;
   font-size: inherit;
 }
 
@@ -460,14 +460,9 @@ section {
   font-weight: 500;
   line-height: normal;
 }
-@media (max-width: 1350px) {
-  .mrp-med-21 {
-    font-size: 18px;
-  }
-}
 @media (max-width: 991.98px) {
   .mrp-med-21 {
-    font-size: 16px;
+    font-size: 19px;
     line-height: 130%;
   }
 }
