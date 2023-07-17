@@ -63,18 +63,22 @@ function initServicesSlider() {
 				// Шрина экрана
 				breakpoints: {
 					320: {
-						slidesPerView: 1.1,
+						slidesPerView: 1.22,
 						spaceBetween: 20,
 					},
 					540: {
 						slidesPerView: 2,
 						spaceBetween: 20,
 					},
-					992: {
-						slidesPerView: 2,
+					768: {
+						slidesPerView: 2.39,
 						spaceBetween: 20,
 					},
-					1350: {
+					992: {
+						slidesPerView: 2,
+						spaceBetween: 30,
+					},
+					1170: {
 						slidesPerView: 3,
 						spaceBetween: 30,
 					},

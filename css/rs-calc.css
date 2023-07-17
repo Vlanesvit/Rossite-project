@@ -92,6 +92,7 @@
 .rs-calc__settings {
   width: 100%;
   margin: 15px;
+  max-width: 865px;
 }
 @media (max-width: 1170px) {
   .rs-calc__settings {

@@ -35,7 +35,7 @@
 		}
 
 		@media (max-width: 991.98px) {
-			padding: 45px 0px 55px;
+			padding: 50px 0px 55px;
 		}
 
 		@media (max-width: 767.98px) {
@@ -91,8 +91,8 @@
 	// .rs-reviews__line
 	&__line {
 		position: absolute;
-		top: -13px;
-		right: 0;
+		top: -14px;
+		right: 6px;
 		z-index: 1;
 
 		@media (max-width: 991.98px) {
