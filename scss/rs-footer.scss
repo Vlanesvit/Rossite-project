@@ -1,5 +1,8 @@
 .rs-footer {
-	overflow: hidden;
+	bottom: 0;
+	width: 100%;
+	left: 0;
+	position: sticky;
 
 	// .rs-footer__top
 	&__top {

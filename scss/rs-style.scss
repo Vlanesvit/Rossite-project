@@ -71,6 +71,10 @@ body {
 	// Прижимаем footer
 	> main {
 		flex: 1 1 auto;
+		position: relative;
+		z-index: 1;
+		background-color: var(--bg-color);
+		transition: background-color 0.3s ease 0s;
 	}
 	// Фикс для слайдеров
 	> * {
