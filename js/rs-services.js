@@ -53,6 +53,17 @@ function initServicesSlider() {
 					type: 'progressbar',
 				},
 
+				mousewheel: {
+					enabled: true,
+					sensitivity: 2,
+				},
+
+				freeMode: {
+					enabled: true,
+					sticky: false,
+					momentumBounce: false,
+				},
+
 				// Стрелки
 				navigation: {
 					nextEl: arrowNext,

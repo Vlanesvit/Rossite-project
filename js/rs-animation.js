@@ -13,7 +13,7 @@ SmoothScroll({
 
 // ScrollReveal
 window.sr = ScrollReveal({
-	reset: true,
+	reset: false,
 	duration: 500,
 });
 const title45 = document.querySelectorAll('.mrp-med-45');
@@ -236,6 +236,86 @@ parallaxIcons.from('.rs-about-product__icon img', {
 	y: '50px'
 })
 
+gsap.from(".rs-about-product svg path", {
+	"--dashOffset": 1000,
+	delay: 1,
+	scrollTrigger: {
+		trigger: ".rs-services",
+		start: "-60% 150%",
+		end: "bottom+=80% bottom",
+		scrub: 1,
+		// markers: 1
+	}
+});
+
+gsap.from(".rs-reviews__line svg path", {
+	"--dashOffset": 3000,
+	delay: 1,
+	scrollTrigger: {
+		trigger: ".rs-reviews",
+		start: "-60% 150%",
+		end: "bottom+=80% bottom",
+		scrub: 1,
+		// markers: 1
+	}
+});
+
+gsap.from(".rs-services__line svg path", {
+	"--dashOffset": 1000,
+	delay: 1,
+	scrollTrigger: {
+		trigger: ".rs-services",
+		start: "-60% 150%",
+		end: "bottom+=80% bottom",
+		scrub: 1,
+		// markers: 1
+	}
+});
+
+const footer = gsap.timeline({
+	scrollTrigger: {
+		trigger: ".rs-services",
+		scrub: 1,
+		start: "top top",
+		end: "bottom+=20% bottom",
+		// pin: 1,
+		// markers: 1
+	}
+});
+
+footer.from('.rs-footer', {
+	y: '-80px',
+})
+
+// const cards = gsap.utils.toArray(".pin-section");
+// const spacer = 20;
+// const minScale = 0.8;
+// const distributor = gsap.utils.distribute({ base: minScale, amount: 0.2 });
+// cards.forEach((card, index) => {
+// 	const scaleVal = distributor(index, cards[index], cards);
+// 	const tween = gsap.to(card, {
+// 		scrollTrigger: {
+// 			trigger: card,
+// 			start: `top top`,
+// 			scrub: true,
+// 			// markers: true,
+// 			invalidateOnRefresh: true
+// 		},
+// 		ease: "none",
+// 		scale: scaleVal
+// 	});
+// 	ScrollTrigger.create({
+// 		trigger: card,
+// 		start: `top+=5% top+=5%`,
+// 		endTrigger: '.pin-sections',
+// 		end: `bottom bottom-=50%`,
+// 		pin: true,
+// 		pinSpacing: false,
+// 		markers: true,
+// 		id: 'pin',
+// 		invalidateOnRefresh: true,
+// 	});
+// });
 
 //========================================================================================================================================================
 // Фикс анимации

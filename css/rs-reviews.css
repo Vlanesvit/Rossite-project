@@ -26,6 +26,7 @@
   }
 }
 .rs-reviews__wrapper {
+  height: 100%;
   position: relative;
   padding: 100px 75px;
 }

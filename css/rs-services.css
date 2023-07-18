@@ -1,5 +1,6 @@
 .rs-services {
   overflow: hidden;
+  background-color: var(--bg-color);
   padding-bottom: 100px;
 }
 @media (max-width: 1350px) {

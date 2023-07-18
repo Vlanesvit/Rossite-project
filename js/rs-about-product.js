@@ -55,7 +55,7 @@ function initAboutSlider() {
 
 				mousewheel: {
 					enabled: true,
-					sensitivity: 4,
+					sensitivity: 2,
 				},
 
 				freeMode: {
