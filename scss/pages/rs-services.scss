@@ -33,6 +33,7 @@
 
 	// .rs-services__swiper
 	&__swiper {
+		transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 	}
 
 	// .rs-services__slide
@@ -112,7 +113,7 @@
 		h4 {
 			margin-bottom: 15px;
 
-			@media (max-width: 991.98px) {
+			@media (max-width: 767.98px) {
 				margin-bottom: 5px;
 
 				&:not(.mobile-title) {
@@ -121,7 +122,7 @@
 			}
 
 			&.mobile-title {
-				@media (min-width: 991.98px) {
+				@media (min-width: 767.98px) {
 					display: none;
 				}
 			}
