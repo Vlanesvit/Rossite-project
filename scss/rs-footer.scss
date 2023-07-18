@@ -402,29 +402,7 @@
 				font-weight: 400;
 				line-height: 140%;
 				letter-spacing: 0.16px;
-				position: relative;
-				display: inline-block;
-
-				&::before {
-					content: "";
-					position: absolute;
-					bottom: 0px;
-					right: 0;
-					width: 0%;
-					height: 1px;
-					background-color: var(--gray-font-color);
-					transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-				}
-
-				@media (any-hover: hover) {
-					&:hover {
-						&::before {
-							left: 0;
-							width: 100%;
-						}
-					}
-				}
-
+				
 				&:not(:last-child) {
 					margin-bottom: 12px;
 
@@ -441,6 +419,8 @@
 					color: var(--primary-color);
 					line-height: 160%;
 					border-bottom: 1px solid var(--primary-color);
+
+
 				}
 
 				@media (max-width: 991.98px) {
@@ -476,26 +456,29 @@
 				font-weight: 400;
 				line-height: 140%;
 				letter-spacing: 0.16px;
-				position: relative;
-				display: inline-flex;
-				align-items: center;
 
-				&::before {
-					content: "";
-					position: absolute;
-					bottom: 0px;
-					right: 0;
-					width: 0%;
-					height: 1px;
-					background-color: var(--gray-font-color);
-					transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-				}
+				a {
+					position: relative;
+					display: inline-flex;
+					align-items: center;
 
-				@media (any-hover: hover) {
-					&:hover {
-						&::before {
-							left: 0;
-							width: 100%;
+					&::before {
+						content: "";
+						position: absolute;
+						bottom: 0px;
+						right: 0;
+						width: 0%;
+						height: 1px;
+						background-color: var(--gray-font-color);
+						transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
+					}
+
+					@media (any-hover: hover) {
+						&:hover {
+							&::before {
+								left: 0;
+								width: 100%;
+							}
 						}
 					}
 				}

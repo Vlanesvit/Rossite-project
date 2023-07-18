@@ -32,17 +32,14 @@ function menuFunction() {
 			// 0-ой уровень
 			const menuItemDropdownsNull = menu.querySelectorAll('.menu__list > .dropdown-item');
 			const menuItemDropdownsMenuNull = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu');
-			console.log(menuItemDropdownsMenuNull);
 
 			// 1-ый уровень
 			const menuItemDropdownsFirst = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu > .dropdown__container > .dropdown__columns > .dropdown-item');
 			const menuItemDropdownsMenuFirst = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu > .dropdown__container > .dropdown__columns > .dropdown-item > .dropdown__menu');
-			console.log(menuItemDropdownsMenuFirst);
-
+	
 			// 2-ой уровень
 			const menuItemDropdownsTwo = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu > .dropdown__container > .dropdown__columns > .dropdown-item > .dropdown__menu > .dropdown-item');
 			const menuItemDropdownsMenuTwo = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu > .dropdown__container > .dropdown__columns > .dropdown-item > .dropdown__menu > .dropdown-item > .dropdown__menu');
-			console.log(menuItemDropdownsMenuTwo);
 
 			// Добавление иконки в пункты с выпадающим меню
 			menuItemDropdowns.forEach(item => {

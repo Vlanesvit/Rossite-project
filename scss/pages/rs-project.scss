@@ -48,6 +48,8 @@
 		display: flex;
 		border-radius: 10px;
 		border: 1px solid var(--unnamed, var(--light-gray-border));
+		z-index: 100;
+		position: relative;
 
 		@media (max-width: 991.98px) {
 			display: none;
@@ -301,10 +303,7 @@
 	&__slider {
 		width: 100%;
 		margin-top: 23px;
-
-		@media (max-width: 991.98px) {
-			overflow: visible;
-		}
+		overflow: visible;
 
 		@media (max-width: 767.98px) {
 			margin-top: 40px;

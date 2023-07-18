@@ -32,7 +32,7 @@ function initAboutSlider() {
 				observeSlideChildren: true,
 
 				// Скорость смены слайдов
-				speed: 500,
+				speed: 1200,
 
 				// Включение/отключение
 				// перетаскивание на ПК
@@ -51,6 +51,17 @@ function initAboutSlider() {
 					// clickable: true,
 					// dynamicBullets: true
 					type: 'progressbar',
+				},
+
+				mousewheel: {
+					enabled: true,
+					sensitivity: 4,
+				},
+
+				freeMode: {
+					enabled: true,
+					sticky: false,
+					momentumBounce: false,
 				},
 
 				// Стрелки

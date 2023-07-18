@@ -38,6 +38,13 @@
     margin-top: 20px;
   }
 }
+.rs-about-product__swiper {
+  -webkit-transition: -webkit-transform 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition: -webkit-transform 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  -o-transition: transform 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition: transform 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition: transform 2.5s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
 .rs-about-product__slide {
   min-height: 541px;
   height: auto;
@@ -83,6 +90,12 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  max-height: 541px;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__img img {
+    max-height: 401px;
+  }
 }
 .rs-about-product__description {
   position: absolute;

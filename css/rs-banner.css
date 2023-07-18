@@ -1,5 +1,6 @@
 .rs-banner {
   padding: 20px 80px 100px;
+  height: 100vh;
 }
 @media (max-width: 1350px) {
   .rs-banner {
@@ -26,6 +27,7 @@
 .rs-banner__wrapper {
   position: relative;
   padding-top: 83px;
+  height: 100%;
 }
 @media (max-width: 991.98px) {
   .rs-banner__wrapper {
@@ -68,6 +70,9 @@
     display: none;
   }
 }
+.rs-banner__container {
+  height: 100%;
+}
 .rs-banner__content {
   padding: 137px 0px 197px;
   display: -webkit-box;
@@ -78,6 +83,7 @@
           align-items: center;
   position: relative;
   z-index: 1;
+  height: 100%;
 }
 @media (max-width: 991.98px) {
   .rs-banner__content {
@@ -91,6 +97,20 @@
 }
 .rs-banner__body {
   max-width: 837px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media (max-width: 767.98px) {
   .rs-banner__body {
@@ -127,6 +147,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

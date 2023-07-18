@@ -314,7 +314,7 @@
 													maskUnits="userSpaceOnUse" x="0" y="0" width="450" height="541">
 													<rect width="450" height="541" rx="15" fill="#FFE9FB" />
 												</mask>
-												<g mask="url(#mask0_2256_12945)">
+												<g id="maskReveal" mask="url(#mask0_2256_12945)">
 													<path
 														d="M104.1 540.247L106.492 539.419C107.203 539.173 108.111 539.492 108.522 540.132C108.932 540.772 108.687 541.49 107.976 541.737L107.975 541.737L105.581 542.562C104.87 542.807 103.963 542.488 103.554 541.848C103.145 541.209 103.389 540.492 104.1 540.247Z"
 														fill="url(#paint0_linear_2256_12945)" />
@@ -1753,7 +1753,7 @@
 						</div>
 
 						<div data-spollers="991.98,max" data-one-spoller class="rs-steps__spollers">
-							<div class="rs-steps__spollers_item" id="prototype">
+							<div class="rs-steps__spollers_item" id="prototype" data-bgcolor="#fff">
 								<button type="button" data-spoller
 									class="rs-steps__spollers_title mrp-med-25 _spoller-active">
 									Разработка прототипа <i class="rs-steps__spollers_icon"></i>
@@ -1806,7 +1806,7 @@
 								</div>
 							</div>
 
-							<div class="rs-steps__spollers_item" id="design">
+							<div class="rs-steps__spollers_item" id="design" data-bgcolor="#F4EFFF">
 								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Дизайн главной <i class="rs-steps__spollers_icon"></i>
 								</button>
@@ -1838,7 +1838,7 @@
 								</div>
 							</div>
 
-							<div class="rs-steps__spollers_item" id="style-inner">
+							<div class="rs-steps__spollers_item" id="style-inner" data-bgcolor="#F8FFF3">
 								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Стилизация внутренних <i class="rs-steps__spollers_icon"></i>
 								</button>
@@ -1852,9 +1852,10 @@
 											<li>веб-дизайнер</li>
 										</ul>
 									</div>
-									<div class="rs-steps__picture rs-steps__picture--style-inner">
+									<div class="rs-steps__picture rs-steps__picture--style-inner" id="grid2">
 										<div class="rs-steps__gallery">
-											<div class="rs-steps__column">
+											<div class="rs-steps__column" data-scroll data-scroll-direction="horizontal"
+												data-scroll-target="#grid2" data-scroll-speed="-1">
 												<div class="rs-steps__img">
 													<img src="./img/pages/steps/steps-img-3.1.jpg" alt="">
 												</div>
@@ -1865,7 +1866,8 @@
 													<img src="./img/pages/steps/steps-img-3.3.jpg" alt="">
 												</div>
 											</div>
-											<div class="rs-steps__column">
+											<div class="rs-steps__column" data-scroll data-scroll-direction="horizontal"
+												data-scroll-target="#grid2" data-scroll-speed="1">
 												<div class="rs-steps__img">
 													<img src="./img/pages/steps/steps-img-3.4.jpg" alt="">
 												</div>
@@ -1876,7 +1878,8 @@
 													<img src="./img/pages/steps/steps-img-3.6.jpg" alt="">
 												</div>
 											</div>
-											<div class="rs-steps__column">
+											<div class="rs-steps__column" data-scroll data-scroll-direction="horizontal"
+												data-scroll-target="#grid2" data-scroll-speed="-1">
 												<div class="rs-steps__img">
 													<img src="./img/pages/steps/steps-img-3.7.jpg" alt="">
 												</div>
@@ -1889,7 +1892,7 @@
 								</div>
 							</div>
 
-							<div class="rs-steps__spollers_item" id="develop">
+							<div class="rs-steps__spollers_item" id="develop" data-bgcolor="#F0F8FF">
 								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Сборка сайта <i class="rs-steps__spollers_icon"></i>
 								</button>
@@ -1934,8 +1937,8 @@
 						разработаем концепцию сайта и создадим индивидуальное оформление главной страницы.</p>
 
 					<div class="rs-comparison__compare" id="image-compare">
-						<img src="./img/pages/comparison/comparison-img-before.jpg" alt="" />
-						<img src="./img/pages/comparison/comparison-img-after.jpg" alt="" />
+						<img src="./img/pages/comparison/comparison-img-before.png" alt="" />
+						<img src="./img/pages/comparison/comparison-img-after.png" alt="" />
 					</div>
 				</div>
 
@@ -2802,10 +2805,8 @@
 																	<div class="rating__value">5</div>
 																</div>
 
-																<div class="rs-reviews__product">
-																	<p class="mrp-reg-18">Продукт: Сайт Старт, Магазин
-																		Старт</p>
-																</div>
+																<div class="rs-reviews__product">Продукт: Сайт Старт,
+																	Магазин Старт</div>
 															</div>
 														</div>
 													</div>
@@ -2856,10 +2857,8 @@
 																	<div class="rating__value">5</div>
 																</div>
 
-																<div class="rs-reviews__product">
-																	<p class="mrp-reg-18">Продукт: Сайт Старт, Магазин
-																		Старт</p>
-																</div>
+																<div class="rs-reviews__product">Продукт: Сайт Старт,
+																	Магазин Старт</div>
 															</div>
 														</div>
 													</div>
@@ -2910,10 +2909,8 @@
 																	<div class="rating__value">5</div>
 																</div>
 
-																<div class="rs-reviews__product">
-																	<p class="mrp-reg-18">Продукт: Сайт Старт, Магазин
-																		Старт</p>
-																</div>
+																<div class="rs-reviews__product">Продукт: Сайт Старт,
+																	Магазин Старт</div>
 															</div>
 														</div>
 													</div>
@@ -2977,7 +2974,8 @@
 										</div>
 										<div class="rs-services__description">
 											<h4 class="mrp-med-25">Продающая страница</h4>
-											<h4 class="mrp-med-25 mobile-title">Лучше конструктора и готового шаблона</h4>
+											<h4 class="mrp-med-25 mobile-title">Лучше конструктора и готового шаблона
+											</h4>
 										</div>
 										<div class="rs-services__icons">
 											<div class="rs-services__icon rs-services__icon-1">
@@ -3051,8 +3049,10 @@
 										</div>
 										<div class="rs-services__description">
 											<h4 class="mrp-med-25">Техническая поддержка</h4>
-											<h4 class="mrp-med-25 mobile-title">Есть все необходимое. Неограниченное количество страниц</h4>
-											<p class="mrp-reg-16">Вы можете обратиться к нам всеми удобными способами.</p>
+											<h4 class="mrp-med-25 mobile-title">Есть все необходимое. Неограниченное
+												количество страниц</h4>
+											<p class="mrp-reg-16">Вы можете обратиться к нам всеми удобными способами.
+											</p>
 										</div>
 										<div class="rs-services__icons">
 											<div class="rs-services__icon rs-services__icon-6">
@@ -3131,8 +3131,7 @@
 					<div class="rs-footer__body">
 						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
 							<div class="rs-footer__spollers_item">
-								<button type="button" data-spoller
-									class="rs-footer__spollers_title">Разработка</button>
+								<button type="button" data-spoller class="rs-footer__spollers_title">Разработка</button>
 								<div class="rs-footer__spollers_body">
 									<div class="rs-footer__menu menu">
 										<nav class="menu__body">
@@ -3349,6 +3348,8 @@
 	<!--Input range -->
 	<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
 	<!-- Анимация -->
+	<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 	<script src="lib/gsap/drawSVGPlugin.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

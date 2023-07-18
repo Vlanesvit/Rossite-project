@@ -208,6 +208,11 @@
   }
 }
 .rs-reviews__product {
+  color: var(--gray-font-color);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
   margin-left: 16px;
 }
 @media (max-width: 1350px) {
