@@ -13,7 +13,7 @@ SmoothScroll({
 
 // ScrollReveal
 window.sr = ScrollReveal({
-	reset: false,
+	reset: true,
 	duration: 500,
 });
 const title45 = document.querySelectorAll('.mrp-med-45');
