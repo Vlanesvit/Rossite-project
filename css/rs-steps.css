@@ -489,6 +489,7 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  position: relative;
 }
 .rs-steps__img {
   margin: 10px;
