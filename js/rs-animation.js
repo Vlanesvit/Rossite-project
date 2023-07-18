@@ -249,7 +249,7 @@ gsap.from(".rs-about-product svg path", {
 });
 
 gsap.from(".rs-reviews__line svg path", {
-	"--dashOffset": 3000,
+	"--dashOffset": 1000,
 	delay: 1,
 	scrollTrigger: {
 		trigger: ".rs-reviews",
@@ -261,7 +261,7 @@ gsap.from(".rs-reviews__line svg path", {
 });
 
 gsap.from(".rs-services__line svg path", {
-	"--dashOffset": 1000,
+	"--dashOffset": 500,
 	delay: 1,
 	scrollTrigger: {
 		trigger: ".rs-services",
@@ -271,21 +271,6 @@ gsap.from(".rs-services__line svg path", {
 		// markers: 1
 	}
 });
-
-const footer = gsap.timeline({
-	scrollTrigger: {
-		trigger: ".rs-services",
-		scrub: 1,
-		start: "top top",
-		end: "bottom+=20% bottom",
-		// pin: 1,
-		// markers: 1
-	}
-});
-
-footer.from('.rs-footer', {
-	y: '-80px',
-})
 
 // const cards = gsap.utils.toArray(".pin-section");
 // const spacer = 20;
