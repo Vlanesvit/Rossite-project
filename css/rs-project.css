@@ -555,6 +555,7 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  max-height: 617px;
 }
 @media (min-width: 767.98px) {
   .rs-project__img img {
@@ -564,6 +565,7 @@
 @media (max-width: 767.98px) {
   .rs-project__img img {
     border-radius: 0px;
+    max-height: 346px;
   }
 }
 @media (max-width: 767.98px) {
