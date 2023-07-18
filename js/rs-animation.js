@@ -237,7 +237,7 @@ parallaxIcons.from('.rs-about-product__icon img', {
 })
 
 gsap.from(".rs-about-product svg path", {
-	"--dashOffset": 1000,
+	"--dashOffset": 300,
 	delay: 1,
 	scrollTrigger: {
 		trigger: ".rs-services",
@@ -248,29 +248,29 @@ gsap.from(".rs-about-product svg path", {
 	}
 });
 
-gsap.from(".rs-reviews__line svg path", {
-	"--dashOffset": 1000,
-	delay: 1,
-	scrollTrigger: {
-		trigger: ".rs-reviews",
-		start: "-60% 150%",
-		end: "bottom+=80% bottom",
-		scrub: 1,
-		// markers: 1
-	}
-});
+// gsap.from(".rs-reviews__line svg path", {
+// 	"--dashOffset": 300,
+// 	delay: 1,
+// 	scrollTrigger: {
+// 		trigger: ".rs-reviews",
+// 		start: "-60% 150%",
+// 		end: "bottom+=80% bottom",
+// 		scrub: 1,
+// 		// markers: 1
+// 	}
+// });
 
-gsap.from(".rs-services__line svg path", {
-	"--dashOffset": 500,
-	delay: 1,
-	scrollTrigger: {
-		trigger: ".rs-services",
-		start: "-60% 150%",
-		end: "bottom+=80% bottom",
-		scrub: 1,
-		// markers: 1
-	}
-});
+// gsap.from(".rs-services__line svg path", {
+// 	"--dashOffset": 300,
+// 	delay: 1,
+// 	scrollTrigger: {
+// 		trigger: ".rs-services",
+// 		start: "-60% 150%",
+// 		end: "bottom+=80% bottom",
+// 		scrub: 1,
+// 		// markers: 1
+// 	}
+// });
 
 // const cards = gsap.utils.toArray(".pin-section");
 // const spacer = 20;

@@ -49,6 +49,13 @@ for (let i = 0; i < imgs.length; i++) {
 	imgs[i].setAttribute('draggable', false);
 }
 
+// Работает с объектами с класом ._lazy
+const lazyMedia = new LazyLoad({
+	elements_selector: '[data-src],[data-srcset]',
+	class_loaded: '_lazy-loaded',
+	use_native: true
+});
+
 /* ====================================
 Спойлеры/аккордионы
 ==================================== */
