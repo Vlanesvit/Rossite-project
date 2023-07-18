@@ -1,8 +1,10 @@
 .rs-footer {
-	bottom: 0;
-	width: 100%;
-	left: 0;
-	position: sticky;
+	@media (min-height: 1050px) {
+		bottom: 0;
+		width: 100%;
+		left: 0;
+		position: sticky;
+	}
 
 	// .rs-footer__top
 	&__top {
@@ -405,7 +407,7 @@
 				font-weight: 400;
 				line-height: 140%;
 				letter-spacing: 0.16px;
-				
+
 				&:not(:last-child) {
 					margin-bottom: 12px;
 
@@ -422,8 +424,6 @@
 					color: var(--primary-color);
 					line-height: 160%;
 					border-bottom: 1px solid var(--primary-color);
-
-
 				}
 
 				@media (max-width: 991.98px) {

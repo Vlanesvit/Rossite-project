@@ -1,6 +1,5 @@
 .rs-banner {
   padding: 20px 80px 100px;
-  height: 100vh;
 }
 @media (max-width: 1440px) {
   .rs-banner {
@@ -22,6 +21,11 @@
     padding-right: 0px;
     padding-top: 0px;
     padding-bottom: 47px;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-banner {
+    height: 100vh;
   }
 }
 .rs-banner__wrapper {

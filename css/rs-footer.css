@@ -1,8 +1,10 @@
-.rs-footer {
-  bottom: 0;
-  width: 100%;
-  left: 0;
-  position: sticky;
+@media (min-height: 1050px) {
+  .rs-footer {
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    position: sticky;
+  }
 }
 .rs-footer__top {
   background-color: #f6f5f8;
