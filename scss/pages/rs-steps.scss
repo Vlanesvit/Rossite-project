@@ -2,7 +2,7 @@
 	padding-bottom: 100px;
 	position: relative;
 
-	@media (max-width: 1350px) {
+	@media (max-width: 1440px) {
 		padding-bottom: 75px;
 	}
 
@@ -68,9 +68,9 @@
 					line-height: 277.778%;
 					display: inline-flex;
 					align-items: center;
-					transition: color 0.3s ease 0s;
+					transition: color 0.3s ease 0.2s;
 
-					@media (max-width: 1350px) {
+					@media (max-width: 1440px) {
 						font-size: 16px;
 					}
 
@@ -132,7 +132,7 @@
 								stroke: var(--primary-color);
 								stroke-dasharray: 250px;
 								stroke-dashoffset: 250px;
-								transition: all 0.5s ease 0s;
+								transition: all 0.5s ease 0.2s;
 							}
 						}
 					}
@@ -157,7 +157,7 @@
 			&:not(:last-child) {
 				margin-bottom: 100px;
 
-				@media (max-width: 1350px) {
+				@media (max-width: 1440px) {
 					margin-bottom: 75px;
 				}
 
@@ -337,7 +337,7 @@
 		overflow: hidden;
 		position: relative;
 
-		@media (max-width: 1350px) {
+		@media (max-width: 1440px) {
 			height: 350px;
 		}
 

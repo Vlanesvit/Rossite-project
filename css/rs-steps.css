@@ -2,7 +2,7 @@
   padding-bottom: 100px;
   position: relative;
 }
-@media (max-width: 1350px) {
+@media (max-width: 1440px) {
   .rs-steps {
     padding-bottom: 75px;
   }
@@ -57,11 +57,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: color 0.3s ease 0s;
-  -o-transition: color 0.3s ease 0s;
-  transition: color 0.3s ease 0s;
+  -webkit-transition: color 0.3s ease 0.2s;
+  -o-transition: color 0.3s ease 0.2s;
+  transition: color 0.3s ease 0.2s;
 }
-@media (max-width: 1350px) {
+@media (max-width: 1440px) {
   .rs-steps__navigation_list li a {
     font-size: 16px;
   }
@@ -122,9 +122,9 @@
   stroke: var(--primary-color);
   stroke-dasharray: 250px;
   stroke-dashoffset: 250px;
-  -webkit-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0.2s;
+  -o-transition: all 0.5s ease 0.2s;
+  transition: all 0.5s ease 0.2s;
 }
 @media (max-width: 991.98px) {
   .rs-steps__spollers {
@@ -141,7 +141,7 @@
 .rs-steps__spollers_item:not(:last-child) {
   margin-bottom: 100px;
 }
-@media (max-width: 1350px) {
+@media (max-width: 1440px) {
   .rs-steps__spollers_item:not(:last-child) {
     margin-bottom: 75px;
   }
@@ -348,7 +348,7 @@
   overflow: hidden;
   position: relative;
 }
-@media (max-width: 1350px) {
+@media (max-width: 1440px) {
   .rs-steps__picture {
     height: 350px;
   }

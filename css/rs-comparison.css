@@ -2,7 +2,7 @@
   text-align: center;
   padding-bottom: 100px;
 }
-@media (max-width: 1350px) {
+@media (max-width: 1440px) {
   .rs-comparison {
     padding-bottom: 75px;
   }

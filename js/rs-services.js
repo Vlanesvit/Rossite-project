@@ -1,7 +1,7 @@
 /* ====================================
 Инициализация слайдера в блоке rs-services
 ==================================== */
-function initServicesSlider() {
+function initServiceSlider() {
 	if (document.querySelector('.rs-services')) {
 		const sliderServices = document.querySelectorAll('.rs-services');
 
@@ -13,15 +13,15 @@ function initServicesSlider() {
 
 			// Перечень слайдеров
 			new Swiper(slider, {
-				// // Автопрокрутка
-				// autoplay: {
-				// 	// Пауза между прокруткой
-				// 	delay: 10000,
-				// 	// Закончить на последнем слайде
-				// 	stopOnLastSlide: false,
-				// 	// Отключить после ручного переключения
-				// 	disableOnInteraction: false,
-				// },
+				// Автопрокрутка
+				autoplay: {
+					// Пауза между прокруткой
+					delay: 10000,
+					// Закончить на последнем слайде
+					stopOnLastSlide: false,
+					// Отключить после ручного переключения
+					disableOnInteraction: false,
+				},
 
 				// Обновить свайпер
 				// при изменении элементов слайдера
@@ -32,7 +32,7 @@ function initServicesSlider() {
 				observeSlideChildren: true,
 
 				// Скорость смены слайдов
-				speed: 500,
+				speed: 1200,
 
 				// Включение/отключение
 				// перетаскивание на ПК
@@ -53,11 +53,13 @@ function initServicesSlider() {
 					type: 'progressbar',
 				},
 
+				// Управлениее мышью
 				mousewheel: {
 					enabled: true,
 					sensitivity: 2,
 				},
 
+				// Свободный режим
 				freeMode: {
 					enabled: true,
 					sticky: false,
@@ -101,5 +103,5 @@ function initServicesSlider() {
 
 window.addEventListener("load", function (e) {
 	// Запуск инициализации слайдеров
-	initServicesSlider();
+	initServiceSlider();
 });

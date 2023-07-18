@@ -196,6 +196,9 @@ function addCursorHover(hoveredElement, selectedElement, newClass) {
 		hover.addEventListener('mouseleave', function () {
 			document.querySelector(selectedElement).classList.remove(newClass)
 		})
+		hover.addEventListener('mousemove', function () {
+			document.querySelector(selectedElement).classList.add(newClass)
+		})
 	});
 }
 function addCursorDrag(hoveredElement, selectedElement, newClass) {
@@ -215,12 +218,12 @@ function addCursorMove(selectedElement) {
 		}, 0);
 	});
 }
-// function hideCursor(selectedElement, newClass) {
-// 	document.querySelector(selectedElement).classList.remove(newClass)
-// }
-// window.addEventListener('scroll', function () {
-// 	hideCursor(".cursor", "cursor__active")
-// })
+function hideCursor(selectedElement, newClass) {
+	document.querySelector(selectedElement).classList.remove(newClass)
+}
+window.addEventListener('scroll', function () {
+	hideCursor(".cursor", "cursor__active")
+})
 
 /* ====================================
 Прогресс прокрутки страницы

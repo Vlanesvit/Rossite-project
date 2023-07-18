@@ -13,15 +13,15 @@ function initAboutSlider() {
 
 			// Перечень слайдеров
 			new Swiper(slider, {
-				// // Автопрокрутка
-				// autoplay: {
-				// 	// Пауза между прокруткой
-				// 	delay: 10000,
-				// 	// Закончить на последнем слайде
-				// 	stopOnLastSlide: false,
-				// 	// Отключить после ручного переключения
-				// 	disableOnInteraction: false,
-				// },
+				// Автопрокрутка
+				autoplay: {
+					// Пауза между прокруткой
+					delay: 10000,
+					// Закончить на последнем слайде
+					stopOnLastSlide: false,
+					// Отключить после ручного переключения
+					disableOnInteraction: false,
+				},
 
 				// Обновить свайпер
 				// при изменении элементов слайдера
@@ -53,11 +53,13 @@ function initAboutSlider() {
 					type: 'progressbar',
 				},
 
+				// Управлениее мышью
 				mousewheel: {
 					enabled: true,
 					sensitivity: 2,
 				},
 
+				// Свободный режим
 				freeMode: {
 					enabled: true,
 					sticky: false,
@@ -93,7 +95,7 @@ function initAboutSlider() {
 						slidesPerView: 3,
 						spaceBetween: 30,
 					},
-					1350: {
+					1440: {
 						slidesPerView: 3.34,
 						spaceBetween: 30,
 					},
