@@ -152,7 +152,6 @@ function animDesktop() {
 			distance: '0px',
 			opacity: 0,
 			delay: 100 * i,
-			reset: false,
 		})
 
 
@@ -161,7 +160,6 @@ function animDesktop() {
 			distance: '50px',
 			origin: 'left',
 			delay: 100,
-			reset: false,
 		})
 
 		const steps_footer = steps_item[i].querySelectorAll('.rs-steps__footer .rs-steps__list li');
@@ -170,7 +168,6 @@ function animDesktop() {
 				distance: '15px',
 				origin: 'top',
 				delay: 100 * i,
-				reset: false,
 			})
 		}
 	}
@@ -258,7 +255,6 @@ function animCommon() {
 		distance: '50px',
 		origin: 'left',
 		delay: 200,
-		reset: false,
 	})
 
 	sr.reveal(document.querySelector('.rs-reviews .rs-reviews__sticker'), {
