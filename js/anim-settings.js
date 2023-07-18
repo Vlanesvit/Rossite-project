@@ -91,7 +91,7 @@ function animDesktop() {
 		ScrollTrigger.create({
 			trigger: colorSection,
 			start: "top 35%",
-			markers: true,
+			// markers: true,
 			endTrigger: ".rs-steps",
 
 			onEnter: () =>
