@@ -24,6 +24,7 @@
 		flex: 0 0 100%;
 		width: 100%;
 		overflow: visible;
+		// overflow-y: scroll;
 
 		@media (max-width: 991.98px) {
 			margin-top: 20px;
@@ -33,12 +34,18 @@
 	// .rs-about-product__swiper
 	&__swiper {
 		transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+		// display: flex;
 	}
 
 	// .rs-about-product__slide
 	&__slide {
+		// max-width: 450px;
 		min-height: 541px;
 		height: auto;
+
+		// &:not(:last-child) {
+		// 	margin-right: 30px;
+		// }
 
 		@media (max-width: 991.98px) {
 			min-height: 401px;
