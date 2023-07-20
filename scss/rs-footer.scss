@@ -61,25 +61,25 @@
 				font-size: 19px;
 			}
 
-			&::before {
-				content: "";
-				position: absolute;
-				bottom: 0px;
-				right: 0;
-				width: 0%;
-				height: 1px;
-				background-color: var(--gray-font-color);
-				transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-			}
+			// &::before {
+			// 	content: "";
+			// 	position: absolute;
+			// 	bottom: 0px;
+			// 	right: 0;
+			// 	width: 0%;
+			// 	height: 1px;
+			// 	background-color: var(--gray-font-color);
+			// 	transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
+			// }
 
-			@media (any-hover: hover) {
-				&:hover {
-					&::before {
-						left: 0;
-						width: 100%;
-					}
-				}
-			}
+			// @media (any-hover: hover) {
+			// 	&:hover {
+			// 		&::before {
+			// 			left: 0;
+			// 			width: 100%;
+			// 		}
+			// 	}
+			// }
 		}
 
 		span {
@@ -465,25 +465,25 @@
 					display: inline-flex;
 					align-items: center;
 
-					&::before {
-						content: "";
-						position: absolute;
-						bottom: 0px;
-						right: 0;
-						width: 0%;
-						height: 1px;
-						background-color: var(--gray-font-color);
-						transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-					}
+					// &::before {
+					// 	content: "";
+					// 	position: absolute;
+					// 	bottom: 0px;
+					// 	right: 0;
+					// 	width: 0%;
+					// 	height: 1px;
+					// 	background-color: var(--gray-font-color);
+					// 	transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
+					// }
 
-					@media (any-hover: hover) {
-						&:hover {
-							&::before {
-								left: 0;
-								width: 100%;
-							}
-						}
-					}
+					// @media (any-hover: hover) {
+					// 	&:hover {
+					// 		&::before {
+					// 			left: 0;
+					// 			width: 100%;
+					// 		}
+					// 	}
+					// }
 				}
 
 				&:not(:last-child) {

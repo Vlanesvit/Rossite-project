@@ -49,12 +49,11 @@ for (let i = 0; i < imgs.length; i++) {
 	imgs[i].setAttribute('draggable', false);
 }
 
-// Работает с объектами с класом ._lazy
-const lazyMedia = new LazyLoad({
-	elements_selector: '[data-src],[data-srcset]',
-	class_loaded: '_lazy-loaded',
-	use_native: true
-});
+// const lazyMedia = new LazyLoad({
+// 	elements_selector: '[data-src],[data-srcset]',
+// 	class_loaded: '_lazy-loaded',
+// 	use_native: true
+// });
 
 /* ====================================
 Спойлеры/аккордионы
@@ -300,12 +299,12 @@ function addCursorMove(selectedElement) {
 		}, 0);
 	});
 }
-function hideCursor(selectedElement, newClass) {
-	document.querySelector(selectedElement).classList.remove(newClass)
-}
-window.addEventListener('scroll', function () {
-	hideCursor(".cursor", "cursor__active")
-})
+// function hideCursor(selectedElement, newClass) {
+// 	document.querySelector(selectedElement).classList.remove(newClass)
+// }
+// window.addEventListener('scroll', function () {
+// 	hideCursor(".cursor", "cursor__active")
+// })
 
 /* ====================================
 Прогресс прокрутки страницы
@@ -328,7 +327,24 @@ document.querySelectorAll('.split-text').forEach(button => {
 		'<span class="split-text-copy"><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></span>' +
 		'</span>'
 });
-document.querySelectorAll('.rs-header__menu .menu__list > li > a').forEach(link => {
+document.querySelectorAll('.rs-btn').forEach(button => {
+	button.classList.add('split-text')
+	button.innerHTML =
+		'<span class="split-text-wrapper">' +
+		'<span class="split-text-origin"><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></span>' +
+		'<span class="split-text-copy"><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></span>' +
+		'</span>'
+});
+document.querySelectorAll('.rs-header__menu .menu__list li a').forEach(link => {
+	link.classList.add('split-text')
+	link.innerHTML =
+		'<span class="split-text-wrapper">' +
+		'<span class="split-text-origin"><span>' + link.textContent.trim().split('').join('</span><span>') + '</span></span>' +
+		'<span class="split-text-copy"><span>' + link.textContent.trim().split('').join('</span><span>') + '</span></span>' +
+		'</span>'
+});
+document.querySelectorAll('.rs-footer__menu .menu__list li a').forEach(link => {
+	link.classList.add('split-text')
 	link.innerHTML =
 		'<span class="split-text-wrapper">' +
 		'<span class="split-text-origin"><span>' + link.textContent.trim().split('').join('</span><span>') + '</span></span>' +

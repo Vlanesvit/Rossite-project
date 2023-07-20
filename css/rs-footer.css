@@ -65,24 +65,6 @@
     font-size: 19px;
   }
 }
-.rs-footer__phone a::before {
-  content: "";
-  position: absolute;
-  bottom: 0px;
-  right: 0;
-  width: 0%;
-  height: 1px;
-  background-color: var(--gray-font-color);
-  -webkit-transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-  -o-transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-  transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-}
-@media (any-hover: hover) {
-  .rs-footer__phone a:hover::before {
-    left: 0;
-    width: 100%;
-  }
-}
 .rs-footer__phone span {
   display: block;
   color: var(--gray-font-color);
@@ -498,24 +480,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.rs-footer .menu__list li a::before {
-  content: "";
-  position: absolute;
-  bottom: 0px;
-  right: 0;
-  width: 0%;
-  height: 1px;
-  background-color: var(--gray-font-color);
-  -webkit-transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-  -o-transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-  transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-}
-@media (any-hover: hover) {
-  .rs-footer .menu__list li a:hover::before {
-    left: 0;
-    width: 100%;
-  }
 }
 .rs-footer .menu__list li:not(:last-child) {
   margin-bottom: 12px;

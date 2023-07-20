@@ -292,7 +292,7 @@
 
 					@keyframes shake {
 						0% {
-							transform: translateY(-50%) rotate(2deg);
+							transform: translateY(-50%) translateX(30px) rotate(2deg);
 						}
 						50% {
 							transform: translateY(-50%) rotate(-3deg);
@@ -302,7 +302,7 @@
 						}
 
 						100% {
-							transform: translateY(-50%) rotate(0deg);
+							transform: translateY(-50%) translateX(0px) rotate(0deg);
 						}
 					}
 

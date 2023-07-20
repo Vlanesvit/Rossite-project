@@ -7,20 +7,14 @@ gsap.registerPlugin(ScrollTrigger)
 // gsap.registerPlugin(drawSVGPlugin);
 // console.clear();
 
-// Scroll show elem
-window.sr = ScrollReveal({
-	reset: false,
-	duration: 500,
-});
-
 // SmothScroll
-SmoothScroll({
-	animationTime: 800, // [ms]
-	stepSize: 100, // [px]
-	accelerationDelta: 50,  // 50
-	accelerationMax: 3,   // 3
-	touchpadSupport: false,
-});
+// SmoothScroll({
+// 	animationTime: 500, // [ms]
+// 	stepSize: 100, // [px]
+// 	accelerationDelta: 50,  // 50
+// 	accelerationMax: 3,   // 3
+// 	touchpadSupport: false,
+// });
 
 /* MOVE SVG LINE */
 function moveSvgDashed(dashed, mask, trigger) {
@@ -50,21 +44,56 @@ function moveSvgDashed(dashed, mask, trigger) {
 	document.querySelector(dashed).setAttribute("stroke-dashoffset", "var(--dashOffset)");
 }
 
-/* FADE ICONS */
-function parallaxIcons(trigger, elem) {
-	const parallaxIcons = gsap.timeline({
-		scrollTrigger: {
-			trigger: trigger,
-			scrub: 1,
-			start: "-50% top",
-			end: "bottom+=20% bottom",
-			// markers: 1
+/* REVEAL ANIMATION */
+function showContentOnScroll(elem, duration, delay, direction) {
+	const elems = gsap.utils.toArray(elem);
+	elems.forEach((item, i) => {
+		let anim;
+
+		switch (true) {
+			case direction === 'bottom-up':
+				anim = gsap.fromTo(item, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
+				break;
+			case direction === 'right-left':
+				anim = gsap.fromTo(item, { autoAlpha: 0, x: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
+				break;
+			case direction === 'up-bottom':
+				anim = gsap.fromTo(item, { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
+				break;
+			case direction === 'left-right':
+				anim = gsap.fromTo(item, { autoAlpha: 0, x: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
+				break;
+			case direction === 'fade':
+				anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay, duration: duration });
+				break;
+			case direction === 'bottom-up--every':
+				anim = gsap.fromTo(item, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
+				break;
+			case direction === 'right-left--every':
+				anim = gsap.fromTo(item, { autoAlpha: 0, x: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
+				break;
+			case direction === 'up-bottom--every':
+				anim = gsap.fromTo(item, { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
+				break;
+			case direction === 'left-right--every':
+				anim = gsap.fromTo(item, { autoAlpha: 0, x: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
+				break;
+			case direction === 'fade--every':
+				anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay * (i + 1), duration: duration });
+				break;
+
+			default:
+				break;
 		}
+
+		ScrollTrigger.create({
+			trigger: item,
+			animation: anim,
+			once: true,
+			// scrub: true,
+			// markers: 1,
+		});
 	});
-	parallaxIcons.from(elem, {
-		autoAlpha: 0,
-		y: '50px',
-	})
 }
 
 function animDesktop() {
@@ -118,10 +147,7 @@ function animDesktop() {
 			// markers: 1
 		}
 	});
-	parallaxImgSlide.from('.rs-steps__column-middle', {
-		x: '300px',
-		y: '-100px'
-	})
+	parallaxImgSlide.fromTo('.rs-steps__column-middle', {x: '300px', y: '-100px'}, {x: '-100px', y: '100px'})
 	const parallaxImgBottom = gsap.timeline({
 		scrollTrigger: {
 			trigger: ".rs-steps",
@@ -135,53 +161,10 @@ function animDesktop() {
 	parallaxImgBottom.from('.rs-steps__column-bottom', {
 		y: '300px',
 	})
-
-
-	const project_slide = document.querySelectorAll('.rs-project .rs-project__item');
-	for (let i = 0; i < project_slide.length; i++) {
-		sr.reveal(project_slide[i], {
-			distance: '30px',
-			origin: 'bottom',
-			delay: 100 * i,
-		})
-	}
-
-	const steps_item = document.querySelectorAll('.rs-steps .rs-steps__spollers_item');
-	for (let i = 0; i < steps_item.length; i++) {
-		sr.reveal(steps_item[i], {
-			distance: '0px',
-			opacity: 0,
-			delay: 100 * i,
-		})
-
-
-		const steps_title = steps_item[i].querySelector('.rs-steps__spollers_title');
-		sr.reveal(steps_title, {
-			distance: '50px',
-			origin: 'left',
-			delay: 100,
-		})
-
-		const steps_footer = steps_item[i].querySelectorAll('.rs-steps__footer .rs-steps__list li');
-		for (let i = 0; i < steps_footer.length; i++) {
-			sr.reveal(steps_footer[i], {
-				distance: '15px',
-				origin: 'top',
-				delay: 100 * i,
-			})
-		}
-	}
 }
 
 function animMobile() {
-	const project_slider = document.querySelectorAll('.rs-project .rs-project__slider');
-	for (let i = 0; i < project_slider.length; i++) {
-		sr.reveal(project_slider[i], {
-			distance: '30px',
-			origin: 'bottom',
-			delay: 100 * i,
-		})
-	}
+
 }
 
 function animCommon() {
@@ -192,88 +175,53 @@ function animCommon() {
 	moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services")
 	moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services")
 
-	/* FADE ICONS */
-	parallaxIcons('.rs-about-product', '.rs-about-product__icon')
-	parallaxIcons('.rs-services', '.rs-services__icon')
-
-	// Scroll show elem
-	const title45 = document.querySelectorAll('.mrp-med-45');
-	for (let i = 0; i < title45.length; i++) {
-		sr.reveal(title45[i], {
-			distance: '50px',
-			origin: 'left',
-			delay: 100,
-		})
-	}
-
-	const title40 = document.querySelectorAll('.mrp-med-40');
-	for (let i = 0; i < title40.length; i++) {
-		sr.reveal(title40[i], {
-			distance: '50px',
-			origin: 'left',
-			delay: 100,
-		})
-	}
-
-	sr.reveal(document.querySelector('.rs-banner__bg'), {
-		distance: '30px',
-		origin: 'top',
-		delay: 100,
-	})
-
-	sr.reveal(document.querySelector('.rs-banner__body h1'), {
-		distance: '50px',
-		origin: 'left',
-		delay: 200,
-	})
-
-	sr.reveal(document.querySelector('.rs-banner__body h5'), {
-		distance: '50px',
-		origin: 'left',
-		delay: 300,
-	})
-
-	sr.reveal(document.querySelector('.rs-banner__buttons'), {
-		distance: '50px',
-		origin: 'left',
-		delay: 400,
-	})
-
-	sr.reveal(document.querySelector('.rs-about-product__slider'), {
-		distance: '150px',
-		origin: 'right',
-		delay: 300,
-	})
-
-	sr.reveal(document.querySelector('.rs-project .filter'), {
-		distance: '50px',
-		origin: 'bottom',
-		delay: 300,
-	})
-
-	sr.reveal(document.querySelector('.rs-steps .mrp-med-45'), {
-		distance: '50px',
-		origin: 'left',
-		delay: 200,
-	})
-
-	sr.reveal(document.querySelector('.rs-reviews .rs-reviews__sticker'), {
-		distance: '50px',
-		origin: 'bottom',
-		delay: 300,
-	})
-
-	sr.reveal(document.querySelector('.rs-reviews .rs-reviews__slider'), {
-		distance: '50px',
-		origin: 'left',
-		delay: 200,
-	})
-
-	sr.reveal(document.querySelector('.rs-services__slider'), {
-		distance: '150px',
-		origin: 'right',
-		delay: 300,
-	})
+	/* REVEAL ANIMATION */
+	// text
+	showContentOnScroll('.mrp-med-50', 0.5, 0.2, 'bottom-up');
+	showContentOnScroll('.mrp-med-45', 0.5, 0.2, 'bottom-up');
+	showContentOnScroll('.mrp-med-40', 0.5, 0.2, 'bottom-up');
+	showContentOnScroll('.mrp-med-25', 0.5, 0.3, 'bottom-up');
+	showContentOnScroll('.mrp-med-21', 0.5, 0.4, 'bottom-up');
+	showContentOnScroll('.mrp-reg-25', 0.5, 0.3, 'bottom-up');
+	showContentOnScroll('.mrp-reg-21', 0.5, 0.4, 'bottom-up');
+	showContentOnScroll('.mrp-reg-18', 0.5, 0.5, 'bottom-up');
+	// header
+	showContentOnScroll('.rs-header__menu', 0.5, 0.2, 'fade');
+	showContentOnScroll('.rs-header__logo', 0.5, 0.35, 'fade');
+	showContentOnScroll('.rs-header__actions', 0.5, 0.5, 'fade');
+	// banner
+	// about
+	showContentOnScroll('.rs-about-product__slide', 0.5, 0.2, 'right-left--every')
+	showContentOnScroll('.rs-about-product__icon', 0.5, 0.15, 'bottom-up--every')
+	// project
+	showContentOnScroll('.rs-project__filter', 0.5, 1, 'bottom-up')
+	showContentOnScroll('.rs-project__item', 0.5, 0.3, 'bottom-up--every')
+	showContentOnScroll('.rs-project__add', 0.5, 0.5, 'bottom-up--every')
+	// steps
+	showContentOnScroll('.rs-steps__navigation_list li a ', 0.5, 0.15, 'left-right--every')
+	showContentOnScroll('.rs-steps__item', 0.5, 0.3, 'bottom-up--every')
+	showContentOnScroll('.rs-steps__footer ul li', 0.5, 0.5, 'bottom-up')
+	// compare
+	// calc
+	showContentOnScroll('.rs-calc__bg', 0.5, 0.2, 'bottom-up')
+	showContentOnScroll('.rs-calc__settings_wrapper', 0.5, 0.3, 'bottom-up')
+	showContentOnScroll('.rs-calc__cost_img', 0.5, 0.2, 'right-left')
+	showContentOnScroll('.rs-calc__cost_list ul li', 0.5, 0.15, 'bottom-up--every')
+	showContentOnScroll('.rs-calc__cost_footer', 0.5, 0.3, 'bottom-up--every')
+	// reviews
+	showContentOnScroll('.rs-reviews__bg', 0.5, 0.2, 'bottom-up')
+	showContentOnScroll('.rs-reviews__body', 0.5, 0.3, 'bottom-up')
+	showContentOnScroll('.rs-reviews__sticker', 0.5, 0.2, 'right-left')
+	// services
+	showContentOnScroll('.rs-services__slide', 0.5, 0.2, 'right-left--every')
+	showContentOnScroll('.rs-services__icon', 0.5, 0.15, 'bottom-up--every')
+	// footer
+	// showContentOnScroll('.rs-footer__phone', 0.5, 0.2, 'bottom-up');
+	// showContentOnScroll('.rs-footer__links ul li', 0.5, 0.15, 'bottom-up--every');
+	// showContentOnScroll('.rs-footer__social', 0.5, 0.5, 'bottom-up');
+	// showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
+	// showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
+	// showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
 }
 
 const breakpoint = window.matchMedia('(min-width: 991.98px)');
@@ -287,19 +235,3 @@ const breakpointChecker = function () {
 };
 breakpoint.addListener(breakpointChecker);
 breakpointChecker();
-
-function fixSR() {
-	if (typeof (Event) === 'function') {
-		// modern browsers
-		window.dispatchEvent(new Event('resize'));
-	} else {
-		// for IE and other old browsers
-		// causes deprecation warning on modern browsers
-		var evt = window.document.createEvent('UIEvents');
-		evt.initUIEvent('resize', true, false, window, 0);
-		window.dispatchEvent(evt);
-	}
-}
-setTimeout(() => {
-	fixSR()
-}, 100);

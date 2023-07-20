@@ -125,6 +125,21 @@
 					visibility: visible;
 					pointer-events: all;
 					transform: translateY(0px);
+
+					&_list {
+						li {
+							opacity: 1;
+							visibility: visible;
+
+							$i: 1;
+							@while $i < 30 {
+								&:nth-child(#{$i}) {
+									transition-delay: $i * 0.05 + s;
+								}
+								$i: $i + 1;
+							}
+						}
+					}
 				}
 
 				.filter__title {
@@ -201,6 +216,9 @@
 
 				li {
 					margin: 5px;
+					opacity: 0;
+					visibility: hidden;
+					transition: all 0.3s ease;
 
 					a {
 						display: flex;
@@ -345,7 +363,7 @@
 			$i: 1;
 			@while $i < 30 {
 				&:nth-child(#{$i}) {
-					transition-delay: $i * 0.015 + s;
+					transition-delay: $i * 0.02 + s;
 				}
 				$i: $i + 1;
 			}

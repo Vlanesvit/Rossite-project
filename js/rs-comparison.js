@@ -32,5 +32,5 @@ function comparison() {
 comparison()
 
 // Инициализация курсора
-addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
-addCursorMove(".icv__circle")
+// addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
+// addCursorMove(".icv__circle")
