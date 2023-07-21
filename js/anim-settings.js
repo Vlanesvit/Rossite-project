@@ -100,7 +100,7 @@ function animDesktop() {
 		ScrollTrigger.create({
 			trigger: colorSection,
 			start: "top top",
-			markers: true,
+			// markers: true,
 			endTrigger: ".rs-steps",
 
 			onEnter: () =>
@@ -163,6 +163,13 @@ function animMobile() {
 }
 
 function animCommon() {
+	gsap.to(document.querySelector('.rs-banner__bg'), {
+		width: 100 + '%',
+		delay: 0.5,
+		duration: 1,
+		ease: 'cubic-1',
+	})
+
 	const homeIntroBtns = document.querySelectorAll('.rs-btn');
 	homeIntroBtns.forEach(homeIntroBtn => {
 		let btnAnim;
@@ -170,7 +177,7 @@ function animCommon() {
 			duration: 1,
 			delay: 0.5,
 			strokeDashoffset: 0,
-			stagger: 1,
+			stagger: 0,
 			ease: 'cubic-1',
 			onComplete: function onComplete() {
 				if (homeIntroBtn.classList.contains('_btn-primary')) {
@@ -294,14 +301,16 @@ function animCommon() {
 	showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
 }
 
-const breakpoint = window.matchMedia('(min-width: 991.98px)');
-const breakpointChecker = function () {
-	animCommon()
-	if (breakpoint.matches === true) {
-		return animDesktop();
-	} else if (breakpoint.matches === false) {
-		return animMobile();
-	}
-};
-breakpoint.addListener(breakpointChecker);
-breakpointChecker();
+window.addEventListener("DOMContentLoaded", function () {
+	const breakpoint = window.matchMedia('(min-width: 991.98px)');
+	const breakpointChecker = function () {
+		animCommon()
+		if (breakpoint.matches === true) {
+			return animDesktop();
+		} else if (breakpoint.matches === false) {
+			return animMobile();
+		}
+	};
+	breakpoint.addListener(breakpointChecker);
+	breakpointChecker();
+})
