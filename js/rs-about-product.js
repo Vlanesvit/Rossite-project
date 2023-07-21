@@ -101,10 +101,10 @@ function initAboutSlider() {
 					},
 				},
 			});
-			
+
 			const breakpoint = window.matchMedia('(min-width: 991.98px)');
 			const breakpointChecker = function () {
-				if (breakpoint.matches === false) {
+				if (breakpoint.matches === true) {
 					gsap.to(".rs-about-product__swiper", { ease: "none", });
 					ScrollTrigger.create({
 						trigger: ".rs-about-product",
