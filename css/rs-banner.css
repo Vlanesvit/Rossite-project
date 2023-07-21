@@ -50,24 +50,6 @@
   z-index: -1;
   border-radius: 30px;
   overflow: hidden;
-  -webkit-animation: changeWidth 0.8s ease-in-out 0.5s;
-          animation: changeWidth 0.8s ease-in-out 0.5s;
-}
-@-webkit-keyframes changeWidth {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@keyframes changeWidth {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
 }
 .rs-banner__bg img {
   width: 100%;

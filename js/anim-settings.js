@@ -163,7 +163,9 @@ function animMobile() {
 }
 
 function animCommon() {
-	gsap.to(document.querySelector('.rs-banner__bg'), {
+	gsap.fromTo(document.querySelector('.rs-banner__bg'), {
+		width: 0 + '%',
+	}, {
 		width: 100 + '%',
 		delay: 0.5,
 		duration: 1,
