@@ -175,17 +175,17 @@ function animCommon() {
 	const homeIntroBtns = document.querySelectorAll('.rs-btn');
 	homeIntroBtns.forEach(homeIntroBtn => {
 		gsap.to(homeIntroBtn.querySelector('.svg-wrapper svg path'), {
-			duration: 1,
+			duration: 0.5,
 			delay: 0.5,
 			strokeDashoffset: 0,
 			stagger: 0,
-			ease: 'cubic-1',
+			ease: 'linear',
 			onComplete: function onComplete() {
 				if (homeIntroBtn.classList.contains('_btn-primary')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 1,
-						fill: '#6366f1',
-						ease: 'cubic-1',
+						duration: 0.3,
+						fill: 'rgb(99, 102, 241)',
+						ease: 'linear',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
 						}
@@ -194,8 +194,8 @@ function animCommon() {
 
 				if (homeIntroBtn.classList.contains('_btn-gray-border')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 1,
-						ease: 'cubic-1',
+						duration: 0.3,
+						ease: 'linear',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
 						}
@@ -204,9 +204,9 @@ function animCommon() {
 
 				if (homeIntroBtn.classList.contains('_btn-white')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 1,
-						fill: '#fff',
-						ease: 'cubic-1',
+						duration: 0.3,
+						fill: 'rgb(255, 255, 255);',
+						ease: 'linear',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
 						}
@@ -215,19 +215,8 @@ function animCommon() {
 
 				if (homeIntroBtn.classList.contains('_btn-primary-border')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 1,
-						ease: 'cubic-1',
-						onComplete: function onComplete() {
-							homeIntroBtn.classList.add('btn--active');
-						}
-					});
-				}
-
-				if (homeIntroBtn.classList.contains('_btn-primary')) {
-					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 1,
-						fill: '#6366f1',
-						ease: 'cubic-1',
+						duration: 0.3,
+						ease: 'linear',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
 						}
@@ -235,9 +224,9 @@ function animCommon() {
 				}
 
 				gsap.to(homeIntroBtn.querySelector('span'), {
-					duration: 1,
+					duration: 0.3,
 					autoAlpha: 1,
-					ease: 'cubic-1'
+					ease: 'linear'
 				});
 			}
 		});

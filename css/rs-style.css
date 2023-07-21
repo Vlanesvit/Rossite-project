@@ -1266,9 +1266,9 @@ section {
   stroke-width: 1.5px;
 }
 .rs-btn .svg-wrapper svg path {
-  -webkit-transition: fill 0.75s cubic-bezier(0.44, 0.23, 0.07, 0.98) 0s;
-  -o-transition: fill 0.75s cubic-bezier(0.44, 0.23, 0.07, 0.98) 0s;
-  transition: fill 0.75s cubic-bezier(0.44, 0.23, 0.07, 0.98) 0s;
+  -webkit-transition: fill 0.3s ease-in-out 0s;
+  -o-transition: fill 0.3s ease-in-out 0s;
+  transition: fill 0.3s ease-in-out 0s;
 }
 .rs-btn._btn-gray-border path {
   stroke: rgba(0, 0, 0, 0.15);
