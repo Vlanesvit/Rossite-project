@@ -98,26 +98,33 @@ function initServiceSlider() {
 				},
 			});
 
-			gsap.to(".rs-services__swiper", { ease: "none", });
-			ScrollTrigger.create({
-				trigger: ".rs-services",
-				start: "top-=15% top",
-				end: "bottom+=100% bottom",
-				scrub: true,
-				pin: true,
-				invalidateOnRefresh: true,
-				anticipatePin: 1,
-				// markers: 1,
-				// onEnter: () => { },
-				// onLeave: () => { },
-				// onEnterBack: () => { },
-				// onLeaveBack: () => { },
-				onUpdate: self => {
-					console.log(self.direction);
-					if (self.direction === 1) sliderSwiper.slideNext()
-					else if (self.direction === -1) sliderSwiper.slidePrev()
-				},
-			})
+			const breakpoint = window.matchMedia('(min-width: 991.98px)');
+			const breakpointChecker = function () {
+				if (breakpoint.matches === false) {
+					gsap.to(".rs-services__swiper", { ease: "none", });
+					ScrollTrigger.create({
+						trigger: ".rs-services",
+						start: "top-=15% top",
+						end: "bottom+=100% bottom",
+						scrub: true,
+						pin: true,
+						invalidateOnRefresh: true,
+						anticipatePin: 1,
+						// markers: 1,
+						// onEnter: () => { },
+						// onLeave: () => { },
+						// onEnterBack: () => { },
+						// onLeaveBack: () => { },
+						onUpdate: self => {
+							console.log(self.direction);
+							if (self.direction === 1) sliderSwiper.slideNext()
+							else if (self.direction === -1) sliderSwiper.slidePrev()
+						},
+					})
+				}
+			};
+			breakpoint.addListener(breakpointChecker);
+			breakpointChecker();
 		});
 	}
 }
