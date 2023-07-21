@@ -100,6 +100,7 @@ function showContentOnScroll(elem, duration, delay, direction) {
 	});
 }
 
+
 function animDesktop() {
 	/* BG-COLOR CHANGER */
 	const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
@@ -197,6 +198,7 @@ function animCommon() {
 	showContentOnScroll('.rs-banner__buttons', 0.5, 0.5, 'bottom-up--every')
 	// about
 	showContentOnScroll('.rs-about-product__slide', 0.5, 0.2, 'right-left--every')
+	showContentOnScroll('.rs-about-product__slider', 0.5, 0.2, 'right-left')
 	showContentOnScroll('.rs-about-product__icon', 0.5, 0.15, 'bottom-up--every')
 	// project
 	showContentOnScroll('.rs-project__filter', 0.5, 1, 'bottom-up')
@@ -221,12 +223,12 @@ function animCommon() {
 	showContentOnScroll('.rs-services__slide', 0.5, 0.2, 'right-left--every')
 	showContentOnScroll('.rs-services__icon', 0.5, 0.15, 'bottom-up--every')
 	// footer
-	// showContentOnScroll('.rs-footer__phone', 0.5, 0.2, 'bottom-up');
-	// showContentOnScroll('.rs-footer__links ul li', 0.5, 0.15, 'bottom-up--every');
-	// showContentOnScroll('.rs-footer__social', 0.5, 0.5, 'bottom-up');
-	// showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
-	// showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
-	// showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
+	showContentOnScroll('.rs-footer__phone', 0.5, 0.2, 'bottom-up');
+	showContentOnScroll('.rs-footer__links ul li', 0.5, 0.15, 'bottom-up--every');
+	showContentOnScroll('.rs-footer__social', 0.5, 0.5, 'bottom-up');
+	showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
+	showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
+	showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
 }
 
 const breakpoint = window.matchMedia('(min-width: 991.98px)');

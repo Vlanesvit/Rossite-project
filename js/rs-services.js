@@ -12,7 +12,7 @@ function initServiceSlider() {
 			const arrowPrev = sliderService.querySelector('.rs-services__button-prev');
 
 			// Перечень слайдеров
-			new Swiper(slider, {
+			const sliderSwiper = new Swiper(slider, {
 				// Автопрокрутка
 				autoplay: {
 					// Пауза между прокруткой
@@ -53,18 +53,18 @@ function initServiceSlider() {
 					type: 'progressbar',
 				},
 
-				// Управлениее мышью
-				mousewheel: {
-					enabled: true,
-					sensitivity: 2,
-				},
+				// // Управлениее мышью
+				// mousewheel: {
+				// 	enabled: true,
+				// 	sensitivity: 2,
+				// },
 
-				// Свободный режим
-				freeMode: {
-					enabled: true,
-					sticky: false,
-					momentumBounce: false,
-				},
+				// // Свободный режим
+				// freeMode: {
+				// 	enabled: true,
+				// 	sticky: false,
+				// 	momentumBounce: false,
+				// },
 
 				// Стрелки
 				navigation: {
@@ -97,6 +97,27 @@ function initServiceSlider() {
 					},
 				},
 			});
+
+			gsap.to(".rs-services__swiper", { ease: "none", });
+			ScrollTrigger.create({
+				trigger: ".rs-services",
+				start: "top-=15% top",
+				end: "bottom+=100% bottom",
+				scrub: true,
+				pin: true,
+				invalidateOnRefresh: true,
+				anticipatePin: 1,
+				// markers: 1,
+				// onEnter: () => { },
+				// onLeave: () => { },
+				// onEnterBack: () => { },
+				// onLeaveBack: () => { },
+				onUpdate: self => {
+					console.log(self.direction);
+					if (self.direction === 1) sliderSwiper.slideNext()
+					else if (self.direction === -1) sliderSwiper.slidePrev()
+				},
+			})
 		});
 	}
 }

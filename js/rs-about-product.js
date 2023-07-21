@@ -12,16 +12,16 @@ function initAboutSlider() {
 			const arrowPrev = sliderAbout.querySelector('.rs-about-product__button-prev');
 
 			// Перечень слайдеров
-			new Swiper(slider, {
-				// Автопрокрутка
-				autoplay: {
-					// Пауза между прокруткой
-					delay: 10000,
-					// Закончить на последнем слайде
-					stopOnLastSlide: false,
-					// Отключить после ручного переключения
-					disableOnInteraction: false,
-				},
+			const sliderSwiper = new Swiper(slider, {
+				// // Автопрокрутка
+				// autoplay: {
+				// 	// Пауза между прокруткой
+				// 	delay: 10000,
+				// 	// Закончить на последнем слайде
+				// 	stopOnLastSlide: false,
+				// 	// Отключить после ручного переключения
+				// 	disableOnInteraction: false,
+				// },
 
 				// Обновить свайпер
 				// при изменении элементов слайдера
@@ -53,11 +53,11 @@ function initAboutSlider() {
 					type: 'progressbar',
 				},
 
-				// Управлениее мышью
-				mousewheel: {
-					enabled: true,
-					sensitivity: 2,
-				},
+				// // Управлениее мышью
+				// mousewheel: {
+				// 	enabled: true,
+				// 	sensitivity: 2,
+				// },
 
 				// Свободный режим
 				freeMode: {
@@ -101,6 +101,27 @@ function initAboutSlider() {
 					},
 				},
 			});
+
+			gsap.to(".rs-about-product__swiper", { ease: "none", });
+			ScrollTrigger.create({
+				trigger: ".rs-about-product",
+				start: "top-=15% top",
+				end: "bottom+=100% bottom",
+				scrub: true,
+				pin: true,
+				invalidateOnRefresh: true,
+				anticipatePin: 1,
+				// markers: 1,
+				// onEnter: () => { },
+				// onLeave: () => { },
+				// onEnterBack: () => { },
+				// onLeaveBack: () => { },
+				onUpdate: self => {
+					console.log(self.direction);
+					if (self.direction === 1) sliderSwiper.slideNext()
+					else if (self.direction === -1) sliderSwiper.slidePrev()
+				},
+			})
 		});
 	}
 }
