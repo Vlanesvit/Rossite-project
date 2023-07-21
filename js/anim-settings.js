@@ -175,7 +175,7 @@ function animCommon() {
 	const homeIntroBtns = document.querySelectorAll('.rs-btn');
 	homeIntroBtns.forEach(homeIntroBtn => {
 		gsap.to(homeIntroBtn.querySelector('.svg-wrapper svg path'), {
-			duration: 0.5,
+			duration: 1,
 			delay: 0.5,
 			strokeDashoffset: 0,
 			stagger: 0,
@@ -194,7 +194,7 @@ function animCommon() {
 
 				if (homeIntroBtn.classList.contains('_btn-gray-border')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.3,
+						duration: 0.,
 						ease: 'linear',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
@@ -215,7 +215,7 @@ function animCommon() {
 
 				if (homeIntroBtn.classList.contains('_btn-primary-border')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.3,
+						duration: 0.,
 						ease: 'linear',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
@@ -224,7 +224,7 @@ function animCommon() {
 				}
 
 				gsap.to(homeIntroBtn.querySelector('span'), {
-					duration: 0.3,
+					duration: 0.5,
 					autoAlpha: 1,
 					ease: 'linear'
 				});
