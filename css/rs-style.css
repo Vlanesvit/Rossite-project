@@ -1202,19 +1202,9 @@ section {
   display: inline-block;
 }
 .rs-btn .btn-text {
-  overflow: hidden;
-  position: relative;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  padding: 16px 28px;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -1222,6 +1212,7 @@ section {
   border-radius: 30px;
   position: relative;
   z-index: 1;
+  padding: 16px 28px;
   opacity: 0;
   visibility: hidden;
 }
@@ -1258,17 +1249,22 @@ section {
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
 }
 .rs-btn .svg-wrapper svg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  fill: none;
-  stroke-width: 1.5px;
+  z-index: 2;
+  overflow: visible;
 }
 .rs-btn .svg-wrapper svg path {
-  -webkit-transition: fill 0.3s ease-in-out 0s;
-  -o-transition: fill 0.3s ease-in-out 0s;
-  transition: fill 0.3s ease-in-out 0s;
+  fill: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: miter;
 }
 .rs-btn._btn-gray-border path {
   stroke: rgba(0, 0, 0, 0.15);

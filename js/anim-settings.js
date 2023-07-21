@@ -7,25 +7,16 @@ gsap.registerPlugin(ScrollTrigger)
 // gsap.registerPlugin(drawSVGPlugin);
 // console.clear();
 
-// SmothScroll
-// SmoothScroll({
-// 	animationTime: 500, // [ms]
-// 	stepSize: 100, // [px]
-// 	accelerationDelta: 50,  // 50
-// 	accelerationMax: 3,   // 3
-// 	touchpadSupport: false,
-// });
-
 /* MOVE SVG LINE */
 function moveSvgDashed(dashed, mask, trigger) {
 	gsap.from(mask, {
 		drawSVG: "0%",
 		scrollTrigger: {
 			trigger: trigger,
-			start: "top-=25% top",
+			start: "top+=20% top",
 			end: "bottom+=80% bottom",
 			scrub: 1,
-			// markers: 1
+			markers: 1
 		},
 	});
 
@@ -108,8 +99,8 @@ function animDesktop() {
 
 		ScrollTrigger.create({
 			trigger: colorSection,
-			start: "top 35%",
-			// markers: true,
+			start: "top top",
+			markers: true,
 			endTrigger: ".rs-steps",
 
 			onEnter: () =>
@@ -174,18 +165,19 @@ function animMobile() {
 function animCommon() {
 	const homeIntroBtns = document.querySelectorAll('.rs-btn');
 	homeIntroBtns.forEach(homeIntroBtn => {
-		gsap.to(homeIntroBtn.querySelector('.svg-wrapper svg path'), {
+		let btnAnim;
+		btnAnim = gsap.to(homeIntroBtn.querySelector('.svg-wrapper svg path'), {
 			duration: 1,
 			delay: 0.5,
 			strokeDashoffset: 0,
-			stagger: 0,
-			ease: 'linear',
+			stagger: 1,
+			ease: 'cubic-1',
 			onComplete: function onComplete() {
 				if (homeIntroBtn.classList.contains('_btn-primary')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.3,
+						duration: 1,
 						fill: 'rgb(99, 102, 241)',
-						ease: 'linear',
+						ease: 'cubic-1',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
 						}
@@ -194,8 +186,8 @@ function animCommon() {
 
 				if (homeIntroBtn.classList.contains('_btn-gray-border')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.,
-						ease: 'linear',
+						duration: 1,
+						ease: 'cubic-1',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
 						}
@@ -204,9 +196,9 @@ function animCommon() {
 
 				if (homeIntroBtn.classList.contains('_btn-white')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.3,
+						duration: 1,
 						fill: 'rgb(255, 255, 255)',
-						ease: 'linear',
+						ease: 'cubic-1',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
 						}
@@ -215,8 +207,8 @@ function animCommon() {
 
 				if (homeIntroBtn.classList.contains('_btn-primary-border')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.,
-						ease: 'linear',
+						duration: 1,
+						ease: 'cubic-1',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
 						}
@@ -224,11 +216,23 @@ function animCommon() {
 				}
 
 				gsap.to(homeIntroBtn.querySelector('span'), {
-					duration: 0.5,
+					duration: 1,
 					autoAlpha: 1,
 					ease: 'linear'
 				});
 			}
+		});
+
+		ScrollTrigger.create({
+			trigger: homeIntroBtn,
+			animation: btnAnim,
+			once: true,
+			// scrub: true,
+			// markers: 1,
+			onEnter: () => function () { },
+			onLeave: () => function () { },
+			onEnterBack: () => function () { },
+			onLeaveBack: () => function () { },
 		});
 	});
 
