@@ -318,3 +318,4 @@ window.addEventListener("DOMContentLoaded", function () {
 	breakpoint.addListener(breakpointChecker);
 	breakpointChecker();
 })
+ScrollTrigger.refresh()
