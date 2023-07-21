@@ -16,7 +16,7 @@ function moveSvgDashed(dashed, mask, trigger) {
 			start: "top+=20% top",
 			end: "bottom+=80% bottom",
 			scrub: 1,
-			markers: 1
+			// markers: 1
 		},
 	});
 
