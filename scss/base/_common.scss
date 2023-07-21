@@ -268,6 +268,20 @@ section {
 		opacity: 0;
 		visibility: hidden;
 
+		@media (max-width: 1440px) {
+			font-size: 14px;
+			padding: 14px 20px;
+		}
+
+		@media (max-width: 991.98px) {
+			font-size: 13px;
+			padding: 15px 23px;
+		}
+
+		@media (max-width: 767.98px) {
+			padding: 13px 20px;
+		}
+
 		&::before {
 			font-size: 20px;
 			margin-right: 9px;
@@ -298,22 +312,7 @@ section {
 		}
 	}
 
-	@media (max-width: 1440px) {
-		font-size: 14px;
-		padding: 14px 20px;
-	}
-
-	@media (max-width: 991.98px) {
-		font-size: 13px;
-		padding: 15px 23px;
-	}
-
-	@media (max-width: 767.98px) {
-		padding: 13px 20px;
-	}
-
 	&._btn-gray-border {
-
 		path {
 			stroke: rgba(0, 0, 0, 0.15);
 		}

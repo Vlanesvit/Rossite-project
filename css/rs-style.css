@@ -1225,6 +1225,23 @@ section {
   opacity: 0;
   visibility: hidden;
 }
+@media (max-width: 1440px) {
+  .rs-btn .btn-text {
+    font-size: 14px;
+    padding: 14px 20px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-btn .btn-text {
+    font-size: 13px;
+    padding: 15px 23px;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-btn .btn-text {
+    padding: 13px 20px;
+  }
+}
 .rs-btn .btn-text::before {
   font-size: 20px;
   margin-right: 9px;
@@ -1252,23 +1269,6 @@ section {
   -webkit-transition: fill 0.75s cubic-bezier(0.44, 0.23, 0.07, 0.98) 0s;
   -o-transition: fill 0.75s cubic-bezier(0.44, 0.23, 0.07, 0.98) 0s;
   transition: fill 0.75s cubic-bezier(0.44, 0.23, 0.07, 0.98) 0s;
-}
-@media (max-width: 1440px) {
-  .rs-btn {
-    font-size: 14px;
-    padding: 14px 20px;
-  }
-}
-@media (max-width: 991.98px) {
-  .rs-btn {
-    font-size: 13px;
-    padding: 15px 23px;
-  }
-}
-@media (max-width: 767.98px) {
-  .rs-btn {
-    padding: 13px 20px;
-  }
 }
 .rs-btn._btn-gray-border path {
   stroke: rgba(0, 0, 0, 0.15);

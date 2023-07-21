@@ -327,6 +327,7 @@ document.querySelectorAll('.split-text').forEach(button => {
 		'<span class="split-text-copy"><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></span>' +
 		'</span>'
 });
+
 document.querySelectorAll('.rs-btn').forEach(button => {
 	button.querySelector('.btn-text').classList.add('split-text')
 	button.querySelector('.btn-text').innerHTML =
@@ -374,6 +375,7 @@ document.querySelectorAll('.rs-header__menu .menu__list li a').forEach(link => {
 		'<span class="split-text-copy"><span>' + link.textContent.trim().split('').join('</span><span>') + '</span></span>' +
 		'</span>'
 });
+
 document.querySelectorAll('.rs-footer__menu .menu__list li a').forEach(link => {
 	link.classList.add('split-text')
 	link.innerHTML =
