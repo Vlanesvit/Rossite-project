@@ -104,7 +104,7 @@ function initServiceSlider() {
 					gsap.to(".rs-services__swiper", { ease: "none", });
 					ScrollTrigger.create({
 						trigger: ".rs-services",
-						start: "top-=15% top",
+						start: "top-=10% top",
 						end: "bottom+=100% bottom",
 						scrub: true,
 						pin: true,

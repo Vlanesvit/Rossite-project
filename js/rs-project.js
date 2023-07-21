@@ -172,6 +172,9 @@ function imitationProductLoad() {
 		}
 		currentItems += 3;
 		checkCurrentItems()
+
+		// ВАЖНО! обновляем старт и конец для анимации
+		ScrollTrigger.refresh()
 	})
 }
 imitationProductLoad()

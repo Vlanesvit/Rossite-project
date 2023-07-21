@@ -13,8 +13,8 @@ function moveSvgDashed(dashed, mask, trigger) {
 		drawSVG: "0%",
 		scrollTrigger: {
 			trigger: trigger,
-			start: "top+=20% top",
-			end: "bottom+=80% bottom",
+			start: "top+=75% top",
+			end: "bottom+=200% bottom",
 			scrub: 1,
 			// markers: 1
 		},
@@ -25,8 +25,8 @@ function moveSvgDashed(dashed, mask, trigger) {
 		delay: 5,
 		scrollTrigger: {
 			trigger: trigger,
-			start: "top-=25% top",
-			end: "bottom+=80% bottom",
+			start: "top+=75% top",
+			end: "bottom+=200% bottom",
 			scrub: 1,
 			// markers: 1
 		}
@@ -83,6 +83,7 @@ function showContentOnScroll(elem, duration, delay, direction) {
 			once: true,
 			// scrub: true,
 			// markers: 1,
+
 			onEnter: () => function () { },
 			onLeave: () => function () { },
 			onEnterBack: () => function () { },
@@ -99,7 +100,7 @@ function animDesktop() {
 
 		ScrollTrigger.create({
 			trigger: colorSection,
-			start: "top top",
+			start: "top+=50% top",
 			// markers: true,
 			endTrigger: ".rs-steps",
 
@@ -124,20 +125,20 @@ function animDesktop() {
 			trigger: ".rs-steps",
 			scrub: 1,
 			start: "-50% top",
-			end: "bottom+=20% bottom",
+			end: "bottom+=50% bottom",
 			// pin: 1,
 			// markers: 1
 		}
 	});
 	parallaxImgTop.from('.rs-steps__column-top', {
-		y: '-300px',
+		y: '-500px',
 	})
 	const parallaxImgSlide = gsap.timeline({
 		scrollTrigger: {
 			trigger: ".rs-steps",
 			scrub: 1,
 			start: "-50% top",
-			end: "bottom+=20% bottom",
+			end: "bottom+=50% bottom",
 			// pin: 1,
 			// markers: 1
 		}
@@ -148,13 +149,13 @@ function animDesktop() {
 			trigger: ".rs-steps",
 			scrub: 1,
 			start: "-50% top",
-			end: "bottom+=20% bottom",
+			end: "bottom+=50% bottom",
 			// pin: 1,
 			// markers: 1
 		}
 	});
 	parallaxImgBottom.from('.rs-steps__column-bottom', {
-		y: '300px',
+		y: '500px',
 	})
 }
 
@@ -238,6 +239,7 @@ function animCommon() {
 			once: true,
 			// scrub: true,
 			// markers: 1,
+
 			onEnter: () => function () { },
 			onLeave: () => function () { },
 			onEnterBack: () => function () { },
