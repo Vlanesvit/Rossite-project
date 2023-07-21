@@ -709,7 +709,7 @@
     position: relative;
   }
 }
-.rs-calc__cost_submit svg {
+.rs-calc__cost_submit > svg {
   position: absolute;
   top: calc(100% - 30px);
   left: calc(100% - 10px);

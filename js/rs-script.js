@@ -328,13 +328,44 @@ document.querySelectorAll('.split-text').forEach(button => {
 		'</span>'
 });
 document.querySelectorAll('.rs-btn').forEach(button => {
-	button.classList.add('split-text')
-	button.innerHTML =
+	button.querySelector('.btn-text').classList.add('split-text')
+	button.querySelector('.btn-text').innerHTML =
 		'<span class="split-text-wrapper">' +
 		'<span class="split-text-origin"><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></span>' +
 		'<span class="split-text-copy"><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></span>' +
 		'</span>'
 });
+
+// Создаем svg по размерам кнопки
+function SVGRoundedButtons() {
+	const btns = document.querySelectorAll('.rs-btn');
+
+	btns.forEach(btn => {
+		var width = Math.round(btn.getBoundingClientRect().width);
+		var height = Math.round(btn.getBoundingClientRect().height);
+		var start = 40;
+
+		var svgWrappers = btn.querySelectorAll('.svg-wrapper');
+		var length = 0;
+
+		svgWrappers.forEach(function (wrapper) {
+			var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+			var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+			svg.appendChild(path);
+			svg.setAttribute('width', width);
+			svg.setAttribute('height', height);
+			svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height + '');
+			path.setAttribute('d', 'M ' + width / 2 + ' ' + 0 + ' H ' + (width - height / 2) + ' A ' + height / 2 + ' ' + height / 2 + ' ' + 0 + ' ' + 0 + ' ' + 1 + ' ' + (width - height / 2) + ' ' + height + ' H ' + height / 2 + ' A ' + height / 2 + ' ' + height / 2 + ' ' + 0 + ' ' + 0 + ' ' + 1 + ' ' + height / 2 + ' ' + 0 + ' Z ');
+			length = Math.round(path.getTotalLength());
+			wrapper.appendChild(svg);
+			wrapper.classList.contains('svg-wrapper--thin') ? wrapper.querySelector('svg').classList.add('thin') : wrapper.querySelector('svg').classList.add('progress');
+			wrapper.querySelector('svg path').style.strokeDasharray = length + ' ' + length;
+			wrapper.querySelector('svg path').style.strokeDashoffset = length;
+		});
+	});
+}
+SVGRoundedButtons()
+
 document.querySelectorAll('.rs-header__menu .menu__list li a').forEach(link => {
 	link.classList.add('split-text')
 	link.innerHTML =

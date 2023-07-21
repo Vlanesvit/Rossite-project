@@ -696,7 +696,7 @@
 				display: inline-flex;
 				position: relative;
 			}
-			svg {
+			& > svg {
 				position: absolute;
 				top: calc(100% - 30px);
 				left: calc(100% - 10px);

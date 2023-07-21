@@ -247,31 +247,54 @@ section {
 }
 
 .rs-btn {
-	overflow: hidden;
 	position: relative;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 130%;
-	transition: all 0.3s ease 0s;
-	border-radius: 30px;
-	padding: 16px 28px;
-	border: 1px solid transparent;
+	display: inline-block;
 
-	svg {
+	.btn-text {
+		overflow: hidden;
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 16px 28px;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 130%;
+		border-radius: 30px;
+		position: relative;
+		z-index: 1;
+		opacity: 0;
+		visibility: hidden;
+
+		&::before {
+			font-size: 20px;
+			margin-right: 9px;
+
+			@media (max-width: 991.98px) {
+				font-size: 17px;
+				margin-right: 7px;
+			}
+		}
+	}
+
+	.svg-wrapper {
 		position: absolute;
-		top: 0;
 		left: 0;
+		top: 0;
 		width: 100%;
 		height: 100%;
 
-		path {
+		svg {
 			width: 100%;
 			height: 100%;
+			fill: none;
+			stroke-width: 1.5px;
+
+			path {
+				transition: fill 0.75s cubic-bezier(0.44, 0.23, 0.07, 0.98) 0s;
+			}
 		}
 	}
 
@@ -290,38 +313,45 @@ section {
 	}
 
 	&._btn-gray-border {
-		border-color: rgba(0, 0, 0, 0.15);
+
+		path {
+			stroke: rgba(0, 0, 0, 0.15);
+		}
 	}
 
 	&._btn-primary {
-		color: #fff;
-		background-color: var(--primary-color);
+		.btn-text {
+			color: #fff;
+		}
+
+		path {
+			stroke: var(--primary-color);
+		}
 	}
 
 	&._btn-white {
-		background-color: #fff;
+		.btn-text {
+			&::before {
+				color: var(--primary-color);
+			}
+		}
 
-		&::before {
-			color: var(--primary-color);
+		path {
+			stroke: #fff;
 		}
 	}
 
 	&._btn-primary-border {
-		border: 1px solid var(--primary-color);
-
-		&::before {
-			color: var(--primary-color);
+		.btn-text {
+			&::before {
+				color: var(--primary-color);
+			}
 		}
-	}
 
-	&::before {
-		font-size: 20px;
-		margin-right: 9px;
-
-		@media (max-width: 991.98px) {
-			font-size: 17px;
-			margin-right: 7px;
+		path {
+			stroke: var(--primary-color);
 		}
 	}
 }
+
 // Block  ========================================================================================================================================================

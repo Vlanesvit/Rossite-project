@@ -366,17 +366,20 @@
 			}
 
 			& > .rs-btn {
-				width: 100%;
-				display: flex;
 				margin-top: 57px;
-				font-size: 13px;
-				font-style: normal;
-				font-weight: 500;
-				line-height: 130%;
-				padding: 16px 26px;
 
-				&::before {
-					font-size: 20px;
+				.btn-text {
+					width: 100%;
+					display: flex;
+					font-size: 13px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 130%;
+					padding: 16px 26px;
+
+					&::before {
+						font-size: 20px;
+					}
 				}
 
 				@media (max-width: 991.98px) {
