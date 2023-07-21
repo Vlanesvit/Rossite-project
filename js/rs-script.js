@@ -271,7 +271,7 @@ function paralaxMouseInit(paralaxMouse) {
 ==================================== */
 function addCursorHover(hoveredElement, selectedElement, newClass) {
 	document.querySelectorAll(hoveredElement).forEach(hover => {
-		hover.addEventListener('mouseover', function () {
+		hover.addEventListener('mouseenter', function () {
 			document.querySelector(selectedElement).classList.add(newClass)
 		})
 		hover.addEventListener('mouseleave', function () {

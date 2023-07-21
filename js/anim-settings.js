@@ -92,6 +92,10 @@ function showContentOnScroll(elem, duration, delay, direction) {
 			once: true,
 			// scrub: true,
 			// markers: 1,
+			onEnter: () => function () { },
+			onLeave: () => function () { },
+			onEnterBack: () => function () { },
+			onLeaveBack: () => function () { },
 		});
 	});
 }
@@ -147,7 +151,7 @@ function animDesktop() {
 			// markers: 1
 		}
 	});
-	parallaxImgSlide.fromTo('.rs-steps__column-middle', {x: '300px', y: '-100px'}, {x: '-100px', y: '100px'})
+	parallaxImgSlide.fromTo('.rs-steps__column-middle', { x: '300px', y: '-100px' }, { x: '-100px', y: '100px' })
 	const parallaxImgBottom = gsap.timeline({
 		scrollTrigger: {
 			trigger: ".rs-steps",
@@ -190,6 +194,7 @@ function animCommon() {
 	showContentOnScroll('.rs-header__logo', 0.5, 0.35, 'fade');
 	showContentOnScroll('.rs-header__actions', 0.5, 0.5, 'fade');
 	// banner
+	showContentOnScroll('.rs-banner__buttons', 0.5, 0.5, 'bottom-up--every')
 	// about
 	showContentOnScroll('.rs-about-product__slide', 0.5, 0.2, 'right-left--every')
 	showContentOnScroll('.rs-about-product__icon', 0.5, 0.15, 'bottom-up--every')
@@ -210,7 +215,7 @@ function animCommon() {
 	showContentOnScroll('.rs-calc__cost_footer', 0.5, 0.3, 'bottom-up--every')
 	// reviews
 	showContentOnScroll('.rs-reviews__bg', 0.5, 0.2, 'bottom-up')
-	showContentOnScroll('.rs-reviews__body', 0.5, 0.3, 'bottom-up')
+	showContentOnScroll('.rs-reviews__slide', 0.5, 0.2, 'bottom-up--every')
 	showContentOnScroll('.rs-reviews__sticker', 0.5, 0.2, 'right-left')
 	// services
 	showContentOnScroll('.rs-services__slide', 0.5, 0.2, 'right-left--every')

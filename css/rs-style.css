@@ -1221,6 +1221,17 @@ section {
   padding: 16px 28px;
   border: 1px solid transparent;
 }
+.rs-btn svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.rs-btn svg path {
+  width: 100%;
+  height: 100%;
+}
 @media (max-width: 1440px) {
   .rs-btn {
     font-size: 14px;
