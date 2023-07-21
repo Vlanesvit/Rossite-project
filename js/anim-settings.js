@@ -205,7 +205,7 @@ function animCommon() {
 				if (homeIntroBtn.classList.contains('_btn-white')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
 						duration: 0.3,
-						fill: 'rgb(255, 255, 255);',
+						fill: 'rgb(255, 255, 255)',
 						ease: 'linear',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');

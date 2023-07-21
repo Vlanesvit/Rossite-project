@@ -367,6 +367,17 @@
 
 			& > .rs-btn {
 				margin-top: 57px;
+				width: 100%;
+
+				@media (max-width: 991.98px) {
+					margin-top: 15px;
+				}
+
+				@media (max-width: 991.98px) and (min-width: 767.98px) {
+					display: inline-flex;
+					width: auto;
+					padding: 17px 20px;
+				}
 
 				.btn-text {
 					width: 100%;
@@ -380,17 +391,14 @@
 					&::before {
 						font-size: 20px;
 					}
-				}
 
-				@media (max-width: 991.98px) {
-					margin-top: 15px;
-					padding: 13px 20px;
-				}
+					@media (max-width: 991.98px) {
+						padding: 13px 20px;
+					}
 
-				@media (max-width: 991.98px) and (min-width: 767.98px) {
-					display: inline-flex;
-					width: auto;
-					padding: 17px 20px;
+					@media (max-width: 991.98px) and (min-width: 767.98px) {
+						padding: 17px 20px;
+					}
 				}
 			}
 		}
