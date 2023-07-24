@@ -108,17 +108,20 @@ function initServiceSlider() {
 						end: "bottom+=100% bottom",
 						scrub: true,
 						pin: true,
-						invalidateOnRefresh: true,
-						anticipatePin: 1,
 						// markers: 1,
 						// onEnter: () => { },
 						// onLeave: () => { },
 						// onEnterBack: () => { },
 						// onLeaveBack: () => { },
 						onUpdate: self => {
-							console.log(self.direction);
-							if (self.direction === 1) sliderSwiper.slideNext()
-							else if (self.direction === -1) sliderSwiper.slidePrev()
+							setTimeout(() => {
+								if (self.direction === 1) {
+									sliderSwiper.slideNext()
+								}
+								else if (self.direction === -1) {
+									sliderSwiper.slidePrev()
+								}
+							}, 300);
 						},
 					})
 				}

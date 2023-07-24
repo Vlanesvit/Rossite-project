@@ -120,9 +120,14 @@ function initAboutSlider() {
 						onEnterBack: () => { },
 						onLeaveBack: () => { },
 						onUpdate: self => {
-							console.log(self.direction);
-							if (self.direction === 1) sliderSwiper.slideNext()
-							else if (self.direction === -1) sliderSwiper.slidePrev()
+							setTimeout(() => {
+								if (self.direction === 1) {
+									sliderSwiper.slideNext()
+								}
+								else if (self.direction === -1) {
+									sliderSwiper.slidePrev()
+								}
+							}, 300);
 						},
 					})
 				}
