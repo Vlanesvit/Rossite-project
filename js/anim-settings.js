@@ -13,10 +13,10 @@ function moveSvgDashed(dashed, mask, trigger) {
 		drawSVG: "0%",
 		scrollTrigger: {
 			trigger: trigger,
-			start: "top-=25% top",
+			start: "top-=20% top",
 			end: "bottom+=200% bottom",
 			scrub: 1,
-			markers: 1
+			// markers: 1
 		},
 	});
 
