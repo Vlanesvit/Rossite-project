@@ -7,6 +7,15 @@ gsap.registerPlugin(ScrollTrigger)
 // gsap.registerPlugin(drawSVGPlugin);
 // console.clear();
 
+/* Smooth Scroll */
+SmoothScroll({
+	animationTime: 600, // [ms]
+	stepSize: 100, // [px]
+	accelerationDelta: 50,  // 50
+	accelerationMax: 3,   // 3
+	touchpadSupport: false,
+});
+
 /* MOVE SVG LINE */
 function moveSvgDashed(dashed, mask, trigger) {
 	gsap.from(mask, {
