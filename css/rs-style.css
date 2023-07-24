@@ -167,7 +167,6 @@
   cursor: pointer;
   background: transparent;
   -webkit-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   border-radius: 0px;
 }
@@ -288,7 +287,6 @@ html.lock {
   z-index: 1;
   background-color: var(--bg-color);
   -webkit-transition: background-color 0.3s ease 0s;
-  -o-transition: background-color 0.3s ease 0s;
   transition: background-color 0.3s ease 0s;
 }
 .wrapper > * {
@@ -562,595 +560,496 @@ section {
 .split-text-origin > span:nth-child(1),
 .split-text-copy > span:nth-child(1) {
   -webkit-transition-delay: 0.015s;
-       -o-transition-delay: 0.015s;
           transition-delay: 0.015s;
 }
 .split-text-origin > span:nth-child(2),
 .split-text-copy > span:nth-child(2) {
   -webkit-transition-delay: 0.03s;
-       -o-transition-delay: 0.03s;
           transition-delay: 0.03s;
 }
 .split-text-origin > span:nth-child(3),
 .split-text-copy > span:nth-child(3) {
   -webkit-transition-delay: 0.045s;
-       -o-transition-delay: 0.045s;
           transition-delay: 0.045s;
 }
 .split-text-origin > span:nth-child(4),
 .split-text-copy > span:nth-child(4) {
   -webkit-transition-delay: 0.06s;
-       -o-transition-delay: 0.06s;
           transition-delay: 0.06s;
 }
 .split-text-origin > span:nth-child(5),
 .split-text-copy > span:nth-child(5) {
   -webkit-transition-delay: 0.075s;
-       -o-transition-delay: 0.075s;
           transition-delay: 0.075s;
 }
 .split-text-origin > span:nth-child(6),
 .split-text-copy > span:nth-child(6) {
   -webkit-transition-delay: 0.09s;
-       -o-transition-delay: 0.09s;
           transition-delay: 0.09s;
 }
 .split-text-origin > span:nth-child(7),
 .split-text-copy > span:nth-child(7) {
   -webkit-transition-delay: 0.105s;
-       -o-transition-delay: 0.105s;
           transition-delay: 0.105s;
 }
 .split-text-origin > span:nth-child(8),
 .split-text-copy > span:nth-child(8) {
   -webkit-transition-delay: 0.12s;
-       -o-transition-delay: 0.12s;
           transition-delay: 0.12s;
 }
 .split-text-origin > span:nth-child(9),
 .split-text-copy > span:nth-child(9) {
   -webkit-transition-delay: 0.135s;
-       -o-transition-delay: 0.135s;
           transition-delay: 0.135s;
 }
 .split-text-origin > span:nth-child(10),
 .split-text-copy > span:nth-child(10) {
   -webkit-transition-delay: 0.15s;
-       -o-transition-delay: 0.15s;
           transition-delay: 0.15s;
 }
 .split-text-origin > span:nth-child(11),
 .split-text-copy > span:nth-child(11) {
   -webkit-transition-delay: 0.165s;
-       -o-transition-delay: 0.165s;
           transition-delay: 0.165s;
 }
 .split-text-origin > span:nth-child(12),
 .split-text-copy > span:nth-child(12) {
   -webkit-transition-delay: 0.18s;
-       -o-transition-delay: 0.18s;
           transition-delay: 0.18s;
 }
 .split-text-origin > span:nth-child(13),
 .split-text-copy > span:nth-child(13) {
   -webkit-transition-delay: 0.195s;
-       -o-transition-delay: 0.195s;
           transition-delay: 0.195s;
 }
 .split-text-origin > span:nth-child(14),
 .split-text-copy > span:nth-child(14) {
   -webkit-transition-delay: 0.21s;
-       -o-transition-delay: 0.21s;
           transition-delay: 0.21s;
 }
 .split-text-origin > span:nth-child(15),
 .split-text-copy > span:nth-child(15) {
   -webkit-transition-delay: 0.225s;
-       -o-transition-delay: 0.225s;
           transition-delay: 0.225s;
 }
 .split-text-origin > span:nth-child(16),
 .split-text-copy > span:nth-child(16) {
   -webkit-transition-delay: 0.24s;
-       -o-transition-delay: 0.24s;
           transition-delay: 0.24s;
 }
 .split-text-origin > span:nth-child(17),
 .split-text-copy > span:nth-child(17) {
   -webkit-transition-delay: 0.255s;
-       -o-transition-delay: 0.255s;
           transition-delay: 0.255s;
 }
 .split-text-origin > span:nth-child(18),
 .split-text-copy > span:nth-child(18) {
   -webkit-transition-delay: 0.27s;
-       -o-transition-delay: 0.27s;
           transition-delay: 0.27s;
 }
 .split-text-origin > span:nth-child(19),
 .split-text-copy > span:nth-child(19) {
   -webkit-transition-delay: 0.285s;
-       -o-transition-delay: 0.285s;
           transition-delay: 0.285s;
 }
 .split-text-origin > span:nth-child(20),
 .split-text-copy > span:nth-child(20) {
   -webkit-transition-delay: 0.3s;
-       -o-transition-delay: 0.3s;
           transition-delay: 0.3s;
 }
 .split-text-origin > span:nth-child(21),
 .split-text-copy > span:nth-child(21) {
   -webkit-transition-delay: 0.315s;
-       -o-transition-delay: 0.315s;
           transition-delay: 0.315s;
 }
 .split-text-origin > span:nth-child(22),
 .split-text-copy > span:nth-child(22) {
   -webkit-transition-delay: 0.33s;
-       -o-transition-delay: 0.33s;
           transition-delay: 0.33s;
 }
 .split-text-origin > span:nth-child(23),
 .split-text-copy > span:nth-child(23) {
   -webkit-transition-delay: 0.345s;
-       -o-transition-delay: 0.345s;
           transition-delay: 0.345s;
 }
 .split-text-origin > span:nth-child(24),
 .split-text-copy > span:nth-child(24) {
   -webkit-transition-delay: 0.36s;
-       -o-transition-delay: 0.36s;
           transition-delay: 0.36s;
 }
 .split-text-origin > span:nth-child(25),
 .split-text-copy > span:nth-child(25) {
   -webkit-transition-delay: 0.375s;
-       -o-transition-delay: 0.375s;
           transition-delay: 0.375s;
 }
 .split-text-origin > span:nth-child(26),
 .split-text-copy > span:nth-child(26) {
   -webkit-transition-delay: 0.39s;
-       -o-transition-delay: 0.39s;
           transition-delay: 0.39s;
 }
 .split-text-origin > span:nth-child(27),
 .split-text-copy > span:nth-child(27) {
   -webkit-transition-delay: 0.405s;
-       -o-transition-delay: 0.405s;
           transition-delay: 0.405s;
 }
 .split-text-origin > span:nth-child(28),
 .split-text-copy > span:nth-child(28) {
   -webkit-transition-delay: 0.42s;
-       -o-transition-delay: 0.42s;
           transition-delay: 0.42s;
 }
 .split-text-origin > span:nth-child(29),
 .split-text-copy > span:nth-child(29) {
   -webkit-transition-delay: 0.435s;
-       -o-transition-delay: 0.435s;
           transition-delay: 0.435s;
 }
 .split-text-origin > span:nth-child(30),
 .split-text-copy > span:nth-child(30) {
   -webkit-transition-delay: 0.45s;
-       -o-transition-delay: 0.45s;
           transition-delay: 0.45s;
 }
 .split-text-origin > span:nth-child(31),
 .split-text-copy > span:nth-child(31) {
   -webkit-transition-delay: 0.465s;
-       -o-transition-delay: 0.465s;
           transition-delay: 0.465s;
 }
 .split-text-origin > span:nth-child(32),
 .split-text-copy > span:nth-child(32) {
   -webkit-transition-delay: 0.48s;
-       -o-transition-delay: 0.48s;
           transition-delay: 0.48s;
 }
 .split-text-origin > span:nth-child(33),
 .split-text-copy > span:nth-child(33) {
   -webkit-transition-delay: 0.495s;
-       -o-transition-delay: 0.495s;
           transition-delay: 0.495s;
 }
 .split-text-origin > span:nth-child(34),
 .split-text-copy > span:nth-child(34) {
   -webkit-transition-delay: 0.51s;
-       -o-transition-delay: 0.51s;
           transition-delay: 0.51s;
 }
 .split-text-origin > span:nth-child(35),
 .split-text-copy > span:nth-child(35) {
   -webkit-transition-delay: 0.525s;
-       -o-transition-delay: 0.525s;
           transition-delay: 0.525s;
 }
 .split-text-origin > span:nth-child(36),
 .split-text-copy > span:nth-child(36) {
   -webkit-transition-delay: 0.54s;
-       -o-transition-delay: 0.54s;
           transition-delay: 0.54s;
 }
 .split-text-origin > span:nth-child(37),
 .split-text-copy > span:nth-child(37) {
   -webkit-transition-delay: 0.555s;
-       -o-transition-delay: 0.555s;
           transition-delay: 0.555s;
 }
 .split-text-origin > span:nth-child(38),
 .split-text-copy > span:nth-child(38) {
   -webkit-transition-delay: 0.57s;
-       -o-transition-delay: 0.57s;
           transition-delay: 0.57s;
 }
 .split-text-origin > span:nth-child(39),
 .split-text-copy > span:nth-child(39) {
   -webkit-transition-delay: 0.585s;
-       -o-transition-delay: 0.585s;
           transition-delay: 0.585s;
 }
 .split-text-origin > span:nth-child(40),
 .split-text-copy > span:nth-child(40) {
   -webkit-transition-delay: 0.6s;
-       -o-transition-delay: 0.6s;
           transition-delay: 0.6s;
 }
 .split-text-origin > span:nth-child(41),
 .split-text-copy > span:nth-child(41) {
   -webkit-transition-delay: 0.615s;
-       -o-transition-delay: 0.615s;
           transition-delay: 0.615s;
 }
 .split-text-origin > span:nth-child(42),
 .split-text-copy > span:nth-child(42) {
   -webkit-transition-delay: 0.63s;
-       -o-transition-delay: 0.63s;
           transition-delay: 0.63s;
 }
 .split-text-origin > span:nth-child(43),
 .split-text-copy > span:nth-child(43) {
   -webkit-transition-delay: 0.645s;
-       -o-transition-delay: 0.645s;
           transition-delay: 0.645s;
 }
 .split-text-origin > span:nth-child(44),
 .split-text-copy > span:nth-child(44) {
   -webkit-transition-delay: 0.66s;
-       -o-transition-delay: 0.66s;
           transition-delay: 0.66s;
 }
 .split-text-origin > span:nth-child(45),
 .split-text-copy > span:nth-child(45) {
   -webkit-transition-delay: 0.675s;
-       -o-transition-delay: 0.675s;
           transition-delay: 0.675s;
 }
 .split-text-origin > span:nth-child(46),
 .split-text-copy > span:nth-child(46) {
   -webkit-transition-delay: 0.69s;
-       -o-transition-delay: 0.69s;
           transition-delay: 0.69s;
 }
 .split-text-origin > span:nth-child(47),
 .split-text-copy > span:nth-child(47) {
   -webkit-transition-delay: 0.705s;
-       -o-transition-delay: 0.705s;
           transition-delay: 0.705s;
 }
 .split-text-origin > span:nth-child(48),
 .split-text-copy > span:nth-child(48) {
   -webkit-transition-delay: 0.72s;
-       -o-transition-delay: 0.72s;
           transition-delay: 0.72s;
 }
 .split-text-origin > span:nth-child(49),
 .split-text-copy > span:nth-child(49) {
   -webkit-transition-delay: 0.735s;
-       -o-transition-delay: 0.735s;
           transition-delay: 0.735s;
 }
 .split-text-origin > span:nth-child(50),
 .split-text-copy > span:nth-child(50) {
   -webkit-transition-delay: 0.75s;
-       -o-transition-delay: 0.75s;
           transition-delay: 0.75s;
 }
 .split-text-origin > span:nth-child(51),
 .split-text-copy > span:nth-child(51) {
   -webkit-transition-delay: 0.765s;
-       -o-transition-delay: 0.765s;
           transition-delay: 0.765s;
 }
 .split-text-origin > span:nth-child(52),
 .split-text-copy > span:nth-child(52) {
   -webkit-transition-delay: 0.78s;
-       -o-transition-delay: 0.78s;
           transition-delay: 0.78s;
 }
 .split-text-origin > span:nth-child(53),
 .split-text-copy > span:nth-child(53) {
   -webkit-transition-delay: 0.795s;
-       -o-transition-delay: 0.795s;
           transition-delay: 0.795s;
 }
 .split-text-origin > span:nth-child(54),
 .split-text-copy > span:nth-child(54) {
   -webkit-transition-delay: 0.81s;
-       -o-transition-delay: 0.81s;
           transition-delay: 0.81s;
 }
 .split-text-origin > span:nth-child(55),
 .split-text-copy > span:nth-child(55) {
   -webkit-transition-delay: 0.825s;
-       -o-transition-delay: 0.825s;
           transition-delay: 0.825s;
 }
 .split-text-origin > span:nth-child(56),
 .split-text-copy > span:nth-child(56) {
   -webkit-transition-delay: 0.84s;
-       -o-transition-delay: 0.84s;
           transition-delay: 0.84s;
 }
 .split-text-origin > span:nth-child(57),
 .split-text-copy > span:nth-child(57) {
   -webkit-transition-delay: 0.855s;
-       -o-transition-delay: 0.855s;
           transition-delay: 0.855s;
 }
 .split-text-origin > span:nth-child(58),
 .split-text-copy > span:nth-child(58) {
   -webkit-transition-delay: 0.87s;
-       -o-transition-delay: 0.87s;
           transition-delay: 0.87s;
 }
 .split-text-origin > span:nth-child(59),
 .split-text-copy > span:nth-child(59) {
   -webkit-transition-delay: 0.885s;
-       -o-transition-delay: 0.885s;
           transition-delay: 0.885s;
 }
 .split-text-origin > span:nth-child(60),
 .split-text-copy > span:nth-child(60) {
   -webkit-transition-delay: 0.9s;
-       -o-transition-delay: 0.9s;
           transition-delay: 0.9s;
 }
 .split-text-origin > span:nth-child(61),
 .split-text-copy > span:nth-child(61) {
   -webkit-transition-delay: 0.915s;
-       -o-transition-delay: 0.915s;
           transition-delay: 0.915s;
 }
 .split-text-origin > span:nth-child(62),
 .split-text-copy > span:nth-child(62) {
   -webkit-transition-delay: 0.93s;
-       -o-transition-delay: 0.93s;
           transition-delay: 0.93s;
 }
 .split-text-origin > span:nth-child(63),
 .split-text-copy > span:nth-child(63) {
   -webkit-transition-delay: 0.945s;
-       -o-transition-delay: 0.945s;
           transition-delay: 0.945s;
 }
 .split-text-origin > span:nth-child(64),
 .split-text-copy > span:nth-child(64) {
   -webkit-transition-delay: 0.96s;
-       -o-transition-delay: 0.96s;
           transition-delay: 0.96s;
 }
 .split-text-origin > span:nth-child(65),
 .split-text-copy > span:nth-child(65) {
   -webkit-transition-delay: 0.975s;
-       -o-transition-delay: 0.975s;
           transition-delay: 0.975s;
 }
 .split-text-origin > span:nth-child(66),
 .split-text-copy > span:nth-child(66) {
   -webkit-transition-delay: 0.99s;
-       -o-transition-delay: 0.99s;
           transition-delay: 0.99s;
 }
 .split-text-origin > span:nth-child(67),
 .split-text-copy > span:nth-child(67) {
   -webkit-transition-delay: 1.005s;
-       -o-transition-delay: 1.005s;
           transition-delay: 1.005s;
 }
 .split-text-origin > span:nth-child(68),
 .split-text-copy > span:nth-child(68) {
   -webkit-transition-delay: 1.02s;
-       -o-transition-delay: 1.02s;
           transition-delay: 1.02s;
 }
 .split-text-origin > span:nth-child(69),
 .split-text-copy > span:nth-child(69) {
   -webkit-transition-delay: 1.035s;
-       -o-transition-delay: 1.035s;
           transition-delay: 1.035s;
 }
 .split-text-origin > span:nth-child(70),
 .split-text-copy > span:nth-child(70) {
   -webkit-transition-delay: 1.05s;
-       -o-transition-delay: 1.05s;
           transition-delay: 1.05s;
 }
 .split-text-origin > span:nth-child(71),
 .split-text-copy > span:nth-child(71) {
   -webkit-transition-delay: 1.065s;
-       -o-transition-delay: 1.065s;
           transition-delay: 1.065s;
 }
 .split-text-origin > span:nth-child(72),
 .split-text-copy > span:nth-child(72) {
   -webkit-transition-delay: 1.08s;
-       -o-transition-delay: 1.08s;
           transition-delay: 1.08s;
 }
 .split-text-origin > span:nth-child(73),
 .split-text-copy > span:nth-child(73) {
   -webkit-transition-delay: 1.095s;
-       -o-transition-delay: 1.095s;
           transition-delay: 1.095s;
 }
 .split-text-origin > span:nth-child(74),
 .split-text-copy > span:nth-child(74) {
   -webkit-transition-delay: 1.11s;
-       -o-transition-delay: 1.11s;
           transition-delay: 1.11s;
 }
 .split-text-origin > span:nth-child(75),
 .split-text-copy > span:nth-child(75) {
   -webkit-transition-delay: 1.125s;
-       -o-transition-delay: 1.125s;
           transition-delay: 1.125s;
 }
 .split-text-origin > span:nth-child(76),
 .split-text-copy > span:nth-child(76) {
   -webkit-transition-delay: 1.14s;
-       -o-transition-delay: 1.14s;
           transition-delay: 1.14s;
 }
 .split-text-origin > span:nth-child(77),
 .split-text-copy > span:nth-child(77) {
   -webkit-transition-delay: 1.155s;
-       -o-transition-delay: 1.155s;
           transition-delay: 1.155s;
 }
 .split-text-origin > span:nth-child(78),
 .split-text-copy > span:nth-child(78) {
   -webkit-transition-delay: 1.17s;
-       -o-transition-delay: 1.17s;
           transition-delay: 1.17s;
 }
 .split-text-origin > span:nth-child(79),
 .split-text-copy > span:nth-child(79) {
   -webkit-transition-delay: 1.185s;
-       -o-transition-delay: 1.185s;
           transition-delay: 1.185s;
 }
 .split-text-origin > span:nth-child(80),
 .split-text-copy > span:nth-child(80) {
   -webkit-transition-delay: 1.2s;
-       -o-transition-delay: 1.2s;
           transition-delay: 1.2s;
 }
 .split-text-origin > span:nth-child(81),
 .split-text-copy > span:nth-child(81) {
   -webkit-transition-delay: 1.215s;
-       -o-transition-delay: 1.215s;
           transition-delay: 1.215s;
 }
 .split-text-origin > span:nth-child(82),
 .split-text-copy > span:nth-child(82) {
   -webkit-transition-delay: 1.23s;
-       -o-transition-delay: 1.23s;
           transition-delay: 1.23s;
 }
 .split-text-origin > span:nth-child(83),
 .split-text-copy > span:nth-child(83) {
   -webkit-transition-delay: 1.245s;
-       -o-transition-delay: 1.245s;
           transition-delay: 1.245s;
 }
 .split-text-origin > span:nth-child(84),
 .split-text-copy > span:nth-child(84) {
   -webkit-transition-delay: 1.26s;
-       -o-transition-delay: 1.26s;
           transition-delay: 1.26s;
 }
 .split-text-origin > span:nth-child(85),
 .split-text-copy > span:nth-child(85) {
   -webkit-transition-delay: 1.275s;
-       -o-transition-delay: 1.275s;
           transition-delay: 1.275s;
 }
 .split-text-origin > span:nth-child(86),
 .split-text-copy > span:nth-child(86) {
   -webkit-transition-delay: 1.29s;
-       -o-transition-delay: 1.29s;
           transition-delay: 1.29s;
 }
 .split-text-origin > span:nth-child(87),
 .split-text-copy > span:nth-child(87) {
   -webkit-transition-delay: 1.305s;
-       -o-transition-delay: 1.305s;
           transition-delay: 1.305s;
 }
 .split-text-origin > span:nth-child(88),
 .split-text-copy > span:nth-child(88) {
   -webkit-transition-delay: 1.32s;
-       -o-transition-delay: 1.32s;
           transition-delay: 1.32s;
 }
 .split-text-origin > span:nth-child(89),
 .split-text-copy > span:nth-child(89) {
   -webkit-transition-delay: 1.335s;
-       -o-transition-delay: 1.335s;
           transition-delay: 1.335s;
 }
 .split-text-origin > span:nth-child(90),
 .split-text-copy > span:nth-child(90) {
   -webkit-transition-delay: 1.35s;
-       -o-transition-delay: 1.35s;
           transition-delay: 1.35s;
 }
 .split-text-origin > span:nth-child(91),
 .split-text-copy > span:nth-child(91) {
   -webkit-transition-delay: 1.365s;
-       -o-transition-delay: 1.365s;
           transition-delay: 1.365s;
 }
 .split-text-origin > span:nth-child(92),
 .split-text-copy > span:nth-child(92) {
   -webkit-transition-delay: 1.38s;
-       -o-transition-delay: 1.38s;
           transition-delay: 1.38s;
 }
 .split-text-origin > span:nth-child(93),
 .split-text-copy > span:nth-child(93) {
   -webkit-transition-delay: 1.395s;
-       -o-transition-delay: 1.395s;
           transition-delay: 1.395s;
 }
 .split-text-origin > span:nth-child(94),
 .split-text-copy > span:nth-child(94) {
   -webkit-transition-delay: 1.41s;
-       -o-transition-delay: 1.41s;
           transition-delay: 1.41s;
 }
 .split-text-origin > span:nth-child(95),
 .split-text-copy > span:nth-child(95) {
   -webkit-transition-delay: 1.425s;
-       -o-transition-delay: 1.425s;
           transition-delay: 1.425s;
 }
 .split-text-origin > span:nth-child(96),
 .split-text-copy > span:nth-child(96) {
   -webkit-transition-delay: 1.44s;
-       -o-transition-delay: 1.44s;
           transition-delay: 1.44s;
 }
 .split-text-origin > span:nth-child(97),
 .split-text-copy > span:nth-child(97) {
   -webkit-transition-delay: 1.455s;
-       -o-transition-delay: 1.455s;
           transition-delay: 1.455s;
 }
 .split-text-origin > span:nth-child(98),
 .split-text-copy > span:nth-child(98) {
   -webkit-transition-delay: 1.47s;
-       -o-transition-delay: 1.47s;
           transition-delay: 1.47s;
 }
 .split-text-origin > span:nth-child(99),
 .split-text-copy > span:nth-child(99) {
   -webkit-transition-delay: 1.485s;
-       -o-transition-delay: 1.485s;
           transition-delay: 1.485s;
 }
 
@@ -1164,7 +1063,6 @@ section {
   position: relative;
   -webkit-transition: -webkit-transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
   transition: -webkit-transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
-  -o-transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
   transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
   transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1), -webkit-transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
   white-space: break-spaces;
@@ -1192,7 +1090,6 @@ section {
           transform: translateY(100%) rotate(-10deg);
   -webkit-transition: -webkit-transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
   transition: -webkit-transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
-  -o-transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
   transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
   transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1), -webkit-transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
 }
@@ -1422,7 +1319,6 @@ section {
   background: var(--primary-color);
   border-radius: 100%;
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   min-width: 51px;
   min-height: 51px;
@@ -1450,7 +1346,6 @@ section {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition: all 0.15s ease 0s;
-  -o-transition: all 0.15s ease 0s;
   transition: all 0.15s ease 0s;
 }
 .swiper-button-next::after,

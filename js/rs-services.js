@@ -32,7 +32,7 @@ function initServiceSlider() {
 				observeSlideChildren: true,
 
 				// Скорость смены слайдов
-				speed: 1200,
+				speed: 500,
 
 				// Включение/отключение
 				// перетаскивание на ПК

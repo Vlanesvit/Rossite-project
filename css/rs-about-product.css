@@ -38,13 +38,6 @@
     margin-top: 20px;
   }
 }
-.rs-about-product__swiper {
-  -webkit-transition: -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  -o-transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-}
 .rs-about-product__slide {
   min-height: 541px;
   height: auto;

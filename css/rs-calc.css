@@ -188,7 +188,6 @@
 .rs-calc__settings .radio label .radio__pseudo {
   display: block;
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   position: relative;
   min-height: 20px;
@@ -225,7 +224,6 @@
       -ms-transform: translate(-50%, -50%) scale(1.5);
           transform: translate(-50%, -50%) scale(1.5);
   -webkit-transition: ease-out 0.15s;
-  -o-transition: ease-out 0.15s;
   transition: ease-out 0.15s;
 }
 .rs-calc__settings .radio label input:checked ~ .radio__pseudo::before {
@@ -307,7 +305,6 @@
   font-weight: 400;
   line-height: 107.692%;
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 @-webkit-keyframes shake {
@@ -563,7 +560,6 @@
   font-weight: 500;
   line-height: 87.5%;
   -webkit-transition: color 0.3s ease 0s;
-  -o-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
 }
 @media (max-width: 1170px) {

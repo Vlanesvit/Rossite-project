@@ -606,14 +606,22 @@
 	&__call {
 		@media (max-width: 991.98px) {
 			.rs-btn {
-				border: none;
-				padding: 0;
+				& > span.btn-text {
+					padding: 0;
+					border: none;
+					opacity: 1;
+					visibility: visible;
 
-				&::before {
-					margin: 0;
+					&::before {
+						margin: 0;
+					}
 				}
 
-				& > span {
+				& > .svg-wrapper {
+					display: none;
+				}
+
+				& span.split-text-wrapper {
 					display: none;
 				}
 			}

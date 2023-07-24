@@ -13,10 +13,10 @@ function moveSvgDashed(dashed, mask, trigger) {
 		drawSVG: "0%",
 		scrollTrigger: {
 			trigger: trigger,
-			start: "top+=75% top",
+			start: "top-=25% top",
 			end: "bottom+=200% bottom",
 			scrub: 1,
-			// markers: 1
+			markers: 1
 		},
 	});
 
@@ -157,10 +157,12 @@ function animDesktop() {
 	parallaxImgBottom.from('.rs-steps__column-bottom', {
 		y: '500px',
 	})
+
+	showContentOnScroll('.rs-project__item', 0.5, 0.3, 'bottom-up--every');
 }
 
 function animMobile() {
-
+	showContentOnScroll('.rs-project__slider', 0.5, 0.3, 'bottom-up');
 }
 
 function animCommon() {
@@ -276,7 +278,6 @@ function animCommon() {
 	showContentOnScroll('.rs-about-product__icon', 0.5, 0.15, 'bottom-up--every');
 	// project
 	showContentOnScroll('.rs-project__filter', 0.5, 1, 'bottom-up');
-	showContentOnScroll('.rs-project__item', 0.5, 0.3, 'bottom-up--every');
 	showContentOnScroll('.rs-project__add', 0.5, 0.5, 'bottom-up--every');
 	// steps
 	showContentOnScroll('.rs-steps__navigation_list li a ', 0.5, 0.15, 'left-right--every');
@@ -297,12 +298,12 @@ function animCommon() {
 	showContentOnScroll('.rs-services__slide', 0.5, 0.2, 'right-left--every');
 	showContentOnScroll('.rs-services__icon', 0.5, 0.15, 'bottom-up--every');
 	// footer
-	showContentOnScroll('.rs-footer__phone', 0.5, 0.2, 'bottom-up');
-	showContentOnScroll('.rs-footer__links ul li', 0.5, 0.15, 'bottom-up--every');
-	showContentOnScroll('.rs-footer__social', 0.5, 0.5, 'bottom-up');
-	showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
-	showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
-	showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
+	// showContentOnScroll('.rs-footer__phone', 0.5, 0.2, 'bottom-up');
+	// showContentOnScroll('.rs-footer__links ul li', 0.5, 0.15, 'bottom-up--every');
+	// showContentOnScroll('.rs-footer__social', 0.5, 0.5, 'bottom-up');
+	// showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
+	// showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
+	// showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
 }
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -319,3 +320,19 @@ window.addEventListener("DOMContentLoaded", function () {
 	breakpointChecker();
 })
 ScrollTrigger.refresh()
+
+function callResize() {
+	if (typeof (Event) === 'function') {
+		// modern browsers
+		window.dispatchEvent(new Event('resize'));
+	} else {
+		// for IE and other old browsers
+		// causes deprecation warning on modern browsers
+		var evt = window.document.createEvent('UIEvents');
+		evt.initUIEvent('resize', true, false, window, 0);
+		window.dispatchEvent(evt);
+	}
+}
+setTimeout(() => {
+	callResize()
+}, 100);

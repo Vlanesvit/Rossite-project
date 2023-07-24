@@ -168,14 +168,12 @@
   background-color: #fff;
   border-radius: 50%;
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 .rs-footer .social__list li a::before {
   font-size: 20px;
   color: var(--gray-font-color);
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 @media (max-width: 991.98px) {
@@ -341,7 +339,6 @@
     margin-left: 3px;
     -webkit-transition: -webkit-transform 0.3s ease 0s;
     transition: -webkit-transform 0.3s ease 0s;
-    -o-transition: transform 0.3s ease 0s;
     transition: transform 0.3s ease 0s;
     transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
     -webkit-transform: rotate(45deg);
@@ -548,7 +545,6 @@
   letter-spacing: 0.16px;
   border-bottom: 1px solid #9397ad;
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 .rs-footer__city_list li a._active-city {
