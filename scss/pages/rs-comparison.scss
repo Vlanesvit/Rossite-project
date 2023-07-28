@@ -1,6 +1,7 @@
 .rs-comparison {
 	text-align: center;
 	padding-bottom: 100px;
+	overflow: hidden;
 
 	@media (max-width: 1440px) {
 		padding-bottom: 75px;
@@ -31,6 +32,10 @@
 		overflow: visible;
 		position: relative;
 		cursor: none;
+		// min-height: 934px;
+		padding-bottom: 48.65%;
+		// right: -80px;
+		right: -5%;
 
 		.icv__control-line {
 			width: 8px !important;
