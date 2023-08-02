@@ -53,18 +53,18 @@ function initServiceSlider() {
 					type: 'progressbar',
 				},
 
-				// // Управлениее мышью
-				// mousewheel: {
-				// 	enabled: true,
-				// 	sensitivity: 2,
-				// },
+				// Управлениее мышью
+				mousewheel: {
+					enabled: true,
+					sensitivity: 2,
+				},
 
-				// // Свободный режим
-				// freeMode: {
-				// 	enabled: true,
-				// 	sticky: false,
-				// 	momentumBounce: false,
-				// },
+				// Свободный режим
+				freeMode: {
+					enabled: true,
+					sticky: false,
+					momentumBounce: false,
+				},
 
 				// Стрелки
 				navigation: {
@@ -114,14 +114,14 @@ function initServiceSlider() {
 						// onEnterBack: () => { },
 						// onLeaveBack: () => { },
 						onUpdate: self => {
-							setTimeout(() => {
-								if (self.direction === 1) {
-									sliderSwiper.slideNext()
-								}
-								else if (self.direction === -1) {
-									sliderSwiper.slidePrev()
-								}
-							}, 300);
+							// setTimeout(() => {
+							// 	if (self.direction === 1) {
+							// 		sliderSwiper.slideNext()
+							// 	}
+							// 	else if (self.direction === -1) {
+							// 		sliderSwiper.slidePrev()
+							// 	}
+							// }, 300);
 						},
 					})
 				}
