@@ -38,15 +38,35 @@
     margin-top: 20px;
   }
 }
+.rs-about-product__slider progress {
+  width: 100%;
+  height: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  margin-top: 47px;
+}
+@media (max-width: 991.98px) {
+  .rs-about-product__slider progress {
+    display: none;
+  }
+}
+.rs-about-product__slider progress[value]::-webkit-progress-bar {
+  background: #d4d7e5;
+}
+.rs-about-product__slider progress[value]::-webkit-progress-value {
+  background: #6366f1;
+}
 .rs-about-product__swiper {
-  -webkit-transition: -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition: -webkit-transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 .rs-about-product__slide {
   min-height: 541px;
   height: auto;
+  width: 100%;
 }
 @media (max-width: 991.98px) {
   .rs-about-product__slide {

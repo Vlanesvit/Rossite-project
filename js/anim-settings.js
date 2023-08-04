@@ -30,7 +30,7 @@ function moveSvgDashed(dashed, mask, trigger) {
 	});
 
 	gsap.from(dashed, {
-		"--dashOffset": 1000,
+		"--dashOffset": 500,
 		delay: 5,
 		scrollTrigger: {
 			trigger: trigger,
