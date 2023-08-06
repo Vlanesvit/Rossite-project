@@ -29,38 +29,17 @@
 		@media (max-width: 991.98px) {
 			margin-top: 20px;
 		}
-
-		progress {
-			width: 100%;
-			height: 3px;
-			-webkit-appearance: none;
-			appearance: none;
-			margin-top: 47px;
-
-			@media (max-width: 991.98px) {
-				display: none;
-			}
-		}
-
-		progress[value]::-webkit-progress-bar {
-			background: #d4d7e5;
-		}
-
-		progress[value]::-webkit-progress-value {
-			background: #6366f1;
-		}
 	}
 
 	// .rs-about-product__swiper
 	&__swiper {
-		transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+		transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 	}
 
 	// .rs-about-product__slide
 	&__slide {
 		min-height: 541px;
 		height: auto;
-		width: 100%;
 
 		@media (max-width: 991.98px) {
 			min-height: 401px;

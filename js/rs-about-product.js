@@ -36,8 +36,7 @@ function initAboutSlider() {
 
 				// Включение/отключение
 				// перетаскивание на ПК
-				simulateTouch: false,
-				allowTouchMove: false,
+				simulateTouch: true,
 				// Чувствительность свайпа
 				touchRadio: 1,
 				// Угол срабатывания свайпа/перетаскивания
@@ -46,32 +45,32 @@ function initAboutSlider() {
 				// Курсор
 				grabCursor: true,
 
-				// // Пагинация
-				// pagination: {
-				// 	el: pagination,
-				// 	// clickable: true,
-				// 	// dynamicBullets: true
-				// 	type: 'progressbar',
-				// },
+				// Пагинация
+				pagination: {
+					el: pagination,
+					// clickable: true,
+					// dynamicBullets: true
+					type: 'progressbar',
+				},
 
-				// // Управлениее мышью
-				// mousewheel: {
-				// 	enabled: true,
-				// 	sensitivity: 2,
-				// },
+				// Управлениее мышью
+				mousewheel: {
+					enabled: true,
+					sensitivity: 2,
+				},
 
-				// // Свободный режим
-				// freeMode: {
-				// 	enabled: true,
-				// 	sticky: false,
-				// 	momentumBounce: false,
-				// },
+				// Свободный режим
+				freeMode: {
+					enabled: true,
+					sticky: false,
+					momentumBounce: false,
+				},
 
-				// // Стрелки
-				// navigation: {
-				// 	nextEl: arrowNext,
-				// 	prevEl: arrowPrev,
-				// },
+				// Стрелки
+				navigation: {
+					nextEl: arrowNext,
+					prevEl: arrowPrev,
+				},
 
 				// Брейкпоинты(адаптив)
 				// Шрина экрана
@@ -103,34 +102,39 @@ function initAboutSlider() {
 				},
 			});
 
-			gsap.registerPlugin(ScrollTrigger);
-			let container = document.querySelector('.rs-about-product__swiper');
-			gsap.to(container, {
-				x: () => -(container.scrollWidth - container.clientWidth) + "px",
-				ease: "none",
-				scrollTrigger: {
-					trigger: ".rs-about-product",
-					start: "top-=10% top",
-					end: "bottom+=100% bottom",
-					scrub: true,
-					pin: true,
-					invalidateOnRefresh: true,
-					anticipatePin: 1,
+			const breakpoint = window.matchMedia('(min-width: 991.98px)');
+			const breakpointChecker = function () {
+				if (breakpoint.matches === true) {
+					gsap.to(".rs-about-product__swiper", { ease: "none", });
+					ScrollTrigger.create({
+						trigger: ".rs-about-product",
+						start: "top-=10% top",
+						end: "bottom+=100% bottom",
+						scrub: true,
+						pin: true,
+						invalidateOnRefresh: true,
+						anticipatePin: 1,
+						// markers: 1,
+						onEnter: () => { },
+						onLeave: () => { },
+						onEnterBack: () => { },
+						onLeaveBack: () => { },
+						onUpdate: self => {
+						// 	setTimeout(() => {
+						// 		if (self.direction === 1) {
+						// 			sliderSwiper.slideNext()
+						// 		}
+						// 		else if (self.direction === -1) {
+						// 			sliderSwiper.slidePrev()
+						// 		}
+						// 	}, 300);
+						},
+					})
 				}
-			});
-			ScrollTrigger.refresh();
-			gsap.to('progress', {
-				value: 100,
-				ease: 'none',
-				scrollTrigger: {
-					trigger: ".rs-about-product",
-					start: "top-=10% top",
-					end: "bottom+=100% bottom",
-					scrub: true,
-					invalidateOnRefresh: true,
-					anticipatePin: 1,
-				}
-			});
+			};
+			breakpoint.addListener(breakpointChecker);
+			breakpointChecker();
+
 		});
 	}
 }
@@ -139,4 +143,3 @@ window.addEventListener("load", function (e) {
 	// Запуск инициализации слайдеров
 	initAboutSlider();
 });
-
