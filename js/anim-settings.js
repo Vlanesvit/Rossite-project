@@ -101,6 +101,40 @@ function showContentOnScroll(elem, duration, delay, direction) {
 	});
 }
 
+/* HORIZONTAL SCROLL */
+function horizontalScroll(block, trigger, progress) {
+	let container = document.querySelector(block);
+	gsap.to(container, {
+		x: () => -(container.scrollWidth - container.clientWidth) + "px",
+		ease: "none",
+		scrollTrigger: {
+			trigger: trigger,
+			start: "top-=10% top",
+			end: "bottom+=200% bottom",
+			scrub: true,
+			pin: true,
+			invalidateOnRefresh: true,
+			anticipatePin: 1,
+			onUpdate: self => {
+			},
+		}
+	});
+	ScrollTrigger.refresh();
+	gsap.to(progress, {
+		width: 100 + '%',
+		duration: 3,
+		ease: 'none',
+		scrollTrigger: {
+			trigger: trigger,
+			start: "top-=10% top",
+			end: "bottom+=200% bottom",
+			scrub: true,
+			invalidateOnRefresh: true,
+			anticipatePin: 1,
+		}
+	});
+}
+
 function animDesktop() {
 	/* BG-COLOR CHANGER */
 	const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
@@ -259,11 +293,11 @@ function animCommon() {
 	});
 
 	/* MOVE SVG LINE */
-	moveSvgDashed(".rs-about-product__line #dashed-about", ".rs-about-product__line #mask-about", ".rs-about-product");
-	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews");
-	moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
+	// moveSvgDashed(".rs-about-product__line #dashed-about", ".rs-about-product__line #mask-about", ".rs-about-product");
+	// moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews");
+	// moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
+	// moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
+	// moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
 
 	/* REVEAL ANIMATION */
 	// text
@@ -313,6 +347,9 @@ function animCommon() {
 	// showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
 	// showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
 	// showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
+
+	horizontalScroll('.rs-about-product__list', '.rs-about-product', '.rs-about-product__progress_fill')
+	horizontalScroll('.rs-services__list', '.rs-services', '.rs-services__progress_fill')
 }
 
 window.addEventListener("DOMContentLoaded", function () {
