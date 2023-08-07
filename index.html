@@ -1267,9 +1267,14 @@
 				<div class="rs-services__container">
 					<h2 class="mrp-med-45">Дополнительно</h2>
 
-					<div class="rs-services__slider">
-						<div class="rs-services__list">
-							<div class="rs-services__slide">
+					<div class="rs-services__navigation swiper-navigation">
+						<div class="rs-services__button-prev swiper-button-prev _rs-icon-arrow-prev"></div>
+						<div class="rs-services__button-next swiper-button-next _rs-icon-arrow-next"></div>
+					</div>
+
+					<div class="rs-services__slider swiper">
+						<div class="rs-services__swiper swiper-wrapper">
+							<div class="rs-services__slide swiper-slide">
 								<a href="#">
 									<div class="rs-services__item rs-services--green">
 										<div class="rs-services__img">
@@ -1307,7 +1312,7 @@
 								</a>
 							</div>
 
-							<div class="rs-services__slide">
+							<div class="rs-services__slide swiper-slide">
 								<a href="#">
 									<div class="rs-services__item rs-services--blue">
 										<div class="rs-services__img">
@@ -1348,7 +1353,7 @@
 								</a>
 							</div>
 
-							<div class="rs-services__slide">
+							<div class="rs-services__slide swiper-slide">
 								<a href="#">
 									<div class="rs-services__item rs-services--yellow">
 										<div class="rs-services__img">
@@ -1396,9 +1401,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="rs-services__progress">
-							<div class="rs-services__progress_fill"></div>
-						</div>
+						<div class="rs-services__pagination swiper-pagination"></div>
 					</div>
 				</div>
 			</section>
@@ -1661,7 +1664,6 @@
 	<script src="js/rs-script.js"></script>
 
 	<script src="js/rs-header.js"></script>
-	<script src="js/rs-about-product.js"></script>
 	<script src="js/rs-project.js"></script>
 	<script src="js/rs-steps.js"></script>
 	<script src="js/rs-comparison.js"></script>
