@@ -349,7 +349,6 @@ function animCommon() {
 	// showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
 
 	horizontalScroll('.rs-about-product__list', '.rs-about-product', '.rs-about-product__progress_fill')
-	horizontalScroll('.rs-services__list', '.rs-services', '.rs-services__progress_fill')
 }
 
 window.addEventListener("DOMContentLoaded", function () {
