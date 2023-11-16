@@ -1,11 +1,12 @@
 .rs-banner {
-  padding: 20px 80px 100px;
+  padding: 20px 80px 0px;
+  margin-bottom: 90px;
 }
 @media (max-width: 1440px) {
   .rs-banner {
     padding-left: 40px;
     padding-right: 40px;
-    padding-bottom: 75px;
+    margin-bottom: 65px;
   }
 }
 @media (max-width: 1170px) {
@@ -20,7 +21,7 @@
     padding-left: 0px;
     padding-right: 0px;
     padding-top: 0px;
-    padding-bottom: 47px;
+    margin-bottom: 47px;
   }
 }
 .rs-banner__wrapper {
@@ -89,12 +90,12 @@
 }
 @media (max-width: 991.98px) {
   .rs-banner__content {
-    padding: 96px 0px 126px;
+    padding: 91px 0px 90px;
   }
 }
 @media (max-width: 767.98px) {
   .rs-banner__content {
-    padding: 42px 0px 414px;
+    padding: 42px 0px 327px;
   }
 }
 .rs-banner__body {
@@ -124,12 +125,17 @@
 }
 @media (max-width: 991.98px) {
   .rs-banner__body > h1 {
-    max-width: 260px;
+    max-width: 300px;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 115%;
   }
 }
 @media (max-width: 767.98px) {
   .rs-banner__body > h1 {
     max-width: 100%;
+    font-size: 25px;
+    font-weight: 400;
   }
 }
 .rs-banner__body > h5 {
@@ -139,12 +145,12 @@
 @media (max-width: 991.98px) {
   .rs-banner__body > h5 {
     margin-top: 8px;
-    max-width: 300px;
+    max-width: 355px;
   }
 }
 @media (max-width: 767.98px) {
   .rs-banner__body > h5 {
-    margin: 10px auto 0px;
+    margin: 6px auto 0px;
   }
 }
 .rs-banner__buttons {

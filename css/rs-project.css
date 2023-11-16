@@ -9,16 +9,16 @@
 }
 @media (max-width: 991.98px) {
   .rs-project {
-    padding-bottom: 53px;
-    padding-top: 47px;
-    background: #f7f7f7;
+    padding-bottom: 64px;
+    padding-top: 61px;
+    background: var(--item-gray-bg);
   }
 }
 @media (max-width: 767.98px) {
   .rs-project {
     padding-bottom: 60px;
     padding-top: 60px;
-    background: #f7f7f7;
+    background: var(--item-gray-bg);
   }
 }
 @media (max-width: 991.98px) {
@@ -669,12 +669,7 @@
     margin-top: 27px;
   }
   .rs-project__add._close-btn {
-    margin-top: 0px;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transform: translateY(-30px);
-        -ms-transform: translateY(-30px);
-            transform: translateY(-30px);
+    display: none;
   }
 }
 @media (max-width: 991.98px) {

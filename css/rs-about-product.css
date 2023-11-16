@@ -1,5 +1,6 @@
 .rs-about-product {
   padding-bottom: 95px;
+  padding-top: 10px;
   overflow: hidden;
 }
 @media (max-width: 1440px) {
@@ -46,21 +47,15 @@
   background: #d4d7e5;
 }
 .rs-about-product__progress_fill {
-  background: #6366f1;
+  background: var(--primary-color);
   left: 0;
   top: 0;
   height: 100%;
   width: 0%;
   position: absolute;
-  -webkit-transition: width 1.5s ease 0s;
-  transition: width 1.5s ease 0s;
   z-index: 10;
 }
 .rs-about-product__list {
-  -webkit-transition: -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
   width: 100%;
   height: 100%;
   display: -webkit-box;

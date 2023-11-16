@@ -604,9 +604,17 @@
 	}
 
 	&__call {
+		.rs-btn {
+			& > .btn-text {
+				&::before {
+					color: #000;
+				}
+			}
+		}
+
 		@media (max-width: 991.98px) {
 			.rs-btn {
-				& > span.btn-text {
+				& > .btn-text {
 					padding: 0;
 					border: none;
 					opacity: 1;
@@ -621,7 +629,7 @@
 					display: none;
 				}
 
-				& span.split-text-wrapper {
+				& .split-text-wrapper {
 					display: none;
 				}
 			}

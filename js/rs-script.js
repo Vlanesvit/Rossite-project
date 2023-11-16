@@ -70,8 +70,26 @@ data-spollers="768,min" - спойлеры будут работать толь�
 
 Если нужно что бы в блоке открывался болько один слойлер добавляем атрибут data-one-spoller
 */
+function setClassSpollers() {
+	const spollers = document.querySelectorAll('[data-spollers]')
+
+	spollers.forEach(spoller => {
+		spoller.classList.add('spollers')
+		const spollerItems = spoller.querySelectorAll('[class*=__spollers_item]')
+		spollerItems.forEach(item => {
+			const spollerTitle = item.querySelector('[class*=__spollers_title]')
+			const spollerBody = item.querySelector('[class*=__spollers_body]')
+			item.classList.add('spollers__item');
+			spollerTitle.classList.add('spollers__title');
+			spollerBody.classList.add('spollers__body');
+		});
+	});
+}
+
 function spollers() {
+	setClassSpollers()
 	const spollersArray = document.querySelectorAll('[data-spollers]');
+
 	if (spollersArray.length > 0) {
 		// Получение обычных слойлеров
 		const spollersRegular = Array.from(spollersArray).filter(function (item, index, self) {
@@ -146,14 +164,15 @@ function spollers() {
 					if (hideSpollerBody) {
 						spollerTitle.removeAttribute('tabindex');
 						if (!spollerTitle.classList.contains('_spoller-active')) {
-							spollerTitle.nextElementSibling.hidden = true;
+							spollerTitle.closest('.spollers__item').querySelector(".spollers__body").hidden = true;
 						}
 					} else {
 						spollerTitle.setAttribute('tabindex', '-1');
-						spollerTitle.nextElementSibling.hidden = false;
+						spollerTitle.closest('.spollers__item').querySelector(".spollers__body").hidden = false;
 					}
 				});
 			}
+
 		}
 		function setSpollerAction(e) {
 			const el = e.target;
@@ -166,7 +185,7 @@ function spollers() {
 						hideSpollersBody(spollersBlock);
 					}
 					spollerTitle.classList.toggle('_spoller-active');
-					_slideToggle(spollerTitle.nextElementSibling, 500);
+					_slideToggle(spollerTitle.closest('.spollers__item').querySelector(".spollers__body"), 500);
 				}
 				// e.preventDefault();
 			}
@@ -175,7 +194,7 @@ function spollers() {
 			const spollerActiveTitle = spollersBlock.querySelector('[data-spoller]._spoller-active');
 			if (spollerActiveTitle) {
 				spollerActiveTitle.classList.remove('_spoller-active');
-				_slideUp(spollerActiveTitle.nextElementSibling, 500);
+				_slideUp(spollerActiveTitle.closest('.spollers__item').querySelector(".spollers__body"), 500);
 			}
 		}
 	}
@@ -329,7 +348,7 @@ document.querySelectorAll('.split-text').forEach(button => {
 });
 
 document.querySelectorAll('.rs-btn').forEach(button => {
-	button.querySelector('.btn-text').classList.add('split-text')
+	button.querySelector('.btn-text').classList.add('split-text');
 	button.querySelector('.btn-text').innerHTML =
 		'<span class="split-text-wrapper">' +
 		'<span class="split-text-origin"><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></span>' +

@@ -7,98 +7,102 @@ gsap.registerPlugin(ScrollTrigger)
 // gsap.registerPlugin(drawSVGPlugin);
 // console.clear();
 
-/* Smooth Scroll */
-SmoothScroll({
-	animationTime: 600, // [ms]
-	stepSize: 100, // [px]
-	accelerationDelta: 50,  // 50
-	accelerationMax: 3,   // 3
-	touchpadSupport: false,
-});
+// /* Smooth Scroll */
+// SmoothScroll({
+// 	animationTime: 600, // [ms]
+// 	stepSize: 100, // [px]
+// 	accelerationDelta: 50,  // 50
+// 	accelerationMax: 3,   // 3
+// 	touchpadSupport: false,
+// });
 
 /* MOVE SVG LINE */
-function moveSvgDashed(dashed, mask, trigger) {
-	gsap.from(mask, {
-		drawSVG: "0%",
-		scrollTrigger: {
-			trigger: trigger,
-			start: "top-=20% top",
-			end: "bottom+=200% bottom",
-			scrub: 1,
-			// markers: 1
-		},
-	});
+function moveSvgDashed(dashed, mask, trigger, top = 75, end = 200, markers = 0) {
+	if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
+		gsap.from(mask, {
+			drawSVG: "0%",
+			scrollTrigger: {
+				trigger: trigger,
+				start: `top+=50% top`,
+				end: `bottom+=300% bottom`,
+				scrub: 1,
+				markers: markers,
+			},
+		});
 
-	gsap.from(dashed, {
-		"--dashOffset": 1000,
-		delay: 5,
-		scrollTrigger: {
-			trigger: trigger,
-			start: "top+=75% top",
-			end: "bottom+=200% bottom",
-			scrub: 1,
-			// markers: 1
-		}
-	});
-
-	document.querySelector(dashed).setAttribute("stroke-dashoffset", "var(--dashOffset)");
+		gsap.from(dashed, {
+			"--dashOffset": 1000,
+			delay: 5,
+			scrollTrigger: {
+				trigger: trigger,
+				start: `top+=${top}% top`,
+				end: `bottom+=${end}% bottom`,
+				scrub: 1,
+				markers: markers,
+			}
+		});
+		ScrollTrigger.refresh()
+		document.querySelector(dashed).setAttribute("stroke-dashoffset", "var(--dashOffset)");
+	}
 }
 
 /* REVEAL ANIMATION */
 function showContentOnScroll(elem, duration, delay, direction) {
-	const elems = gsap.utils.toArray(elem);
-	elems.forEach((item, i) => {
-		let anim;
+	if (document.querySelectorAll(elem)) {
+		const elems = gsap.utils.toArray(elem);
+		elems.forEach((item, i) => {
+			let anim;
 
-		switch (true) {
-			case direction === 'bottom-up':
-				anim = gsap.fromTo(item, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
-				break;
-			case direction === 'right-left':
-				anim = gsap.fromTo(item, { autoAlpha: 0, x: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
-				break;
-			case direction === 'up-bottom':
-				anim = gsap.fromTo(item, { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
-				break;
-			case direction === 'left-right':
-				anim = gsap.fromTo(item, { autoAlpha: 0, x: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
-				break;
-			case direction === 'fade':
-				anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay, duration: duration });
-				break;
-			case direction === 'bottom-up--every':
-				anim = gsap.fromTo(item, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
-				break;
-			case direction === 'right-left--every':
-				anim = gsap.fromTo(item, { autoAlpha: 0, x: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
-				break;
-			case direction === 'up-bottom--every':
-				anim = gsap.fromTo(item, { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
-				break;
-			case direction === 'left-right--every':
-				anim = gsap.fromTo(item, { autoAlpha: 0, x: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
-				break;
-			case direction === 'fade--every':
-				anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay * (i + 1), duration: duration });
-				break;
+			switch (true) {
+				case direction === 'bottom-up':
+					anim = gsap.fromTo(item, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
+					break;
+				case direction === 'right-left':
+					anim = gsap.fromTo(item, { autoAlpha: 0, x: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
+					break;
+				case direction === 'up-bottom':
+					anim = gsap.fromTo(item, { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
+					break;
+				case direction === 'left-right':
+					anim = gsap.fromTo(item, { autoAlpha: 0, x: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration });
+					break;
+				case direction === 'fade':
+					anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay, duration: duration });
+					break;
+				case direction === 'bottom-up--every':
+					anim = gsap.fromTo(item, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
+					break;
+				case direction === 'right-left--every':
+					anim = gsap.fromTo(item, { autoAlpha: 0, x: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
+					break;
+				case direction === 'up-bottom--every':
+					anim = gsap.fromTo(item, { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
+					break;
+				case direction === 'left-right--every':
+					anim = gsap.fromTo(item, { autoAlpha: 0, x: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
+					break;
+				case direction === 'fade--every':
+					anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay * (i + 1), duration: duration });
+					break;
 
-			default:
-				break;
-		}
+				default:
+					break;
+			}
 
-		ScrollTrigger.create({
-			trigger: item,
-			animation: anim,
-			once: true,
-			// scrub: true,
-			// markers: 1,
+			ScrollTrigger.create({
+				trigger: item,
+				animation: anim,
+				once: true,
+				// scrub: true,
+				// markers: 1,
 
-			onEnter: () => function () { },
-			onLeave: () => function () { },
-			onEnterBack: () => function () { },
-			onLeaveBack: () => function () { },
+				onEnter: () => function () { },
+				onLeave: () => function () { },
+				onEnterBack: () => function () { },
+				onLeaveBack: () => function () { },
+			});
 		});
-	});
+	}
 }
 
 /* HORIZONTAL SCROLL */
@@ -231,7 +235,7 @@ function animCommon() {
 				if (homeIntroBtn.classList.contains('_btn-primary')) {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
 						duration: 1,
-						fill: 'rgb(99, 102, 241)',
+						fill: 'var(--primary-color)',
 						ease: 'cubic-1',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
@@ -293,11 +297,11 @@ function animCommon() {
 	});
 
 	/* MOVE SVG LINE */
-	// moveSvgDashed(".rs-about-product__line #dashed-about", ".rs-about-product__line #mask-about", ".rs-about-product");
-	// moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews");
-	// moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
-	// moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
-	// moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
+	moveSvgDashed(".rs-about-product__line #dashed-about", ".rs-about-product__line #mask-about", ".rs-about-product");
+	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews", 50, 250);
+	moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
 
 	/* REVEAL ANIMATION */
 	// text

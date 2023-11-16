@@ -22,13 +22,14 @@ $fontSize: 14px;
 	--light-gray-border: #d4d7e5;
 	--font-color: #141517;
 	--gray-font-color: #1d1e21;
-	--purple-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
+	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
 	--item-green-bg: #f1faea;
 	--item-blue-bg: #eaf0ff;
 	--item-pink-bg: #ffe9fb;
 	--item-yellow-bg: #fefae4;
 	--item-orange-bg: #fff1e3;
 	--item-red-bg: #ffeae2;
+	--item-gray-bg: #f7f7f7;
 }
 
 // Минимальная ширина страницы
@@ -105,7 +106,7 @@ body {
 
 // Вспомогательные классы ======================================================================================================================================================================================================================
 .primary-color {
-	background: var(--purple-gradient);
+	background: var(--primary-gradient);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	color: #6e69f3;

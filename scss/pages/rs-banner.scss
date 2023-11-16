@@ -1,10 +1,11 @@
 .rs-banner {
-	padding: 20px 80px 100px;
+	padding: 20px 80px 0px;
+	margin-bottom: 90px;
 
 	@media (max-width: 1440px) {
 		padding-left: 40px;
 		padding-right: 40px;
-		padding-bottom: 75px;
+		margin-bottom: 65px;
 	}
 
 	@media (max-width: 1170px) {
@@ -17,7 +18,7 @@
 		padding-left: 0px;
 		padding-right: 0px;
 		padding-top: 0px;
-		padding-bottom: 47px;
+		margin-bottom: 47px;
 	}
 
 	&__wrapper {
@@ -45,7 +46,7 @@
 		z-index: -1;
 		border-radius: 30px;
 		overflow: hidden;
-		
+
 		img {
 			width: 100%;
 			height: 100%;
@@ -84,11 +85,11 @@
 		height: 100%;
 
 		@media (max-width: 991.98px) {
-			padding: 96px 0px 126px;
+			padding: 91px 0px 90px;
 		}
 
 		@media (max-width: 767.98px) {
-			padding: 42px 0px 414px;
+			padding: 42px 0px 327px;
 		}
 	}
 
@@ -108,11 +109,16 @@
 
 		& > h1 {
 			@media (max-width: 991.98px) {
-				max-width: 260px;
+				max-width: 300px;
+				font-size: 34px;
+				font-weight: 400;
+				line-height: 115%;
 			}
 
 			@media (max-width: 767.98px) {
 				max-width: 100%;
+				font-size: 25px;
+				font-weight: 400;
 			}
 		}
 
@@ -122,11 +128,11 @@
 
 			@media (max-width: 991.98px) {
 				margin-top: 8px;
-				max-width: 300px;
+				max-width: 355px;
 			}
 
 			@media (max-width: 767.98px) {
-				margin: 10px auto 0px;
+				margin: 6px auto 0px;
 			}
 		}
 	}

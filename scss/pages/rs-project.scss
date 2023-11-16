@@ -7,15 +7,15 @@
 	}
 
 	@media (max-width: 991.98px) {
-		padding-bottom: 53px;
-		padding-top: 47px;
-		background: #f7f7f7;
+		padding-bottom: 64px;
+		padding-top: 61px;
+		background: var(--item-gray-bg);
 	}
 
 	@media (max-width: 767.98px) {
 		padding-bottom: 60px;
 		padding-top: 60px;
-		background: #f7f7f7;
+		background: var(--item-gray-bg);
 	}
 
 	// .rs-project__container
@@ -443,10 +443,7 @@
 			margin-top: 27px;
 
 			&._close-btn {
-				margin-top: 0px;
-				opacity: 0;
-				visibility: hidden;
-				transform: translateY(-30px);
+				display: none;
 			}
 		}
 		@media (max-width: 991.98px) {
