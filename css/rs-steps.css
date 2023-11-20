@@ -13,6 +13,9 @@
     padding-top: 50px;
   }
 }
+.rs-steps__wrapper {
+  position: relative;
+}
 @media (min-width: 991.98px) {
   .rs-steps__wrapper {
     display: grid;
@@ -21,10 +24,6 @@
   }
 }
 @media (min-width: 991.98px) {
-  .rs-steps__navigation_body {
-    position: sticky;
-    top: 100px;
-  }
   .rs-steps__navigation_body > h2 span {
     display: block;
   }

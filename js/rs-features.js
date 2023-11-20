@@ -1,102 +1,100 @@
 /* ====================================
-Инициализация слайдера в блоке rs-features
+Инициализация слайдера rs-features
 ==================================== */
 function initFeaturesSlider() {
-	if (document.querySelector('.rs-features')) {
-		const sliderFeatures = document.querySelectorAll('.rs-features');
+	if (document.querySelector('.rs-features__slider')) {
+		'use strict';
+		// До этой ширины слайдер будет неактивным
+		const breakpoint = window.matchMedia('(min-width: 991.98px)');
 
-		sliderFeatures.forEach(sliderFeature => {
-			const slider = sliderFeature.querySelector('.rs-features__slider');
-			const arrowNext = sliderFeature.querySelector('.rs-features__button-next');
-			const arrowPrev = sliderFeature.querySelector('.rs-features__button-prev');
+		let features;
 
-			// Перечень слайдеров
-			new Swiper(slider, {
-				// // Автопрокрутка
-				// autoplay: {
-				// 	// Пауза между прокруткой
-				// 	delay: 10000,
-				// 	// Закончить на последнем слайде
-				// 	stopOnLastSlide: false,
-				// 	// Отключить после ручного переключения
-				// 	disableOnInteraction: false,
-				// },
+		const breakpointChecker = function () {
+			if (breakpoint.matches === true) {
+				if (features !== undefined) features.destroy(true, true);
+				return;
+			} else if (breakpoint.matches === false) {
+				return enableSwiper();
+			}
+		};
 
-				// Обновить свайпер
-				// при изменении элементов слайдера
-				observer: true,
-				// при изменении родительских элементов слайдера
-				observeParents: true,
-				// при изменении дочерних элементов слайдера
-				observeSlideChildren: true,
+		// Инициализация слайдера
+		const enableSwiper = function () {
+			const sliderFeatures = document.querySelectorAll('.rs-features');
 
-				// Скорость смены слайдов
-				speed: 500,
+			sliderFeatures.forEach(sliderFeature => {
+				const slider = sliderFeature.querySelector('.rs-features__slider');
+				const arrowNext = sliderFeature.querySelector('.rs-features__button-next');
+				const arrowPrev = sliderFeature.querySelector('.rs-features__button-prev');
 
-				// Включение/отключение
-				// перетаскивание на ПК
-				simulateTouch: true,
-				// Чувствительность свайпа
-				touchRadio: 1,
-				// Угол срабатывания свайпа/перетаскивания
-				touchAngle: 45,
+				// Перечень слайдеров
+				new Swiper(slider, {
+					// // Автопрокрутка
+					// autoplay: {
+					// 	// Пауза между прокруткой
+					// 	delay: 10000,
+					// 	// Закончить на последнем слайде
+					// 	stopOnLastSlide: false,
+					// 	// Отключить после ручного переключения
+					// 	disableOnInteraction: false,
+					// },
 
-				// Курсор
-				grabCursor: true,
+					// Обновить свайпер
+					// при изменении элементов слайдера
+					observer: true,
+					// при изменении родительских элементов слайдера
+					observeParents: true,
+					// при изменении дочерних элементов слайдера
+					observeSlideChildren: true,
 
-				// // Стрелки
-				// navigation: {
-				// 	nextEl: arrowNext,
-				// 	prevEl: arrowPrev,
-				// },
+					// Скорость смены слайдов
+					speed: 500,
 
-				// loop: true,
+					// Включение/отключение
+					// перетаскивание на ПК
+					simulateTouch: true,
+					// Чувствительность свайпа
+					touchRadio: 1,
+					// Угол срабатывания свайпа/перетаскивания
+					touchAngle: 45,
 
-				// Брейкпоинты(адаптив)
-				// Шрина экрана
-				breakpoints: {
-					320: {
-						slidesPerView: 1.22,
-						spaceBetween: 20,
+					// Курсор
+					grabCursor: true,
+
+					// // Стрелки
+					// navigation: {
+					// 	nextEl: arrowNext,
+					// 	prevEl: arrowPrev,
+					// },
+
+					// loop: true,
+
+					// Брейкпоинты(адаптив)
+					// Шрина экрана
+					breakpoints: {
+						320: {
+							slidesPerView: 1.22,
+							spaceBetween: 20,
+						},
+						768: {
+							slidesPerView: 2.4,
+							spaceBetween: 25,
+						},
+						992: {
+							slidesPerView: 1,
+							spaceBetween: 30,
+						},
 					},
-					768: {
-						slidesPerView: 2.4,
-						spaceBetween: 25,
-					},
-					992: {
-						slidesPerView: 1,
-						spaceBetween: 30,
-					},
-				},
-
-				on: {
-					slideChangeTransitionEnd: function () {
-						const slide = document.querySelector('.rs-features__slide.swiper-slide-active');
-						switch (true) {
-							case slide.classList.contains('rs-features__slide-1'):
-								document.querySelector('.rs-features__wrapper').style.backgroundColor = "var(--item-gray-bg)";
-								break;
-
-							case slide.classList.contains('rs-features__slide-2'):
-								document.querySelector('.rs-features__wrapper').style.backgroundColor = "var(--item-blue-bg)";
-								break;
-
-							case slide.classList.contains('rs-features__slide-3'):
-								document.querySelector('.rs-features__wrapper').style.backgroundColor = "var(--item-green-bg)";
-								break;
-
-							default:
-								console.log('Слайдера нет');
-								break;
-						}
-					},
-				}
+				});
 			});
-		});
+		};
+
+		breakpoint.addListener(breakpointChecker);
+		breakpointChecker();
 	}
 }
 
 window.addEventListener("load", function (e) {
-	// Запуск инициализации слайдеров
+	// Запуск инициализации слайдера
 	initFeaturesSlider();
 });

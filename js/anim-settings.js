@@ -69,6 +69,9 @@ function showContentOnScroll(elem, duration, delay, direction) {
 				case direction === 'fade':
 					anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay, duration: duration });
 					break;
+				case direction === 'scale':
+					anim = gsap.fromTo(item, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, delay: delay, duration: duration });
+					break;
 				case direction === 'bottom-up--every':
 					anim = gsap.fromTo(item, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration });
 					break;
@@ -83,6 +86,12 @@ function showContentOnScroll(elem, duration, delay, direction) {
 					break;
 				case direction === 'fade--every':
 					anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay * (i + 1), duration: duration });
+					break;
+				case direction === 'scale--every':
+					anim = gsap.fromTo(item, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, delay: delay * (i + 1), duration: duration });
+					break;
+				case direction === 'width-100':
+					anim = gsap.fromTo(item, { width: 0 + '%' }, { width: 100 + '%', delay: delay, duration: duration, ease: 'cubic-1', });
 					break;
 
 				default:
@@ -205,23 +214,19 @@ function animDesktop() {
 		y: '500px',
 	})
 
+	/* REVEAL ANIMATION */
+	// project
 	showContentOnScroll('.rs-project__item', 0.5, 0.3, 'bottom-up--every');
 }
 
 function animMobile() {
+	/* REVEAL ANIMATION */
+	// project
 	showContentOnScroll('.rs-project__slider', 0.5, 0.3, 'bottom-up');
 }
 
 function animCommon() {
-	gsap.fromTo(document.querySelector('.rs-banner__bg'), {
-		width: 0 + '%',
-	}, {
-		width: 100 + '%',
-		delay: 0.5,
-		duration: 1,
-		ease: 'cubic-1',
-	})
-
+	// main btn
 	const homeIntroBtns = document.querySelectorAll('.rs-btn');
 	homeIntroBtns.forEach(homeIntroBtn => {
 		let btnAnim;
@@ -319,10 +324,12 @@ function animCommon() {
 	showContentOnScroll('.rs-header__actions', 0.5, 0.5, 'fade');
 	// banner
 	showContentOnScroll('.rs-banner__buttons', 0.5, 0.5, 'bottom-up--every');
+	showContentOnScroll('.rs-banner__bg', 1, 0.5, 'width-100');
 	// about
 	showContentOnScroll('.rs-about-product__slide', 0.5, 0.2, 'right-left--every');
 	showContentOnScroll('.rs-about-product__slider', 0.5, 0.2, 'right-left');
 	showContentOnScroll('.rs-about-product__icon', 0.5, 0.15, 'bottom-up--every');
+	horizontalScroll('.rs-about-product__list', '.rs-about-product', '.rs-about-product__progress_fill')
 	// project
 	showContentOnScroll('.rs-project__filter', 0.5, 1, 'bottom-up');
 	showContentOnScroll('.rs-project__add', 0.5, 0.5, 'bottom-up--every');
@@ -351,8 +358,25 @@ function animCommon() {
 	// showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
 	// showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
 	// showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
-
-	horizontalScroll('.rs-about-product__list', '.rs-about-product', '.rs-about-product__progress_fill')
+	// text-block	
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-0 img', 0.5, 0.3, 'scale');
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-1 img', 0.5, 0.6, 'scale');
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-2 img', 0.5, 0.9, 'scale');
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-3 img', 0.5, 1.2, 'scale');
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__icons img', 0.5, 0.3, 'scale--every');
+	showContentOnScroll('.rs-text-block__description ol li', 0.15, 0.3, 'bottom-up--every');
+	showContentOnScroll('.rs-text-block__description ul li', 0.15, 0.3, 'bottom-up--every');
+	// tariff
+	showContentOnScroll('.rs-tariff__desktop', 1, 1, 'fade');
+	showContentOnScroll('.rs-tariff__mobile .rs-tariff__spollers', 1, 1, 'fade');
+	// features	
+	showContentOnScroll('.rs-features__bg', 1, 0.5, 'width-100');
+	showContentOnScroll('.rs-features__container', 1, 1, 'fade');
+	showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
+	showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
+	// partners	
+	showContentOnScroll('.rs-partners__bg', 1, 0.5, 'width-100');
+	showContentOnScroll('.rs-partners__container', 1, 1, 'fade');
 }
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -367,21 +391,25 @@ window.addEventListener("DOMContentLoaded", function () {
 	};
 	breakpoint.addListener(breakpointChecker);
 	breakpointChecker();
+	ScrollTrigger.refresh()
 })
-ScrollTrigger.refresh()
 
-function callResize() {
-	if (typeof (Event) === 'function') {
-		// modern browsers
-		window.dispatchEvent(new Event('resize'));
-	} else {
-		// for IE and other old browsers
-		// causes deprecation warning on modern browsers
-		var evt = window.document.createEvent('UIEvents');
-		evt.initUIEvent('resize', true, false, window, 0);
-		window.dispatchEvent(evt);
-	}
-}
-setTimeout(() => {
-	callResize()
-}, 100);
+
+const cards = gsap.utils.toArray(".rs-features__block");
+cards.forEach((card, index) => {
+	const tween = gsap.to(card, {
+		scrollTrigger: {
+			trigger: card,
+			start: `top-=${index * 20} top+=10px`,
+			end: `bottom bottom`,
+			endTrigger: '.rs-features__blocks',
+			pin: true,
+			pinSpacing: false,
+			scrub: true,
+			markers: true,
+			// invalidateOnRefresh: true
+		},
+		ease: "none",
+		// scale: () => 1 - (cards.length - index) * 0.025
+	});
+});

@@ -17,6 +17,7 @@
 
 	// .rs-steps__wrapper
 	&__wrapper {
+		position: relative;
 		@media (min-width: 991.98px) {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
@@ -28,8 +29,8 @@
 	&__navigation {
 		&_body {
 			@media (min-width: 991.98px) {
-				position: sticky;
-				top: 100px;
+				// position: sticky;
+				// top: 100px;
 
 				& > h2 {
 					span {
