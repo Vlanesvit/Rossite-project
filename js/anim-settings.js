@@ -310,21 +310,21 @@ function animCommon() {
 
 	/* REVEAL ANIMATION */
 	// text
-	showContentOnScroll('.mrp-med-50', 0.5, 0.2, 'bottom-up');
-	showContentOnScroll('.mrp-med-45', 0.5, 0.2, 'bottom-up');
-	showContentOnScroll('.mrp-med-40', 0.5, 0.2, 'bottom-up');
-	showContentOnScroll('.mrp-med-25', 0.5, 0.3, 'bottom-up');
-	showContentOnScroll('.mrp-med-21', 0.5, 0.4, 'bottom-up');
-	showContentOnScroll('.mrp-reg-25', 0.5, 0.3, 'bottom-up');
-	showContentOnScroll('.mrp-reg-21', 0.5, 0.4, 'bottom-up');
-	showContentOnScroll('.mrp-reg-18', 0.5, 0.5, 'bottom-up');
+	showContentOnScroll('.mrp-med-50', 0.8, 0.5, 'bottom-up');
+	showContentOnScroll('.mrp-med-45', 0.8, 0.5, 'bottom-up');
+	showContentOnScroll('.mrp-med-40', 0.8, 0.5, 'bottom-up');
+	showContentOnScroll('.mrp-med-25', 0.8, 0.6, 'bottom-up');
+	showContentOnScroll('.mrp-med-21', 0.8, 0.7, 'bottom-up');
+	showContentOnScroll('.mrp-reg-25', 0.8, 0.5, 'bottom-up');
+	showContentOnScroll('.mrp-reg-21', 0.8, 0.6, 'bottom-up');
+	showContentOnScroll('.mrp-reg-18', 0.8, 0.7, 'bottom-up');
 	// header
-	showContentOnScroll('.rs-header__menu', 0.5, 0.2, 'fade');
-	showContentOnScroll('.rs-header__logo', 0.5, 0.35, 'fade');
-	showContentOnScroll('.rs-header__actions', 0.5, 0.5, 'fade');
+	showContentOnScroll('.rs-header__menu', 0.5, 0.5, 'fade');
+	showContentOnScroll('.rs-header__logo', 0.5, 0.75, 'fade');
+	showContentOnScroll('.rs-header__actions', 0.5, 1, 'fade');
 	// banner
 	showContentOnScroll('.rs-banner__buttons', 0.5, 0.5, 'bottom-up--every');
-	showContentOnScroll('.rs-banner__bg', 1, 0.5, 'width-100');
+	showContentOnScroll('.rs-banner__bg', 0.5, 0.3, 'width-100');
 	// about
 	showContentOnScroll('.rs-about-product__slide', 0.5, 0.2, 'right-left--every');
 	showContentOnScroll('.rs-about-product__slider', 0.5, 0.2, 'right-left');
@@ -370,12 +370,30 @@ function animCommon() {
 	showContentOnScroll('.rs-tariff__desktop', 1, 1, 'fade');
 	showContentOnScroll('.rs-tariff__mobile .rs-tariff__spollers', 1, 1, 'fade');
 	// features	
-	showContentOnScroll('.rs-features__bg', 1, 0.5, 'width-100');
+	showContentOnScroll('.rs-features__bg', 0.1, 0.3, 'width-100');
 	showContentOnScroll('.rs-features__container', 1, 1, 'fade');
 	showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
 	showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
+	const cards = gsap.utils.toArray(".rs-features__block");
+	cards.forEach((card, index) => {
+		const tween = gsap.to(card, {
+			scrollTrigger: {
+				trigger: card,
+				start: `top-=${index * 20} top+=10px`,
+				end: `bottom bottom`,
+				endTrigger: '.rs-features__blocks',
+				pin: true,
+				pinSpacing: false,
+				scrub: true,
+				// markers: true,
+				// invalidateOnRefresh: true
+			},
+			ease: "none",
+			// scale: () => 1 - (cards.length - index) * 0.025
+		});
+	});
 	// partners	
-	showContentOnScroll('.rs-partners__bg', 1, 0.5, 'width-100');
+	showContentOnScroll('.rs-partners__bg', 0.1, 0.3, 'width-100');
 	showContentOnScroll('.rs-partners__container', 1, 1, 'fade');
 }
 
@@ -393,23 +411,3 @@ window.addEventListener("DOMContentLoaded", function () {
 	breakpointChecker();
 	ScrollTrigger.refresh()
 })
-
-
-const cards = gsap.utils.toArray(".rs-features__block");
-cards.forEach((card, index) => {
-	const tween = gsap.to(card, {
-		scrollTrigger: {
-			trigger: card,
-			start: `top-=${index * 20} top+=10px`,
-			end: `bottom bottom`,
-			endTrigger: '.rs-features__blocks',
-			pin: true,
-			pinSpacing: false,
-			scrub: true,
-			// markers: true,
-			// invalidateOnRefresh: true
-		},
-		ease: "none",
-		// scale: () => 1 - (cards.length - index) * 0.025
-	});
-});

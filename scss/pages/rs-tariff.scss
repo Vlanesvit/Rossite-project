@@ -351,11 +351,14 @@
 	}
 
 	&__add {
+		transition: all 0.3s ease 0s;
+		
 		@media (min-width: 991.98px) {
 			margin-top: 72px;
 
 			&._hide {
-				display: none;
+				opacity: 0;
+				visibility: hidden;
 			}
 		}
 		@media (max-width: 991.98px) {

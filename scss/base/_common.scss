@@ -245,6 +245,8 @@ section {
 .rs-btn {
 	position: relative;
 	display: inline-block;
+	overflow: hidden;
+	border-radius: 100px;
 
 	.btn-text {
 		display: inline-flex;
@@ -254,10 +256,11 @@ section {
 		line-height: 130%;
 		border-radius: 30px;
 		position: relative;
-		z-index: 1;
-		padding: 16px 28px;
+		z-index: 10;
+		padding: 16.2px 28px;
 		opacity: 0;
 		visibility: hidden;
+		transition: all 0.3s ease 0s;
 
 		@media (max-width: 1440px) {
 			font-size: 14px;
@@ -277,12 +280,27 @@ section {
 			font-size: 20px;
 			margin-right: 9px;
 			color: var(--primary-color);
+			transition: all 0.3s ease 0s;
 
 			@media (max-width: 991.98px) {
 				font-size: 17px;
 				margin-right: 7px;
 			}
 		}
+	}
+
+	&:after {
+		content: "";
+		background-color: #fff;
+		border-radius: 50% 50% 0 0;
+		display: block;
+		height: 135%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		transform: translateY(100%) rotate(10deg);
+		transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
+		width: 100%;
 	}
 
 	.svg-wrapper {
@@ -301,12 +319,22 @@ section {
 			height: 100%;
 			z-index: 2;
 			overflow: visible;
+			transition: all 0.3s ease 0s;
 
 			path {
 				fill: none;
 				stroke-width: 1;
 				stroke-linecap: round;
 				stroke-linejoin: miter;
+				transition: all 0.3s ease 0s;
+			}
+		}
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			&:after {
+				transform: translateY(-25%) rotate(0);
 			}
 		}
 	}
@@ -329,6 +357,27 @@ section {
 		path {
 			stroke: var(--primary-color);
 		}
+
+		&:after {
+			background-color: #fff;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				.btn-text {
+					color: var(--primary-color);
+
+					&::before {
+						color: var(--primary-color);
+					}
+				}
+
+				path {
+					stroke: #fff;
+					fill: #fff;
+				}
+			}
+		}
 	}
 
 	&._btn-white {
@@ -341,6 +390,27 @@ section {
 		path {
 			stroke: #fff;
 		}
+
+		&:after {
+			background-color: var(--primary-color);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				.btn-text {
+					color: #fff;
+
+					&::before {
+						color: #fff;
+					}
+				}
+
+				path {
+					stroke: var(--primary-color);
+					fill: var(--primary-color);
+				}
+			}
+		}
 	}
 
 	&._btn-primary-border {
@@ -352,6 +422,27 @@ section {
 
 		path {
 			stroke: var(--primary-color);
+		}
+
+		&:after {
+			background-color: var(--primary-color);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				.btn-text {
+					color: #fff;
+
+					&::before {
+						color: #fff;
+					}
+				}
+
+				path {
+					stroke: #fff;
+					fill: #fff;
+				}
+			}
 		}
 	}
 }

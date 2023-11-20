@@ -1127,6 +1127,8 @@ section {
 .rs-btn {
   position: relative;
   display: inline-block;
+  overflow: hidden;
+  border-radius: 100px;
 }
 .rs-btn .btn-text {
   display: -webkit-inline-box;
@@ -1138,10 +1140,12 @@ section {
   line-height: 130%;
   border-radius: 30px;
   position: relative;
-  z-index: 1;
-  padding: 16px 28px;
+  z-index: 10;
+  padding: 16.2px 28px;
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 @media (max-width: 1440px) {
   .rs-btn .btn-text {
@@ -1164,12 +1168,32 @@ section {
   font-size: 20px;
   margin-right: 9px;
   color: var(--primary-color);
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 @media (max-width: 991.98px) {
   .rs-btn .btn-text::before {
     font-size: 17px;
     margin-right: 7px;
   }
+}
+.rs-btn:after {
+  content: "";
+  background-color: #fff;
+  border-radius: 50% 50% 0 0;
+  display: block;
+  height: 135%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translateY(100%) rotate(10deg);
+      -ms-transform: translateY(100%) rotate(10deg);
+          transform: translateY(100%) rotate(10deg);
+  -webkit-transition: -webkit-transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
+  transition: -webkit-transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
+  transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
+  transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1), -webkit-transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
+  width: 100%;
 }
 .rs-btn .svg-wrapper {
   position: absolute;
@@ -1187,12 +1211,23 @@ section {
   height: 100%;
   z-index: 2;
   overflow: visible;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 .rs-btn .svg-wrapper svg path {
   fill: none;
   stroke-width: 1;
   stroke-linecap: round;
   stroke-linejoin: miter;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .rs-btn:hover:after {
+    -webkit-transform: translateY(-25%) rotate(0);
+        -ms-transform: translateY(-25%) rotate(0);
+            transform: translateY(-25%) rotate(0);
+  }
 }
 .rs-btn._btn-gray-border path {
   stroke: rgba(0, 0, 0, 0.15);
@@ -1206,17 +1241,62 @@ section {
 .rs-btn._btn-primary path {
   stroke: var(--primary-color);
 }
+.rs-btn._btn-primary:after {
+  background-color: #fff;
+}
+@media (any-hover: hover) {
+  .rs-btn._btn-primary:hover .btn-text {
+    color: var(--primary-color);
+  }
+  .rs-btn._btn-primary:hover .btn-text::before {
+    color: var(--primary-color);
+  }
+  .rs-btn._btn-primary:hover path {
+    stroke: #fff;
+    fill: #fff;
+  }
+}
 .rs-btn._btn-white .btn-text::before {
   color: var(--primary-color);
 }
 .rs-btn._btn-white path {
   stroke: #fff;
 }
+.rs-btn._btn-white:after {
+  background-color: var(--primary-color);
+}
+@media (any-hover: hover) {
+  .rs-btn._btn-white:hover .btn-text {
+    color: #fff;
+  }
+  .rs-btn._btn-white:hover .btn-text::before {
+    color: #fff;
+  }
+  .rs-btn._btn-white:hover path {
+    stroke: var(--primary-color);
+    fill: var(--primary-color);
+  }
+}
 .rs-btn._btn-primary-border .btn-text::before {
   color: var(--primary-color);
 }
 .rs-btn._btn-primary-border path {
   stroke: var(--primary-color);
+}
+.rs-btn._btn-primary-border:after {
+  background-color: var(--primary-color);
+}
+@media (any-hover: hover) {
+  .rs-btn._btn-primary-border:hover .btn-text {
+    color: #fff;
+  }
+  .rs-btn._btn-primary-border:hover .btn-text::before {
+    color: #fff;
+  }
+  .rs-btn._btn-primary-border:hover path {
+    stroke: #fff;
+    fill: #fff;
+  }
 }
 
 .tooltip {
