@@ -406,7 +406,7 @@ cards.forEach((card, index) => {
 			pin: true,
 			pinSpacing: false,
 			scrub: true,
-			markers: true,
+			// markers: true,
 			// invalidateOnRefresh: true
 		},
 		ease: "none",
