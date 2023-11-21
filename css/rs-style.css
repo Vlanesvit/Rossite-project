@@ -1229,17 +1229,26 @@ section {
             transform: translateY(-25%) rotate(0);
   }
 }
-.rs-btn._btn-gray-border path {
-  stroke: rgba(0, 0, 0, 0.15);
+.rs-btn._btn-gray-border .btn-text {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.rs-btn._btn-gray-border:after {
+  background-color: var(--primary-color);
+}
+@media (any-hover: hover) {
+  .rs-btn._btn-gray-border:hover .btn-text {
+    color: #fff;
+  }
+  .rs-btn._btn-gray-border:hover .btn-text::before {
+    color: #fff;
+  }
 }
 .rs-btn._btn-primary .btn-text {
   color: #fff;
+  border: 1px solid var(--primary-color);
 }
 .rs-btn._btn-primary .btn-text::before {
   color: #fff;
-}
-.rs-btn._btn-primary path {
-  stroke: var(--primary-color);
 }
 .rs-btn._btn-primary:after {
   background-color: #fff;
@@ -1247,41 +1256,35 @@ section {
 @media (any-hover: hover) {
   .rs-btn._btn-primary:hover .btn-text {
     color: var(--primary-color);
+    border-color: #fff;
   }
   .rs-btn._btn-primary:hover .btn-text::before {
     color: var(--primary-color);
   }
-  .rs-btn._btn-primary:hover path {
-    stroke: #fff;
-    fill: #fff;
-  }
+}
+.rs-btn._btn-white .btn-text {
+  border: 1px solid #fff;
 }
 .rs-btn._btn-white .btn-text::before {
   color: var(--primary-color);
-}
-.rs-btn._btn-white path {
-  stroke: #fff;
 }
 .rs-btn._btn-white:after {
   background-color: var(--primary-color);
 }
 @media (any-hover: hover) {
   .rs-btn._btn-white:hover .btn-text {
+    border-color: var(--primary-color);
     color: #fff;
   }
   .rs-btn._btn-white:hover .btn-text::before {
     color: #fff;
   }
-  .rs-btn._btn-white:hover path {
-    stroke: var(--primary-color);
-    fill: var(--primary-color);
-  }
+}
+.rs-btn._btn-primary-border .btn-text {
+  border: 1px solid var(--primary-color);
 }
 .rs-btn._btn-primary-border .btn-text::before {
   color: var(--primary-color);
-}
-.rs-btn._btn-primary-border path {
-  stroke: var(--primary-color);
 }
 .rs-btn._btn-primary-border:after {
   background-color: var(--primary-color);
@@ -1292,10 +1295,6 @@ section {
   }
   .rs-btn._btn-primary-border:hover .btn-text::before {
     color: #fff;
-  }
-  .rs-btn._btn-primary-border:hover path {
-    stroke: #fff;
-    fill: #fff;
   }
 }
 

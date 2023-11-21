@@ -324,7 +324,7 @@ function animCommon() {
 	showContentOnScroll('.rs-header__actions', 0.5, 1, 'fade');
 	// banner
 	showContentOnScroll('.rs-banner__buttons', 0.5, 0.5, 'bottom-up--every');
-	showContentOnScroll('.rs-banner__bg', 0.5, 0.3, 'width-100');
+	showContentOnScroll('.rs-banner__bg', 1, 0.3, 'width-100');
 	// about
 	showContentOnScroll('.rs-about-product__slide', 0.5, 0.2, 'right-left--every');
 	showContentOnScroll('.rs-about-product__slider', 0.5, 0.2, 'right-left');
@@ -370,7 +370,7 @@ function animCommon() {
 	showContentOnScroll('.rs-tariff__desktop', 1, 1, 'fade');
 	showContentOnScroll('.rs-tariff__mobile .rs-tariff__spollers', 1, 1, 'fade');
 	// features	
-	showContentOnScroll('.rs-features__bg', 0.1, 0.3, 'width-100');
+	showContentOnScroll('.rs-features__bg', 1, 0.3, 'width-100');
 	showContentOnScroll('.rs-features__container', 1, 1, 'fade');
 	showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
 	showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
@@ -385,15 +385,15 @@ function animCommon() {
 				pin: true,
 				pinSpacing: false,
 				scrub: true,
+				invalidateOnRefresh: true,
 				// markers: true,
-				// invalidateOnRefresh: true
 			},
 			ease: "none",
-			// scale: () => 1 - (cards.length - index) * 0.025
+			scale: () => 1 - (cards.length - index) * 0.025
 		});
 	});
 	// partners	
-	showContentOnScroll('.rs-partners__bg', 0.1, 0.3, 'width-100');
+	showContentOnScroll('.rs-partners__bg', 1, 0.3, 'width-100');
 	showContentOnScroll('.rs-partners__container', 1, 1, 'fade');
 }
 
