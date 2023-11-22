@@ -381,34 +381,40 @@ window.addEventListener('resize', checkSticky)
 Функции инициализация кастомный курсор в блоке
 ==================================== */
 function addCursorHover(hoveredElement, selectedElement, newClass) {
-	document.querySelectorAll(hoveredElement).forEach(hover => {
-		hover.addEventListener('mouseenter', function () {
-			document.querySelector(selectedElement).classList.add(newClass)
-		})
-		hover.addEventListener('mouseleave', function () {
-			document.querySelector(selectedElement).classList.remove(newClass)
-		})
-		hover.addEventListener('mousemove', function () {
-			document.querySelector(selectedElement).classList.add(newClass)
-		})
-	});
+	if (document.querySelector(hoveredElement) && document.querySelector(selectedElement)) {
+		document.querySelectorAll(hoveredElement).forEach(hover => {
+			hover.addEventListener('mouseenter', function () {
+				document.querySelector(selectedElement).classList.add(newClass)
+			})
+			hover.addEventListener('mouseleave', function () {
+				document.querySelector(selectedElement).classList.remove(newClass)
+			})
+			hover.addEventListener('mousemove', function () {
+				document.querySelector(selectedElement).classList.add(newClass)
+			})
+		});
+	}
 }
 function addCursorDrag(hoveredElement, selectedElement, newClass) {
-	document.querySelectorAll(hoveredElement).forEach(hover => {
-		hover.addEventListener('mousedown', function () {
-			document.querySelector(selectedElement).classList.add(newClass)
+	if (document.querySelector(hoveredElement) && document.querySelector(selectedElement)) {
+		document.querySelectorAll(hoveredElement).forEach(hover => {
+			hover.addEventListener('mousedown', function () {
+				document.querySelector(selectedElement).classList.add(newClass)
+			})
+		});
+		document.body.addEventListener('mouseup', function () {
+			document.querySelector(selectedElement).classList.remove(newClass)
 		})
-	});
-	document.body.addEventListener('mouseup', function () {
-		document.querySelector(selectedElement).classList.remove(newClass)
-	})
+	}
 }
 function addCursorMove(selectedElement) {
-	document.body.addEventListener('mousemove', function (e) {
-		setTimeout(() => {
-			document.querySelector(selectedElement).style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
-		}, 0);
-	});
+	if (document.querySelector(selectedElement)) {
+		document.body.addEventListener('mousemove', function (e) {
+			setTimeout(() => {
+				document.querySelector(selectedElement).style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+			}, 0);
+		});
+	}
 }
 // function hideCursor(selectedElement, newClass) {
 // 	document.querySelector(selectedElement).classList.remove(newClass)

@@ -17,6 +17,10 @@
     padding: 13px 0px;
   }
 }
+.rs-header._header-inner {
+  margin-top: 0px;
+  border-bottom: 1px solid var(--light-gray-border);
+}
 .rs-header::before {
   content: "";
   position: absolute;

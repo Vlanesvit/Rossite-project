@@ -1,5 +1,5 @@
 // Инициализация курсора
-addCursorHover(".rs-project__item", ".rs-project .cursor", "cursor__active");
+addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
 addCursorMove(".cursor__circle")
 
 /* ====================================
@@ -100,6 +100,13 @@ function filterProject() {
 
 	filters.forEach(filter => {
 		const filterItems = filter.querySelectorAll('.filter__item')
+		const filterBlock = filter.querySelector('.filter__block');
+		const filterBtn = filter.querySelector('.filter__btn');
+
+		filterBtn.addEventListener('click', function () {
+			filterBlock.classList.toggle('_open-filter')
+			document.querySelector('main').classList.toggle('_open-filter');
+		})
 
 		filterItems.forEach(item => {
 			const filterShow = item.querySelector('.filter__title');
@@ -130,9 +137,11 @@ function filterProject() {
 			// 	select.classList.remove('_open-filter')
 			// });
 
-			filterClose.addEventListener('click', function () {
-				item.classList.remove('_open-filter')
-			})
+			if (filterClose) {
+				filterClose.addEventListener('click', function () {
+					item.classList.remove('_open-filter')
+				})
+			}
 		});
 	});
 }
@@ -141,40 +150,51 @@ if (document.querySelector('.filter')) {
 }
 
 /* ====================================
-Имитация загрузки карточек товара
+Имитация загрузки карточек
 ==================================== */
 function imitationProductLoad() {
-	const projects = document.querySelectorAll('.rs-project__slide');
-	const projectAdd = document.querySelector('.rs-project__add');
+	const projects = document.querySelectorAll('.rs-project');
 
-	let currentItems = 3;
+	projects.forEach(project => {
+		const showData = project.querySelector('[data-project-show]');
+		const loadData = project.querySelector('[data-project-load]');
+		const projectSlide = project.querySelectorAll('.rs-project__slide');
+		const projectAdd = project.querySelector('.rs-project__add');
 
-	function checkCurrentItems() {
-		// Скрываем кнопку, если карточки все открыты
-		if (currentItems >= projects.length) {
-			projectAdd.classList.add('_close-btn');
-		}
-	}
-	checkCurrentItems()
+		let showCount = Number(showData.getAttribute('data-project-show'));
+		let loadCount = Number(loadData.getAttribute('data-project-load'));
 
-	// Показываем первые {currentItems} карточек
-	for (let i = 0; i < currentItems; i++) {
-		if (projects[i]) {
-			projects[i].classList.add('_open-project');
-		}
-	}
+		console.log(showCount);
+		console.log(loadCount);
 
-	projectAdd.addEventListener('click', function () {
-		for (let i = currentItems; i < currentItems + 3; i++) {
-			if (projects[i]) {
-				projects[i].classList.add('_open-project');
+		function checkCurrentItems() {
+			// Скрываем кнопку, если карточки все открыты
+			if (showCount >= projectSlide.length) {
+				projectAdd.classList.add('_close-btn');
 			}
 		}
-		currentItems += 3;
 		checkCurrentItems()
 
-		// ВАЖНО! обновляем старт и конец для анимации
-		ScrollTrigger.refresh()
-	})
+		// Показываем первые {showCount} карточек
+		for (let i = 0; i < showCount; i++) {
+			if (projectSlide[i]) {
+				projectSlide[i].classList.add('_open-project');
+			}
+		}
+
+		projectAdd.addEventListener('click', function () {
+			for (let i = showCount; i < showCount + loadCount; i++) {
+				console.log('1');
+				if (projectSlide[i]) {
+					projectSlide[i].classList.add('_open-project');
+				}
+			}
+			showCount += loadCount;
+			checkCurrentItems()
+
+			// ВАЖНО! обновляем старт и конец для анимаций gsap
+			ScrollTrigger.refresh()
+		})
+	});
 }
 imitationProductLoad()

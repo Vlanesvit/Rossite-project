@@ -216,7 +216,7 @@ function animDesktop() {
 
 	/* REVEAL ANIMATION */
 	// project
-	showContentOnScroll('.rs-project__item', 0.5, 0.3, 'bottom-up--every');
+	showContentOnScroll('.rs-project__item', 0.3, 0.15, 'bottom-up--every');
 }
 
 function animMobile() {
@@ -331,7 +331,7 @@ function animCommon() {
 	showContentOnScroll('.rs-about-product__icon', 0.5, 0.15, 'bottom-up--every');
 	horizontalScroll('.rs-about-product__list', '.rs-about-product', '.rs-about-product__progress_fill')
 	// project
-	showContentOnScroll('.rs-project__filter', 0.5, 1, 'bottom-up');
+	showContentOnScroll('.rs-project__filter', 0.5, 1, 'fade');
 	showContentOnScroll('.rs-project__add', 0.5, 0.5, 'bottom-up--every');
 	// steps
 	showContentOnScroll('.rs-steps__navigation_list li a ', 0.5, 0.15, 'left-right--every');
@@ -374,24 +374,6 @@ function animCommon() {
 	showContentOnScroll('.rs-features__container', 1, 1, 'fade');
 	showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
 	showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
-	const cards = gsap.utils.toArray(".rs-features__block");
-	cards.forEach((card, index) => {
-		const tween = gsap.to(card, {
-			scrollTrigger: {
-				trigger: card,
-				start: `top-=${index * 20} top+=10px`,
-				end: `bottom bottom`,
-				endTrigger: '.rs-features__blocks',
-				pin: true,
-				pinSpacing: false,
-				scrub: true,
-				invalidateOnRefresh: true,
-				// markers: true,
-			},
-			ease: "none",
-			scale: () => 1 - (cards.length - index) * 0.025
-		});
-	});
 	// partners	
 	showContentOnScroll('.rs-partners__bg', 1, 0.3, 'width-100');
 	showContentOnScroll('.rs-partners__container', 1, 1, 'fade');
