@@ -158,6 +158,7 @@
 :root {
   --bg-color: #fff;
   --primary-color: #6366f1;
+  --accent-seo-color: #ffe219;
   --gray-btn-color: #eff2ff;
   --light-gray-border: #d4d7e5;
   --font-color: #141517;
@@ -398,6 +399,13 @@ section {
   font-weight: 600;
   line-height: 140%;
   letter-spacing: 0.16px;
+}
+
+.mrp-medium-18 {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 21.6px */
 }
 
 .mrp-med-50 {
@@ -1226,6 +1234,7 @@ section {
   overflow: visible;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  fill: none;
 }
 .rs-btn .svg-wrapper svg path {
   fill: none;
@@ -1248,9 +1257,15 @@ section {
 .rs-btn._btn-gray-border:after {
   background-color: var(--primary-color);
 }
+.rs-btn._btn-gray-border path {
+  stroke: rgba(0, 0, 0, 0.15);
+}
 @media (any-hover: hover) {
   .rs-btn._btn-gray-border:hover .btn-text {
     color: #fff;
+  }
+  .rs-btn._btn-gray-border:hover .btn-text path {
+    stroke: var(--primary-color);
   }
   .rs-btn._btn-gray-border:hover .btn-text::before {
     color: #fff;
@@ -1266,13 +1281,44 @@ section {
 .rs-btn._btn-primary:after {
   background-color: #fff;
 }
+.rs-btn._btn-primary path {
+  stroke: var(--primary-color);
+}
 @media (any-hover: hover) {
   .rs-btn._btn-primary:hover .btn-text {
     color: var(--primary-color);
     border-color: #fff;
   }
+  .rs-btn._btn-primary:hover .btn-text path {
+    stroke: #fff;
+  }
   .rs-btn._btn-primary:hover .btn-text::before {
     color: var(--primary-color);
+  }
+}
+.rs-btn._btn-second .btn-text {
+  color: #141517;
+  border: 1px solid var(--accent-seo-color);
+}
+.rs-btn._btn-second .btn-text::before {
+  color: #141517;
+}
+.rs-btn._btn-second:after {
+  background-color: #141517;
+}
+.rs-btn._btn-second path {
+  stroke: var(--accent-seo-color);
+}
+@media (any-hover: hover) {
+  .rs-btn._btn-second:hover .btn-text {
+    color: var(--accent-seo-color);
+    border-color: #141517;
+  }
+  .rs-btn._btn-second:hover .btn-text path {
+    stroke: #141517;
+  }
+  .rs-btn._btn-second:hover .btn-text::before {
+    color: var(--accent-seo-color);
   }
 }
 .rs-btn._btn-white .btn-text {
@@ -1284,10 +1330,16 @@ section {
 .rs-btn._btn-white:after {
   background-color: var(--primary-color);
 }
+.rs-btn._btn-white path {
+  stroke: #fff;
+}
 @media (any-hover: hover) {
   .rs-btn._btn-white:hover .btn-text {
     border-color: var(--primary-color);
     color: #fff;
+  }
+  .rs-btn._btn-white:hover .btn-text path {
+    stroke: var(--primary-color);
   }
   .rs-btn._btn-white:hover .btn-text::before {
     color: #fff;
@@ -1301,6 +1353,9 @@ section {
 }
 .rs-btn._btn-primary-border:after {
   background-color: var(--primary-color);
+}
+.rs-btn._btn-primary-border path {
+  stroke: var(--primary-color);
 }
 @media (any-hover: hover) {
   .rs-btn._btn-primary-border:hover .btn-text {

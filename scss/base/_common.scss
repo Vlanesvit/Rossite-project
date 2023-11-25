@@ -26,6 +26,13 @@ section {
 	letter-spacing: 0.16px;
 }
 
+.mrp-medium-18 {
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%; /* 21.6px */
+}
+
 .mrp-med-50 {
 	font-size: 50px;
 	font-style: normal;
@@ -327,6 +334,7 @@ section {
 			z-index: 2;
 			overflow: visible;
 			transition: all 0.3s ease 0s;
+			fill: none;
 
 			path {
 				fill: none;
@@ -350,14 +358,23 @@ section {
 		.btn-text {
 			border: 1px solid rgba(0, 0, 0, 0.15);
 		}
+
 		&:after {
 			background-color: var(--primary-color);
+		}
+
+		path {
+			stroke: rgba(0, 0, 0, 0.15);
 		}
 
 		@media (any-hover: hover) {
 			&:hover {
 				.btn-text {
 					color: #fff;
+
+					path {
+						stroke: var(--primary-color);
+					}
 
 					&::before {
 						color: #fff;
@@ -381,14 +398,58 @@ section {
 			background-color: #fff;
 		}
 
+		path {
+			stroke: var(--primary-color);
+		}
+
 		@media (any-hover: hover) {
 			&:hover {
 				.btn-text {
 					color: var(--primary-color);
 					border-color: #fff;
 
+					path {
+						stroke: #fff;
+					}
+
 					&::before {
 						color: var(--primary-color);
+					}
+				}
+			}
+		}
+	}
+
+	&._btn-second {
+		.btn-text {
+			color: #141517;
+			border: 1px solid var(--accent-seo-color);
+
+			&::before {
+				color: #141517;
+			}
+		}
+
+		&:after {
+			background-color: #141517;
+		}
+
+		path {
+			stroke: var(--accent-seo-color);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				.btn-text {
+					color: var(--accent-seo-color);
+					border-color: #141517;
+
+					path {
+						stroke: #141517;
+					}
+
+					&::before {
+						color: var(--accent-seo-color);
 					}
 				}
 			}
@@ -408,11 +469,19 @@ section {
 			background-color: var(--primary-color);
 		}
 
+		path {
+			stroke: #fff;
+		}
+
 		@media (any-hover: hover) {
 			&:hover {
 				.btn-text {
 					border-color: var(--primary-color);
 					color: #fff;
+
+					path {
+						stroke: var(--primary-color);
+					}
 
 					&::before {
 						color: #fff;
@@ -433,6 +502,10 @@ section {
 
 		&:after {
 			background-color: var(--primary-color);
+		}
+
+		path {
+			stroke: var(--primary-color);
 		}
 
 		@media (any-hover: hover) {
