@@ -2,7 +2,7 @@
   padding: 0px 80px;
   margin-bottom: 100px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features {
     padding-left: 40px;
     padding-right: 40px;
@@ -139,7 +139,7 @@
   width: 166px;
   height: 166px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__slide.rs-features__slide-1 .rs-features__icon-1 {
     width: 100px;
     height: 100px;
@@ -157,7 +157,7 @@
   width: 166px;
   height: 166px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__slide.rs-features__slide-1 .rs-features__icon-2 {
     width: 100px;
     height: 100px;
@@ -175,7 +175,7 @@
   width: 166px;
   height: 166px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__slide.rs-features__slide-1 .rs-features__icon-3 {
     width: 100px;
     height: 100px;
@@ -196,7 +196,7 @@
   width: 166px;
   height: 166px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__slide.rs-features__slide-2 .rs-features__icon-1 {
     width: 100px;
     height: 100px;
@@ -214,7 +214,7 @@
   width: 166px;
   height: 166px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__slide.rs-features__slide-2 .rs-features__icon-2 {
     width: 100px;
     height: 100px;
@@ -232,7 +232,7 @@
   width: 166px;
   height: 166px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__slide.rs-features__slide-2 .rs-features__icon-3 {
     width: 100px;
     height: 100px;
@@ -258,7 +258,7 @@
   width: 103px;
   height: 94px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__slide.rs-features__slide-3 .rs-features__icon-1 {
     width: 100px;
     height: 100px;
@@ -276,7 +276,7 @@
   width: 103px;
   height: 94px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__slide.rs-features__slide-3 .rs-features__icon-2 {
     width: 70px;
     height: 70px;
@@ -338,12 +338,12 @@
   width: 100%;
   height: 100%;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__picture {
     margin-right: -150px;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__picture {
     margin-right: -100px;
   }
@@ -395,7 +395,7 @@
   padding-right: 10px;
   margin: -132px 0px 0px auto;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-features__description {
     max-width: 500px;
     margin-top: -90px;

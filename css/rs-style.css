@@ -414,7 +414,7 @@ section {
   font-weight: 500;
   line-height: 110%;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .mrp-med-50 {
     font-size: 45px;
   }
@@ -444,7 +444,7 @@ section {
   font-weight: 500;
   line-height: 130%;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .mrp-med-45 {
     font-size: 35px;
   }
@@ -467,7 +467,7 @@ section {
   font-weight: 500;
   line-height: 70px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .mrp-med-40 {
     font-size: 35px;
   }
@@ -536,7 +536,7 @@ section {
   font-weight: 400;
   line-height: 170%;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .mrp-reg-21 {
     font-size: 18px;
   }
@@ -1152,6 +1152,14 @@ section {
   border-radius: 100px;
 }
 .rs-btn .btn-text {
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1168,7 +1176,7 @@ section {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-btn .btn-text {
     font-size: 14px;
     padding: 14px 20px;

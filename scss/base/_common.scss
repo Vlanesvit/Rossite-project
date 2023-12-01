@@ -39,7 +39,7 @@ section {
 	font-weight: 500;
 	line-height: 110%;
 
-	@media (max-width: 1440px) {
+	@media (max-width: 1439.98px) {
 		font-size: 45px;
 	}
 
@@ -65,7 +65,7 @@ section {
 	font-weight: 500;
 	line-height: 130%;
 
-	@media (max-width: 1440px) {
+	@media (max-width: 1439.98px) {
 		font-size: 35px;
 	}
 
@@ -85,7 +85,7 @@ section {
 	font-weight: 500;
 	line-height: 70px;
 
-	@media (max-width: 1440px) {
+	@media (max-width: 1439.98px) {
 		font-size: 35px;
 	}
 
@@ -147,7 +147,7 @@ section {
 	font-weight: 400;
 	line-height: 170%;
 
-	@media (max-width: 1440px) {
+	@media (max-width: 1439.98px) {
 		font-size: 18px;
 	}
 
@@ -263,6 +263,10 @@ section {
 	border-radius: 100px;
 
 	.btn-text {
+		width: 100%;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
 		display: inline-flex;
 		font-size: 16px;
 		font-style: normal;
@@ -276,7 +280,7 @@ section {
 		visibility: hidden;
 		transition: all 0.3s ease 0s;
 
-		@media (max-width: 1440px) {
+		@media (max-width: 1439.98px) {
 			font-size: 14px;
 			padding: 14px 20px;
 		}

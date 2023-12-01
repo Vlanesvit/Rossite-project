@@ -2,7 +2,7 @@
   padding-bottom: 100px;
   position: relative;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-steps {
     padding-bottom: 75px;
   }
@@ -59,7 +59,7 @@
   -webkit-transition: color 0.3s ease 0.2s;
   transition: color 0.3s ease 0.2s;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-steps__navigation_list li a {
     font-size: 16px;
   }
@@ -138,7 +138,7 @@
 .rs-steps__spollers_item:not(:last-child) {
   margin-bottom: 100px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-steps__spollers_item:not(:last-child) {
     margin-bottom: 75px;
   }
@@ -344,7 +344,7 @@
   overflow: hidden;
   position: relative;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-steps__picture {
     height: 350px;
   }

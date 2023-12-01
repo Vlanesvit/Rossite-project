@@ -96,7 +96,7 @@
     gap: 30px;
   }
 }
-@media (min-width: 767.98px) and (max-width: 1440px) {
+@media (min-width: 767.98px) and (max-width: 1439.98px) {
   .rs-partners__swiper {
     gap: 28px 24px;
   }

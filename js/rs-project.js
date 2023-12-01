@@ -103,10 +103,12 @@ function filterProject() {
 		const filterBlock = filter.querySelector('.filter__block');
 		const filterBtn = filter.querySelector('.filter__btn');
 
-		filterBtn.addEventListener('click', function () {
-			filterBlock.classList.toggle('_open-filter')
-			document.querySelector('main').classList.toggle('_open-filter');
-		})
+		if (filterBtn) {
+			filterBtn.addEventListener('click', function () {
+				filterBlock.classList.toggle('_open-filter')
+				document.querySelector('main').classList.toggle('_open-filter');
+			})
+		}
 
 		filterItems.forEach(item => {
 			const filterShow = item.querySelector('.filter__title');
@@ -164,9 +166,6 @@ function imitationProductLoad() {
 		let showCount = Number(showData.getAttribute('data-project-show'));
 		let loadCount = Number(loadData.getAttribute('data-project-load'));
 
-		console.log(showCount);
-		console.log(loadCount);
-
 		function checkCurrentItems() {
 			// Скрываем кнопку, если карточки все открыты
 			if (showCount >= projectSlide.length) {
@@ -184,7 +183,6 @@ function imitationProductLoad() {
 
 		projectAdd.addEventListener('click', function () {
 			for (let i = showCount; i < showCount + loadCount; i++) {
-				console.log('1');
 				if (projectSlide[i]) {
 					projectSlide[i].classList.add('_open-project');
 				}

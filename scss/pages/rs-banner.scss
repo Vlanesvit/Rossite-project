@@ -2,7 +2,7 @@
 	padding: 20px 80px 0px;
 	margin-bottom: 90px;
 
-	@media (max-width: 1440px) {
+	@media (max-width: 1439.98px) {
 		padding-left: 40px;
 		padding-right: 40px;
 		margin-bottom: 65px;
@@ -22,12 +22,17 @@
 	}
 
 	&__wrapper {
-		position: relative;
-		padding-top: 83px;
+		min-height: 655px;
+		padding-top: 77px;
 		height: 100%;
+		width: 100%;
+		position: relative;
+		display: flex;
+		flex-direction: column;
 
 		@media (max-width: 991.98px) {
 			padding-top: 50px;
+			min-height: 472px;
 		}
 
 		@media (max-width: 767.98px) {
@@ -77,34 +82,36 @@
 	// .rs-banner__container
 	&__container {
 		height: 100%;
+		flex: 1;
 	}
 
 	// .rs-banner__content
 	&__content {
-		padding: 137px 0px 197px;
+		padding: 0px 0px 53px;
 		display: flex;
 		align-items: center;
 		position: relative;
 		z-index: 1;
 		height: 100%;
+		flex: 1;
 
 		@media (max-width: 991.98px) {
-			padding: 91px 0px 90px;
+			padding: 34px 0px 60px;
 		}
 
 		@media (max-width: 767.98px) {
-			padding: 42px 0px 327px;
+			padding: 43px 0px 263px;
 		}
 	}
 
 	// .rs-banner__body
 	&__body {
-		max-width: 837px;
+		// max-width: 837px;
+		max-width: 720px;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		justify-content: center;
 
 		@media (max-width: 767.98px) {
 			text-align: center;
@@ -113,7 +120,7 @@
 
 		& > h1 {
 			@media (max-width: 991.98px) {
-				max-width: 300px;
+				max-width: 355px;
 				font-size: 34px;
 				font-weight: 400;
 				line-height: 115%;
@@ -128,7 +135,7 @@
 
 		& > h5 {
 			margin-top: 15px;
-			max-width: 650px;
+			max-width: 670px;
 
 			@media (max-width: 991.98px) {
 				margin-top: 8px;

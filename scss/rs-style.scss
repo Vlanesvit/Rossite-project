@@ -74,6 +74,7 @@ body {
 	> main {
 		flex: 1 1 auto;
 	}
+
 	// Фикс для слайдеров
 	> * {
 		min-width: 0;
@@ -132,7 +133,7 @@ body {
 // @import "./base/_select";
 // @import "./base/_custom-cursor";
 // @import "./base/_modal";
-// @import "./base/_showmore";
+@import "./base/_showmore";
 // @import "./base/_anim";
 // @import "./base/_video";
 // @import "./base/_maps";

@@ -17,7 +17,7 @@ gsap.registerPlugin(ScrollTrigger)
 // });
 
 /* COLOR SETTINGS */
-let primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+let primaryColor = getComputedStyle(document.body).getPropertyValue('--primary-color');
 let accentSeoColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-seo-color');
 
 /* MOVE SVG LINE */
@@ -165,15 +165,15 @@ function animDesktop() {
 			endTrigger: ".rs-steps",
 
 			onEnter: () =>
-				gsap.to("main.page", {
+				gsap.to("body", {
 					backgroundColor: colorSection.dataset.bgcolor,
 				}),
 			onLeaveBack: () =>
-				gsap.to("main.page", {
+				gsap.to("body", {
 					backgroundColor: prevBg,
 				}),
 			onLeave: () =>
-				gsap.to("main.page", {
+				gsap.to("body", {
 					backgroundColor: "#fff",
 				})
 		});
@@ -338,13 +338,14 @@ function animCommon() {
 	showContentOnScroll('.mrp-reg-25', 0.8, 0.5, 'bottom-up');
 	showContentOnScroll('.mrp-reg-21', 0.8, 0.6, 'bottom-up');
 	showContentOnScroll('.mrp-reg-18', 0.8, 0.7, 'bottom-up');
+	showContentOnScroll('blockquote', 0.8, 0.5, 'bottom-up');
 	// header
 	showContentOnScroll('.rs-header__menu', 0.5, 0.5, 'fade');
 	showContentOnScroll('.rs-header__logo', 0.5, 0.75, 'fade');
 	showContentOnScroll('.rs-header__actions', 0.5, 1, 'fade');
 	// banner
 	showContentOnScroll('.rs-banner__buttons', 0.5, 0.5, 'bottom-up--every');
-	showContentOnScroll('.rs-banner__bg', 1, 0.3, 'width-100');
+	showContentOnScroll('.rs-banner__bg', 0.5, 0.15, 'width-100');
 	// about
 	showContentOnScroll('.rs-about-product__slide', 0.5, 0.2, 'right-left--every');
 	showContentOnScroll('.rs-about-product__slider', 0.5, 0.2, 'right-left');
