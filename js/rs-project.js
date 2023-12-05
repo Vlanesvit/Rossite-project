@@ -152,10 +152,12 @@ function filterProject() {
 		const filterBlock = filter.querySelector('.filter__block');
 		const filterBtn = filter.querySelector('.filter__btn');
 
-		filterBtn.addEventListener('click', function () {
-			filterBlock.classList.toggle('_open-filter')
-			document.querySelector('main').classList.toggle('_open-filter');
-		})
+		if (filterBtn) {
+			filterBtn.addEventListener('click', function () {
+				filterBlock.classList.toggle('_open-filter')
+				document.querySelector('main').classList.toggle('_open-filter');
+			})
+		}
 
 		filterItems.forEach(item => {
 			const filterShow = item.querySelector('.filter__title');
