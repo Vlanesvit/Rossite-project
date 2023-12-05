@@ -385,12 +385,24 @@ function addCursorHover(hoveredElement, selectedElement, newClass) {
 		document.querySelectorAll(hoveredElement).forEach(hover => {
 			hover.addEventListener('mouseenter', function () {
 				document.querySelector(selectedElement).classList.add(newClass)
+				hover.classList.add('_mouse-event')
 			})
+
 			hover.addEventListener('mouseleave', function () {
 				document.querySelector(selectedElement).classList.remove(newClass)
+				hover.classList.remove('_mouse-event')
 			})
+
 			hover.addEventListener('mousemove', function () {
 				document.querySelector(selectedElement).classList.add(newClass)
+			})
+
+			window.addEventListener('scroll', function () {
+				if (hover.classList.contains('_mouse-event')) {
+					setTimeout(() => {
+						document.querySelector(selectedElement).classList.remove(newClass)
+					}, 0);
+				}
 			})
 		});
 	}
@@ -416,12 +428,6 @@ function addCursorMove(selectedElement) {
 		});
 	}
 }
-// function hideCursor(selectedElement, newClass) {
-// 	document.querySelector(selectedElement).classList.remove(newClass)
-// }
-// window.addEventListener('scroll', function () {
-// 	hideCursor(".cursor", "cursor__active")
-// })
 
 /* ====================================
 Блок показать больше

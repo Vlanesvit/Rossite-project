@@ -330,15 +330,17 @@ function animCommon() {
 
 	/* REVEAL ANIMATION */
 	// text
+	showContentOnScroll('.mrp-med-65', 0.8, 0.5, 'bottom-up');
 	showContentOnScroll('.mrp-med-50', 0.8, 0.5, 'bottom-up');
 	showContentOnScroll('.mrp-med-45', 0.8, 0.5, 'bottom-up');
 	showContentOnScroll('.mrp-med-40', 0.8, 0.5, 'bottom-up');
 	showContentOnScroll('.mrp-med-25', 0.8, 0.6, 'bottom-up');
 	showContentOnScroll('.mrp-med-21', 0.8, 0.7, 'bottom-up');
 	showContentOnScroll('.mrp-reg-25', 0.8, 0.5, 'bottom-up');
+	showContentOnScroll('.mrp-med-18', 0.8, 0.5, 'bottom-up');
 	showContentOnScroll('.mrp-reg-21', 0.8, 0.6, 'bottom-up');
 	showContentOnScroll('.mrp-reg-18', 0.8, 0.7, 'bottom-up');
-	showContentOnScroll('blockquote', 0.8, 0.5, 'bottom-up');
+	// showContentOnScroll('blockquote', 0.8, 0.5, 'bottom-up');
 	// header
 	showContentOnScroll('.rs-header__menu', 0.5, 0.5, 'fade');
 	showContentOnScroll('.rs-header__logo', 0.5, 0.75, 'fade');
@@ -395,9 +397,19 @@ function animCommon() {
 	showContentOnScroll('.rs-features__container', 1, 1, 'fade');
 	showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
 	showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
+	showContentOnScroll('.rs-features-list__icon', 0.5, 0.3, 'scale--every');
 	// partners	
 	showContentOnScroll('.rs-partners__bg', 1, 0.3, 'width-100');
 	showContentOnScroll('.rs-partners__container', 1, 1, 'fade');
+	// services-about
+	showContentOnScroll('.rs-services-about__img', 0.5, 0.5, 'bottom-up');
+	showContentOnScroll('.rs-services-about__desc', 0.5, 0.3, 'bottom-up');
+	// slider-block
+	showContentOnScroll('.rs-slider-block__slide', 0.5, 0.2, 'right-left--every');
+	// contact
+	showContentOnScroll('.rs-document__spollers_item', 0.5, 0.2, 'bottom-up--every');
+	showContentOnScroll('.rs-contact__info_list li', 0.5, 0.2, 'bottom-up--every');
+	showContentOnScroll('.rs-contact__map', 0.5, 0.5, 'fade');
 }
 
 window.addEventListener("DOMContentLoaded", function () {

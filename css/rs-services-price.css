@@ -223,6 +223,9 @@
     display: none;
   }
 }
+.rs-services-price__block_content {
+  display: block;
+}
 .rs-services-price__body {
   margin-top: 21px;
 }

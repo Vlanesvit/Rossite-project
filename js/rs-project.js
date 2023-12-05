@@ -1,5 +1,5 @@
 // Инициализация курсора
-addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
+addCursorHover(".rs-project__item", ".rs-project .cursor", "cursor__active");
 addCursorMove(".cursor__circle")
 
 /* ====================================
@@ -137,7 +137,7 @@ function filterClear() {
 		outputCountActiveFilter(filter, filterTitle)
 	});
 }
-if (document.querySelector('.filter')) {
+if (document.querySelector('.rs-case .filter')) {
 	filterClear();
 }
 
@@ -152,12 +152,10 @@ function filterProject() {
 		const filterBlock = filter.querySelector('.filter__block');
 		const filterBtn = filter.querySelector('.filter__btn');
 
-		if (filterBtn) {
-			filterBtn.addEventListener('click', function () {
-				filterBlock.classList.toggle('_open-filter')
-				document.querySelector('main').classList.toggle('_open-filter');
-			})
-		}
+		filterBtn.addEventListener('click', function () {
+			filterBlock.classList.toggle('_open-filter')
+			document.querySelector('main').classList.toggle('_open-filter');
+		})
 
 		filterItems.forEach(item => {
 			const filterShow = item.querySelector('.filter__title');
