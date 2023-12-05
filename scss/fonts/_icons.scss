@@ -49,6 +49,14 @@
 		width: 18px;
 		height: 18px;
 	}
+
+	._header-white & {
+		filter: invert(1);
+	}
+
+	._header-white._header-fixed & {
+		filter: invert(0);
+	}
 }
 ._rs-icon-picture:before {
 	content: "\e90d";
@@ -74,8 +82,10 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	width: 25px;
-	height: 25px;
+	min-width: 25px;
+	max-width: 25px;
+	min-height: 25px;
+	max-height: 25px;
 	display: block;
 }
 ._rs-icon-table:before {
@@ -84,8 +94,10 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	width: 20px;
-	height: 20px;
+	min-width: 20px;
+	max-width: 20px;
+	min-height: 20px;
+	max-height: 20px;
 	display: block;
 }
 ._rs-icon-star:before {
@@ -94,8 +106,10 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	width: 16px;
-	height: 16px;
+	min-width: 16px;
+	max-width: 16px;
+	min-height: 16px;
+	max-height: 16px;
 	display: block;
 }
 ._rs-icon-filter:before {
@@ -104,7 +118,9 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	width: 20px;
-	height: 20px;
+	min-width: 20px;
+	max-width: 20px;
+	min-height: 20px;
+	max-height: 20px;
 	display: block;
 }

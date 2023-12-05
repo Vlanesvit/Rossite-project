@@ -27,10 +27,10 @@ function moveSvgDashed(dashed, mask, trigger, top = 75, end = 200, markers = 0) 
 			drawSVG: "0%",
 			scrollTrigger: {
 				trigger: trigger,
-				start: `top+=50% top`,
-				end: `bottom+=300% bottom`,
+				start: `top-=50% top`,
+				end: `bottom+=50% bottom`,
 				scrub: 1,
-				markers: markers,
+				markers: 0,
 			},
 		});
 
@@ -39,10 +39,10 @@ function moveSvgDashed(dashed, mask, trigger, top = 75, end = 200, markers = 0) 
 			delay: 5,
 			scrollTrigger: {
 				trigger: trigger,
-				start: `top+=${top}% top`,
+				start: `top-=${top}% top`,
 				end: `bottom+=${end}% bottom`,
 				scrub: 1,
-				markers: markers,
+				markers: 0,
 			}
 		});
 		ScrollTrigger.refresh()
@@ -323,7 +323,7 @@ function animCommon() {
 
 	/* MOVE SVG LINE */
 	moveSvgDashed(".rs-about-product__line #dashed-about", ".rs-about-product__line #mask-about", ".rs-about-product");
-	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews", 50, 250);
+	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews", 50, 50);
 	moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
 	moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
 	moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");

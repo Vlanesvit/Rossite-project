@@ -93,6 +93,55 @@ window.addEventListener("load", function (e) {
 });
 
 /* ====================================
+Подсчет активных фильтров и отчистка
+==================================== */
+function filterClear() {
+	const filterItem = document.querySelectorAll('.rs-case .filter__item');
+	const filterBtn = document.querySelector('.rs-case .filter__btn');
+	const clearBtn = document.querySelector('.filter__reset .filter__title');
+
+	function outputCountActiveFilter(where_find, where_output) {
+		let filterCount = document.createElement('span');
+		filterCount.classList.add('filter__count');
+		where_output.prepend(filterCount);
+
+		const checkboxs = where_find.querySelectorAll('input[type="checkbox"]');
+
+		checkboxs.forEach(checkbox => {
+			checkbox.addEventListener('input', function () {
+				countChecked()
+			})
+		});
+
+		function countChecked() {
+			const activeCheckbox = where_find.querySelectorAll('input[type="checkbox"]:checked');
+			let numCheckedFilter = activeCheckbox.length;
+			if (numCheckedFilter > 0) {
+				where_output.classList.add('_output-count');
+				filterCount.style.display = "flex";
+				filterCount.innerHTML = numCheckedFilter;
+			} else {
+				where_output.classList.remove('_output-count');
+				filterCount.style.display = "none";
+				filterCount.innerHTML = "0";
+			}
+		}
+
+	}
+	outputCountActiveFilter(document, filterBtn)
+
+
+	filterItem.forEach(filter => {
+		const filterTitle = filter.querySelector('.filter__title');
+
+		outputCountActiveFilter(filter, filterTitle)
+	});
+}
+if (document.querySelector('.filter')) {
+	filterClear();
+}
+
+/* ====================================
 Модальное окно фильтров
 ==================================== */
 function filterProject() {
@@ -126,18 +175,18 @@ function filterProject() {
 				}
 			})
 
-			// // Закрытие фильтров при клике вне блока фильтра
-			// select.addEventListener('click', function (e) {
-			// 	e.stopPropagation();
-			// });
-			// document.addEventListener('click', function (e) {
-			// 	selectOptionsAll.forEach(selectOpt => {
-			// 		if (!selectOpt.classList.contains("_slide")) {
-			// 			_slideUp(selectOpt, 200);
-			// 		}
-			// 	});
-			// 	select.classList.remove('_open-filter')
-			// });
+			// Закрытие фильтров при клике вне блока фильтра
+			filter.addEventListener('click', function (e) {
+				e.stopPropagation();
+			});
+			document.addEventListener('click', function (e) {
+				// selectOptionsAll.forEach(selectOpt => {
+				// 	if (!selectOpt.classList.contains("_slide")) {
+				// 		_slideUp(selectOpt, 200);
+				// 	}
+				// });
+				item.classList.remove('_open-filter')
+			});
 
 			if (filterClose) {
 				filterClose.addEventListener('click', function () {

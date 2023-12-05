@@ -9,6 +9,11 @@
 .rs-footer__top {
   background-color: #f6f5f8;
 }
+@media (min-width: 991.98px) {
+  .rs-footer__container {
+    max-width: 1420px;
+  }
+}
 .rs-footer__head {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -504,7 +509,7 @@
   }
 }
 .rs-footer__city {
-  padding: 12px 0px 50px;
+  padding: 12px 0px 33px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

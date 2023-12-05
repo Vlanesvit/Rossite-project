@@ -106,8 +106,7 @@
 
 	// .rs-banner__body
 	&__body {
-		// max-width: 837px;
-		max-width: 720px;
+		max-width: 730px;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
@@ -119,6 +118,8 @@
 		}
 
 		& > h1 {
+			letter-spacing: 2.8px;
+			
 			@media (max-width: 991.98px) {
 				max-width: 355px;
 				font-size: 34px;

@@ -35,7 +35,7 @@
 }
 .rs-features-list__wrapper {
   position: relative;
-  padding: 100px 0px;
+  padding: 95px 0px 101px;
 }
 @media (max-width: 1439.98px) {
   .rs-features-list__wrapper {
@@ -81,7 +81,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 60px 80px;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 @media (max-width: 1439.98px) {
   .rs-features-list__blocks {
@@ -121,11 +121,6 @@
   padding: 16px;
   border-radius: 10px;
   background-color: var(--gray-btn-color);
-}
-@media (min-width: 991.98px) {
-  .rs-features-list__icon {
-    margin-top: 15px;
-  }
 }
 @media (max-width: 767.98px) {
   .rs-features-list__icon {

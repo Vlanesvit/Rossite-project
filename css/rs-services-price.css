@@ -21,7 +21,7 @@
 }
 .rs-services-price__container > h2 {
   text-align: center;
-  margin-bottom: 34px;
+  margin-bottom: 18px;
 }
 @media (max-width: 991.98px) {
   .rs-services-price__container > h2 {
@@ -51,6 +51,9 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 @media (max-width: 1439.98px) {
@@ -144,7 +147,7 @@
 }
 .rs-services-price__desc {
   width: 100%;
-  max-width: 903px;
+  max-width: 860px;
   margin-right: 32px;
 }
 @media (max-width: 991.98px) {
@@ -220,6 +223,9 @@
     display: none;
   }
 }
+.rs-services-price__body {
+  margin-top: 21px;
+}
 .rs-services-price__about_item:not(:last-child) {
   margin-bottom: 24px;
 }
@@ -267,7 +273,7 @@
   display: block;
   font-weight: 900;
   margin-right: 10px;
-  margin-left: 5px;
+  margin-left: 10px;
   color: inherit;
 }
 .rs-services-price__more._showmore-active span {

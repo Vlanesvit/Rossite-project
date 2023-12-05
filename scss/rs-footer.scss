@@ -13,6 +13,9 @@
 
 	// .rs-footer__container
 	&__container {
+		@media (min-width:991.98px){
+			  max-width: 1420px;
+		}
 	}
 
 	// .rs-footer__head
@@ -517,7 +520,7 @@
 
 	// .rs-footer__city
 	&__city {
-		padding: 12px 0px 50px;
+		padding: 12px 0px 33px;
 		display: flex;
 		align-items: flex-start;
 

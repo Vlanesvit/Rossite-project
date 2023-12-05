@@ -120,7 +120,7 @@
   }
 }
 .rs-banner__body {
-  max-width: 720px;
+  max-width: 730px;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -140,6 +140,9 @@
         -ms-flex-align: center;
             align-items: center;
   }
+}
+.rs-banner__body > h1 {
+  letter-spacing: 2.8px;
 }
 @media (max-width: 991.98px) {
   .rs-banner__body > h1 {
