@@ -32,7 +32,7 @@ function initServiceSlider() {
 				observeSlideChildren: true,
 
 				// Скорость смены слайдов
-				speed: 1200,
+				speed: 500,
 
 				// Включение/отключение
 				// перетаскивание на ПК
@@ -53,18 +53,18 @@ function initServiceSlider() {
 					type: 'progressbar',
 				},
 
-				// // Управлениее мышью
-				// mousewheel: {
-				// 	enabled: true,
-				// 	sensitivity: 2,
-				// },
+				// Управлениее мышью
+				mousewheel: {
+					enabled: true,
+					sensitivity: 2,
+				},
 
-				// // Свободный режим
-				// freeMode: {
-				// 	enabled: true,
-				// 	sticky: false,
-				// 	momentumBounce: false,
-				// },
+				// Свободный режим
+				freeMode: {
+					enabled: true,
+					sticky: false,
+					momentumBounce: false,
+				},
 
 				// Стрелки
 				navigation: {
@@ -97,34 +97,6 @@ function initServiceSlider() {
 					},
 				},
 			});
-
-			const breakpoint = window.matchMedia('(min-width: 991.98px)');
-			const breakpointChecker = function () {
-				if (breakpoint.matches === true) {
-					gsap.to(".rs-services__swiper", { ease: "none", });
-					ScrollTrigger.create({
-						trigger: ".rs-services",
-						start: "top-=10% top",
-						end: "bottom+=100% bottom",
-						scrub: true,
-						pin: true,
-						invalidateOnRefresh: true,
-						anticipatePin: 1,
-						// markers: 1,
-						// onEnter: () => { },
-						// onLeave: () => { },
-						// onEnterBack: () => { },
-						// onLeaveBack: () => { },
-						onUpdate: self => {
-							console.log(self.direction);
-							if (self.direction === 1) sliderSwiper.slideNext()
-							else if (self.direction === -1) sliderSwiper.slidePrev()
-						},
-					})
-				}
-			};
-			breakpoint.addListener(breakpointChecker);
-			breakpointChecker();
 		});
 	}
 }

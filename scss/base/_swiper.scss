@@ -98,7 +98,7 @@
 }
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-	background: #6366f1;
+	background: var(--primary-color);
 	position: absolute;
 	bottom: 0px;
 	top: auto;

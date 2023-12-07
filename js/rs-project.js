@@ -93,6 +93,55 @@ window.addEventListener("load", function (e) {
 });
 
 /* ====================================
+Подсчет активных фильтров и отчистка
+==================================== */
+function filterClear() {
+	const filterItem = document.querySelectorAll('.rs-case .filter__item');
+	const filterBtn = document.querySelector('.rs-case .filter__btn');
+	const clearBtn = document.querySelector('.filter__reset .filter__title');
+
+	function outputCountActiveFilter(where_find, where_output) {
+		let filterCount = document.createElement('span');
+		filterCount.classList.add('filter__count');
+		where_output.prepend(filterCount);
+
+		const checkboxs = where_find.querySelectorAll('input[type="checkbox"]');
+
+		checkboxs.forEach(checkbox => {
+			checkbox.addEventListener('input', function () {
+				countChecked()
+			})
+		});
+
+		function countChecked() {
+			const activeCheckbox = where_find.querySelectorAll('input[type="checkbox"]:checked');
+			let numCheckedFilter = activeCheckbox.length;
+			if (numCheckedFilter > 0) {
+				where_output.classList.add('_output-count');
+				filterCount.style.display = "flex";
+				filterCount.innerHTML = numCheckedFilter;
+			} else {
+				where_output.classList.remove('_output-count');
+				filterCount.style.display = "none";
+				filterCount.innerHTML = "0";
+			}
+		}
+
+	}
+	outputCountActiveFilter(document, filterBtn)
+
+
+	filterItem.forEach(filter => {
+		const filterTitle = filter.querySelector('.filter__title');
+
+		outputCountActiveFilter(filter, filterTitle)
+	});
+}
+if (document.querySelector('.rs-case .filter')) {
+	filterClear();
+}
+
+/* ====================================
 Модальное окно фильтров
 ==================================== */
 function filterProject() {
@@ -100,6 +149,15 @@ function filterProject() {
 
 	filters.forEach(filter => {
 		const filterItems = filter.querySelectorAll('.filter__item')
+		const filterBlock = filter.querySelector('.filter__block');
+		const filterBtn = filter.querySelector('.filter__btn');
+
+		if (filterBtn) {
+			filterBtn.addEventListener('click', function () {
+				filterBlock.classList.toggle('_open-filter')
+				document.querySelector('main').classList.toggle('_open-filter');
+			})
+		}
 
 		filterItems.forEach(item => {
 			const filterShow = item.querySelector('.filter__title');
@@ -117,22 +175,24 @@ function filterProject() {
 				}
 			})
 
-			// // Закрытие фильтров при клике вне блока фильтра
-			// select.addEventListener('click', function (e) {
-			// 	e.stopPropagation();
-			// });
-			// document.addEventListener('click', function (e) {
-			// 	selectOptionsAll.forEach(selectOpt => {
-			// 		if (!selectOpt.classList.contains("_slide")) {
-			// 			_slideUp(selectOpt, 200);
-			// 		}
-			// 	});
-			// 	select.classList.remove('_open-filter')
-			// });
-
-			filterClose.addEventListener('click', function () {
+			// Закрытие фильтров при клике вне блока фильтра
+			filter.addEventListener('click', function (e) {
+				e.stopPropagation();
+			});
+			document.addEventListener('click', function (e) {
+				// selectOptionsAll.forEach(selectOpt => {
+				// 	if (!selectOpt.classList.contains("_slide")) {
+				// 		_slideUp(selectOpt, 200);
+				// 	}
+				// });
 				item.classList.remove('_open-filter')
-			})
+			});
+
+			if (filterClose) {
+				filterClose.addEventListener('click', function () {
+					item.classList.remove('_open-filter')
+				})
+			}
 		});
 	});
 }
@@ -141,40 +201,47 @@ if (document.querySelector('.filter')) {
 }
 
 /* ====================================
-Имитация загрузки карточек товара
+Имитация загрузки карточек
 ==================================== */
 function imitationProductLoad() {
-	const projects = document.querySelectorAll('.rs-project__slide');
-	const projectAdd = document.querySelector('.rs-project__add');
+	const projects = document.querySelectorAll('.rs-project');
 
-	let currentItems = 3;
+	projects.forEach(project => {
+		const showData = project.querySelector('[data-project-show]');
+		const loadData = project.querySelector('[data-project-load]');
+		const projectSlide = project.querySelectorAll('.rs-project__slide');
+		const projectAdd = project.querySelector('.rs-project__add');
 
-	function checkCurrentItems() {
-		// Скрываем кнопку, если карточки все открыты
-		if (currentItems >= projects.length) {
-			projectAdd.classList.add('_close-btn');
-		}
-	}
-	checkCurrentItems()
+		let showCount = Number(showData.getAttribute('data-project-show'));
+		let loadCount = Number(loadData.getAttribute('data-project-load'));
 
-	// Показываем первые {currentItems} карточек
-	for (let i = 0; i < currentItems; i++) {
-		if (projects[i]) {
-			projects[i].classList.add('_open-project');
-		}
-	}
-
-	projectAdd.addEventListener('click', function () {
-		for (let i = currentItems; i < currentItems + 3; i++) {
-			if (projects[i]) {
-				projects[i].classList.add('_open-project');
+		function checkCurrentItems() {
+			// Скрываем кнопку, если карточки все открыты
+			if (showCount >= projectSlide.length) {
+				projectAdd.classList.add('_close-btn');
 			}
 		}
-		currentItems += 3;
 		checkCurrentItems()
 
-		// ВАЖНО! обновляем старт и конец для анимации
-		ScrollTrigger.refresh()
-	})
+		// Показываем первые {showCount} карточек
+		for (let i = 0; i < showCount; i++) {
+			if (projectSlide[i]) {
+				projectSlide[i].classList.add('_open-project');
+			}
+		}
+
+		projectAdd.addEventListener('click', function () {
+			for (let i = showCount; i < showCount + loadCount; i++) {
+				if (projectSlide[i]) {
+					projectSlide[i].classList.add('_open-project');
+				}
+			}
+			showCount += loadCount;
+			checkCurrentItems()
+
+			// ВАЖНО! обновляем старт и конец для анимаций gsap
+			ScrollTrigger.refresh()
+		})
+	});
 }
 imitationProductLoad()

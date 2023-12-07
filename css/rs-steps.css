@@ -2,7 +2,7 @@
   padding-bottom: 100px;
   position: relative;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-steps {
     padding-bottom: 75px;
   }
@@ -13,6 +13,9 @@
     padding-top: 50px;
   }
 }
+.rs-steps__wrapper {
+  position: relative;
+}
 @media (min-width: 991.98px) {
   .rs-steps__wrapper {
     display: grid;
@@ -21,10 +24,6 @@
   }
 }
 @media (min-width: 991.98px) {
-  .rs-steps__navigation_body {
-    position: sticky;
-    top: 100px;
-  }
   .rs-steps__navigation_body > h2 span {
     display: block;
   }
@@ -58,10 +57,9 @@
       -ms-flex-align: center;
           align-items: center;
   -webkit-transition: color 0.3s ease 0.2s;
-  -o-transition: color 0.3s ease 0.2s;
   transition: color 0.3s ease 0.2s;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-steps__navigation_list li a {
     font-size: 16px;
   }
@@ -123,7 +121,6 @@
   stroke-dasharray: 250px;
   stroke-dashoffset: 250px;
   -webkit-transition: all 0.5s ease 0.2s;
-  -o-transition: all 0.5s ease 0.2s;
   transition: all 0.5s ease 0.2s;
 }
 @media (max-width: 991.98px) {
@@ -141,7 +138,7 @@
 .rs-steps__spollers_item:not(:last-child) {
   margin-bottom: 100px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-steps__spollers_item:not(:last-child) {
     margin-bottom: 75px;
   }
@@ -204,7 +201,6 @@
   height: 12px;
   background-color: var(--primary-color);
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 .rs-steps__spollers_title i::before {
@@ -348,7 +344,7 @@
   overflow: hidden;
   position: relative;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-steps__picture {
     height: 350px;
   }
