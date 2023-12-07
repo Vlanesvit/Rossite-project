@@ -2,6 +2,7 @@
   margin-top: -215px;
   margin-bottom: 0px;
   height: 1126px;
+  z-index: 0;
 }
 @media (max-width: 991.98px) {
   .rs-feedback {

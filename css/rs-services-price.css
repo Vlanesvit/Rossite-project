@@ -309,6 +309,7 @@
 }
 .rs-services-price__action {
   width: 100%;
+  position: relative;
   max-width: 289px;
 }
 @media (max-width: 991.98px) {
