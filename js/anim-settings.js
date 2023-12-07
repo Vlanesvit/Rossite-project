@@ -347,6 +347,7 @@ function animCommon() {
 	showContentOnScroll('.rs-header__actions', 0.5, 1, 'fade');
 	// banner
 	showContentOnScroll('.rs-banner__buttons', 0.5, 0.5, 'bottom-up--every');
+	showContentOnScroll('.rs-banner__body ul', 0.5, 0.3, 'bottom-up');
 	showContentOnScroll('.rs-banner__bg', 0.5, 0.15, 'width-100');
 	// about
 	showContentOnScroll('.rs-about-product__slide', 0.5, 0.2, 'right-left--every');
