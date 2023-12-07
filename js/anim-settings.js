@@ -410,6 +410,15 @@ function animCommon() {
 	showContentOnScroll('.rs-document__spollers_item', 0.5, 0.2, 'bottom-up--every');
 	showContentOnScroll('.rs-contact__info_list li', 0.5, 0.2, 'bottom-up--every');
 	showContentOnScroll('.rs-contact__map', 0.5, 0.5, 'fade');
+	// work-about
+	showContentOnScroll('.rs-work-about__text', 0.5, 0.5, 'bottom-up--every');
+	showContentOnScroll('.rs-work-about__table', 0.5, 0.5, 'bottom-up');
+	showContentOnScroll('.rs-work-about__hint', 0.5, 1, 'bottom-up');
+	showContentOnScroll('.rs-work-about__item', 0.5, 0.5, 'bottom-up--every');
+	// task
+	showContentOnScroll('.rs-task__item', 0.5, 0.5, 'bottom-up--every');
+	// parallax
+	showContentOnScroll('.rs-why-block__bg', 1, 0.3, 'width-100');
 }
 
 window.addEventListener("DOMContentLoaded", function () {

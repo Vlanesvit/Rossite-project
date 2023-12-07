@@ -457,11 +457,11 @@
 }
 .rs-work-about__slider {
   margin-top: 60px;
+  overflow: visible;
 }
 @media (max-width: 991.98px) {
   .rs-work-about__slider {
     margin-top: 40px;
-    overflow: visible;
   }
 }
 .rs-work-about__slide {
