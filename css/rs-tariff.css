@@ -111,6 +111,7 @@
   z-index: 10;
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
+  pointer-events: none;
 }
 .rs-tariff__about._full {
   max-height: 1000px;

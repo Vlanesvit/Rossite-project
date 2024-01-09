@@ -131,6 +131,7 @@
 			background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
 			z-index: 10;
 			transition: all 0.5s ease 0s;
+			pointer-events: none;
 		}
 
 		&._full {

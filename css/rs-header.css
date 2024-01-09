@@ -23,6 +23,8 @@
 }
 .rs-header._header-inner {
   margin-top: 0px;
+}
+.rs-header._header-border-bottom {
   border-bottom: 1px solid var(--light-gray-border);
 }
 .rs-header._header-white {

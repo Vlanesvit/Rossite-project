@@ -6,3 +6,4 @@
 4. [Продвижение сайтов](https://vlanesvit.github.io/Rossite-project/promotion-page.html)
 5. [Контакты](https://vlanesvit.github.io/Rossite-project/contact.html)
 6. [Продвижение за 10](https://vlanesvit.github.io/Rossite-project/promotion-10.html)
+7. [Главная](https://vlanesvit.github.io/Rossite-project/index.html)

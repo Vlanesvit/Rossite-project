@@ -5,7 +5,7 @@ window.onbeforeunload = function () {
 gsap.config({ trialWarn: false });
 gsap.registerPlugin(ScrollTrigger)
 // gsap.registerPlugin(drawSVGPlugin);
-// console.clear();
+console.clear();
 
 // /* Smooth Scroll */
 // SmoothScroll({
@@ -221,6 +221,81 @@ function animDesktop() {
 	/* REVEAL ANIMATION */
 	// project
 	showContentOnScroll('.rs-project__item', 0.3, 0.15, 'bottom-up--every');
+
+
+	/* Main pins block anim */
+	//========================================================================================================================================================
+	const stagger = 0.5;
+
+	gsap.set('.rs-main__project_item', {
+		y: (index) => 20 * index,
+		zIndex: (index, target, targets) => targets.length - index,
+		scale: (index) => 1 - (index * 0.05),
+		webkitFilter: "blur(" + 2 + "px)",
+	})
+	
+	const pinBlock = gsap.timeline({
+		defaults: { ease: "none" },
+		scrollTrigger: {
+			trigger: ".rs-main__project",
+			start: "top top",
+			end: "bottom top",
+			scrub: true,
+			pin: true,
+			// markers: true,
+			invalidateOnRefresh: true,
+		}
+	});
+
+	pinBlock.to('.rs-main__project_item', {
+		scale: 1,
+		webkitFilter: "blur(" + 0 + "px)",
+		stagger: stagger,
+	})
+	pinBlock.to('.rs-main__project_item', {
+		yPercent: -110,
+		stagger: stagger,
+	}, stagger)
+
+	gsap.to('.rs-main__title', {
+		scrollTrigger: {
+			trigger: '.rs-main__title',
+			start: `top top`,
+			end: `bottom bottom`,
+			endTrigger: '.rs-main__pins',
+			pin: true,
+			pinSpacing: false,
+			scrub: true,
+			invalidateOnRefresh: true,
+			// markers: true,
+		},
+	});
+
+	gsap.to('.rs-main__video', {
+		scrollTrigger: {
+			trigger: '.rs-main__video',
+			start: `top top`,
+			end: `bottom bottom+=1%`,
+			endTrigger: '.rs-main__pins',
+			pin: true,
+			pinSpacing: false,
+			scrub: true,
+			invalidateOnRefresh: true,
+			// markers: true,
+		},
+	});
+	gsap.set('.rs-main__video', { scale: 0.819, borderRadius: "70px" });
+	gsap.to('.rs-main__video', {
+		scale: 1,
+		borderRadius: "0px",
+		scrollTrigger: {
+			start: `top+=10% top`,
+			end: `bottom bottom`,
+			endTrigger: '.rs-main__video',
+			scrub: true,
+			// markers: true,
+		}
+	})
 }
 
 function animMobile() {
