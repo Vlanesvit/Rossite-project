@@ -425,9 +425,15 @@ function animCommon() {
 	/* MOVE SVG LINE */
 	moveSvgDashed(".rs-about-product__line #dashed-about", ".rs-about-product__line #mask-about", ".rs-about-product");
 	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews", 50, 50);
-	moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
+	// moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
+	// moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
+	// moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
+	// moveSvgDashed(".rs-services__line #dashed-services-4", ".rs-services__line #mask-services-4", ".rs-services");
+	// moveSvgDashed(".rs-services__line #dashed-services-5", ".rs-services__line #mask-services-5", ".rs-services");
+	// moveSvgDashed(".rs-services__line #dashed-services-6", ".rs-services__line #mask-services-6", ".rs-services");
+	// moveSvgDashed(".rs-services__line #dashed-services-7", ".rs-services__line #mask-services-7", ".rs-services");
+	// moveSvgDashed(".rs-task__line #dashed-task1", ".rs-task__line #mask-task1", ".rs-task");
+	// moveSvgDashed(".rs-task__line #dashed-task2", ".rs-task__line #mask-task2", ".rs-task");
 
 	/* REVEAL ANIMATION */
 	// text
