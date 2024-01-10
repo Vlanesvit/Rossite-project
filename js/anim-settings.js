@@ -140,7 +140,7 @@ function horizontalScroll(block, trigger, progress) {
 	ScrollTrigger.refresh();
 	gsap.to(progress, {
 		width: 100 + '%',
-		duration: 3,
+		duration: 2,
 		ease: 'none',
 		scrollTrigger: {
 			trigger: trigger,
@@ -259,6 +259,7 @@ function animDesktop() {
 		stagger: stagger,
 	}, stagger)
 
+	//========================================================================================================================================================
 	gsap.to('.rs-main__title', {
 		scrollTrigger: {
 			trigger: '.rs-main__title',
@@ -273,6 +274,7 @@ function animDesktop() {
 		},
 	});
 
+	//========================================================================================================================================================
 	gsap.to('.rs-main__video', {
 		scrollTrigger: {
 			trigger: '.rs-main__video',
@@ -298,6 +300,40 @@ function animDesktop() {
 			// markers: true,
 		}
 	})
+
+	//========================================================================================================================================================
+	gsap.to('.rs-steps-algorithm .rs-steps__text', {
+		scrollTrigger: {
+			trigger: '.rs-steps-algorithm .rs-steps__text',
+			start: `top top+=100px`,
+			end: `bottom bottom`,
+			endTrigger: '.rs-steps-algorithm',
+			pin: true,
+			pinSpacing: false,
+			scrub: true,
+			invalidateOnRefresh: true,
+			// markers: true,
+		},
+	});
+
+	const cardsSteps = gsap.utils.toArray(".rs-steps-algorithm .rs-steps__spollers_item");
+	cardsSteps.forEach((card, index) => {
+		const tween = gsap.to(card, {
+			scrollTrigger: {
+				trigger: card,
+				start: `top-=${index * 20} top+=100px`,
+				end: `bottom-=100px bottom-=50%`,
+				endTrigger: '.rs-steps-algorithm',
+				pin: true,
+				pinSpacing: false,
+				scrub: true,
+				invalidateOnRefresh: true,
+				// markers: true,
+			},
+			ease: "none",
+			// scale: () => 1 - (cards.length - index) * 0.025
+		});
+	});
 }
 
 function animMobile() {
@@ -424,6 +460,11 @@ function animCommon() {
 
 	/* MOVE SVG LINE */
 	moveSvgDashed(".rs-about-product__line #dashed-about", ".rs-about-product__line #mask-about", ".rs-about-product");
+	// moveSvgDashed(".rs-about-product__line #dashed-about-1", ".rs-about-product__line #mask-about-1", ".rs-about-product");
+	// moveSvgDashed(".rs-about-product__line #dashed-about-2", ".rs-about-product__line #mask-about-2", ".rs-about-product");
+	// moveSvgDashed(".rs-about-product__line #dashed-about-3", ".rs-about-product__line #mask-about-3", ".rs-about-product");
+	// moveSvgDashed(".rs-about-product__line #dashed-about-4", ".rs-about-product__line #mask-about-4", ".rs-about-product");
+	// moveSvgDashed(".rs-about-product__line #dashed-about-5", ".rs-about-product__line #mask-about-5", ".rs-about-product");
 	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews", 50, 50);
 	// moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
 	// moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");

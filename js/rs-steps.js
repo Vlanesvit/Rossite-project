@@ -49,4 +49,3 @@ function sidebarNavigation() {
 if (document.querySelector('.rs-steps__spollers_item') && document.querySelector('.rs-steps__navigation_list a')) {
 	sidebarNavigation()
 }
-
