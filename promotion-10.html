@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=, initial-scale=1.0">
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="lib/image-compare-viewer/image-compare-viewer.min.css">
+	<link rel="stylesheet" href="lib/nouislider/nouislider.min.css">
+
+	<link rel="stylesheet" href="css/rs-style.css">
+
+	<title>Россайт - Продающая страница</title>
+</head>
+
+<body style="
+--primary-color: #6366f1; 
+--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
+">
+
+	<div class="progress-bar" id="progressBar"></div>
+
+	<div class="wrapper">
+
+		<link rel="stylesheet" href="css/rs-header.css">
+		<script src="js/rs-header.js" defer></script>
+		<header class="rs-header">
+			<div class="rs-header__container">
+				<div class="rs-header__wrapper">
+
+					<div class="rs-header__menu menu">
+						<button type="button" class="menu__icon icon-menu"></button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu-item dropdown-item">
+									<a href="#">Разработка</a>
+
+									<div class="dropdown dropdown__menu" hidden>
+										<div class="dropdown__container">
+											<ul class="dropdown__columns">
+												<li class="menu-item dropdown-item">
+													<a href="#">Информационный сайт</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Сайт «ХЗ» от 170 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Бизнес Pro» за 170 000руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Бизнес» за 110 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Старт Pro» за 45 000руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Старт» за 23 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт на шаблоне за 5 500 руб.</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item dropdown-item">
+													<a href="#">Интернет-магазин или каталог</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Магазин «ХЗ» за 170 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Магазин «Бизнес Pro» от 170 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Магазин «Бизнес» от 110 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Магазин «Старт» за 45 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт-каталог «Лайт» за 29 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт-каталог на шаблоне за 9 500 руб.</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item dropdown-item">
+													<a href="#">Landing page</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Landing Page «Бизнес» за 80 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Landing Page «Старт» за 45 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Landing Page «Лайт» за 29 500 руб.</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item"><a href="#">Веб сервисы</a></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<li class="menu-item dropdown-item">
+									<a href="#">Дополнительные услуги</a>
+
+									<div class="dropdown dropdown__menu" hidden>
+										<div class="dropdown__container">
+											<ul class="dropdown__columns">
+												<li class="menu-item dropdown-item">
+													<a href="#">Продвижение и реклама</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">SEO продвижение сайта</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Контекстная реклама</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Комплексное продвижение</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Продвижение в соц сетях</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item dropdown-item">
+													<a href="#">Доработка и поддержка</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Продающая страница</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Разработка логотипов</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Техническая поддержка</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<li class="menu-item"><a href="#">О компании</a></li>
+
+								<li class="menu-item"><a href="#">Кейсы</a></li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="rs-header__logo"><a href="#"><img src=" ./img/header/logo.svg" alt=""></a></div>
+
+					<div class="rs-header__actions">
+						<div class="rs-header__actions_item rs-header__location"
+							data-da=".rs-header__menu .menu__body, 767.98, last">
+							<a href="#" class="split-text _rs-icon-pin">
+								Москва
+							</a>
+						</div>
+						<div class="rs-header__actions_item rs-header__contact">
+							<a href="#" class="split-text _rs-icon-pen">
+								Контакты
+							</a>
+						</div>
+						<div class="rs-header__call">
+							<a href="#" class="rs-btn _btn-gray-border">
+								<span class="btn-text _rs-icon-message">cвязаться с нами</span>
+								<span class="svg-wrapper"></span>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+		<main class="page">
+
+			<link rel="stylesheet" href="css/rs-banner.css">
+			<section class="rs-banner">
+				<div class="rs-banner__wrapper">
+					<div class="rs-banner__bg">
+						<img class="rs-banner__bg--desktop" src=" ./img/pages/banner/banner-img-4.jpg" alt="">
+						<img class="rs-banner__bg--tablet" src=" ./img/pages/banner/banner-img-4--tablet.jpg" alt="">
+						<img class="rs-banner__bg--mobile" src=" ./img/pages/banner/banner-img-4--mobile.jpg" alt="">
+					</div>
+					<div class="rs-banner__content">
+						<div class="rs-banner__container">
+							<div class="rs-banner__body">
+								<h1 class="mrp-med-50">SEO-продвижение сайтов
+									за 10 000 руб./месяц</h1>
+								<ul>
+									<li>Разработка стратегии по доработке и продвижению сайта в интернете</li>
+									<li>Выполняем задачи по SEO-продвижению </li>
+									<li>Анализ, корректировка и контроль стратегии продвижения</li>
+								</ul>
+								<div class="rs-banner__buttons">
+									<a href="#" class="rs-btn _btn-accent-seo">
+										<span class="btn-text _rs-icon-message">получить консультацию</span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<link rel="stylesheet" href="css/rs-work-about.css">
+			<script src="js/rs-work-about.js" defer></script>
+			<section class="rs-work-about">
+				<div class="rs-work-about__container">
+					<h2 class="mrp-med-45">Платите за понятные работы!</h2>
+
+					<div class="rs-work-about__description">
+						<div class="rs-work-about__text">
+							<p>В пакет наших услуг по SEO-продвижению входят все работы, необходимые для того,
+								чтобы вывести ваш сайт на первые страницы поисковых систем. Главное отличие нашего
+								пакета от предложений других компаний — в него не включены дополнительные работы
+								по сайту, эту услугу мы предоставляем отдельно.</p>
+							<h4>Что это вам даёт?</h4>
+							<ul>
+								<li>Вы можете заказать дополнительные работы как у нас, так и у сторонней компании</li>
+								<li>Вы можете контролировать объём работ и выбирать комфортный бюджет</li>
+								<li>Вы всегда знаете, за какие работы платите</li>
+								<li>Вы получаете основной пакет услуг по SEO-продвижению по самой выгодной цене</li>
+							</ul>
+						</div>
+						<div class="rs-work-about__text">
+							<p>Сравните: в других компаниях от 30 000 рублей вы получите полный пакет услуг с учётом
+								дополнительных работ на сайте, даже если эти работы незначительные. Заказав SEO за 10
+								000 рублей в нашей компании, вы получите услуги по SEO-продвижению, а доп.работы
+								(крупные и не очень) вы оплачиваете отдельно. Если вас не устроят наши цены, вы можете
+								заказать SEO-продвижение у нас, а для остальных работ выбрать другого исполнителя.</p>
+							<blockquote class="_rs-icon-info">
+								<div class="blockquote__text">
+									<p>Заказывайте SEO-продвижение в «Россайт» и платите за понятные работы.</p>
+								</div>
+								<img src="./img/pages/text-block/text-block_blockquote.png" alt="">
+							</blockquote>
+						</div>
+					</div>
+
+					<div class="rs-work-about__wrapper">
+						<div class="rs-work-about__desktop">
+							<div class="rs-work-about__table">
+								<table>
+									<thead>
+										<tr>
+											<th></th>
+											<th>SEO-продвижение в другой компании</th>
+											<th>SEO-продвижение с компанией «Россайт»</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Доработки сайта*</td>
+											<td><i class="_rs-icon-question-2"></i></td>
+											<td><i class="_rs-icon-arrow-right"></i></td>
+										</tr>
+										<tr>
+											<td>Анализ вашего сайта и сайтов ваших конкурентов</td>
+											<td><i class="_rs-icon-plus"></i></td>
+											<td><i class="_rs-icon-plus"></i></td>
+										</tr>
+										<tr>
+											<td>Составление плана по SEO-продвижению</td>
+											<td><i class="_rs-icon-plus"></i></td>
+											<td><i class="_rs-icon-plus"></i></td>
+										</tr>
+										<tr>
+											<td>Составление семантического ядра</td>
+											<td><i class="_rs-icon-plus"></i></td>
+											<td><i class="_rs-icon-plus"></i></td>
+										</tr>
+										<tr>
+											<td>SEO-работы</td>
+											<td><i class="_rs-icon-plus"></i></td>
+											<td><i class="_rs-icon-plus"></i></td>
+										</tr>
+										<tr>
+											<td>Отчётность о проделанной работе</td>
+											<td><i class="_rs-icon-plus"></i></td>
+											<td><i class="_rs-icon-plus"></i></td>
+										</tr>
+										<tr>
+											<td>Персональный менеджер</td>
+											<td><i class="_rs-icon-plus"></i></td>
+											<td><i class="_rs-icon-plus"></i></td>
+										</tr>
+										<tr>
+											<td>Цена</td>
+											<td>от 30 000 ₽</td>
+											<td>10 000 ₽</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="rs-work-about__hint">
+								<div class="rs-work-about__hint_bg">
+									<img src="./img/pages/tariff/hint_bg.svg" alt="">
+								</div>
+								<div class="rs-work-about__hint_content">
+									<h5 class="mrp-reg-18">Доработка сайта</h5>
+									<img src="./img/pages/tariff/check.svg" alt="">
+									<p class="mrp-reg-18">В пакет наших услуг не входят дополнительные
+										работы на сайте.</p>
+									<p class="mrp-reg-18">Это позволяет нам предложить самую низкую цену на
+										рынке SEO-услуг.
+									</p>
+									<p class="mrp-reg-18">Дополнительные работы вы можете заказать в нашей
+										компании или у стороннего разработчика.</p>
+									<p class="mrp-reg-18">Так вы точно будете знать, за что платите!</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="rs-work-about__mobile">
+							<div data-spollers data-one-spoller class="rs-work-about__spollers">
+								<div class="rs-work-about__spollers_item">
+									<div class="rs-work-about__spollers_head">
+										<h4 class="mrp-med-25">SEO-продвижение в другой компании</h4>
+										<h5 class="mrp-med-21">от 30 000 ₽</h5>
+									</div>
+									<div class="rs-work-about__spollers_body">
+										<ul>
+											<li>Доработки сайта*</li>
+											<li>Анализ вашего сайта и сайтов ваших конкурентов</li>
+											<li>Составление плана по SEO-продвижению</li>
+											<li>Составление семантического ядра</li>
+											<li>SEO-работы</li>
+											<li>Отчётность о проделанной работе</li>
+											<li>Персональный менеджер</li>
+										</ul>
+									</div>
+									<div class="rs-work-about__spollers_footer">
+										<button type="button" data-spoller
+											class="rs-work-about__spollers_title _rs-icon-circle-arrow-down">
+											<span>описание</span>
+											<span>свернуть</span>
+										</button>
+										<a href="#" class="rs-btn _btn-accent-seo">
+											<span class="btn-text">подробнее</span>
+											<span class="svg-wrapper"></span>
+										</a>
+									</div>
+								</div>
+
+								<div class="rs-work-about__spollers_item">
+									<div class="rs-work-about__spollers_head">
+										<h4 class="mrp-med-25">SEO-продвижение с компанией «Россайт»</h4>
+										<h5 class="mrp-med-21">за 10 000 ₽</h5>
+									</div>
+									<div class="rs-work-about__spollers_body">
+										<ul>
+											<li>Доработки сайта*</li>
+											<li>Анализ вашего сайта и сайтов ваших конкурентов</li>
+											<li>Составление плана по SEO-продвижению</li>
+											<li>Составление семантического ядра</li>
+											<li>SEO-работы</li>
+											<li>Отчётность о проделанной работе</li>
+											<li>Персональный менеджер</li>
+										</ul>
+										<div class="rs-work-about__hint">
+											<div class="rs-work-about__hint_bg">
+												<img src="./img/pages/tariff/hint_bg.svg" alt="">
+											</div>
+											<div class="rs-work-about__hint_content">
+												<h5 class="mrp-semibold-18">Доработка сайта</h5>
+												<p class="mrp-reg-18">В пакет наших услуг не входят дополнительные
+													работы на сайте.</p>
+												<p class="mrp-reg-18">Это позволяет нам предложить самую низкую цену на
+													рынке SEO-услуг.
+												</p>
+												<p class="mrp-reg-18">Дополнительные работы вы можете заказать в нашей
+													компании или у стороннего разработчика.</p>
+												<p class="mrp-reg-18">Так вы точно будете знать, за что платите!</p>
+											</div>
+										</div>
+									</div>
+									<div class="rs-work-about__spollers_footer">
+										<button type="button" data-spoller
+											class="rs-work-about__spollers_title _rs-icon-circle-arrow-down">
+											<span>описание</span>
+											<span>свернуть</span>
+										</button>
+										<a href="#" class="rs-btn _btn-accent-seo">
+											<span class="btn-text">подробнее</span>
+											<span class="svg-wrapper"></span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="rs-work-about__slider swiper">
+						<div class="rs-work-about__swiper swiper-wrapper">
+							<div class="rs-work-about__slide swiper-slide">
+								<div class="rs-work-about__item">
+									<h4>Анализируем деятельность компании</h4>
+									<p>Анализируем деятельность компании, ваш сайт, и как представлены конкуренты
+										компании в интернете. На основе анализа и собранного семантического ядра
+										составляем план развития сайта</p>
+								</div>
+							</div>
+							<div class="rs-work-about__slide swiper-slide">
+								<div class="rs-work-about__item">
+									<h4>Выполняем запланированные задачи по SEO</h4>
+									<ul>
+										<li>Настраиваем.htaccess, robots.txt, sitemap.xml</li>
+										<li>Прописываем/оптимизируем заголовки h1, title, ЧПУ алиасы страниц и alt-теги
+										</li>
+										<li>Настраиваем зеркала сайта, редиректы и др.</li>
+									</ul>
+								</div>
+							</div>
+							<div class="rs-work-about__slide swiper-slide">
+								<div class="rs-work-about__item">
+									<h4>Изучаем поведенческие факторы</h4>
+									<p>Смотрим карту кликов и вебвизор. Собираем позиции сайта в поисковых системах.
+										Проверяем корректность индексации сайта, вносим изменения в SEO-настройки
+										страниц сайта. Корректируем план дальнейшего развития сайта.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<link rel="stylesheet" href="css/rs-task.css">
+			<section class="rs-task">
+				<div class="rs-task__container">
+					<div class="rs-task__head">
+						<h2 class="mrp-med-45">Что мы делаем</h2>
+						<h5 class="mrp-reg-21">Задачи, которые мы выполняем в рамках SEO-продвижения вашего сайта:</h5>
+					</div>
+					<div class="rs-task__list">
+						<div class="rs-task__item">
+							<ul>
+								<li>Анализируем компанию (сильные и слабые стороны), ваш сайт и сайты конкурентов
+									в поисковой выдаче</li>
+								<li>На основе анализа сайта, информации о деятельности компании и сайтов-конкурентов
+									составляем план по развитию сайта</li>
+								<li>Добавляем сайт в инструменты для вебмастеров Яндекс и Google</li>
+								<li>Настраиваем региональность сайта</li>
+								<li>Устанавливаем и настраиваем систему аналитики (Яндекс.Метрика)</li>
+								<li>Настраиваем.htaccess, robots.txt, sitemap.xml</li>
+								<li>Составляем семантическое ядро (список ключевых слов)</li>
+								<li>Прописываем/оптимизируем заголовки h1, title, ЧПУ алиасы страниц и alt-теги</li>
+							</ul>
+						</div>
+						<div class="rs-task__item">
+							<ul>
+								<li>Настраиваем зеркала сайта и редиректы</li>
+								<li>Добавляем сайт в Яндекс.Бизнес (на Яндекс.Карты)</li>
+								<li>Оформляем карточку организации в Яндекс.Бизнес</li>
+								<li>Проверяем тексты на уникальность</li>
+								<li>На основе анализа поведенческих факторов и поведения пользователей (карта кликов,
+									вебвизор) корректируем стратегию по доработке сайта</li>
+								<li>Собираем позиции сайта в поисковых системах </li>
+								<li>Проверяем корректность индексации сайта, ошибки в инструментах для вебмастеров
+									Яндекс и Google, вносим изменения в SEO-настройки страниц сайта</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<link rel="stylesheet" href="css/rs-why-block.css">
+			<section class="rs-why-block">
+				<div class="rs-why-block__container">
+					<div class="rs-why-block__wrapper">
+						<div class="rs-why-block__bg"><img src="./img/pages/why-block/banner.svg" alt=""></div>
+						<div class="rs-why-block__content">
+							<h2 class="mrp-med-50">Почему SEO у нас стоит 10 000 ₽ в месяц?</h2>
+							<h5 class="mrp-reg-21">В пакет включены услуги: анализ сайта вашей компании
+								и Топ-10 конкурентов, составление и выполнение плана по SEO-оптимизации, контроль
+								за продвижением и развитием сайта и другие работы. Мы не включили в пакет дополнительные
+								работы на сайте, чтобы вы сами могли выбрать исполнителя. Это позволит вам планировать
+								нужный объём работ и комфортный бюджет. Даже если дополнительные работы вы закажите
+								не у нас, мы все равно будем заниматься продвижением вашего сайта.</h5>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<link rel="stylesheet" href="css/rs-slider-block.css">
+			<script src="js/rs-slider-block.js" defer></script>
+			<section class="rs-slider-block">
+				<div class="rs-slider-block__container">
+					<div class="rs-slider-block__head">
+						<h2 class="mrp-med-40">Посмотрите результаты наших клиентов</h2>
+						<p class="mrp-reg-18">За годы работы мы продвинули 250+ сайтов и вывели тысячи фраз
+							в топ 10 по различным тематикам, вот лишь некоторые из них:</p>
+					</div>
+
+					<div class="rs-slider-block__navigation swiper-navigation">
+						<div class="rs-slider-block__button-prev swiper-button-prev _rs-icon-arrow-prev"></div>
+						<div class="rs-slider-block__button-next swiper-button-next _rs-icon-arrow-next"></div>
+					</div>
+
+					<div class="rs-slider-block__slider swiper">
+						<div class="rs-slider-block__swiper swiper-wrapper">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item">
+									<div class="rs-slider-block__desc">
+										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
+										<ul>
+											<li>Поисковая система: Yandex</li>
+											<li>Регион: Санкт-Петербург</li>
+										</ul>
+									</div>
+									<div class="rs-slider-block__table">
+										<table>
+											<thead>
+												<tr>
+													<th>Фраза</th>
+													<th>Позиция</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>нотариус</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>нотариус спб</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>нотариус санкт петербург</td>
+													<td>8</td>
+												</tr>
+												<tr>
+													<td>нотариальная контора спб</td>
+													<td>10</td>
+												</tr>
+												<tr>
+													<td>нотариус петроградская</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>нотариус спб без выходных</td>
+													<td>7</td>
+												</tr>
+												<tr>
+													<td>нотариус без выходных</td>
+													<td>8</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item">
+									<div class="rs-slider-block__desc">
+										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
+										<ul>
+											<li>Поисковая система: Yandex</li>
+											<li>Регион: Санкт-Петербург</li>
+										</ul>
+									</div>
+									<div class="rs-slider-block__table">
+										<table>
+											<thead>
+												<tr>
+													<th>Фраза</th>
+													<th>Позиция</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>нотариус</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>нотариус спб</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>нотариус санкт петербург</td>
+													<td>8</td>
+												</tr>
+												<tr>
+													<td>нотариальная контора спб</td>
+													<td>10</td>
+												</tr>
+												<tr>
+													<td>нотариус петроградская</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>нотариус спб без выходных</td>
+													<td>7</td>
+												</tr>
+												<tr>
+													<td>нотариус без выходных</td>
+													<td>8</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item">
+									<div class="rs-slider-block__desc">
+										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
+										<ul>
+											<li>Поисковая система: Yandex</li>
+											<li>Регион: Санкт-Петербург</li>
+										</ul>
+									</div>
+									<div class="rs-slider-block__table">
+										<table>
+											<thead>
+												<tr>
+													<th>Фраза</th>
+													<th>Позиция</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>нотариус</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>нотариус спб</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>нотариус санкт петербург</td>
+													<td>8</td>
+												</tr>
+												<tr>
+													<td>нотариальная контора спб</td>
+													<td>10</td>
+												</tr>
+												<tr>
+													<td>нотариус петроградская</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>нотариус спб без выходных</td>
+													<td>7</td>
+												</tr>
+												<tr>
+													<td>нотариус без выходных</td>
+													<td>8</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item">
+									<div class="rs-slider-block__desc">
+										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
+										<ul>
+											<li>Поисковая система: Yandex</li>
+											<li>Регион: Санкт-Петербург</li>
+										</ul>
+									</div>
+									<div class="rs-slider-block__table">
+										<table>
+											<thead>
+												<tr>
+													<th>Фраза</th>
+													<th>Позиция</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>нотариус</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>нотариус спб</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>нотариус санкт петербург</td>
+													<td>8</td>
+												</tr>
+												<tr>
+													<td>нотариальная контора спб</td>
+													<td>10</td>
+												</tr>
+												<tr>
+													<td>нотариус петроградская</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>нотариус спб без выходных</td>
+													<td>7</td>
+												</tr>
+												<tr>
+													<td>нотариус без выходных</td>
+													<td>8</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item">
+									<div class="rs-slider-block__desc">
+										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
+										<ul>
+											<li>Поисковая система: Yandex</li>
+											<li>Регион: Санкт-Петербург</li>
+										</ul>
+									</div>
+									<div class="rs-slider-block__table">
+										<table>
+											<thead>
+												<tr>
+													<th>Фраза</th>
+													<th>Позиция</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>нотариус</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>нотариус спб</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>нотариус санкт петербург</td>
+													<td>8</td>
+												</tr>
+												<tr>
+													<td>нотариальная контора спб</td>
+													<td>10</td>
+												</tr>
+												<tr>
+													<td>нотариус петроградская</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>нотариус спб без выходных</td>
+													<td>7</td>
+												</tr>
+												<tr>
+													<td>нотариус без выходных</td>
+													<td>8</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item">
+									<div class="rs-slider-block__desc">
+										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
+										<ul>
+											<li>Поисковая система: Yandex</li>
+											<li>Регион: Санкт-Петербург</li>
+										</ul>
+									</div>
+									<div class="rs-slider-block__table">
+										<table>
+											<thead>
+												<tr>
+													<th>Фраза</th>
+													<th>Позиция</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>нотариус</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>нотариус спб</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>нотариус санкт петербург</td>
+													<td>8</td>
+												</tr>
+												<tr>
+													<td>нотариальная контора спб</td>
+													<td>10</td>
+												</tr>
+												<tr>
+													<td>нотариус петроградская</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>нотариус спб без выходных</td>
+													<td>7</td>
+												</tr>
+												<tr>
+													<td>нотариус без выходных</td>
+													<td>8</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item">
+									<div class="rs-slider-block__desc">
+										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
+										<ul>
+											<li>Поисковая система: Yandex</li>
+											<li>Регион: Санкт-Петербург</li>
+										</ul>
+									</div>
+									<div class="rs-slider-block__table">
+										<table>
+											<thead>
+												<tr>
+													<th>Фраза</th>
+													<th>Позиция</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>нотариус</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>нотариус спб</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>нотариус санкт петербург</td>
+													<td>8</td>
+												</tr>
+												<tr>
+													<td>нотариальная контора спб</td>
+													<td>10</td>
+												</tr>
+												<tr>
+													<td>нотариус петроградская</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>нотариус спб без выходных</td>
+													<td>7</td>
+												</tr>
+												<tr>
+													<td>нотариус без выходных</td>
+													<td>8</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item">
+									<div class="rs-slider-block__desc">
+										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
+										<ul>
+											<li>Поисковая система: Yandex</li>
+											<li>Регион: Санкт-Петербург</li>
+										</ul>
+									</div>
+									<div class="rs-slider-block__table">
+										<table>
+											<thead>
+												<tr>
+													<th>Фраза</th>
+													<th>Позиция</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>нотариус</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>нотариус спб</td>
+													<td>6</td>
+												</tr>
+												<tr>
+													<td>нотариус санкт петербург</td>
+													<td>8</td>
+												</tr>
+												<tr>
+													<td>нотариальная контора спб</td>
+													<td>10</td>
+												</tr>
+												<tr>
+													<td>нотариус петроградская</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>нотариус спб без выходных</td>
+													<td>7</td>
+												</tr>
+												<tr>
+													<td>нотариус без выходных</td>
+													<td>8</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="rs-slider-block__pagination swiper-pagination"></div>
+					</div>
+				</div>
+			</section>
+
+			<link rel="stylesheet" href="css/rs-partners.css">
+			<script src="js/rs-partners.js" defer></script>
+			<section class="rs-partners">
+				<div class="rs-partners__wrapper">
+					<div class="rs-partners__bg"><img src=" ./img/pages/partners/partners-bg.svg" alt=""></div>
+
+					<div class="rs-partners__container">
+						<h2 class="mrp-med-45">Нам доверяют</h2>
+
+						<div class="rs-partners__slider swiper">
+							<div class="rs-partners__swiper swiper-wrapper">
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-1.png" alt="">
+										<img src="./img/pages/partners/partners-img-1--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-2.png" alt="">
+										<img src="./img/pages/partners/partners-img-2--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-3.png" alt="">
+										<img src="./img/pages/partners/partners-img-3--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-4.png" alt="">
+										<img src="./img/pages/partners/partners-img-4--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-5.png" alt="">
+										<img src="./img/pages/partners/partners-img-5--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-6.png" alt="">
+										<img src="./img/pages/partners/partners-img-6--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-7.png" alt="">
+										<img src="./img/pages/partners/partners-img-7--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-8.png" alt="">
+										<img src="./img/pages/partners/partners-img-8--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-9.png" alt="">
+										<img src="./img/pages/partners/partners-img-9--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-10.png" alt="">
+										<img src="./img/pages/partners/partners-img-10--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-11.png" alt="">
+										<img src="./img/pages/partners/partners-img-11--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-12.png" alt="">
+										<img src="./img/pages/partners/partners-img-12--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-13.png" alt="">
+										<img src="./img/pages/partners/partners-img-13--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-14.png" alt="">
+										<img src="./img/pages/partners/partners-img-14--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-15.png" alt="">
+										<img src="./img/pages/partners/partners-img-15--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-16.png" alt="">
+										<img src="./img/pages/partners/partners-img-16--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-17.png" alt="">
+										<img src="./img/pages/partners/partners-img-17--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="./img/pages/partners/partners-img-18.png" alt="">
+										<img src="./img/pages/partners/partners-img-18--hover.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<link rel="stylesheet" href="css/rs-feedback.css">
+			<section class="rs-feedback">
+				<div class="rs-feedback__bg">
+					<img src="./img/pages/feedback/feedback-bg-1.svg" alt="">
+				</div>
+				<div class="rs-feedback__container">
+					<h2 class="mrp-med-50">Получите консультацию маркетолога по поводу продвижения вашего сайта</h2>
+					<div class="rs-feedback__buttons">
+						<a href="#" class="rs-btn _btn-primary">
+							<span class="btn-text _rs-icon-message">получить консультацию</span>
+							<span class="svg-wrapper"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<link rel="stylesheet" href="css/rs-footer.css">
+		<footer class="rs-footer">
+			<div class="rs-footer__top">
+				<div class="rs-footer__container">
+					<div class="rs-footer__head">
+						<div class="rs-footer__phone">
+							<a href="tel:+78122428072">+7 812 242-80-72 </a>
+							<a href="tel:+74951505441">+7 (495) 150–54–41</a>
+							<span>Отдел продаж</span>
+						</div>
+						<div class="rs-footer__links">
+							<ul>
+								<li>
+									<a href="#">Анкета для разработки <br> сайта «Бизнес»</a>
+								</li>
+								<li>
+									<a href="#">Презентация сайта <br> «Бизнес»</a>
+								</li>
+								<li>
+									<a href="#">Технические характеристики <br> сайта «Бизнес»</a>
+								</li>
+							</ul>
+						</div>
+						<div class="rs-footer__social social">
+							<ul class="social__list">
+								<li><a href="#" class="_rs-icon-vk"></a></li>
+								<li><a href="#" class="_rs-icon-whatsapp"></a></li>
+								<li><a href="#" class="_rs-icon-telegram"></a></li>
+								<li><a href="#" class="_rs-icon-instagram"></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Разработка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Веб-сервис и приложение</a></li>
+												<li class="menu-item"><a href="#">Информационный сайт</a></li>
+												<li class="menu-item"><a href="#">Интернет-магазин</a></li>
+												<li class="menu-item"><a href="#">Landing Page</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Дополнительные услуги</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Техническая поддержка</a></li>
+												<li class="menu-item"><a href="#">Продающая страница</a></li>
+												<li class="menu-item"><a href="#">Разработка логотипов</a></li>
+												<li class="menu-item"><a href="#">SEO продвижение сайта</a></li>
+												<li class="menu-item"><a href="#">Контекстная реклама</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Помощь</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Инструкция по Word Press</a></li>
+												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Битриксу</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Яндекс Директ</a></li>
+												<li class="menu-item"><a href="#">Карта сайта</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">О нас</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">О компании</a></li>
+												<li class="menu-item"><a href="#">Кейсы</a></li>
+												<li class="menu-item"><a href="#">Контакты</a></li>
+												<li class="menu-item"><a href="#">Вакансии</a></li>
+												<li class="menu-item"><a href="#">Отзывы</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller
+									class="rs-footer__spollers_title _spoller-active">Контактная информация</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>
+												г. Санкт-Петербург, ш. Революции д.69, оф. 312 бц «Реформа»,
+												3й этаж, офис 312 (м. Ладожская)
+												<span>центральный офис</span>
+											</li>
+											<li>
+												Санкт-Петербург, ш. Революции д.69, оф. 312
+												<span>юридический адрес <a href="#">(учередительные
+														документы)</a></span>
+											</li>
+											<li>
+												пн-пт 09:00-18:00
+												<span>время работы</span>
+											</li>
+											<li>
+												<a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+												<span>e-mail</span>
+											</li>
+											<li>
+												<a href="mailto:support@rosait.ru">support@rosait.ru</a>
+												<span>техническая поддержка</span>
+											</li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="rs-footer__bottom">
+				<div class="rs-footer__container">
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Юридический адрес</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Санкт-Петербург, ш. Революции д.69, <br> оф. 312</li>
+											<li><a href="#">Учредительные документы</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Центральный офис</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>г. Санкт-Петербург, ш. Революции д.69, <br> оф. 312 бц «Реформа», 3й
+												этаж,
+												офис 312 <br> (м. Ладожская)</li>
+											<li>Время работы: пн-пт 09:00-18:00</li>
+											<li><a href="mailto:mail@rosait.ru">mail@rosait.ru</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Скоро открытие</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Ленинский пр., 140И БЦ «Космопро» <br>
+												(м. Ленинский проспект)</li>
+											<li>Коломяжский пр., 13, корп.21 БЦ «Бюси» <br>
+												(м. Пионерская)</li>
+											<li>ул. Садовая, 53 БЦ «на Садовой» (м. Садовая)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Техническая поддержка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li><a href="mailto:support@rosait.ru">support@rosait.ru</a></li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="rs-footer__city">
+						<h6 class="mrp-semibold-18">Вы можете позвонить из любого города:</h6>
+						<ul class="rs-footer__city_list">
+							<li><a href="#" class="_active-city">Москва</a></li>
+							<li><a href="#">Санкт-Петербург</a></li>
+							<li><a href="#">Новосибирск</a></li>
+							<li><a href="#">Казань</a></li>
+							<li><a href="#">Омск</a></li>
+							<li><a href="#">Екатеринбург</a></li>
+							<li><a href="#">Ростов-на-Дону</a></li>
+							<li><a href="#">Нижний Новгород</a></li>
+							<li><a href="#">Самара</a></li>
+							<li><a href="#">Пермь</a></li>
+							<li><a href="#">Волгоград</a></li>
+							<li><a href="#">Иркутск</a></li>
+							<li><a href="#">Красноярск</a></li>
+							<li><a href="#">Воронеж</a></li>
+							<li><a href="#">Саратов</a></li>
+							<li><a href="#">Краснодар</a></li>
+							<li><a href="#">Рязань</a></li>
+							<li><a href="#">Ижевск</a></li>
+							<li><a href="#">Пенза</a></li>
+							<li><a href="#">Челябинск</a></li>
+							<li><a href="#">Ярославль</a></li>
+							<li><a href="#">Барнаул</a></li>
+						</ul>
+					</div>
+
+					<div class="rs-footer__copyright">© 2011—2023 Россайт</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	<script src="lib/swiper/swiper-bundle.min.js"></script>
+	<script src="lib/image-compare-viewer/image-compare-viewer.min.js"></script>
+	<script src="lib/nouislider/nouislider.min.js"></script>
+	<script src="lib/gsap/gsap.min.js"></script>
+	<script src="lib/gsap/ScrollTrigger.min.js"></script>
+	<script src="lib/gsap/drawSVGPlugin.min.js"></script>
+	<script src="lib/smoothScroll/SmoothScroll.min.js"></script>
+
+	<script src="lib/dynamic_adapt.js"></script>
+	<script src="js/rs-script.js"></script>
+
+	<script src="js/anim-settings.js"></script>
+</body>
+
+</html>

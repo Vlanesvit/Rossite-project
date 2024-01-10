@@ -1,6 +1,7 @@
 // Подключение шрифтов ===========================================================================================================================================================================================================================================================================
 //&display=swap - добавить при подключении через плагин
 @import url(https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:500italic);
 
 // Подключить если есть локальные файлы шрифтов
 @import "fonts/fonts";
@@ -18,17 +19,20 @@ $fontSize: 14px;
 :root {
 	--bg-color: #fff;
 	--primary-color: #6366f1;
+	--second-color: #007BFB;
+	--accent-seo-color: #ffe219;
 	--gray-btn-color: #eff2ff;
 	--light-gray-border: #d4d7e5;
-	--font-color: #0b0f19;
-	--gray-font-color: #565973;
-	--purple-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
+	--font-color: #141517;
+	--gray-font-color: #1d1e21;
+	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
 	--item-green-bg: #f1faea;
 	--item-blue-bg: #eaf0ff;
 	--item-pink-bg: #ffe9fb;
 	--item-yellow-bg: #fefae4;
 	--item-orange-bg: #fff1e3;
 	--item-red-bg: #ffeae2;
+	--item-gray-bg: #f7f7f7;
 }
 
 // Минимальная ширина страницы
@@ -66,16 +70,13 @@ body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
-	// overflow: hidden;
+	overflow: hidden;
 
 	// Прижимаем footer
 	> main {
 		flex: 1 1 auto;
-		position: relative;
-		z-index: 1;
-		background-color: var(--bg-color);
-		transition: background-color 0.3s ease 0s;
 	}
+
 	// Фикс для слайдеров
 	> * {
 		min-width: 0;
@@ -105,7 +106,7 @@ body {
 
 // Вспомогательные классы ======================================================================================================================================================================================================================
 .primary-color {
-	background: var(--purple-gradient);
+	background: var(--primary-gradient);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	color: #6e69f3;
@@ -130,11 +131,11 @@ body {
 // @import "./base/_light-gallery";
 // @import "./base/_spollers";
 // @import "./base/_tabs";
-// @import "./base/_pagging";
+@import "./base/_pagging";
 // @import "./base/_select";
 // @import "./base/_custom-cursor";
 // @import "./base/_modal";
-// @import "./base/_showmore";
+@import "./base/_showmore";
 // @import "./base/_anim";
 // @import "./base/_video";
 // @import "./base/_maps";

@@ -3,13 +3,29 @@
   background-color: var(--bg-color);
   padding-bottom: 100px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-services {
     padding-bottom: 75px;
   }
 }
 @media (max-width: 991.98px) {
   .rs-services {
+    padding-bottom: 50px;
+  }
+}
+.rs-services.margin-top {
+  margin-top: 190px;
+  padding-bottom: 110px;
+}
+@media (max-width: 1439.98px) {
+  .rs-services.margin-top {
+    margin-top: 130px;
+    padding-bottom: 75px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-services.margin-top {
+    margin-top: 110px;
     padding-bottom: 50px;
   }
 }
@@ -38,13 +54,6 @@
   .rs-services__slider {
     margin-top: 20px;
   }
-}
-.rs-services__swiper {
-  -webkit-transition: -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  -o-transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 .rs-services__slide {
   min-height: 485px;
@@ -102,7 +111,7 @@
   height: 100%;
   text-align: center;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-services__description {
     padding: 35px 35px;
   }
@@ -118,9 +127,6 @@
 @media (max-width: 767.98px) {
   .rs-services__description h4 {
     margin-bottom: 5px;
-  }
-  .rs-services__description h4:not(.mobile-title) {
-    display: none;
   }
 }
 @media (min-width: 767.98px) {
@@ -228,5 +234,37 @@
     height: 80px;
     bottom: 5%;
     right: -3%;
+  }
+}
+.rs-services__icon.rs-services__icon-11 {
+  top: 21.6%;
+  left: 1%;
+}
+@media (max-width: 991.98px) {
+  .rs-services__icon.rs-services__icon-11 {
+    width: 85px;
+    height: 85px;
+    top: 23.4%;
+    left: 1.2%;
+  }
+}
+.rs-services__icon.rs-services__icon-12 {
+  bottom: 1.4%;
+  right: -0.5%;
+}
+@media (max-width: 991.98px) {
+  .rs-services__icon.rs-services__icon-12 {
+    width: 80px;
+    height: 80px;
+  }
+}
+.rs-services__icon.rs-services__icon-13 {
+  bottom: -3.6%;
+  right: 1.1%;
+}
+@media (max-width: 991.98px) {
+  .rs-services__icon.rs-services__icon-13 {
+    width: 80px;
+    height: 80px;
   }
 }

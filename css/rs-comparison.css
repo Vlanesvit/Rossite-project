@@ -1,8 +1,9 @@
 .rs-comparison {
   text-align: center;
   padding-bottom: 100px;
+  overflow: hidden;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439.98px) {
   .rs-comparison {
     padding-bottom: 75px;
   }
@@ -29,6 +30,8 @@
   overflow: visible;
   position: relative;
   cursor: none;
+  padding-bottom: 48.65%;
+  right: -5%;
 }
 .rs-comparison__compare .icv__control-line {
   width: 8px !important;
@@ -56,7 +59,6 @@
     height: 0px;
     opacity: 0;
     -webkit-transition: opacity 0.3s ease-in-out, height 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656), width 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656);
-    -o-transition: opacity 0.3s ease-in-out, height 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656), width 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656);
     transition: opacity 0.3s ease-in-out, height 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656), width 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656);
   }
   .rs-comparison__compare .icv__circle.cursor__active {
