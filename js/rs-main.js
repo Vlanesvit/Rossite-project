@@ -5,18 +5,18 @@ function initLogoSliders() {
 	// Перечень слайдеров
 	if (document.querySelector('.rs-main__logo_slider')) {
 		const swiperMain = new Swiper('.rs-main__logo_slider', {
-			// // Автопрокрутка
-			// autoplay: {
-			// 	// Пауза между прокруткой
-			// 	delay: 1,
-			// 	// delay: 5000,
-			// 	// Закончить на последнем слайде
-			// 	stopOnLastSlide: false,
-			// 	// Отключить после ручного переключения
-			// 	disableOnInteraction: false,
-			// 	// Изменить направление
-			// 	// reverseDirection: true,
-			// },
+			// Автопрокрутка
+			autoplay: {
+				// Пауза между прокруткой
+				delay: 1,
+				// delay: 5000,
+				// Закончить на последнем слайде
+				stopOnLastSlide: false,
+				// Отключить после ручного переключения
+				disableOnInteraction: false,
+				// Изменить направление
+				// reverseDirection: true,
+			},
 
 			// Обновить свайпер
 			// при изменении элементов слайдера

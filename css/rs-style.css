@@ -214,6 +214,7 @@
 :root {
   --bg-color: #fff;
   --primary-color: #6366f1;
+  --second-color: #007BFB;
   --accent-seo-color: #ffe219;
   --gray-btn-color: #eff2ff;
   --light-gray-border: #d4d7e5;
@@ -577,6 +578,19 @@ section {
 }
 @media (max-width: 991.98px) {
   .mrp-med-25 {
+    font-size: 19px;
+    line-height: 130%;
+  }
+}
+
+.mrp-med-22 {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 28.6px */
+}
+@media (max-width: 991.98px) {
+  .mrp-med-22 {
     font-size: 19px;
     line-height: 130%;
   }
@@ -1385,27 +1399,77 @@ section {
   }
 }
 .rs-btn._btn-second .btn-text {
-  color: #141517;
-  border: 1px solid var(--accent-seo-color);
+  color: #fff;
+  border: 1px solid var(--second-color);
 }
 .rs-btn._btn-second .btn-text::before {
-  color: #141517;
+  color: #fff;
 }
 .rs-btn._btn-second:after {
-  background-color: #141517;
+  background-color: #fff;
 }
 .rs-btn._btn-second path {
-  stroke: var(--accent-seo-color);
+  stroke: var(--second-color);
 }
 @media (any-hover: hover) {
   .rs-btn._btn-second:hover .btn-text {
+    color: var(--second-color);
+    border-color: #fff;
+  }
+  .rs-btn._btn-second:hover .btn-text path {
+    stroke: #fff;
+  }
+  .rs-btn._btn-second:hover .btn-text::before {
+    color: var(--second-color);
+  }
+}
+.rs-btn._btn-gray .btn-text {
+  color: #1d1e21;
+  border: 1px solid rgb(245, 247, 255);
+}
+.rs-btn._btn-gray .btn-text::before {
+  color: #1d1e21;
+}
+.rs-btn._btn-gray:after {
+  background-color: #fff;
+}
+.rs-btn._btn-gray path {
+  stroke: #f5f7fe;
+}
+@media (any-hover: hover) {
+  .rs-btn._btn-gray:hover .btn-text {
+    color: #1d1e21;
+    border-color: #fff;
+  }
+  .rs-btn._btn-gray:hover .btn-text path {
+    stroke: #fff;
+  }
+  .rs-btn._btn-gray:hover .btn-text::before {
+    color: #1d1e21;
+  }
+}
+.rs-btn._btn-accent-seo .btn-text {
+  color: #141517;
+  border: 1px solid var(--accent-seo-color);
+}
+.rs-btn._btn-accent-seo .btn-text::before {
+  color: #141517;
+}
+.rs-btn._btn-accent-seo:after {
+  background-color: #141517;
+}
+.rs-btn._btn-accent-seo path {
+  stroke: var(--accent-seo-color);
+}
+@media (any-hover: hover) {
+  .rs-btn._btn-accent-seo:hover .btn-text {
     color: var(--accent-seo-color);
     border-color: #141517;
   }
-  .rs-btn._btn-second:hover .btn-text path {
+  .rs-btn._btn-accent-seo:hover .btn-text path {
     stroke: #141517;
   }
-  .rs-btn._btn-second:hover .btn-text::before {
+  .rs-btn._btn-accent-seo:hover .btn-text::before {
     color: var(--accent-seo-color);
   }
 }
@@ -1458,6 +1522,7 @@ section {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  vertical-align: middle;
   position: relative;
 }
 .tooltip:hover .tooltip__modal {

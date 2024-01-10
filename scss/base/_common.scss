@@ -136,6 +136,18 @@ section {
 	}
 }
 
+.mrp-med-22 {
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 130%; /* 28.6px */
+
+	@media (max-width: 991.98px) {
+		font-size: 19px;
+		line-height: 130%;
+	}
+}
+
 .mrp-med-21 {
 	font-size: 21px;
 	font-style: normal;
@@ -447,6 +459,78 @@ section {
 
 	&._btn-second {
 		.btn-text {
+			color: #fff;
+			border: 1px solid var(--second-color);
+
+			&::before {
+				color: #fff;
+			}
+		}
+
+		&:after {
+			background-color: #fff;
+		}
+
+		path {
+			stroke: var(--second-color);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				.btn-text {
+					color: var(--second-color);
+					border-color: #fff;
+
+					path {
+						stroke: #fff;
+					}
+
+					&::before {
+						color: var(--second-color);
+					}
+				}
+			}
+		}
+	}
+
+	&._btn-gray {
+		.btn-text {
+			color: #1d1e21;
+			border: 1px solid rgb(245, 247, 255);
+
+			&::before {
+				color: #1d1e21;
+			}
+		}
+
+		&:after {
+			background-color: #fff;
+		}
+
+		path {
+			stroke: #f5f7fe;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				.btn-text {
+					color: #1d1e21;
+					border-color: #fff;
+
+					path {
+						stroke: #fff;
+					}
+
+					&::before {
+						color: #1d1e21;
+					}
+				}
+			}
+		}
+	}
+
+	&._btn-accent-seo {
+		.btn-text {
 			color: #141517;
 			border: 1px solid var(--accent-seo-color);
 
@@ -550,6 +634,7 @@ section {
 // Block  ========================================================================================================================================================
 .tooltip {
 	display: inline-flex;
+	vertical-align: middle;
 	position: relative;
 
 	&:hover {

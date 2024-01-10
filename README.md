@@ -7,3 +7,8 @@
 5. [Контакты](https://vlanesvit.github.io/Rossite-project/contact.html)
 6. [Продвижение за 10](https://vlanesvit.github.io/Rossite-project/promotion-10.html)
 7. [Главная](https://vlanesvit.github.io/Rossite-project/index.html)
+8. [Контекстная реклама](https://vlanesvit.github.io/Rossite-project/context-advert.html)
+9. [Техническая поддержка](https://vlanesvit.github.io/Rossite-project/tech-support.html)
+10. [Разработка лого](https://vlanesvit.github.io/Rossite-project/logo-dev.html)
+11. [Доп.услуги](https://vlanesvit.github.io/Rossite-project/add-services.html)
+12. [Веб-сервисы](https://vlanesvit.github.io/Rossite-project/web-services.html)

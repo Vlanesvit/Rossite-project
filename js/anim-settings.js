@@ -18,6 +18,7 @@ console.clear();
 
 /* COLOR SETTINGS */
 let primaryColor = getComputedStyle(document.body).getPropertyValue('--primary-color');
+let secondColor = getComputedStyle(document.body).getPropertyValue('--second-color');
 let accentSeoColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-seo-color');
 
 /* MOVE SVG LINE */
@@ -233,7 +234,7 @@ function animDesktop() {
 		scale: (index) => 1 - (index * 0.05),
 		webkitFilter: "blur(" + 2 + "px)",
 	})
-	
+
 	const pinBlock = gsap.timeline({
 		defaults: { ease: "none" },
 		scrollTrigger: {
@@ -249,11 +250,12 @@ function animDesktop() {
 
 	pinBlock.to('.rs-main__project_item', {
 		scale: 1,
+		y: 0,
 		webkitFilter: "blur(" + 0 + "px)",
 		stagger: stagger,
 	})
 	pinBlock.to('.rs-main__project_item', {
-		yPercent: -110,
+		yPercent: -125,
 		stagger: stagger,
 	}, stagger)
 
@@ -332,7 +334,31 @@ function animCommon() {
 					gsap.to(homeIntroBtn.querySelector('svg path'), {
 						duration: 0.5,
 						delay: 0.5,
+						fill: secondColor,
+						ease: 'cubic-1',
+						onComplete: function onComplete() {
+							homeIntroBtn.classList.add('btn--active');
+						}
+					});
+				}
+
+				if (homeIntroBtn.classList.contains('_btn-accent-seo')) {
+					gsap.to(homeIntroBtn.querySelector('svg path'), {
+						duration: 0.5,
+						delay: 0.5,
 						fill: accentSeoColor,
+						ease: 'cubic-1',
+						onComplete: function onComplete() {
+							homeIntroBtn.classList.add('btn--active');
+						}
+					});
+				}
+
+				if (homeIntroBtn.classList.contains('_btn-gray')) {
+					gsap.to(homeIntroBtn.querySelector('svg path'), {
+						duration: 0.5,
+						delay: 0.5,
+						fill: 'rgb(245, 247, 255)',
 						ease: 'cubic-1',
 						onComplete: function onComplete() {
 							homeIntroBtn.classList.add('btn--active');
