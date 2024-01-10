@@ -104,7 +104,7 @@ section {
 	font-size: 40px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 70px;
+	line-height: 120%; /* 48px */
 
 	@media (max-width: 1439.98px) {
 		font-size: 35px;

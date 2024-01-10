@@ -34,6 +34,9 @@
   width: 100%;
   margin-right: 30px;
 }
+.rs-tariff-support .rs-tariff__text {
+  max-width: 555px;
+}
 @media (max-width: 1439.98px) {
   .rs-tariff__text {
     margin-right: 15px;
@@ -58,6 +61,9 @@
   padding: 30px 30px 20px 30px;
   margin-left: 15px;
   border-radius: 10px 10px 0px 0px;
+}
+.rs-tariff-support .rs-tariff__head {
+  max-width: 315px;
 }
 @media (max-width: 1439.98px) {
   .rs-tariff__head {
@@ -160,6 +166,23 @@
   font-weight: 400;
   line-height: 160%;
   position: relative;
+  vertical-align: middle;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.rs-tariff-support .rs-tariff__about_item {
+  max-width: 315px;
 }
 .rs-tariff__about_item .tooltip__btn::before {
   color: #9397ad;
@@ -198,18 +221,10 @@
     line-height: 130%;
   }
 }
-.rs-tariff__about_item:not(:first-child) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
 .rs-tariff__about_item:first-child {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   text-align: left;
   max-width: 450px;
   padding-left: 0px;
@@ -217,6 +232,9 @@
   width: 100%;
   margin-right: 30px;
   margin-left: 0px;
+}
+.rs-tariff-support .rs-tariff__about_item:first-child {
+  max-width: 555px;
 }
 @media (max-width: 1439.98px) {
   .rs-tariff__about_item:first-child {
@@ -383,6 +401,18 @@
 }
 @media (max-width: 991.98px) {
   .rs-tariff__add {
+    display: none;
+  }
+}
+.rs-tariff__note {
+  margin-top: 15px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 16.9px */
+}
+@media (min-width: 991.98px) {
+  .rs-tariff__note {
     display: none;
   }
 }
