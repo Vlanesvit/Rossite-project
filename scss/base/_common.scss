@@ -67,11 +67,13 @@ section {
 
 	&__bg {
 		position: absolute;
-		top: 0;
-		left: 0;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 		width: 100%;
 		height: 100%;
 		z-index: -1;
+		overflow: hidden;
 
 		img {
 			width: 100%;
@@ -382,8 +384,32 @@ section {
 .rs-btn {
 	position: relative;
 	display: inline-block;
-	overflow: hidden;
 	border-radius: 100px;
+
+	.btn-hover {
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: inherit;
+		z-index: 1;
+
+		&:after {
+			content: "";
+			background-color: #fff;
+			border-radius: 50% 50% 0 0;
+			display: block;
+			height: 135%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			transform: translateY(100%) rotate(10deg);
+			transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
+			width: 100%;
+		}
+	}
 
 	.btn-text {
 		width: 100%;
@@ -430,20 +456,6 @@ section {
 		}
 	}
 
-	&:after {
-		content: "";
-		background-color: #fff;
-		border-radius: 50% 50% 0 0;
-		display: block;
-		height: 135%;
-		left: 0;
-		position: absolute;
-		top: 0;
-		transform: translateY(100%) rotate(10deg);
-		transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
-		width: 100%;
-	}
-
 	.svg-wrapper {
 		position: absolute;
 		left: 0;
@@ -475,8 +487,10 @@ section {
 
 	@media (any-hover: hover) {
 		&:hover {
-			&:after {
-				transform: translateY(-25%) rotate(0);
+			.btn-hover {
+				&:after {
+					transform: translateY(-25%) rotate(0);
+				}
 			}
 		}
 	}
@@ -486,8 +500,10 @@ section {
 			border: 1px solid rgba(0, 0, 0, 0.15);
 		}
 
-		&:after {
-			background-color: var(--primary-color);
+		.btn-hover {
+			&:after {
+				background-color: var(--primary-color);
+			}
 		}
 
 		path {
@@ -514,15 +530,16 @@ section {
 	&._btn-primary {
 		.btn-text {
 			color: #fff;
-			border: 1px solid var(--primary-color);
 
 			&::before {
 				color: #fff;
 			}
 		}
 
-		&:after {
-			background-color: #fff;
+		.btn-hover {
+			&:after {
+				background-color: #fff;
+			}
 		}
 
 		path {
@@ -533,7 +550,6 @@ section {
 			&:hover {
 				.btn-text {
 					color: var(--primary-color);
-					border-color: #fff;
 
 					path {
 						stroke: #fff;
@@ -550,15 +566,16 @@ section {
 	&._btn-second {
 		.btn-text {
 			color: #fff;
-			border: 1px solid var(--second-color);
 
 			&::before {
 				color: #fff;
 			}
 		}
 
-		&:after {
-			background-color: #fff;
+		.btn-hover {
+			&:after {
+				background-color: #fff;
+			}
 		}
 
 		path {
@@ -569,7 +586,6 @@ section {
 			&:hover {
 				.btn-text {
 					color: var(--second-color);
-					border-color: #fff;
 
 					path {
 						stroke: #fff;
@@ -586,15 +602,16 @@ section {
 	&._btn-gray {
 		.btn-text {
 			color: #1d1e21;
-			border: 1px solid rgb(245, 247, 255);
 
 			&::before {
 				color: #1d1e21;
 			}
 		}
 
-		&:after {
-			background-color: #fff;
+		.btn-hover {
+			&:after {
+				background-color: #fff;
+			}
 		}
 
 		path {
@@ -605,7 +622,6 @@ section {
 			&:hover {
 				.btn-text {
 					color: #1d1e21;
-					border-color: #fff;
 
 					path {
 						stroke: #fff;
@@ -622,15 +638,16 @@ section {
 	&._btn-accent-seo {
 		.btn-text {
 			color: #141517;
-			border: 1px solid var(--accent-seo-color);
 
 			&::before {
 				color: #141517;
 			}
 		}
 
-		&:after {
-			background-color: #141517;
+		.btn-hover {
+			&:after {
+				background-color: #141517;
+			}
 		}
 
 		path {
@@ -641,7 +658,6 @@ section {
 			&:hover {
 				.btn-text {
 					color: var(--accent-seo-color);
-					border-color: #141517;
 
 					path {
 						stroke: #141517;
@@ -657,15 +673,15 @@ section {
 
 	&._btn-white {
 		.btn-text {
-			border: 1px solid #fff;
-
 			&::before {
 				color: var(--primary-color);
 			}
 		}
 
-		&:after {
-			background-color: var(--primary-color);
+		.btn-hover {
+			&:after {
+				background-color: var(--primary-color);
+			}
 		}
 
 		path {
@@ -675,7 +691,6 @@ section {
 		@media (any-hover: hover) {
 			&:hover {
 				.btn-text {
-					border-color: var(--primary-color);
 					color: #fff;
 
 					path {
@@ -692,15 +707,15 @@ section {
 
 	&._btn-primary-border {
 		.btn-text {
-			border: 1px solid var(--primary-color);
-
 			&::before {
 				color: var(--primary-color);
 			}
 		}
 
-		&:after {
-			background-color: var(--primary-color);
+		.btn-hover {
+			&:after {
+				background-color: var(--primary-color);
+			}
 		}
 
 		path {
@@ -759,6 +774,10 @@ section {
 		@media (max-width: 1170px) {
 			font-size: 16px;
 		}
+
+		&:before {
+			font-weight: 100;
+		}
 	}
 
 	// .range__tooltip_modal
@@ -771,8 +790,9 @@ section {
 		visibility: hidden;
 		box-shadow: 0px 8px 16px -2px rgba(27, 33, 44, 0.12);
 		z-index: 100;
-		min-width: 292px;
+		// min-width: 292px;
 		max-width: 292px;
+		display: block;
 		color: var(--gray-font-color);
 		font-size: 13px;
 		font-style: normal;

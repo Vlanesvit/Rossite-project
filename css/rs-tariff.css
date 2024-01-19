@@ -1,6 +1,5 @@
 @charset "UTF-8";
 .rs-tariff {
-  margin: 100px 0px;
   z-index: 10;
   position: relative;
 }
@@ -41,15 +40,6 @@
   .rs-tariff__text {
     margin-right: 15px;
   }
-}
-.rs-tariff__text > * {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-all;
-  word-break: break-word;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
 }
 .rs-tariff__text h2 {
   line-height: 110%; /* 44px */
@@ -96,6 +86,9 @@
 }
 .rs-tariff__head_button .rs-btn .btn-text {
   padding: 10px 28px;
+}
+.rs-tariff__head .tooltip {
+  bottom: -2px;
 }
 .rs-tariff__head .tooltip__modal {
   min-width: 320px;
@@ -192,6 +185,8 @@
 @media (max-width: 1439.98px) {
   .rs-tariff__about_item {
     padding: 20px 10px;
+    font-size: 16px;
+    line-height: 130%;
   }
 }
 .rs-tariff__about_item._green {
@@ -214,12 +209,6 @@
   width: calc(100% + 15px);
   height: 1px;
   background-color: #e2e5f1;
-}
-@media (max-width: 1439.98px) {
-  .rs-tariff__about_item {
-    font-size: 16px;
-    line-height: 130%;
-  }
 }
 .rs-tariff__about_item:first-child {
   -webkit-box-align: start;
@@ -256,11 +245,11 @@
 }
 @media (max-width: 767.98px) {
   .rs-tariff__spollers_item {
-    padding: 20px 20px 11px 20px;
+    padding: 20px 20px 2.3px 20px;
   }
 }
 .rs-tariff__spollers_item:not(:last-child) {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 .rs-tariff__spollers_head h4 {
   margin-bottom: 5px;
@@ -301,6 +290,11 @@
   display: -ms-flexbox;
   display: flex;
 }
+@media (max-width: 991.98px) {
+  .rs-tariff__spollers_body ul li {
+    line-height: 131.9%;
+  }
+}
 @media (max-width: 767.98px) {
   .rs-tariff__spollers_body ul li {
     line-height: 131%;
@@ -327,20 +321,15 @@
           justify-content: flex-end;
   border-top: 1px solid var(--light-gray-border);
 }
+@media (max-width: 991.98px) {
+  .rs-tariff__spollers_footer {
+    padding-top: 11px;
+    margin-top: 19px;
+  }
+}
 @media (max-width: 767.98px) {
   .rs-tariff__spollers_footer {
     margin-top: 12px;
-  }
-}
-@media (max-width: 479.98px) {
-  .rs-tariff__spollers_footer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
   }
 }
 .rs-tariff__spollers_footer .rs-btn {

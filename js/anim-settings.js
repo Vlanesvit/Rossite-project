@@ -31,7 +31,7 @@ function moveSvgDashed(dashed, mask, trigger, top = 75, end = 200, markers = 0) 
 				start: `top-=50% top`,
 				end: `bottom+=50% bottom`,
 				scrub: 1,
-				markers: 0,
+				// markers: 1,
 			},
 		});
 
@@ -43,7 +43,7 @@ function moveSvgDashed(dashed, mask, trigger, top = 75, end = 200, markers = 0) 
 				start: `top-=${top}% top`,
 				end: `bottom+=${end}% bottom`,
 				scrub: 1,
-				markers: 0,
+				// markers: 1,
 			}
 		});
 		ScrollTrigger.refresh()
@@ -228,7 +228,7 @@ function animDesktop() {
 			pinSpacing: false,
 			scrub: true,
 			invalidateOnRefresh: true,
-			markers: true,
+			// markers: 1,
 		},
 	});
 
@@ -243,19 +243,18 @@ function animDesktop() {
 			scrollTrigger: {
 				trigger: card,
 				start: `top-=${index * 20} top+=10px`,
-				end: `bottom bottom`,
+				end: `bottom-=10px bottom`,
 				endTrigger: '.rs-features__swiper',
 				pin: true,
 				pinSpacing: false,
 				scrub: true,
 				invalidateOnRefresh: true,
-				// markers: true,
+				// markers: 1,
 			},
 			ease: "none",
 			scale: () => 1 - (cards.length - index) * 0.025
 		});
 	});
-
 
 	/* PINS BLOCK STACK - MAIN */
 	//========================================================================================================================================================
@@ -274,7 +273,7 @@ function animDesktop() {
 			end: "bottom top",
 			scrub: true,
 			pin: true,
-			// markers: true,
+			// markers: 1,
 			invalidateOnRefresh: true,
 		}
 	});
@@ -301,7 +300,7 @@ function animDesktop() {
 			pinSpacing: false,
 			scrub: true,
 			invalidateOnRefresh: true,
-			// markers: true,
+			// markers: 1,
 		},
 	});
 	gsap.to('.rs-main__video', {
@@ -314,7 +313,7 @@ function animDesktop() {
 			pinSpacing: false,
 			scrub: true,
 			invalidateOnRefresh: true,
-			// markers: true,
+			// markers: 1,
 		},
 	});
 	gsap.set('.rs-main__video', { scale: 0.819, borderRadius: "70px" });
@@ -326,7 +325,7 @@ function animDesktop() {
 			end: `bottom bottom`,
 			endTrigger: '.rs-main__video',
 			scrub: true,
-			// markers: true,
+			// markers: 1,
 		}
 	})
 
@@ -342,7 +341,7 @@ function animDesktop() {
 			pinSpacing: false,
 			scrub: true,
 			invalidateOnRefresh: true,
-			// markers: true,
+			// markers: 1,
 		},
 	});
 	const cardsSteps = gsap.utils.toArray(".rs-steps-algorithm .rs-steps__spollers_item");
@@ -357,7 +356,7 @@ function animDesktop() {
 				pinSpacing: false,
 				scrub: true,
 				invalidateOnRefresh: true,
-				// markers: true,
+				// markers: 1,
 			},
 			ease: "none",
 			// scale: () => 1 - (cards.length - index) * 0.025
@@ -559,26 +558,26 @@ function animCommon() {
 	// showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
 	// showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
 	// showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
-	// // text-block	
-	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-0 img', 0.5, 0.3, 'scale');
-	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-1 img', 0.5, 0.6, 'scale');
-	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-2 img', 0.5, 0.9, 'scale');
-	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-3 img', 0.5, 1.2, 'scale');
-	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__icons img', 0.5, 0.3, 'scale--every');
-	// showContentOnScroll('.rs-text-block__description ol li', 0.15, 0.3, 'bottom-up--every');
-	// showContentOnScroll('.rs-text-block__description ul li', 0.15, 0.3, 'bottom-up--every');
-	// // tariff
-	// showContentOnScroll('.rs-tariff__desktop', 1, 1, 'fade');
-	// showContentOnScroll('.rs-tariff__mobile .rs-tariff__spollers', 1, 1, 'fade');
-	// // features	
-	// showContentOnScroll('.rs-features__bg', 1, 0.3, 'width-100');
-	// showContentOnScroll('.rs-features__container', 1, 1, 'fade');
-	// showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
-	// showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
-	// showContentOnScroll('.rs-features-list__icon', 0.5, 0.3, 'scale--every');
-	// // partners	
-	// showContentOnScroll('.rs-partners__bg', 1, 0.3, 'width-100');
-	// showContentOnScroll('.rs-partners__container', 1, 1, 'fade');
+	// text-block	
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-0 img', 0.5, 0.3, 'scale');
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-1 img', 0.5, 0.6, 'scale');
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-2 img', 0.5, 0.9, 'scale');
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-3 img', 0.5, 1.2, 'scale');
+	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__icons img', 0.5, 0.3, 'scale--every');
+	showContentOnScroll('.rs-text-block__description ol li', 0.15, 0.3, 'bottom-up--every');
+	showContentOnScroll('.rs-text-block__description ul li', 0.15, 0.3, 'bottom-up--every');
+	// tariff
+	showContentOnScroll('.rs-tariff__desktop', 1, 1, 'fade');
+	showContentOnScroll('.rs-tariff__mobile .rs-tariff__spollers', 1, 1, 'fade');
+	// features	
+	showContentOnScroll('.rs-features__bg', 1, 0.3, 'width-100');
+	showContentOnScroll('.rs-features__container', 1, 1, 'fade');
+	showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
+	showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
+	showContentOnScroll('.rs-features-list__icon', 0.5, 0.3, 'scale--every');
+	// partners	
+	showContentOnScroll('.section-bg .section__bg', 1, 0.3, 'width-100');
+	showContentOnScroll('.section-bg .section__container', 1, 1, 'fade');
 	// // services-about
 	// showContentOnScroll('.rs-services-about__img', 0.5, 0.5, 'bottom-up');
 	// showContentOnScroll('.rs-services-about__desc', 0.5, 0.3, 'bottom-up');

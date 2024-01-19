@@ -389,16 +389,13 @@
 	z-index: 998;
 	position: relative;
 
-	.rs-case & {
-		align-items: flex-start;
-	}
-
 	@media (max-width: 991.98px) {
 		display: none;
 	}
 
 	.rs-case & {
 		display: flex;
+		align-items: flex-start;
 		border: none;
 		margin-top: 0px;
 		margin-bottom: 20px;
@@ -465,14 +462,9 @@
 		&::before {
 			font-size: 28px;
 			margin-right: 14px;
-
-			.rs-case & {
-				color: var(--primary-color);
-
-				@media (max-width: 1439.98px) {
-					margin-top: 5px;
-				}
-			}
+			color: var(--primary-color);
+			border-radius: 50%;
+			background-color: rgba(99, 102, 241, 0.1);
 
 			@media (max-width: 1439.98px) {
 				font-size: 24px;
@@ -480,6 +472,10 @@
 			}
 
 			.rs-case & {
+				@media (max-width: 1439.98px) {
+					margin-top: 5px;
+				}
+
 				@media (max-width: 991.98px) {
 					margin-right: 24px;
 				}
@@ -644,6 +640,7 @@
 	&__list {
 		flex-grow: 1;
 		display: flex;
+		position: relative;
 
 		.rs-case & {
 			position: absolute;

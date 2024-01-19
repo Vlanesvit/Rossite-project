@@ -1,5 +1,4 @@
 .rs-tariff {
-	margin: 100px 0px;
 	z-index: 10;
 	position: relative;
 
@@ -48,21 +47,8 @@
 			max-width: 555px;
 		}
 
-
 		@media (max-width: 1439.98px) {
 			margin-right: 15px;
-		}
-
-		& > * {
-			// Технически это одно и то же, но используйте и то, и другое
-			overflow-wrap: break-word;
-			word-wrap: break-word;
-			// Это самое опасное в WebKit, так как оно ломает вещи везде, где бы они ни были
-			word-break: break-all;
-			// Вместо этого используйте этот нестандартный:
-			word-break: break-word;
-			// Добавляет дефис там, где слово ломается, если поддерживается
-			hyphens: auto;
 		}
 
 		h2 {
@@ -114,6 +100,10 @@
 					padding: 10px 28px;
 				}
 			}
+		}
+
+		.tooltip {
+			bottom: -2px;
 		}
 
 		.tooltip__modal {
@@ -219,6 +209,8 @@
 
 			@media (max-width: 1439.98px) {
 				padding: 20px 10px;
+				font-size: 16px;
+				line-height: 130%;
 			}
 
 			&._green {
@@ -247,11 +239,6 @@
 				width: calc(100% + 15px);
 				height: 1px;
 				background-color: #e2e5f1;
-			}
-
-			@media (max-width: 1439.98px) {
-				font-size: 16px;
-				line-height: 130%;
 			}
 
 			&:first-child {
@@ -292,11 +279,11 @@
 			border: 1px solid var(--light-gray-border);
 
 			@media (max-width: 767.98px) {
-				padding: 20px 20px 11px 20px;
+				padding: 20px 20px 2.3px 20px;
 			}
 
 			&:not(:last-child) {
-				margin-bottom: 15px;
+				margin-bottom: 16px;
 			}
 		}
 
@@ -343,6 +330,10 @@
 					padding-left: 6px;
 					display: flex;
 
+					@media (max-width: 991.98px) {
+						line-height: 131.9%;
+					}
+
 					@media (max-width: 767.98px) {
 						line-height: 131%;
 					}
@@ -367,13 +358,13 @@
 			justify-content: flex-end;
 			border-top: 1px solid var(--light-gray-border);
 
-			@media (max-width: 767.98px) {
-				margin-top: 12px;
+			@media (max-width: 991.98px) {
+				padding-top: 11px;
+				margin-top: 19px;
 			}
 
-			@media (max-width: 479.98px) {
-				flex-direction: column;
-				align-items: flex-start;
+			@media (max-width: 767.98px) {
+				margin-top: 12px;
 			}
 
 			.rs-btn {

@@ -31,6 +31,10 @@
 		display: flex;
 		flex-direction: column;
 
+		@media (max-width: 1439.98px){
+			  min-height: 550px;
+		}
+
 		@media (max-width: 991.98px) {
 			padding-top: 50px;
 			min-height: 472px;
@@ -120,7 +124,6 @@
 		}
 
 		& > h1 {
-			letter-spacing: 2.8px;
 			max-width: 730px;
 
 			@media (max-width: 991.98px) {
@@ -128,13 +131,20 @@
 				font-size: 34px;
 				font-weight: 400;
 				line-height: 115%;
-				letter-spacing: 0px;
 			}
 
 			@media (max-width: 767.98px) {
 				max-width: 100%;
 				font-size: 25px;
 				font-weight: 400;
+			}
+		}
+
+		& > .mrp-med-50 {
+			letter-spacing: 2.8px;
+
+			@media (max-width: 991.98px) {
+				letter-spacing: 0px;
 			}
 		}
 
