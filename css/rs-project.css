@@ -1,13 +1,26 @@
 .rs-project {
-  padding-bottom: 100px;
+  margin-top: 0px;
   overflow: hidden;
 }
+@media (max-width: 991.98px) {
+  .rs-project {
+    padding-bottom: 54px;
+    padding-top: 48px;
+    background: var(--item-gray-bg);
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-project {
+    padding-bottom: 60px;
+    padding-top: 63px;
+  }
+}
 .rs-project.rs-case {
-  padding-top: 140px;
+  margin-top: 140px;
 }
 @media (max-width: 1439.98px) {
   .rs-project.rs-case {
-    padding-top: 92px;
+    margin-top: 92px;
   }
 }
 @media (max-width: 991.98px) {
@@ -17,43 +30,24 @@
 }
 @media (max-width: 767.98px) {
   .rs-project.rs-case {
-    padding-top: 63px;
-  }
-}
-@media (max-width: 1439.98px) {
-  .rs-project {
-    padding-bottom: 75px;
+    margin-top: 63px;
   }
 }
 @media (max-width: 991.98px) {
-  .rs-project {
-    padding-bottom: 64px;
-    padding-top: 61px;
-    background: var(--item-gray-bg);
-  }
-}
-@media (max-width: 767.98px) {
-  .rs-project {
-    padding-bottom: 60px;
-    padding-top: 60px;
-    background: var(--item-gray-bg);
-  }
-}
-@media (max-width: 991.98px) {
-  .rs-project__container > h2:not(.mobile-title) {
+  .rs-project .section__container > h2:not(.mobile-title) {
     display: none;
   }
 }
-.rs-project__container > h2.mobile-title {
+.rs-project .section__container > h2.mobile-title {
   max-width: 550px;
 }
 @media (min-width: 991.98px) {
-  .rs-project__container > h2.mobile-title {
+  .rs-project .section__container > h2.mobile-title {
     display: none;
   }
 }
 @media (max-width: 767.98px) {
-  .rs-project__container > h2.mobile-title br {
+  .rs-project .section__container > h2.mobile-title br {
     display: none;
   }
 }
@@ -501,7 +495,7 @@
   display: -ms-flexbox;
   display: flex;
   border-radius: 10px;
-  border: 1px solid var(--unnamed, var(--light-gray-border));
+  border: 1px solid var(--light-gray-border);
   z-index: 998;
   position: relative;
 }
@@ -823,7 +817,7 @@
 }
 .filter__list > * {
   width: 100%;
-  border-left: 1px solid var(--gray-btn-color);
+  border-left: 1px solid var(--light-gray-border);
 }
 .rs-case .filter__list > * {
   border: none;
@@ -1012,7 +1006,7 @@
   background-color: transparent;
 }
 .filter__title {
-  padding: 0px 31px;
+  padding: 0px 30px;
   width: 100%;
   height: 100%;
   cursor: pointer;

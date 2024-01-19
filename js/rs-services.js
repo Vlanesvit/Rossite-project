@@ -13,15 +13,15 @@ function initServiceSlider() {
 
 			// Перечень слайдеров
 			const sliderSwiper = new Swiper(slider, {
-				// Автопрокрутка
-				autoplay: {
-					// Пауза между прокруткой
-					delay: 10000,
-					// Закончить на последнем слайде
-					stopOnLastSlide: false,
-					// Отключить после ручного переключения
-					disableOnInteraction: false,
-				},
+				// // Автопрокрутка
+				// autoplay: {
+				// 	// Пауза между прокруткой
+				// 	delay: 10000,
+				// 	// Закончить на последнем слайде
+				// 	stopOnLastSlide: false,
+				// 	// Отключить после ручного переключения
+				// 	disableOnInteraction: false,
+				// },
 
 				// Обновить свайпер
 				// при изменении элементов слайдера

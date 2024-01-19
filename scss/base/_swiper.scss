@@ -97,16 +97,41 @@
 	position: relative;
 }
 
+.swiper-initialized .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+	width: 100%;
+}
+
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
 	background: var(--primary-color);
 	position: absolute;
 	bottom: 0px;
 	top: auto;
 	left: 0;
-	width: 100%;
+	width: 0%;
 	height: 3px;
 	transform-origin: left top;
+	transform: translate3d(0px, 0px, 0px) scaleX(1) scaleY(1);
+	display: block;
 }
+
+// &__progress {
+// 	width: 100%;
+// 	height: 3px;
+// 	position: relative;
+// 	margin-top: 47px;
+// 	background: #d4d7e5;
+
+// 	&_fill {
+// 		background: var(--primary-color);
+// 		left: 0;
+// 		top: 0;
+// 		height: 100%;
+// 		width: 0%;
+// 		position: absolute;
+// 		// transition: width 1.5s ease 0s;
+// 		z-index: 10;
+// 	}
+// }
 
 // nav
 .swiper-button-next,
@@ -212,14 +237,14 @@
 	}
 }
 
-.swiper-button-next.swiper-button-disabled,
-.swiper-button-prev.swiper-button-disabled {
-	pointer-events: none;
-	cursor: default;
-	opacity: 1;
-	background: var(--gray-btn-color);
-	color: var(--font-color);
-}
+// .swiper-button-next.swiper-button-disabled,
+// .swiper-button-prev.swiper-button-disabled {
+// 	pointer-events: none;
+// 	cursor: default;
+// 	opacity: 1;
+// 	background: var(--gray-btn-color);
+// 	color: var(--font-color);
+// }
 
 .swiper-navigation {
 	display: flex;

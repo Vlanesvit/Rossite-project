@@ -7,14 +7,14 @@ gsap.registerPlugin(ScrollTrigger)
 // gsap.registerPlugin(drawSVGPlugin);
 console.clear();
 
-// /* Smooth Scroll */
-// SmoothScroll({
-// 	animationTime: 600, // [ms]
-// 	stepSize: 100, // [px]
-// 	accelerationDelta: 50,  // 50
-// 	accelerationMax: 3,   // 3
-// 	touchpadSupport: false,
-// });
+/* Smooth Scroll */
+SmoothScroll({
+	animationTime: 600, // [ms]
+	stepSize: 100, // [px]
+	accelerationDelta: 50,  // 50
+	accelerationMax: 3,   // 3
+	touchpadSupport: false,
+});
 
 /* COLOR SETTINGS */
 let primaryColor = getComputedStyle(document.body).getPropertyValue('--primary-color');
@@ -124,7 +124,7 @@ function horizontalScroll(block, trigger, progress) {
 	let container = document.querySelector(block);
 	gsap.to(container, {
 		x: () => -(container.scrollWidth - container.clientWidth) + "px",
-		ease: "none",
+		ease: "linear",
 		scrollTrigger: {
 			trigger: trigger,
 			start: "top-=10% top",
@@ -141,7 +141,7 @@ function horizontalScroll(block, trigger, progress) {
 	gsap.to(progress, {
 		width: 100 + '%',
 		duration: 2,
-		ease: 'none',
+		ease: 'linear',
 		scrollTrigger: {
 			trigger: trigger,
 			start: "top-=10% top",
@@ -180,7 +180,7 @@ function animDesktop() {
 		});
 	});
 
-	/* PARALLAX IMG */
+	/* PARALLAX IMG - STEPS */
 	const parallaxImgTop = gsap.timeline({
 		scrollTrigger: {
 			trigger: ".rs-steps",
@@ -218,23 +218,54 @@ function animDesktop() {
 	parallaxImgBottom.from('.rs-steps__column-bottom', {
 		y: '500px',
 	})
+	gsap.to('.rs-steps__navigation_body', {
+		scrollTrigger: {
+			trigger: '.rs-steps__navigation_body',
+			start: `top top+=100px`,
+			end: `bottom bottom-=50%`,
+			endTrigger: '.rs-steps',
+			pin: true,
+			pinSpacing: false,
+			scrub: true,
+			invalidateOnRefresh: true,
+			markers: true,
+		},
+	});
 
 	/* REVEAL ANIMATION */
 	// project
 	showContentOnScroll('.rs-project__item', 0.3, 0.15, 'bottom-up--every');
 
+	/* PINS BLOCK - FEATURES */
+	const cards = gsap.utils.toArray(".rs-features__slide");
+	cards.forEach((card, index) => {
+		const tween = gsap.to(card, {
+			scrollTrigger: {
+				trigger: card,
+				start: `top-=${index * 20} top+=10px`,
+				end: `bottom bottom`,
+				endTrigger: '.rs-features__swiper',
+				pin: true,
+				pinSpacing: false,
+				scrub: true,
+				invalidateOnRefresh: true,
+				// markers: true,
+			},
+			ease: "none",
+			scale: () => 1 - (cards.length - index) * 0.025
+		});
+	});
 
-	/* Main pins block anim */
+
+	/* PINS BLOCK STACK - MAIN */
 	//========================================================================================================================================================
 	const stagger = 0.5;
-
 	gsap.set('.rs-main__project_item', {
 		y: (index) => 20 * index,
 		zIndex: (index, target, targets) => targets.length - index,
 		scale: (index) => 1 - (index * 0.05),
 		webkitFilter: "blur(" + 2 + "px)",
 	})
-
 	const pinBlock = gsap.timeline({
 		defaults: { ease: "none" },
 		scrollTrigger: {
@@ -247,7 +278,6 @@ function animDesktop() {
 			invalidateOnRefresh: true,
 		}
 	});
-
 	pinBlock.to('.rs-main__project_item', {
 		scale: 1,
 		y: 0,
@@ -259,6 +289,7 @@ function animDesktop() {
 		stagger: stagger,
 	}, stagger)
 
+	/* PINS BLOCK - MAIN */
 	//========================================================================================================================================================
 	gsap.to('.rs-main__title', {
 		scrollTrigger: {
@@ -273,8 +304,6 @@ function animDesktop() {
 			// markers: true,
 		},
 	});
-
-	//========================================================================================================================================================
 	gsap.to('.rs-main__video', {
 		scrollTrigger: {
 			trigger: '.rs-main__video',
@@ -301,6 +330,7 @@ function animDesktop() {
 		}
 	})
 
+	/* PINS BLOCK STACK REVERSE - STEPS ALGORITHM */
 	//========================================================================================================================================================
 	gsap.to('.rs-steps-algorithm .rs-steps__text', {
 		scrollTrigger: {
@@ -315,7 +345,6 @@ function animDesktop() {
 			// markers: true,
 		},
 	});
-
 	const cardsSteps = gsap.utils.toArray(".rs-steps-algorithm .rs-steps__spollers_item");
 	cardsSteps.forEach((card, index) => {
 		const tween = gsap.to(card, {
@@ -343,7 +372,7 @@ function animMobile() {
 }
 
 function animCommon() {
-	// main btn
+	// MAIN BTN ANIM
 	const homeIntroBtns = document.querySelectorAll('.rs-btn');
 	homeIntroBtns.forEach(homeIntroBtn => {
 		let btnAnim;
@@ -459,12 +488,12 @@ function animCommon() {
 	});
 
 	/* MOVE SVG LINE */
-	moveSvgDashed(".rs-about-product__line #dashed-about", ".rs-about-product__line #mask-about", ".rs-about-product");
-	// moveSvgDashed(".rs-about-product__line #dashed-about-1", ".rs-about-product__line #mask-about-1", ".rs-about-product");
-	// moveSvgDashed(".rs-about-product__line #dashed-about-2", ".rs-about-product__line #mask-about-2", ".rs-about-product");
-	// moveSvgDashed(".rs-about-product__line #dashed-about-3", ".rs-about-product__line #mask-about-3", ".rs-about-product");
-	// moveSvgDashed(".rs-about-product__line #dashed-about-4", ".rs-about-product__line #mask-about-4", ".rs-about-product");
-	// moveSvgDashed(".rs-about-product__line #dashed-about-5", ".rs-about-product__line #mask-about-5", ".rs-about-product");
+	moveSvgDashed(".rs-slider-block__line #dashed-about", ".rs-slider-block__line #mask-about", ".rs-slider-block");
+	// moveSvgDashed(".rs-slider-block__line #dashed-about-1", ".rs-slider-block__line #mask-about-1", ".rs-slider-block");
+	// moveSvgDashed(".rs-slider-block__line #dashed-about-2", ".rs-slider-block__line #mask-about-2", ".rs-slider-block");
+	// moveSvgDashed(".rs-slider-block__line #dashed-about-3", ".rs-slider-block__line #mask-about-3", ".rs-slider-block");
+	// moveSvgDashed(".rs-slider-block__line #dashed-about-4", ".rs-slider-block__line #mask-about-4", ".rs-slider-block");
+	// moveSvgDashed(".rs-slider-block__line #dashed-about-5", ".rs-slider-block__line #mask-about-5", ".rs-slider-block");
 	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews", 50, 50);
 	// moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
 	// moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
@@ -497,11 +526,11 @@ function animCommon() {
 	showContentOnScroll('.rs-banner__buttons', 0.5, 0.5, 'bottom-up--every');
 	showContentOnScroll('.rs-banner__body ul', 0.5, 0.3, 'bottom-up');
 	showContentOnScroll('.rs-banner__bg', 0.5, 0.15, 'width-100');
-	// about
-	showContentOnScroll('.rs-about-product__slide', 0.5, 0.2, 'right-left--every');
-	showContentOnScroll('.rs-about-product__slider', 0.5, 0.2, 'right-left');
-	showContentOnScroll('.rs-about-product__icon', 0.5, 0.15, 'bottom-up--every');
-	horizontalScroll('.rs-about-product__list', '.rs-about-product', '.rs-about-product__progress_fill')
+	// rs-slider-block
+	showContentOnScroll('.rs-slider-block__slide', 0.5, 0.2, 'right-left--every');
+	showContentOnScroll('.rs-slider-block__slider', 0.5, 0.2, 'right-left');
+	showContentOnScroll('.rs-slider-block__icon', 0.5, 0.15, 'bottom-up--every');
+	horizontalScroll('.rs-slider-block.rs-slider-block-pins .rs-slider-block__swiper', '.rs-slider-block', '.rs-slider-block__pagination .swiper-pagination-progressbar-fill')
 	// project
 	showContentOnScroll('.rs-project__filter', 0.5, 1, 'fade');
 	showContentOnScroll('.rs-project__add', 0.5, 0.5, 'bottom-up--every');
@@ -530,44 +559,44 @@ function animCommon() {
 	// showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
 	// showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
 	// showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
-	// text-block	
-	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-0 img', 0.5, 0.3, 'scale');
-	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-1 img', 0.5, 0.6, 'scale');
-	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-2 img', 0.5, 0.9, 'scale');
-	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-3 img', 0.5, 1.2, 'scale');
-	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__icons img', 0.5, 0.3, 'scale--every');
-	showContentOnScroll('.rs-text-block__description ol li', 0.15, 0.3, 'bottom-up--every');
-	showContentOnScroll('.rs-text-block__description ul li', 0.15, 0.3, 'bottom-up--every');
-	// tariff
-	showContentOnScroll('.rs-tariff__desktop', 1, 1, 'fade');
-	showContentOnScroll('.rs-tariff__mobile .rs-tariff__spollers', 1, 1, 'fade');
-	// features	
-	showContentOnScroll('.rs-features__bg', 1, 0.3, 'width-100');
-	showContentOnScroll('.rs-features__container', 1, 1, 'fade');
-	showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
-	showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
-	showContentOnScroll('.rs-features-list__icon', 0.5, 0.3, 'scale--every');
-	// partners	
-	showContentOnScroll('.rs-partners__bg', 1, 0.3, 'width-100');
-	showContentOnScroll('.rs-partners__container', 1, 1, 'fade');
-	// services-about
-	showContentOnScroll('.rs-services-about__img', 0.5, 0.5, 'bottom-up');
-	showContentOnScroll('.rs-services-about__desc', 0.5, 0.3, 'bottom-up');
-	// slider-block
-	showContentOnScroll('.rs-slider-block__slide', 0.5, 0.2, 'right-left--every');
-	// contact
-	showContentOnScroll('.rs-document__spollers_item', 0.5, 0.2, 'bottom-up--every');
-	showContentOnScroll('.rs-contact__info_list li', 0.5, 0.2, 'bottom-up--every');
-	showContentOnScroll('.rs-contact__map', 0.5, 0.5, 'fade');
-	// work-about
-	showContentOnScroll('.rs-work-about__text', 0.5, 0.5, 'bottom-up--every');
-	showContentOnScroll('.rs-work-about__table', 0.5, 0.5, 'bottom-up');
-	showContentOnScroll('.rs-work-about__hint', 0.5, 1, 'bottom-up');
-	showContentOnScroll('.rs-work-about__item', 0.5, 0.5, 'bottom-up--every');
-	// task
-	showContentOnScroll('.rs-task__item', 0.5, 0.5, 'bottom-up--every');
-	// parallax
-	showContentOnScroll('.rs-why-block__bg', 1, 0.3, 'width-100');
+	// // text-block	
+	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-0 img', 0.5, 0.3, 'scale');
+	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-1 img', 0.5, 0.6, 'scale');
+	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-2 img', 0.5, 0.9, 'scale');
+	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-3 img', 0.5, 1.2, 'scale');
+	// showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__icons img', 0.5, 0.3, 'scale--every');
+	// showContentOnScroll('.rs-text-block__description ol li', 0.15, 0.3, 'bottom-up--every');
+	// showContentOnScroll('.rs-text-block__description ul li', 0.15, 0.3, 'bottom-up--every');
+	// // tariff
+	// showContentOnScroll('.rs-tariff__desktop', 1, 1, 'fade');
+	// showContentOnScroll('.rs-tariff__mobile .rs-tariff__spollers', 1, 1, 'fade');
+	// // features	
+	// showContentOnScroll('.rs-features__bg', 1, 0.3, 'width-100');
+	// showContentOnScroll('.rs-features__container', 1, 1, 'fade');
+	// showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
+	// showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
+	// showContentOnScroll('.rs-features-list__icon', 0.5, 0.3, 'scale--every');
+	// // partners	
+	// showContentOnScroll('.rs-partners__bg', 1, 0.3, 'width-100');
+	// showContentOnScroll('.rs-partners__container', 1, 1, 'fade');
+	// // services-about
+	// showContentOnScroll('.rs-services-about__img', 0.5, 0.5, 'bottom-up');
+	// showContentOnScroll('.rs-services-about__desc', 0.5, 0.3, 'bottom-up');
+	// // slider-block
+	// showContentOnScroll('.rs-slider-block__slide', 0.5, 0.2, 'right-left--every');
+	// // contact
+	// showContentOnScroll('.rs-document__spollers_item', 0.5, 0.2, 'bottom-up--every');
+	// showContentOnScroll('.rs-contact__info_list li', 0.5, 0.2, 'bottom-up--every');
+	// showContentOnScroll('.rs-contact__map', 0.5, 0.5, 'fade');
+	// // work-about
+	// showContentOnScroll('.rs-work-about__text', 0.5, 0.5, 'bottom-up--every');
+	// showContentOnScroll('.rs-work-about__table', 0.5, 0.5, 'bottom-up');
+	// showContentOnScroll('.rs-work-about__hint', 0.5, 1, 'bottom-up');
+	// showContentOnScroll('.rs-work-about__item', 0.5, 0.5, 'bottom-up--every');
+	// // task
+	// showContentOnScroll('.rs-task__item', 0.5, 0.5, 'bottom-up--every');
+	// // parallax
+	// showContentOnScroll('.rs-why-block__bg', 1, 0.3, 'width-100');
 }
 
 window.addEventListener("DOMContentLoaded", function () {

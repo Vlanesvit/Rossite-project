@@ -13,9 +13,10 @@
 
 	<link rel="stylesheet" href="css/rs-style.css">
 
-
 	<title>Россайт - Сайт Бизнес</title>
 </head>
+
+<!-- Здесь ввод переменой акцент-цвета. Акцент-цвет может быть другой на странице -->
 
 <body style="
 --primary-color: #6366f1; 
@@ -198,14 +199,15 @@
 			<section class="rs-banner">
 				<div class="rs-banner__wrapper">
 					<div class="rs-banner__bg">
-						<img class="rs-banner__bg--desktop" src=" ./img/pages/banner/banner-img.jpg" alt="">
-						<img class="rs-banner__bg--tablet" src=" ./img/pages/banner/banner-img--tablet.jpg" alt="">
-						<img class="rs-banner__bg--mobile" src=" ./img/pages/banner/banner-img--mobile.jpg" alt="">
+						<img class="rs-banner__bg--desktop" src=" ./img/pages/banner/banner-img-1.jpg" alt="">
+						<img class="rs-banner__bg--tablet" src=" ./img/pages/banner/banner-img-1--tablet.jpg" alt="">
+						<img class="rs-banner__bg--mobile" src=" ./img/pages/banner/banner-img-1--mobile.jpg" alt="">
 					</div>
 					<div class="rs-banner__content">
 						<div class="rs-banner__container">
 							<div class="rs-banner__body">
-								<h1 class="mrp-med-50">Сайт <span class="primary-color">«Бизнес»</span> за 110000₽ </h1>
+								<h1 class="mrp-med-50">Сайт <span class="primary-color">«Бизнес»</span> за 110 000 ₽
+								</h1>
 								<h5 class="mrp-reg-21">Создадим сайт по вашим пожеланиям. Разработка дизайна главной
 									страницы</h5>
 
@@ -225,75 +227,88 @@
 				</div>
 			</section>
 
-			<link rel="stylesheet" href="css/rs-about-product.css">
-			<section class="rs-about-product">
-				<div class="rs-about-product__container">
-					<div class="rs-about-product__head">
-						<h2 class="mrp-med-45">О продукте</h2>
+			<!-- Этот блок имеет 2 вариации: один - дефолтный слайдер, другой - слайдер с горизонтальной прокруткой и закреплением при скролле. Разница в добавляемом классе rs-slider-block-pins -->
+			<link rel="stylesheet" href="css/rs-slider-block.css">
+			<script src="js/rs-slider-block.js" defer></script>
+			<section class="rs-slider-block rs-slider-block-pins">
+				<div class="section__container">
+					<div class="section__head">
+						<div class="section__head-title">
+							<h2 class="mrp-med-40">О продукте</h2>
+						</div>
+
+						<div class="rs-slider-block__navigation swiper-navigation">
+							<div class="rs-slider-block__button-prev swiper-button-prev _rs-icon-arrow-prev"></div>
+							<div class="rs-slider-block__button-next swiper-button-next _rs-icon-arrow-next"></div>
+						</div>
 					</div>
 
-					<div class="rs-about-product__slider">
-						<div class="rs-about-product__list">
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--green">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-1.png" alt="">
+					<div class="rs-slider-block__slider swiper">
+						<div class="rs-slider-block__swiper swiper-wrapper">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--green">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-1.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Дизайн главной</h4>
 										<p class="mrp-reg-18">Разработаем главную страницу по вашим пожеланиям
 										</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-1">
-											<img src="./img/pages/about-product/about-bg/about-icon-1.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-1">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-1.1.svg"
+												alt="">
 										</div>
-										<div class="rs-about-product__icon rs-about-product__icon-2">
-											<img src="./img/pages/about-product/about-bg/about-icon-1.2.svg" alt="">
+										<div class="rs-slider-block__icon rs-slider-block__icon-2">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-1.2.svg"
+												alt="">
 										</div>
 									</div>
 								</div>
 							</div>
 
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--blue">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-2.png" alt="">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--blue">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-2.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Дизайн внутренних</h4>
 										<p class="mrp-reg-18">Стилизуем четыре базовые страницы элементами с
 											главной
 											и готовыми блоками, чтобы вы самостоятельно смогли создавать типовые
 											страницы</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-3">
-											<img src="./img/pages/about-product/about-bg/about-icon-2.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-3">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-2.1.svg"
+												alt="">
 										</div>
 									</div>
 								</div>
 							</div>
 
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--pink">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-3.png" alt="">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--pink">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-3.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Создадим контент</h4>
 										<p class="mrp-reg-18">Вам не нужно тратить время на поиск и обработку
 											изображений и написание текстов</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-4">
-											<img src="./img/pages/about-product/about-bg/about-icon-3.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-4">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-3.1.svg"
+												alt="">
 										</div>
-										<div class="rs-about-product__icon rs-about-product__icon-5">
-											<img src="./img/pages/about-product/about-bg/about-icon-3.2.svg" alt="">
+										<div class="rs-slider-block__icon rs-slider-block__icon-5">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-3.2.svg"
+												alt="">
 										</div>
-										<div
-											class="rs-about-product__icon rs-about-product__line rs-about-product__icon-6">
+										<div class="rs-slider-block__line">
 											<svg viewBox="0 0 450 541" fill="none">
 												<defs>
 													<mask id="maskAbout" maskUnits="userSpaceOnUse">
@@ -314,7 +329,7 @@
 													<linearGradient id="paint0_linear_2471_11753" x1="-292.575"
 														y1="99.8052" x2="265.829" y2="821.623"
 														gradientUnits="userSpaceOnUse">
-														<stop stop-color="#9BDBFF" stop-opacity="0.7" />
+														<stop offset="1" stop-color="#9BDBFF" stop-opacity="0.7" />
 														<stop offset="1" stop-color="#C275FF" stop-opacity="0.5" />
 													</linearGradient>
 												</defs>
@@ -324,68 +339,74 @@
 								</div>
 							</div>
 
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--yellow">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-4.png" alt="">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--yellow">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-4.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Простой редактор сайта</h4>
 										<p class="mrp-reg-18">Позволяет в два клика отредактировать информацию
 										</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-7">
-											<img src="./img/pages/about-product/about-bg/about-icon-4.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-6">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-4.1.svg"
+												alt="">
 										</div>
-										<div class="rs-about-product__icon rs-about-product__icon-8">
-											<img src="./img/pages/about-product/about-bg/about-icon-4.2.svg" alt="">
+										<div class="rs-slider-block__icon rs-slider-block__icon-7">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-4.2.svg"
+												alt="">
 										</div>
 									</div>
 								</div>
 							</div>
 
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--orange">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-5.png" alt="">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--orange">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-5.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Соответствие стандартам W3C</h4>
 										<p class="mrp-reg-18">Сайт корректно отображается во всех браузерах и на
 											всех устройствах</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-9">
-											<img src="./img/pages/about-product/about-bg/about-icon-5.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-8">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-5.1.svg"
+												alt="">
 										</div>
-										<div class="rs-about-product__icon rs-about-product__icon-10">
-											<img src="./img/pages/about-product/about-bg/about-icon-5.2.svg" alt="">
+										<div class="rs-slider-block__icon rs-slider-block__icon-9">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-5.2.svg"
+												alt="">
 										</div>
 									</div>
 								</div>
 							</div>
 
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--red">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-6.png" alt="">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--red">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-6.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Свой домен и хостинг</h4>
 										<p class="mrp-reg-18">Мы оплатим за вас домен на 1 год
 											и хостинг на 6 месяцев</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-11">
-											<img src="./img/pages/about-product/about-bg/about-icon-6.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-10">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-6.1.svg"
+												alt="">
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="rs-about-product__progress">
-							<div class="rs-about-product__progress_fill"></div>
+						<div
+							class="rs-slider-block__pagination swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal">
+							<span class="swiper-pagination-progressbar-fill"></span>
 						</div>
 					</div>
 				</div>
@@ -394,7 +415,7 @@
 			<link rel="stylesheet" href="css/rs-project.css">
 			<script src="js/rs-project.js" defer></script>
 			<section class="rs-project">
-				<div class="rs-project__container">
+				<div class="section__container">
 					<h2 class="mrp-med-45">Наши работы</h2>
 					<h2 class="mrp-med-45 mobile-title">Посмотрите на сайты наших клиентов. <br> Это реальные сайты,
 						которые мы разработали для наших заказчиков, а не шаблоны или красивые картинки.
@@ -603,10 +624,10 @@
 			<link rel="stylesheet" href="css/rs-steps.css">
 			<script src="js/rs-steps.js" defer></script>
 			<section class="rs-steps">
-				<div class="rs-steps__container">
-					<div class="rs-steps__wrapper" data-sticky data-sticky-top="100">
+				<div class="section__container">
+					<div class="rs-steps__wrapper">
 						<div class="rs-steps__navigation">
-							<div class="rs-steps__navigation_body" data-sticky-item>
+							<div class="rs-steps__navigation_body">
 								<h2 class="mrp-med-45">Над сайтом будут работать
 									<span class="primary-color">7 специалистов</span>
 								</h2>
@@ -852,7 +873,7 @@
 			<link rel="stylesheet" href="css/rs-comparison.css">
 			<script src="js/rs-comparison.js" defer></script>
 			<section class="rs-comparison">
-				<div class="rs-comparison__container">
+				<div class="section__container">
 					<h2 class="mrp-med-45">Из прототипа в дизайн</h2>
 					<p class="mrp-reg-21">Проанализируем полученную от вас информацию и конкурентов. Создадим
 						прототип
@@ -868,11 +889,11 @@
 
 			<link rel="stylesheet" href="css/rs-calc.css">
 			<script src="js/rs-calc.js" defer></script>
-			<section class="rs-calc">
-				<div class="rs-calc__wrapper">
-					<div class="rs-calc__bg"><img src=" ./img/pages/calc/calc-bg.jpg" alt=""></div>
-					<div class="rs-calc__content">
-						<div class="rs-calc__container">
+			<section class="rs-calc section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg"><img src=" ./img/pages/calc/calc-bg.jpg" alt=""></div>
+					<div class="section__content">
+						<div class="section__container">
 							<form action="#" method="POST">
 								<div class="rs-calc__body">
 									<div class="rs-calc__settings">
@@ -1047,11 +1068,11 @@
 
 			<link rel="stylesheet" href="css/rs-reviews.css">
 			<script src="js/rs-reviews.js" defer></script>
-			<section class="rs-reviews">
-				<div class="rs-reviews__wrapper">
-					<div class="rs-reviews__bg">
-						<img class="rs-reviews__bg--desktop" src="./img/pages/reviews/reviews-bg.jpg" alt="">
-						<img class="rs-reviews__bg--mobile" src="./img/pages/calc/calc-bg.jpg" alt="">
+			<section class="rs-reviews section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg">
+						<img class="section__bg--desktop" src="./img/pages/reviews/reviews-bg.jpg" alt="">
+						<img class="section__bg--mobile" src="./img/pages/calc/calc-bg.jpg" alt="">
 					</div>
 
 					<div class="rs-reviews__sticker">
@@ -1292,15 +1313,13 @@
 										</div>
 										<div class="rs-services__description">
 											<h4 class="mrp-med-25">Продающая страница</h4>
-											<h4 class="mrp-med-25 mobile-title">Лучше конструктора и готового шаблона
-											</h4>
 										</div>
 										<div class="rs-services__icons">
 											<div class="rs-services__icon rs-services__icon-1">
-												<img src="./img/pages/services/services-bg/services-icon-1.1.svg"
+												<img src="./img/pages/services/services-icons/services-icon-1.1.svg"
 													alt="">
 											</div>
-											<div class="rs-services__icon rs-services__line rs-services__icon-2">
+											<div class="rs-services__line">
 												<svg viewBox="0 0 504 485" fill="none">
 													<defs>
 														<mask id="maskServices-1" maskUnits="userSpaceOnUse">
@@ -1330,18 +1349,17 @@
 										</div>
 										<div class="rs-services__description">
 											<h4 class="mrp-med-25">Продвижение сайта</h4>
-											<h4 class="mrp-med-25 mobile-title">Продающая страница</h4>
 										</div>
 										<div class="rs-services__icons">
+											<div class="rs-services__icon rs-services__icon-2">
+												<img src="./img/pages/services/services-icons/services-icon-2.1.svg"
+													alt="">
+											</div>
 											<div class="rs-services__icon rs-services__icon-3">
-												<img src="./img/pages/services/services-bg/services-icon-2.1.svg"
+												<img src="./img/pages/services/services-icons/services-icon-2.2.svg"
 													alt="">
 											</div>
-											<div class="rs-services__icon rs-services__icon-4">
-												<img src="./img/pages/services/services-bg/services-icon-2.2.svg"
-													alt="">
-											</div>
-											<div class="rs-services__icon rs-services__line rs-services__icon-5">
+											<div class="rs-services__line">
 												<svg viewBox="0 0 504 485" fill="none">
 													<defs>
 														<mask id="maskServices-2" maskUnits="userSpaceOnUse">
@@ -1371,25 +1389,23 @@
 										</div>
 										<div class="rs-services__description">
 											<h4 class="mrp-med-25">Техническая поддержка</h4>
-											<h4 class="mrp-med-25 mobile-title">Есть все необходимое. Неограниченное
-												количество страниц</h4>
 											<p class="mrp-reg-16">Вы можете обратиться к нам всеми удобными способами.
 											</p>
 										</div>
 										<div class="rs-services__icons">
+											<div class="rs-services__icon rs-services__icon-4">
+												<img src="./img/pages/services/services-icons/services-icon-3.2.svg"
+													alt="">
+											</div>
+											<div class="rs-services__icon rs-services__icon-5">
+												<img src="./img/pages/services/services-icons/services-icon-3.1.svg"
+													alt="">
+											</div>
 											<div class="rs-services__icon rs-services__icon-6">
-												<img src="./img/pages/services/services-bg/services-icon-3.2.svg"
+												<img src="./img/pages/services/services-icons/services-icon-3.3.svg"
 													alt="">
 											</div>
-											<div class="rs-services__icon rs-services__icon-7">
-												<img src="./img/pages/services/services-bg/services-icon-3.1.svg"
-													alt="">
-											</div>
-											<div class="rs-services__icon rs-services__icon-8">
-												<img src="./img/pages/services/services-bg/services-icon-3.3.svg"
-													alt="">
-											</div>
-											<div class="rs-services__icon rs-services__line rs-services__icon-9">
+											<div class="rs-services__line">
 												<svg viewBox="0 0 504 485" fill="none">
 													<defs>
 														<mask id="maskServices-3" maskUnits="userSpaceOnUse">
@@ -1425,7 +1441,6 @@
 					<div class="rs-footer__head">
 						<div class="rs-footer__phone">
 							<a href="tel:+78122428072">+7 812 242-80-72 </a>
-							<a href="tel:+74951505441">+7 (495) 150–54–41</a>
 							<span>Отдел продаж</span>
 						</div>
 						<div class="rs-footer__links">

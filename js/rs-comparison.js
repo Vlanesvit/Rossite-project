@@ -24,7 +24,7 @@ function comparison() {
 			// Other options
 			hoverStart: true,
 			verticalMode: false,
-			startingPoint: 50,
+			startingPoint: 45.6,
 			fluidMode: true,
 		}).mount();
 	}

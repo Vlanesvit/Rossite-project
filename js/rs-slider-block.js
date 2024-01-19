@@ -2,14 +2,36 @@
 Инициализация слайдера в блоке rs-slider-block
 ==================================== */
 function initBlockSlider() {
-	if (document.querySelector('.rs-slider-block')) {
-		const sliderAbouts = document.querySelectorAll('.rs-slider-block');
+	// Слайдер с классом с закрепом и гориз.скроллом
+	if (document.querySelector('.rs-slider-block.rs-slider-block-pins')) {
+		const sliderBlocks = document.querySelectorAll('.rs-slider-block.rs-slider-block-pins');
 
-		sliderAbouts.forEach(sliderAbout => {
-			const slider = sliderAbout.querySelector('.rs-slider-block__slider');
-			const pagination = sliderAbout.querySelector('.rs-slider-block__pagination');
-			const arrowNext = sliderAbout.querySelector('.rs-slider-block__button-next');
-			const arrowPrev = sliderAbout.querySelector('.rs-slider-block__button-prev');
+		sliderBlocks.forEach(sliderBlock => {
+			const arrowNext = sliderBlock.querySelector('.rs-slider-block__button-next');
+			const arrowPrev = sliderBlock.querySelector('.rs-slider-block__button-prev');
+			let scrollChange = 300
+
+			arrowNext.addEventListener('click', function (e) {
+				e.preventDefault();
+				window.scrollBy(0, scrollChange);
+			})
+
+			arrowPrev.addEventListener('click', function (e) {
+				e.preventDefault();
+				window.scrollBy(0, -scrollChange);
+			})
+		});
+	}
+
+	// Слайдер обыкновенный
+	if (document.querySelector('.rs-slider-block:not(.rs-slider-block-pins)')) {
+		const sliderBlocks = document.querySelectorAll('.rs-slider-block:not(.rs-slider-block-pins)');
+
+		sliderBlocks.forEach(sliderBlock => {
+			const slider = sliderBlock.querySelector('.rs-slider-block__slider');
+			const pagination = sliderBlock.querySelector('.rs-slider-block__pagination');
+			const arrowNext = sliderBlock.querySelector('.rs-slider-block__button-next');
+			const arrowPrev = sliderBlock.querySelector('.rs-slider-block__button-prev');
 
 			// Перечень слайдеров
 			const sliderSwiper = new Swiper(slider, {

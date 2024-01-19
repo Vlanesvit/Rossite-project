@@ -13,29 +13,7 @@ function initFeaturesSlider() {
 			if (breakpoint.matches === true) {
 				// Выключаем слайдер
 				if (features !== undefined) features.destroy(true, true);
-
-				// Закрепляем поэкранно
-				const cards = gsap.utils.toArray(".rs-features__slide");
-				cards.forEach((card, index) => {
-					const tween = gsap.to(card, {
-						scrollTrigger: {
-							trigger: card,
-							start: `top-=${index * 20} top+=10px`,
-							end: `bottom bottom`,
-							endTrigger: '.rs-features__swiper',
-							pin: true,
-							pinSpacing: false,
-							scrub: true,
-							invalidateOnRefresh: true,
-							// markers: true,
-						},
-						ease: "none",
-						scale: () => 1 - (cards.length - index) * 0.025
-					});
-				});
-
 				return;
-
 			} else if (breakpoint.matches === false) {
 				// Включаем слайдер
 				return enableSwiper();

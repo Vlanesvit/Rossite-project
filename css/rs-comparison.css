@@ -1,16 +1,10 @@
 .rs-comparison {
   text-align: center;
-  padding-bottom: 100px;
   overflow: hidden;
 }
-@media (max-width: 1439.98px) {
+@media (min-width: 1439.98px) {
   .rs-comparison {
-    padding-bottom: 75px;
-  }
-}
-@media (max-width: 991.98px) {
-  .rs-comparison {
-    padding-bottom: 47px;
+    margin-top: 98px;
   }
 }
 @media (max-width: 991.98px) {
@@ -18,11 +12,11 @@
     display: none;
   }
 }
-.rs-comparison__container > p {
+.rs-comparison .section__container > p {
   max-width: 991.98px;
   width: 100%;
   text-wrap: balance;
-  margin: 15px auto 0px;
+  margin: 21px auto 0px;
 }
 .rs-comparison__compare {
   margin-top: 35px;
@@ -31,7 +25,7 @@
   position: relative;
   cursor: none;
   padding-bottom: 48.65%;
-  right: -5%;
+  right: -4.4%;
 }
 .rs-comparison__compare .icv__control-line {
   width: 8px !important;

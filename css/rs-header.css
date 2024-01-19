@@ -117,8 +117,8 @@
 @media (max-width: 991.98px) {
   .rs-header .menu__icon {
     position: relative;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     z-index: 5;
     -webkit-transition: all 0.3s ease 0s;

@@ -1,6 +1,7 @@
 .rs-banner {
 	padding: 20px 80px 0px;
-	margin-bottom: 90px;
+	margin-top: 0px;
+	margin-bottom: 100px;
 
 	@media (max-width: 1439.98px) {
 		padding-left: 40px;
@@ -37,6 +38,7 @@
 
 		@media (max-width: 767.98px) {
 			padding-top: 48px;
+			min-height: 647px;
 		}
 	}
 
@@ -101,12 +103,12 @@
 
 		@media (max-width: 767.98px) {
 			padding: 43px 0px 263px;
+			align-items: flex-start;
 		}
 	}
 
 	// .rs-banner__body
 	&__body {
-		max-width: 730px;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
@@ -119,12 +121,14 @@
 
 		& > h1 {
 			letter-spacing: 2.8px;
+			max-width: 730px;
 
 			@media (max-width: 991.98px) {
-				max-width: 410px;
+				max-width: 280px;
 				font-size: 34px;
 				font-weight: 400;
 				line-height: 115%;
+				letter-spacing: 0px;
 			}
 
 			@media (max-width: 767.98px) {
@@ -181,7 +185,7 @@
 			}
 
 			@media (max-width: 767.98px) {
-				margin: 6px auto 0px;
+				margin: 8px auto 0px;
 			}
 		}
 	}

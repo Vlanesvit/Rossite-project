@@ -1,7 +1,8 @@
 @charset "UTF-8";
 .rs-banner {
   padding: 20px 80px 0px;
-  margin-bottom: 90px;
+  margin-top: 0px;
+  margin-bottom: 100px;
 }
 @media (max-width: 1439.98px) {
   .rs-banner {
@@ -48,6 +49,7 @@
 @media (max-width: 767.98px) {
   .rs-banner__wrapper {
     padding-top: 48px;
+    min-height: 647px;
   }
 }
 .rs-banner__bg {
@@ -118,10 +120,12 @@
 @media (max-width: 767.98px) {
   .rs-banner__content {
     padding: 43px 0px 263px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 .rs-banner__body {
-  max-width: 730px;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -144,13 +148,15 @@
 }
 .rs-banner__body > h1 {
   letter-spacing: 2.8px;
+  max-width: 730px;
 }
 @media (max-width: 991.98px) {
   .rs-banner__body > h1 {
-    max-width: 410px;
+    max-width: 280px;
     font-size: 34px;
     font-weight: 400;
     line-height: 115%;
+    letter-spacing: 0px;
   }
 }
 @media (max-width: 767.98px) {
@@ -213,7 +219,7 @@
 }
 @media (max-width: 767.98px) {
   .rs-banner__body > h5 {
-    margin: 6px auto 0px;
+    margin: 8px auto 0px;
   }
 }
 .rs-banner__buttons {
