@@ -26,6 +26,13 @@
 	&._header-white {
 		border-bottom: 1px solid transparent;
 		color: #fff;
+
+		.char {
+			&:before,
+			&::after {
+				color: #fff;
+			}
+		}
 	}
 
 	&::before {
@@ -447,6 +454,13 @@
 						line-height: 26.08px;
 					}
 
+					.char {
+						&:before,
+						&::after {
+							color: var(--gray-font-color);
+						}
+					}
+
 					@media (max-width: 991.98px) {
 						font-weight: 500;
 					}
@@ -479,6 +493,13 @@
 
 					@media (max-width: 1439.98px) and (min-width: 991.98px) {
 						font-size: 14px;
+					}
+
+					.char {
+						&:before,
+						&::after {
+							color: var(--gray-font-color);
+						}
 					}
 
 					@media (max-width: 767.98px) {
@@ -672,7 +693,7 @@
 					display: none;
 				}
 
-				 .spltting-text {
+				.spltting-text {
 					display: none;
 				}
 			}

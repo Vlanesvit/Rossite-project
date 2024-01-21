@@ -490,10 +490,10 @@ function animCommon() {
 	showContentOnScroll('.rs-services-price__item', 0.5, 0.3, 'bottom-up');
 	// feedback
 	showContentOnScroll('.rs-feedback', 0.5, 0.3, 'up-bottom');
-	// // contact
-	// showContentOnScroll('.rs-document__spollers_item', 0.5, 0.2, 'bottom-up--every');
-	// showContentOnScroll('.rs-contact__info_list li', 0.5, 0.2, 'bottom-up--every');
-	// showContentOnScroll('.rs-contact__map', 0.5, 0.5, 'fade');
+	// contact
+	showContentOnScroll('.rs-document__spollers_item', 0.5, 0.2, 'bottom-up--every');
+	showContentOnScroll('.rs-contact__info_list li', 0.5, 0.2, 'bottom-up--every');
+	showContentOnScroll('.rs-contact__map', 0.5, 0.5, 'fade');
 	// // work-about
 	// showContentOnScroll('.rs-work-about__text', 0.5, 0.5, 'bottom-up--every');
 	// showContentOnScroll('.rs-work-about__table', 0.5, 0.5, 'bottom-up');
