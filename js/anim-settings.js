@@ -1,7 +1,12 @@
 
-window.onbeforeunload = function () {
+// После загрузки заново пересчитывать начальное и конечное значения
+window.addEventListener('load', function () {
 	window.scrollTo(0, 0);
-};
+	setTimeout(() => {
+		ScrollTrigger.refresh()
+	}, 1000);
+})
+
 gsap.config({ trialWarn: false });
 gsap.registerPlugin(ScrollTrigger)
 // gsap.registerPlugin(drawSVGPlugin);
@@ -371,121 +376,6 @@ function animMobile() {
 }
 
 function animCommon() {
-	// MAIN BTN ANIM
-	const homeIntroBtns = document.querySelectorAll('.rs-btn');
-	homeIntroBtns.forEach(homeIntroBtn => {
-		let btnAnim;
-		btnAnim = gsap.to(homeIntroBtn.querySelector('.svg-wrapper svg path'), {
-			duration: 1,
-			delay: 0.5,
-			strokeDashoffset: 0,
-			stagger: 0,
-			ease: 'cubic-1',
-			onComplete: function onComplete() {
-				if (homeIntroBtn.classList.contains('_btn-primary')) {
-					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.5,
-						delay: 0.5,
-						fill: primaryColor,
-						ease: 'cubic-1',
-						onComplete: function onComplete() {
-							homeIntroBtn.classList.add('btn--active');
-						}
-					});
-				}
-
-				if (homeIntroBtn.classList.contains('_btn-second')) {
-					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.5,
-						delay: 0.5,
-						fill: secondColor,
-						ease: 'cubic-1',
-						onComplete: function onComplete() {
-							homeIntroBtn.classList.add('btn--active');
-						}
-					});
-				}
-
-				if (homeIntroBtn.classList.contains('_btn-accent-seo')) {
-					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.5,
-						delay: 0.5,
-						fill: accentSeoColor,
-						ease: 'cubic-1',
-						onComplete: function onComplete() {
-							homeIntroBtn.classList.add('btn--active');
-						}
-					});
-				}
-
-				if (homeIntroBtn.classList.contains('_btn-gray')) {
-					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.5,
-						delay: 0.5,
-						fill: 'rgb(245, 247, 255)',
-						ease: 'cubic-1',
-						onComplete: function onComplete() {
-							homeIntroBtn.classList.add('btn--active');
-						}
-					});
-				}
-
-				if (homeIntroBtn.classList.contains('_btn-gray-border')) {
-					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.5,
-						delay: 0.5,
-						ease: 'cubic-1',
-						onComplete: function onComplete() {
-							homeIntroBtn.classList.add('btn--active');
-						}
-					});
-				}
-
-				if (homeIntroBtn.classList.contains('_btn-white')) {
-					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.5,
-						delay: 0.5,
-						fill: 'rgb(255, 255, 255)',
-						ease: 'cubic-1',
-						onComplete: function onComplete() {
-							homeIntroBtn.classList.add('btn--active');
-						}
-					});
-				}
-
-				if (homeIntroBtn.classList.contains('_btn-primary-border')) {
-					gsap.to(homeIntroBtn.querySelector('svg path'), {
-						duration: 0.5,
-						delay: 0.5,
-						ease: 'cubic-1',
-						onComplete: function onComplete() {
-							homeIntroBtn.classList.add('btn--active');
-						}
-					});
-				}
-
-				gsap.to(homeIntroBtn.querySelector('span'), {
-					duration: 0.5,
-					autoAlpha: 1,
-					ease: 'cubic-1'
-				});
-			}
-		});
-
-		ScrollTrigger.create({
-			trigger: homeIntroBtn,
-			animation: btnAnim,
-			once: true,
-			// scrub: true,
-			// markers: 1,
-
-			onEnter: () => function () { },
-			onLeave: () => function () { },
-			onEnterBack: () => function () { },
-			onLeaveBack: () => function () { },
-		});
-	});
-
 	/* MOVE SVG LINE */
 	moveSvgDashed(".rs-slider-block__line #dashed-about", ".rs-slider-block__line #mask-about", ".rs-slider-block");
 	// moveSvgDashed(".rs-slider-block__line #dashed-about-1", ".rs-slider-block__line #mask-about-1", ".rs-slider-block");
@@ -596,6 +486,174 @@ function animCommon() {
 	// showContentOnScroll('.rs-task__item', 0.5, 0.5, 'bottom-up--every');
 	// // parallax
 	// showContentOnScroll('.rs-why-block__bg', 1, 0.3, 'width-100');
+
+
+
+
+	// btn anim
+	function SVGRoundedButtons() {
+		const btns = document.querySelectorAll('.rs-btn');
+		btns.forEach(btn => {
+			var width = Math.round(btn.getBoundingClientRect().width);
+			var height = Math.round(btn.getBoundingClientRect().height);
+			var start = 40;
+			var svgWrappers = btn.querySelectorAll('.svg-wrapper');
+			var length = 0;
+			svgWrappers.forEach(function (wrapper) {
+				var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+				var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+				svg.appendChild(path);
+				svg.setAttribute('width', width);
+				svg.setAttribute('height', height);
+				svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height + '');
+				path.setAttribute('d', 'M ' + width / 2 + ' ' + 0 + ' H ' + (width - height / 2) + ' A ' + height / 2 + ' ' + height / 2 + ' ' + 0 + ' ' + 0 + ' ' + 1 + ' ' + (width - height / 2) + ' ' + height + ' H ' + height / 2 + ' A ' + height / 2 + ' ' + height / 2 + ' ' + 0 + ' ' + 0 + ' ' + 1 + ' ' + height / 2 + ' ' + 0 + ' Z ');
+				length = Math.round(path.getTotalLength());
+				wrapper.appendChild(svg);
+				wrapper.classList.contains('svg-wrapper--thin') ? wrapper.querySelector('svg').classList.add('thin') : wrapper.querySelector('svg').classList.add('progress');
+				wrapper.querySelector('svg path').style.strokeDasharray = length + ' ' + length;
+				wrapper.querySelector('svg path').style.strokeDashoffset = length;
+			});
+		});
+	}
+	SVGRoundedButtons()
+
+	function SplittingTextAnim() {
+		const splittingItems = [
+			{ item: '.rs-header__menu .menu__list li > a' },
+			{ item: '.rs-footer__menu .menu__list li > a', },
+			{ item: '.rs-btn .btn-text', },
+			{ item: '.split-text', },
+		]
+		for (let i = 0; i < splittingItems.length; i++) {
+			const spltItems = document.querySelectorAll(splittingItems[i].item)
+			spltItems.forEach(item => {
+				item.innerHTML =
+					'<span class="spltting-text">' + item.textContent + '</span>'
+				const spanTextItems = item.querySelector('span.spltting-text');
+				Splitting({
+					target: spanTextItems,
+				});
+			});
+		}
+	}
+	SplittingTextAnim()
+
+	const homeIntroBtns = document.querySelectorAll('.rs-btn');
+	homeIntroBtns.forEach(homeIntroBtn => {
+		let btnAnim;
+		btnAnim = gsap.to(homeIntroBtn.querySelector('.svg-wrapper svg path'), {
+			duration: 1,
+			delay: 0.5,
+			strokeDashoffset: 0,
+			stagger: 0,
+			ease: 'cubic-1',
+
+			onComplete: function onComplete() {
+				if (homeIntroBtn.classList.contains('_btn-primary')) {
+					gsap.to(homeIntroBtn.querySelector('svg path'), {
+						duration: 0.5,
+						delay: 0.5,
+						fill: primaryColor,
+						ease: 'cubic-1',
+						onComplete: function onComplete() {
+							homeIntroBtn.classList.add('btn--active');
+						}
+					});
+				}
+
+				if (homeIntroBtn.classList.contains('_btn-second')) {
+					gsap.to(homeIntroBtn.querySelector('svg path'), {
+						duration: 0.5,
+						delay: 0.5,
+						fill: secondColor,
+						ease: 'cubic-1',
+						onComplete: function onComplete() {
+							homeIntroBtn.classList.add('btn--active');
+						}
+					});
+				}
+
+				if (homeIntroBtn.classList.contains('_btn-accent-seo')) {
+					gsap.to(homeIntroBtn.querySelector('svg path'), {
+						duration: 0.5,
+						delay: 0.5,
+						fill: accentSeoColor,
+						ease: 'cubic-1',
+						onComplete: function onComplete() {
+							homeIntroBtn.classList.add('btn--active');
+						}
+					});
+				}
+
+				if (homeIntroBtn.classList.contains('_btn-gray')) {
+					gsap.to(homeIntroBtn.querySelector('svg path'), {
+						duration: 0.5,
+						delay: 0.5,
+						fill: 'rgb(245, 247, 255)',
+						ease: 'cubic-1',
+						onComplete: function onComplete() {
+							homeIntroBtn.classList.add('btn--active');
+						}
+					});
+				}
+
+				if (homeIntroBtn.classList.contains('_btn-gray-border')) {
+					gsap.to(homeIntroBtn.querySelector('svg path'), {
+						duration: 0.5,
+						delay: 0.5,
+						ease: 'cubic-1',
+						onComplete: function onComplete() {
+							homeIntroBtn.classList.add('btn--active');
+						}
+					});
+				}
+
+				if (homeIntroBtn.classList.contains('_btn-white')) {
+					gsap.to(homeIntroBtn.querySelector('svg path'), {
+						duration: 0.5,
+						delay: 0.5,
+						fill: 'rgb(255, 255, 255)',
+						ease: 'cubic-1',
+						onComplete: function onComplete() {
+							homeIntroBtn.classList.add('btn--active');
+						}
+					});
+				}
+
+				if (homeIntroBtn.classList.contains('_btn-primary-border')) {
+					gsap.to(homeIntroBtn.querySelector('svg path'), {
+						duration: 0.5,
+						delay: 0.5,
+						ease: 'cubic-1',
+						onComplete: function onComplete() {
+							homeIntroBtn.classList.add('btn--active');
+						}
+					});
+				}
+
+				gsap.to(homeIntroBtn.querySelector('span'), {
+					duration: 0.5,
+					autoAlpha: 1,
+					ease: 'cubic-1'
+				});
+			}
+		});
+
+		ScrollTrigger.create({
+			trigger: homeIntroBtn,
+			animation: btnAnim,
+			once: true,
+			// scrub: true,
+			// markers: 1,
+			start: `top-=50% bottom`,
+			end: `bottom+=50% top`,
+
+			onEnter: () => function () { },
+			onLeave: () => function () { },
+			onEnterBack: () => function () { },
+			onLeaveBack: () => function () { },
+		});
+	});
 }
 
 window.addEventListener("DOMContentLoaded", function () {

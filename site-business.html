@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 
+	<link rel="stylesheet" href="lib/splitting/splitting.css" />
 	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="lib/image-compare-viewer/image-compare-viewer.min.css">
 	<link rel="stylesheet" href="lib/nouislider/nouislider.min.css">
@@ -15,8 +16,6 @@
 
 	<title>Россайт - Сайт Бизнес</title>
 </head>
-
-<!-- Здесь ввод переменой акцент-цвета. Акцент-цвет может быть другой на странице -->
 
 <body style="
 --primary-color: #6366f1; 
@@ -1103,7 +1102,7 @@
 					</div>
 
 					<div class="rs-reviews__content">
-						<div class="rs-reviews__container">
+						<div class="section__container">
 							<div class="rs-reviews__body">
 								<h2 class="mrp-med-45">
 									Выполнили более <span class="primary-color">5000</span> проектов
@@ -1455,13 +1454,26 @@
 						<div class="rs-footer__links">
 							<ul>
 								<li>
-									<a href="#">Анкета для разработки <br> сайта «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 								<li>
-									<a href="#">Презентация сайта <br> «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 								<li>
-									<a href="#">Технические характеристики <br> сайта «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -1689,18 +1701,20 @@
 
 	</div>
 
+	<script src="lib/splitting/splitting.js"></script>
+	<script src="lib/smoothScroll/SmoothScroll.min.js"></script>
 	<script src="lib/swiper/swiper-bundle.min.js"></script>
 	<script src="lib/image-compare-viewer/image-compare-viewer.min.js"></script>
 	<script src="lib/nouislider/nouislider.min.js"></script>
+	<script src="lib/dynamic_adapt.js"></script>
+
+	<script src="js/rs-script.js"></script>
+
 	<script src="lib/gsap/gsap.min.js"></script>
 	<script src="lib/gsap/ScrollTrigger.min.js"></script>
 	<script src="lib/gsap/drawSVGPlugin.min.js"></script>
-	<script src="lib/smoothScroll/SmoothScroll.min.js"></script>
-
-	<script src="lib/dynamic_adapt.js"></script>
-	<script src="js/rs-script.js"></script>
-
 	<script src="js/anim-settings.js"></script>
+	
 </body>
 
 </html>

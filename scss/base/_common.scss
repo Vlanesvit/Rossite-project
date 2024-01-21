@@ -315,72 +315,6 @@ section {
 }
 
 // Button ========================================================================================================================================================
-.split-text {
-	position: relative;
-
-	@media (any-hover: hover) {
-		&:hover {
-			.split-text-origin > span {
-				transform: translateY(-100%) rotate(-10deg);
-			}
-			.split-text-copy > span {
-				transform: translateY(0) rotate(0);
-			}
-		}
-	}
-}
-
-.split-text-wrapper {
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	position: relative;
-}
-
-.split-text-origin,
-.split-text-copy {
-	& > span {
-		$i: 1;
-		@while $i < 100 {
-			&:nth-child(#{$i}) {
-				transition-delay: $i * 0.015 + s;
-			}
-			$i: $i + 1;
-		}
-	}
-}
-
-.split-text-origin {
-	line-height: 1.3;
-	overflow: hidden;
-	position: relative;
-
-	& > span {
-		display: inline-block;
-		position: relative;
-		transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
-		white-space: break-spaces;
-	}
-}
-
-.split-text-copy {
-	display: flex;
-	right: 0;
-	overflow: hidden;
-	pointer-events: none;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	white-space: break-spaces;
-	width: 100%;
-
-	& > span {
-		display: inline-block;
-		transform: translateY(100%) rotate(-10deg);
-		transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
-	}
-}
-
 .rs-btn {
 	position: relative;
 	display: inline-block;
@@ -406,7 +340,7 @@ section {
 			position: absolute;
 			top: 0;
 			transform: translateY(100%) rotate(10deg);
-			transition: transform 0.36s cubic-bezier(0.43, 0.05, 0.17, 1);
+			transition: transform 0.5s cubic-bezier(0.9, 0, 0.2, 1);
 			width: 100%;
 		}
 	}
@@ -414,7 +348,7 @@ section {
 	.btn-text {
 		width: 100%;
 		justify-content: center;
-		text-align: center;
+		text-align: left;
 		align-items: center;
 		display: inline-flex;
 		font-size: 16px;
@@ -427,7 +361,7 @@ section {
 		padding: 16.2px 28px;
 		opacity: 0;
 		visibility: hidden;
-		transition: all 0.3s ease 0s;
+		transition: all 0.5s cubic-bezier(0.9, 0, 0.2, 1);
 
 		@media (max-width: 1439.98px) {
 			font-size: 14px;
@@ -447,7 +381,7 @@ section {
 			font-size: 20px;
 			margin-right: 9px;
 			color: var(--primary-color);
-			transition: all 0.3s ease 0s;
+			transition: all 0.5s cubic-bezier(0.9, 0, 0.2, 1);
 
 			@media (max-width: 991.98px) {
 				font-size: 17px;
@@ -472,7 +406,7 @@ section {
 			height: 100%;
 			z-index: 2;
 			overflow: visible;
-			transition: all 0.3s ease 0s;
+			transition: all 0.5s cubic-bezier(0.9, 0, 0.2, 1);
 			fill: none;
 
 			path {
@@ -480,7 +414,7 @@ section {
 				stroke-width: 1;
 				stroke-linecap: round;
 				stroke-linejoin: miter;
-				transition: all 0.3s ease 0s;
+				transition: all 0.5s cubic-bezier(0.9, 0, 0.2, 1);
 			}
 		}
 	}
@@ -492,12 +426,21 @@ section {
 					transform: translateY(-25%) rotate(0);
 				}
 			}
+
+			.char {
+				&:before {
+					transform: translateY(0) rotate(0);
+				}
+
+				&::after {
+					transform: translateY(-100%) rotate(-10deg);
+				}
+			}
 		}
 	}
 
 	&._btn-gray-border {
 		.btn-text {
-			border: 1px solid rgba(0, 0, 0, 0.15);
 		}
 
 		.btn-hover {
@@ -515,13 +458,21 @@ section {
 				.btn-text {
 					color: #fff;
 
-					path {
-						stroke: var(--primary-color);
+					.char {
+						&:before,
+						&::after {
+							color: #fff;
+						}
 					}
 
 					&::before {
 						color: #fff;
 					}
+				}
+
+				path {
+					stroke: var(--primary-color);
+					// fill: var(--primary-color);
 				}
 			}
 		}
@@ -530,6 +481,13 @@ section {
 	&._btn-primary {
 		.btn-text {
 			color: #fff;
+
+			.char {
+				&:before,
+				&::after {
+					color: #fff;
+				}
+			}
 
 			&::before {
 				color: #fff;
@@ -551,13 +509,21 @@ section {
 				.btn-text {
 					color: var(--primary-color);
 
-					path {
-						stroke: #fff;
+					.char {
+						&:before,
+						&::after {
+							color: var(--primary-color);
+						}
 					}
 
 					&::before {
 						color: var(--primary-color);
 					}
+				}
+
+				path {
+					stroke: #fff;
+					fill: #fff;
 				}
 			}
 		}
@@ -566,6 +532,13 @@ section {
 	&._btn-second {
 		.btn-text {
 			color: #fff;
+
+			.char {
+				&:before,
+				&::after {
+					color: #fff;
+				}
+			}
 
 			&::before {
 				color: #fff;
@@ -587,13 +560,21 @@ section {
 				.btn-text {
 					color: var(--second-color);
 
-					path {
-						stroke: #fff;
+					.char {
+						&:before,
+						&::after {
+							color: var(--second-color);
+						}
 					}
 
 					&::before {
 						color: var(--second-color);
 					}
+				}
+
+				path {
+					stroke: #fff;
+					fill: #fff;
 				}
 			}
 		}
@@ -601,10 +582,17 @@ section {
 
 	&._btn-gray {
 		.btn-text {
-			color: #1d1e21;
+			color: var(--gray-font-color);
+
+			.char {
+				&:before,
+				&::after {
+					color: var(--gray-font-color);
+				}
+			}
 
 			&::before {
-				color: #1d1e21;
+				color: var(--gray-font-color);
 			}
 		}
 
@@ -621,15 +609,23 @@ section {
 		@media (any-hover: hover) {
 			&:hover {
 				.btn-text {
-					color: #1d1e21;
+					color: var(--gray-font-color);
 
-					path {
-						stroke: #fff;
+					.char {
+						&:before,
+						&::after {
+							color: var(--gray-font-color);
+						}
 					}
 
 					&::before {
-						color: #1d1e21;
+						color: var(--gray-font-color);
 					}
+				}
+
+				path {
+					stroke: #fff;
+					fill: #fff;
 				}
 			}
 		}
@@ -637,16 +633,23 @@ section {
 
 	&._btn-accent-seo {
 		.btn-text {
-			color: #141517;
+			color: var(--font-color);
+
+			.char {
+				&:before,
+				&::after {
+					color: var(--font-color);
+				}
+			}
 
 			&::before {
-				color: #141517;
+				color: var(--font-color);
 			}
 		}
 
 		.btn-hover {
 			&:after {
-				background-color: #141517;
+				background-color: var(--font-color);
 			}
 		}
 
@@ -659,13 +662,21 @@ section {
 				.btn-text {
 					color: var(--accent-seo-color);
 
-					path {
-						stroke: #141517;
+					.char {
+						&:before,
+						&::after {
+							color: var(--accent-seo-color);
+						}
 					}
 
 					&::before {
 						color: var(--accent-seo-color);
 					}
+				}
+
+				path {
+					stroke: var(--font-color);
+					fill: var(--font-color);
 				}
 			}
 		}
@@ -693,13 +704,21 @@ section {
 				.btn-text {
 					color: #fff;
 
-					path {
-						stroke: var(--primary-color);
+					.char {
+						&:before,
+						&::after {
+							color: #fff;
+						}
 					}
 
 					&::before {
 						color: #fff;
 					}
+				}
+
+				path {
+					stroke: var(--primary-color);
+					fill: var(--primary-color);
 				}
 			}
 		}
@@ -727,6 +746,13 @@ section {
 				.btn-text {
 					color: #fff;
 
+					.char {
+						&:before,
+						&::after {
+							color: #fff;
+						}
+					}
+
 					&::before {
 						color: #fff;
 					}
@@ -737,6 +763,56 @@ section {
 }
 
 // Block  ========================================================================================================================================================
+
+.splitting {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+
+	.word {
+		overflow: hidden;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.char {
+		color: transparent;
+
+		&:before,
+		&::after {
+			content: attr(data-char);
+			visibility: visible;
+			transition: transform 0.5s cubic-bezier(0.9, 0, 0.2, 1) calc(0.2s + (0.02s * (var(--char-index)))),
+				color 0.5s cubic-bezier(0.9, 0, 0.2, 1) 0s;
+			color: var(--font-color);
+			display: inline-block;
+		}
+
+		&::after {
+			transform: translateY(0%) rotate(0deg);
+		}
+
+		&:before {
+			transform: translateY(100%) rotate(-10deg);
+		}
+	}
+}
+.spltting-text {
+	@media (any-hover: hover) {
+		&:hover {
+			.char {
+				&:before {
+					transform: translateY(0) rotate(0);
+				}
+
+				&::after {
+					transform: translateY(-100%) rotate(-10deg);
+				}
+			}
+		}
+	}
+}
+
 .tooltip {
 	display: inline-flex;
 	vertical-align: middle;

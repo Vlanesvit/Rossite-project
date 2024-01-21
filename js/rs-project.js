@@ -1,5 +1,5 @@
 // Инициализация курсора
-addCursorHover(".rs-project__item", ".rs-project .cursor", "cursor__active");
+addCursorHover(".rs-project__slide", ".cursor", "cursor__active");
 addCursorMove(".cursor__circle")
 
 /* ====================================
@@ -155,7 +155,7 @@ function filterProject() {
 		if (filterBtn) {
 			filterBtn.addEventListener('click', function () {
 				filterBlock.classList.toggle('_open-filter')
-				document.querySelector('main').classList.toggle('_open-filter');
+				document.documentElement.classList.toggle('_open-filter');
 			})
 		}
 

@@ -93,9 +93,10 @@
 
 	// .rs-footer__links
 	&__links {
-		@media (max-width: 1280px) {
+		@media (max-width: 1169.98px) {
 			display: none;
 		}
+
 		ul {
 			display: flex;
 			align-items: center;
@@ -103,37 +104,66 @@
 			li {
 				&:not(:last-child) {
 					margin-right: 25px;
+
+					@media (max-width: 1439.98px) {
+						margin-right: 15px;
+					}
+				}
+
+				&:nth-child(1) {
+					max-width: 236px;
+
+					@media (max-width: 1439.98px) {
+						max-width: 215px;
+					}
+				}
+				&:nth-child(2) {
+					max-width: 215px;
+				}
+				&:nth-child(3) {
+					max-width: 279px;
+
+					@media (max-width: 1439.98px) {
+						max-width: 250px;
+					}
 				}
 
 				a {
+					width: 100%;
 					display: inline-flex;
 					align-items: center;
 					justify-content: center;
 					text-align: left;
-					padding: 8px 25px;
-					border-radius: 30px;
-					border: 1px solid var(--light-gray-border);
-					font-size: 14px;
-					font-style: normal;
-					font-weight: 500;
-					line-height: 130%;
 
-					&::before {
-						content: "\e907";
-						/* use !important to prevent issues with browser extensions that change fonts */
-						font-family: "icons" !important;
-						speak: never;
+					.btn-text {
+						font-size: 14px;
 						font-style: normal;
-						font-weight: normal;
-						font-variant: normal;
-						text-transform: none;
-						line-height: 1;
-						/* Better Font Rendering =========== */
-						-webkit-font-smoothing: antialiased;
-						-moz-osx-font-smoothing: grayscale;
-						margin-right: 8px;
-						font-size: 20px;
-						color: var(--primary-color);
+						font-weight: 500;
+						line-height: 130%;
+						padding: 8px 25px;
+
+						@media (max-width: 1439.98px) {
+							padding: 8px 15px;
+							font-size: 13px;
+						}
+
+						&::before {
+							content: "\e907";
+							/* use !important to prevent issues with browser extensions that change fonts */
+							font-family: "icons" !important;
+							speak: never;
+							font-style: normal;
+							font-weight: normal;
+							font-variant: normal;
+							text-transform: none;
+							line-height: 1;
+							/* Better Font Rendering =========== */
+							-webkit-font-smoothing: antialiased;
+							-moz-osx-font-smoothing: grayscale;
+							margin-right: 8px;
+							font-size: 20px;
+							color: var(--primary-color);
+						}
 					}
 				}
 			}
