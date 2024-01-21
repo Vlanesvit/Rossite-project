@@ -1,0 +1,10 @@
+._showmore-active {
+	button {
+		span {
+			display: none;
+			&:last-child {
+				display: block;
+			}
+		}
+	}
+}

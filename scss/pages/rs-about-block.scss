@@ -1,29 +1,56 @@
-.rs-services-about {
-	margin: 100px 0px;
-
-	@media (max-width: 1439.98px) {
-		margin: 75px 0px;
-	}
-
+.rs-about-block {
 	@media (max-width: 991.98px) {
-		margin-bottom: 0px;
-		margin-top: 15px;
+		margin: 50px 0px;
 	}
 
 	@media (max-width: 767.98px) {
-		margin-bottom: 0px;
-		margin-top: 15px;
+		margin: 61px 0px;
 	}
 
-	// .rs-services-about__container
+	&__head {
+		text-align: center;
+		max-width: 1055px;
+		margin: 0 auto 100px;
+
+		@media (max-width: 1439.98px) {
+			margin: 0 auto 50px;
+		}
+
+		@media (max-width: 991.98px) {
+			margin: 0 auto 15px;
+			text-align: left;
+		}
+
+		h2 {
+			line-height: 112%;
+
+			@media (max-width: 767.98px) {
+				line-height: 120%;
+			}
+		}
+
+		h6 {
+			margin: 30px auto 0px;
+
+			@media (max-width: 991.98px) {
+				margin-top: 25px;
+			}
+
+			@media (max-width: 767.98px) {
+				margin-top: 23px;
+			}
+		}
+	}
+
+	// .rs-about-block__container
 	&__container {
 	}
 
-	// .rs-services-about__list
+	// .rs-about-block__list
 	&__list {
 	}
 
-	// .rs-services-about__item
+	// .rs-about-block__item
 	&__item {
 		@media (min-width: 991.98px) {
 			display: grid;
@@ -31,15 +58,8 @@
 			gap: 30px;
 		}
 
-		@media (max-width: 991.98px) {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: flex-start;
-		}
-
 		&:not(:last-child) {
-			margin-bottom: 100px;
+			margin-bottom: 97px;
 
 			@media (max-width: 1439.98px) {
 				margin-bottom: 50px;
@@ -55,7 +75,7 @@
 		}
 	}
 
-	// .rs-services-about__desc
+	// .rs-about-block__desc
 	&__desc {
 		display: flex;
 		flex-direction: column;
@@ -188,7 +208,7 @@
 			margin: 24px 0px;
 
 			@media (max-width: 991.98px) {
-				margin: 5px 0px;
+				margin: 15px 0px;
 			}
 
 			@media (max-width: 767.98px) {
@@ -226,7 +246,7 @@
 		max-width: 705px;
 	}
 
-	// .rs-services-about__img
+	// .rs-about-block__img
 	&__img {
 		width: 100%;
 		height: 100%;
@@ -236,12 +256,12 @@
 		img {
 			width: 100%;
 			height: 100%;
-			object-fit: cover;
+			object-fit: contain;
 			border: 1px solid var(--light-gray-border);
 			border-radius: 10px;
 		}
 
-		// .rs-services-about__img_label
+		// .rs-about-block__img_label
 		&_label {
 			position: absolute;
 			bottom: 16px;
@@ -274,24 +294,3 @@
 		}
 	}
 }
-
-// .mrp-med-25 {
-// }
-// .mrp-reg-18 {
-// }
-// .features-list {
-// }
-// .mrp-med-18 {
-// }
-// .plus {
-// }
-// .minus {
-// }
-// .rs-blockquote {
-// }
-// . {
-// 	// ._rs-icon-info
-
-// 	&_rs-icon-info {
-// 	}
-// }

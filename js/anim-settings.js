@@ -26,6 +26,8 @@ let primaryColor = getComputedStyle(document.body).getPropertyValue('--primary-c
 let secondColor = getComputedStyle(document.body).getPropertyValue('--second-color');
 let accentSeoColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-seo-color');
 
+console.log(accentSeoColor);
+
 /* MOVE SVG LINE */
 function moveSvgDashed(dashed, mask, trigger, top = 75, end = 200, markers = 0) {
 	if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
@@ -367,6 +369,22 @@ function animDesktop() {
 			// scale: () => 1 - (cards.length - index) * 0.025
 		});
 	});
+
+	/* PINS BUTTON IN SERVICER-PRICES */
+	//========================================================================================================================================================
+	// gsap.to('.rs-services-price__action_body', {
+	// 	scrollTrigger: {
+	// 		trigger: '.rs-services-price__action_body',
+	// 		start: `top top+=100px`,
+	// 		end: `bottom bottom-=50%`,
+	// 		endTrigger: '.rs-services-price__item',
+	// 		pin: true,
+	// 		pinSpacing: false,
+	// 		scrub: true,
+	// 		invalidateOnRefresh: true,
+	// 		markers: 1,
+	// 	},
+	// });
 }
 
 function animMobile() {
@@ -419,7 +437,7 @@ function animCommon() {
 	showContentOnScroll('.rs-slider-block__slide', 0.5, 0.2, 'right-left--every');
 	showContentOnScroll('.rs-slider-block__slider', 0.5, 0.2, 'right-left');
 	showContentOnScroll('.rs-slider-block__icon', 0.5, 0.15, 'bottom-up--every');
-	horizontalScroll('.rs-slider-block.rs-slider-block-pins .rs-slider-block__swiper', '.rs-slider-block', '.rs-slider-block__pagination .swiper-pagination-progressbar-fill')
+	horizontalScroll('.rs-slider-block-pins .rs-slider-block__swiper', '.rs-slider-block-pins', '.rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill')
 	// project
 	showContentOnScroll('.rs-project__filter', 0.5, 1, 'fade');
 	showContentOnScroll('.rs-project__add', 0.5, 0.5, 'bottom-up--every');
@@ -460,19 +478,18 @@ function animCommon() {
 	showContentOnScroll('.rs-tariff__desktop', 1, 1, 'fade');
 	showContentOnScroll('.rs-tariff__mobile .rs-tariff__spollers', 1, 1, 'fade');
 	// features	
-	showContentOnScroll('.rs-features__bg', 1, 0.3, 'width-100');
-	showContentOnScroll('.rs-features__container', 1, 1, 'fade');
-	showContentOnScroll('.rs-features__icon', 0.5, 0.3, 'scale--every');
-	showContentOnScroll('.rs-features__img', 0.5, 0.3, 'left-right');
-	showContentOnScroll('.rs-features-list__icon', 0.5, 0.3, 'scale--every');
+	showContentOnScroll('.rs-list-block__icon', 0.5, 0.3, 'scale--every');
+	showContentOnScroll('.rs-list-block__img', 0.5, 0.3, 'left-right');
 	// partners	
 	showContentOnScroll('.section-bg .section__bg', 1, 0.3, 'width-100');
 	showContentOnScroll('.section-bg .section__container', 1, 1, 'fade');
-	// // services-about
-	// showContentOnScroll('.rs-services-about__img', 0.5, 0.5, 'bottom-up');
-	// showContentOnScroll('.rs-services-about__desc', 0.5, 0.3, 'bottom-up');
-	// // slider-block
-	// showContentOnScroll('.rs-slider-block__slide', 0.5, 0.2, 'right-left--every');
+	// services-about
+	showContentOnScroll('.rs-about-block__img', 0.5, 0.5, 'bottom-up');
+	showContentOnScroll('.rs-about-block__desc', 0.5, 0.3, 'bottom-up');
+	// services-price
+	showContentOnScroll('.rs-services-price__item', 0.5, 0.3, 'bottom-up');
+	// feedback
+	showContentOnScroll('.rs-feedback', 0.5, 0.3, 'up-bottom');
 	// // contact
 	// showContentOnScroll('.rs-document__spollers_item', 0.5, 0.2, 'bottom-up--every');
 	// showContentOnScroll('.rs-contact__info_list li', 0.5, 0.2, 'bottom-up--every');

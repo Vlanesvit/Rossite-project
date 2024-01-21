@@ -40,10 +40,14 @@ section {
 		justify-content: space-between;
 
 		&-title {
-			max-width: 1119px;
+			max-width: 1009px;
 
 			p {
-				margin-top: 14px;
+				margin-top: 10px;
+				
+				@media (max-width: 767.98px) {
+					margin-top: 16px;
+				}
 			}
 		}
 	}
@@ -52,11 +56,11 @@ section {
 		position: relative;
 		padding: 100px 75px;
 
-		@media (max-width: 1750px) {
+		@media (max-width: 1749.98px) {
 			padding: 75px 40px;
 		}
 
-		@media (max-width: 1170px) {
+		@media (max-width: 1169.98px) {
 			padding: 50px 10px;
 		}
 

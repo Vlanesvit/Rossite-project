@@ -2,13 +2,11 @@
 .rs-banner {
   padding: 20px 80px 0px;
   margin-top: 0px;
-  margin-bottom: 100px;
 }
 @media (max-width: 1439.98px) {
   .rs-banner {
     padding-left: 40px;
     padding-right: 40px;
-    margin-bottom: 65px;
   }
 }
 @media (max-width: 1170px) {
@@ -23,7 +21,6 @@
     padding-left: 0px;
     padding-right: 0px;
     padding-top: 0px;
-    margin-bottom: 47px;
   }
 }
 .rs-banner__wrapper {
@@ -156,7 +153,7 @@
 }
 @media (max-width: 991.98px) {
   .rs-banner__body > h1 {
-    max-width: 280px;
+    max-width: 360px;
     font-size: 34px;
     font-weight: 400;
     line-height: 115%;
@@ -168,6 +165,9 @@
     font-size: 25px;
     font-weight: 400;
   }
+}
+.rs-banner__body > .mrp-med-45 {
+  line-height: 110%;
 }
 .rs-banner__body > .mrp-med-50 {
   letter-spacing: 2.8px;
@@ -220,7 +220,7 @@
 }
 .rs-banner__body > h5 {
   margin-top: 15px;
-  max-width: 670px;
+  max-width: 705px;
 }
 @media (max-width: 991.98px) {
   .rs-banner__body > h5 {

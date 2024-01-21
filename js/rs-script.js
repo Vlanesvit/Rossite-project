@@ -659,6 +659,7 @@ function showMore() {
 			return originalHeight;
 		}
 		function showMoreActions(e) {
+
 			const targetEvent = e.target;
 			const targetType = e.type;
 			if (targetType === 'click') {
@@ -672,6 +673,10 @@ function showMore() {
 						showMoreBlock.classList.contains('_showmore-active') ? _slideUp(showMoreContent, showMoreSpeed, hiddenHeight) : _slideDown(showMoreContent, showMoreSpeed, hiddenHeight);
 						showMoreBlock.classList.toggle('_showmore-active');
 					}
+
+					// setTimeout(() => {
+					// 	ScrollTrigger.refresh()
+					// }, showMoreSpeed);
 				}
 			} else if (targetType === 'resize') {
 				showMoreBlocksRegular && showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;

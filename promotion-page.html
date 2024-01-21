@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 
+	<link rel="stylesheet" href="lib/splitting/splitting.css" />
 	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="lib/image-compare-viewer/image-compare-viewer.min.css">
 	<link rel="stylesheet" href="lib/nouislider/nouislider.min.css">
@@ -18,6 +19,7 @@
 
 <body style="
 --primary-color: #6366f1; 
+
 --primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
 ">
 
@@ -182,6 +184,7 @@
 						<div class="rs-header__call">
 							<a href="#" class="rs-btn _btn-gray-border">
 								<span class="btn-text _rs-icon-message">cвязаться с нами</span>
+								<span class="btn-hover"></span>
 								<span class="svg-wrapper"></span>
 							</a>
 						</div>
@@ -197,9 +200,9 @@
 			<section class="rs-banner">
 				<div class="rs-banner__wrapper">
 					<div class="rs-banner__bg">
-						<img class="rs-banner__bg--desktop" src=" ./img/pages/banner/banner-img-2.jpg" alt="">
-						<img class="rs-banner__bg--tablet" src=" ./img/pages/banner/banner-img-2--tablet.jpg" alt="">
-						<img class="rs-banner__bg--mobile" src=" ./img/pages/banner/banner-img-2--mobile.jpg" alt="">
+						<img class="rs-banner__bg--desktop" src=" ./img/pages/banner/banner-img-3.jpg" alt="">
+						<img class="rs-banner__bg--tablet" src=" ./img/pages/banner/banner-img-3--tablet.jpg" alt="">
+						<img class="rs-banner__bg--mobile" src=" ./img/pages/banner/banner-img-3--mobile.jpg" alt="">
 					</div>
 					<div class="rs-banner__content">
 						<div class="rs-banner__container">
@@ -212,6 +215,7 @@
 								<div class="rs-banner__buttons">
 									<a href="#" class="rs-btn _btn-accent-seo">
 										<span class="btn-text _rs-icon-message">заказать бесплатный аудит</span>
+										<span class="btn-hover"></span>
 										<span class="svg-wrapper"></span>
 									</a>
 								</div>
@@ -221,28 +225,25 @@
 				</div>
 			</section>
 
-			<link rel="stylesheet" href="css/rs-text-block.css">
-			<section class="rs-text-block rs-text">
-				<div class="rs-text-block__container">
-					<h2 class="mrp-med-45">Контекстная реклама начинает работать сразу, а SEO-продвижение требует
-						времени</h2>
-					<h6 class="mrp-reg-18">Продвижение в интернете — это привлечение потенциальных клиентов на ваши
-						интернет-ресурсы (сайты, группы в соц. сетях и др.). Поиск клиентов происходит
-						через поисковые системы (Яндекс, Google и др.), а также через группы в социальных сетях (Vk,
-						instagram и др.). Посетителей можно привлечь увеличивая видимость вашего ресурса
-						(SEO-продвижение), платно размещая рекламу или увеличивая лояльность аудитории (SMM).
-						Результатом любого вида продвижения является увеличение количества обращений от посетителей
-						(лидов).</h6>
-				</div>
-			</section>
+			<link rel="stylesheet" href="css/rs-about-block.css">
+			<section class="rs-about-block">
+				<div class="section__container">
+					<div class="rs-about-block__head">
+						<h2 class="mrp-med-45">Контекстная реклама начинает работать сразу, а SEO-продвижение требует
+							времени</h2>
+						<h6 class="mrp-reg-18">Продвижение в интернете — это привлечение потенциальных клиентов на ваши
+							интернет-ресурсы (сайты, группы в соц. сетях и др.). Поиск клиентов происходит
+							через поисковые системы (Яндекс, Google и др.), а также через группы в социальных сетях (Vk,
+							Instagram и др.). Посетителей можно привлечь, увеличивая видимость вашего ресурса
+							(SEO-продвижение), платно размещая рекламу или увеличивая лояльность аудитории (SMM).
+							Результатом любого вида продвижения является увеличение количества обращений от посетителей
+							(лидов).</h6>
+					</div>
 
-			<link rel="stylesheet" href="css/rs-services-about.css">
-			<section class="rs-services-about">
-				<div class="rs-services-about__container">
-					<div class="rs-services-about__list">
-						<div class="rs-services-about__item">
-							<div class="rs-services-about__desc">
-								<div class="rs-services-about__body">
+					<div class="rs-about-block__list">
+						<div class="rs-about-block__item">
+							<div class="rs-about-block__desc">
+								<div class="rs-about-block__body">
 									<h4>Реклама</h4>
 									<p>Реклама — это демонстрация объявления целевой аудитории.
 										Вы платите за показы и переходы по рекламному объявлению. Реклама позволяет
@@ -252,7 +253,7 @@
 									<div class="features-list">
 										<h5>Плюсы и минусы рекламы</h5>
 										<ul>
-											<li class="plus">быстрый старт (запуск от 1-го дня)</li>
+											<li class="plus">быстрый старт (запуск от одного дня)</li>
 											<li class="plus">увеличение охвата аудитории</li>
 											<li class="minus">высокая цена лида (обращение потенциального покупателя)
 											</li>
@@ -265,15 +266,15 @@
 									</blockquote>
 								</div>
 							</div>
-							<div class="rs-services-about__img">
+							<div class="rs-about-block__img">
 								<img src="./img/pages/services-about/about-img-1.jpg" alt="">
-								<div class="rs-services-about__img_label">Рис.1 Позиции контекстной рекламы</div>
+								<div class="rs-about-block__img_label">Рис.1 Позиции контекстной рекламы</div>
 							</div>
 						</div>
 
-						<div class="rs-services-about__item">
-							<div class="rs-services-about__desc">
-								<div class="rs-services-about__body">
+						<div class="rs-about-block__item">
+							<div class="rs-about-block__desc">
+								<div class="rs-about-block__body">
 									<h4>SEO-продвижение</h4>
 									<p>SEO-продвижение — это вывод сайта на первые страницы поисковых
 										систем. Рост позиций происходит благодаря работе над сайтом по наполнению
@@ -295,15 +296,15 @@
 									</blockquote>
 								</div>
 							</div>
-							<div class="rs-services-about__img">
+							<div class="rs-about-block__img">
 								<img src="./img/pages/services-about/about-img-2.jpg" alt="">
-								<div class="rs-services-about__img_label">Рис.2 Позиции SEO-продвижения</div>
+								<div class="rs-about-block__img_label">Рис.2 Позиции SEO-продвижения</div>
 							</div>
 						</div>
 
-						<div class="rs-services-about__item">
-							<div class="rs-services-about__desc">
-								<div class="rs-services-about__body">
+						<div class="rs-about-block__item">
+							<div class="rs-about-block__desc">
+								<div class="rs-about-block__body">
 									<h4>Продвижение в социальных сетях (SMM)</h4>
 									<p>Если вы хотите, чтобы мы помогли выявить подходящие вашему
 										бизнесу
@@ -336,71 +337,71 @@
 										стратегии продвижения.</p>
 								</div>
 							</div>
-							<div class="rs-services-about__img">
+							<div class="rs-about-block__img">
 								<img src="./img/pages/services-about/about-img-3.jpg" alt="">
-								<div class="rs-services-about__img_label">Рис.2 Позиции SEO-продвижения</div>
+								<div class="rs-about-block__img_label">Рис.2 Позиции SEO-продвижения</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<link rel="stylesheet" href="css/rs-features-list.css">
-			<section class="rs-features-list">
-				<div class="rs-features-list__wrapper">
-					<div class="rs-features-list__container">
-						<div class="rs-features-list__bg"><img src="./img/pages/features/features__bg.jpg" alt=""></div>
+			<link rel="stylesheet" href="css/rs-list-block.css">
+			<section class="rs-list-block section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg"><img src="./img/pages/features/features__bg.jpg" alt=""></div>
+					<div class="section__container">
 						<h2 class="mrp-med-45">Почему продвижение именно с нами</h2>
-						<div class="rs-features-list__blocks">
-							<div class="rs-features-list__item">
-								<div class="rs-features-list__icon">
+						<div class="rs-list-block__blocks">
+							<div class="rs-list-block__item">
+								<div class="rs-list-block__icon">
 									<img src="./img/pages/features/features__star.svg" alt="">
 								</div>
-								<div class="rs-features-list__desc">
+								<div class="rs-list-block__desc">
 									<h5 class="mrp-med-18">На рынке с 2012 года</h5>
 									<p class="mrp-reg-18">За всё время работы мы продвинули более 250 сайтов в различных
 										сферах и отраслях.</p>
 								</div>
 							</div>
 
-							<div class="rs-features-list__item">
-								<div class="rs-features-list__icon">
+							<div class="rs-list-block__item">
+								<div class="rs-list-block__icon">
 									<img src="./img/pages/features/features__star.svg" alt="">
 								</div>
-								<div class="rs-features-list__desc">
+								<div class="rs-list-block__desc">
 									<h5 class="mrp-med-18">Россайт — рекламное агентство Яндекса</h5>
 									<p class="mrp-reg-18">С 2015 года являемся рекламным агентством Яндекса. Провели
 										более 800 рекламных кампаний</p>
 								</div>
 							</div>
 
-							<div class="rs-features-list__item">
-								<div class="rs-features-list__icon">
+							<div class="rs-list-block__item">
+								<div class="rs-list-block__icon">
 									<img src="./img/pages/features/features__star.svg" alt="">
 								</div>
-								<div class="rs-features-list__desc">
+								<div class="rs-list-block__desc">
 									<h5 class="mrp-med-18">Всегда в курсе</h5>
 									<p class="mrp-reg-18">Постоянно следим за изменениями поисковых алгоритмов
 										и оперативно корректируем методы работы.</p>
 								</div>
 							</div>
 
-							<div class="rs-features-list__item">
-								<div class="rs-features-list__icon">
+							<div class="rs-list-block__item">
+								<div class="rs-list-block__icon">
 									<img src="./img/pages/features/features__star.svg" alt="">
 								</div>
-								<div class="rs-features-list__desc">
+								<div class="rs-list-block__desc">
 									<h5 class="mrp-med-18">Всегда в курсе</h5>
 									<p class="mrp-reg-18">Постоянно следим за изменениями поисковых алгоритмов
 										и оперативно корректируем методы работы.</p>
 								</div>
 							</div>
 
-							<div class="rs-features-list__item">
-								<div class="rs-features-list__icon">
+							<div class="rs-list-block__item">
+								<div class="rs-list-block__icon">
 									<img src="./img/pages/features/features__star.svg" alt="">
 								</div>
-								<div class="rs-features-list__desc">
+								<div class="rs-list-block__desc">
 									<h5 class="mrp-med-18">Только белые методы продвижения</h5>
 									<p class="mrp-reg-18">Мы работаем согласно рекомендациям Яндекс и Google
 										и гарантируем, что ваш сайт не попадёт под фильтры в результате наших действий.
@@ -408,11 +409,11 @@
 								</div>
 							</div>
 
-							<div class="rs-features-list__item">
-								<div class="rs-features-list__icon">
+							<div class="rs-list-block__item">
+								<div class="rs-list-block__icon">
 									<img src="./img/pages/features/features__star.svg" alt="">
 								</div>
-								<div class="rs-features-list__desc">
+								<div class="rs-list-block__desc">
 									<h5 class="mrp-med-18">Прозрачность работы</h5>
 									<p class="mrp-reg-18">Предоставляем ежемесячную отчётность по основным показателям
 										вашего сайта и доступ к сторонней системе аналитики.</p>
@@ -426,22 +427,24 @@
 			<link rel="stylesheet" href="css/rs-slider-block.css">
 			<script src="js/rs-slider-block.js" defer></script>
 			<section class="rs-slider-block">
-				<div class="rs-slider-block__container">
-					<div class="rs-slider-block__head">
-						<h2 class="mrp-med-40">Посмотрите результаты наших клиентов</h2>
-						<p class="mrp-reg-18">За годы работы мы продвинули 250+ сайтов и вывели тысячи фраз
-							в топ 10 по различным тематикам, вот лишь некоторые из них:</p>
-					</div>
+				<div class="section__container">
+					<div class="section__head">
+						<div class="section__head-title">
+							<h2 class="mrp-med-45">Посмотрите результаты наших клиентов</h2>
+							<p class="mrp-reg-18">За годы работы мы продвинули 250+ сайтов и вывели тысячи фраз в топ 10
+								по различным тематикам, вот лишь некоторые из них:</p>
+						</div>
 
-					<div class="rs-slider-block__navigation swiper-navigation">
-						<div class="rs-slider-block__button-prev swiper-button-prev _rs-icon-arrow-prev"></div>
-						<div class="rs-slider-block__button-next swiper-button-next _rs-icon-arrow-next"></div>
+						<div class="rs-slider-block__navigation swiper-navigation">
+							<div class="rs-slider-block__button-prev swiper-button-prev _rs-icon-arrow-prev"></div>
+							<div class="rs-slider-block__button-next swiper-button-next _rs-icon-arrow-next"></div>
+						</div>
 					</div>
 
 					<div class="rs-slider-block__slider swiper">
 						<div class="rs-slider-block__swiper swiper-wrapper">
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -493,7 +496,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -545,7 +548,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -597,7 +600,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -649,7 +652,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -701,7 +704,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -753,7 +756,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -805,7 +808,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -856,18 +859,21 @@
 								</div>
 							</div>
 						</div>
-						<div class="rs-slider-block__pagination swiper-pagination"></div>
+						<div
+							class="rs-slider-block__pagination swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal">
+							<span class="swiper-pagination-progressbar-fill"></span>
+						</div>
 					</div>
 				</div>
 			</section>
 
 			<link rel="stylesheet" href="css/rs-partners.css">
 			<script src="js/rs-partners.js" defer></script>
-			<section class="rs-partners">
-				<div class="rs-partners__wrapper">
-					<div class="rs-partners__bg"><img src=" ./img/pages/partners/partners-bg.svg" alt=""></div>
+			<section class="rs-partners section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg"><img src=" ./img/pages/partners/partners-bg.svg" alt=""></div>
 
-					<div class="rs-partners__container">
+					<div class="section__container">
 						<h2 class="mrp-med-45">Нам доверяют</h2>
 
 						<div class="rs-partners__slider swiper">
@@ -988,12 +994,11 @@
 
 			<link rel="stylesheet" href="css/rs-reviews.css">
 			<script src="js/rs-reviews.js" defer></script>
-			<section class="rs-reviews">
-				<script src="js/rs-reviews.js" defer></script>
-				<div class="rs-reviews__wrapper">
-					<div class="rs-reviews__bg">
-						<img class="rs-reviews__bg--desktop" src="./img/pages/reviews/reviews-bg.jpg" alt="">
-						<img class="rs-reviews__bg--mobile" src="./img/pages/calc/calc-bg.jpg" alt="">
+			<section class="rs-reviews section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg">
+						<img class="section__bg--desktop" src="./img/pages/reviews/reviews-bg.jpg" alt="">
+						<img class="section__bg--mobile" src="./img/pages/calc/calc-bg.jpg" alt="">
 					</div>
 
 					<div class="rs-reviews__sticker">
@@ -1019,7 +1024,7 @@
 					</div>
 
 					<div class="rs-reviews__content">
-						<div class="rs-reviews__container">
+						<div class="section__container">
 							<div class="rs-reviews__body">
 								<h2 class="mrp-med-45">
 									Выполнили более <span class="primary-color">5000</span> проектов
@@ -1338,25 +1343,29 @@
 										<div class="rs-services-price__buttons">
 											<a href="#" class="rs-btn _btn-primary">
 												<span class="btn-text">обсудить проект</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 											<a href="#" download="#" class="rs-btn _btn-white">
 												<span class="btn-text">подробнее</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 										</div>
 									</div>
 								</div>
 								<div class="rs-services-price__action">
-									<div class="rs-services-price__action_body" data-sticky-item>
+									<div class="rs-services-price__action_body">
 										<div class="rs-services-price__total">30 000 ₽/в месяц</div>
 										<div class="rs-services-price__buttons">
 											<a href="#" class="rs-btn _btn-primary">
 												<span class="btn-text">обсудить проект</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 											<a href="#" download="#" class="rs-btn _btn-white">
 												<span class="btn-text">подробнее</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 										</div>
@@ -1394,6 +1403,26 @@
 															</li>
 														</ul>
 													</div>
+													<div class="rs-services-price__about_item">
+														<h6>Перечень работ:</h6>
+														<ul>
+															<li>Выявление и сегментация целевой аудитории</li>
+															<li>Формирование заголовков и текстов новых объявлений</li>
+															<li>Анализ и редактирование настроек рекламной кампании</li>
+															<li>Оптимизация и снижение стоимости привлечения клиента
+															</li>
+														</ul>
+													</div>
+													<div class="rs-services-price__about_item">
+														<h6>Перечень работ:</h6>
+														<ul>
+															<li>Выявление и сегментация целевой аудитории</li>
+															<li>Формирование заголовков и текстов новых объявлений</li>
+															<li>Анализ и редактирование настроек рекламной кампании</li>
+															<li>Оптимизация и снижение стоимости привлечения клиента
+															</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 											<button hidden data-showmore-button type="button"
@@ -1412,25 +1441,29 @@
 										<div class="rs-services-price__buttons">
 											<a href="#" class="rs-btn _btn-primary">
 												<span class="btn-text">обсудить проект</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 											<a href="#" download="#" class="rs-btn _btn-white">
 												<span class="btn-text">подробнее</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 										</div>
 									</div>
 								</div>
 								<div class="rs-services-price__action">
-									<div class="rs-services-price__action_body" data-sticky-item>
+									<div class="rs-services-price__action_body">
 										<div class="rs-services-price__total">от 13 000 ₽/в месяц</div>
 										<div class="rs-services-price__buttons">
 											<a href="#" class="rs-btn _btn-primary">
 												<span class="btn-text">обсудить проект</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 											<a href="#" download="#" class="rs-btn _btn-white">
 												<span class="btn-text">подробнее</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 										</div>
@@ -1467,6 +1500,28 @@
 																и Google</li>
 														</ul>
 													</div>
+													<div class="rs-services-price__about_item">
+														<h6>Перечень работ:</h6>
+														<ul>
+															<li>Аудит сайта</li>
+															<li>Составление семантического ядра (списка ключевых слов)
+															</li>
+															<li>Оптимизация сайта</li>
+															<li>Добавление сайта в инструменты для вебмастеров Яндекс
+																и Google</li>
+														</ul>
+													</div>
+													<div class="rs-services-price__about_item">
+														<h6>Перечень работ:</h6>
+														<ul>
+															<li>Аудит сайта</li>
+															<li>Составление семантического ядра (списка ключевых слов)
+															</li>
+															<li>Оптимизация сайта</li>
+															<li>Добавление сайта в инструменты для вебмастеров Яндекс
+																и Google</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 											<button hidden data-showmore-button type="button"
@@ -1485,25 +1540,29 @@
 										<div class="rs-services-price__buttons">
 											<a href="#" class="rs-btn _btn-primary">
 												<span class="btn-text">обсудить проект</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 											<a href="#" download="#" class="rs-btn _btn-white">
 												<span class="btn-text">подробнее</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 										</div>
 									</div>
 								</div>
 								<div class="rs-services-price__action">
-									<div class="rs-services-price__action_body" data-sticky-item>
+									<div class="rs-services-price__action_body">
 										<div class="rs-services-price__total">от 10 000 ₽/в месяц</div>
 										<div class="rs-services-price__buttons">
 											<a href="#" class="rs-btn _btn-primary">
 												<span class="btn-text">обсудить проект</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 											<a href="#" download="#" class="rs-btn _btn-white">
 												<span class="btn-text">подробнее</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 										</div>
@@ -1537,6 +1596,24 @@
 															<li>Разработка контент плана с учётом вашей ЦА</li>
 														</ul>
 													</div>
+													<div class="rs-services-price__about_item">
+														<h6>Перечень работ:</h6>
+														<ul>
+															<li>Анализ целевой аудитории</li>
+															<li>Изучение конкурентов</li>
+															<li>Создание и оформление сообщества</li>
+															<li>Разработка контент плана с учётом вашей ЦА</li>
+														</ul>
+													</div>
+													<div class="rs-services-price__about_item">
+														<h6>Перечень работ:</h6>
+														<ul>
+															<li>Анализ целевой аудитории</li>
+															<li>Изучение конкурентов</li>
+															<li>Создание и оформление сообщества</li>
+															<li>Разработка контент плана с учётом вашей ЦА</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 											<button hidden data-showmore-button type="button"
@@ -1555,24 +1632,28 @@
 										<div class="rs-services-price__buttons">
 											<a href="#" class="rs-btn _btn-primary">
 												<span class="btn-text">обсудить проект</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 											<a href="#" download="#" class="rs-btn _btn-white">
 												<span class="btn-text">подробнее</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 										</div>
 									</div>
 								</div>
 								<div class="rs-services-price__action">
-									<div class="rs-services-price__action_body" data-sticky-item>
+									<div class="rs-services-price__action_body">
 										<div class="rs-services-price__buttons">
 											<a href="#" class="rs-btn _btn-primary">
 												<span class="btn-text">обсудить проект</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 											<a href="#" download="#" class="rs-btn _btn-white">
 												<span class="btn-text">подробнее</span>
+												<span class="btn-hover"></span>
 												<span class="svg-wrapper"></span>
 											</a>
 										</div>
@@ -1587,7 +1668,7 @@
 			<link rel="stylesheet" href="css/rs-feedback.css">
 			<section class="rs-feedback">
 				<div class="rs-feedback__bg">
-					<img src="./img/pages/feedback/feedback-bg.svg" alt="">
+					<img src="./img/pages/feedback/feedback-bg-1.png" alt="">
 				</div>
 				<div class="rs-feedback__container">
 					<h2 class="mrp-med-50">Получите консультацию маркетолога по поводу продвижения вашего сайта</h2>
@@ -1596,6 +1677,7 @@
 					<div class="rs-feedback__buttons">
 						<a href="#" class="rs-btn _btn-primary">
 							<span class="btn-text _rs-icon-message">заказать аудит</span>
+							<span class="btn-hover"></span>
 							<span class="svg-wrapper"></span>
 						</a>
 					</div>
@@ -1611,19 +1693,31 @@
 					<div class="rs-footer__head">
 						<div class="rs-footer__phone">
 							<a href="tel:+78122428072">+7 812 242-80-72 </a>
-							<a href="tel:+74951505441">+7 (495) 150–54–41</a>
 							<span>Отдел продаж</span>
 						</div>
 						<div class="rs-footer__links">
 							<ul>
 								<li>
-									<a href="#">Анкета для разработки <br> сайта «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 								<li>
-									<a href="#">Презентация сайта <br> «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 								<li>
-									<a href="#">Технические характеристики <br> сайта «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -1738,6 +1832,7 @@
 									</div>
 									<a href="#" class="rs-btn _btn-white">
 										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
 										<span class="svg-wrapper"></span>
 									</a>
 								</div>
@@ -1807,6 +1902,7 @@
 									</div>
 									<a href="#" class="rs-btn _btn-white">
 										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
 										<span class="svg-wrapper"></span>
 									</a>
 								</div>
@@ -1849,18 +1945,20 @@
 
 	</div>
 
+	<script src="lib/splitting/splitting.js"></script>
+	<script src="lib/smoothScroll/SmoothScroll.min.js"></script>
 	<script src="lib/swiper/swiper-bundle.min.js"></script>
 	<script src="lib/image-compare-viewer/image-compare-viewer.min.js"></script>
 	<script src="lib/nouislider/nouislider.min.js"></script>
+	<script src="lib/dynamic_adapt.js"></script>
+
+	<script src="js/rs-script.js"></script>
+
 	<script src="lib/gsap/gsap.min.js"></script>
 	<script src="lib/gsap/ScrollTrigger.min.js"></script>
 	<script src="lib/gsap/drawSVGPlugin.min.js"></script>
-	<script src="lib/smoothScroll/SmoothScroll.min.js"></script>
-
-	<script src="lib/dynamic_adapt.js"></script>
-	<script src="js/rs-script.js"></script>
-
 	<script src="js/anim-settings.js"></script>
+
 </body>
 
 </html>
