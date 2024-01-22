@@ -23,18 +23,6 @@
 		border-bottom: 1px solid var(--light-gray-border);
 	}
 
-	&._header-white {
-		border-bottom: 1px solid transparent;
-		color: #fff;
-
-		.char {
-			&:before,
-			&::after {
-				color: #fff;
-			}
-		}
-	}
-
 	&::before {
 		content: "";
 		position: absolute;
@@ -127,14 +115,6 @@
 					height: 1px;
 					border-radius: 1px;
 					background-color: #0d0e10;
-
-					._header-white & {
-						background-color: #fff;
-					}
-
-					._header-white._header-fixed & {
-						background-color: #0d0e10;
-					}
 				}
 
 				&::before {
@@ -540,14 +520,6 @@
 			max-width: 75px;
 		}
 
-		._header-white & {
-			filter: invert(1);
-		}
-
-		._header-white._header-fixed & {
-			filter: invert(0);
-		}
-
 		a {
 			display: block;
 
@@ -653,25 +625,9 @@
 
 	&__call {
 		.rs-btn {
-			._header-white & {
-				border: 1px solid rgba(212, 215, 229, 0.45);
-			}
-
-			._header-white._header-fixed & {
-				border: 1px solid rgba(0, 0, 0, 0.15);
-			}
-
 			& > .btn-text {
 				&::before {
 					color: #000;
-
-					._header-white & {
-						color: #fff;
-					}
-
-					._header-white._header-fixed & {
-						color: #0d0e10;
-					}
 				}
 			}
 		}
@@ -705,6 +661,70 @@
 					font-size: 18px;
 				}
 			}
+		}
+	}
+}
+
+html:not(.menu-open) {
+	._header-white {
+		border-bottom: 1px solid transparent;
+		color: #fff;
+
+		.menu__icon::before,
+		.menu__icon::after {
+			background-color: #fff;
+		}
+
+		.char {
+			&:before,
+			&::after {
+				color: #fff;
+			}
+		}
+	}
+
+	._header-white ._rs-icon-pen:before {
+		filter: invert(1);
+	}
+
+	._header-white._header-fixed ._rs-icon-pen:before {
+		filter: invert(0);
+	}
+
+	._header-white .rs-header__logo {
+		-webkit-filter: invert(1);
+		filter: invert(1);
+	}
+
+	._header-white._header-fixed .rs-header__logo {
+		-webkit-filter: invert(0);
+		filter: invert(0);
+	}
+
+	._header-white .rs-header__call .rs-btn {
+		border: 1px solid rgba(212, 215, 229, 0.45);
+	}
+
+	._header-white._header-fixed .rs-header__call .rs-btn {
+		border: 1px solid rgba(0, 0, 0, 0.15);
+	}
+
+	.rs-header__call .rs-btn > .btn-text::before {
+		color: #000;
+	}
+
+	._header-white .rs-header__call .rs-btn > .btn-text::before {
+		color: #fff;
+	}
+
+	._header-white._header-fixed .rs-header__call .rs-btn > .btn-text::before {
+		color: #0d0e10;
+	}
+
+	._header-white._header-fixed {
+		.menu__icon::before,
+		.menu__icon::after {
+			background-color: #0d0e10;
 		}
 	}
 }

@@ -49,14 +49,6 @@
 		width: 18px;
 		height: 18px;
 	}
-
-	._header-white & {
-		filter: invert(1);
-	}
-
-	._header-white._header-fixed & {
-		filter: invert(0);
-	}
 }
 ._rs-icon-picture:before {
 	content: "\e90d";

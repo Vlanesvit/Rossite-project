@@ -277,10 +277,10 @@ function animDesktop() {
 		scrollTrigger: {
 			trigger: ".rs-main__project",
 			start: "top top",
-			end: "bottom top",
+			end: "bottom+=300% top",
 			scrub: true,
 			pin: true,
-			// markers: 1,
+			markers: 1,
 			invalidateOnRefresh: true,
 		}
 	});
@@ -424,7 +424,7 @@ function animCommon() {
 	showContentOnScroll('.mrp-med-18', 0.8, 0.5, 'bottom-up');
 	showContentOnScroll('.mrp-reg-21', 0.8, 0.6, 'bottom-up');
 	showContentOnScroll('.mrp-reg-18', 0.8, 0.7, 'bottom-up');
-	// showContentOnScroll('blockquote', 0.8, 0.5, 'bottom-up');
+	showContentOnScroll('blockquote', 0.8, 0.5, 'bottom-up');
 	// header
 	showContentOnScroll('.rs-header__menu', 0.5, 0.5, 'fade');
 	showContentOnScroll('.rs-header__logo', 0.5, 0.75, 'fade');
@@ -460,12 +460,12 @@ function animCommon() {
 	showContentOnScroll('.rs-services__slide', 0.5, 0.2, 'right-left--every');
 	showContentOnScroll('.rs-services__icon', 0.5, 0.15, 'bottom-up--every');
 	// footer
-	// showContentOnScroll('.rs-footer__phone', 0.5, 0.2, 'bottom-up');
-	// showContentOnScroll('.rs-footer__links ul li', 0.5, 0.15, 'bottom-up--every');
-	// showContentOnScroll('.rs-footer__social', 0.5, 0.5, 'bottom-up');
-	// showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
-	// showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
-	// showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
+	showContentOnScroll('.rs-footer__phone', 0.5, 0.2, 'bottom-up');
+	showContentOnScroll('.rs-footer__links ul li', 0.5, 0.15, 'bottom-up--every');
+	showContentOnScroll('.rs-footer__social', 0.5, 0.5, 'bottom-up');
+	showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.2, 'bottom-up--every');
+	showContentOnScroll('.rs-footer__city', 0.5, 0.3, 'bottom-up');
+	showContentOnScroll('.rs-footer__copyright', 0.5, 0.4, 'left-right');
 	// text-block	
 	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-0 img', 0.5, 0.3, 'scale');
 	showContentOnScroll('.rs-text-block .rs-text-block__picture .rs-text-block__img-1 img', 0.5, 0.6, 'scale');
@@ -494,16 +494,17 @@ function animCommon() {
 	showContentOnScroll('.rs-document__spollers_item', 0.5, 0.2, 'bottom-up--every');
 	showContentOnScroll('.rs-contact__info_list li', 0.5, 0.2, 'bottom-up--every');
 	showContentOnScroll('.rs-contact__map', 0.5, 0.5, 'fade');
-	// // work-about
-	// showContentOnScroll('.rs-work-about__text', 0.5, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-work-about__table', 0.5, 0.5, 'bottom-up');
-	// showContentOnScroll('.rs-work-about__hint', 0.5, 1, 'bottom-up');
-	// showContentOnScroll('.rs-work-about__item', 0.5, 0.5, 'bottom-up--every');
-	// // task
-	// showContentOnScroll('.rs-task__item', 0.5, 0.5, 'bottom-up--every');
-	// // parallax
-	// showContentOnScroll('.rs-why-block__bg', 1, 0.3, 'width-100');
-
+	// services-about
+	showContentOnScroll('.rs-services-about__text', 0.5, 0.5, 'bottom-up--every');
+	showContentOnScroll('.rs-services-about__table', 0.5, 0.5, 'bottom-up');
+	showContentOnScroll('.rs-services-about__hint', 0.5, 1, 'bottom-up');
+	showContentOnScroll('.rs-services-about__item', 0.5, 0.5, 'bottom-up--every');
+	// task
+	showContentOnScroll('.rs-task__item', 0.5, 0.5, 'bottom-up--every');
+	// parallax
+	showContentOnScroll('.rs-why-block__bg', 1, 0.3, 'width-100');
+	// main
+	showContentOnScroll('.rs-main__title h1', 0.5, 0.3, 'bottom-up');
 
 
 

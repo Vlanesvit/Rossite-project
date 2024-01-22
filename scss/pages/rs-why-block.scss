@@ -1,20 +1,11 @@
 .rs-why-block {
-	margin: 100px 0px;
-
-	@media (max-width: 1439.98px) {
-		margin: 75px 0px;
+	@media (min-width: 1439.98px) {
+		margin: 110px 0px 100px;
 	}
 
 	@media (max-width: 991.98px) {
-		margin-bottom: 50px;
-		margin-top: 50px;
 		border-radius: 20px;
 		overflow: hidden;
-	}
-
-	@media (max-width: 767.98px) {
-		margin-bottom: 60px;
-		margin-top: 60px;
 	}
 
 	// .rs-why-block__container
@@ -59,7 +50,7 @@
 		max-width: 1134px;
 		margin: 0 auto;
 		color: #fff;
-		padding: 222px 0px;
+		padding: 222px 0px 228px;
 
 		@media (min-width: 991.98px) {
 			text-align: center;
@@ -83,11 +74,17 @@
 			color: #fff;
 		}
 
+		h2 {
+			@media (max-width: 991.98px) {
+				font-size: 24.4px;
+			}
+		}
+
 		h5 {
 			margin-top: 20px;
 
 			@media (max-width: 991.98px) {
-				margin-top: 15px;
+				margin-top: 20px;
 			}
 		}
 	}

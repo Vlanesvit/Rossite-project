@@ -1,3 +1,6 @@
+.rs-main {
+  margin: 0;
+}
 @media (max-width: 991.98px) {
   .rs-main {
     margin-bottom: 50px;
@@ -246,10 +249,10 @@
   visibility: hidden;
   margin-right: 6px;
 }
-.rs-main__project_nav_body ul li a.active {
+.rs-main__project_nav_body ul li a._active-step {
   color: var(--primary-color);
 }
-.rs-main__project_nav_body ul li a.active::before {
+.rs-main__project_nav_body ul li a._active-step::before {
   opacity: 1;
   visibility: visible;
 }

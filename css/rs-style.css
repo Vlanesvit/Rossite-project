@@ -87,14 +87,6 @@
     height: 18px;
   }
 }
-._header-white ._rs-icon-pen:before {
-  -webkit-filter: invert(1);
-          filter: invert(1);
-}
-._header-white._header-fixed ._rs-icon-pen:before {
-  -webkit-filter: invert(0);
-          filter: invert(0);
-}
 
 ._rs-icon-picture:before {
   content: "\e90d";

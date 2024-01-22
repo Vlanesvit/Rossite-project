@@ -7,13 +7,14 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 
+	<link rel="stylesheet" href="lib/splitting/splitting.css" />
 	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="lib/image-compare-viewer/image-compare-viewer.min.css">
 	<link rel="stylesheet" href="lib/nouislider/nouislider.min.css">
 
 	<link rel="stylesheet" href="css/rs-style.css">
 
-	<title>Россайт - Продающая страница</title>
+	<title>Россайт - Продвижение за 10 000 руб.</title>
 </head>
 
 <body style="
@@ -182,6 +183,7 @@
 						<div class="rs-header__call">
 							<a href="#" class="rs-btn _btn-gray-border">
 								<span class="btn-text _rs-icon-message">cвязаться с нами</span>
+								<span class="btn-hover"></span>
 								<span class="svg-wrapper"></span>
 							</a>
 						</div>
@@ -214,6 +216,7 @@
 								<div class="rs-banner__buttons">
 									<a href="#" class="rs-btn _btn-accent-seo">
 										<span class="btn-text _rs-icon-message">получить консультацию</span>
+										<span class="btn-hover"></span>
 										<span class="svg-wrapper"></span>
 									</a>
 								</div>
@@ -223,14 +226,14 @@
 				</div>
 			</section>
 
-			<link rel="stylesheet" href="css/rs-work-about.css">
-			<script src="js/rs-work-about.js" defer></script>
-			<section class="rs-work-about">
-				<div class="rs-work-about__container">
+			<link rel="stylesheet" href="css/rs-services-about.css">
+			<script src="js/rs-services-about.js" defer></script>
+			<section class="rs-services-about">
+				<div class="rs-services-about__container">
 					<h2 class="mrp-med-45">Платите за понятные работы!</h2>
 
-					<div class="rs-work-about__description">
-						<div class="rs-work-about__text">
+					<div class="rs-services-about__description">
+						<div class="rs-services-about__text">
 							<p>В пакет наших услуг по SEO-продвижению входят все работы, необходимые для того,
 								чтобы вывести ваш сайт на первые страницы поисковых систем. Главное отличие нашего
 								пакета от предложений других компаний — в него не включены дополнительные работы
@@ -243,7 +246,7 @@
 								<li>Вы получаете основной пакет услуг по SEO-продвижению по самой выгодной цене</li>
 							</ul>
 						</div>
-						<div class="rs-work-about__text">
+						<div class="rs-services-about__text">
 							<p>Сравните: в других компаниях от 30 000 рублей вы получите полный пакет услуг с учётом
 								дополнительных работ на сайте, даже если эти работы незначительные. Заказав SEO за 10
 								000 рублей в нашей компании, вы получите услуги по SEO-продвижению, а доп.работы
@@ -258,9 +261,9 @@
 						</div>
 					</div>
 
-					<div class="rs-work-about__wrapper">
-						<div class="rs-work-about__desktop">
-							<div class="rs-work-about__table">
+					<div class="rs-services-about__wrapper">
+						<div class="rs-services-about__desktop">
+							<div class="rs-services-about__table">
 								<table>
 									<thead>
 										<tr>
@@ -314,13 +317,18 @@
 								</table>
 							</div>
 
-							<div class="rs-work-about__hint">
-								<div class="rs-work-about__hint_bg">
+							<div class="rs-services-about__hint">
+								<div class="rs-services-about__hint_bg">
 									<img src="./img/pages/tariff/hint_bg.svg" alt="">
 								</div>
-								<div class="rs-work-about__hint_content">
+								<div class="rs-services-about__hint_content">
 									<h5 class="mrp-reg-18">Доработка сайта</h5>
-									<img src="./img/pages/tariff/check.svg" alt="">
+									<div class="rs-services-about__hint_img">
+										<script src="https://cdn.lordicon.com/lordicon.js"></script>
+										<lord-icon src="https://cdn.lordicon.com/oqdmuxru.json" trigger="loop"
+											delay="2000" colors="primary:#ffffff" style="width:69px;height:69px">
+										</lord-icon>
+									</div>
 									<p class="mrp-reg-18">В пакет наших услуг не входят дополнительные
 										работы на сайте.</p>
 									<p class="mrp-reg-18">Это позволяет нам предложить самую низкую цену на
@@ -333,14 +341,14 @@
 							</div>
 						</div>
 
-						<div class="rs-work-about__mobile">
-							<div data-spollers data-one-spoller class="rs-work-about__spollers">
-								<div class="rs-work-about__spollers_item">
-									<div class="rs-work-about__spollers_head">
+						<div class="rs-services-about__mobile">
+							<div data-spollers data-one-spoller class="rs-services-about__spollers">
+								<div class="rs-services-about__spollers_item">
+									<div class="rs-services-about__spollers_head">
 										<h4 class="mrp-med-25">SEO-продвижение в другой компании</h4>
 										<h5 class="mrp-med-21">от 30 000 ₽</h5>
 									</div>
-									<div class="rs-work-about__spollers_body">
+									<div class="rs-services-about__spollers_body">
 										<ul>
 											<li>Доработки сайта*</li>
 											<li>Анализ вашего сайта и сайтов ваших конкурентов</li>
@@ -351,25 +359,26 @@
 											<li>Персональный менеджер</li>
 										</ul>
 									</div>
-									<div class="rs-work-about__spollers_footer">
+									<div class="rs-services-about__spollers_footer">
 										<button type="button" data-spoller
-											class="rs-work-about__spollers_title _rs-icon-circle-arrow-down">
+											class="rs-services-about__spollers_title _rs-icon-circle-arrow-down">
 											<span>описание</span>
 											<span>свернуть</span>
 										</button>
 										<a href="#" class="rs-btn _btn-accent-seo">
 											<span class="btn-text">подробнее</span>
+											<span class="btn-hover"></span>
 											<span class="svg-wrapper"></span>
 										</a>
 									</div>
 								</div>
 
-								<div class="rs-work-about__spollers_item">
-									<div class="rs-work-about__spollers_head">
+								<div class="rs-services-about__spollers_item">
+									<div class="rs-services-about__spollers_head">
 										<h4 class="mrp-med-25">SEO-продвижение с компанией «Россайт»</h4>
 										<h5 class="mrp-med-21">за 10 000 ₽</h5>
 									</div>
-									<div class="rs-work-about__spollers_body">
+									<div class="rs-services-about__spollers_body">
 										<ul>
 											<li>Доработки сайта*</li>
 											<li>Анализ вашего сайта и сайтов ваших конкурентов</li>
@@ -379,11 +388,11 @@
 											<li>Отчётность о проделанной работе</li>
 											<li>Персональный менеджер</li>
 										</ul>
-										<div class="rs-work-about__hint">
-											<div class="rs-work-about__hint_bg">
+										<div class="rs-services-about__hint">
+											<div class="rs-services-about__hint_bg">
 												<img src="./img/pages/tariff/hint_bg.svg" alt="">
 											</div>
-											<div class="rs-work-about__hint_content">
+											<div class="rs-services-about__hint_content">
 												<h5 class="mrp-semibold-18">Доработка сайта</h5>
 												<p class="mrp-reg-18">В пакет наших услуг не входят дополнительные
 													работы на сайте.</p>
@@ -396,14 +405,15 @@
 											</div>
 										</div>
 									</div>
-									<div class="rs-work-about__spollers_footer">
+									<div class="rs-services-about__spollers_footer">
 										<button type="button" data-spoller
-											class="rs-work-about__spollers_title _rs-icon-circle-arrow-down">
+											class="rs-services-about__spollers_title _rs-icon-circle-arrow-down">
 											<span>описание</span>
 											<span>свернуть</span>
 										</button>
 										<a href="#" class="rs-btn _btn-accent-seo">
 											<span class="btn-text">подробнее</span>
+											<span class="btn-hover"></span>
 											<span class="svg-wrapper"></span>
 										</a>
 									</div>
@@ -412,18 +422,18 @@
 						</div>
 					</div>
 
-					<div class="rs-work-about__slider swiper">
-						<div class="rs-work-about__swiper swiper-wrapper">
-							<div class="rs-work-about__slide swiper-slide">
-								<div class="rs-work-about__item">
+					<div class="rs-services-about__slider swiper">
+						<div class="rs-services-about__swiper swiper-wrapper">
+							<div class="rs-services-about__slide swiper-slide">
+								<div class="rs-services-about__item">
 									<h4>Анализируем деятельность компании</h4>
 									<p>Анализируем деятельность компании, ваш сайт, и как представлены конкуренты
 										компании в интернете. На основе анализа и собранного семантического ядра
 										составляем план развития сайта</p>
 								</div>
 							</div>
-							<div class="rs-work-about__slide swiper-slide">
-								<div class="rs-work-about__item">
+							<div class="rs-services-about__slide swiper-slide">
+								<div class="rs-services-about__item">
 									<h4>Выполняем запланированные задачи по SEO</h4>
 									<ul>
 										<li>Настраиваем.htaccess, robots.txt, sitemap.xml</li>
@@ -433,8 +443,8 @@
 									</ul>
 								</div>
 							</div>
-							<div class="rs-work-about__slide swiper-slide">
-								<div class="rs-work-about__item">
+							<div class="rs-services-about__slide swiper-slide">
+								<div class="rs-services-about__item">
 									<h4>Изучаем поведенческие факторы</h4>
 									<p>Смотрим карту кликов и вебвизор. Собираем позиции сайта в поисковых системах.
 										Проверяем корректность индексации сайта, вносим изменения в SEO-настройки
@@ -489,7 +499,7 @@
 			<section class="rs-why-block">
 				<div class="rs-why-block__container">
 					<div class="rs-why-block__wrapper">
-						<div class="rs-why-block__bg"><img src="./img/pages/why-block/banner.svg" alt=""></div>
+						<div class="rs-why-block__bg"><img src="./img/pages/why-block/banner.png" alt=""></div>
 						<div class="rs-why-block__content">
 							<h2 class="mrp-med-50">Почему SEO у нас стоит 10 000 ₽ в месяц?</h2>
 							<h5 class="mrp-reg-21">В пакет включены услуги: анализ сайта вашей компании
@@ -506,22 +516,24 @@
 			<link rel="stylesheet" href="css/rs-slider-block.css">
 			<script src="js/rs-slider-block.js" defer></script>
 			<section class="rs-slider-block">
-				<div class="rs-slider-block__container">
-					<div class="rs-slider-block__head">
-						<h2 class="mrp-med-40">Посмотрите результаты наших клиентов</h2>
-						<p class="mrp-reg-18">За годы работы мы продвинули 250+ сайтов и вывели тысячи фраз
-							в топ 10 по различным тематикам, вот лишь некоторые из них:</p>
-					</div>
+				<div class="section__container">
+					<div class="section__head">
+						<div class="section__head-title">
+							<h2 class="mrp-med-45">Посмотрите результаты наших клиентов</h2>
+							<p class="mrp-reg-18">За годы работы мы продвинули 250+ сайтов и вывели тысячи фраз в топ 10
+								по различным тематикам, вот лишь некоторые из них:</p>
+						</div>
 
-					<div class="rs-slider-block__navigation swiper-navigation">
-						<div class="rs-slider-block__button-prev swiper-button-prev _rs-icon-arrow-prev"></div>
-						<div class="rs-slider-block__button-next swiper-button-next _rs-icon-arrow-next"></div>
+						<div class="rs-slider-block__navigation swiper-navigation">
+							<div class="rs-slider-block__button-prev swiper-button-prev _rs-icon-arrow-prev"></div>
+							<div class="rs-slider-block__button-next swiper-button-next _rs-icon-arrow-next"></div>
+						</div>
 					</div>
 
 					<div class="rs-slider-block__slider swiper">
 						<div class="rs-slider-block__swiper swiper-wrapper">
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -573,7 +585,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -625,7 +637,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -677,7 +689,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -729,7 +741,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -781,7 +793,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -833,7 +845,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -885,7 +897,7 @@
 							</div>
 
 							<div class="rs-slider-block__slide swiper-slide">
-								<div class="rs-slider-block__item">
+								<div class="rs-slider-block__block">
 									<div class="rs-slider-block__desc">
 										<h4 class="mrp-med-25">Сайт: <a href="yurga-notari.ru">yurga-notari.ru</a></h4>
 										<ul>
@@ -936,18 +948,21 @@
 								</div>
 							</div>
 						</div>
-						<div class="rs-slider-block__pagination swiper-pagination"></div>
+						<div
+							class="rs-slider-block__pagination swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal">
+							<span class="swiper-pagination-progressbar-fill"></span>
+						</div>
 					</div>
 				</div>
 			</section>
 
 			<link rel="stylesheet" href="css/rs-partners.css">
 			<script src="js/rs-partners.js" defer></script>
-			<section class="rs-partners">
-				<div class="rs-partners__wrapper">
-					<div class="rs-partners__bg"><img src=" ./img/pages/partners/partners-bg.svg" alt=""></div>
+			<section class="rs-partners section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg"><img src=" ./img/pages/partners/partners-bg.svg" alt=""></div>
 
-					<div class="rs-partners__container">
+					<div class="section__container">
 						<h2 class="mrp-med-45">Нам доверяют</h2>
 
 						<div class="rs-partners__slider swiper">
@@ -1069,13 +1084,14 @@
 			<link rel="stylesheet" href="css/rs-feedback.css">
 			<section class="rs-feedback">
 				<div class="rs-feedback__bg">
-					<img src="./img/pages/feedback/feedback-bg-1.svg" alt="">
+					<img src="./img/pages/feedback/feedback-bg-2.png" alt="">
 				</div>
 				<div class="rs-feedback__container">
 					<h2 class="mrp-med-50">Получите консультацию маркетолога по поводу продвижения вашего сайта</h2>
 					<div class="rs-feedback__buttons">
 						<a href="#" class="rs-btn _btn-primary">
 							<span class="btn-text _rs-icon-message">получить консультацию</span>
+							<span class="btn-hover"></span>
 							<span class="svg-wrapper"></span>
 						</a>
 					</div>
@@ -1091,19 +1107,31 @@
 					<div class="rs-footer__head">
 						<div class="rs-footer__phone">
 							<a href="tel:+78122428072">+7 812 242-80-72 </a>
-							<a href="tel:+74951505441">+7 (495) 150–54–41</a>
 							<span>Отдел продаж</span>
 						</div>
 						<div class="rs-footer__links">
 							<ul>
 								<li>
-									<a href="#">Анкета для разработки <br> сайта «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 								<li>
-									<a href="#">Презентация сайта <br> «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 								<li>
-									<a href="#">Технические характеристики <br> сайта «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -1218,6 +1246,7 @@
 									</div>
 									<a href="#" class="rs-btn _btn-white">
 										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
 										<span class="svg-wrapper"></span>
 									</a>
 								</div>
@@ -1287,6 +1316,7 @@
 									</div>
 									<a href="#" class="rs-btn _btn-white">
 										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
 										<span class="svg-wrapper"></span>
 									</a>
 								</div>
@@ -1329,18 +1359,20 @@
 
 	</div>
 
+	<script src="lib/splitting/splitting.js"></script>
+	<script src="lib/smoothScroll/SmoothScroll.min.js"></script>
 	<script src="lib/swiper/swiper-bundle.min.js"></script>
 	<script src="lib/image-compare-viewer/image-compare-viewer.min.js"></script>
 	<script src="lib/nouislider/nouislider.min.js"></script>
+	<script src="lib/dynamic_adapt.js"></script>
+
+	<script src="js/rs-script.js"></script>
+
 	<script src="lib/gsap/gsap.min.js"></script>
 	<script src="lib/gsap/ScrollTrigger.min.js"></script>
 	<script src="lib/gsap/drawSVGPlugin.min.js"></script>
-	<script src="lib/smoothScroll/SmoothScroll.min.js"></script>
-
-	<script src="lib/dynamic_adapt.js"></script>
-	<script src="js/rs-script.js"></script>
-
 	<script src="js/anim-settings.js"></script>
+
 </body>
 
 </html>

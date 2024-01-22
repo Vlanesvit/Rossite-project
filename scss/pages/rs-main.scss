@@ -1,4 +1,5 @@
 .rs-main {
+	margin: 0;
 	@media (max-width: 991.98px) {
 		margin-bottom: 50px;
 	}
@@ -227,7 +228,7 @@
 							margin-right: 6px;
 						}
 
-						&.active {
+						&._active-step {
 							color: var(--primary-color);
 
 							&::before {
