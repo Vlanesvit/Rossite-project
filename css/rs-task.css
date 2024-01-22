@@ -371,7 +371,7 @@
 }
 @media (max-width: 991.98px) {
   .rs-task__description {
-    padding: 22px 20px;
+    padding: 30px 20px;
   }
 }
 .rs-task__description h4 {
@@ -409,6 +409,14 @@
     left: 17.3%;
   }
 }
+@media (max-width: 767.98px) {
+  .rs-task__icon-1 {
+    width: 70px;
+    height: 70px;
+    bottom: 29.7%;
+    left: -0.7%;
+  }
+}
 .rs-task__icon-2 {
   bottom: 7%;
   right: 1%;
@@ -419,6 +427,14 @@
     height: 95px;
     right: -1.8%;
     bottom: -1.4%;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-task__icon-2 {
+    width: 55px;
+    height: 55px;
+    right: 0.2%;
+    bottom: 3.6%;
   }
 }
 .rs-task__line {

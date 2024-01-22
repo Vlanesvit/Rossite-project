@@ -1,59 +1,59 @@
-.rs-list-block__wrapper {
+.rs-features-list .section__wrapper {
   position: relative;
   padding: 95px 0px 101px;
 }
 @media (max-width: 1439.98px) {
-  .rs-list-block__wrapper {
+  .rs-features-list .section__wrapper {
     padding: 75px 0px;
   }
 }
 @media (max-width: 991.98px) {
-  .rs-list-block__wrapper {
+  .rs-features-list .section__wrapper {
     padding: 50px 0px;
   }
 }
 @media (max-width: 767.98px) {
-  .rs-list-block__wrapper {
+  .rs-features-list .section__wrapper {
     padding: 60px 0px;
   }
 }
 @media (max-width: 991.98px) {
-  .rs-list-block__bg {
+  .rs-features-list .section__bg {
     background: linear-gradient(309deg, #fdf6ff 2.51%, rgba(253, 246, 255, 0.5) 98.22%);
   }
 }
 @media (max-width: 991.98px) {
-  .rs-list-block__bg img {
+  .rs-features-list .section__bg img {
     display: none;
   }
 }
-.rs-list-block__blocks {
+.rs-features-list__blocks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 60px 80px;
   margin-top: 44px;
 }
 @media (max-width: 1439.98px) {
-  .rs-list-block__blocks {
+  .rs-features-list__blocks {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px 40px;
   }
 }
 @media (max-width: 991.98px) {
-  .rs-list-block__blocks {
+  .rs-features-list__blocks {
     margin-top: 24px;
     grid-template-columns: repeat(1, 1fr);
     gap: 24px;
   }
 }
 @media (max-width: 767.98px) {
-  .rs-list-block__blocks {
+  .rs-features-list__blocks {
     margin-top: 20px;
     gap: 20px;
   }
 }
 @media (min-width: 767.98px) {
-  .rs-list-block__item {
+  .rs-features-list__item {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -62,7 +62,7 @@
             align-items: flex-start;
   }
 }
-.rs-list-block__icon {
+.rs-features-list__icon {
   min-height: 60px;
   max-width: 60px;
   min-width: 60px;
@@ -72,19 +72,35 @@
   border-radius: 10px;
   background-color: var(--gray-btn-color);
 }
+@media (max-width: 991.98px) {
+  .rs-features-list__icon {
+    margin-right: 15px;
+  }
+}
 @media (max-width: 767.98px) {
-  .rs-list-block__icon {
+  .rs-features-list__icon {
     margin-right: 0px;
     margin-bottom: 10px;
   }
 }
-.rs-list-block__icon img {
+.rs-features-list__icon img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.rs-list-block__desc p {
+@media (max-width: 991.98px) {
+  .rs-features-list__desc h5 {
+    font-size: 19px;
+  }
+}
+.rs-features-list__desc p {
   margin-top: 5px;
   max-width: 368px;
+}
+@media (max-width: 991.98px) {
+  .rs-features-list__desc p {
+    margin-top: 8px;
+    max-width: 100%;
+  }
 }

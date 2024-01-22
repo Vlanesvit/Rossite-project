@@ -14,6 +14,11 @@
   }
 }
 @media (max-width: 991.98px) {
+  .rs-tariff.rs-tariff-context {
+    margin: 47px 0px;
+  }
+}
+@media (max-width: 991.98px) {
   .rs-tariff__desktop {
     display: none;
   }
@@ -28,10 +33,18 @@
   display: -ms-flexbox;
   display: flex;
 }
+.rs-tariff-context .rs-tariff__top {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 .rs-tariff__text {
   max-width: 450px;
   width: 100%;
   margin-right: 30px;
+}
+.rs-tariff-context .rs-tariff__text {
+  padding-bottom: 15px;
 }
 .rs-tariff-support .rs-tariff__text {
   max-width: 555px;
@@ -51,6 +64,9 @@
   padding: 30px 30px 20px 30px;
   margin-left: 15px;
   border-radius: 10px 10px 0px 0px;
+}
+.rs-tariff-context .rs-tariff__head {
+  padding: 15px 30px 20px 30px;
 }
 .rs-tariff-support .rs-tariff__head {
   max-width: 315px;
@@ -76,10 +92,16 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+.rs-tariff-context .rs-tariff__head_desk {
+  margin-top: 0px;
+}
 .rs-tariff__head_button {
   width: 100%;
   max-width: 156px;
   margin: 8px auto 0px;
+}
+.rs-tariff-context .rs-tariff__head_button {
+  margin-top: 0px;
 }
 .rs-tariff__head_button .rs-btn {
   width: 100%;
@@ -130,7 +152,6 @@
   z-index: 10;
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
-  pointer-events: none;
 }
 .rs-tariff__about._full {
   max-height: 1000px;
@@ -174,6 +195,9 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.rs-tariff-context .rs-tariff__about_item {
+  padding: 20px 30px 14px 30px;
+}
 .rs-tariff-support .rs-tariff__about_item {
   max-width: 315px;
 }
@@ -211,9 +235,16 @@
   background-color: #e2e5f1;
 }
 .rs-tariff__about_item:first-child {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   text-align: left;
   max-width: 450px;
   padding-left: 0px;
@@ -235,8 +266,20 @@
   left: 0px;
   width: calc(100% + 30px);
 }
+.rs-tariff__about_item .tooltip__modal {
+  min-width: 320px;
+  max-width: 320px;
+  color: #1d1e21;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 18.2px */
+}
 .rs-tariff__spollers {
   margin-top: 20px;
+}
+.rs-tariff-context .rs-tariff__spollers {
+  margin-top: 24px;
 }
 .rs-tariff__spollers_item {
   padding: 20px 24px 12px 24px;
@@ -270,6 +313,10 @@
   .rs-tariff__spollers_head h5 {
     display: none;
   }
+}
+.rs-tariff-context .rs-tariff__spollers_head h5 {
+  display: block;
+  font-size: 19px;
 }
 .rs-tariff__spollers_body ul {
   padding-left: 0px;
@@ -330,6 +377,11 @@
 @media (max-width: 767.98px) {
   .rs-tariff__spollers_footer {
     margin-top: 12px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-tariff-context .rs-tariff__spollers_footer {
+    margin-top: 14px;
   }
 }
 .rs-tariff__spollers_footer .rs-btn {

@@ -24,7 +24,7 @@
 	}
 
 	// .rs-grid-block__wrapper
-	&__wrapper {
+	.section__wrapper {
 		position: relative;
 		padding: 95px 0px;
 		min-height: 662px;
@@ -43,11 +43,12 @@
 
 		@media (max-width: 767.98px) {
 			padding: 60px 0px;
+			min-height: 650px;
 		}
 	}
 
 	// .rs-grid-block__bg
-	&__bg {
+	.section__bg {
 		position: absolute;
 		left: 50%;
 		top: 50%;
@@ -88,7 +89,8 @@
 	// .rs-info-block__desc
 	&__desc {
 		width: 100%;
-		max-width: 885px;
+		// max-width: 885px;
+		max-width: 56.3%;
 
 		@media (max-width: 991.98px) {
 			text-align: center;
@@ -97,6 +99,10 @@
 
 		h2 {
 			margin-bottom: 20px;
+
+			@media (max-width: 991.98px) {
+				margin-bottom: 10px;
+			}
 		}
 	}
 }

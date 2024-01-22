@@ -280,7 +280,7 @@ function animDesktop() {
 			end: "bottom+=300% top",
 			scrub: true,
 			pin: true,
-			markers: 1,
+			// markers: 1,
 			invalidateOnRefresh: true,
 		}
 	});
@@ -478,8 +478,8 @@ function animCommon() {
 	showContentOnScroll('.rs-tariff__desktop', 1, 1, 'fade');
 	showContentOnScroll('.rs-tariff__mobile .rs-tariff__spollers', 1, 1, 'fade');
 	// features	
-	showContentOnScroll('.rs-list-block__icon', 0.5, 0.3, 'scale--every');
-	showContentOnScroll('.rs-list-block__img', 0.5, 0.3, 'left-right');
+	showContentOnScroll('.rs-features-list__icon', 0.5, 0.3, 'scale--every');
+	showContentOnScroll('.rs-features-list__img', 0.5, 0.3, 'left-right');
 	// partners	
 	showContentOnScroll('.section-bg .section__bg', 1, 0.3, 'width-100');
 	showContentOnScroll('.section-bg .section__container', 1, 1, 'fade');
