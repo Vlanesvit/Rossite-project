@@ -357,7 +357,7 @@ function animDesktop() {
 			scrollTrigger: {
 				trigger: card,
 				start: `top-=${index * 20} top+=100px`,
-				end: `bottom-=100px bottom-=50%`,
+				end: `bottom+=50px bottom-=50%`,
 				endTrigger: '.rs-steps-algorithm',
 				pin: true,
 				pinSpacing: false,
@@ -505,7 +505,8 @@ function animCommon() {
 	showContentOnScroll('.rs-why-block__bg', 1, 0.3, 'width-100');
 	// main
 	showContentOnScroll('.rs-main__title h1', 0.5, 0.3, 'bottom-up');
-
+	// logo
+	showContentOnScroll('.rs-logo__slide', 0.5, 0.2, 'right-left--every');
 
 
 	// btn anim

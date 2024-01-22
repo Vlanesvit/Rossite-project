@@ -26,6 +26,10 @@
 	}
 
 	&__text {
+		.mrp-med-45 {
+			line-height: 120%;
+		}
+
 		&_img {
 			margin-left: -175px;
 			margin-top: 55px;
@@ -182,6 +186,10 @@
 
 				.rs-steps-algorithm & {
 					margin-bottom: 30px;
+
+					@media (max-width: 991.98px) {
+						margin-bottom: 20px;
+					}
 				}
 			}
 

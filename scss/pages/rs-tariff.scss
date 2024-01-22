@@ -219,7 +219,7 @@
 			vertical-align: middle;
 			display: flex;
 			align-items: center;
-			justify-content: center;
+			justify-content: flex-start;
 			flex-direction: column;
 
 			.rs-tariff-context & {
@@ -273,7 +273,6 @@
 			&:first-child {
 				flex-direction: row;
 				align-items: flex-start;
-				justify-content: flex-start;
 				text-align: left;
 				max-width: 450px;
 				padding-left: 0px;

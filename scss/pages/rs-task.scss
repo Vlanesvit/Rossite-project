@@ -76,6 +76,26 @@
 		flex-direction: column;
 		align-items: flex-start;
 
+		@media (max-width: 1439.98px) {
+			padding: 30px;
+		}
+
+		@media (max-width: 991.98px) {
+			padding: 20px;
+		}
+
+		.rs-task-price & {
+			padding: 50px 54px 76px;
+
+			@media (max-width: 1439.98px) {
+				padding: 30px;
+			}
+
+			@media (max-width: 991.98px) {
+				padding: 20px;
+			}
+		}
+
 		.rs-task-features & {
 			padding: 50px;
 

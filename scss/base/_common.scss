@@ -17,16 +17,6 @@ section {
 		padding-right: 80px;
 
 		@media (max-width: 1749.98px) {
-			padding-left: 40px;
-			padding-right: 40px;
-		}
-
-		@media (max-width: 1169.98px) {
-			padding-left: 10px;
-			padding-right: 10px;
-		}
-
-		@media (max-width: 991.98px) {
 			padding-left: 0px;
 			padding-right: 0px;
 		}
@@ -44,7 +34,7 @@ section {
 
 			p {
 				margin-top: 10px;
-				
+
 				@media (max-width: 767.98px) {
 					margin-top: 16px;
 				}

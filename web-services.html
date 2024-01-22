@@ -7,13 +7,14 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 
+	<link rel="stylesheet" href="lib/splitting/splitting.css" />
 	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="lib/image-compare-viewer/image-compare-viewer.min.css">
 	<link rel="stylesheet" href="lib/nouislider/nouislider.min.css">
 
 	<link rel="stylesheet" href="css/rs-style.css">
 
-	<title>Россайт - Доп. услуги</title>
+	<title>Россайт - Веб-сервисы</title>
 </head>
 
 <body style="
@@ -181,6 +182,7 @@
 						<div class="rs-header__call">
 							<a href="#" class="rs-btn _btn-gray-border">
 								<span class="btn-text _rs-icon-message">cвязаться с нами</span>
+								<span class="btn-hover"></span>
 								<span class="svg-wrapper"></span>
 							</a>
 						</div>
@@ -203,11 +205,12 @@
 					<div class="rs-banner__content">
 						<div class="rs-banner__container">
 							<div class="rs-banner__body">
-								<h1 class="mrp-med-45">Веб-сервисы и приложения под ключ для решения ваших задач</h1>
+								<h1 class="mrp-med-45">Веб-сервисы и приложения "под ключ" для решения ваших задач</h1>
 
 								<div class="rs-banner__buttons">
 									<a href="#" class="rs-btn _btn-primary">
 										<span class="btn-text _rs-icon-message">обсудить проект</span>
+										<span class="btn-hover"></span>
 										<span class="svg-wrapper"></span>
 									</a>
 								</div>
@@ -217,49 +220,59 @@
 				</div>
 			</section>
 
-			<link rel="stylesheet" href="css/rs-about-product.css">
-			<section class="rs-about-product">
-				<div class="rs-about-product__container">
-					<div class="rs-about-product__head">
-						<h2 class="mrp-med-50">Мы разрабатываем</h2>
-						<p class="mrp-reg-18">С 2012 разрабатываем веб-сервисы для решений задач в различных сферах
-							бизнеса.
-							Имеем государственную аккредитацию. Наша миссия — объединять людей через удобные и надёжные
-							веб-сервисы, сделав мир цифровых технологий комфортнее.</p>
+			<link rel="stylesheet" href="css/rs-slider-block.css">
+			<script src="js/rs-slider-block.js" defer></script>
+			<section class="rs-slider-block rs-slider-block-pins">
+				<div class="rs-slider-block__container">
+					<div class="section__head">
+						<div class="section__head-title">
+							<h2 class="mrp-med-50">Мы разрабатываем</h2>
+							<p class="mrp-reg-18">С 2012 разрабатываем веб-сервисы для решений задач в различных сферах
+								бизнеса.
+								Имеем государственную аккредитацию. Наша миссия — объединять людей через удобные и
+								надёжные
+								веб-сервисы, сделав мир цифровых технологий комфортнее.</p>
+						</div>
+
+						<div class="rs-slider-block__navigation swiper-navigation">
+							<div class="rs-slider-block__button-prev swiper-button-prev _rs-icon-arrow-prev"></div>
+							<div class="rs-slider-block__button-next swiper-button-next _rs-icon-arrow-next"></div>
+						</div>
 					</div>
 
-					<div class="rs-about-product__slider">
-						<div class="rs-about-product__list">
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--green">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-7.png" alt="">
+					<div class="rs-slider-block__slider swiper">
+						<div class="rs-slider-block__swiper swiper-wrapper">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--green">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-7.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Веб-приложения</h4>
 										<p class="mrp-reg-18">Для бизнеса, образования и управления, CRM-системы
 										</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-16">
-											<img src="./img/pages/about-product/about-bg/about-icon-7.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-11">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-7.1.svg"
+												alt="">
 										</div>
-										<div class="rs-about-product__icon rs-about-product__icon-17">
-											<img src="./img/pages/about-product/about-bg/about-icon-7.2.svg" alt="">
+										<div class="rs-slider-block__icon rs-slider-block__icon-12">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-7.2.svg"
+												alt="">
 										</div>
-										<div
-											class="rs-about-product__icon rs-about-product__line rs-about-product__icon-11">
+										<div class="rs-slider-block__line">
 											<svg viewBox="0 0 450 541" fill="none">
 												<defs>
 													<mask id="maskAbout-1" maskUnits="userSpaceOnUse">
-														<path opacity="0.5" class="mask-path" id="mask-about-1"
+														<path class="mask-path" id="mask-about-1"
 															d="M-372.298 -56.2239C-488.733 131.461 -356.238 481.645 -135.367 530.355C140.118 591.109 112.266 167.493 -29.1567 187.182C-203.816 211.498 -101.704 614.25 248.817 459.614C529.235 335.905 588.803 99.0104 583.535 -3.97334"
 															stroke="var(--primary-color)" stroke-width="3"
 															stroke-dasharray="4 10" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-1)">
-													<path opacity="0.5" class="dashed-path" id="dashed-about-1"
+													<path class="dashed-path" id="dashed-about-1"
 														d="M-372.298 -56.2239C-488.733 131.461 -356.238 481.645 -135.367 530.355C140.118 591.109 112.266 167.493 -29.1567 187.182C-203.816 211.498 -101.704 614.25 248.817 459.614C529.235 335.905 588.803 99.0104 583.535 -3.97334"
 														stroke="var(--primary-color)" stroke-width="3"
 														stroke-dasharray="4 10" />
@@ -270,35 +283,36 @@
 								</div>
 							</div>
 
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--yellow">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-8.png" alt="">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--yellow">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-8.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Маркетплейсы</h4>
 										<p class="mrp-reg-18">Торговые площадки для продажи товаров и услуг в B2B, B2C
 											и B2G сегментах</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-18">
-											<img src="./img/pages/about-product/about-bg/about-icon-8.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-13">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-8.1.svg"
+												alt="">
 										</div>
-										<div class="rs-about-product__icon rs-about-product__icon-19">
-											<img src="./img/pages/about-product/about-bg/about-icon-8.2.svg" alt="">
+										<div class="rs-slider-block__icon rs-slider-block__icon-14">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-8.2.svg"
+												alt="">
 										</div>
-										<div
-											class="rs-about-product__icon rs-about-product__line rs-about-product__icon-12">
+										<div class="rs-slider-block__line">
 											<svg viewBox="0 0 450 541" fill="none">
 												<defs>
 													<mask id="maskAbout-2" maskUnits="userSpaceOnUse">
-														<path opacity="0.5" class="mask-path" id="mask-about-2"
+														<path class="mask-path" id="mask-about-2"
 															d="M1300.45 21.5C1332.06 391 867.506 814.508 499.853 719.5C41.2905 601 405.027 -12 601.756 125C844.718 294.196 385.684 819.5 -21.4555 321.5C-347.167 -76.9 -256.241 -476.833 -170.064 -627"
 															stroke="#FA9D7C" stroke-width="3" stroke-dasharray="4 10" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-2)">
-													<path opacity="0.5" class="dashed-path" id="dashed-about-2"
+													<path class="dashed-path" id="dashed-about-2"
 														d="M1300.45 21.5C1332.06 391 867.506 814.508 499.853 719.5C41.2905 601 405.027 -12 601.756 125C844.718 294.196 385.684 819.5 -21.4555 321.5C-347.167 -76.9 -256.241 -476.833 -170.064 -627"
 														stroke="#FA9D7C" stroke-width="3" stroke-dasharray="4 10" />
 												</g>
@@ -308,32 +322,32 @@
 								</div>
 							</div>
 
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--pink">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-9.png" alt="">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--pink">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-9.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Онлайн-сервисы</h4>
 										<p class="mrp-reg-18">Для доставки еды, планирования путешествий, обучения и др.
 										</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-20">
-											<img src="./img/pages/about-product/about-bg/about-icon-9.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-15">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-9.1.svg"
+												alt="">
 										</div>
-										<div
-											class="rs-about-product__icon rs-about-product__line rs-about-product__icon-13">
+										<div class="rs-slider-block__line">
 											<svg viewBox="0 0 450 541" fill="none">
 												<defs>
 													<mask id="maskAbout-3" maskUnits="userSpaceOnUse">
-														<path opacity="0.5" class="mask-path" id="mask-about-3"
+														<path class="mask-path" id="mask-about-3"
 															d="M-1063.46 687.533C-1095.07 318.033 -630.522 -105.474 -262.868 -10.4668C195.694 108.033 -168.042 721.033 -364.771 584.033C-607.733 414.837 -148.699 -110.467 258.44 387.533C584.151 785.933 493.225 1185.87 407.048 1336.03"
 															stroke="#FF8A8A" stroke-width="3" stroke-dasharray="4 10" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-3)">
-													<path opacity="0.5" class="dashed-path" id="dashed-about-3"
+													<path class="dashed-path" id="dashed-about-3"
 														d="M-1063.46 687.533C-1095.07 318.033 -630.522 -105.474 -262.868 -10.4668C195.694 108.033 -168.042 721.033 -364.771 584.033C-607.733 414.837 -148.699 -110.467 258.44 387.533C584.151 785.933 493.225 1185.87 407.048 1336.03"
 														stroke="#FF8A8A" stroke-width="3" stroke-dasharray="4 10" />
 												</g>
@@ -343,36 +357,37 @@
 								</div>
 							</div>
 
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--orange">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-10.png" alt="">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--orange">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-10.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Интернет-порталы</h4>
 										<p class="mrp-reg-18">Новостные, корпоративные и отраслевые порталы, социальные
 											сети
 										</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-21">
-											<img src="./img/pages/about-product/about-bg/about-icon-10.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-16">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-10.1.svg"
+												alt="">
 										</div>
-										<div class="rs-about-product__icon rs-about-product__icon-22">
-											<img src="./img/pages/about-product/about-bg/about-icon-10.2.svg" alt="">
+										<div class="rs-slider-block__icon rs-slider-block__icon-17">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-10.2.svg"
+												alt="">
 										</div>
-										<div
-											class="rs-about-product__icon rs-about-product__line rs-about-product__icon-14">
+										<div class="rs-slider-block__line">
 											<svg viewBox="0 0 450 541" fill="none">
 												<defs>
 													<mask id="maskAbout-4" maskUnits="userSpaceOnUse">
-														<path opacity="0.5" class="mask-path" id="mask-about-4"
+														<path class="mask-path" id="mask-about-4"
 															d="M-583.056 687.533C-614.665 318.033 -150.113 -105.474 217.54 -10.4667C676.102 108.033 312.366 721.033 115.637 584.033C-127.325 414.837 331.709 -110.467 738.848 387.533C1064.56 785.933 973.633 1185.87 887.456 1336.03"
 															stroke="#FA9D7C" stroke-width="3" stroke-dasharray="4 10" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-4)">
-													<path opacity="0.5" class="dashed-path" id="dashed-about-4"
+													<path class="dashed-path" id="dashed-about-4"
 														d="M-583.056 687.533C-614.665 318.033 -150.113 -105.474 217.54 -10.4667C676.102 108.033 312.366 721.033 115.637 584.033C-127.325 414.837 331.709 -110.467 738.848 387.533C1064.56 785.933 973.633 1185.87 887.456 1336.03"
 														stroke="#FA9D7C" stroke-width="3" stroke-dasharray="4 10" />
 												</g>
@@ -382,38 +397,40 @@
 								</div>
 							</div>
 
-							<div class="rs-about-product__slide">
-								<div class="rs-about-product__item rs-about-product--blue">
-									<div class="rs-about-product__img">
-										<img src=" ./img/pages/about-product/about-product-img-11.png" alt="">
+							<div class="rs-slider-block__slide swiper-slide">
+								<div class="rs-slider-block__item rs-slider-block--blue">
+									<div class="rs-slider-block__img">
+										<img src=" ./img/pages/slider-block/slider-block-img-11.png" alt="">
 									</div>
-									<div class="rs-about-product__description">
+									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Стартапы</h4>
 										<p class="mrp-reg-18">Создание MVP рыночного продукта с возможностью развития
 										</p>
 									</div>
-									<div class="rs-about-product__icons">
-										<div class="rs-about-product__icon rs-about-product__icon-23">
-											<img src="./img/pages/about-product/about-bg/about-icon-11.1.svg" alt="">
+									<div class="rs-slider-block__icons">
+										<div class="rs-slider-block__icon rs-slider-block__icon-18">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-11.1.svg"
+												alt="">
 										</div>
-										<div class="rs-about-product__icon rs-about-product__icon-24">
-											<img src="./img/pages/about-product/about-bg/about-icon-11.2.svg" alt="">
+										<div class="rs-slider-block__icon rs-slider-block__icon-19">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-11.2.svg"
+												alt="">
 										</div>
-										<div class="rs-about-product__icon rs-about-product__icon-25">
-											<img src="./img/pages/about-product/about-bg/about-icon-11.3.svg" alt="">
+										<div class="rs-slider-block__icon rs-slider-block__icon-20">
+											<img src="./img/pages/slider-block/slider-block-icons/slider-block-icon-11.3.svg"
+												alt="">
 										</div>
-										<div
-											class="rs-about-product__icon rs-about-product__line rs-about-product__icon-15">
+										<div class="rs-slider-block__line">
 											<svg viewBox="0 0 450 541" fill="none">
 												<defs>
 													<mask id="maskAbout-5" maskUnits="userSpaceOnUse">
-														<path opacity="0.5" class="mask-path" id="mask-about-5"
+														<path class="mask-path" id="mask-about-5"
 															d="M451.67 -154.686C628.351 -64.4129 689.064 266.38 541.837 406.373C358.206 580.981 182.929 242.299 300.822 191.786C446.421 129.402 554.905 486.514 213.563 530.325C-59.5105 565.375 -215.312 410.861 -259.078 329.223"
 															stroke="#007BFB" stroke-width="3" stroke-dasharray="4 10" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-5)">
-													<path opacity="0.5" class="dashed-path" id="dashed-about-5"
+													<path class="dashed-path" id="dashed-about-5"
 														d="M451.67 -154.686C628.351 -64.4129 689.064 266.38 541.837 406.373C358.206 580.981 182.929 242.299 300.822 191.786C446.421 129.402 554.905 486.514 213.563 530.325C-59.5105 565.375 -215.312 410.861 -259.078 329.223"
 														stroke="#007BFB" stroke-width="3" stroke-dasharray="4 10" />
 												</g>
@@ -423,266 +440,278 @@
 								</div>
 							</div>
 						</div>
-						<div class="rs-about-product__progress">
-							<div class="rs-about-product__progress_fill"></div>
+						<div
+							class="rs-slider-block__pagination swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal">
+							<span class="swiper-pagination-progressbar-fill"></span>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			<link rel="stylesheet" href="css/rs-list-block.css">
-			<section class="rs-list-block">
-				<div class="rs-list-block__wrapper">
-					<div class="rs-list-block__bg"><img src="./img/pages/partners/partners-bg-2.svg" alt=""></div>
-					<div class="rs-list-block__container">
+			<section class="rs-list-block section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg"><img src="./img/pages/partners/partners-bg-2.svg" alt=""></div>
+					<div class="section__container">
 						<h2 class="mrp-med-45">Веб-сервисы для решений в различных сферах</h2>
-						<p class="mrp-reg-18">За 10 лет успели поработать с сервисами в различных тематиках. Выявляем
-							цели
-							пользователей и разрабатываем приложения, который удобно использовать.</p>
+						<h5 class="mrp-reg-21">За 10 лет успели поработать с сервисами в различных тематиках. Выявляем
+							цели пользователей и разрабатываем приложения, который удобно использовать.</h5>
 						<div class="rs-list-block__list">
 							<div class="rs-list-block__body">
 								<div class="rs-list-block__item">
-									<div class="rs-list-block__icon">
-										<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M19.9231 21H5.30771C4.0332 21 3 19.9668 3 18.6923C3 17.4178 4.0332 16.3846 5.30771 16.3846H18.3847C19.2343 16.3846 19.9231 15.6958 19.9231 14.8462V2.53846C19.9231 1.6888 19.2343 1 18.3847 1H5.30771C4.05686 0.999533 3.03338 1.99572 3.00004 3.24614V18.6308"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path d="M18.3848 16.3846V21" stroke="var(--primary-color)"
-												stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-										</svg>
-									</div>
-									<div class="rs-list-block__desc">
-										<h6 class="mrp-med-18">Госуправление</h6>
-									</div>
+									<a href="#">
+										<div class="rs-list-block__icon">
+											<svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+												<path
+													d="M8.92183 8.92311C10.8334 8.92311 12.383 7.37332 12.383 5.46155C12.383 3.54979 10.8334 2 8.92183 2C7.0103 2 5.46069 3.54979 5.46069 5.46155C5.46069 7.37332 7.0103 8.92311 8.92183 8.92311Z"
+													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke-miterlimit="171.429" stroke-linecap="round"
+													stroke-linejoin="round" />
+												<path
+													d="M15.8445 20.4615H2V18.9231C2 15.0996 5.09919 12 8.92224 12C12.7453 12 15.8445 15.0996 15.8445 18.9231V20.4615Z"
+													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke-miterlimit="171.429" stroke-linecap="round"
+													stroke-linejoin="round" />
+												<path
+													d="M14.075 2C15.9865 2 17.5361 3.5498 17.5361 5.46155C17.5361 7.37331 15.9865 8.92311 14.075 8.92311"
+													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke-miterlimit="171.429" stroke-linecap="round"
+													stroke-linejoin="round" />
+												<path
+													d="M16.5369 12.2924C19.2195 13.313 20.9941 15.8834 20.9979 18.7539V20.4616H18.6905"
+													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke-miterlimit="171.429" stroke-linecap="round"
+													stroke-linejoin="round" />
+											</svg>
+										</div>
+										<div class="rs-list-block__desc">
+											<h6 class="mrp-med-18">Госуправление</h6>
+										</div>
+									</a>
 								</div>
 
 								<div class="rs-list-block__item">
-									<div class="rs-list-block__icon">
-										<svg width="23" height="23" viewBox="0 0 23 23" fill="none">
-											<path
-												d="M8.92183 8.92311C10.8334 8.92311 12.383 7.37332 12.383 5.46155C12.383 3.54979 10.8334 2 8.92183 2C7.0103 2 5.46069 3.54979 5.46069 5.46155C5.46069 7.37332 7.0103 8.92311 8.92183 8.92311Z"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M15.8445 20.4615H2V18.9231C2 15.0996 5.09919 12 8.92224 12C12.7453 12 15.8445 15.0996 15.8445 18.9231V20.4615Z"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M14.075 2C15.9865 2 17.5361 3.5498 17.5361 5.46155C17.5361 7.37331 15.9865 8.92311 14.075 8.92311"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M16.5369 12.2924C19.2195 13.313 20.9941 15.8834 20.9979 18.7539V20.4616H18.6905"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-										</svg>
-									</div>
-									<div class="rs-list-block__desc">
-										<h6 class="mrp-med-18">Образование</h6>
-									</div>
-								</div>
+									<a href="#">
+										<div class="rs-list-block__icon">
 
-								<div class="rs-list-block__item">
-									<div class="rs-list-block__icon">
-										<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M2 7.27439C2.75001 3.53395 7.20601 0.721048 11.4414 5.69308C17.4857 -1.46846 23.9418 7.41126 19.5593 11.988L11.4414 19.7273L6.69129 15.1658"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M2 11.2143H5.61108L7.77776 8.22729L10.6666 13.4546L12.8333 10.4676H15"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-										</svg>
-									</div>
-									<div class="rs-list-block__desc">
-										<h6 class="mrp-med-18">Медицина</h6>
-									</div>
-								</div>
-
-								<div class="rs-list-block__item">
-									<div class="rs-list-block__icon">
-										<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M19.6923 12.7669V9.69001C19.6923 8.84035 19.0035 8.15155 18.1538 8.15155H3.53846C2.6888 8.15155 2 8.84035 2 9.69001V20.4592C2 21.3089 2.6888 21.9977 3.53846 21.9977H18.1538C19.0035 21.9977 19.6923 21.3089 19.6923 20.4592V16.6131"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M7.13867 4.30538L15.8617 2.02844C16.2625 1.91554 16.6789 2.14887 16.7918 2.5496C16.7948 2.56044 16.7976 2.57132 16.8002 2.5823L17.231 4.30538"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M17.3845 12.7669H21.2306C21.6555 12.7669 21.9999 13.1113 21.9999 13.5362V15.8439C21.9999 16.2687 21.6555 16.6131 21.2306 16.6131H17.3845C16.9596 16.6131 16.6152 16.2687 16.6152 15.8439V13.5362C16.6152 13.1113 16.9596 12.7669 17.3845 12.7669Z"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-										</svg>
-									</div>
-									<div class="rs-list-block__desc">
-										<h6 class="mrp-med-18">Финансы</h6>
-									</div>
-								</div>
-
-								<div class="rs-list-block__item">
-									<div class="rs-list-block__icon">
-										<svg width="23" height="23" viewBox="0 0 23 23" fill="none">
-											<path
-												d="M8.92183 8.92311C10.8334 8.92311 12.383 7.37332 12.383 5.46155C12.383 3.54979 10.8334 2 8.92183 2C7.0103 2 5.46069 3.54979 5.46069 5.46155C5.46069 7.37332 7.0103 8.92311 8.92183 8.92311Z"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M15.8445 20.4615H2V18.9231C2 15.0996 5.09919 12 8.92224 12C12.7453 12 15.8445 15.0996 15.8445 18.9231V20.4615Z"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M14.075 2C15.9865 2 17.5361 3.5498 17.5361 5.46155C17.5361 7.37331 15.9865 8.92311 14.075 8.92311"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M16.5369 12.2924C19.2195 13.313 20.9941 15.8834 20.9979 18.7539V20.4616H18.6905"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-										</svg>
-									</div>
-									<div class="rs-list-block__desc">
-										<h6 class="mrp-med-18">Логистика</h6>
-									</div>
-								</div>
-
-								<div class="rs-list-block__item">
-									<div class="rs-list-block__icon">
-										<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.69231 5.18182H17.3077C18.2423 5.18182 19 5.90193 19 6.79021V14.028C19 14.9163 18.2423 15.6364 17.3077 15.6364H9.69231C8.75768 15.6364 8 14.9163 8 14.028V6.79025C8 5.90193 8.75768 5.18182 9.69231 5.18182Z"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M6 19.8182H18.0158C18.43 19.8197 18.8269 19.9649 19.1211 20.2224L21 21.9091"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path d="M1 1H2.5C3.32842 1 4 1.73906 4 2.65071V16.6818"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path
-												d="M5.99467 19.1077C6.00178 19.2328 6.00178 19.3582 5.99467 19.4832C5.89545 20.9229 4.6984 22.0059 3.32099 21.9022C1.94358 21.7986 0.90738 20.5474 1.00657 19.1077C1.10575 17.668 2.30283 16.585 3.68025 16.6887C4.91961 16.782 5.90537 17.8124 5.99467 19.1077Z"
-												stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-											<path d="M13 10.4091H15" stroke="var(--primary-color)" stroke-width="1.5"
-												stroke-miterlimit="171.429" stroke-linecap="round"
-												stroke-linejoin="round" />
-										</svg>
-									</div>
-									<div class="rs-list-block__desc">
-										<h6 class="mrp-med-18">E-commerce</h6>
-									</div>
-								</div>
-
-								<div class="rs-list-block__item">
-									<div class="rs-list-block__icon">
-										<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_3089_3196)">
-												<path d="M17.5021 6.76999L17.0791 8.46299" stroke="var(--primary-color)"
+											<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M19.9231 21H5.30771C4.0332 21 3 19.9668 3 18.6923C3 17.4178 4.0332 16.3846 5.30771 16.3846H18.3847C19.2343 16.3846 19.9231 15.6958 19.9231 14.8462V2.53846C19.9231 1.6888 19.2343 1 18.3847 1H5.30771C4.05686 0.999533 3.03338 1.99572 3.00004 3.24614V18.6308"
+													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke-miterlimit="171.429" stroke-linecap="round"
+													stroke-linejoin="round" />
+												<path d="M18.3848 16.3846V21" stroke="var(--primary-color)"
 													stroke-width="1.5" stroke-miterlimit="171.429"
 													stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M11.5779 6.76999L12.0019 8.46299" stroke="var(--primary-color)"
-													stroke-width="1.5" stroke-miterlimit="171.429"
-													stroke-linecap="round" stroke-linejoin="round" />
-												<path
-													d="M20.7694 11.848H6.92445L5.23145 3.38501H22.1564C22.6234 3.38701 23.0014 3.76701 22.9994 4.23401C22.9994 4.28401 22.9944 4.33401 22.9854 4.38301L21.5974 11.153C21.5314 11.558 21.1794 11.853 20.7694 11.848Z"
-													stroke="var(--primary-color)" stroke-width="1.5"
-													stroke-miterlimit="171.429" stroke-linecap="round"
-													stroke-linejoin="round" />
-												<path d="M5.231 3.385L4.52 0.677C4.44 0.283 4.093 0 3.691 0H1"
-													stroke="var(--primary-color)" stroke-width="1.5"
-													stroke-miterlimit="171.429" stroke-linecap="round"
-													stroke-linejoin="round" />
-												<path
-													d="M6.92407 11.848L7.63507 15.402C7.71507 15.796 8.06207 16.079 8.46407 16.079H18.7721"
-													stroke="var(--primary-color)" stroke-width="1.5"
-													stroke-miterlimit="171.429" stroke-linecap="round"
-													stroke-linejoin="round" />
-												<path
-													d="M17.9251 22.003C18.3923 22.003 18.7711 21.6242 18.7711 21.157C18.7711 20.6898 18.3923 20.311 17.9251 20.311C17.4579 20.311 17.0791 20.6898 17.0791 21.157C17.0791 21.6242 17.4579 22.003 17.9251 22.003Z"
-													stroke="var(--primary-color)" stroke-width="1.5"
-													stroke-miterlimit="171.429" stroke-linecap="round"
-													stroke-linejoin="round" />
-												<path
-													d="M9.46294 22.003C9.93018 22.003 10.3089 21.6242 10.3089 21.157C10.3089 20.6898 9.93018 20.311 9.46294 20.311C8.99571 20.311 8.61694 20.6898 8.61694 21.157C8.61694 21.6242 8.99571 22.003 9.46294 22.003Z"
-													stroke="var(--primary-color)" stroke-width="1.5"
-													stroke-miterlimit="171.429" stroke-linecap="round"
-													stroke-linejoin="round" />
-											</g>
-											<defs>
-												<clipPath id="clip0_3089_3196">
-													<rect width="23" height="23" fill="white" />
-												</clipPath>
-											</defs>
-										</svg>
-									</div>
-									<div class="rs-list-block__desc">
-										<h6 class="mrp-med-18">Туризм</h6>
-									</div>
+											</svg>
+										</div>
+										<div class="rs-list-block__desc">
+											<h6 class="mrp-med-18">Образование</h6>
+										</div>
+									</a>
 								</div>
 
 								<div class="rs-list-block__item">
-									<div class="rs-list-block__icon">
-										<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_3089_3235)">
+									<a href="#">
+										<div class="rs-list-block__icon">
+											<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
 												<path
-													d="M3.4307 8.09058H19.173C19.9637 8.09058 20.6037 8.88444 20.6037 9.86264V20.4985C20.6037 21.4779 19.9628 22.2706 19.173 22.2706H3.4307C2.64 22.2706 2 21.4767 2 20.4985V9.86264C2 8.88444 2.64093 8.09058 3.4307 8.09058Z"
+													d="M2 7.27439C2.75001 3.53395 7.20601 0.721048 11.4414 5.69308C17.4857 -1.46846 23.9418 7.41126 19.5593 11.988L11.4414 19.7273L6.69129 15.1658"
 													stroke="var(--primary-color)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
-												<path d="M5.57812 4.54529V1" stroke="var(--primary-color)"
-													stroke-width="1.5" stroke-miterlimit="171.429"
-													stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M11.3027 4.54529V1" stroke="var(--primary-color)"
-													stroke-width="1.5" stroke-miterlimit="171.429"
-													stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M17.0273 4.54529V1" stroke="var(--primary-color)"
-													stroke-width="1.5" stroke-miterlimit="171.429"
-													stroke-linecap="round" stroke-linejoin="round" />
 												<path
-													d="M20.6047 16.0672H19.8893C18.3088 16.0672 17.027 14.4795 17.027 12.5219C17.027 14.4795 15.7451 16.0672 14.1647 16.0672C12.5842 16.0672 11.3023 14.4795 11.3023 12.5219C11.3023 14.4795 10.0205 16.0672 8.44 16.0672C6.85953 16.0672 5.57767 14.4795 5.57767 12.5219C5.57767 14.4795 4.29581 16.0672 2.71535 16.0672H2"
+													d="M2 11.2143H5.61108L7.77776 8.22729L10.6666 13.4546L12.8333 10.4676H15"
 													stroke="var(--primary-color)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
-											</g>
-											<defs>
-												<clipPath id="clip0_3089_3235">
-													<rect width="23" height="23" fill="white" />
-												</clipPath>
-											</defs>
-										</svg>
-									</div>
-									<div class="rs-list-block__desc">
-										<h6 class="mrp-med-18">Питание</h6>
-									</div>
+											</svg>
+										</div>
+										<div class="rs-list-block__desc">
+											<h6 class="mrp-med-18">Медицина</h6>
+										</div>
+									</a>
+								</div>
+
+								<div class="rs-list-block__item">
+									<a href="#">
+										<div class="rs-list-block__icon">
+											<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M19.6923 12.7669V9.69001C19.6923 8.84035 19.0035 8.15155 18.1538 8.15155H3.53846C2.6888 8.15155 2 8.84035 2 9.69001V20.4592C2 21.3089 2.6888 21.9977 3.53846 21.9977H18.1538C19.0035 21.9977 19.6923 21.3089 19.6923 20.4592V16.6131"
+													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke-miterlimit="171.429" stroke-linecap="round"
+													stroke-linejoin="round" />
+												<path
+													d="M7.13867 4.30538L15.8617 2.02844C16.2625 1.91554 16.6789 2.14887 16.7918 2.5496C16.7948 2.56044 16.7976 2.57132 16.8002 2.5823L17.231 4.30538"
+													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke-miterlimit="171.429" stroke-linecap="round"
+													stroke-linejoin="round" />
+												<path
+													d="M17.3845 12.7669H21.2306C21.6555 12.7669 21.9999 13.1113 21.9999 13.5362V15.8439C21.9999 16.2687 21.6555 16.6131 21.2306 16.6131H17.3845C16.9596 16.6131 16.6152 16.2687 16.6152 15.8439V13.5362C16.6152 13.1113 16.9596 12.7669 17.3845 12.7669Z"
+													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke-miterlimit="171.429" stroke-linecap="round"
+													stroke-linejoin="round" />
+											</svg>
+										</div>
+										<div class="rs-list-block__desc">
+											<h6 class="mrp-med-18">Финансы</h6>
+										</div>
+									</a>
+								</div>
+
+								<div class="rs-list-block__item">
+									<a href="#">
+										<div class="rs-list-block__icon">
+											<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M9.69231 5.18182H17.3077C18.2423 5.18182 19 5.90193 19 6.79021V14.028C19 14.9163 18.2423 15.6364 17.3077 15.6364H9.69231C8.75768 15.6364 8 14.9163 8 14.028V6.79025C8 5.90193 8.75768 5.18182 9.69231 5.18182Z"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M6 19.8182H18.0158C18.43 19.8197 18.8269 19.9649 19.1211 20.2224L21 21.9091"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M1 1H2.5C3.32842 1 4 1.73906 4 2.65071V16.6818"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M5.99467 19.1077C6.00178 19.2328 6.00178 19.3582 5.99467 19.4832C5.89545 20.9229 4.6984 22.0059 3.32099 21.9022C1.94358 21.7986 0.90738 20.5474 1.00657 19.1077C1.10575 17.668 2.30283 16.585 3.68025 16.6887C4.91961 16.782 5.90537 17.8124 5.99467 19.1077Z"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M13 10.4091H15" stroke="#25C16F" stroke-width="1.5"
+													stroke-miterlimit="171.429" stroke-linecap="round"
+													stroke-linejoin="round" />
+											</svg>
+										</div>
+										<div class="rs-list-block__desc">
+											<h6 class="mrp-med-18">Логистика</h6>
+										</div>
+									</a>
+								</div>
+
+								<div class="rs-list-block__item">
+									<a href="#">
+										<div class="rs-list-block__icon">
+											<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<g clip-path="url(#clip0_3099_9626)">
+													<path d="M17.5021 6.76999L17.0791 8.46299" stroke="#25C16F"
+														stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M11.5779 6.76999L12.0019 8.46299" stroke="#25C16F"
+														stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+													<path
+														d="M20.7694 11.848H6.92445L5.23145 3.38501H22.1564C22.6234 3.38701 23.0014 3.76701 22.9994 4.23401C22.9994 4.28401 22.9944 4.33401 22.9854 4.38301L21.5974 11.153C21.5314 11.558 21.1794 11.853 20.7694 11.848Z"
+														stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M5.231 3.385L4.52 0.677C4.44 0.283 4.093 0 3.691 0H1"
+														stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+													<path
+														d="M6.92407 11.848L7.63507 15.402C7.71507 15.796 8.06207 16.079 8.46407 16.079H18.7721"
+														stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+													<path
+														d="M17.9251 22.003C18.3923 22.003 18.7711 21.6242 18.7711 21.157C18.7711 20.6898 18.3923 20.311 17.9251 20.311C17.4579 20.311 17.0791 20.6898 17.0791 21.157C17.0791 21.6242 17.4579 22.003 17.9251 22.003Z"
+														stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+													<path
+														d="M9.46294 22.003C9.93018 22.003 10.3089 21.6242 10.3089 21.157C10.3089 20.6898 9.93018 20.311 9.46294 20.311C8.99571 20.311 8.61694 20.6898 8.61694 21.157C8.61694 21.6242 8.99571 22.003 9.46294 22.003Z"
+														stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+												<defs>
+													<clipPath id="clip0_3099_9626">
+														<rect width="23" height="23" fill="white" />
+													</clipPath>
+												</defs>
+											</svg>
+										</div>
+										<div class="rs-list-block__desc">
+											<h6 class="mrp-med-18">E-commerce</h6>
+										</div>
+									</a>
+								</div>
+
+								<div class="rs-list-block__item">
+									<a href="#">
+										<div class="rs-list-block__icon">
+											<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M21.5 21.9373H20.7309C19.0318 21.9373 17.6536 20.5601 17.6536 18.8601C17.6536 20.5592 16.2764 21.9373 14.5764 21.9373C12.8764 21.9373 11.4991 20.5601 11.4991 18.8601C11.4991 20.5592 10.1218 21.9373 8.42182 21.9373C6.72182 21.9373 5.34455 20.5601 5.34455 18.8601C5.34455 20.5592 3.96727 21.9373 2.26727 21.9373H1.5"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M16.1158 15.7828C13.1521 12.1801 7.83031 11.6619 4.22759 14.6246C3.80486 14.9719 3.41759 15.3601 3.07031 15.7828"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M10.7314 12.7828C10.8242 9.30556 11.8851 6.13647 14.1933 4.99829"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M9.5918 2.07554C11.6627 1.66736 13.6909 2.9519 14.2073 4.99827"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M19.8221 5.56735C18.3566 3.98554 15.943 3.74099 14.1912 4.99826"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M8.5459 6.64463C9.78953 4.81281 12.1586 4.1219 14.1923 4.99827C16.2477 5.50099 17.5341 7.54281 17.0995 9.61372"
+													stroke="#25C16F" stroke-width="1.5" stroke-miterlimit="171.429"
+													stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+										</div>
+										<div class="rs-list-block__desc">
+											<h6 class="mrp-med-18">Туризм</h6>
+										</div>
+									</a>
+								</div>
+
+								<div class="rs-list-block__item">
+									<a href="#">
+										<div class="rs-list-block__icon">
+											<svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<g clip-path="url(#clip0_3089_3235)">
+													<path
+														d="M3.4307 8.09058H19.173C19.9637 8.09058 20.6037 8.88444 20.6037 9.86264V20.4985C20.6037 21.4779 19.9628 22.2706 19.173 22.2706H3.4307C2.64 22.2706 2 21.4767 2 20.4985V9.86264C2 8.88444 2.64093 8.09058 3.4307 8.09058Z"
+														stroke="var(--primary-color)" stroke-width="1.5"
+														stroke-miterlimit="171.429" stroke-linecap="round"
+														stroke-linejoin="round" />
+													<path d="M5.57812 4.54529V1" stroke="var(--primary-color)"
+														stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M11.3027 4.54529V1" stroke="var(--primary-color)"
+														stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M17.0273 4.54529V1" stroke="var(--primary-color)"
+														stroke-width="1.5" stroke-miterlimit="171.429"
+														stroke-linecap="round" stroke-linejoin="round" />
+													<path
+														d="M20.6047 16.0672H19.8893C18.3088 16.0672 17.027 14.4795 17.027 12.5219C17.027 14.4795 15.7451 16.0672 14.1647 16.0672C12.5842 16.0672 11.3023 14.4795 11.3023 12.5219C11.3023 14.4795 10.0205 16.0672 8.44 16.0672C6.85953 16.0672 5.57767 14.4795 5.57767 12.5219C5.57767 14.4795 4.29581 16.0672 2.71535 16.0672H2"
+														stroke="var(--primary-color)" stroke-width="1.5"
+														stroke-miterlimit="171.429" stroke-linecap="round"
+														stroke-linejoin="round" />
+												</g>
+												<defs>
+													<clipPath id="clip0_3089_3235">
+														<rect width="23" height="23" fill="white" />
+													</clipPath>
+												</defs>
+											</svg>
+										</div>
+										<div class="rs-list-block__desc">
+											<h6 class="mrp-med-18">Питание</h6>
+										</div>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -697,7 +726,7 @@
 					<div class="rs-steps__wrapper">
 						<div class="rs-steps__text">
 							<div class="rs-steps__text_body">
-								<h2 class="mrp-med-45">Алгоритм создания сервисов и приложений</h2>
+								<h2 class="mrp-med-45">Алгоритм создания сервисов и приложений</h2>
 								<div class="rs-steps__text_img">
 									<img src="./img/pages/steps/steps-img-5.1.jpg" alt="">
 								</div>
@@ -712,8 +741,7 @@
 									Техническое задание <i class="rs-steps__spollers_icon"></i>
 								</button>
 								<div class="rs-steps__spollers_body">
-									<p class="mrp-reg-18">Прописываются особенности функционала, структура,
-										сроки и план
+									<p class="mrp-reg-18">Прописываются особенности функционала, структура, сроки и план
 										проекта.</p>
 									<div class="rs-steps__footer">
 										<ul class="rs-steps__list">
@@ -728,14 +756,12 @@
 
 							<div class="rs-steps__spollers_item">
 								<div class="rs-steps__spollers_num">02</div>
-								<button type="button" data-spoller
-									class="rs-steps__spollers_title mrp-med-25 _spoller-active">
+								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Прототип <i class="rs-steps__spollers_icon"></i>
 								</button>
 								<div class="rs-steps__spollers_body">
-									<p class="mrp-reg-18">Прописываются особенности функционала, структура,
-										сроки и план
-										проекта.</p>
+									<p class="mrp-reg-18">Проектируется модель взаимодействия пользователя с сервисом
+										в виде блок-схем</p>
 									<div class="rs-steps__footer">
 										<ul class="rs-steps__list">
 											<li class="rs-steps__time">от 10 дней</li>
@@ -749,14 +775,12 @@
 
 							<div class="rs-steps__spollers_item">
 								<div class="rs-steps__spollers_num">03</div>
-								<button type="button" data-spoller
-									class="rs-steps__spollers_title mrp-med-25 _spoller-active">
+								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Дизайн-макет <i class="rs-steps__spollers_icon"></i>
 								</button>
 								<div class="rs-steps__spollers_body">
-									<p class="mrp-reg-18">Прописываются особенности функционала, структура,
-										сроки и план
-										проекта.</p>
+									<p class="mrp-reg-18">Разрабатывается интерфейс веб-сервиса, учитывая пожелания
+										по оформлению</p>
 									<div class="rs-steps__footer">
 										<ul class="rs-steps__list">
 											<li class="rs-steps__time">от 10 дней</li>
@@ -770,14 +794,15 @@
 
 							<div class="rs-steps__spollers_item">
 								<div class="rs-steps__spollers_num">04</div>
-								<button type="button" data-spoller
-									class="rs-steps__spollers_title mrp-med-25 _spoller-active">
+								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Разработка <i class="rs-steps__spollers_icon"></i>
 								</button>
 								<div class="rs-steps__spollers_body">
-									<p class="mrp-reg-18">Прописываются особенности функционала, структура,
-										сроки и план
-										проекта.</p>
+									<p class="mrp-reg-18">Пишется код, настраивается сервер, реализуется функционал,
+										который сразу связывается с системой управления и базой данных
+										Back-end (PHP Laravel, Yii2, Nest.js (node.js), PostgreSQL, GraphQL)
+										Front-end (React.js, jQuery, Bootstrap, Electron, Apollo, Prostore)
+										Mobile (iOS & Android, React Native, Hybrid Web App, PWA)</p>
 									<div class="rs-steps__footer">
 										<ul class="rs-steps__list">
 											<li class="rs-steps__time">от 10 дней</li>
@@ -791,14 +816,12 @@
 
 							<div class="rs-steps__spollers_item">
 								<div class="rs-steps__spollers_num">05</div>
-								<button type="button" data-spoller
-									class="rs-steps__spollers_title mrp-med-25 _spoller-active">
+								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Тестирование и релиз <i class="rs-steps__spollers_icon"></i>
 								</button>
 								<div class="rs-steps__spollers_body">
-									<p class="mrp-reg-18">Прописываются особенности функционала, структура,
-										сроки и план
-										проекта.</p>
+									<p class="mrp-reg-18">Почти готовы веб-сервис проверяется на наличие ошибок в коде,
+										опечаток и соответствие подготовленному дизайн-макету</p>
 									<div class="rs-steps__footer">
 										<ul class="rs-steps__list">
 											<li class="rs-steps__time">от 10 дней</li>
@@ -812,14 +835,12 @@
 
 							<div class="rs-steps__spollers_item">
 								<div class="rs-steps__spollers_num">06</div>
-								<button type="button" data-spoller
-									class="rs-steps__spollers_title mrp-med-25 _spoller-active">
+								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Поддержка и развитие <i class="rs-steps__spollers_icon"></i>
 								</button>
 								<div class="rs-steps__spollers_body">
-									<p class="mrp-reg-18">Прописываются особенности функционала, структура,
-										сроки и план
-										проекта.</p>
+									<p class="mrp-reg-18">Следим за качественными и количественными показателями,
+										скоростью работы сервиса с нагрузкой и без</p>
 									<div class="rs-steps__footer">
 										<ul class="rs-steps__list">
 											<li class="rs-steps__time">от 10 дней</li>
@@ -838,7 +859,7 @@
 			<link rel="stylesheet" href="css/rs-feedback.css">
 			<section class="rs-feedback">
 				<div class="rs-feedback__bg">
-					<img src="./img/pages/feedback/feedback-bg-4.svg" alt="">
+					<img src="./img/pages/feedback/feedback-bg-4.png" alt="">
 				</div>
 				<div class="rs-feedback__container">
 					<h2 class="mrp-med-50">Создадим приложение для ваших задач</h2>
@@ -846,7 +867,8 @@
 						в ближайшее время</h5>
 					<div class="rs-feedback__buttons">
 						<a href="#" class="rs-btn _btn-primary">
-							<span class="btn-text _rs-icon-message">получить консультацию</span>
+							<span class="btn-text _rs-icon-message">отправить заявку</span>
+							<span class="btn-hover"></span>
 							<span class="svg-wrapper"></span>
 						</a>
 					</div>
@@ -862,19 +884,31 @@
 					<div class="rs-footer__head">
 						<div class="rs-footer__phone">
 							<a href="tel:+78122428072">+7 812 242-80-72 </a>
-							<a href="tel:+74951505441">+7 (495) 150–54–41</a>
 							<span>Отдел продаж</span>
 						</div>
 						<div class="rs-footer__links">
 							<ul>
 								<li>
-									<a href="#">Анкета для разработки <br> сайта «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 								<li>
-									<a href="#">Презентация сайта <br> «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 								<li>
-									<a href="#">Технические характеристики <br> сайта «Бизнес»</a>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -989,6 +1023,7 @@
 									</div>
 									<a href="#" class="rs-btn _btn-white">
 										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
 										<span class="svg-wrapper"></span>
 									</a>
 								</div>
@@ -1058,6 +1093,7 @@
 									</div>
 									<a href="#" class="rs-btn _btn-white">
 										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
 										<span class="svg-wrapper"></span>
 									</a>
 								</div>
@@ -1100,18 +1136,20 @@
 
 	</div>
 
+	<script src="lib/splitting/splitting.js"></script>
+	<script src="lib/smoothScroll/SmoothScroll.min.js"></script>
 	<script src="lib/swiper/swiper-bundle.min.js"></script>
 	<script src="lib/image-compare-viewer/image-compare-viewer.min.js"></script>
 	<script src="lib/nouislider/nouislider.min.js"></script>
+	<script src="lib/dynamic_adapt.js"></script>
+
+	<script src="js/rs-script.js"></script>
+
 	<script src="lib/gsap/gsap.min.js"></script>
 	<script src="lib/gsap/ScrollTrigger.min.js"></script>
 	<script src="lib/gsap/drawSVGPlugin.min.js"></script>
-	<script src="lib/smoothScroll/SmoothScroll.min.js"></script>
-
-	<script src="lib/dynamic_adapt.js"></script>
-	<script src="js/rs-script.js"></script>
-
 	<script src="js/anim-settings.js"></script>
+
 </body>
 
 </html>

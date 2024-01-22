@@ -75,6 +75,29 @@
       -ms-flex-align: start;
           align-items: flex-start;
 }
+@media (max-width: 1439.98px) {
+  .rs-task__item {
+    padding: 30px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-task__item {
+    padding: 20px;
+  }
+}
+.rs-task-price .rs-task__item {
+  padding: 50px 54px 76px;
+}
+@media (max-width: 1439.98px) {
+  .rs-task-price .rs-task__item {
+    padding: 30px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-task-price .rs-task__item {
+    padding: 20px;
+  }
+}
 .rs-task-features .rs-task__item {
   padding: 50px;
 }

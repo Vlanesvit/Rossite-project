@@ -445,18 +445,6 @@ section.section-bg {
 }
 @media (max-width: 1749.98px) {
   section.section-bg {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-@media (max-width: 1169.98px) {
-  section.section-bg {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-@media (max-width: 991.98px) {
-  section.section-bg {
     padding-left: 0px;
     padding-right: 0px;
   }

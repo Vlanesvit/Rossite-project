@@ -22,6 +22,9 @@
     gap: 30px;
   }
 }
+.rs-steps__text .mrp-med-45 {
+  line-height: 120%;
+}
 .rs-steps__text_img {
   margin-left: -175px;
   margin-top: 55px;
@@ -161,6 +164,11 @@
 }
 .rs-steps-algorithm .rs-steps__spollers_item:not(:last-child) {
   margin-bottom: 30px;
+}
+@media (max-width: 991.98px) {
+  .rs-steps-algorithm .rs-steps__spollers_item:not(:last-child) {
+    margin-bottom: 20px;
+  }
 }
 @media (min-width: 991.98px) {
   .rs-steps-algorithm .rs-steps__spollers_item {

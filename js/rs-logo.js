@@ -79,7 +79,7 @@ function initLogoSlider() {
 						spaceBetween: 20,
 					},
 					768: {
-						slidesPerView: 2.5,
+						slidesPerView: 2.4,
 						spaceBetween: 24,
 					},
 					1170: {
