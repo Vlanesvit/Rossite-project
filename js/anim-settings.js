@@ -510,53 +510,6 @@ function animCommon() {
 
 
 	// btn anim
-	function SVGRoundedButtons() {
-		const btns = document.querySelectorAll('.rs-btn');
-		btns.forEach(btn => {
-			var width = Math.round(btn.getBoundingClientRect().width);
-			var height = Math.round(btn.getBoundingClientRect().height);
-			var start = 40;
-			var svgWrappers = btn.querySelectorAll('.svg-wrapper');
-			var length = 0;
-			svgWrappers.forEach(function (wrapper) {
-				var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-				var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-				svg.appendChild(path);
-				svg.setAttribute('width', width);
-				svg.setAttribute('height', height);
-				svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height + '');
-				path.setAttribute('d', 'M ' + width / 2 + ' ' + 0 + ' H ' + (width - height / 2) + ' A ' + height / 2 + ' ' + height / 2 + ' ' + 0 + ' ' + 0 + ' ' + 1 + ' ' + (width - height / 2) + ' ' + height + ' H ' + height / 2 + ' A ' + height / 2 + ' ' + height / 2 + ' ' + 0 + ' ' + 0 + ' ' + 1 + ' ' + height / 2 + ' ' + 0 + ' Z ');
-				length = Math.round(path.getTotalLength());
-				wrapper.appendChild(svg);
-				wrapper.classList.contains('svg-wrapper--thin') ? wrapper.querySelector('svg').classList.add('thin') : wrapper.querySelector('svg').classList.add('progress');
-				wrapper.querySelector('svg path').style.strokeDasharray = length + ' ' + length;
-				wrapper.querySelector('svg path').style.strokeDashoffset = length;
-			});
-		});
-	}
-	SVGRoundedButtons()
-
-	function SplittingTextAnim() {
-		const splittingItems = [
-			{ item: '.rs-header__menu .menu__list li > a' },
-			{ item: '.rs-footer__menu .menu__list li > a', },
-			{ item: '.rs-btn .btn-text', },
-			{ item: '.split-text', },
-		]
-		for (let i = 0; i < splittingItems.length; i++) {
-			const spltItems = document.querySelectorAll(splittingItems[i].item)
-			spltItems.forEach(item => {
-				item.innerHTML =
-					'<span class="spltting-text">' + item.textContent + '</span>'
-				const spanTextItems = item.querySelector('span.spltting-text');
-				Splitting({
-					target: spanTextItems,
-				});
-			});
-		}
-	}
-	SplittingTextAnim()
-
 	const homeIntroBtns = document.querySelectorAll('.rs-btn');
 	homeIntroBtns.forEach(homeIntroBtn => {
 		let btnAnim;

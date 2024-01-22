@@ -285,7 +285,7 @@
 }
 @media (max-width: 767.98px) {
   .rs-tariff__spollers_item {
-    padding: 20px 20px 2.3px 20px;
+    padding: 20px 20px 10px 20px;
   }
 }
 .rs-tariff__spollers_item:not(:last-child) {
@@ -381,6 +381,21 @@
     margin-top: 14px;
   }
 }
+@media (max-width: 479.98px) {
+  .rs-tariff-context .rs-tariff__spollers_footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 100%;
+  }
+}
 .rs-tariff__spollers_footer .rs-btn {
   color: #141517;
   font-size: 13px;
@@ -395,7 +410,7 @@
   }
 }
 @media (max-width: 479.98px) {
-  .rs-tariff__spollers_footer .rs-btn {
+  .rs-tariff-context .rs-tariff__spollers_footer .rs-btn {
     margin-left: 0px;
     margin-top: 10px;
     width: 100%;
