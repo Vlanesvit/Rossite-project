@@ -2,9 +2,9 @@
 // После загрузки заново пересчитывать начальное и конечное значения
 window.addEventListener('load', function () {
 	window.scrollTo(0, 0);
-	setTimeout(() => {
-		ScrollTrigger.refresh()
-	}, 1000);
+	// setTimeout(() => {
+	// 	ScrollTrigger.refresh()
+	// }, 1000);
 })
 
 gsap.config({ trialWarn: false });
