@@ -290,7 +290,7 @@ function animDesktop() {
 		webkitFilter: "blur(" + 0 + "px)",
 		stagger: stagger,
 	})
-	pinBlock.to('.rs-main__project_item', {
+	pinBlock.to('.rs-main__project_item:not(:last-child)', {
 		yPercent: -125,
 		stagger: stagger,
 	}, stagger)
@@ -504,7 +504,7 @@ function animCommon() {
 	// parallax
 	showContentOnScroll('.rs-why-block__bg', 1, 0.3, 'width-100');
 	// main
-	showContentOnScroll('.rs-main__title h1', 0.5, 0.3, 'bottom-up');
+	showContentOnScroll('.rs-main__title h1', 0.5, 0.3, 'scale');
 	// logo
 	showContentOnScroll('.rs-logo__slide', 0.5, 0.2, 'right-left--every');
 
