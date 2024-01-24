@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
 })
 
 gsap.config({ trialWarn: false });
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 // gsap.registerPlugin(drawSVGPlugin);
 console.clear();
 
@@ -266,12 +266,17 @@ function animDesktop() {
 	/* PINS BLOCK STACK - MAIN */
 	//========================================================================================================================================================
 	const stagger = 0.5;
-	gsap.set('.rs-main__project_item', {
-		y: (index) => 20 * index,
-		zIndex: (index, target, targets) => targets.length - index,
-		scale: (index) => 1 - (index * 0.05),
-		webkitFilter: "blur(" + 2 + "px)",
+	window.addEventListener('load', function () {
+		setTimeout(() => {
+			gsap.set('.rs-main__project_item', {
+				y: (index) => 20 * index,
+				zIndex: (index, target, targets) => targets.length - index,
+				scale: (index) => 1 - (index * 0.05),
+				webkitFilter: "blur(" + 2 + "px)",
+			})
+		}, 100);
 	})
+
 	const pinBlock = gsap.timeline({
 		defaults: { ease: "none" },
 		scrollTrigger: {
@@ -281,6 +286,7 @@ function animDesktop() {
 			scrub: true,
 			pin: true,
 			// markers: 1,
+			id: 'pin-block',
 			invalidateOnRefresh: true,
 		}
 	});
@@ -294,6 +300,44 @@ function animDesktop() {
 		yPercent: -125,
 		stagger: stagger,
 	}, stagger)
+
+	ScrollTrigger.refresh(); // Refresh ScrollTrigger settings
+	const start = pinBlock.scrollTrigger.start;
+	const end = pinBlock.scrollTrigger.end;
+	const totalScroll = end - start;
+	let links = gsap.utils.toArray(".rs-main__project_nav ul li a");
+	const scrollSteps = totalScroll / links.length;
+
+	links.forEach((a, index) => {
+		let element = document.querySelector(a.getAttribute("href"))
+
+		ScrollTrigger.create({
+			trigger: element,
+			start: `${(scrollSteps * (index + 1))} center`,
+			end: `${(scrollSteps * (index + 1)) + (element.clientHeight)} center`,
+			// markers: 1,
+			onEnter: () => setActive(a),
+			onEnterBack: () => setActive(a),
+			onLeave: () => setActive(a),
+			onLeaveBack: () => setActive(a)
+		});
+
+		a.addEventListener("click", (e) => {
+			e.preventDefault();
+
+			gsap.to(window, {
+				duration: 0.1,
+				onStart: () => setActive(a),
+				scrollTo: () => scrollSteps * (index + 1) + start,
+				overwrite: "auto"
+			});
+		});
+	});
+
+	function setActive(link) {
+		links.forEach((el) => el.classList.remove("_active"));
+		link.classList.add("_active");
+	}
 
 	/* PINS BLOCK - MAIN */
 	//========================================================================================================================================================

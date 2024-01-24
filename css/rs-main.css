@@ -249,10 +249,10 @@
   visibility: hidden;
   margin-right: 6px;
 }
-.rs-main__project_nav_body ul li a._active-step {
+.rs-main__project_nav_body ul li a._active {
   color: var(--primary-color);
 }
-.rs-main__project_nav_body ul li a._active-step::before {
+.rs-main__project_nav_body ul li a._active::before {
   opacity: 1;
   visibility: visible;
 }
