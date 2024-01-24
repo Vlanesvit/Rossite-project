@@ -327,7 +327,7 @@ function animDesktop() {
 
 			gsap.to(window, {
 				duration: 0.1,
-				onStart: () => setActive(a),
+				// onStart: () => setActive(a),
 				scrollTo: () => scrollSteps * (index + 1) + start,
 				overwrite: "auto"
 			});
