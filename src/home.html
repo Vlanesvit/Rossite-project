@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body data-barba="wrapper">
+
+	@@include('html/_anim-elements.htm',{})
+
+	<div class="wrapper" data-barba="container" data-barba-namespace="home" style="
+	--primary-color: #6366f1; 
+	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
+	">
+
+		@@include('html/_header.htm',{
+		"addclass":"margin-0"
+		})
+
+		<main class="page">
+
+			<section class="rs-main">
+				<div class="rs-main__bg-img rs-main__bg-img-1">
+					<img src="@img/pages/main/main_bg-1.svg" alt="">
+				</div>
+				<div class="rs-main__bg-img rs-main__bg-img-2">
+					<img src="@img/pages/main/main_bg-2.svg" alt="">
+				</div>
+				<div class="rs-main__wrapper">
+					<div class="rs-main__pins">
+						<div class="rs-main__pin rs-main__title">
+							<h1>Позвольте себе заняться<br>
+								<span>любимым</span> делом,<br>
+								пока мы занимаемся<br>
+								вашим <span>проектом</span>
+							</h1>
+						</div>
+
+						<div class="rs-main__pin rs-main__video">
+							<video autoplay loop muted playsinline poster="@img/pages/main/video-previews.jpg">
+								<source src="@img/pages/main/video.mp4" type="video/mp4">
+							</video>
+						</div>
+
+						<div class="rs-main__pin rs-main__project">
+							<div class="rs-main__project_bg">
+								<img src="@img/pages/main/main_project_bg.jpg" alt="">
+							</div>
+							<div class="rs-main__container">
+								<div class="rs-main__project_wrapper">
+									<div class="rs-main__project_body">
+										<div class="rs-main__project_nav">
+											<h3 class="mrp-med-40">Кейсы</h3>
+											<div class="rs-main__project_nav_body">
+												<ul>
+													<li><a href="#slide-1" class="_active">Makita</a></li>
+													<li><a href="#slide-2">МБФ «За будущее фехтования»</a></li>
+													<li><a href="#slide-3">Ростех</a></li>
+													<li><a href="#slide-4">АО «КБхиммаш»</a></li>
+													<li><a href="#slide-5">AutoJack&Limolady</a></li>
+													<li><a href="#slide-6">Самолет</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="rs-main__project_list">
+											<div class="rs-main__project_item" id="slide-1">
+												<a href="#">
+													<div class="rs-main__project_picture">
+														<div class="rs-main__project__img">
+															<img src="@img/pages/main/project-img-1.jpg" alt="">
+															<img src="@img/pages/main/project-img_mobile-1.jpg" alt="">
+														</div>
+														<div class="rs-main__project__logo">
+															<img src="@img/pages/main/project-logo-1.svg" alt="">
+														</div>
+													</div>
+												</a>
+												<div class="rs-main__project_desc">
+													<h6>Сайт Колледжа Петербургской моды</h6>
+													<span>https://spbmoda.ru/</span>
+													<ul class="tag-list">
+														<li>Лендинг «Бизнес»</li>
+														<li>Дизайн</li>
+														<li>Вёрстка</li>
+														<li>2020 год</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rs-main__project_item" id="slide-2">
+												<a href="#">
+													<div class="rs-main__project_picture">
+														<div class="rs-main__project__img">
+															<img src="@img/pages/main/project-img-2.jpg" alt="">
+															<img src="@img/pages/main/project-img_mobile-2.jpg" alt="">
+														</div>
+														<div class="rs-main__project__logo">
+															<img src="@img/pages/main/project-logo-2.svg" alt="">
+														</div>
+													</div>
+												</a>
+												<div class="rs-main__project_desc">
+													<h6>Сайт Колледжа Петербургской моды</h6>
+													<span>https://spbmoda.ru/</span>
+													<ul class="tag-list">
+														<li>Сайт «Бизнес Pro»</li>
+														<li>г. Санкт-Петербург</li>
+														<li>Госслужба/Общ. организации</li>
+														<li>Сентябрь, 2020</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rs-main__project_item" id="slide-3">
+												<a href="#">
+													<div class="rs-main__project_picture">
+														<div class="rs-main__project__img">
+															<img src="@img/pages/main/project-img-3.jpg" alt="">
+															<img src="@img/pages/main/project-img_mobile-3.jpg" alt="">
+														</div>
+														<div class="rs-main__project__logo">
+															<img src="@img/pages/main/project-logo-3.svg" alt="">
+														</div>
+													</div>
+												</a>
+												<div class="rs-main__project_desc">
+													<h6>Сайт Колледжа Петербургской моды</h6>
+													<span>https://spbmoda.ru/</span>
+													<ul class="tag-list">
+														<li>Сайт «Бизнес Pro»</li>
+														<li>г. Санкт-Петербург</li>
+														<li>Госслужба/Общ. организации</li>
+														<li>Сентябрь, 2020</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rs-main__project_item" id="slide-4">
+												<a href="#">
+													<div class="rs-main__project_picture">
+														<div class="rs-main__project__img">
+															<img src="@img/pages/main/project-img-4.jpg" alt="">
+															<img src="@img/pages/main/project-img_mobile-4.jpg" alt="">
+														</div>
+														<div class="rs-main__project__logo">
+															<img src="@img/pages/main/project-logo-4.svg" alt="">
+														</div>
+													</div>
+												</a>
+												<div class="rs-main__project_desc">
+													<h6>Сайт Колледжа Петербургской моды</h6>
+													<span>https://spbmoda.ru/</span>
+													<ul class="tag-list">
+														<li>Сайт «Бизнес Pro»</li>
+														<li>г. Санкт-Петербург</li>
+														<li>Госслужба/Общ. организации</li>
+														<li>Сентябрь, 2020</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rs-main__project_item" id="slide-5">
+												<a href="#">
+													<div class="rs-main__project_picture">
+														<div class="rs-main__project__img">
+															<img src="@img/pages/main/project-img-1.jpg" alt="">
+															<img src="@img/pages/main/project-img_mobile-1.jpg" alt="">
+														</div>
+														<div class="rs-main__project__logo">
+															<img src="@img/pages/main/project-logo-1.svg" alt="">
+														</div>
+													</div>
+												</a>
+												<div class="rs-main__project_desc">
+													<h6>Сайт Колледжа Петербургской моды</h6>
+													<span>https://spbmoda.ru/</span>
+													<ul class="tag-list">
+														<li>Сайт «Бизнес Pro»</li>
+														<li>г. Санкт-Петербург</li>
+														<li>Госслужба/Общ. организации</li>
+														<li>Сентябрь, 2020</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rs-main__project_item" id="slide-6">
+												<a href="#">
+													<div class="rs-main__project_picture">
+														<div class="rs-main__project__img">
+															<img src="@img/pages/main/project-img-2.jpg" alt="">
+															<img src="@img/pages/main/project-img_mobile-2.jpg" alt="">
+														</div>
+														<div class="rs-main__project__logo">
+															<img src="@img/pages/main/project-logo-2.svg" alt="">
+														</div>
+													</div>
+												</a>
+												<div class="rs-main__project_desc">
+													<h6>Сайт Колледжа Петербургской моды</h6>
+													<span>https://spbmoda.ru/</span>
+													<ul class="tag-list">
+														<li>Сайт «Бизнес Pro»</li>
+														<li>г. Санкт-Петербург</li>
+														<li>Госслужба/Общ. организации</li>
+														<li>Сентябрь, 2020</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="rs-main__project_footer">
+										<button type="button" class="rs-project__add rs-btn _btn-gray-border">
+											<span class="btn-text _rs-icon-picture">посмотреть другие кейсы</span>
+											<span class="btn-hover"></span>
+											<span class="svg-wrapper"></span>
+										</button>
+
+										<div class="rs-main__logo">
+											<div class="rs-main__logo_slider swiper">
+												<div class="rs-main__logo_swiper swiper-wrapper">
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-1.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-2.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-3.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-4.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-5.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-6.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-7.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-8.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-9.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-1.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-2.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-3.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-4.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-5.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-6.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-7.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-8.png" alt="">
+														</div>
+													</div>
+													<div class="rs-main__logo_slide swiper-slide">
+														<div class="rs-main__logo_img">
+															<img src="@img/pages/main/partners-img-9.png" alt="">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		@@include('html/_footer.htm',{})
+
+	</div>
+
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+
+</body>
+
+</html>

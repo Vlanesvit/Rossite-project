@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('html/_head.htm',{
+"title":"Кейсы"
+})
+
+<body data-barba="wrapper">
+
+	@@include('html/_anim-elements.htm',{})
+
+	<div class="wrapper" data-barba="container" data-barba-namespace="case" style="
+	--primary-color: #6366f1; 
+	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
+	">
+
+		@@include('html/_header.htm',{
+		"addclass":"border-bottom margin-0"
+		})
+
+		<main class="page">
+
+			<section class="rs-project rs-case">
+				<div class="section__container">
+					<div class="rs-project__wrapper">
+						<div class="rs-project__head">
+							<h2 class="mrp-med-45">Кейсы</h2>
+
+							<div class="rs-project__filter filter">
+								<div class="filter__block">
+									<button type="button" class="filter__btn _rs-icon-filter">
+										<span>фильтры</span>
+									</button>
+
+									<form action="#">
+										<div class="filter__list">
+											<div class="filter__item">
+												<button type="button" class="filter__title">продукт</button>
+
+												<div class="filter__modal">
+													<div class="filter__modal_select">
+														<div class="filter__modal_select_item">
+															<h6>Продукт</h6>
+															<ul class="filter__modal_select_list">
+																<li>Туризм/Питание</li>
+																<li>Производство/ Торговля</li>
+																<li>Госслужба/Общ. организации</li>
+															</ul>
+														</div>
+													</div>
+
+													<ul class="filter__modal_list">
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Сайт «Бизнес Pro»
+																	за 170 000 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Сайт «Бизнес»
+																	за 110 000 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Сайт «Старт»
+																	за 29 500 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Сайт «Лайт»
+																	за 18 000 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Магазин «Бизнес Pro»
+																	за 170 000 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Магазин «Бизнес»
+																	за 110 000 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Магазин «Старт»
+																	за 45 000 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Магазин «Лайт»
+																	за 29 500 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Landing page «Бизнес»
+																	за 80 000 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Сайт «Лайт»
+																	за 18 000 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Магазин «Бизнес Pro»
+																	за 170 000 ₽</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p1">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Landing page «Старт»
+																	за 40 000 ₽</span>
+															</label>
+														</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="filter__item">
+												<button type="button" class="filter__title">по отраслям</button>
+
+												<div class="filter__modal">
+													<div class="filter__modal_select">
+														<div class="filter__modal_select_item">
+															<h6>По отраслям</h6>
+															<ul class="filter__modal_select_list">
+																<li>Туризм/Питание</li>
+																<li>Производство/ Торговля</li>
+																<li>Госслужба/Общ. организации</li>
+															</ul>
+														</div>
+													</div>
+
+													<ul class="filter__modal_list">
+														<li>
+															<label>
+																<input type="checkbox" name="p2">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Транспорт/Логистика</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p2">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Туризм/Питание</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p2">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Красота/Здоровье</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p2">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Услуги населению</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p2">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Госслужба/Общ.
+																	организации</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p2">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Бизнес/Деловые
+																	услуги</span>
+															</label>
+														</li>
+
+														<li>
+															<label>
+																<input type="checkbox" name="p2">
+																<span class="checkbox"></span>
+																<span
+																	class="checkbox-label">Производство/Торговля</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p2">
+																<span class="checkbox"></span>
+																<span
+																	class="checkbox-label">Строительство/Недвижимость</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p2">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Все</span>
+															</label>
+														</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="filter__item">
+												<button type="button" class="filter__title">по городам</button>
+
+												<div class="filter__modal">
+													<div class="filter__modal_select">
+														<div class="filter__modal_select_item">
+															<h6>По городам</h6>
+															<ul class="filter__modal_select_list">
+																<li>Туризм/Питание</li>
+																<li>Производство/ Торговля</li>
+																<li>Госслужба/Общ. организации</li>
+															</ul>
+														</div>
+													</div>
+
+													<ul class="filter__modal_list">
+														<li>
+															<label>
+																<input type="checkbox" name="p3">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 3.1</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p3">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 3.2</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p3">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 3.3</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p3">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 3.4</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p3">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 3.5</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p3">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 3.6</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p3">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 3.7</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p3">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 3.8</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p3">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Все</span>
+															</label>
+														</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="filter__item">
+												<button type="button" class="filter__title">по годам</button>
+
+												<div class="filter__modal">
+													<div class="filter__modal_select">
+														<div class="filter__modal_select_item">
+															<h6>По годам</h6>
+															<ul class="filter__modal_select_list">
+																<li>Туризм/Питание</li>
+																<li>Производство/ Торговля</li>
+																<li>Госслужба/Общ. организации</li>
+															</ul>
+														</div>
+													</div>
+
+													<ul class="filter__modal_list">
+														<li>
+															<label>
+																<input type="checkbox" name="p4">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 4.1</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p4">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 4.2</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p4">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 4.3</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p4">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 4.4</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p4">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 4.5</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p4">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 4.6</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p4">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 4.7</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p4">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Пункт 4.8</span>
+															</label>
+														</li>
+														<li>
+															<label>
+																<input type="checkbox" name="p4">
+																<span class="checkbox"></span>
+																<span class="checkbox-label">Все</span>
+															</label>
+														</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="filter__reset">
+												<a href="#" class="filter__title _rs-icon-update">сбросить</a>
+											</div>
+										</div>
+									</form>
+								</div>
+
+								<div class="filter__text _rs-icon-info">
+									<p class="mrp-reg-14">Посмотрите на сайты наших клиентов. Это реальные сайты,
+										которые мы разработали для наших заказчиков, а не шаблоны или красивые картинки.
+									</p>
+									<p class="mrp-reg-14">Сайты могут отличаться от описания проекта, потому что в нашем
+										портфолио предоставлены реальные сайты заказчиков, которые могут редактироваться
+										после сдачи проекта
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="rs-project__list" data-project-load="4" data-project-show="8">
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-project__slide">
+								<div class="rs-project__item">
+									<a href="https://spbmoda.ru/">
+										<div class="rs-project__img">
+											<img src="@img/pages/project/project-case-1.jpg" alt="">
+										</div>
+										<div class="rs-project__description">
+											<h6>Сайт Колледжа Петербургской моды</h6>
+											<span>https://spbmoda.ru/</span>
+											<ul class="tag-list">
+												<li>Сайт «Бизнес Pro»</li>
+												<li>г. Санкт-Петербург</li>
+												<li>Госслужба/Общ. организации</li>
+												<li>Сентябрь, 2020</li>
+											</ul>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="rs-project__footer">
+							<button type="button" class="rs-project__add rs-btn _btn-gray-border">
+								<span class="btn-text _rs-icon-picture">показать еще</span>
+								<span class="btn-hover"></span>
+								<span class="svg-wrapper"></span>
+							</button>
+
+							<div class="pagging">
+								<ul class="pagging__list">
+									<li class="pagging__item"><a href="#" class="pagging__link _active">1</a></li>
+									<li class="pagging__item"><a href="#" class="pagging__link">2</a></li>
+									<li class="pagging__item"><a href="#" class="pagging__link">3</a></li>
+									<li class="pagging__item"><a href="#" class="pagging__link">4</a></li>
+									<li class="pagging__item"><a href="#" class="pagging__link">5</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="cursor">
+					<div class="cursor__point-zero">
+						<div class="cursor__wrapper">
+							<div class="cursor__circle">
+								<span class="cursor__text">Посмотреть кейс</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		@@include('html/_footer.htm',{})
+
+	</div>
+
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+
+</body>
+
+</html>

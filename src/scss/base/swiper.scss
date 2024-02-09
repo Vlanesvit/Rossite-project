@@ -1,0 +1,255 @@
+.swiper.swiper-initialized {
+	overflow: hidden;
+
+	.swiper-wrapper {
+		width: 100%;
+		height: 100%;
+		box-sizing: content-box;
+		display: flex;
+		position: relative;
+	}
+
+	.swiper-slide {
+		flex-shrink: 0;
+		// transition-property: transform;
+	}
+}
+
+.swiper-grid > .swiper-wrapper {
+	flex-wrap: wrap;
+}
+
+.swiper-vertical {
+	.swiper-wrapper {
+		flex-direction: column;
+	}
+}
+
+.swiper-autoheight {
+	.swiper-wrapper {
+		align-items: flex-start;
+	}
+}
+
+.swiper-android {
+	.swiper-slide,
+	.swiper-wrapper {
+		transform: translate3d(0px, 0, 0);
+	}
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	&:active,
+	&:focus {
+		outline: none !important;
+	}
+	&::-moz-focus-inner {
+		border: 0 !important;
+	}
+
+	&::after {
+		font-size: 0px;
+	}
+}
+
+.swiper-pagination-bullet {
+	&:active,
+	&:focus {
+		outline: none !important;
+	}
+	&::-moz-focus-inner {
+		border: 0 !important;
+	}
+}
+
+.swiper-button-lock {
+	display: none !important;
+}
+
+.swiper-pagination-lock {
+	display: none !important;
+}
+
+.swiper-button-disabled {
+	opacity: 0.3;
+}
+
+//========================================================================================================================================================
+// progress
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal,
+.swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
+.swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+	width: 100%;
+	height: 2px;
+	left: 0;
+	margin-top: 47px;
+
+	@media (max-width: 991.98px) {
+		display: none;
+	}
+}
+
+.swiper-pagination-progressbar {
+	background: #d4d7e5;
+	position: relative;
+}
+
+.swiper-initialized .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+	width: 100%;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+	background: var(--primary-color);
+	position: absolute;
+	bottom: 0px;
+	top: auto;
+	left: 0;
+	width: 0%;
+	height: 3px;
+	transform-origin: left top;
+	transform: translate3d(0px, 0px, 0px) scaleX(1) scaleY(1);
+	display: block;
+}
+
+// &__progress {
+// 	width: 100%;
+// 	height: 3px;
+// 	position: relative;
+// 	margin-top: 47px;
+// 	background: #d4d7e5;
+
+// 	&_fill {
+// 		background: var(--primary-color);
+// 		left: 0;
+// 		top: 0;
+// 		height: 100%;
+// 		width: 0%;
+// 		position: absolute;
+// 		// transition: width 1.5s ease 0s;
+// 		z-index: 10;
+// 	}
+// }
+
+// nav
+.swiper-button-next,
+.swiper-button-prev {
+	position: relative;
+	overflow: hidden;
+	top: 0%;
+	margin-top: 0;
+	z-index: 10;
+	cursor: pointer;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--primary-color);
+	border-radius: 100%;
+	transition: all 0.3s ease 0s;
+	min-width: 51px;
+	min-height: 51px;
+	max-width: 51px;
+	max-height: 51px;
+
+	&:not(:last-child) {
+		margin-right: 10px;
+	}
+
+	&::before,
+	&::after {
+		position: absolute;
+		font-size: 22px;
+		/* use !important to prevent issues with browser extensions that change fonts */
+		font-family: "icons" !important;
+		speak: never;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		/* Better Font Rendering =========== */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		transition: all 0.15s ease 0s;
+	}
+
+	&::after {
+		opacity: 0;
+	}
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+	left: 0px;
+	right: 0px;
+
+	&::before,
+	&::after {
+		content: "\e901";
+	}
+
+	&::after {
+		transform: translateX(100%);
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			&::before {
+				transform: translateX(-100%);
+				opacity: 0;
+			}
+			&::after {
+				transform: translateX(0%);
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+	right: 0px;
+	left: 0px;
+
+	&::before,
+	&::after {
+		content: "\e900";
+	}
+
+	&::after {
+		transform: translateX(-100%);
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			&::before {
+				transform: translateX(100%);
+				opacity: 0;
+			}
+			&::after {
+				transform: translateX(0%);
+				opacity: 1;
+			}
+		}
+	}
+}
+
+// .swiper-button-next.swiper-button-disabled,
+// .swiper-button-prev.swiper-button-disabled {
+// 	pointer-events: none;
+// 	cursor: default;
+// 	opacity: 1;
+// 	background: var(--gray-btn-color);
+// 	color: var(--font-color);
+// }
+
+.swiper-navigation {
+	display: flex;
+	align-items: center;
+
+	@media (max-width: 991.98px) {
+		display: none;
+	}
+}

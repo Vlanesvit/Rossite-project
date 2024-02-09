@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Контакты</title>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=, initial-scale=1.0">
+	<link rel="shortcut icon" href="@favicon.ico" type="image/x-icon">
+
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20240209053611"></script>
+	<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css?_v=20240209053611" />
+	<!-- <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css" /> -->
+
+	<link rel="stylesheet" href="./css/style.min.css?_v=20240209053611">
+
+</head>
+
+<body data-barba="wrapper">
+
+	<div class="progress-bar" id="progressBar"></div>
+
+	<div class="mg-loader">
+		<div class="mg-loader-fill -v1"></div>
+		<div class="mg-loader-fill -v2"></div>
+		<div class="mg-loader-fill -v3"></div>
+	</div>
+
+	<div class="wrapper" data-barba="container" data-barba-namespace="contact" style="
+	--primary-color: #6366f1; 
+	--primary-gradient: linear-gradient(90deg, #01FF7F 5.91%, #55CBFA 47.98%, #25C16F 91.83%, #00FFD8 91.83%);
+	">
+
+		<header class="rs-header header-white margin-0" data-scroll-show>
+			<div class="rs-header__container">
+				<div class="rs-header__wrapper">
+
+					<div class="rs-header__menu menu">
+						<button type="button" class="menu__icon icon-menu"></button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu-item dropdown-item">
+									<a href="#">Разработка</a>
+
+									<div class="dropdown dropdown__menu" hidden>
+										<div class="dropdown__container">
+											<ul class="dropdown__columns">
+												<li class="menu-item dropdown-item">
+													<a href="#">Информационный сайт</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Сайт «ХЗ» от 170 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Бизнес Pro» за 170 000руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="site-business.html">Сайт «Бизнес» за 110 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Старт Pro» за 45 000руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Старт» за 23 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт на шаблоне за 5 500 руб.</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item dropdown-item">
+													<a href="#">Интернет-магазин или каталог</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Магазин «ХЗ» за 170 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Магазин «Бизнес Pro» от 170 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Магазин «Бизнес» от 110 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Магазин «Старт» за 45 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт-каталог «Лайт» за 29 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт-каталог на шаблоне за 9 500 руб.</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item dropdown-item">
+													<a href="#">Landing page</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Landing Page «Бизнес» за 80 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Landing Page «Старт» за 45 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Landing Page «Лайт» за 29 500 руб.</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item"><a href="web-services.html">Веб сервисы</a></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<li class="menu-item dropdown-item">
+									<a href="add-services.html">Дополнительные услуги</a>
+
+									<div class="dropdown dropdown__menu" hidden>
+										<div class="dropdown__container">
+											<ul class="dropdown__columns">
+												<li class="menu-item dropdown-item">
+													<a href="#">Продвижение и реклама</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">SEO продвижение сайта</a>
+														</li>
+														<li class="menu-item">
+															<a href="context-advert.html">Контекстная реклама</a>
+														</li>
+														<li class="menu-item">
+															<a href="promotion-10.html">Комплексное продвижение</a>
+														</li>
+														<li class="menu-item">
+															<a href="promotion-page.html">Продвижение в соц сетях</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item dropdown-item">
+													<a href="#">Доработка и поддержка</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Продающая страница</a>
+														</li>
+														<li class="menu-item">
+															<a href="logo-dev.html">Разработка логотипов</a>
+														</li>
+														<li class="menu-item">
+															<a href="tech-support.html">Техническая поддержка</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<li class="menu-item"><a href="#">О компании</a></li>
+
+								<li class="menu-item"><a href="case.html">Кейсы</a></li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="rs-header__logo"><a href="home.html"><img src="img/header/logo.svg" alt=""></a></div>
+
+					<div class="rs-header__actions">
+						<div class="rs-header__actions_item rs-header__location" data-da=".rs-header__menu .menu__body, 767.98, last">
+							<a href="#" class="split-text _rs-icon-pin">
+								Москва
+							</a>
+						</div>
+						<div class="rs-header__actions_item rs-header__contact">
+							<a href="contact.html" class="split-text _rs-icon-pen">
+								Контакты
+							</a>
+						</div>
+						<div class="rs-header__call">
+							<a href="#" class="rs-btn _btn-gray-border">
+								<span class="btn-text _rs-icon-message">cвязаться с нами</span>
+								<span class="btn-hover"></span>
+								<span class="svg-wrapper"></span>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+		<main class="page">
+
+			<section class="rs-document">
+				<div class="rs-document__bg">
+					<img src="img/pages/document/doc_bg.jpg" alt="">
+				</div>
+				<div class="rs-document__container">
+					<h1 class="mrp-med-65"><span class="primary-color">Постройте свой бизнес по–новому
+							с мощным инструментом продаж</span></h1>
+					<h5 class="mrp-reg-21">Россайт открывает совершенно новый мир доступных интернет-технологий.
+						Веб-сайты, дизайн которых соответствует ожиданиям самых требовательных заказчиков и будет
+						оставаться актуальным многие годы. Адаптивный дизайн и кроcсбраузерная верстка позволяют
+						корректно отображать Ваш сайт во всех браузерах и на всех устройствах. Объединив лучшее в мире
+						дизайна, программирования и маркетинга мы создали принципиально новый продукт, с которым Ваша
+						компания выйдет на новый уровень продаж, ранее казавшийся вам невозможным.</h5>
+
+					<div class="rs-document__wrapper">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-document__spollers">
+							<div class="rs-document__spollers_block">
+								<div class="rs-document__spollers_item">
+									<button type="button" data-spoller class="rs-document__spollers_title _spoller-active">
+										<span class="rs-document__format">PDF</span>
+										Учредительные документы <i></i>
+									</button>
+									<div class="rs-document__spollers_body">
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">Свидетельство о постановке на учет
+														ООО «Компания “Сайт”» (pdf, 0.3mb)</a></li>
+												<li><a href="#">Устав ООО «Компания “Сайт”» (pdf, 2.9mb)</a></li>
+												<li><a href="#">ИНН ООО «Компания “Сайт”»</a></li>
+											</ul>
+										</div>
+
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">Свидетельство о постановке на учет
+														ООО «Сайт» (pdf, 0.3mb)</a></li>
+												<li><a href="#">Устав ООО «Сайт» (pdf, 3.6mb)</a></li>
+												<li><a href="#">ИНН ООО «Сайт»</a></li>
+											</ul>
+										</div>
+
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">Свидетельство о постановке на учет
+														ООО «Центр Компания “Сайт”» (pdf, 0.3mb)</a></li>
+												<li><a href="#">Устав ООО «Центр Компания “Сайт”» (pdf, 2.9mb)</a></li>
+												<li><a href="#">ИНН ООО «Центр Компания “Сайт”»</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-document__spollers_block">
+								<div class="rs-document__spollers_item">
+									<button type="button" data-spoller class="rs-document__spollers_title">
+										<span class="rs-document__format">Doc</span>
+										Договоры для физических лиц <span>(наличный расчет)</span> <i></i>
+									</button>
+									<div class="rs-document__spollers_body">
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">Договор на разработку сайта на шаблоне </a></li>
+												<li><a href="#">Договор на разработку сайта «Лайт» </a></li>
+												<li><a href="#">Договор на разработку сайта «Старт» </a></li>
+												<li><a href="#">Договор на разработку сайта «Бизнес» </a></li>
+												<li><a href="#">Договор на разработку сайта «Бизнес Pro» </a></li>
+												<li><a href="#">Договор на разработка Landing Page «Лайт»</a></li>
+												<li><a href="#">Договор на разработка Landing Page «Старт» </a></li>
+												<li><a href="#">Договор на разработка Landing Page «Бизнес»</a></li>
+												<li><a href="#">Договор на разработку сайта-каталога на шаблоне </a>
+												</li>
+												<li><a href="#">Договор на разработку сайта-каталога «Лайт» </a></li>
+												<li><a href="#">Договор на разработку интернет-магазина «Старт»</a></li>
+												<li><a href="#">Договор на разработку интернет-магазина «Бизнес»</a>
+												</li>
+												<li><a href="#">Договор на разработку интернет-магазина «Бизнес Pro»</a>
+												</li>
+												<li><a href="#">Договор на продвижение сайта</a></li>
+												<li><a href="#">Договор на оптимизацию сайта</a></li>
+												<li><a href="#">Договор на настройку контекстной рекламы</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-document__spollers_block">
+								<div class="rs-document__spollers_item">
+									<button type="button" data-spoller class="rs-document__spollers_title">
+										<span class="rs-document__format">Doc</span>
+										Договоры для юридических лиц <span>(безналичный расчет)</span> <i></i>
+									</button>
+									<div class="rs-document__spollers_body">
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">Договор на разработку сайта на шаблоне </a></li>
+												<li><a href="#">Договор на разработку сайта «Лайт» </a></li>
+												<li><a href="#">Договор на разработку сайта «Старт» </a></li>
+												<li><a href="#">Договор на разработку сайта «Бизнес» </a></li>
+												<li><a href="#">Договор на разработку сайта «Бизнес Pro» </a></li>
+												<li><a href="#">Договор на разработка Landing Page «Лайт»</a></li>
+												<li><a href="#">Договор на разработка Landing Page «Старт» </a></li>
+												<li><a href="#">Договор на разработка Landing Page «Бизнес»</a></li>
+												<li><a href="#">Договор на разработку сайта-каталога на шаблоне </a>
+												</li>
+												<li><a href="#">Договор на разработку сайта-каталога «Лайт» </a></li>
+												<li><a href="#">Договор на разработку интернет-магазина «Старт»</a></li>
+												<li><a href="#">Договор на разработку интернет-магазина «Бизнес»</a>
+												</li>
+												<li><a href="#">Договор на разработку интернет-магазина «Бизнес Pro»</a>
+												</li>
+												<li><a href="#">Договор на продвижение сайта</a></li>
+												<li><a href="#">Договор на оптимизацию сайта</a></li>
+												<li><a href="#">Договор на настройку контекстной рекламы</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-document__spollers_block">
+								<div class="rs-document__spollers_item">
+									<button type="button" data-spoller class="rs-document__spollers_title">
+										<span class="rs-document__format">DOC</span>
+										Анкеты <i></i>
+									</button>
+									<div class="rs-document__spollers_body">
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">Анкета для разработки сайта на шаблоне</a></li>
+												<li><a href="#">Анкета для разработки сайтов «Лайт» и «Старт»</a></li>
+												<li><a href="#">Анкета для разработки сайтов «Бизнес» и «Бизнес Pro»
+													</a>
+												</li>
+												<li><a href="#">Анкета для разработки сайта-каталога на шаблоне</a></li>
+											</ul>
+										</div>
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">Анкета для разработки сайта-каталога «Лайт»
+														и магазина «Старт»</a></li>
+												<li><a href="#">Анкета для разработки магазинов «Бизнес»
+														и «Бизнес Pro» </a></li>
+												<li><a href="#">Анкета для разработки лендингов «Лайт»
+														и «Старт» </a></li>
+											</ul>
+										</div>
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">Анкета для разработки лендинга «Бизнес» </a></li>
+												<li><a href="#">Бриф на разработку логотипа </a></li>
+												<li><a href="#">Анкета для продвижения сайта</a></li>
+												<li><a href="#">Анкета для продвижения сайта</a></li>
+												<li><a href="#">Анкета по контекстной рекламы</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-document__spollers_block">
+								<div class="rs-document__spollers_item">
+									<button type="button" data-spoller class="rs-document__spollers_title">
+										<span class="rs-document__format">PDF</span>
+										Коммерческие предложения <i></i>
+									</button>
+									<div class="rs-document__spollers_body">
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">КП сайта «Лайт» (pdf, 2.6mb)</a></li>
+												<li><a href="#">КП сайта «Старт» (pdf, 2.6mb)</a></li>
+												<li><a href="#">КП сайта «Бизнес» (pdf, 2.9mb)</a></li>
+												<li><a href="#">КП сайта «Бизнес Pro» (pdf, 3.1mb)</a></li>
+											</ul>
+										</div>
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">КП сайта-каталога «Лайт» (pdf, 3.0mb)</a></li>
+												<li><a href="#">КП магазина «Старт» (pdf, 3.6mb)</a></li>
+												<li><a href="#">КП магазина «Бизнес» (pdf, 3.1mb)</a></li>
+												<li><a href="#">КП магазина «Бизнес Pro» (pdf, 3.0mb)</a></li>
+											</ul>
+										</div>
+										<div class="rs-document__list">
+											<ul>
+												<li><a href="#">КП Landing Page «Лайт» (pdf, 2.7mb)</a></li>
+												<li><a href="#">КП сайта «Старт» (pdf, 2.9mb)</a></li>
+												<li><a href="#">КП Landing Page «Бизнес» (pdf, 2.9mb)</a></li>
+												<li><a href="#">КП на SEO-продвижение сайта (pdf, 0,2mb)</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-contact">
+				<div class="rs-contact__container">
+					<div class="rs-contact__wrapper">
+						<div class="rs-contact__info">
+							<div class="rs-contact__info_body">
+								<h2 class="mrp-med-40">Отдел продаж в Москве</h2>
+
+								<ul class="rs-contact__info_list">
+									<li>
+										<div class="rs-contact__info_left">
+											<h6>Телефон</h6>
+										</div>
+										<div class="rs-contact__info_right">
+											<a href="tel:84951506441">8 495 150-64-41</a>
+										</div>
+									</li>
+									<li>
+										<div class="rs-contact__info_left">
+											<h6>Время работы</h6>
+										</div>
+										<div class="rs-contact__info_right">
+											<h4>пн-пт 09:00-18:00</h4>
+										</div>
+									</li>
+									<li>
+										<div class="rs-contact__info_left">
+											<h6>Email</h6>
+										</div>
+										<div class="rs-contact__info_right">
+											<a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+										</div>
+									</li>
+									<li>
+										<div class="rs-contact__info_left">
+											<h5>Адрес:</h5>
+											<p>ул. Ленинская Слобода, д.19, БЦ «Omega Plaza»,
+												офис 348.1</p>
+										</div>
+										<div class="rs-contact__info_right">
+											<img src="img/pages/contact/contact-img.png" alt="">
+										</div>
+									</li>
+									<li>
+										<div class="rs-contact__info_left">
+											<h5>Как проехать</h5>
+											<div class="rs-contact__info_block">
+												<div class="rs-contact__info_item">
+													<h6>Автозаводская</h6>
+													<p>4 мин пешком. Выход в сторону улицы Мастеркова
+													</p>
+												</div>
+												<div class="rs-contact__info_item">
+													<h6>Автозаводская</h6>
+													<p>7 минут пешком</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="rs-contact__info_left">
+											<h5>Точки продаж в Москве (скоро открытие):</h5>
+											<p>Ленинский просп., 109, ТРЦ «РИО», эт. 6 <br>
+												Ленинградский просп., 37А, корп. 4, БЦ Arcus III <br>
+												Семёновская площадь, 7, корп. 8</p>
+										</div>
+									</li>
+								</ul>
+
+								<blockquote>
+									<div class="rs-blockquote__text">
+										<h5>Отдел технической поддержки</h5>
+										<p>Время работы: круглосуточно</p>
+										<p>Электронная почта: <a href="mailto:support@rosait.ru">support@rosait.ru</a>
+										</p>
+									</div>
+
+									<a href="#" class="rs-btn _btn-white">
+										<span class="btn-text">написать в техподдержку</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</blockquote>
+							</div>
+						</div>
+
+						<div class="rs-contact__map">
+							<div class="map" id="map"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-partners section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg"><img src="img/pages/partners/partners-bg.svg" alt=""></div>
+
+					<div class="section__container">
+						<h2 class="mrp-med-45">Нам доверяют</h2>
+
+						<div class="rs-partners__slider swiper">
+							<div class="rs-partners__swiper swiper-wrapper">
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-1.png" alt="">
+										<img src="img/pages/partners/partners-img-1--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-2.png" alt="">
+										<img src="img/pages/partners/partners-img-2--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-3.png" alt="">
+										<img src="img/pages/partners/partners-img-3--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-4.png" alt="">
+										<img src="img/pages/partners/partners-img-4--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-5.png" alt="">
+										<img src="img/pages/partners/partners-img-5--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-6.png" alt="">
+										<img src="img/pages/partners/partners-img-6--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-7.png" alt="">
+										<img src="img/pages/partners/partners-img-7--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-8.png" alt="">
+										<img src="img/pages/partners/partners-img-8--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-9.png" alt="">
+										<img src="img/pages/partners/partners-img-9--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-10.png" alt="">
+										<img src="img/pages/partners/partners-img-10--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-11.png" alt="">
+										<img src="img/pages/partners/partners-img-11--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-12.png" alt="">
+										<img src="img/pages/partners/partners-img-12--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-13.png" alt="">
+										<img src="img/pages/partners/partners-img-13--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-14.png" alt="">
+										<img src="img/pages/partners/partners-img-14--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-15.png" alt="">
+										<img src="img/pages/partners/partners-img-15--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-16.png" alt="">
+										<img src="img/pages/partners/partners-img-16--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-17.png" alt="">
+										<img src="img/pages/partners/partners-img-17--hover.png" alt="">
+									</div>
+								</div>
+								<div class="rs-partners__slide swiper-slide">
+									<div class="rs-partners__img">
+										<img src="img/pages/partners/partners-img-18.png" alt="">
+										<img src="img/pages/partners/partners-img-18--hover.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="rs-footer">
+			<div class="rs-footer__top">
+				<div class="rs-footer__container">
+					<div class="rs-footer__head">
+						<div class="rs-footer__phone">
+							<a href="tel:+78122428072">+7 812 242-80-72 </a>
+							<span>Отдел продаж</span>
+						</div>
+						<div class="rs-footer__links">
+							<ul>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="rs-footer__social social">
+							<ul class="social__list">
+								<li><a href="#" class="_rs-icon-vk"></a></li>
+								<li><a href="#" class="_rs-icon-whatsapp"></a></li>
+								<li><a href="#" class="_rs-icon-telegram"></a></li>
+								<li><a href="#" class="_rs-icon-instagram"></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Разработка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Веб-сервис и приложение</a></li>
+												<li class="menu-item"><a href="#">Информационный сайт</a></li>
+												<li class="menu-item"><a href="#">Интернет-магазин</a></li>
+												<li class="menu-item"><a href="#">Landing Page</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Дополнительные услуги</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Техническая поддержка</a></li>
+												<li class="menu-item"><a href="#">Продающая страница</a></li>
+												<li class="menu-item"><a href="#">Разработка логотипов</a></li>
+												<li class="menu-item"><a href="#">SEO продвижение сайта</a></li>
+												<li class="menu-item"><a href="#">Контекстная реклама</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Помощь</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Инструкция по Word Press</a></li>
+												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Битриксу</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Яндекс Директ</a></li>
+												<li class="menu-item"><a href="#">Карта сайта</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">О нас</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">О компании</a></li>
+												<li class="menu-item"><a href="#">Кейсы</a></li>
+												<li class="menu-item"><a href="#">Контакты</a></li>
+												<li class="menu-item"><a href="#">Вакансии</a></li>
+												<li class="menu-item"><a href="#">Отзывы</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title _spoller-active">Контактная
+									информация</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>
+												г. Санкт-Петербург, ш. Революции д.69, оф. 312 бц «Реформа»,
+												3й этаж, офис 312 (м. Ладожская)
+												<span>центральный офис</span>
+											</li>
+											<li>
+												Санкт-Петербург, ш. Революции д.69, оф. 312
+												<span>юридический адрес <a href="#">(учередительные
+														документы)</a></span>
+											</li>
+											<li>
+												пн-пт 09:00-18:00
+												<span>время работы</span>
+											</li>
+											<li>
+												<a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+												<span>e-mail</span>
+											</li>
+											<li>
+												<a href="mailto:support@rosait.ru">support@rosait.ru</a>
+												<span>техническая поддержка</span>
+											</li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="rs-footer__bottom">
+				<div class="rs-footer__container">
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Юридический адрес</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Санкт-Петербург, ш. Революции д.69, <br> оф. 312</li>
+											<li><a href="#">Учредительные документы</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Центральный офис</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>г. Санкт-Петербург, ш. Революции д.69, <br> оф. 312 бц «Реформа», 3й
+												этаж,
+												офис 312 <br> (м. Ладожская)</li>
+											<li>Время работы: пн-пт 09:00-18:00</li>
+											<li><a href="mailto:mail@rosait.ru">mail@rosait.ru</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Скоро открытие</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Ленинский пр., 140И БЦ «Космопро» <br>
+												(м. Ленинский проспект)</li>
+											<li>Коломяжский пр., 13, корп.21 БЦ «Бюси» <br>
+												(м. Пионерская)</li>
+											<li>ул. Садовая, 53 БЦ «на Садовой» (м. Садовая)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Техническая поддержка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li><a href="mailto:support@rosait.ru">support@rosait.ru</a></li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="rs-footer__city">
+						<h6 class="mrp-semibold-18">Вы можете позвонить из любого города:</h6>
+						<ul class="rs-footer__city_list">
+							<li><a href="#" class="_active-city">Москва</a></li>
+							<li><a href="#">Санкт-Петербург</a></li>
+							<li><a href="#">Новосибирск</a></li>
+							<li><a href="#">Казань</a></li>
+							<li><a href="#">Омск</a></li>
+							<li><a href="#">Екатеринбург</a></li>
+							<li><a href="#">Ростов-на-Дону</a></li>
+							<li><a href="#">Нижний Новгород</a></li>
+							<li><a href="#">Самара</a></li>
+							<li><a href="#">Пермь</a></li>
+							<li><a href="#">Волгоград</a></li>
+							<li><a href="#">Иркутск</a></li>
+							<li><a href="#">Красноярск</a></li>
+							<li><a href="#">Воронеж</a></li>
+							<li><a href="#">Саратов</a></li>
+							<li><a href="#">Краснодар</a></li>
+							<li><a href="#">Рязань</a></li>
+							<li><a href="#">Ижевск</a></li>
+							<li><a href="#">Пенза</a></li>
+							<li><a href="#">Челябинск</a></li>
+							<li><a href="#">Ярославль</a></li>
+							<li><a href="#">Барнаул</a></li>
+						</ul>
+					</div>
+
+					<div class="rs-footer__copyright">© 2011—2023 Россайт</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	<div id="popup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">Закрыть</button>
+				<div class="popup__text">
+					Text
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/splitting/dist/splitting.min.js?_v=20240209053611"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20240209053611"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240209053611"></script>
+<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240209053611"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/@barba/core?_v=20240209053611"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240209053611"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240209053611"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240209053611"></script>
+	<!-- <script src="lib/gsap/drawSVGPlugin.min.js?_v=20240209053611"></script> -->
+	<script src="js/app.min.js?_v=20240209053611"></script>
+
+</body>
+
+</html>

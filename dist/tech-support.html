@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Техническая поддержка</title>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=, initial-scale=1.0">
+	<link rel="shortcut icon" href="@favicon.ico" type="image/x-icon">
+
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20240209053611"></script>
+	<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css?_v=20240209053611" />
+	<!-- <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css" /> -->
+
+	<link rel="stylesheet" href="./css/style.min.css?_v=20240209053611">
+
+</head>
+
+<body data-barba="wrapper">
+
+	<div class="progress-bar" id="progressBar"></div>
+
+	<div class="mg-loader">
+		<div class="mg-loader-fill -v1"></div>
+		<div class="mg-loader-fill -v2"></div>
+		<div class="mg-loader-fill -v3"></div>
+	</div>
+
+	<div class="wrapper" data-barba="container" data-barba-namespace="support" style="
+	--primary-color: #25C16F; 
+	--second-color: #007BFB;
+	">
+
+		<header class="rs-header " data-scroll-show>
+			<div class="rs-header__container">
+				<div class="rs-header__wrapper">
+
+					<div class="rs-header__menu menu">
+						<button type="button" class="menu__icon icon-menu"></button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu-item dropdown-item">
+									<a href="#">Разработка</a>
+
+									<div class="dropdown dropdown__menu" hidden>
+										<div class="dropdown__container">
+											<ul class="dropdown__columns">
+												<li class="menu-item dropdown-item">
+													<a href="#">Информационный сайт</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Сайт «ХЗ» от 170 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Бизнес Pro» за 170 000руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="site-business.html">Сайт «Бизнес» за 110 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Старт Pro» за 45 000руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт «Старт» за 23 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт на шаблоне за 5 500 руб.</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item dropdown-item">
+													<a href="#">Интернет-магазин или каталог</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Магазин «ХЗ» за 170 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Магазин «Бизнес Pro» от 170 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Магазин «Бизнес» от 110 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Магазин «Старт» за 45 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт-каталог «Лайт» за 29 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Сайт-каталог на шаблоне за 9 500 руб.</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item dropdown-item">
+													<a href="#">Landing page</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Landing Page «Бизнес» за 80 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Landing Page «Старт» за 45 000 руб.</a>
+														</li>
+														<li class="menu-item">
+															<a href="#">Landing Page «Лайт» за 29 500 руб.</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item"><a href="web-services.html">Веб сервисы</a></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<li class="menu-item dropdown-item">
+									<a href="add-services.html">Дополнительные услуги</a>
+
+									<div class="dropdown dropdown__menu" hidden>
+										<div class="dropdown__container">
+											<ul class="dropdown__columns">
+												<li class="menu-item dropdown-item">
+													<a href="#">Продвижение и реклама</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">SEO продвижение сайта</a>
+														</li>
+														<li class="menu-item">
+															<a href="context-advert.html">Контекстная реклама</a>
+														</li>
+														<li class="menu-item">
+															<a href="promotion-10.html">Комплексное продвижение</a>
+														</li>
+														<li class="menu-item">
+															<a href="promotion-page.html">Продвижение в соц сетях</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item dropdown-item">
+													<a href="#">Доработка и поддержка</a>
+
+													<ul class="dropdown__list dropdown__menu" hidden>
+														<li class="menu-item">
+															<a href="#">Продающая страница</a>
+														</li>
+														<li class="menu-item">
+															<a href="logo-dev.html">Разработка логотипов</a>
+														</li>
+														<li class="menu-item">
+															<a href="tech-support.html">Техническая поддержка</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<li class="menu-item"><a href="#">О компании</a></li>
+
+								<li class="menu-item"><a href="case.html">Кейсы</a></li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="rs-header__logo"><a href="home.html"><img src="img/header/logo.svg" alt=""></a></div>
+
+					<div class="rs-header__actions">
+						<div class="rs-header__actions_item rs-header__location" data-da=".rs-header__menu .menu__body, 767.98, last">
+							<a href="#" class="split-text _rs-icon-pin">
+								Москва
+							</a>
+						</div>
+						<div class="rs-header__actions_item rs-header__contact">
+							<a href="contact.html" class="split-text _rs-icon-pen">
+								Контакты
+							</a>
+						</div>
+						<div class="rs-header__call">
+							<a href="#" class="rs-btn _btn-gray-border">
+								<span class="btn-text _rs-icon-message">cвязаться с нами</span>
+								<span class="btn-hover"></span>
+								<span class="svg-wrapper"></span>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+		<main class="page">
+
+			<section class="rs-banner">
+				<div class="rs-banner__wrapper">
+					<div class="rs-banner__bg">
+						<img class="rs-banner__bg--desktop" src="img/pages/banner/banner-img-6.jpg" alt="">
+						<img class="rs-banner__bg--tablet" src="img/pages/banner/banner-img-6--tablet.jpg" alt="">
+						<img class="rs-banner__bg--mobile" src="img/pages/banner/banner-img-6--mobile.jpg" alt="">
+					</div>
+					<div class="rs-banner__content">
+						<div class="rs-banner__container">
+							<div class="rs-banner__body">
+								<h1 class="mrp-med-50">Обслуживание сайта и хостинг</h1>
+								<ul>
+									<li>Техническая поддержка 24/7</li>
+									<li>Быстрая работа ваших сайтов</li>
+									<li>Защита от вирусов с ежедневным мониторингом</li>
+									<li>Восстановление сайта при поломке</li>
+									<li>Обновление системы и плагинов</li>
+								</ul>
+								<div class="rs-banner__buttons">
+									<a href="#" class="rs-btn _btn-primary">
+										<span class="btn-text _rs-icon-message">заказать обслуживание</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-task rs-task-features">
+				<div class="rs-task__container">
+					<div class="rs-task__list">
+						<div class="rs-task__item">
+							<h3 class="mrp-med-40">Обслуживание сайта в компании Россайт это:</h3>
+							<div class="rs-task__features">
+								<div class="rs-task__features_list">
+									<div class="rs-task__features_item">
+										<div class="rs-task__features_icon">
+											<img src="img/pages/task/star-green.svg" alt="">
+										</div>
+										<div class="rs-task__features_desc">
+											<h6 class="mrp-med-18">Защита от вирусов</h6>
+											<p class="mrp-reg-18">Детектирование любых типов вредоносных скриптов:
+												бэкдоров, веб-шеллов, троянов, «чёрного» seo, фишинговых страниц и др.
+											</p>
+										</div>
+									</div>
+									<div class="rs-task__features_item">
+										<div class="rs-task__features_icon">
+											<img src="img/pages/task/star-green.svg" alt="">
+										</div>
+										<div class="rs-task__features_desc">
+											<h6 class="mrp-med-18">Оперативное «лечение» сайтов</h6>
+											<p class="mrp-reg-18">Удаление вирусов и вредоносного кода происходит
+												в автоматическом режиме. В редких случаях лечение выполняется
+												техническим специалистом тултип Для тарифов «Старт» и «Бизнес»
+											</p>
+										</div>
+									</div>
+									<div class="rs-task__features_item">
+										<div class="rs-task__features_icon">
+											<img src="img/pages/task/star-green.svg" alt="">
+										</div>
+										<div class="rs-task__features_desc">
+											<h6 class="mrp-med-18">Восстановление сайта</h6>
+											<p class="mrp-reg-18">Восстановление из резервной копии сайта, сданного
+												при разработке. Восстановление актуальной версии сайта
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="rs-task__item">
+							<h3 class="mrp-med-40">Преимущества хостинга наших партнёров</h3>
+							<div class="rs-task__features">
+								<div class="rs-task__features_list">
+									<div class="rs-task__features_item">
+										<div class="rs-task__features_icon">
+											01
+										</div>
+										<div class="rs-task__features_desc">
+											<h6 class="mrp-med-18">Быстрая загрузка вашего сайта</h6>
+											<p class="mrp-reg-18">Загрузка страницы сайта с оптимизацией до 1 секунды,
+												без оптимизации 1–2 секунды
+											</p>
+										</div>
+									</div>
+									<div class="rs-task__features_item">
+										<div class="rs-task__features_icon">
+											02
+										</div>
+										<div class="rs-task__features_desc">
+											<h6 class="mrp-med-18">Поддержка любых сайтов</h6>
+											<p class="mrp-reg-18">Поддержка всех типов CMS, написанных на php, включая
+												WordPress, Joomla!, Magento, Drupal, MODx, Bitrix, а также статических
+												html-сайтов
+											</p>
+										</div>
+									</div>
+									<div class="rs-task__features_item">
+										<div class="rs-task__features_icon">
+											03
+										</div>
+										<div class="rs-task__features_desc">
+											<h6 class="mrp-med-18">Современный VPS хостинг</h6>
+											<p class="mrp-reg-18">32 гб оперативной памяти, 8 ядер AMD EPYC™ vCPU core,
+												диск NVMe
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-tariff rs-tariff-support">
+				<div class="rs-tariff__container">
+					<div class="rs-tariff__desktop">
+						<div class="rs-tariff__block">
+							<div class="rs-tariff__top">
+								<div class="rs-tariff__text">
+									<h3 class="mrp-med-40">Тарифы на обслуживание сайтов</h3>
+								</div>
+
+								<div class="rs-tariff__head _blue">
+									<h5 class="rs-tariff__head_title mrp-semibold-18">Сторонний виртуальный
+										хостинг</h5>
+									<div class="rs-tariff__head_desk">
+									</div>
+								</div>
+
+								<div class="rs-tariff__head _green">
+									<h5 class="rs-tariff__head_title mrp-semibold-18">Старт</h5>
+									<div class="rs-tariff__head_desk">
+										Подходит для сайтов, со средней посещаемостью
+									</div>
+								</div>
+
+								<div class="rs-tariff__head _green">
+									<h5 class="rs-tariff__head_title mrp-semibold-18">Бизнес</h5>
+									<div class="rs-tariff__head_desk">
+										Подходит для сайтов с высокой посещаемостью
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-tariff__body">
+								<div class="rs-tariff__about">
+									<div class="rs-tariff__about_row">
+										<div class="rs-tariff__about_item">
+											Цена
+										</div>
+										<div class="rs-tariff__about_item _blue">от 2000 /12 месяцев</div>
+										<div class="rs-tariff__about_item _green">
+											3000 /6 месяцев <br>
+											5400 /12 месяцев
+											<div class="rs-tariff__head_button">
+												<a href="#" class="rs-btn _btn-primary">
+													<span class="btn-text">заказать</span>
+													<span class="btn-hover"></span>
+													<span class="svg-wrapper"></span>
+												</a>
+											</div>
+										</div>
+										<div class="rs-tariff__about_item _green">
+											13000/6 месяцев <br>
+											23400/12 месяцев
+											<div class="rs-tariff__head_button">
+												<a href="#" class="rs-btn _btn-primary">
+													<span class="btn-text">заказать</span>
+													<span class="btn-hover"></span>
+													<span class="svg-wrapper"></span>
+												</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="rs-tariff__about_row">
+										<div class="rs-tariff__about_item">
+											Количество сайтов, FTP и баз данных (включая языковые версии)
+										</div>
+										<div class="rs-tariff__about_item _blue">1</div>
+										<div class="rs-tariff__about_item _green">2</div>
+										<div class="rs-tariff__about_item _green">3</div>
+									</div>
+
+									<div class="rs-tariff__about_row">
+										<div class="rs-tariff__about_item">
+											SSL-сертификат
+										</div>
+										<div class="rs-tariff__about_item _blue">+/- (в некоторых компаниях отдельная
+											платная услуга)</div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
+										</div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
+										</div>
+									</div>
+
+									<div class="rs-tariff__about_row">
+										<div class="rs-tariff__about_item">
+											Панель управления хостингом (ISP панель)
+										</div>
+										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
+										</div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
+										</div>
+									</div>
+
+									<div class="rs-tariff__about_row">
+										<div class="rs-tariff__about_item">
+											Ежедневный антивирусный мониторинг(2)
+										</div>
+										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
+										</div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
+										</div>
+									</div>
+
+									<div class="rs-tariff__about_row">
+										<div class="rs-tariff__about_item">
+											Процессор AMD EPYC 8 vCPU core
+										</div>
+										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
+										</div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<button type="button" class="rs-tariff__add rs-btn _btn-gray-border">
+							<span class="btn-text _rs-icon-table"><span>смотреть полностью</span></span>
+							<span class="btn-hover"></span>
+							<span class="svg-wrapper"></span>
+						</button>
+					</div>
+
+					<div class="rs-tariff__mobile">
+						<h2 class="mrp-med-45">Тарифы на обслуживание сайтов</h2>
+
+						<div data-spollers data-one-spoller class="rs-tariff__spollers">
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Сторонний виртуальный
+										хостинг (2)</h4>
+									<h5 class="mrp-med-21">от 2000 /12 месяцев</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary">
+										<span class="btn-text">заказать</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Старт</h4>
+									<p class="mrp-reg-18">Подходит для сайтов, со средней посещаемостью</p>
+									<h5 class="mrp-med-21">3000 /6 месяцев <br>
+										5400 /12 месяцев</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary">
+										<span class="btn-text">заказать</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Бизнес</h4>
+									<p class="mrp-reg-18">Подходит для сайтов с высокой посещаемостью</p>
+									<h5 class="mrp-med-21">13000/6 месяцев <br>
+										23400/12 месяцев</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary">
+										<span class="btn-text">заказать</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Бизнес Pro</h4>
+									<p class="mrp-reg-18">Рекламный канал: Яндекс или Гугл</p>
+									<h5 class="mrp-med-21">30 000 ₽</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary">
+										<span class="btn-text">заказать</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="rs-tariff__note">
+							<p>(1) Цены и условия уточняйте у выбранного вами хостинг-провайдера</p>
+							<p>(2) Обновление системы и плагинов производятся самостоятельно клиентом. В случае
+								заражения сайта, пользователь блокируется автоматически, восстановление сайта
+								у нас будет стоить от 2 000 рублей, чистка от вирусов от 10 000 рублей.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-task">
+				<div class="rs-task__container">
+					<div class="rs-task__head">
+						<h2 class="mrp-med-45">Техническая поддержка</h2>
+					</div>
+					<div class="rs-task__list">
+						<div class="rs-task__item">
+							<h4 class="mrp-med-25">Бесплатная техническая поддержка</h4>
+							<ul>
+								<li>Консультирование по электронной почте</li>
+								<li>Обработка заявок в порядке очереди</li>
+								<li>Консультация по работе с CMS</li>
+								<li>Восстановление из бэкапа сданной версии сайта (бэкап хранится 1 год после сдачи
+									проекта)</li>
+							</ul>
+						</div>
+						<div class="rs-task__item">
+							<h4 class="mrp-med-25">Техническая поддержка на 6 месяцев за 10000 рублей</h4>
+							<ul>
+								<li>Консультирование по телефону</li>
+								<li>Обработка заявок в приоритетном порядке (без очереди)</li>
+								<li>Обновление сайта и плагинов</li>
+								<li>Удаление вирусов. Регулярный мониторинг</li>
+								<li>Бэкап и настройка резервного копирования</li>
+								<li>Восстановление сайта после сбоя</li>
+								<li>Проверка скорости загрузки сайта, ускорение работы сайта</li>
+								<li>Настройки и работы по хостингу</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-faq">
+				<div class="rs-faq__wrapper">
+					<div class="rs-faq__bg">
+						<img src="img/pages/partners/partners-bg-1.svg" alt="">
+					</div>
+					<div class="rs-faq__container">
+						<h2 class="mrp-med-45">Ответы на часто задаваемые вопросы:</h2>
+						<div data-spollers data-one-spoller class="rs-faq__spollers">
+							<div class="rs-faq__spollers_item">
+								<button type="button" data-spoller class="rs-faq__spollers_title _spoller-active">
+									Кому принадлежит сайт, хостинг и домен?
+								</button>
+								<div class="rs-faq__spollers_body">
+									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.</p>
+								</div>
+							</div>
+							<div class="rs-faq__spollers_item">
+								<button type="button" data-spoller class="rs-faq__spollers_title">
+									Могу ли я перенести сайт на сторонний хостинг или вы навсегда привязываете меня
+									к вашей компании?
+								</button>
+								<div class="rs-faq__spollers_body">
+									<p>Все наши сайты сдаются с открытым кодом.</p>
+									<p>У вас будет полный доступ к файловой системе сайта и базам данных, и вы в любой
+										момент можете перенести ваш сайт на сторонний хостинг.</p>
+								</div>
+							</div>
+							<div class="rs-faq__spollers_item">
+								<button type="button" data-spoller class="rs-faq__spollers_title">
+									А мне хватит места на хостинге, которые вы предоставляете?
+								</button>
+								<div class="rs-faq__spollers_body">
+									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.</p>
+								</div>
+							</div>
+							<div class="rs-faq__spollers_item">
+								<button type="button" data-spoller class="rs-faq__spollers_title">
+									Где находятся сервера и какой хостинговой компании они принадлежат?
+								</button>
+								<div class="rs-faq__spollers_body">
+									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.</p>
+								</div>
+							</div>
+							<div class="rs-faq__spollers_item">
+								<button type="button" data-spoller class="rs-faq__spollers_title">
+									Предоставляется ли тестовый период?
+								</button>
+								<div class="rs-faq__spollers_body">
+									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-feedback">
+				<div class="rs-feedback__bg">
+					<img src="img/pages/feedback/feedback-bg-4.png" alt="">
+				</div>
+				<div class="rs-feedback__container">
+					<h2 class="mrp-med-50">Хотите, чтобы мы постоянно улучшали ваш сайт и он приносил вам заявки
+						из интернета?</h2>
+					<div class="rs-feedback__buttons">
+						<a href="#" class="rs-btn _btn-primary">
+							<span class="btn-text _rs-icon-message">подробнее о SEO-продвижении</span>
+							<span class="btn-hover"></span>
+							<span class="svg-wrapper"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="rs-footer">
+			<div class="rs-footer__top">
+				<div class="rs-footer__container">
+					<div class="rs-footer__head">
+						<div class="rs-footer__phone">
+							<a href="tel:+78122428072">+7 812 242-80-72 </a>
+							<span>Отдел продаж</span>
+						</div>
+						<div class="rs-footer__links">
+							<ul>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="rs-footer__social social">
+							<ul class="social__list">
+								<li><a href="#" class="_rs-icon-vk"></a></li>
+								<li><a href="#" class="_rs-icon-whatsapp"></a></li>
+								<li><a href="#" class="_rs-icon-telegram"></a></li>
+								<li><a href="#" class="_rs-icon-instagram"></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Разработка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Веб-сервис и приложение</a></li>
+												<li class="menu-item"><a href="#">Информационный сайт</a></li>
+												<li class="menu-item"><a href="#">Интернет-магазин</a></li>
+												<li class="menu-item"><a href="#">Landing Page</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Дополнительные услуги</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Техническая поддержка</a></li>
+												<li class="menu-item"><a href="#">Продающая страница</a></li>
+												<li class="menu-item"><a href="#">Разработка логотипов</a></li>
+												<li class="menu-item"><a href="#">SEO продвижение сайта</a></li>
+												<li class="menu-item"><a href="#">Контекстная реклама</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Помощь</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Инструкция по Word Press</a></li>
+												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Битриксу</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Яндекс Директ</a></li>
+												<li class="menu-item"><a href="#">Карта сайта</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">О нас</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">О компании</a></li>
+												<li class="menu-item"><a href="#">Кейсы</a></li>
+												<li class="menu-item"><a href="#">Контакты</a></li>
+												<li class="menu-item"><a href="#">Вакансии</a></li>
+												<li class="menu-item"><a href="#">Отзывы</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title _spoller-active">Контактная
+									информация</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>
+												г. Санкт-Петербург, ш. Революции д.69, оф. 312 бц «Реформа»,
+												3й этаж, офис 312 (м. Ладожская)
+												<span>центральный офис</span>
+											</li>
+											<li>
+												Санкт-Петербург, ш. Революции д.69, оф. 312
+												<span>юридический адрес <a href="#">(учередительные
+														документы)</a></span>
+											</li>
+											<li>
+												пн-пт 09:00-18:00
+												<span>время работы</span>
+											</li>
+											<li>
+												<a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+												<span>e-mail</span>
+											</li>
+											<li>
+												<a href="mailto:support@rosait.ru">support@rosait.ru</a>
+												<span>техническая поддержка</span>
+											</li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="rs-footer__bottom">
+				<div class="rs-footer__container">
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Юридический адрес</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Санкт-Петербург, ш. Революции д.69, <br> оф. 312</li>
+											<li><a href="#">Учредительные документы</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Центральный офис</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>г. Санкт-Петербург, ш. Революции д.69, <br> оф. 312 бц «Реформа», 3й
+												этаж,
+												офис 312 <br> (м. Ладожская)</li>
+											<li>Время работы: пн-пт 09:00-18:00</li>
+											<li><a href="mailto:mail@rosait.ru">mail@rosait.ru</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Скоро открытие</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Ленинский пр., 140И БЦ «Космопро» <br>
+												(м. Ленинский проспект)</li>
+											<li>Коломяжский пр., 13, корп.21 БЦ «Бюси» <br>
+												(м. Пионерская)</li>
+											<li>ул. Садовая, 53 БЦ «на Садовой» (м. Садовая)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Техническая поддержка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li><a href="mailto:support@rosait.ru">support@rosait.ru</a></li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+										<span class="svg-wrapper"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="rs-footer__city">
+						<h6 class="mrp-semibold-18">Вы можете позвонить из любого города:</h6>
+						<ul class="rs-footer__city_list">
+							<li><a href="#" class="_active-city">Москва</a></li>
+							<li><a href="#">Санкт-Петербург</a></li>
+							<li><a href="#">Новосибирск</a></li>
+							<li><a href="#">Казань</a></li>
+							<li><a href="#">Омск</a></li>
+							<li><a href="#">Екатеринбург</a></li>
+							<li><a href="#">Ростов-на-Дону</a></li>
+							<li><a href="#">Нижний Новгород</a></li>
+							<li><a href="#">Самара</a></li>
+							<li><a href="#">Пермь</a></li>
+							<li><a href="#">Волгоград</a></li>
+							<li><a href="#">Иркутск</a></li>
+							<li><a href="#">Красноярск</a></li>
+							<li><a href="#">Воронеж</a></li>
+							<li><a href="#">Саратов</a></li>
+							<li><a href="#">Краснодар</a></li>
+							<li><a href="#">Рязань</a></li>
+							<li><a href="#">Ижевск</a></li>
+							<li><a href="#">Пенза</a></li>
+							<li><a href="#">Челябинск</a></li>
+							<li><a href="#">Ярославль</a></li>
+							<li><a href="#">Барнаул</a></li>
+						</ul>
+					</div>
+
+					<div class="rs-footer__copyright">© 2011—2023 Россайт</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	<div id="popup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">Закрыть</button>
+				<div class="popup__text">
+					Text
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/splitting/dist/splitting.min.js?_v=20240209053611"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20240209053611"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240209053611"></script>
+<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240209053611"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/@barba/core?_v=20240209053611"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240209053611"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240209053611"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240209053611"></script>
+	<!-- <script src="lib/gsap/drawSVGPlugin.min.js?_v=20240209053611"></script> -->
+	<script src="js/app.min.js?_v=20240209053611"></script>
+
+</body>
+
+</html>
