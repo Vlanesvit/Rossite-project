@@ -14,7 +14,7 @@ Splitting();
 ==================================== */
 export function SplittingTextAnim() {
 	const splittingItems = [
-		{ item: '.rs-header__menu .menu__list li > a' },
+		{ item: '.rs-header__menu .menu__list li > a > span' },
 		{ item: '.rs-footer__menu .menu__list li > a', },
 		{ item: '.rs-btn .btn-text', },
 		{ item: '.split-text', },

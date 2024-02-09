@@ -196,7 +196,7 @@ vnvScroll.headerScroll();
 
 /* Динамический адаптив */
 // Документация: https://template.vnv.guru/template-docs/dinamicheskij-adaptiv.html
-import "./libs/dynamic_adapt.js";
+// import "./libs/dynamic_adapt.js";
 
 /* Форматирование чисел */
 // import './libs/wNumb.min.js';

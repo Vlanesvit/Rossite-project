@@ -145,5 +145,5 @@ DynamicAdapt.prototype.arraySort = function (arr) {
 		return;
 	}
 };
-const da = new DynamicAdapt("max");
+export const da = new DynamicAdapt("max");
 da.init();

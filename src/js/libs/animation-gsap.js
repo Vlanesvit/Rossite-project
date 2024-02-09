@@ -867,8 +867,6 @@ function initBarba() {
 	});
 
 	barba.hooks.leave((data) => {
-		// Переход
-		loaderAnimFrom()
 	});
 
 	barba.hooks.enter((data) => {
@@ -877,9 +875,6 @@ function initBarba() {
 	});
 
 	barba.hooks.afterEnter((data) => {
-		// Переход
-		loaderAnimTo()
-
 		// Повторная инициализация библиотек
 		setTimeout(() => {
 			initSliders();
@@ -887,7 +882,7 @@ function initBarba() {
 			initComparison();
 			initNoUiField();
 			SplittingTextAnim();
-		}, 200);
+		}, 100);
 
 		// Инициализация отдельного функицонала на сайте
 		filterClear();
@@ -897,19 +892,6 @@ function initBarba() {
 		openFullList()
 		vnvScroll.pageNavigation();
 		vnvScroll.headerScroll();
-		vnvFunctions.isWebp();
-		vnvFunctions.addTouchClass();
-		vnvFunctions.addLoadedClass();
-		vnvFunctions.menuInit();
-		vnvFunctions.menu();
-		vnvFunctions.spollers();
-		vnvFunctions.tabs();
-		vnvFunctions.showMore();
-		vnvForms.formFieldsInit({
-			viewPass: false,
-			autoHeight: false
-		});
-		vnvForms.formRating();
 		addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
 		addCursorMove(".rs-project__slide", ".cursor__circle");
 		addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
