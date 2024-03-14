@@ -7685,8 +7685,8 @@
     SplittingTextAnim();
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     window.addEventListener("load", (function() {
-        window.scrollTo(0, 0);
         setTimeout((() => {
+            window.scrollTo(0, 0);
             ScrollTrigger.refresh(true);
             SVGRoundedButtons();
             SVGAnimationButtons();
