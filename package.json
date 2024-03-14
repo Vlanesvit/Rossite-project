@@ -64,7 +64,7 @@
     "transform-runtime": "0.0.0",
     "vanilla-lazyload": "latest",
     "vinyl-ftp": "latest",
-    "vnv-bemtree-from-html": "^1.0.0",
+    "fls-bemtree-from-html": "^1.0.0",
     "webp-converter": "2.2.3",
     "webpack": "latest",
     "webpack-cli": "latest",

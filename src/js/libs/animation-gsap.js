@@ -19,9 +19,11 @@ gsap.registerPlugin(
 
 window.addEventListener('load', function () {
 	window.scrollTo(0, 0);
-	ScrollTrigger.refresh(true);
-	SVGRoundedButtons();
-	SVGAnimationButtons();
+	setTimeout(() => {
+		ScrollTrigger.refresh(true);
+		SVGRoundedButtons();
+		SVGAnimationButtons();
+	}, 100);
 })
 
 /* COLOR SETTINGS */
@@ -790,112 +792,112 @@ import * as vnvScroll from "../files/scroll/scroll.js";
 import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
 
 //========================================================================================================================================================
-function initBarba() {
+// function initBarba() {
 
-	const loader = document.querySelector('.mg-loader');
-	const loaderFill = loader.querySelectorAll('.mg-loader-fill');
-	loaderFill.forEach((fill, index) => {
-		setTimeout(() => {
-			gsap.set(fill, {
-				yPercent: 100,
-				zIndex: loaderFill.length - index,
-			})
-		}, 100);
-	});
+// 	const loader = document.querySelector('.mg-loader');
+// 	const loaderFill = loader.querySelectorAll('.mg-loader-fill');
+// 	loaderFill.forEach((fill, index) => {
+// 		setTimeout(() => {
+// 			gsap.set(fill, {
+// 				yPercent: 100,
+// 				zIndex: loaderFill.length - index,
+// 			})
+// 		}, 100);
+// 	});
 
-	function loaderAnimFrom() {
-		loaderFill.forEach((fill, index) => {
-			gsap.to(fill, {
-				yPercent: 0,
-				delay: 0.3 * index,
-				duration: 0.8,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-			});
-		});
-	}
+// 	function loaderAnimFrom() {
+// 		loaderFill.forEach((fill, index) => {
+// 			gsap.to(fill, {
+// 				yPercent: 0,
+// 				delay: 0.3 * index,
+// 				duration: 0.8,
+// 				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+// 			});
+// 		});
+// 	}
 
-	function loaderAnimTo() {
-		loaderFill.forEach((fill, index) => {
-			gsap.to(fill, {
-				yPercent: 100,
-				delay: 0.3 * index,
-				duration: 0.8,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-			});
-		});
-	}
+// 	function loaderAnimTo() {
+// 		loaderFill.forEach((fill, index) => {
+// 			gsap.to(fill, {
+// 				yPercent: 100,
+// 				delay: 0.3 * index,
+// 				duration: 0.8,
+// 				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+// 			});
+// 		});
+// 	}
 
-	barba.init({
-		transitions: [{
-			leave({ current }) {
-				// Переход
-				loaderAnimFrom()
+// 	barba.init({
+// 		transitions: [{
+// 			leave({ current }) {
+// 				// Переход
+// 				loaderAnimFrom()
 
-				return gsap.to(current.container, {
-					opacity: 0,
-					delay: 0.8,
-				});
-			},
+// 				return gsap.to(current.container, {
+// 					opacity: 0,
+// 					delay: 0.8,
+// 				});
+// 			},
 
-			after({ next }) {
-				// Переход
-				loaderAnimTo()
+// 			after({ next }) {
+// 				// Переход
+// 				loaderAnimTo()
 
-				return gsap.from(next.container, {
-					opacity: 0,
-					delay: 0.8,
+// 				return gsap.from(next.container, {
+// 					opacity: 0,
+// 					delay: 0.8,
 
-					onComplete: function () {
-						// Анимация кнопок
-						SVGRoundedButtons();
-						SVGAnimationButtons();
+// 					onComplete: function () {
+// 						// Анимация кнопок
+// 						SVGRoundedButtons();
+// 						SVGAnimationButtons();
 
-						setTimeout(() => {
-							breakpointGsapAnimChecker();
-						}, 100);
-					}
-				});
-			},
-		}]
-	});
+// 						setTimeout(() => {
+// 							breakpointGsapAnimChecker();
+// 						}, 100);
+// 					}
+// 				});
+// 			},
+// 		}]
+// 	});
 
-	barba.hooks.afterLeave((data) => {
-		let triggers = ScrollTrigger.getAll();
-		triggers.forEach(trigger => {
-			trigger.kill();
-		});
-	});
+// 	barba.hooks.afterLeave((data) => {
+// 		let triggers = ScrollTrigger.getAll();
+// 		triggers.forEach(trigger => {
+// 			trigger.kill();
+// 		});
+// 	});
 
-	barba.hooks.leave((data) => {
-	});
+// 	barba.hooks.leave((data) => {
+// 	});
 
-	barba.hooks.enter((data) => {
-		window.scrollTo(0, 0);
-		ScrollTrigger.refresh(true);
-	});
+// 	barba.hooks.enter((data) => {
+// 		window.scrollTo(0, 0);
+// 		ScrollTrigger.refresh(true);
+// 	});
 
-	barba.hooks.afterEnter((data) => {
-		// Повторная инициализация библиотек
-		setTimeout(() => {
-			initSliders();
-			initYaMap();
-			initComparison();
-			initNoUiField();
-			SplittingTextAnim();
-		}, 100);
+// 	barba.hooks.afterEnter((data) => {
+// 		// Повторная инициализация библиотек
+// 		setTimeout(() => {
+// 			initSliders();
+// 			initYaMap();
+// 			initComparison();
+// 			initNoUiField();
+// 			SplittingTextAnim();
+// 		}, 100);
 
-		// Инициализация отдельного функицонала на сайте
-		filterClear();
-		filterProject();
-		imitationProductLoad()
-		sidebarNavigation()
-		openFullList()
-		vnvScroll.pageNavigation();
-		vnvScroll.headerScroll();
-		addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
-		addCursorMove(".rs-project__slide", ".cursor__circle");
-		addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
-		addCursorMove(".rs-comparison__compare", ".icv__circle");
-	});
-}
-initBarba();
+// 		// Инициализация отдельного функицонала на сайте
+// 		filterClear();
+// 		filterProject();
+// 		imitationProductLoad()
+// 		sidebarNavigation()
+// 		openFullList()
+// 		vnvScroll.pageNavigation();
+// 		vnvScroll.headerScroll();
+// 		addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
+// 		addCursorMove(".rs-project__slide", ".cursor__circle");
+// 		addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
+// 		addCursorMove(".rs-comparison__compare", ".icv__circle");
+// 	});
+// }
+// initBarba();
