@@ -105,6 +105,10 @@
 		flex-direction: row-reverse;
 		padding: 15px 25px;
 
+		@media (min-width: 991.98px) {
+			display: none;
+		}
+
 		&._show {
 			transform: translateX(-50%) translateY(0%);
 		}

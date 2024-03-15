@@ -9659,6 +9659,10 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
     display: none;
   }
 
+  .rs-main__project-all {
+    display: none;
+  }
+
   .rs-main__title h1 span {
     color: var(--primary-color);
     font-family: "Playfair Display";
