@@ -21,3 +21,19 @@ function progressBar() {
 	document.getElementById('progressBar').style.width = scrolled + '%';
 }
 window.addEventListener('scroll', progressBar);
+
+/* ====================================
+Появление кнопки "Посмотреть другие кейсы" на главной в моб.версии
+==================================== */
+function showBtnCases() {
+	const btnProjectAll = document.querySelector('.rs-main__project-all');
+
+	if (btnProjectAll) {
+		if (window.scrollY > 500 && window.scrollY < 2500) {
+			btnProjectAll.classList.add('_show');
+		} else {
+			btnProjectAll.classList.remove('_show');
+		}
+	}
+}
+window.addEventListener('scroll', showBtnCases);

@@ -465,7 +465,6 @@ function animDesktop() {
 				y: (index) => 20 * index,
 				zIndex: (index, target, targets) => targets.length - index,
 				scale: (index) => 1 - (index * 0.05),
-				webkitFilter: "blur(" + 2 + "px)",
 			})
 		}, 100);
 
@@ -485,7 +484,6 @@ function animDesktop() {
 		pinBlock.to('.rs-main__project_item', {
 			scale: 1,
 			y: 0,
-			webkitFilter: "blur(" + 0 + "px)",
 			stagger: stagger,
 		})
 		pinBlock.to('.rs-main__project_item:not(:last-child)', {

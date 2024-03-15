@@ -5588,6 +5588,11 @@
         document.getElementById("progressBar").style.width = scrolled + "%";
     }
     window.addEventListener("scroll", progressBar);
+    function showBtnCases() {
+        const btnProjectAll = document.querySelector(".rs-main__project-all");
+        if (btnProjectAll) if (window.scrollY > 500 && window.scrollY < 2500) btnProjectAll.classList.add("_show"); else btnProjectAll.classList.remove("_show");
+    }
+    window.addEventListener("scroll", showBtnCases);
     const addCursorHover = (hoveredElement, selectedElement, newClass) => {
         if (document.querySelector(hoveredElement) && document.querySelector(selectedElement)) document.querySelectorAll(hoveredElement).forEach((hover => {
             hover.addEventListener("mouseenter", (function() {
@@ -8135,8 +8140,7 @@
                 gsap.set(".rs-main__project_item", {
                     y: index => 20 * index,
                     zIndex: (index, target, targets) => targets.length - index,
-                    scale: index => 1 - index * .05,
-                    webkitFilter: "blur(" + 2 + "px)"
+                    scale: index => 1 - index * .05
                 });
             }), 100);
             const pinBlock = gsap.timeline({
@@ -8156,7 +8160,6 @@
             pinBlock.to(".rs-main__project_item", {
                 scale: 1,
                 y: 0,
-                webkitFilter: "blur(" + 0 + "px)",
                 stagger
             });
             pinBlock.to(".rs-main__project_item:not(:last-child)", {

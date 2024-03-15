@@ -4433,6 +4433,67 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
   --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
 }
 
+.rs-main__project-all {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: 18px;
+  -webkit-transform: translateX(-50%) translateY(100px);
+      -ms-transform: translateX(-50%) translateY(100px);
+          transform: translateX(-50%) translateY(100px);
+  -webkit-transition: -webkit-transform 0.5s ease 0s;
+  transition: -webkit-transform 0.5s ease 0s;
+  transition: transform 0.5s ease 0s;
+  transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
+  width: 100%;
+  max-width: 287px;
+  border-radius: 10px;
+  background: #6366f1;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 146%;
+  color: #fff;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  padding: 15px 25px;
+}
+
+.rs-main__project-all._show {
+  -webkit-transform: translateX(-50%) translateY(0%);
+      -ms-transform: translateX(-50%) translateY(0%);
+          transform: translateX(-50%) translateY(0%);
+}
+
+.rs-main__project-all::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  right: -6px;
+  left: -6px;
+  background: rgba(99, 102, 241, 0.5);
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.rs-main__project-all::before {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
 .rs-main__title {
   width: 100%;
   max-width: 1144px;
@@ -4450,17 +4511,6 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
   font-weight: 500;
   line-height: 105%;
   /* 86.1px */
-}
-
-.rs-main__title h1 span {
-  color: var(--primary-color);
-  font-family: "Playfair Display";
-  font-size: 87px;
-  font-style: italic;
-  font-weight: 500;
-  line-height: 98%;
-  /* 85.26px */
-  letter-spacing: 4.119px;
 }
 
 .rs-main__video {
@@ -9609,6 +9659,17 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
     display: none;
   }
 
+  .rs-main__title h1 span {
+    color: var(--primary-color);
+    font-family: "Playfair Display";
+    font-size: 87px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 98%;
+    /* 85.26px */
+    letter-spacing: 4.119px;
+  }
+
   .rs-main__project_list {
     position: relative;
     display: -ms-grid;
@@ -10406,10 +10467,6 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
     font-size: 65px;
   }
 
-  .rs-main__title h1 span {
-    font-size: 70px;
-  }
-
   .rs-main__project_nav {
     margin-top: 15px;
   }
@@ -10904,10 +10961,6 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
 
   .rs-main__title h1 {
     font-size: 50px;
-  }
-
-  .rs-main__title h1 span {
-    font-size: 55px;
   }
 
   .rs-main__project_nav_body ul li a {
@@ -12056,10 +12109,6 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
 
   .rs-main__title h1 {
     font-size: 38px;
-  }
-
-  .rs-main__title h1 span {
-    font-size: 43px;
   }
 
   .rs-main__video {
@@ -13866,10 +13915,6 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
     font-size: 26px;
   }
 
-  .rs-main__title h1 span {
-    font-size: 31px;
-  }
-
   .rs-main__project_item:not(:last-child) {
     margin-bottom: 15px;
   }
@@ -14431,6 +14476,10 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
     padding: 40px 45px;
   }
 
+  .rs-main__title h1 span {
+    font-size: 70px;
+  }
+
   .rs-reviews__block {
     margin-top: 30px;
     padding: 40px;
@@ -14533,6 +14582,22 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
 @media (min-width: 991.98px) and (max-width: 1169.98px) {
   .rs-document__spollers_item {
     padding: 20px 25px;
+  }
+
+  .rs-main__title h1 span {
+    font-size: 55px;
+  }
+}
+
+@media (min-width: 991.98px) and (max-width: 991.98px) {
+  .rs-main__title h1 span {
+    font-size: 43px;
+  }
+}
+
+@media (min-width: 991.98px) and (max-width: 767.98px) {
+  .rs-main__title h1 span {
+    font-size: 31px;
   }
 }
 
