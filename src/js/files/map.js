@@ -1,6 +1,6 @@
 export function initYaMap() {
-	ymaps.ready(initYaMap);
 	if (document.getElementById("map")) {
+		ymaps.ready(initYaMap);
 		// Данные каждого маркера
 		const branchData = [
 			{

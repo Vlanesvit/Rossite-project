@@ -768,28 +768,28 @@ const breakpointGsapAnimChecker = function () {
 breakpoint.addListener(breakpointGsapAnimChecker);
 breakpointGsapAnimChecker();
 
-//========================================================================================================================================================
-/*
-Документация: https://barba.js.org/
-*/
-// Подключаем из node_modules
-// import barba from '@barba/core';
+// //========================================================================================================================================================
+// /*
+// Документация: https://barba.js.org/
+// */
+// // Подключаем из node_modules
+// // import barba from '@barba/core';
 
-// Импорт функций инициализации библиотек для повторной инициализации в барбе
-import { initSliders } from "../files/sliders.js"
-import { initYaMap } from "../files/map.js"
-import { initComparison } from "../libs/imagecompare.js";
-import { initNoUiField } from "../libs/nouislider.js";
-import { SplittingTextAnim } from "../libs/splitting.js";
-import { filterClear, filterProject, imitationProductLoad } from "../files/project.js";
-import { sidebarNavigation } from "../files/steps.js";
-import { openFullList } from "../files/tariff.js";
-import * as vnvFunctions from "../files/functions.js";
-import * as vnvForms from "../files/forms/forms.js";
-import * as vnvScroll from "../files/scroll/scroll.js";
-import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
+// // Импорт функций инициализации библиотек для повторной инициализации в барбе
+// import { initSliders } from "../files/sliders.js"
+// import { initYaMap } from "../files/map.js"
+// import { initComparison } from "../libs/imagecompare.js";
+// import { initNoUiField } from "../libs/nouislider.js";
+// import { SplittingTextAnim } from "../libs/splitting.js";
+// import { filterClear, filterProject, imitationProductLoad } from "../files/project.js";
+// import { sidebarNavigation } from "../files/steps.js";
+// import { openFullList } from "../files/tariff.js";
+// import * as vnvFunctions from "../files/functions.js";
+// import * as vnvForms from "../files/forms/forms.js";
+// import * as vnvScroll from "../files/scroll/scroll.js";
+// import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
 
-//========================================================================================================================================================
+// //========================================================================================================================================================
 // function initBarba() {
 
 // 	const loader = document.querySelector('.mg-loader');
