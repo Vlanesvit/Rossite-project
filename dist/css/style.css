@@ -8453,31 +8453,6 @@ html:not(.menu-open) .header-white._header-scroll .menu__icon::after {
   margin-top: 20px;
 }
 
-.mg-loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  z-index: 10000;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  pointer-events: none;
-}
-
-.mg-loader-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--primary-color);
-}
-
-.mg-loader-fill:nth-child(even) {
-  background: #fff;
-}
-
 .swiper.swiper-initialized {
   overflow: hidden;
 }

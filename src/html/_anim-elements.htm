@@ -1,7 +1,149 @@
 <div class="progress-bar" id="progressBar"></div>
 
-<!-- <div class="mg-loader">
-	<div class="mg-loader-fill -v1"></div>
-	<div class="mg-loader-fill -v2"></div>
-	<div class="mg-loader-fill -v3"></div>
-</div> -->
+
+<style>
+	body [page-transition="component"] {
+		display: block;
+	}
+
+	.w-editor [page-transition="component"] {
+		display: none;
+	}
+
+
+	.page-transition_logo-lottie {
+		height: 5rem
+	}
+
+	.page-transition_content {
+		width: 100%;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+		display: flex
+	}
+
+	.page-transition_bg-item {
+		flex-direction: column;
+		align-items: center;
+		display: flex;
+		position: absolute;
+		top: 0%;
+		bottom: 0%;
+		left: 0%;
+		right: 0%
+	}
+
+	.page-transition_bg,
+	.page-transition-load {
+		width: 100%;
+		height: 100%
+	}
+
+	.page-transition_logo {
+		mix-blend-mode: lighten;
+		display: none;
+		position: absolute
+	}
+
+	.page-transition-preload {
+		width: 100%;
+		height: 100%
+	}
+
+	.page-transition {
+		z-index: 2000;
+		display: none;
+		position: fixed;
+		top: 0%;
+		bottom: 0%;
+		left: 0%;
+		right: 0%
+	}
+
+	.page-transition_bg-item-fill {
+		width: 100%;
+		height: 52%;
+		position: absolute;
+		bottom: 0%;
+		left: 0%;
+		right: 0%
+	}
+
+	.page-transition_bg-item-fill.is-01 {
+		background-color: #fff;
+	}
+
+	.page-transition_bg-item-fill.is-01.is-top {
+		width: 150%;
+		height: 50%;
+		top: 0%;
+		bottom: auto;
+		left: auto;
+		right: auto
+	}
+
+	.page-transition_bg-item-fill.is-02 {
+		background-color: #6366f1;
+	}
+
+	.page-transition_bg-item-fill.is-02.is-top {
+		width: 150%;
+		height: 50%;
+		top: 0%;
+		bottom: auto;
+		left: auto;
+		right: auto
+	}
+
+	/* Prevent all click and hover interaction with an element */
+	.pointer-events-off {
+		pointer-events: none;
+	}
+
+	/* Enables all click and hover interaction with an element */
+	.pointer-events-on {
+		pointer-events: auto;
+	}
+</style>
+
+<div class="page-transition_wrapper pointer-events-off">
+	<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100"
+		class="page-transition is-preload">
+		<div class="page-transition-preload">
+			<div class="page-transition_content">
+				<div class="page-transition_bg">
+					<div class="page-transition_bg-item is-01 is-preload">
+						<div page-preload-bg-radius="target" page-transition-bg-radius="target"
+							class="page-transition_bg-item-fill is-02 is-top"></div>
+						<div class="page-transition_bg-item-fill is-02"></div>
+					</div>
+					<div class="page-transition_bg-item is-02 is-preload">
+						<div page-preload-bg-radius="target" page-transition-bg-radius="target"
+							class="page-transition_bg-item-fill is-01 is-top"></div>
+						<div class="page-transition_bg-item-fill is-01"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100"
+		class="page-transition is-load">
+		<div class="page-transition-load">
+			<div class="page-transition_content">
+				<div class="page-transition_bg">
+					<div class="page-transition_bg-item is-01 is-load">
+						<div page-load-bg-radius="target" page-transition-bg-radius="target"
+							class="page-transition_bg-item-fill is-02 is-top"></div>
+						<div class="page-transition_bg-item-fill is-02"></div>
+					</div>
+					<div class="page-transition_bg-item is-02 is-load">
+						<div page-load-bg-radius="target" page-transition-bg-radius="target"
+							class="page-transition_bg-item-fill is-01 is-top"></div>
+						<div class="page-transition_bg-item-fill is-01"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
