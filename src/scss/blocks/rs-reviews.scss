@@ -107,7 +107,7 @@
 	&__item {
 		@media (max-width: 991.98px) {
 			border-radius: 20px;
-			border: 1px solid var(--unnamed, #d4d7e5);
+			border: 1px solid var(--unnamed, var(--light-gray-border));
 			background: #fff;
 			padding: 25px 25px 30px;
 		}

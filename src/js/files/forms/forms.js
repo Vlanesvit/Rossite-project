@@ -84,6 +84,27 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 			}
 		}
 	}
+
+	const formLines = document.querySelectorAll('.form__line');
+	formLines.forEach(formLine => {
+		const formInput = formLine.querySelector('.rs-input')
+		const formClear = formLine.querySelector('.rs-input-clear')
+		formInput.addEventListener('input', function () {
+			if (formInput.value != '') {
+				formClear.style.display = "block";
+				formInput.parentElement.classList.add('_form-valid')
+			} else {
+				formClear.style.display = "none";
+				formInput.parentElement.classList.remove('_form-valid')
+			}
+		})
+		formClear.addEventListener('click', function () {
+			formInput.value = '';
+			formClear.style.display = "none";
+			formInput.parentElement.classList.remove('_form-valid')
+			formInput.focus()
+		})
+	});
 }
 // Валидация форм
 export let formValidate = {
@@ -105,19 +126,24 @@ export let formValidate = {
 			formRequiredItem.value = formRequiredItem.value.replace(" ", "");
 			if (this.emailTest(formRequiredItem)) {
 				this.addError(formRequiredItem);
+				this.removeRight(formRequiredItem);
 				error++;
 			} else {
 				this.removeError(formRequiredItem);
+				this.addRight(formRequiredItem);
 			}
 		} else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
 			this.addError(formRequiredItem);
+			this.removeRight(formRequiredItem);
 			error++;
 		} else {
 			if (!formRequiredItem.value.trim()) {
 				this.addError(formRequiredItem);
+				this.removeRight(formRequiredItem);
 				error++;
 			} else {
 				this.removeError(formRequiredItem);
+				this.addRight(formRequiredItem);
 			}
 		}
 		return error;
@@ -136,6 +162,20 @@ export let formValidate = {
 		formRequiredItem.parentElement.classList.remove('_form-error');
 		if (formRequiredItem.parentElement.querySelector('.form__error')) {
 			formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__error'));
+		}
+	},
+	addRight(formRequiredItem) {
+		formRequiredItem.classList.add('_form-right');
+		formRequiredItem.parentElement.classList.add('_form-right');
+		let inputRight = formRequiredItem.parentElement.querySelector('.form__right');
+		if (inputRight) formRequiredItem.parentElement.removeChild(inputRight);
+		formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__right"></div>`);
+	},
+	removeRight(formRequiredItem) {
+		formRequiredItem.classList.remove('_form-right');
+		formRequiredItem.parentElement.classList.remove('_form-right');
+		if (formRequiredItem.parentElement.querySelector('.form__right')) {
+			formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__right'));
 		}
 	},
 	formClean(form) {

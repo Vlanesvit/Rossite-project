@@ -34,6 +34,8 @@ vnvFunctions.addLoadedClass();
 vnvFunctions.menuInit();
 /* Модуль для работы с меню */
 vnvFunctions.menu();
+/* Модуль для работы с меню выбора и подтверждения региона  */
+vnvFunctions.regionMenu();
 /* Учет плавающей панели на мобильных устройствах при 100vh */
 // vnvFunctions.fullVHfix();
 
@@ -212,5 +214,4 @@ import "./files/steps.js";
 import "./files/map.js";
 import "./libs/imagecompare.js";
 import "./libs/nouislider.js";
-import "./libs/splitting.js";
 import "./libs/animation-gsap.js";

@@ -456,7 +456,7 @@
 			max-width: 605px;
 			padding: 9px 16px;
 			border-radius: 10px;
-			border: 1px dashed #d4d7e5;
+			border: 1px dashed var(--light-gray-border);
 			margin: 0px 0px 0px auto;
 
 			@media (max-width: 991.98px) {
@@ -812,7 +812,7 @@
 			}
 
 			.filter__title {
-				background-color: var(--gray-btn-color);
+				background-color: var(--gray-color-btn);
 
 				&::after {
 					transform: rotate(180deg);
@@ -852,7 +852,7 @@
 
 		@media (any-hover: hover) {
 			&:hover {
-				background-color: var(--gray-btn-color);
+				background-color: var(--gray-color-btn);
 			}
 		}
 
@@ -1055,7 +1055,7 @@
 					@media (any-hover: hover) {
 						&:hover {
 							.checkbox-label {
-								background-color: var(--gray-btn-color);
+								background-color: var(--gray-color-btn);
 							}
 						}
 					}
@@ -1069,7 +1069,7 @@
 						cursor: pointer;
 
 						&:checked ~ .checkbox-label {
-							background-color: var(--gray-btn-color);
+							background-color: var(--gray-color-btn);
 						}
 
 						&:checked ~ .checkbox:after {

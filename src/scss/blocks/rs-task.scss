@@ -109,7 +109,7 @@
 				padding-right: 0px;
 
 				.rs-task__features_icon {
-					background-color: #f1faea;
+					background-color: var(--item-green-bg);
 				}
 
 				@media (max-width: 991.98px) {
@@ -119,7 +119,7 @@
 			}
 
 			&:last-child {
-				background-color: #f1faea;
+				background-color: var(--item-green-bg);
 
 				@media (max-width: 991.98px) {
 					padding-left: 20px;

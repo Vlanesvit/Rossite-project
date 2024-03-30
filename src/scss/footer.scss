@@ -1,11 +1,4 @@
 .rs-footer {
-	@media (min-height: 900px) {
-		bottom: 0;
-		width: 100%;
-		left: 0;
-		position: sticky;
-	}
-
 	// .rs-footer__top
 	&__top {
 		background-color: #f6f5f8;
@@ -47,31 +40,18 @@
 			line-height: 160.2%;
 			letter-spacing: 0.16px;
 			position: relative;
+			transition: all 0.3s ease 0s;
 
 			@media (max-width: 991.98px) {
 				font-size: 19px;
 				line-height: 168.632%;
 			}
 
-			// &::before {
-			// 	content: "";
-			// 	position: absolute;
-			// 	bottom: 0px;
-			// 	right: 0;
-			// 	width: 0%;
-			// 	height: 1px;
-			// 	background-color: var(--gray-font-color);
-			// 	transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-			// }
-
-			// @media (any-hover: hover) {
-			// 	&:hover {
-			// 		&::before {
-			// 			left: 0;
-			// 			width: 100%;
-			// 		}
-			// 	}
-			// }
+			@media (any-hover: hover) {
+				&:hover {
+					color: var(--primary-color);
+				}
+			}
 		}
 
 		span {
@@ -111,7 +91,7 @@
 				}
 
 				&:nth-child(1) {
-					max-width: 236px;
+					max-width: 237px;
 
 					@media (max-width: 1439.98px) {
 						max-width: 215px;
@@ -496,26 +476,34 @@
 					position: relative;
 					display: inline-flex;
 					align-items: center;
+					transition: transform 0.3s ease 0s;
 
-					// &::before {
-					// 	content: "";
-					// 	position: absolute;
-					// 	bottom: 0px;
-					// 	right: 0;
-					// 	width: 0%;
-					// 	height: 1px;
-					// 	background-color: var(--gray-font-color);
-					// 	transition: width 0.36s cubic-bezier(0.43, 0.05, 0.17, 1) 0s;
-					// }
+					&::before {
+						content: "";
+						position: absolute;
+						left: -13px;
+						top: 8px;
+						width: 7px;
+						height: 7px;
+						background-color: var(--primary-color);
+						border-radius: 50%;
+						opacity: 0;
+						visibility: hidden;
+						transition:
+							opacity 0.3s ease 0s,
+							visibility 0.3s ease 0s;
+					}
 
-					// @media (any-hover: hover) {
-					// 	&:hover {
-					// 		&::before {
-					// 			left: 0;
-					// 			width: 100%;
-					// 		}
-					// 	}
-					// }
+					@media (any-hover: hover) {
+						&:hover {
+							transform: translateX(13px);
+
+							&::before {
+								opacity: 1;
+								visibility: visible;
+							}
+						}
+					}
 				}
 
 				&:not(:last-child) {

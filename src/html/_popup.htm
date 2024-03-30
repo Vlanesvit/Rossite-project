@@ -1,9 +1,110 @@
-<div id="popup" aria-hidden="true" class="popup">
+<div id="letter-manager" aria-hidden="true" class="popup">
 	<div class="popup__wrapper">
 		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
+			<button data-close type="button" class="popup__close _rs-icon-close"></button>
 			<div class="popup__text">
-				Text
+				<h4>Написать письмо руководителю</h4>
+
+				<div class="form">
+					<form action="#">
+						<div class="form__wrapper">
+							<div class="form__block">
+								<div class="form__line">
+									<label for="user-name" class="rs-input-placeholder">ФИО</label>
+									<input id="user-name" type="text" name="form[]" data-required data-validate
+										data-error="Введите ФИО" class="rs-input">
+									<button type="button" class="rs-input-clear _rs-icon-close"></button>
+								</div>
+								<div class="form__line">
+									<label for="user-phone" class="rs-input-placeholder">Телефон</label>
+									<input id="user-phone" type="tel" name="form[]" data-required="tel" data-validate
+										data-error="Введите телефон" class="rs-input">
+									<button type="button" class="rs-input-clear _rs-icon-close"></button>
+								</div>
+								<div class="form__line">
+									<label for="user-message" class="rs-input-placeholder">Введите ваше
+										сообщение</label>
+									<textarea id="user-message" name="form[]" class="rs-input"></textarea>
+									<button type="button" class="rs-input-clear _rs-icon-close"></button>
+								</div>
+							</div>
+							<div class="form__footer">
+								<div class="form__agreement">Нажимая на кнопку «Отправить сообщение»,
+									вы соглашаетесь на обработку персональных данных в соответствии
+									с <a href="#">пользовательским соглашением</a>
+								</div>
+								<div class="form__button">
+									<button type="submit" class="rs-btn _btn-primary">
+										<span class="btn-text _rs-icon-call">Отправить сообщение</span>
+										<span class="btn-hover"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="feedback" aria-hidden="true" class="popup popup-right">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close _rs-icon-close"></button>
+			<div class="popup__text">
+				<h4>Свяжитесь с нами </h4>
+				<p>Оставьте заявку, наш менеджер свяжется с вами в ближайшее время</p>
+
+				<div class="form">
+					<form action="#">
+						<div class="form__wrapper">
+							<div class="form__block">
+								<div class="form__line">
+									<label for="user-name" class="rs-input-placeholder">ФИО</label>
+									<input id="user-name" type="text" name="form[]" data-required data-validate
+										data-error="Введите ФИО" class="rs-input">
+									<button type="button" class="rs-input-clear _rs-icon-close"></button>
+								</div>
+								<div class="form__line">
+									<label for="user-phone" class="rs-input-placeholder">Телефон</label>
+									<input id="user-phone" type="tel" name="form[]" data-required="tel" data-validate
+										data-error="Введите телефон" class="rs-input">
+									<button type="button" class="rs-input-clear _rs-icon-close"></button>
+								</div>
+								<div class="form__line">
+									<label for="user-message" class="rs-input-placeholder">Введите ваше
+										сообщение</label>
+									<textarea id="user-message" name="form[]" class="rs-input"></textarea>
+									<button type="button" class="rs-input-clear _rs-icon-close"></button>
+								</div>
+							</div>
+							<div class="form__footer">
+								<div class="form__agreement">Нажимая на кнопку «Отправить сообщение»,
+									вы соглашаетесь на обработку персональных данных в соответствии
+									с <a href="#">пользовательским соглашением</a>
+								</div>
+								<div class="form__button">
+									<button type="submit" class="rs-btn _btn-primary">
+										<span class="btn-text _rs-icon-message">отправить сообщение</span>
+										<span class="btn-hover"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="contact" aria-hidden="true" class="popup popup-right">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close _rs-icon-close"></button>
+			<div class="popup__text">
+
 			</div>
 		</div>
 	</div>

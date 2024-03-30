@@ -1,20 +1,19 @@
-export function initYaMap() {
-	if (document.getElementById("map")) {
-		ymaps.ready(initYaMap);
-		// Данные каждого маркера
-		const branchData = [
-			{
-				address: 'ул. Ленинская Слобода, д.19, БЦ «Omega Plaza», офис 348.1',
-				location: [55.708521, 37.653510],
-			},
-		]
-
-		let map = new ymaps.Map("map", {
+// Данные каждого маркера
+const branchData = [
+	{
+		address: 'ул. Ленинская Слобода, д.19, БЦ «Omega Plaza», офис 348.1',
+		location: [55.708521, 37.653510],
+	},
+]
+function init() {
+	if (document.getElementById('map')) {
+		ymaps.ready();
+		let map = new ymaps.Map('map', {
 			controls: [],
 			// Координаты центра карты
 			center: branchData[0].location,
 			// Уровень масштабирования
-			zoom: 17,
+			zoom: 15,
 		}, {
 			suppressMapOpenBlock: true,
 			balloonMaxWidth: 200,
@@ -49,10 +48,11 @@ export function initYaMap() {
 
 		// Скрываем хинт при открытии балуна.
 		map.events.add('balloonopen', function (e) {
-			map.hint.close();
+			Map.hint.close();
 		});
 
 		// Закрываем балун по клику по карте
 		map.events.add('click', e => e.get('target').balloon.close());
 	}
 }
+init()

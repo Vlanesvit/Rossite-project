@@ -1,6 +1,4 @@
 .swiper.swiper-initialized {
-	overflow: hidden;
-
 	.swiper-wrapper {
 		width: 100%;
 		height: 100%;
@@ -92,7 +90,7 @@
 }
 
 .swiper-pagination-progressbar {
-	background: #d4d7e5;
+	background: var(--light-gray-border);
 	position: relative;
 }
 
@@ -118,7 +116,7 @@
 // 	height: 3px;
 // 	position: relative;
 // 	margin-top: 47px;
-// 	background: #d4d7e5;
+// 	background: var(--light-gray-border);
 
 // 	&_fill {
 // 		background: var(--primary-color);
@@ -241,7 +239,7 @@
 // 	pointer-events: none;
 // 	cursor: default;
 // 	opacity: 1;
-// 	background: var(--gray-btn-color);
+// 	background: var(--gray-color-btn);
 // 	color: var(--font-color);
 // }
 

@@ -73,7 +73,7 @@
 	// .rs-logo__slide
 	&__slide {
 		border-radius: 10px;
-		border: 1px solid #d4d7e5;
+		border: 1px solid var(--light-gray-border);
 		overflow: hidden;
 		min-height: 100px;
 		height: auto;

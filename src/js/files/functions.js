@@ -434,31 +434,44 @@ export function menuToggle() {
 	document.documentElement.classList.toggle("menu-open");
 }
 
+export function regionMenuOpen() {
+	bodyLock();
+	document.documentElement.classList.add("region-menu-open");
+}
+export function regionMenuClose() {
+	bodyUnlock();
+	document.documentElement.classList.remove("region-menu-open");
+}
+export function regionMenuToggle() {
+	bodyLockToggle();
+	document.documentElement.classList.toggle("region-menu-open");
+}
+
 // Меню
 export function menu() {
 	const menus = document.querySelectorAll('.rs-header .menu');
 
 	menus.forEach(menu => {
-		const menuItems = menu.querySelectorAll('.menu__list li');
+		const menuItems = menu.querySelectorAll('.menu__list li.menu-item');
 
 		// Все пункты с выпадающим меню
-		const menuItemDropdowns = menu.querySelectorAll('.menu__list .dropdown-item');
-		const menuItemDropdownsMenu = menu.querySelectorAll('.menu__list .dropdown__menu');
+		const menuItemDropdowns = menu.querySelectorAll('.menu__list .menu__dropdown');
+		const menuItemDropdownsMenu = menu.querySelectorAll('.menu__list .menu__dropdown_block');
 
 		// 0-ой уровень
-		const menuItemDropdownsNull = menu.querySelectorAll('.menu__list > .dropdown-item');
-		const menuItemDropdownsMenuNull = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu');
+		const menuItemDropdownsNull = menu.querySelectorAll('.menu__list > .menu__dropdown');
+		const menuItemDropdownsMenuNull = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_block');
 
 		// 1-ый уровень
-		const menuItemDropdownsFirst = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu > .dropdown__container > .dropdown__columns > .dropdown-item');
-		const menuItemDropdownsMenuFirst = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu > .dropdown__container > .dropdown__columns > .dropdown-item > .dropdown__menu');
+		const menuItemDropdownsFirst = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_block > .dropdown__container > .dropdown__columns > .menu__dropdown');
+		const menuItemDropdownsMenuFirst = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_block > .dropdown__container > .dropdown__columns > .menu__dropdown > .menu__dropdown_block');
 
 		// 2-ой уровень
-		const menuItemDropdownsTwo = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu > .dropdown__container > .dropdown__columns > .dropdown-item > .dropdown__menu > .dropdown-item');
-		const menuItemDropdownsMenuTwo = menu.querySelectorAll('.menu__list > .dropdown-item > .dropdown__menu > .dropdown__container > .dropdown__columns > .dropdown-item > .dropdown__menu > .dropdown-item > .dropdown__menu');
+		const menuItemDropdownsTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_block > .dropdown__container > .dropdown__columns > .menu__dropdown > .menu__dropdown_block > .menu__dropdown');
+		const menuItemDropdownsMenuTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_block > .dropdown__container > .dropdown__columns > .menu__dropdown > .menu__dropdown_block > .menu__dropdown > .menu__dropdown_block');
 
 		// Добавление иконки в пункты с выпадающим меню
-		menuItemDropdowns.forEach(item => {
+		menuItems.forEach(item => {
 			const menuLinkDropdowns = item.querySelector('a');
 			let iconDropdown = document.createElement('i');
 			menuLinkDropdowns.append(iconDropdown);
@@ -468,29 +481,31 @@ export function menu() {
 		чтобы открывался только один пункт, а открытые - закрывались, кроме тех, кто выше уровнем */
 		function openLvlMenu(li, ul) {
 			li.forEach(item => {
-				const menuItemList = item.querySelector('.dropdown__menu');
 				const menuItemIcons = item.querySelector('a > i');
+				const menuItemBack = item.querySelector('.menu__dropdown_back');
+
+				if (menuItemBack) {
+					menuItemBack.addEventListener('click', (e) => {
+						e.preventDefault();
+						if (menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
+							menuItemIcons.closest('.menu__dropdown').classList.remove('_open-menu');
+						}
+					})
+				}
 
 				// Открытие меню при клике на иконку
 				menuItemIcons.addEventListener('click', (e) => {
 					e.preventDefault();
-					_slideToggle(menuItemList, 500);
-					ul.forEach(menu => {
-						if (!menu.hasAttribute('hidden')) {
-							_slideUp(menu, 500);
-						}
-					});
-
 					// Проходимся по всем пунктам и ищем активные классы, убираем их и добавляем активный класс кликнутому пункту
-					if (!menuItemIcons.closest('.dropdown-item').classList.contains('_open-menu')) {
+					if (!menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
 						li.forEach(itemDrop => {
 							if (itemDrop.classList.contains('_open-menu')) {
 								itemDrop.classList.remove('_open-menu')
 							}
 						});
-						menuItemIcons.closest('.dropdown-item').classList.add('_open-menu');
-					} else if (menuItemIcons.closest('.dropdown-item').classList.contains('_open-menu')) {
-						menuItemIcons.closest('.dropdown-item').classList.remove('_open-menu');
+						menuItemIcons.closest('.menu__dropdown').classList.add('_open-menu');
+					} else if (menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
+						menuItemIcons.closest('.menu__dropdown').classList.remove('_open-menu');
 					}
 				});
 			});
@@ -511,9 +526,79 @@ export function menu() {
 				menuItemDropdowns.forEach(item => {
 					item.classList.remove('_open-menu');
 				});
+
+				regionMenuClose()
 			}
 		});
 	});
+}
+
+export function regionMenu() {
+	const regionBtns = document.querySelectorAll('.rs-header__location_show-search');
+	const regionVerf = document.querySelectorAll('.rs-header__location_verification');
+	const regionModal = document.querySelectorAll('.rs-header__location_modal');
+	const regionBlockClose = document.querySelectorAll('.rs-header__region_close');
+	const regionModalInnerMenuBtn = document.querySelector('.rs-header__container > .rs-header__location_modal .rs-header__location_show-search');
+
+	// Открывает модальное окно подтверждение локации
+	window.addEventListener('load', function () {
+		setTimeout(() => {
+			document.documentElement.classList.toggle("location-modal-open");
+		}, 3000);
+	})
+
+	if (regionBtns.length > 0) {
+		regionBtns.forEach(regionBtn => {
+			regionBtn.addEventListener('click', function (e) {
+				e.preventDefault();
+
+				// Удаляет класс модального окна подтвеждения локации + открывает модальное окно выбора региона
+				if (document.documentElement.classList.contains('location-modal-open')) {
+					document.documentElement.classList.remove('location-modal-open')
+				}
+
+				if (!document.documentElement.classList.contains('region-menu-open')) {
+					regionMenuOpen()
+				}
+			})
+		});
+	}
+
+	if (regionBlockClose.length > 0) {
+		regionBlockClose.forEach(close => {
+			close.addEventListener('click', function (e) {
+				e.preventDefault();
+
+				// Закрывает модальное окно выбора региона
+				if (document.documentElement.classList.contains('region-menu-open')) {
+					regionMenuClose()
+				}
+			});
+		})
+	}
+
+	if (regionVerf.length > 0) {
+		regionVerf.forEach(verf => {
+			verf.addEventListener('click', function (e) {
+				e.preventDefault();
+
+				// Удаляет класс модального окна подтвеждения локации
+				if (document.documentElement.classList.contains('location-modal-open')) {
+					document.documentElement.classList.remove('location-modal-open')
+				}
+			})
+		});
+	}
+
+	if (regionModalInnerMenuBtn) {
+		regionModalInnerMenuBtn.addEventListener('click', function (e) {
+			e.preventDefault();
+			document.querySelector('.rs-header').classList.add('_header-show')
+			menuOpen()
+			regionMenuOpen()
+		})
+	}
+
 }
 
 // Модуль "показать еще" =======================================================================================================================================================================================================================

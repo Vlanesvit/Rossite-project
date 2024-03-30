@@ -197,7 +197,7 @@
 				@media (min-width: 991.98px) {
 					padding: 35px 30px;
 					border-radius: 20px;
-					border: 1px solid #d4d7e5;
+					border: 1px solid var(--light-gray-border);
 					background: #fff;
 
 					@media (max-width: 1439.98px) {
@@ -304,7 +304,7 @@
 			@media (min-width: 991.98px) {
 				padding: 25px 0px 0px;
 				margin: 25px 0px 0px;
-				border-top: 1px solid #d4d7e5;
+				border-top: 1px solid var(--light-gray-border);
 			}
 		}
 	}

@@ -24,17 +24,18 @@ $fontFamily: "Manrope", sans-serif;
 $fontSize: rem(14); // где 14(px) - размер шрифта по умолчанию из макета
 
 // Основные цвета
-$mainColor: #141517; // Цвет шрифта по умолчанию
+$mainColor: #1d1e21; // Цвет шрифта по умолчанию
 
 // Основные цвета
 :root {
 	--bg-color: #fff;
 	--primary-color: #6366f1;
-	--second-color: #007bfb;
-	--accent-seo-color: #ffe219;
-	--gray-btn-color: #eff2ff;
+	--primary-color-btn: #6366f1;
+	--primary-color-btn-hover: #8083f2;
+	--primary-color-btn-text: #fff;
+	--gray-color-btn: #eff2ff;
 	--light-gray-border: #d4d7e5;
-	--font-color: #141517;
+	--font-color: #1d1e21;
 	--gray-font-color: #1d1e21;
 	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
 	--item-green-bg: #f1faea;
@@ -129,7 +130,7 @@ body {
 	}
 } @else {
 	// По брейк-поинтам
-	[class*="__container"] {
+	[class*="_container"] {
 		margin: 0 auto;
 		max-width: rem($maxWidthContainer);
 		box-sizing: content-box;

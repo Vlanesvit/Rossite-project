@@ -10,7 +10,9 @@
 	@@include('html/_anim-elements.htm',{})
 
 	<div class="wrapper" data-barba="container" data-barba-namespace="businnes" style="
-	--primary-color: #6366f1; 
+	--primary-color-btn: #6366f1; 
+	--primary-color-btn-hover: #8083f2; 
+	--primary-color-btn-text: #fff; 
 	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
 	">
 
@@ -39,12 +41,10 @@
 									<a href="#" class="rs-btn _btn-primary">
 										<span class="btn-text _rs-icon-message">обсудить проект</span>
 										<span class="btn-hover"></span>
-										<span class="svg-wrapper"></span>
 									</a>
 									<a href="#" download="#" class="rs-btn _btn-primary-border">
 										<span class="btn-text _rs-icon-download">скачать КП</span>
 										<span class="btn-hover"></span>
-										<span class="svg-wrapper"></span>
 									</a>
 								</div>
 							</div>
@@ -428,7 +428,7 @@
 					<button type="button" class="rs-project__add rs-btn _btn-gray-border">
 						<span class="btn-text _rs-icon-picture">показать еще</span>
 						<span class="btn-hover"></span>
-						<span class="svg-wrapper"></span>
+
 					</button>
 				</div>
 
@@ -459,10 +459,10 @@
 												<svg viewBox="0 0 73 74" fill="none">
 													<path
 														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
-														stroke="#D4D7E5" />
+														stroke="var(--light-gray-border)" />
 													<path class="hover"
 														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
-														stroke="#D4D7E5" />
+														stroke="var(--light-gray-border)" />
 												</svg>
 											</span>
 											<span class="split-text">Разработка прототипа</span>
@@ -474,10 +474,10 @@
 												<svg viewBox="0 0 73 74" fill="none">
 													<path
 														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
-														stroke="#D4D7E5" />
+														stroke="var(--light-gray-border)" />
 													<path class="hover"
 														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
-														stroke="#D4D7E5" />
+														stroke="var(--light-gray-border)" />
 												</svg>
 											</span>
 											<span class="split-text">Дизайн главной</span>
@@ -489,10 +489,10 @@
 												<svg viewBox="0 0 73 74" fill="none">
 													<path
 														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
-														stroke="#D4D7E5" />
+														stroke="var(--light-gray-border)" />
 													<path class="hover"
 														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
-														stroke="#D4D7E5" />
+														stroke="var(--light-gray-border)" />
 												</svg>
 											</span>
 											<span class="split-text">Стилизация внутренних</span>
@@ -504,10 +504,10 @@
 												<svg viewBox="0 0 73 74" fill="none">
 													<path
 														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
-														stroke="#D4D7E5" />
+														stroke="var(--light-gray-border)" />
 													<path class="hover"
 														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
-														stroke="#D4D7E5" />
+														stroke="var(--light-gray-border)" />
 												</svg>
 											</span>
 											<span class="split-text">Сборка сайта</span>
@@ -865,7 +865,7 @@
 												<button type="submit" class="rs-btn _btn-primary">
 													<span class="btn-text _rs-icon-message">обсудить проект</span>
 													<span class="btn-hover"></span>
-													<span class="svg-wrapper"></span>
+
 												</button>
 
 												<svg width="151" height="81" viewBox="0 0 151 81">

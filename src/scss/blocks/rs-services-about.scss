@@ -97,7 +97,7 @@
 			margin-top: 70px;
 			padding: 26px 30px;
 			border-radius: 20px;
-			background: #fefae4;
+			background: var(--item-yellow-bg);
 			display: flex;
 			align-items: flex-start;
 			position: relative;
@@ -530,19 +530,19 @@
 
 		&:nth-child(1) {
 			.rs-services-about__item {
-				background-color: #ffeae2;
+				background-color: var(--item-red-bg);
 			}
 		}
 
 		&:nth-child(2) {
 			.rs-services-about__item {
-				background-color: #eaf0ff;
+				background-color: var(--item-blue-bg);
 			}
 		}
 
 		&:nth-child(3) {
 			.rs-services-about__item {
-				background-color: #fefae4;
+				background-color: var(--item-yellow-bg);
 			}
 		}
 	}

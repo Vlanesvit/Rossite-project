@@ -143,7 +143,7 @@
 		}
 
 		&._green {
-			background-color: #f1faea;
+			background-color: var(--item-green-bg);
 
 			.tooltip__btn::before {
 				color: #25c16f;
@@ -151,7 +151,7 @@
 		}
 
 		&._blue {
-			background-color: #eaf0ff;
+			background-color: var(--item-blue-bg);
 
 			.tooltip__btn::before {
 				color: #6366f1;
@@ -243,11 +243,11 @@
 			}
 
 			&._green {
-				background-color: #f1faea;
+				background-color: var(--item-green-bg);
 			}
 
 			&._blue {
-				background-color: #eaf0ff;
+				background-color: var(--item-blue-bg);
 			}
 
 			a {

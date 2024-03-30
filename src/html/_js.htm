@@ -1,20 +1,22 @@
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-	const loaderFill = document.querySelectorAll('.page-transition_bg-item');
-	loaderFill.forEach((fill, index) => {
-		setTimeout(() => {
-			gsap.set(fill, {
-				zIndex: loaderFill.length - index,
-			})
-		}, 100);
-	});
+	const pageTransition01 = document.querySelectorAll('.page-transition_bg-item.is-01');
+	const pageTransition02 = document.querySelectorAll('.page-transition_bg-item.is-02');
 
 	function loaderAnimFrom() {
-		loaderFill.forEach((fill, index) => {
-			gsap.to(fill, {
+		pageTransition01.forEach(page01 => {
+			gsap.to(page01, {
 				yPercent: 0,
-				delay: 0.2 * index,
+				delay: 0.2,
+				duration: 0.6,
+				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+			});
+		});
+
+		pageTransition02.forEach(page02 => {
+			gsap.to(page02, {
+				yPercent: 0,
+				delay: 0.4,
 				duration: 0.6,
 				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
 			});
@@ -22,10 +24,19 @@
 	}
 
 	function loaderAnimTo() {
-		loaderFill.forEach((fill, index) => {
-			gsap.to(fill, {
+		pageTransition01.forEach(page01 => {
+			gsap.to(page01, {
 				yPercent: 100,
-				delay: 0.2 * index,
+				delay: 0.4,
+				duration: 0.6,
+				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+			});
+		});
+
+		pageTransition02.forEach(page02 => {
+			gsap.to(page02, {
+				yPercent: 100,
+				delay: 0.2,
 				duration: 0.6,
 				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
 			});
@@ -95,16 +106,11 @@
 		checkPageTransition();
 
 	}
-</script>
+</script> -->
 
-
-<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-<!-- <script src="lib/gsap/drawSVGPlugin.min.js"></script> -->
 <script src="js/app.min.js"></script>

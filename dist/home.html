@@ -10,13 +10,10 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="@favicon.ico" type="image/x-icon">
 
-	<script src="https://api-maps.yandex.ru/2.1/?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20240320155449"></script>
-	<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css?_v=20240320155449" />
-	<!-- <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
 	<link href="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css" />
 
-	<link rel="stylesheet" href="./css/style.min.css?_v=20240320155449">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240331043733">
 
 </head>
 
@@ -24,150 +21,158 @@
 
 	<div class="progress-bar" id="progressBar"></div>
 
+	<!-- 
+<style>
+	body [page-transition="component"] {
+		display: block;
+	}
 
-	<style>
-		body [page-transition="component"] {
-			display: block;
-		}
-
-		.w-editor [page-transition="component"] {
-			display: none;
-		}
+	.w-editor [page-transition="component"] {
+		display: none;
+	}
 
 
-		.page-transition_logo-lottie {
-			height: 5rem
-		}
+	.page-transition_logo-lottie {
+		height: 5rem
+	}
 
-		.page-transition_content {
-			width: 100%;
-			height: 100%;
-			justify-content: center;
-			align-items: center;
-			display: flex
-		}
+	.page-transition_content {
+		width: 100%;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+		display: flex
+	}
 
-		.page-transition_bg-item {
-			flex-direction: column;
-			align-items: center;
-			display: flex;
-			position: absolute;
-			top: 0%;
-			bottom: 0%;
-			left: 0%;
-			right: 0%
-		}
+	.page-transition_bg-item {
+		flex-direction: column;
+		align-items: center;
+		display: flex;
+		position: absolute;
+		top: 0%;
+		bottom: 0%;
+		left: 0%;
+		right: 0%
+	}
 
-		.page-transition_bg,
-		.page-transition-load {
-			width: 100%;
-			height: 100%
-		}
+	.page-transition_bg,
+	.page-transition-load {
+		width: 100%;
+		height: 100%
+	}
 
-		.page-transition_logo {
-			mix-blend-mode: lighten;
-			display: none;
-			position: absolute
-		}
+	.page-transition_logo {
+		mix-blend-mode: lighten;
+		display: none;
+		position: absolute
+	}
 
-		.page-transition-preload {
-			width: 100%;
-			height: 100%
-		}
+	.page-transition-preload {
+		width: 100%;
+		height: 100%
+	}
 
-		.page-transition {
-			z-index: 2000;
-			display: none;
-			position: fixed;
-			top: 0%;
-			bottom: 0%;
-			left: 0%;
-			right: 0%
-		}
+	.page-transition {
+		z-index: 2000;
+		display: none;
+		position: fixed;
+		top: 0%;
+		bottom: 0%;
+		left: 0%;
+		right: 0%
+	}
 
-		.page-transition_bg-item-fill {
-			width: 100%;
-			height: 52%;
-			position: absolute;
-			bottom: 0%;
-			left: 0%;
-			right: 0%
-		}
+	.page-transition_bg-item-fill {
+		width: 100%;
+		height: 52%;
+		position: absolute;
+		bottom: 0%;
+		left: 0%;
+		right: 0%
+	}
 
-		.page-transition_bg-item-fill.is-01 {
-			background-color: #fff;
-		}
+	.page-transition_bg-item-fill.is-01 {
+		background-color: #fff;
+	}
 
-		.page-transition_bg-item-fill.is-01.is-top {
-			width: 150%;
-			height: 50%;
-			top: 0%;
-			bottom: auto;
-			left: auto;
-			right: auto
-		}
+	.page-transition_bg-item-fill.is-01.is-top {
+		width: 150%;
+		height: 50%;
+		top: 0%;
+		bottom: auto;
+		left: auto;
+		right: auto
+	}
 
-		.page-transition_bg-item-fill.is-02 {
-			background-color: #6366f1;
-		}
+	.page-transition_bg-item-fill.is-02 {
+		background-color: #6366f1;
+	}
 
-		.page-transition_bg-item-fill.is-02.is-top {
-			width: 150%;
-			height: 50%;
-			top: 0%;
-			bottom: auto;
-			left: auto;
-			right: auto
-		}
+	.page-transition_bg-item-fill.is-02.is-top {
+		width: 150%;
+		height: 50%;
+		top: 0%;
+		bottom: auto;
+		left: auto;
+		right: auto
+	}
 
-		/* Prevent all click and hover interaction with an element */
-		.pointer-events-off {
-			pointer-events: none;
-		}
+	/* Prevent all click and hover interaction with an element */
+	.pointer-events-off {
+		pointer-events: none;
+	}
 
-		/* Enables all click and hover interaction with an element */
-		.pointer-events-on {
-			pointer-events: auto;
-		}
-	</style>
+	/* Enables all click and hover interaction with an element */
+	.pointer-events-on {
+		pointer-events: auto;
+	}
+</style>
 
-	<div class="page-transition_wrapper pointer-events-off">
-		<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100" class="page-transition is-preload">
-			<div class="page-transition-preload">
-				<div class="page-transition_content">
-					<div class="page-transition_bg">
-						<div class="page-transition_bg-item is-01 is-preload">
-							<div page-preload-bg-radius="target" page-transition-bg-radius="target" class="page-transition_bg-item-fill is-02 is-top"></div>
-							<div class="page-transition_bg-item-fill is-02"></div>
-						</div>
-						<div class="page-transition_bg-item is-02 is-preload">
-							<div page-preload-bg-radius="target" page-transition-bg-radius="target" class="page-transition_bg-item-fill is-01 is-top"></div>
-							<div class="page-transition_bg-item-fill is-01"></div>
-						</div>
+<div class="page-transition_wrapper pointer-events-off">
+	<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100"
+		class="page-transition is-preload">
+		<div class="page-transition-preload">
+			<div class="page-transition_content">
+				<div class="page-transition_bg">
+					<div class="page-transition_bg-item is-01 is-preload">
+						<div page-preload-bg-radius="target" page-transition-bg-radius="target"
+							class="page-transition_bg-item-fill is-02 is-top"></div>
+						<div class="page-transition_bg-item-fill is-02"></div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100" class="page-transition is-load">
-			<div class="page-transition-load">
-				<div class="page-transition_content">
-					<div class="page-transition_bg">
-						<div class="page-transition_bg-item is-01 is-load">
-							<div page-load-bg-radius="target" page-transition-bg-radius="target" class="page-transition_bg-item-fill is-02 is-top"></div>
-							<div class="page-transition_bg-item-fill is-02"></div>
-						</div>
-						<div class="page-transition_bg-item is-02 is-load">
-							<div page-load-bg-radius="target" page-transition-bg-radius="target" class="page-transition_bg-item-fill is-01 is-top"></div>
-							<div class="page-transition_bg-item-fill is-01"></div>
-						</div>
+					<div class="page-transition_bg-item is-02 is-preload">
+						<div page-preload-bg-radius="target" page-transition-bg-radius="target"
+							class="page-transition_bg-item-fill is-01 is-top"></div>
+						<div class="page-transition_bg-item-fill is-01"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100"
+		class="page-transition is-load">
+		<div class="page-transition-load">
+			<div class="page-transition_content">
+				<div class="page-transition_bg">
+					<div class="page-transition_bg-item is-01 is-load">
+						<div page-load-bg-radius="target" page-transition-bg-radius="target"
+							class="page-transition_bg-item-fill is-02 is-top"></div>
+						<div class="page-transition_bg-item-fill is-02"></div>
+					</div>
+					<div class="page-transition_bg-item is-02 is-load">
+						<div page-load-bg-radius="target" page-transition-bg-radius="target"
+							class="page-transition_bg-item-fill is-01 is-top"></div>
+						<div class="page-transition_bg-item-fill is-01"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
 
 	<div class="wrapper" data-barba="container" data-barba-namespace="home" style="
-	--primary-color: #6366f1; 
+	--primary-color-btn: #6366f1; 
+	--primary-color-btn-hover: #8083f2; 
+	--primary-color-btn-text: #fff; 
 	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
 	">
 
@@ -176,166 +181,868 @@
 				<div class="rs-header__wrapper">
 
 					<div class="rs-header__menu menu">
-						<button type="button" class="menu__icon icon-menu"></button>
-						<nav class="menu__body">
-							<ul class="menu__list">
-								<li class="menu-item dropdown-item">
-									<a href="#"><span>Разработка</span></a>
+						<button type="button" class="menu__icon icon-menu">
+							<span>меню</span>
+							<span>скрыть</span>
+						</button>
 
-									<div class="dropdown dropdown__menu" hidden>
-										<div class="dropdown__container">
-											<ul class="dropdown__columns">
-												<li class="menu-item dropdown-item">
-													<a href="#"><span>Информационный сайт</span></a>
+						<div class="menu__block">
 
-													<ul class="dropdown__list dropdown__menu" hidden>
-														<li class="menu-item">
-															<a href="#"><span>Сайт «ХЗ» от 170 000 руб.</span></a>
+							<nav class="menu__body">
+								<ul class="menu__list">
+									<li class="menu-item">
+										<a href="./home.html">Главная</a>
+									</li>
+
+									<li class="menu-item menu__dropdown menu__dropdown_block--full">
+										<a href="./develop.html">Pазработка</a>
+
+										<div class="menu__dropdown_block">
+											<div class="menu__dropdown_body">
+												<div class="menu__dropdown_container">
+													<div class="menu__dropdown_head">
+														<button type="button" class="menu__dropdown_back"></button>
+														<h6>Разработка</h6>
+													</div>
+
+													<div class="menu__dropdown_wrapper">
+														<div class="menu__dropdown_item">
+															<h6>Заказная разработка</h6>
+															<div class="menu__dropdown_columns">
+																<ul class="menu__dropdown_list">
+																	<li class="menu-item">
+																		<a href="#">Разработка ПО</a>
+																	</li>
+																	<li class="menu-item">
+																		<a href="#">Разработка сайта под ключ </a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="menu__dropdown_item">
+															<h6>Пакетные предложения</h6>
+															<div class="menu__dropdown_columns">
+																<ul class="menu__dropdown_list">
+																	<li class="menu-item">
+																		<a href="#">Информационный сайт</a>
+																		<ul>
+																			<li class="menu-item">
+																				<a href="#">Сайт «Бизнес Pro» за 170 000
+																					руб.</a>
+																			</li>
+																			<li class="menu-item">
+																				<a href="./site-business.html">Сайт «Бизнес» за
+																					110
+																					000 руб.</a>
+																			</li>
+																			<li class="menu-item">
+																				<a href="#">Сайт «Старт» за 23 000 руб.</a>
+																			</li>
+																			<li class="menu-item">
+																				<a href="#">Сайт «Лайт» за 23 000 руб.</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+
+																<ul class="menu__dropdown_list">
+																	<li class="menu-item">
+																		<a href="#">Интернет-магазин или каталог</a>
+																		<ul>
+																			<li class="menu-item">
+																				<a href="#">Магазин «Бизнес Pro» от 170 000
+																					руб.</a>
+																			</li>
+																			<li class="menu-item">
+																				<a href="#">Магазин «Бизнес» от 110 000 руб.</a>
+																			</li>
+																			<li class="menu-item">
+																				<a href="#">Магазин «Старт» за 45 000 руб.</a>
+																			</li>
+																			<li class="menu-item">
+																				<a href="#">Сайт-каталог «Лайт» за 29 000
+																					руб.</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+
+																<ul class="menu__dropdown_list">
+																	<li class="menu-item">
+																		<a href="#">Landing page</a>
+																		<ul>
+																			<li class="menu-item">
+																				<a href="#">Landing Page «Бизнес» за 80 000
+																					руб.</a>
+																			</li>
+																			<li class="menu-item">
+																				<a href="#">Landing Page «Старт» за 45 000
+																					руб.</a>
+																			</li>
+																			<li class="menu-item">
+																				<a href="#">Landing Page «Лайт» за 29 500
+																					руб.</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+
+													<div class="rs-header__feedback">
+														<h6>Отдел продаж</h6>
+														<ul>
+															<li>
+																<a href="tel:74951506441">
+																	<svg viewBox="0 0 15 15" fill="none">
+																		<path d="M1.54395 3.1986C1.54395 8.86358 6.13632 13.456 11.8013 13.456C12.0569 13.456 12.3103 13.4466 12.5612 13.4282C12.8491 13.4071 12.9931 13.3966 13.1241 13.3212C13.2327 13.2587 13.3356 13.1479 13.39 13.0351C13.4557 12.8989 13.4557 12.74 13.4557 12.4223V10.5579C13.4557 10.2907 13.4557 10.1571 13.4117 10.0426C13.3729 9.94139 13.3098 9.85131 13.228 9.78024C13.1354 9.69977 13.0098 9.65411 12.7587 9.5628L10.6366 8.7911C10.3444 8.68486 10.1983 8.63175 10.0597 8.64076C9.93752 8.64872 9.81992 8.69042 9.72001 8.76124C9.6067 8.84156 9.52673 8.97485 9.36678 9.24142L8.82336 10.1471C7.06977 9.35295 5.64814 7.92947 4.85277 6.17654L5.75848 5.63312C6.02505 5.47317 6.15834 5.3932 6.23866 5.27989C6.30948 5.17998 6.35118 5.06238 6.35914 4.94017C6.36815 4.80157 6.31503 4.65549 6.2088 4.36334L5.4371 2.24117C5.34579 1.99006 5.30013 1.86451 5.21966 1.7719C5.14859 1.6901 5.05851 1.62701 4.95734 1.58816C4.84281 1.54419 4.70922 1.54419 4.44202 1.54419H2.57763C2.25989 1.54419 2.10103 1.54419 1.96481 1.60987C1.852 1.66427 1.74124 1.76721 1.67875 1.87575C1.60329 2.00681 1.59275 2.15078 1.57167 2.43871C1.55329 2.68961 1.54395 2.94301 1.54395 3.1986Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																	</svg>
+																	<span>+7 495 150-64-41</span>
+																</a>
+															</li>
+															<li>
+																<a href="mailto:mail@rosait.ru">
+																	<svg viewBox="0 0 15 15" fill="none">
+																		<path d="M1.125 4.66675L4.98536 7.24032C5.89417 7.8462 6.34858 8.14913 6.83972 8.26683C7.27376 8.37084 7.72624 8.37084 8.16028 8.26683C8.65142 8.14913 9.10583 7.8462 10.0146 7.24032L13.875 4.66675M3.39167 12.4584H11.6083C12.4017 12.4584 12.7984 12.4584 13.1015 12.304C13.368 12.1682 13.5848 11.9515 13.7206 11.6849C13.875 11.3819 13.875 10.9852 13.875 10.1917V4.80841C13.875 4.01501 13.875 3.6183 13.7206 3.31526C13.5848 3.0487 13.368 2.83198 13.1015 2.69616C12.7984 2.54175 12.4017 2.54175 11.6083 2.54175H3.39167C2.59826 2.54175 2.20156 2.54175 1.89851 2.69616C1.63195 2.83198 1.41523 3.0487 1.27941 3.31526C1.125 3.6183 1.125 4.01501 1.125 4.80841V10.1917C1.125 10.9852 1.125 11.3819 1.27941 11.6849C1.41523 11.9515 1.63195 12.1682 1.89851 12.304C2.20156 12.4584 2.59826 12.4584 3.39167 12.4584Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																	</svg>
+																	<span>mail@rosait.ru</span>
+																</a>
+															</li>
+															<li>
+																<svg viewBox="0 0 15 15" fill="none">
+																	<path d="M1.59375 3.2751L2.90625 1.9751M13.4062 3.2751L12.0938 1.9751M7.5 5.2251V7.8251L8.8125 9.1251M12.75 7.8251C12.75 10.697 10.3995 13.0251 7.5 13.0251C4.6005 13.0251 2.25 10.697 2.25 7.8251C2.25 4.95322 4.6005 2.6251 7.5 2.6251C10.3995 2.6251 12.75 4.95322 12.75 7.8251Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																</svg>
+																<span>9:00 до 18:00 по рабочим дням</span>
+															</li>
+														</ul>
+														<a href="#" class="rs-btn _btn-primary" data-popup="#feedback">
+															<span class="btn-text _rs-icon-message">связаться с нами</span>
+															<span class="btn-hover"></span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li class="menu-item menu__dropdown">
+										<a href="./add-services.html">Дополнительные услуги</a>
+
+										<div class="menu__dropdown_block">
+											<div class="menu__dropdown_body">
+												<div class="menu__dropdown_container">
+													<div class="menu__dropdown_head">
+														<button type="button" class="menu__dropdown_back"></button>
+														<h6>Дополнительные услуги</h6>
+													</div>
+
+													<div class="menu__dropdown_wrapper">
+														<div class="menu__dropdown_item">
+															<h6>Продвижение и реклама</h6>
+															<div class="menu__dropdown_columns">
+																<ul class="menu__dropdown_list">
+																	<li class="menu-item">
+																		<a href="./promotion-10.html">SEO продвижение сайта</a>
+																	</li>
+																	<li class="menu-item">
+																		<a href="./context-advert.html">Контекстная реклама</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="menu__dropdown_item">
+															<h6>Доработка и поддержка</h6>
+															<div class="menu__dropdown_columns">
+																<ul class="menu__dropdown_list">
+																	<li class="menu-item">
+																		<a href="#">Продающая страница</a>
+																	</li>
+																	<li class="menu-item">
+																		<a href="./logo-dev.html">Разработка логотипов</a>
+																	</li>
+																	<li class="menu-item">
+																		<a href="./tech-support.html">Техническая поддержка</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+
+													<div class="rs-header__feedback">
+														<h6>Отдел продаж</h6>
+														<ul>
+															<li>
+																<a href="tel:74951506441">
+																	<svg viewBox="0 0 15 15" fill="none">
+																		<path d="M1.54395 3.1986C1.54395 8.86358 6.13632 13.456 11.8013 13.456C12.0569 13.456 12.3103 13.4466 12.5612 13.4282C12.8491 13.4071 12.9931 13.3966 13.1241 13.3212C13.2327 13.2587 13.3356 13.1479 13.39 13.0351C13.4557 12.8989 13.4557 12.74 13.4557 12.4223V10.5579C13.4557 10.2907 13.4557 10.1571 13.4117 10.0426C13.3729 9.94139 13.3098 9.85131 13.228 9.78024C13.1354 9.69977 13.0098 9.65411 12.7587 9.5628L10.6366 8.7911C10.3444 8.68486 10.1983 8.63175 10.0597 8.64076C9.93752 8.64872 9.81992 8.69042 9.72001 8.76124C9.6067 8.84156 9.52673 8.97485 9.36678 9.24142L8.82336 10.1471C7.06977 9.35295 5.64814 7.92947 4.85277 6.17654L5.75848 5.63312C6.02505 5.47317 6.15834 5.3932 6.23866 5.27989C6.30948 5.17998 6.35118 5.06238 6.35914 4.94017C6.36815 4.80157 6.31503 4.65549 6.2088 4.36334L5.4371 2.24117C5.34579 1.99006 5.30013 1.86451 5.21966 1.7719C5.14859 1.6901 5.05851 1.62701 4.95734 1.58816C4.84281 1.54419 4.70922 1.54419 4.44202 1.54419H2.57763C2.25989 1.54419 2.10103 1.54419 1.96481 1.60987C1.852 1.66427 1.74124 1.76721 1.67875 1.87575C1.60329 2.00681 1.59275 2.15078 1.57167 2.43871C1.55329 2.68961 1.54395 2.94301 1.54395 3.1986Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																	</svg>
+																	<span>+7 495 150-64-41</span>
+																</a>
+															</li>
+															<li>
+																<a href="mailto:mail@rosait.ru">
+																	<svg viewBox="0 0 15 15" fill="none">
+																		<path d="M1.125 4.66675L4.98536 7.24032C5.89417 7.8462 6.34858 8.14913 6.83972 8.26683C7.27376 8.37084 7.72624 8.37084 8.16028 8.26683C8.65142 8.14913 9.10583 7.8462 10.0146 7.24032L13.875 4.66675M3.39167 12.4584H11.6083C12.4017 12.4584 12.7984 12.4584 13.1015 12.304C13.368 12.1682 13.5848 11.9515 13.7206 11.6849C13.875 11.3819 13.875 10.9852 13.875 10.1917V4.80841C13.875 4.01501 13.875 3.6183 13.7206 3.31526C13.5848 3.0487 13.368 2.83198 13.1015 2.69616C12.7984 2.54175 12.4017 2.54175 11.6083 2.54175H3.39167C2.59826 2.54175 2.20156 2.54175 1.89851 2.69616C1.63195 2.83198 1.41523 3.0487 1.27941 3.31526C1.125 3.6183 1.125 4.01501 1.125 4.80841V10.1917C1.125 10.9852 1.125 11.3819 1.27941 11.6849C1.41523 11.9515 1.63195 12.1682 1.89851 12.304C2.20156 12.4584 2.59826 12.4584 3.39167 12.4584Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																	</svg>
+																	<span>mail@rosait.ru</span>
+																</a>
+															</li>
+															<li>
+																<svg viewBox="0 0 15 15" fill="none">
+																	<path d="M1.59375 3.2751L2.90625 1.9751M13.4062 3.2751L12.0938 1.9751M7.5 5.2251V7.8251L8.8125 9.1251M12.75 7.8251C12.75 10.697 10.3995 13.0251 7.5 13.0251C4.6005 13.0251 2.25 10.697 2.25 7.8251C2.25 4.95322 4.6005 2.6251 7.5 2.6251C10.3995 2.6251 12.75 4.95322 12.75 7.8251Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																</svg>
+																<span>9:00 до 18:00 по рабочим дням</span>
+															</li>
+														</ul>
+														<a href="#" class="rs-btn _btn-primary" data-popup="#feedback">
+															<span class="btn-text _rs-icon-message">связаться с нами</span>
+															<span class="btn-hover"></span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li class="menu-item">
+										<a href="./about.html">О компании</a>
+									</li>
+
+									<li class="menu-item">
+										<a href="./case.html">Кейсы</a>
+									</li>
+
+									<li class="menu-item">
+										<a href="./contact.html">Контакты</a>
+									</li>
+								</ul>
+							</nav>
+
+							<div class="rs-header__location">
+								<a href="#" class="rs-header__location_link rs-header__location_show-search">
+									<svg viewBox="0 0 15 15" fill="none">
+										<path d="M7.1875 14.25C10.0313 11.55 12.875 9.13234 12.875 6.15C12.875 3.16766 10.3286 0.75 7.1875 0.75C4.04638 0.75 1.5 3.16766 1.5 6.15C1.5 9.13234 4.34375 11.55 7.1875 14.25Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejo in="round" />
+										<circle cx="7.125" cy="5.625" r="1.125" fill="#6366F1" />
+									</svg>
+									<span>Москва</span>
+								</a>
+
+								<div class="rs-header__region" id="change_region_modal">
+									<div class="rs-header__region_body">
+										<div class="rs-header__region_container">
+											<div class="rs-header__region_wrapper">
+												<div class="rs-header__region_head">
+													<h4 class="mrp-med-25">Выберите ваш город</h4>
+													<button type="button" class="rs-header__region_close"></button>
+												</div>
+												<div class="rs-header__region_field">
+													<button type="button" class="rs-header__region_close"></button>
+													<input autocomplete="off" placeholder="Поиск города" type="text" name="form[]" spellcheck="false" value="" class="rs-input">
+												</div>
+												<div class="rs-header__region_select">
+													<ul>
+														<li>
+															<div class="rs-header__region_letter">А</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Амурск</a></li>
+																<li><a href="#">Ангарск</a></li>
+																<li><a href="#">Армавир</a></li>
+																<li><a href="#">Архангельск</a></li>
+															</ul>
 														</li>
-														<li class="menu-item">
-															<a href="#"><span>Сайт «Бизнес Pro» за 170 000руб.</span></a>
+
+														<li>
+															<div class="rs-header__region_letter">Б</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Барнаул</a></li>
+																<li><a href="#">Белогорск</a></li>
+																<li><a href="#">Биробиджан</a></li>
+																<li><a href="#">Благовещенск</a></li>
+															</ul>
 														</li>
-														<li class="menu-item">
-															<a href="site-business.html"><span>Сайт «Бизнес» за 110 000
-																	руб.</span></a>
+
+														<li>
+															<div class="rs-header__region_letter">В</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Ванино</a></li>
+																<li><a href="#">Великий Новгород</a></li>
+																<li><a href="#">Владивосток</a></li>
+																<li><a href="#" class="rs-header__region_link">Волгоград</a>
+																</li>
+																<li><a href="#">Волжский</a></li>
+																<li><a href="#">Вологда</a></li>
+																<li><a href="#" class="rs-header__region_link">Воронеж</a></li>
+																<li><a href="#">Вяземский</a></li>
+															</ul>
 														</li>
-														<li class="menu-item">
-															<a href="#"><span>Сайт «Старт Pro» за 45 000руб.</span></a>
+
+														<li>
+															<div class="rs-header__region_letter">Д</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Дагестан</a></li>
+																<li><a href="#">Дербент</a></li>
+																<li><a href="#">Де-Кастри</a></li>
+																<li><a href="#">Донецк</a></li>
+															</ul>
 														</li>
-														<li class="menu-item">
-															<a href="#"><span>Сайт «Старт» за 23 000 руб.</span></a>
+
+														<li>
+															<div class="rs-header__region_letter">Е</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Евпатория</a></li>
+																<li><a href="#">Ейск</a></li>
+																<li><a href="#" class="rs-header__region_link">Екатеринбург</a>
+																</li>
+															</ul>
 														</li>
-														<li class="menu-item">
-															<a href="#"><span>Сайт на шаблоне за 5 500 руб.</span></a>
+
+														<li>
+															<div class="rs-header__region_letter">З</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Заветы Ильича</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">И</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Иваново</a></li>
+																<li><a href="#">Ижевск</a></li>
+																<li><a href="#">Иркутск</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">К</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#" class="rs-header__region_link">Казань</a></li>
+																<li><a href="#">Калининград</a></li>
+																<li><a href="#">Кемерово</a></li>
+																<li><a href="#">Киров</a></li>
+																<li><a href="#">Комсомольск-на-Амуре</a></li>
+																<li><a href="#">Королёв</a></li>
+																<li><a href="#">Краснознаменск</a></li>
+																<li><a href="#" class="rs-header__region_link">Краснодар</a>
+																</li>
+																<li><a href="#" class="rs-header__region_link">Красноярск</a>
+																</li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">Л</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Липецк</a></li>
+																<li><a href="#">Луга</a></li>
+																<li><a href="#">Луганск</a></li>
+																<li><a href="#">Лучегорск</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">М</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Магадан</a></li>
+																<li><a href="#">Мариупль</a></li>
+																<li><a href="#">Мелитополь</a></li>
+																<li><a href="#">Мирный</a></li>
+																<li><a href="#" class="rs-header__region_link">Москва</a></li>
+																<li><a href="#">Мытищи</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">Н</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Нарьян-Мар</a></li>
+																<li><a href="#">Находка</a></li>
+																<li><a href="#">Нефтекамск</a></li>
+																<li><a href="#">Нефтекамск</a></li>
+																<li><a href="#">Нижневартовск</a></li>
+																<li><a href="#" class="rs-header__region_link">Нижний
+																		Новгород</a></li>
+																<li><a href="#">Нижний тагил</a></li>
+																<li><a href="#">Николаевск-на-Амуре</a></li>
+																<li><a href="#">Новороссийск</a></li>
+																<li><a href="#" class="rs-header__region_link">Новосибирск</a>
+																</li>
+																<li><a href="#">Ногинск</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">О</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Октябрьский</a></li>
+																<li><a href="#" class="rs-header__region_link">Омск</a></li>
+																<li><a href="#">Оренбург</a></li>
+																<li><a href="#">Орск</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">П</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Пенза</a></li>
+																<li><a href="#">Переяславка</a></li>
+																<li><a href="#" class="rs-header__region_link">Пермь</a></li>
+																<li><a href="#">Подпорожье</a></li>
+																<li><a href="#">Псков</a></li>
+																<li><a href="#">Пятигорск</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">Р</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Ростов-на-Дону</a></li>
+																<li><a href="#">Рязань</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">С</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#" class="rs-header__region_link">Самара</a></li>
+																<li><a href="#" class="rs-header__region_link">Санкт-Петербург</a></li>
+																<li><a href="#">Саратов</a></li>
+																<li><a href="#">Сахалин</a></li>
+																<li><a href="#">Севастополь</a></li>
+																<li><a href="#">Советская Гавань</a></li>
+																<li><a href="#">Солнечный</a></li>
+																<li><a href="#">Соловьевск</a></li>
+																<li><a href="#">Сочи</a></li>
+																<li><a href="#">Ставрополь</a></li>
+																<li><a href="#">Стерлитамак</a></li>
+																<li><a href="#">Сургут</a></li>
+																<li><a href="#">Сыктывкар</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">Т</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Тольяти</a></li>
+																<li><a href="#">Томск</a></li>
+																<li><a href="#">Тосно</a></li>
+																<li><a href="#">Туймазы</a></li>
+																<li><a href="#">Тында</a></li>
+																<li><a href="#">Тюмень</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">У</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Уссурийск</a></li>
+																<li><a href="#" class="rs-header__region_link">Уфа</a></li>
+																<li><a href="#">Ухта</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">Х</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Хабаровск</a></li>
+																<li><a href="#">Хор</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">Ч</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Чегдомын</a></li>
+																<li><a href="#" class="rs-header__region_link">Челябинск</a>
+																</li>
+																<li><a href="#">Чита</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">Ш</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Шелехов</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">Ю</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Южно-Сахалинск</a></li>
+															</ul>
+														</li>
+
+														<li>
+															<div class="rs-header__region_letter">Я</div>
+															<ul class="rs-header__region_list">
+																<li><a href="#">Якутск</a></li>
+															</ul>
 														</li>
 													</ul>
-												</li>
-
-												<li class="menu-item dropdown-item">
-													<a href="#"><span>Интернет-магазин или каталог</span></a>
-
-													<ul class="dropdown__list dropdown__menu" hidden>
-														<li class="menu-item">
-															<a href="#"><span>Магазин «ХЗ» за 170 000 руб.</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="#"><span>Магазин «Бизнес Pro» от 170 000 руб.</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="#"><span>Магазин «Бизнес» от 110 000 руб.</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="#"><span>Магазин «Старт» за 45 000 руб.</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="#"><span>Сайт-каталог «Лайт» за 29 000 руб.</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="#"><span>Сайт-каталог на шаблоне за 9 500 руб.</span></a>
-														</li>
-													</ul>
-												</li>
-
-												<li class="menu-item dropdown-item">
-													<a href="#"><span>Landing page</span></a>
-
-													<ul class="dropdown__list dropdown__menu" hidden>
-														<li class="menu-item">
-															<a href="#"><span>Landing Page «Бизнес» за 80 000 руб.</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="#"><span>Landing Page «Старт» за 45 000 руб.</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="#"><span>Landing Page «Лайт» за 29 500 руб.</span></a>
-														</li>
-													</ul>
-												</li>
-
-												<li class="menu-item"><a href="web-services.html"><span>Веб сервисы</span></a>
-												</li>
-											</ul>
+												</div>
+											</div>
 										</div>
 									</div>
-								</li>
+								</div>
+							</div>
 
-								<li class="menu-item dropdown-item">
-									<a href="add-services.html"><span>Дополнительные услуги</span></a>
-
-									<div class="dropdown dropdown__menu" hidden>
-										<div class="dropdown__container">
-											<ul class="dropdown__columns">
-												<li class="menu-item dropdown-item">
-													<a href="#"><span>Продвижение и реклама</span></a>
-
-													<ul class="dropdown__list dropdown__menu" hidden>
-														<li class="menu-item">
-															<a href="#"><span>SEO продвижение сайта</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="context-advert.html"><span>Контекстная реклама</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="promotion-10.html"><span>Комплексное продвижение</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="promotion-page.html"><span>Продвижение в соц
-																	сетях</span></a>
-														</li>
-													</ul>
-												</li>
-
-												<li class="menu-item dropdown-item">
-													<a href="#"><span>Доработка и поддержка</span></a>
-
-													<ul class="dropdown__list dropdown__menu" hidden>
-														<li class="menu-item">
-															<a href="#"><span>Продающая страница</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="logo-dev.html"><span>Разработка логотипов</span></a>
-														</li>
-														<li class="menu-item">
-															<a href="tech-support.html"><span>Техническая поддержка</span></a>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</li>
-
-								<li class="menu-item"><a href="#"><span>О компании</span></a></li>
-
-								<li class="menu-item"><a href="case.html"><span>Кейсы</span></a></li>
-							</ul>
-
-							<div class="rs-header__actions_item rs-header__location">
-								<a href="#" class="_rs-icon-pin">
-									<span class="split-text">Москва</span>
+							<div class="rs-header__feedback">
+								<h6>Отдел продаж</h6>
+								<ul>
+									<li>
+										<a href="tel:74951506441">
+											<svg viewBox="0 0 15 15" fill="none">
+												<path d="M1.54395 3.1986C1.54395 8.86358 6.13632 13.456 11.8013 13.456C12.0569 13.456 12.3103 13.4466 12.5612 13.4282C12.8491 13.4071 12.9931 13.3966 13.1241 13.3212C13.2327 13.2587 13.3356 13.1479 13.39 13.0351C13.4557 12.8989 13.4557 12.74 13.4557 12.4223V10.5579C13.4557 10.2907 13.4557 10.1571 13.4117 10.0426C13.3729 9.94139 13.3098 9.85131 13.228 9.78024C13.1354 9.69977 13.0098 9.65411 12.7587 9.5628L10.6366 8.7911C10.3444 8.68486 10.1983 8.63175 10.0597 8.64076C9.93752 8.64872 9.81992 8.69042 9.72001 8.76124C9.6067 8.84156 9.52673 8.97485 9.36678 9.24142L8.82336 10.1471C7.06977 9.35295 5.64814 7.92947 4.85277 6.17654L5.75848 5.63312C6.02505 5.47317 6.15834 5.3932 6.23866 5.27989C6.30948 5.17998 6.35118 5.06238 6.35914 4.94017C6.36815 4.80157 6.31503 4.65549 6.2088 4.36334L5.4371 2.24117C5.34579 1.99006 5.30013 1.86451 5.21966 1.7719C5.14859 1.6901 5.05851 1.62701 4.95734 1.58816C4.84281 1.54419 4.70922 1.54419 4.44202 1.54419H2.57763C2.25989 1.54419 2.10103 1.54419 1.96481 1.60987C1.852 1.66427 1.74124 1.76721 1.67875 1.87575C1.60329 2.00681 1.59275 2.15078 1.57167 2.43871C1.55329 2.68961 1.54395 2.94301 1.54395 3.1986Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+											<span>+7 495 150-64-41</span>
+										</a>
+									</li>
+									<li>
+										<a href="mailto:mail@rosait.ru">
+											<svg viewBox="0 0 15 15" fill="none">
+												<path d="M1.125 4.66675L4.98536 7.24032C5.89417 7.8462 6.34858 8.14913 6.83972 8.26683C7.27376 8.37084 7.72624 8.37084 8.16028 8.26683C8.65142 8.14913 9.10583 7.8462 10.0146 7.24032L13.875 4.66675M3.39167 12.4584H11.6083C12.4017 12.4584 12.7984 12.4584 13.1015 12.304C13.368 12.1682 13.5848 11.9515 13.7206 11.6849C13.875 11.3819 13.875 10.9852 13.875 10.1917V4.80841C13.875 4.01501 13.875 3.6183 13.7206 3.31526C13.5848 3.0487 13.368 2.83198 13.1015 2.69616C12.7984 2.54175 12.4017 2.54175 11.6083 2.54175H3.39167C2.59826 2.54175 2.20156 2.54175 1.89851 2.69616C1.63195 2.83198 1.41523 3.0487 1.27941 3.31526C1.125 3.6183 1.125 4.01501 1.125 4.80841V10.1917C1.125 10.9852 1.125 11.3819 1.27941 11.6849C1.41523 11.9515 1.63195 12.1682 1.89851 12.304C2.20156 12.4584 2.59826 12.4584 3.39167 12.4584Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+											<span>mail@rosait.ru</span>
+										</a>
+									</li>
+									<li>
+										<svg viewBox="0 0 15 15" fill="none">
+											<path d="M1.59375 3.2751L2.90625 1.9751M13.4062 3.2751L12.0938 1.9751M7.5 5.2251V7.8251L8.8125 9.1251M12.75 7.8251C12.75 10.697 10.3995 13.0251 7.5 13.0251C4.6005 13.0251 2.25 10.697 2.25 7.8251C2.25 4.95322 4.6005 2.6251 7.5 2.6251C10.3995 2.6251 12.75 4.95322 12.75 7.8251Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+										<span>9:00 до 18:00 по рабочим дням</span>
+									</li>
+								</ul>
+								<a href="#" class="rs-btn _btn-primary" data-popup="#feedback">
+									<span class="btn-text _rs-icon-message">связаться с нами</span>
+									<span class="btn-hover"></span>
 								</a>
 							</div>
-						</nav>
+
+						</div>
 					</div>
 
-					<div class="rs-header__logo"><a href="home.html"><img src="img/header/logo.svg" alt=""></a></div>
+					<div class="rs-header__logo"><a href="./home.html"><img src="img/header/logo.svg" alt=""></a></div>
 
 					<div class="rs-header__actions">
 						<div class="rs-header__actions_item rs-header__location">
-							<a href="#" class="_rs-icon-pin">
-								<span class="split-text">Москва</span>
+							<a href="#" class="rs-header__location_link rs-header__location_show-search">
+								<svg viewBox="0 0 20 21" fill="none">
+									<path d="M9.58333 19.5C13.375 15.9 17.1667 12.6764 17.1667 8.7C17.1667 4.72355 13.7715 1.5 9.58333 1.5C5.39517 1.5 2 4.72355 2 8.7C2 12.6764 5.79167 15.9 9.58333 19.5Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+									<circle cx="9.5" cy="8" r="1" fill="#141517" stroke="#141517" />
+								</svg>
+								<span>Москва</span>
+							</a>
+
+							<div class="rs-header__location_modal">
+								<div class="rs-header__location_modal_body">
+									<h6>Ваш регион Санкт-Петербург?</h6>
+									<div class="rs-header__location_modal_btn">
+										<a href="#" class="rs-btn _btn-primary rs-header__location_verification">
+											<span class="btn-text">Да, верно</span>
+											<span class="btn-hover"></span>
+										</a>
+										<a href="#" class="rs-btn _btn-gray rs-header__location_link rs-header__location_show-search">
+											<span class="btn-text">Нет, другой</span>
+											<span class="btn-hover"></span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="rs-header__actions_item  rs-header__contact">
+							<a href="./contact.html">
+								<svg viewBox="0 0 20 21" fill="none">
+									<path d="M5.09062 5.85183L6.83779 4.10488C7.63434 3.30842 8.03262 2.91019 8.49188 2.76099C8.89586 2.62974 9.33103 2.62974 9.73501 2.76099C10.1943 2.91019 10.5925 3.30842 11.3891 4.10487L12.1305 4.84637M8.10774 8.86858L12.1306 12.8909M7.60491 17.4163C8.26668 16.7546 14.7896 10.2324 18.1688 6.85366C19.2797 5.74288 19.2757 3.94599 18.1648 2.83518C17.0539 1.72432 15.2567 1.72026 14.1457 2.83109C10.7665 6.20993 4.24376 12.7319 3.58196 13.3936C1.78719 15.188 0.712189 19.5744 1.06769 19.9299C1.4232 20.2853 5.75503 19.2659 7.60491 17.4163Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+								<span>Контакты</span>
 							</a>
 						</div>
-						<div class="rs-header__actions_item rs-header__contact">
-							<a href="contact.html" class="_rs-icon-pen">
-								<span class="split-text">Контакты</span>
-							</a>
-						</div>
+
 						<div class="rs-header__call">
-							<a href="#" class="rs-btn _btn-gray-border">
-								<span class="btn-text _rs-icon-message">cвязаться с нами</span>
+							<a href="#" class="rs-btn _btn-gray-border" data-popup="#feedback">
+								<span class="btn-text">
+									<svg viewBox="0 0 20 21" fill="none">
+										<path d="M14.0039 8.5H6.00391M14.0039 12.5H6.00391M1 10.5C1 15.4706 5.02944 19.5 10 19.5C12.0364 19.5 18.9993 19.5 18.9993 19.5C18.9993 19.5 17.4401 15.7561 18.0641 14.5008C18.6631 13.2956 19 11.9372 19 10.5C19 5.52944 14.9706 1.5 10 1.5C5.02944 1.5 1 5.52944 1 10.5Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+									связаться с нами
+								</span>
 								<span class="btn-hover"></span>
-								<span class="svg-wrapper"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="rs-header__region" id="change_region_modal">
+					<div class="rs-header__region_body">
+						<div class="rs-header__region_container">
+							<div class="rs-header__region_wrapper">
+								<div class="rs-header__region_head">
+									<h4 class="mrp-med-25">Выберите ваш город</h4>
+									<button type="button" class="rs-header__region_close"></button>
+								</div>
+								<div class="rs-header__region_field">
+									<button type="button" class="rs-header__region_close"></button>
+									<input autocomplete="off" placeholder="Поиск города" type="text" name="form[]" spellcheck="false" value="" class="rs-input">
+								</div>
+								<div class="rs-header__region_select">
+									<ul>
+										<li>
+											<div class="rs-header__region_letter">А</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Амурск</a></li>
+												<li><a href="#">Ангарск</a></li>
+												<li><a href="#">Армавир</a></li>
+												<li><a href="#">Архангельск</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Б</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Барнаул</a></li>
+												<li><a href="#">Белогорск</a></li>
+												<li><a href="#">Биробиджан</a></li>
+												<li><a href="#">Благовещенск</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">В</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Ванино</a></li>
+												<li><a href="#">Великий Новгород</a></li>
+												<li><a href="#">Владивосток</a></li>
+												<li><a href="#" class="rs-header__region_link">Волгоград</a>
+												</li>
+												<li><a href="#">Волжский</a></li>
+												<li><a href="#">Вологда</a></li>
+												<li><a href="#" class="rs-header__region_link">Воронеж</a></li>
+												<li><a href="#">Вяземский</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Д</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Дагестан</a></li>
+												<li><a href="#">Дербент</a></li>
+												<li><a href="#">Де-Кастри</a></li>
+												<li><a href="#">Донецк</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Е</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Евпатория</a></li>
+												<li><a href="#">Ейск</a></li>
+												<li><a href="#" class="rs-header__region_link">Екатеринбург</a>
+												</li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">З</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Заветы Ильича</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">И</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Иваново</a></li>
+												<li><a href="#">Ижевск</a></li>
+												<li><a href="#">Иркутск</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">К</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#" class="rs-header__region_link">Казань</a></li>
+												<li><a href="#">Калининград</a></li>
+												<li><a href="#">Кемерово</a></li>
+												<li><a href="#">Киров</a></li>
+												<li><a href="#">Комсомольск-на-Амуре</a></li>
+												<li><a href="#">Королёв</a></li>
+												<li><a href="#">Краснознаменск</a></li>
+												<li><a href="#" class="rs-header__region_link">Краснодар</a>
+												</li>
+												<li><a href="#" class="rs-header__region_link">Красноярск</a>
+												</li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Л</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Липецк</a></li>
+												<li><a href="#">Луга</a></li>
+												<li><a href="#">Луганск</a></li>
+												<li><a href="#">Лучегорск</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">М</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Магадан</a></li>
+												<li><a href="#">Мариупль</a></li>
+												<li><a href="#">Мелитополь</a></li>
+												<li><a href="#">Мирный</a></li>
+												<li><a href="#" class="rs-header__region_link">Москва</a></li>
+												<li><a href="#">Мытищи</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Н</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Нарьян-Мар</a></li>
+												<li><a href="#">Находка</a></li>
+												<li><a href="#">Нефтекамск</a></li>
+												<li><a href="#">Нефтекамск</a></li>
+												<li><a href="#">Нижневартовск</a></li>
+												<li><a href="#" class="rs-header__region_link">Нижний
+														Новгород</a></li>
+												<li><a href="#">Нижний тагил</a></li>
+												<li><a href="#">Николаевск-на-Амуре</a></li>
+												<li><a href="#">Новороссийск</a></li>
+												<li><a href="#" class="rs-header__region_link">Новосибирск</a>
+												</li>
+												<li><a href="#">Ногинск</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">О</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Октябрьский</a></li>
+												<li><a href="#" class="rs-header__region_link">Омск</a></li>
+												<li><a href="#">Оренбург</a></li>
+												<li><a href="#">Орск</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">П</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Пенза</a></li>
+												<li><a href="#">Переяславка</a></li>
+												<li><a href="#" class="rs-header__region_link">Пермь</a></li>
+												<li><a href="#">Подпорожье</a></li>
+												<li><a href="#">Псков</a></li>
+												<li><a href="#">Пятигорск</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Р</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Ростов-на-Дону</a></li>
+												<li><a href="#">Рязань</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">С</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#" class="rs-header__region_link">Самара</a></li>
+												<li><a href="#" class="rs-header__region_link">Санкт-Петербург</a></li>
+												<li><a href="#">Саратов</a></li>
+												<li><a href="#">Сахалин</a></li>
+												<li><a href="#">Севастополь</a></li>
+												<li><a href="#">Советская Гавань</a></li>
+												<li><a href="#">Солнечный</a></li>
+												<li><a href="#">Соловьевск</a></li>
+												<li><a href="#">Сочи</a></li>
+												<li><a href="#">Ставрополь</a></li>
+												<li><a href="#">Стерлитамак</a></li>
+												<li><a href="#">Сургут</a></li>
+												<li><a href="#">Сыктывкар</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Т</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Тольяти</a></li>
+												<li><a href="#">Томск</a></li>
+												<li><a href="#">Тосно</a></li>
+												<li><a href="#">Туймазы</a></li>
+												<li><a href="#">Тында</a></li>
+												<li><a href="#">Тюмень</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">У</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Уссурийск</a></li>
+												<li><a href="#" class="rs-header__region_link">Уфа</a></li>
+												<li><a href="#">Ухта</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Х</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Хабаровск</a></li>
+												<li><a href="#">Хор</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Ч</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Чегдомын</a></li>
+												<li><a href="#" class="rs-header__region_link">Челябинск</a>
+												</li>
+												<li><a href="#">Чита</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Ш</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Шелехов</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Ю</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Южно-Сахалинск</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<div class="rs-header__region_letter">Я</div>
+											<ul class="rs-header__region_list">
+												<li><a href="#">Якутск</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="rs-header__location_modal">
+					<div class="rs-header__location_modal_body">
+						<h6>Ваш регион Санкт-Петербург?</h6>
+						<div class="rs-header__location_modal_btn">
+							<a href="#" class="rs-btn _btn-primary rs-header__location_verification">
+								<span class="btn-text">Да, верно</span>
+								<span class="btn-hover"></span>
+							</a>
+							<a href="#" class="rs-btn _btn-gray rs-header__location_show-search">
+								<span class="btn-text">Нет, другой</span>
+								<span class="btn-hover"></span>
 							</a>
 						</div>
 					</div>
@@ -539,7 +1246,7 @@
 										<button type="button" class="rs-project__add rs-btn _btn-gray-border">
 											<span class="btn-text _rs-icon-picture">посмотреть другие кейсы</span>
 											<span class="btn-hover"></span>
-											<span class="svg-wrapper"></span>
+
 										</button>
 
 										<div class="rs-main__logo">
@@ -649,7 +1356,6 @@
 
 		</main>
 
-
 		<footer class="rs-footer">
 			<div class="rs-footer__top">
 				<div class="rs-footer__container">
@@ -665,21 +1371,21 @@
 										<span class="btn-text">Анкета для разработки сайта
 											«Бизнес»</span>
 										<span class="btn-hover"></span>
-										<span class="svg-wrapper"></span>
+
 									</a>
 								</li>
 								<li>
 									<a href="#" class="rs-btn _btn-gray-border">
 										<span class="btn-text">Презентация сайта «Бизнес»</span>
 										<span class="btn-hover"></span>
-										<span class="svg-wrapper"></span>
+
 									</a>
 								</li>
 								<li>
 									<a href="#" class="rs-btn _btn-gray-border">
 										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
 										<span class="btn-hover"></span>
-										<span class="svg-wrapper"></span>
+
 									</a>
 								</li>
 							</ul>
@@ -793,10 +1499,10 @@
 											</li>
 										</ul>
 									</div>
-									<a href="#" class="rs-btn _btn-white">
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
 										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
 										<span class="btn-hover"></span>
-										<span class="svg-wrapper"></span>
+
 									</a>
 								</div>
 							</div>
@@ -863,10 +1569,10 @@
 											<li><a href="mailto:support@rosait.ru">support@rosait.ru</a></li>
 										</ul>
 									</div>
-									<a href="#" class="rs-btn _btn-white">
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
 										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
 										<span class="btn-hover"></span>
-										<span class="svg-wrapper"></span>
+
 									</a>
 								</div>
 							</div>
@@ -908,126 +1614,229 @@
 
 	</div>
 
-	<div id="popup" aria-hidden="true" class="popup">
+	<div id="letter-manager" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
-				<button data-close type="button" class="popup__close">Закрыть</button>
+				<button data-close type="button" class="popup__close _rs-icon-close"></button>
 				<div class="popup__text">
-					Text
+					<h4>Написать письмо руководителю</h4>
+
+					<div class="form">
+						<form action="#">
+							<div class="form__wrapper">
+								<div class="form__block">
+									<div class="form__line">
+										<label for="user-name" class="rs-input-placeholder">ФИО</label>
+										<input id="user-name" type="text" name="form[]" data-required data-validate data-error="Введите ФИО" class="rs-input">
+										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									</div>
+									<div class="form__line">
+										<label for="user-phone" class="rs-input-placeholder">Телефон</label>
+										<input id="user-phone" type="tel" name="form[]" data-required="tel" data-validate data-error="Введите телефон" class="rs-input">
+										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									</div>
+									<div class="form__line">
+										<label for="user-message" class="rs-input-placeholder">Введите ваше
+											сообщение</label>
+										<textarea id="user-message" name="form[]" class="rs-input"></textarea>
+										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									</div>
+								</div>
+								<div class="form__footer">
+									<div class="form__agreement">Нажимая на кнопку «Отправить сообщение»,
+										вы соглашаетесь на обработку персональных данных в соответствии
+										с <a href="#">пользовательским соглашением</a>
+									</div>
+									<div class="form__button">
+										<button type="submit" class="rs-btn _btn-primary">
+											<span class="btn-text _rs-icon-call">Отправить сообщение</span>
+											<span class="btn-hover"></span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js?_v=20240320155449"></script>
 
-	<script>
-		const loaderFill = document.querySelectorAll('.page-transition_bg-item');
-		loaderFill.forEach((fill, index) => {
-			setTimeout(() => {
-				gsap.set(fill, {
-					zIndex: loaderFill.length - index,
-				})
-			}, 100);
+	<div id="feedback" aria-hidden="true" class="popup popup-right">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close _rs-icon-close"></button>
+				<div class="popup__text">
+					<h4>Свяжитесь с нами </h4>
+					<p>Оставьте заявку, наш менеджер свяжется с вами в ближайшее время</p>
+
+					<div class="form">
+						<form action="#">
+							<div class="form__wrapper">
+								<div class="form__block">
+									<div class="form__line">
+										<label for="user-name" class="rs-input-placeholder">ФИО</label>
+										<input id="user-name" type="text" name="form[]" data-required data-validate data-error="Введите ФИО" class="rs-input">
+										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									</div>
+									<div class="form__line">
+										<label for="user-phone" class="rs-input-placeholder">Телефон</label>
+										<input id="user-phone" type="tel" name="form[]" data-required="tel" data-validate data-error="Введите телефон" class="rs-input">
+										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									</div>
+									<div class="form__line">
+										<label for="user-message" class="rs-input-placeholder">Введите ваше
+											сообщение</label>
+										<textarea id="user-message" name="form[]" class="rs-input"></textarea>
+										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									</div>
+								</div>
+								<div class="form__footer">
+									<div class="form__agreement">Нажимая на кнопку «Отправить сообщение»,
+										вы соглашаетесь на обработку персональных данных в соответствии
+										с <a href="#">пользовательским соглашением</a>
+									</div>
+									<div class="form__button">
+										<button type="submit" class="rs-btn _btn-primary">
+											<span class="btn-text _rs-icon-message">отправить сообщение</span>
+											<span class="btn-hover"></span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="contact" aria-hidden="true" class="popup popup-right">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close _rs-icon-close"></button>
+				<div class="popup__text">
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js?_v=20240331043733"></script>
+<script>
+	const pageTransition01 = document.querySelectorAll('.page-transition_bg-item.is-01');
+	const pageTransition02 = document.querySelectorAll('.page-transition_bg-item.is-02');
+
+	function loaderAnimFrom() {
+		pageTransition01.forEach(page01 => {
+			gsap.to(page01, {
+				yPercent: 0,
+				delay: 0.2,
+				duration: 0.6,
+				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+			});
 		});
 
-		function loaderAnimFrom() {
-			loaderFill.forEach((fill, index) => {
-				gsap.to(fill, {
-					yPercent: 0,
-					delay: 0.2 * index,
-					duration: 0.6,
-					ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-				});
+		pageTransition02.forEach(page02 => {
+			gsap.to(page02, {
+				yPercent: 0,
+				delay: 0.4,
+				duration: 0.6,
+				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
 			});
+		});
+	}
+
+	function loaderAnimTo() {
+		pageTransition01.forEach(page01 => {
+			gsap.to(page01, {
+				yPercent: 100,
+				delay: 0.4,
+				duration: 0.6,
+				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+			});
+		});
+
+		pageTransition02.forEach(page02 => {
+			gsap.to(page02, {
+				yPercent: 100,
+				delay: 0.2,
+				duration: 0.6,
+				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+			});
+		});
+	}
+
+	$(document).on('click', 'a', function (e) {
+		loaderAnimFrom()
+
+		var $this = $(this);
+		var pageTransition = $this.attr("page-transition");
+
+		// Check als de transitie genegeerd moet worden
+		if (pageTransition === "ignore") {
+			return false;
 		}
 
-		function loaderAnimTo() {
-			loaderFill.forEach((fill, index) => {
-				gsap.to(fill, {
-					yPercent: 100,
-					delay: 0.2 * index,
-					duration: 0.6,
-					ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-				});
-			});
-		}
-
-		$(document).on('click', 'a', function(e) {
-			loaderAnimFrom()
-
-			var $this = $(this);
-			var pageTransition = $this.attr("page-transition");
-
-			// Check als de transitie genegeerd moet worden
-			if (pageTransition === "ignore") {
-				return false;
-			}
-
-			// Check voor dezelfde host en afwezigheid van '#'
-			if (this.host !== window.location.host || $this.attr("href").indexOf("#") !== -1) {
-				loaderAnimTo()
-				return true; // Geen interne link, dus geen page transition.
-			}
-
-			e.preventDefault();
-
-			var moduleURL = $this.attr("href");
-			var transitionTime = 1500; // Gebruik van .data() voor data attributen
-
-			$('[page-transition="component"]').trigger('click'); // Veranderd naar trigger voor consistentie
-			$(document).trigger("page-transition");
-
-			// Gebruik van setTimeout om de redirect te vertragen
-			setTimeout(function() {
-				window.location = moduleURL;
-			}, transitionTime);
-		});
-
-		// Verwijder oude event handlers om dubbele bindingen te voorkomen
-		$(window).off("pageshow").on("pageshow", function(event) {
-			if (event.originalEvent.persisted) {
-				window.location.reload();
-			}
-		});
-	</script>
-
-	<script>
-		function checkPageTransition() {
-			var visited = sessionStorage.getItem("visited") === "true";
+		// Check voor dezelfde host en afwezigheid van '#'
+		if (this.host !== window.location.host || $this.attr("href").indexOf("#") !== -1) {
 			loaderAnimTo()
-
-			if (!visited) {
-				$(".page-transition.is-load").hide();
-				sessionStorage.setItem("visited", "true");
-			} else {
-				$(".page-transition.is-preload").hide();
-			}
+			return true; // Geen interne link, dus geen page transition.
 		}
 
-		// Wacht tot het document volledig geladen is voordat je de check uitvoert
-		if (document.readyState === 'loading') {
+		e.preventDefault();
 
-			// Het document is nog aan het laden, wacht op het event
-			document.addEventListener('DOMContentLoaded', checkPageTransition);
+		var moduleURL = $this.attr("href");
+		var transitionTime = 1500; // Gebruik van .data() voor data attributen
 
+		$('[page-transition="component"]').trigger('click'); // Veranderd naar trigger voor consistentie
+		$(document).trigger("page-transition");
+
+		// Gebruik van setTimeout om de redirect te vertragen
+		setTimeout(function () {
+			window.location = moduleURL;
+		}, transitionTime);
+	});
+
+	// Verwijder oude event handlers om dubbele bindingen te voorkomen
+	$(window).off("pageshow").on("pageshow", function (event) {
+		if (event.originalEvent.persisted) {
+			window.location.reload();
+		}
+	});
+</script>
+
+<script>
+	function checkPageTransition() {
+		var visited = sessionStorage.getItem("visited") === "true";
+		loaderAnimTo()
+
+		if (!visited) {
+			$(".page-transition.is-load").hide();
+			sessionStorage.setItem("visited", "true");
 		} else {
-			// `DOMContentLoaded` is al afgevuurd, voer de check direct uit
-			checkPageTransition();
-
+			$(".page-transition.is-preload").hide();
 		}
-	</script>
+	}
 
+	// Wacht tot het document volledig geladen is voordat je de check uitvoert
+	if (document.readyState === 'loading') {
 
-	<script src="https://unpkg.com/splitting/dist/splitting.min.js?_v=20240320155449"></script>
-	<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?_v=20240320155449"></script> -->
-	<script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240320155449"></script>
-	<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240320155449"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@barba/core?_v=20240320155449"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240320155449"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240320155449"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240320155449"></script>
-	<!-- <script src="lib/gsap/drawSVGPlugin.min.js?_v=20240320155449"></script> -->
-	<script src="js/app.min.js?_v=20240320155449"></script>
+		// Het document is nog aan het laden, wacht op het event
+		document.addEventListener('DOMContentLoaded', checkPageTransition);
+
+	} else {
+		// `DOMContentLoaded` is al afgevuurd, voer de check direct uit
+		checkPageTransition();
+
+	}
+</script> -->
+
+	<script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240331043733"></script>
+	<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240331043733"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240331043733"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240331043733"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240331043733"></script>
+	<script src="js/app.min.js?_v=20240331043733"></script>
 
 </body>
 
