@@ -308,6 +308,8 @@
 		&_map {
 			margin-top: 15px;
 			height: 315px;
+			border-radius: 10px;
+			overflow: hidden;
 
 			.map {
 				height: 100%;

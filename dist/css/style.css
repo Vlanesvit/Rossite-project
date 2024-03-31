@@ -1066,6 +1066,8 @@ h6 {
 .popup__contact_map {
   margin-top: 15px;
   height: 315px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .popup__contact_map .map {
@@ -1578,16 +1580,37 @@ section.section-bg {
   transition: color 0.5s cubic-bezier(0.9, 0, 0.2, 1);
 }
 
-.rs-link .btn-text svg {
+.rs-link .btn-text > svg {
   width: 20px;
   height: 20px;
   margin-right: 9px;
 }
 
-.rs-link .btn-text svg path {
+.rs-link .btn-text > svg path {
   stroke: #141517;
   -webkit-transition: stroke 0.5s cubic-bezier(0.9, 0, 0.2, 1);
   transition: stroke 0.5s cubic-bezier(0.9, 0, 0.2, 1);
+}
+
+.rs-link .btn-text span {
+  position: relative;
+  overflow: hidden;
+}
+
+.rs-link .btn-text span > svg {
+  -webkit-transition: -webkit-transform 0.7s;
+  transition: -webkit-transform 0.7s;
+  transition: transform 0.7s;
+  transition: transform 0.7s, -webkit-transform 0.7s;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+          transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  fill: none;
+  stroke: #100f0f;
+  stroke-width: 2px;
 }
 
 .tooltip {
@@ -12088,7 +12111,7 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
     margin-right: 7px;
   }
 
-  .rs-link .btn-text svg {
+  .rs-link .btn-text > svg {
     width: 17px;
     height: 17px;
     margin-right: 7px;
@@ -16255,6 +16278,11 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
   .rs-btn._btn-gray:hover path {
     stroke: #fff;
     fill: #fff;
+  }
+
+  .rs-link:hover .btn-text span > svg {
+    -webkit-transform: translate3d(-66.6%, 0, 0);
+            transform: translate3d(-66.6%, 0, 0);
   }
 
   .form__agreement a:hover {
