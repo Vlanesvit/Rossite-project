@@ -607,6 +607,66 @@ section {
 	}
 }
 
+.rs-link {
+	position: relative;
+	display: inline-block;
+	z-index: 10;
+	background-color: transparent;
+
+	.btn-text {
+		width: 100%;
+		justify-content: center;
+		text-align: left;
+		align-items: center;
+		display: inline-flex;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 146%;
+		position: relative;
+		z-index: 10;
+		color: #141517;
+		transition: color 0.5s cubic-bezier(0.9, 0, 0.2, 1);
+
+		@media (max-width: 1439.98px) {
+			font-size: 14px;
+		}
+
+		@media (max-width: 991.98px) {
+			font-size: 13px;
+		}
+
+		&::before {
+			font-size: 20px;
+			margin-right: 9px;
+			color: #141517;
+			transition: color 0.5s cubic-bezier(0.9, 0, 0.2, 1);
+
+			@media (max-width: 991.98px) {
+				font-size: 17px;
+				margin-right: 7px;
+			}
+		}
+
+		svg {
+			width: 20px;
+			height: 20px;
+			margin-right: 9px;
+
+			@media (max-width: 991.98px) {
+				width: 17px;
+				height: 17px;
+				margin-right: 7px;
+			}
+
+			path {
+				stroke: #141517;
+				transition: stroke 0.5s cubic-bezier(0.9, 0, 0.2, 1);
+			}
+		}
+	}
+}
+
 // Block  ========================================================================================================================================================
 .tooltip {
 	display: inline-flex;

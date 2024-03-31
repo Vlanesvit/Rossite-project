@@ -5853,41 +5853,6 @@
         }
     }
     if (document.querySelector(".rs-steps__spollers_item") && document.querySelector(".rs-steps__navigation_list a")) sidebarNavigation();
-    const branchData = [ {
-        address: "ул. Ленинская Слобода, д.19, БЦ «Omega Plaza», офис 348.1",
-        location: [ 55.708521, 37.65351 ]
-    } ];
-    function init() {
-        if (document.getElementById("map")) {
-            ymaps.ready();
-            let map = new ymaps.Map("map", {
-                controls: [],
-                center: branchData[0].location,
-                zoom: 15
-            }, {
-                suppressMapOpenBlock: true,
-                balloonMaxWidth: 200,
-                searchControlProvider: "yandex#search"
-            });
-            let pinsCollection = new ymaps.GeoObjectCollection({}, {
-                preset: "islands#blueDotIcon",
-                draggable: false
-            });
-            for (let i = 0; i < branchData.length; i++) {
-                let marks = new ymaps.Placemark(branchData[i].location, {
-                    balloonContentHeader: `${branchData[i].address}`,
-                    hintContent: `${branchData[i].address}`
-                });
-                pinsCollection.add(marks);
-            }
-            map.geoObjects.add(pinsCollection);
-            map.events.add("balloonopen", (function(e) {
-                Map.hint.close();
-            }));
-            map.events.add("click", (e => e.get("target").balloon.close()));
-        }
-    }
-    init();
     function _toConsumableArray(arr) {
         if (Array.isArray(arr)) {
             for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];

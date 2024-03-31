@@ -211,7 +211,6 @@ import "./files/script.js";
 import "./files/project.js";
 import "./files/tariff.js";
 import "./files/steps.js";
-import "./files/map.js";
 import "./libs/imagecompare.js";
 import "./libs/nouislider.js";
 import "./libs/animation-gsap.js";

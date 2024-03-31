@@ -99,12 +99,82 @@
 	</div>
 </div>
 
-<div id="contact" aria-hidden="true" class="popup popup-right">
+<script>
+	const branchData = [
+		{
+			address: 'ул. Ленинская Слобода, д.19, БЦ «Omega Plaza», офис 348.1',
+			location: [55.708521, 37.653510],
+		},
+	]
+</script>
+<div id="contact" aria-hidden="true" class="popup popup-contact popup-right">
 	<div class="popup__wrapper">
 		<div class="popup__content">
 			<button data-close type="button" class="popup__close _rs-icon-close"></button>
 			<div class="popup__text">
+				<div class="popup__contact">
+					<div class="popup__contact_wrapper">
+						<div class="popup__contact_item">
+							<h5>Отдел продаж</h5>
+							<ul class="popup__contact_list">
+								<li>Телефон: <a href="74951506441">+7 495 150-64-41</a></li>
+								<li class="popup__contact_email">
+									Email: <a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+								</li>
+								<li>Режим работы: 9:00 до 18:00 по рабочим дням</li>
+							</ul>
+						</div>
 
+						<div class="popup__contact_item">
+							<h5>Центральный офис</h5>
+							<ul class="popup__contact_list">
+								<li>ул. Ленинская Слобода, д. 19, БЦ «Omega Plaza», офис 348.1</li>
+								<li class="popup__contact_green"><span>МЦК Автозаводская:</span> 7 минут пешком</li>
+								<li class="popup__contact_red"><span>Автозаводская:</span> 4 мин пешком. Выход в сторону
+									улицы Мастеркова</li>
+							</ul>
+
+							<div class="popup__contact_map">
+								<div class="map" id="map"></div>
+							</div>
+
+							<div class="popup__contact_btn">
+								<a href="#" class="rs-btn _btn-gray-border">
+									<span class="btn-text">
+										<svg viewBox="0 0 20 21" fill="none">
+											<path
+												d="M14.0039 8.5H6.00391M14.0039 12.5H6.00391M1 10.5C1 15.4706 5.02944 19.5 10 19.5C12.0364 19.5 18.9993 19.5 18.9993 19.5C18.9993 19.5 17.4401 15.7561 18.0641 14.5008C18.6631 13.2956 19 11.9372 19 10.5C19 5.52944 14.9706 1.5 10 1.5C5.02944 1.5 1 5.52944 1 10.5Z"
+												stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+										задать вопрос
+									</span>
+									<span class="btn-hover"></span>
+								</a>
+
+								<a href="#" class="rs-link">
+									<span class="btn-text">
+										<svg viewBox="0 0 20 20" fill="none">
+											<path
+												d="M5.09062 5.35183L6.83779 3.60488C7.63434 2.80842 8.03262 2.41019 8.49188 2.26099C8.89586 2.12974 9.33103 2.12974 9.73501 2.26099C10.1943 2.41019 10.5925 2.80842 11.3891 3.60487L12.1305 4.34637M8.10774 8.36858L12.1306 12.3909M7.60491 16.9163C8.26668 16.2546 14.7896 9.73245 18.1688 6.35366C19.2797 5.24288 19.2757 3.44599 18.1648 2.33518C17.0539 1.22432 15.2567 1.22026 14.1457 2.33109C10.7665 5.70993 4.24376 12.2319 3.58196 12.8936C1.78719 14.688 0.712189 19.0744 1.06769 19.4299C1.4232 19.7853 5.75503 18.7659 7.60491 16.9163Z"
+												stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+										<span>оставить отзыв</span>
+									</span>
+								</a>
+							</div>
+						</div>
+
+						<div class="popup__contact_item">
+							<h5>Нужна помощь?</h5>
+							<ul class="popup__contact_list">
+								<li>Техническая поддержка: круглосуточно.</li>
+								<li class="popup__contact_email">
+									Email: <a href="mailto:support@rosait.ru">support@rosait.ru</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

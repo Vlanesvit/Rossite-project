@@ -13,7 +13,60 @@
 	<link href="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css" />
 
-	<link rel="stylesheet" href="css/style.min.css?_v=20240331043733">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240331155458">
+
+	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20240331155458" type="text/javascript"></script>
+	<script>
+		ymaps.ready(init);
+
+		function init() {
+			if (document.getElementById('map')) {
+				let map = new ymaps.Map('map', {
+					controls: [],
+					// Координаты центра карты
+					center: branchData[0].location,
+					// Уровень масштабирования
+					zoom: 5,
+				}, {
+					suppressMapOpenBlock: true,
+					balloonMaxWidth: 200,
+					searchControlProvider: 'yandex#search'
+				});
+
+				let pinsCollection = new ymaps.GeoObjectCollection({}, {
+					preset: 'islands#blueDotIcon', // дефолт метка
+					draggable: false, // метки нельзя перемещать
+					// iconLayout: 'default#imageWithContent', // указать данный тип макета.
+					// iconImageHref: 'img/footer/map-pin.png', // cвоё изображение иконки метки.
+					// iconImageSize: [36, 52], // размеры метки
+					// iconImageOffset: [-18, -26], // смещение левого верхнего угла иконки
+					// iconContentOffset: [0, 0], // cмещение слоя с содержимым относительно слоя с картинкой
+				});
+
+				for (let i = 0; i < branchData.length; i++) {
+					let marks = new ymaps.Placemark(branchData[i].location, {
+						// Зададим содержимое заголовка балуна.
+						balloonContentHeader: `${branchData[i].address}`,
+
+						// Зададим содержимое всплывающей подсказки.
+						hintContent: `${branchData[i].address}`,
+					}, )
+					pinsCollection.add(marks);
+				}
+
+				// Добавим метки на карту.
+				map.geoObjects.add(pinsCollection);
+
+				// Скрываем хинт при открытии балуна.
+				map.events.add('balloonopen', function(e) {
+					Map.hint.close();
+				});
+
+				// Закрываем балун по клику по карте
+				map.events.add('click', e => e.get('target').balloon.close());
+			}
+		}
+	</script>
 
 </head>
 
@@ -752,7 +805,7 @@
 						</div>
 
 						<div class="rs-header__actions_item  rs-header__contact">
-							<a href="./contact.html">
+							<a href="#" data-popup="#contact">
 								<svg viewBox="0 0 20 21" fill="none">
 									<path d="M5.09062 5.85183L6.83779 4.10488C7.63434 3.30842 8.03262 2.91019 8.49188 2.76099C8.89586 2.62974 9.33103 2.62974 9.73501 2.76099C10.1943 2.91019 10.5925 3.30842 11.3891 4.10487L12.1305 4.84637M8.10774 8.86858L12.1306 12.8909M7.60491 17.4163C8.26668 16.7546 14.7896 10.2324 18.1688 6.85366C19.2797 5.74288 19.2757 3.94599 18.1648 2.83518C17.0539 1.72432 15.2567 1.72026 14.1457 2.83109C10.7665 6.20993 4.24376 12.7319 3.58196 13.3936C1.78719 15.188 0.712189 19.5744 1.06769 19.9299C1.4232 20.2853 5.75503 19.2659 7.60491 17.4163Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
 								</svg>
@@ -2162,17 +2215,81 @@
 		</div>
 	</div>
 
-	<div id="contact" aria-hidden="true" class="popup popup-right">
+	<script>
+		const branchData = [{
+			address: 'ул. Ленинская Слобода, д.19, БЦ «Omega Plaza», офис 348.1',
+			location: [55.708521, 37.653510],
+		}, ]
+	</script>
+	<div id="contact" aria-hidden="true" class="popup popup-contact popup-right">
 		<div class="popup__wrapper">
 			<div class="popup__content">
 				<button data-close type="button" class="popup__close _rs-icon-close"></button>
 				<div class="popup__text">
+					<div class="popup__contact">
+						<div class="popup__contact_wrapper">
+							<div class="popup__contact_item">
+								<h5>Отдел продаж</h5>
+								<ul class="popup__contact_list">
+									<li>Телефон: <a href="74951506441">+7 495 150-64-41</a></li>
+									<li class="popup__contact_email">
+										Email: <a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+									</li>
+									<li>Режим работы: 9:00 до 18:00 по рабочим дням</li>
+								</ul>
+							</div>
 
+							<div class="popup__contact_item">
+								<h5>Центральный офис</h5>
+								<ul class="popup__contact_list">
+									<li>ул. Ленинская Слобода, д. 19, БЦ «Omega Plaza», офис 348.1</li>
+									<li class="popup__contact_green"><span>МЦК Автозаводская:</span> 7 минут пешком</li>
+									<li class="popup__contact_red"><span>Автозаводская:</span> 4 мин пешком. Выход в сторону
+										улицы Мастеркова</li>
+								</ul>
+
+								<div class="popup__contact_map">
+									<div class="map" id="map"></div>
+								</div>
+
+								<div class="popup__contact_btn">
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">
+											<svg viewBox="0 0 20 21" fill="none">
+												<path d="M14.0039 8.5H6.00391M14.0039 12.5H6.00391M1 10.5C1 15.4706 5.02944 19.5 10 19.5C12.0364 19.5 18.9993 19.5 18.9993 19.5C18.9993 19.5 17.4401 15.7561 18.0641 14.5008C18.6631 13.2956 19 11.9372 19 10.5C19 5.52944 14.9706 1.5 10 1.5C5.02944 1.5 1 5.52944 1 10.5Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+											задать вопрос
+										</span>
+										<span class="btn-hover"></span>
+									</a>
+
+									<a href="#" class="rs-link">
+										<span class="btn-text">
+											<svg viewBox="0 0 20 20" fill="none">
+												<path d="M5.09062 5.35183L6.83779 3.60488C7.63434 2.80842 8.03262 2.41019 8.49188 2.26099C8.89586 2.12974 9.33103 2.12974 9.73501 2.26099C10.1943 2.41019 10.5925 2.80842 11.3891 3.60487L12.1305 4.34637M8.10774 8.36858L12.1306 12.3909M7.60491 16.9163C8.26668 16.2546 14.7896 9.73245 18.1688 6.35366C19.2797 5.24288 19.2757 3.44599 18.1648 2.33518C17.0539 1.22432 15.2567 1.22026 14.1457 2.33109C10.7665 5.70993 4.24376 12.2319 3.58196 12.8936C1.78719 14.688 0.712189 19.0744 1.06769 19.4299C1.4232 19.7853 5.75503 18.7659 7.60491 16.9163Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+											<span>оставить отзыв</span>
+										</span>
+									</a>
+								</div>
+							</div>
+
+							<div class="popup__contact_item">
+								<h5>Нужна помощь?</h5>
+								<ul class="popup__contact_list">
+									<li>Техническая поддержка: круглосуточно.</li>
+									<li class="popup__contact_email">
+										Email: <a href="mailto:support@rosait.ru">support@rosait.ru</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js?_v=20240331043733"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js?_v=20240331155458"></script>
 <script>
 	const pageTransition01 = document.querySelectorAll('.page-transition_bg-item.is-01');
 	const pageTransition02 = document.querySelectorAll('.page-transition_bg-item.is-02');
@@ -2282,12 +2399,12 @@
 	}
 </script> -->
 
-	<script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240331043733"></script>
-	<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240331043733"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240331043733"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240331043733"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240331043733"></script>
-	<script src="js/app.min.js?_v=20240331043733"></script>
+	<script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240331155458"></script>
+	<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240331155458"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240331155458"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240331155458"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240331155458"></script>
+	<script src="js/app.min.js?_v=20240331155458"></script>
 
 </body>
 
