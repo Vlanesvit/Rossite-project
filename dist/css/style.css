@@ -874,7 +874,7 @@ h6 {
   -webkit-transition: opacity 0.8s ease 0s;
   transition: opacity 0.8s ease 0s;
   pointer-events: none;
-  z-index: 999;
+  z-index: -1;
 }
 
 .popup_show {
@@ -2536,6 +2536,10 @@ textarea.rs-input {
   margin-bottom: 8px;
 }
 
+.rs-header__region_head h4 {
+  color: #0b0f19;
+}
+
 .rs-header__region_field {
   width: 100%;
 }
@@ -2615,6 +2619,37 @@ textarea.rs-input {
 
 .rs-header__region_list li a.rs-header__region_link {
   color: var(--primary-color);
+}
+
+html:not(.menu-open) ._header-white:not(._header-scroll) {
+  border-color: transparent;
+  color: #fff;
+}
+
+html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__actions_item a svg circle,
+html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__actions_item a svg path {
+  stroke: #fff;
+}
+
+html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__logo {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-btn._btn-gray-border {
+  border-color: rgba(212, 215, 229, 0.45);
+}
+
+html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-btn > .btn-text {
+  color: #fff;
+}
+
+html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-btn > .btn-text::before {
+  color: #fff;
+}
+
+html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-btn > .btn-text svg path {
+  stroke: #fff;
 }
 
 .rs-footer__top {
@@ -9025,6 +9060,45 @@ textarea.rs-input {
   margin-top: 20px;
 }
 
+.rs-error-block {
+  margin: 143px 0px 74px;
+}
+
+.rs-error-block__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.rs-error-block__img img {
+  max-width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.rs-error-block__description {
+  margin-top: 60px;
+}
+
+.rs-error-block__description h1 {
+  margin-bottom: 10px;
+}
+
+.rs-error-block__description .rs-btn {
+  margin-top: 30px;
+}
+
 .swiper.swiper-initialized .swiper-wrapper {
   width: 100%;
   height: 100%;
@@ -10101,6 +10175,12 @@ textarea.rs-input {
   .popup-right {
     padding-top: 85px;
     padding-right: 175px;
+  }
+
+  .popup-right .popup__content {
+    -webkit-box-shadow: 3px 11px 29px 0 rgba(125, 138, 152, 0.25);
+            box-shadow: 3px 11px 29px 0 rgba(125, 138, 152, 0.25);
+    background: #fff;
   }
 
   .popup-right .popup__wrapper {

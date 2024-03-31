@@ -8290,6 +8290,7 @@
         showContentOnScroll(".rs-why-block__bg", 1, .3, "width-100");
         showContentOnScroll(".rs-main__title h1", .5, .3, "scale");
         showContentOnScroll(".rs-logo__slide", .5, .2, "right-left--every");
+        showContentOnScroll(".rs-error-block", .8, .5, "bottom-up");
         horizontalScroll(".rs-slider-block-pins .rs-slider-block__swiper", ".rs-slider-block-pins", ".rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill");
     }
     const breakpoint = window.matchMedia("(min-width: 991.98px)");

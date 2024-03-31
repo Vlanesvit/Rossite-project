@@ -1,0 +1,33 @@
+.rs-error-block {
+	margin: 143px 0px 74px;
+
+	// .rs-error-block__container
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	// .rs-error-block__img
+	&__img {
+		img {
+			max-width: 100%;
+			object-fit: contain;
+		}
+	}
+
+	// .rs-error-block__description
+	&__description {
+		margin-top: 60px;
+
+		h1 {
+			margin-bottom: 10px;
+		}
+		
+		.rs-btn {
+			margin-top: 30px;
+		}
+	}
+}

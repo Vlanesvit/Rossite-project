@@ -1310,6 +1310,10 @@
 			@media (max-width: 767.98px) {
 				display: none;
 			}
+
+			h4 {
+				color: #0b0f19;
+			}
 		}
 
 		// .rs-header__region_close
@@ -1610,6 +1614,40 @@
 							color: var(--primary-color);
 						}
 					}
+				}
+			}
+		}
+	}
+}
+
+html:not(.menu-open) {
+	._header-white {
+		&:not(._header-scroll) {
+			border-color: transparent;
+			color: #fff;
+
+			.rs-header__actions_item a svg circle,
+			.rs-header__actions_item a svg path {
+				stroke: #fff;
+			}
+
+			.rs-header__logo {
+				filter: invert(1);
+			}
+
+			.rs-header__call .rs-btn._btn-gray-border {
+				border-color: rgba(212, 215, 229, 0.45);
+			}
+
+			.rs-header__call .rs-btn > .btn-text {
+				color: #fff;
+
+				&::before {
+					color: #fff;
+				}
+
+				svg path {
+					stroke: #fff;
 				}
 			}
 		}

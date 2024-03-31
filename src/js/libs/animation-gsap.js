@@ -544,6 +544,8 @@ function animCommon() {
 	showContentOnScroll('.rs-main__title h1', 0.5, 0.3, 'scale');
 	// logo
 	showContentOnScroll('.rs-logo__slide', 0.5, 0.2, 'right-left--every');
+	// 404
+	showContentOnScroll('.rs-error-block', 0.8, 0.5, 'bottom-up');
 
 	/* HORIZONTAL SCROLL */
 	horizontalScroll('.rs-slider-block-pins .rs-slider-block__swiper', '.rs-slider-block-pins', '.rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill')

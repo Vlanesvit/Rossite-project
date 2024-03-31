@@ -24,7 +24,7 @@
 		opacity: 0;
 		transition: opacity 0.8s ease 0s;
 		pointer-events: none;
-		z-index: 999;
+		z-index: -1;
 	}
 }
 .popup_show {
@@ -179,6 +179,11 @@
 
 		@media (max-width: 1611.98px) {
 			padding-right: 20px;
+		}
+
+		.popup__content {
+			box-shadow: 3px 11px 29px 0 rgba(125, 138, 152, 0.25);
+			background: #fff;
 		}
 
 		.popup__wrapper {
