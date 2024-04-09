@@ -22,7 +22,7 @@ window.addEventListener('load', function () {
 		ScrollTrigger.refresh(true);
 		breakpointGsapAnimChecker();
 		window.scrollTo(0, 0);
-	}, 100);
+	}, 500);
 })
 
 //========================================================================================================================================================
@@ -251,23 +251,38 @@ function animDesktop() {
 	/* PINS BLOCK - FEATURES */
 	if (document.querySelector('.rs-features__slide')) {
 		const cards = gsap.utils.toArray(".rs-features__slide");
-		cards.forEach((card, index) => {
-			const tween = gsap.to(card, {
-				scrollTrigger: {
-					trigger: card,
-					start: `top-=${index * 20} top+=10px`,
-					end: `bottom-=10px bottom`,
-					endTrigger: '.rs-features__swiper',
-					pin: true,
-					pinSpacing: false,
-					scrub: true,
-					invalidateOnRefresh: true,
-					// markers: 1,
-				},
-				ease: "none",
-				scale: () => 1 - (cards.length - index) * 0.025
-			});
+		const stagger = 0.5;
+
+		setTimeout(() => {
+			gsap.set('.rs-features__slide:not(:first-child)', {
+				yPercent: (index) => 0,
+				scale: (index) => 1,
+			})
+		}, 100);
+
+		const pinBlock = gsap.timeline({
+			defaults: { ease: "none" },
+			scrollTrigger: {
+				trigger: ".rs-features__swiper",
+				start: "top-=10% top",
+				end: "bottom+=300% top",
+				scrub: true,
+				pin: true,
+				// markers: 1,
+				id: 'pin-block',
+				invalidateOnRefresh: true,
+			}
 		});
+
+		pinBlock.to('.rs-features__slide', {
+			yPercent: (index) => -100 * index,
+			stagger: stagger,
+		})
+
+		pinBlock.to('.rs-features__slide:not(:last-child)', {
+			scale: (index) => 1 - (cards.length - index) * 0.025,
+			stagger: stagger,
+		}, stagger)
 	}
 
 	/* PINS BLOCK STACK - MAIN */
@@ -344,52 +359,6 @@ function animDesktop() {
 		}
 	}
 
-	/* PINS BLOCK - MAIN */
-	//========================================================================================================================================================
-	if (document.querySelector('.rs-main__title')) {
-		gsap.to('.rs-main__title', {
-			scrollTrigger: {
-				trigger: '.rs-main__title',
-				start: `top top`,
-				end: `bottom bottom`,
-				endTrigger: '.rs-main__pins',
-				pin: true,
-				pinSpacing: false,
-				scrub: true,
-				invalidateOnRefresh: true,
-				// markers: 1,
-			},
-		});
-	}
-
-	if (document.querySelector('.rs-main__video')) {
-		gsap.to('.rs-main__video', {
-			scrollTrigger: {
-				trigger: '.rs-main__video',
-				start: `top top`,
-				end: `bottom bottom+=1%`,
-				endTrigger: '.rs-main__pins',
-				pin: true,
-				pinSpacing: false,
-				scrub: true,
-				invalidateOnRefresh: true,
-				// markers: 1,
-			},
-		});
-		gsap.set('.rs-main__video', { scale: 0.819, borderRadius: "70px" });
-		gsap.to('.rs-main__video', {
-			scale: 1,
-			borderRadius: "0px",
-			scrollTrigger: {
-				start: `top+=10% top`,
-				end: `bottom bottom`,
-				endTrigger: '.rs-main__video',
-				scrub: true,
-				// markers: 1,
-			}
-		})
-	}
-
 	/* PINS BLOCK STACK REVERSE - STEPS ALGORITHM */
 	//========================================================================================================================================================
 	if (document.querySelector('.rs-steps-algorithm .rs-steps__text')) {
@@ -447,6 +416,44 @@ function animMobile() {
 	/* REVEAL ANIMATION */
 	// project
 	showContentOnScroll('.rs-project__slider', 0.5, 0.3, 'bottom-up');
+
+	/* PINS BLOCK - FEATURES */
+	if (document.querySelector('.rs-features__slide')) {
+		const cards = gsap.utils.toArray(".rs-features__slide");
+		const stagger = 0.5;
+
+		setTimeout(() => {
+			gsap.set('.rs-features__slide:not(:first-child)', {
+				yPercent: (index) => 0,
+				scale: (index) => 1,
+			})
+		}, 100);
+
+		const pinBlock = gsap.timeline({
+			defaults: { ease: "none" },
+			scrollTrigger: {
+				trigger: ".rs-features__swiper",
+				start: "top0 top",
+				end: "bottom+=100% top",
+				scrub: true,
+				pin: true,
+				// markers: 1,
+				id: 'pin-block',
+				invalidateOnRefresh: true,
+			}
+		});
+
+		pinBlock.to('.rs-features__slide', {
+			yPercent: (index) => -100 * index,
+			stagger: stagger,
+		})
+
+		pinBlock.to('.rs-features__slide:not(:last-child)', {
+			scale: (index) => 1 - (cards.length - index) * 0.025,
+			stagger: stagger,
+		}, stagger)
+	}
+
 }
 
 function animCommon() {
@@ -497,6 +504,7 @@ function animCommon() {
 	showContentOnScroll('.rs-services__slide', 0.5, 0.2, 'right-left--every');
 	showContentOnScroll('.rs-services__icon', 0.5, 0.15, 'bottom-up--every');
 	// footer
+	showContentOnScroll('.rs-footer .rs-breadcrumbs', 0.5, 0.2, 'bottom-up');
 	showContentOnScroll('.rs-footer__phone', 0.5, 0.2, 'bottom-up');
 	showContentOnScroll('.rs-footer__links ul li', 0.5, 0.15, 'bottom-up--every');
 	showContentOnScroll('.rs-footer__social', 0.5, 0.5, 'bottom-up');
@@ -541,7 +549,9 @@ function animCommon() {
 	// parallax
 	showContentOnScroll('.rs-why-block__bg', 1, 0.3, 'width-100');
 	// main
-	showContentOnScroll('.rs-main__title h1', 0.5, 0.3, 'scale');
+	showContentOnScroll('.rs-main__title_video', 1, 0.3, 'width-100');
+	showContentOnScroll('.rs-main__title h1', 0.5, 1, 'scale');
+
 	// logo
 	showContentOnScroll('.rs-logo__slide', 0.5, 0.2, 'right-left--every');
 	// 404
@@ -549,6 +559,36 @@ function animCommon() {
 
 	/* HORIZONTAL SCROLL */
 	horizontalScroll('.rs-slider-block-pins .rs-slider-block__swiper', '.rs-slider-block-pins', '.rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill')
+
+	/* PINS BLOCK - MAIN */
+	//========================================================================================================================================================
+	if (document.querySelector('.rs-main__title h1')) {
+		gsap.to('.rs-main__title h1', {
+			scrollTrigger: {
+				trigger: '.rs-main__title',
+				start: `top top`,
+				end: `bottom bottom`,
+				endTrigger: '.rs-main__pins',
+				pin: true,
+				pinSpacing: false,
+				scrub: true,
+				invalidateOnRefresh: true,
+				// markers: 1,
+			},
+		});
+		gsap.set('.rs-main__title h1', { scale: 0, opacity: 0 });
+		gsap.to('.rs-main__title h1', {
+			scale: 1,
+			opacity: 1,
+			scrollTrigger: {
+				start: `top+=50% top`,
+				end: `bottom=+50% bottom`,
+				endTrigger: '.rs-main__title',
+				scrub: true,
+				// markers: 1,
+			}
+		})
+	}
 }
 
 // Проверка ширины экрана для вызова отдельных анимаций

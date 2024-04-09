@@ -405,7 +405,8 @@ section {
 				margin-right: 7px;
 			}
 
-			path {
+			path,
+			rect {
 				stroke: #fff;
 				transition: stroke 0.5s cubic-bezier(0.9, 0, 0.2, 1);
 			}
@@ -440,7 +441,7 @@ section {
 			}
 
 			svg {
-				path {
+				path,rect {
 					stroke: var(--primary-color-btn-text);
 				}
 			}
@@ -458,7 +459,7 @@ section {
 			}
 
 			svg {
-				path {
+				path,rect {
 					stroke: var(--primary-color-btn);
 				}
 			}
@@ -476,7 +477,7 @@ section {
 					}
 
 					svg {
-						path {
+						path,rect {
 							stroke: #fff;
 						}
 					}
@@ -492,19 +493,19 @@ section {
 			color: #0d0e10;
 
 			&::before {
-				color: var(--primary-color);
+				color: var(--primary-color-btn);
 			}
 
 			svg {
-				path {
-					stroke: var(--primary-color);
+				path,rect {
+					stroke: var(--primary-color-btn);
 				}
 			}
 		}
 
 		.btn-hover {
 			&::after {
-				background-color: var(--primary-color);
+				background-color: var(--primary-color-btn);
 			}
 		}
 
@@ -520,7 +521,7 @@ section {
 					}
 
 					svg {
-						path {
+						path,rect {
 							stroke: #fff;
 						}
 					}
@@ -540,7 +541,8 @@ section {
 			}
 
 			svg {
-				path {
+				path,
+				rect {
 					stroke: var(--primary-color);
 				}
 			}
@@ -562,7 +564,7 @@ section {
 					}
 
 					svg {
-						path {
+						path,rect {
 							stroke: #fff;
 						}
 					}
@@ -598,7 +600,7 @@ section {
 					}
 				}
 
-				path {
+				path,rect {
 					stroke: #fff;
 					fill: #fff;
 				}
@@ -659,7 +661,7 @@ section {
 				margin-right: 7px;
 			}
 
-			path {
+			path,rect {
 				stroke: #141517;
 				transition: stroke 0.5s cubic-bezier(0.9, 0, 0.2, 1);
 			}

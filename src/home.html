@@ -9,7 +9,7 @@
 
 	@@include('html/_anim-elements.htm',{})
 
-	<div class="wrapper"  style="
+	<div class="wrapper" style="
 	--primary-color-btn: #6366f1; 
 	--primary-color-btn-hover: #8083f2; 
 	--primary-color-btn-text: #fff; 
@@ -17,7 +17,7 @@
 	">
 
 		@@include('html/_header.htm',{
-		"addclass":"margin-0"
+		"addclass":"_header-white margin-0"
 		})
 
 		<main class="page">
@@ -32,17 +32,19 @@
 				<div class="rs-main__wrapper">
 					<div class="rs-main__pins">
 						<div class="rs-main__pin rs-main__title">
-							<h1>Позвольте себе заняться<br>
-								<span>любимым</span> делом,<br>
-								пока мы занимаемся<br>
-								вашим <span>проектом</span>
-							</h1>
-						</div>
+							<div class="rs-main__title_body">
+								<h1>Позвольте себе заняться<br>
+									<span>любимым</span> делом,<br>
+									пока мы занимаемся<br>
+									вашим <span>сайтом</span>
+								</h1>
+							</div>
 
-						<div class="rs-main__pin rs-main__video">
-							<video autoplay loop muted playsinline poster="@img/pages/main/video-previews.jpg">
-								<source src="@img/pages/main/video.mp4" type="video/mp4">
-							</video>
+							<div class="rs-main__title_video">
+								<video autoplay loop muted playsinline poster="@img/pages/main/video-previews.jpg">
+									<source src="@img/pages/main/video.mp4" type="video/mp4">
+								</video>
+							</div>
 						</div>
 
 						<div class="rs-main__pin rs-main__project">

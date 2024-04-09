@@ -14,10 +14,13 @@
 	&._header-scroll {
 		top: -500px;
 		margin-top: 0px;
-		background: #fff;
 
 		@media (min-width: 991.98px) {
 			border-color: #d4d7e5;
+		}
+
+		@media (min-width: 767.98px) {
+			background: #fff;
 		}
 	}
 
@@ -34,9 +37,6 @@
 	}
 
 	.menu-open & {
-		border-color: #d4d7e5;
-		background: #fff;
-
 		&::after {
 			width: calc(100% - 10px) !important;
 			height: calc(100vh - 14px) !important;
@@ -119,7 +119,7 @@
 			justify-content: space-between;
 			max-width: 181px;
 			width: 100%;
-			padding: 19px 4px 4px 15px;
+			padding: 19px 4px 19px 15px;
 			transition: all 0.3s ease 0s;
 
 			.menu-open & {

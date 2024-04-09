@@ -160,6 +160,20 @@
     };
     function spollers() {
         const spollersArray = document.querySelectorAll("[data-spollers]");
+        function spollerClassInit() {
+            spollersArray.forEach((spoller => {
+                const spollersItem = spoller.querySelectorAll('[class*="_item"]');
+                spoller.classList.add("spollers");
+                spollersItem.forEach((item => {
+                    const spollerTitle = item.querySelector('[class*="_title"]');
+                    const spollerBody = item.querySelector('[class*="_body"]');
+                    item.classList.add("spollers__item");
+                    spollerTitle.classList.add("spollers__title");
+                    spollerBody.classList.add("spollers__body");
+                }));
+            }));
+        }
+        spollerClassInit();
         if (spollersArray.length > 0) {
             const spollersRegular = Array.from(spollersArray).filter((function(item, index, self) {
                 return !item.dataset.spollers.split(",")[0];
@@ -193,10 +207,10 @@
                     spollerTitles.forEach((spollerTitle => {
                         if (hideSpollerBody) {
                             spollerTitle.removeAttribute("tabindex");
-                            if (!spollerTitle.classList.contains("_spoller-active")) spollerTitle.nextElementSibling.hidden = true;
+                            if (!spollerTitle.classList.contains("_spoller-active")) spollerTitle.closest(".spollers__item").querySelector(".spollers__body").hidden = true;
                         } else {
                             spollerTitle.setAttribute("tabindex", "-1");
-                            spollerTitle.nextElementSibling.hidden = false;
+                            spollerTitle.closest(".spollers__item").querySelector(".spollers__body").hidden = false;
                         }
                     }));
                 }
@@ -211,7 +225,7 @@
                     if (!spollersBlock.querySelectorAll("._slide").length) {
                         if (oneSpoller && !spollerTitle.classList.contains("_spoller-active")) hideSpollersBody(spollersBlock);
                         spollerTitle.classList.toggle("_spoller-active");
-                        _slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
+                        _slideToggle(spollerTitle.closest(".spollers__item").querySelector(".spollers__body"), spollerSpeed);
                     }
                     e.preventDefault();
                 }
@@ -4998,6 +5012,7 @@
             const sliderBlocks = document.querySelectorAll(".rs-reviews");
             sliderBlocks.forEach((sliderBlock => {
                 const slider = sliderBlock.querySelector(".rs-reviews__slider");
+                const slides = sliderBlock.querySelectorAll(".rs-reviews__slide");
                 const arrowNext = sliderBlock.querySelector(".rs-reviews__button-next");
                 const arrowPrev = sliderBlock.querySelector(".rs-reviews__button-prev");
                 new swiper_core_Swiper(slider, {
@@ -5034,6 +5049,10 @@
                         }
                     }
                 });
+                slides.forEach((slide => {
+                    const reviewsDesc = slide.querySelector(".rs-reviews .rs-reviews__description p");
+                    if (reviewsDesc.clientHeight > 175) reviewsDesc.closest(".rs-reviews__description").classList.add("_large-reviews");
+                }));
             }));
         }
         if (document.querySelector(".rs-project__slider")) {
@@ -5196,52 +5215,6 @@
                     }
                 });
             }));
-        }
-        if (document.querySelector(".rs-features__slider")) {
-            "use strict";
-            const breakpoint = window.matchMedia("(min-width: 991.98px)");
-            let features;
-            const breakpointChecker = function() {
-                if (breakpoint.matches === true) {
-                    if (features !== void 0) features.destroy(true, true);
-                    return;
-                } else if (breakpoint.matches === false) return enableSwiper();
-            };
-            const enableSwiper = function() {
-                const sliderFeatures = document.querySelectorAll(".rs-features");
-                sliderFeatures.forEach((sliderFeature => {
-                    const slider = sliderFeature.querySelector(".rs-features__slider");
-                    sliderFeature.querySelector(".rs-features__button-next");
-                    sliderFeature.querySelector(".rs-features__button-prev");
-                    new swiper_core_Swiper(slider, {
-                        modules: [ Navigation, Pagination, Autoplay ],
-                        observer: true,
-                        observeParents: true,
-                        observeSlideChildren: true,
-                        speed: 500,
-                        simulateTouch: true,
-                        touchRadio: 1,
-                        touchAngle: 45,
-                        grabCursor: true,
-                        breakpoints: {
-                            320: {
-                                slidesPerView: 1.22,
-                                spaceBetween: 20
-                            },
-                            768: {
-                                slidesPerView: 2.4,
-                                spaceBetween: 25
-                            },
-                            992: {
-                                slidesPerView: 1,
-                                spaceBetween: 30
-                            }
-                        }
-                    });
-                }));
-            };
-            breakpoint.addListener(breakpointChecker);
-            breakpointChecker();
         }
     }
     window.addEventListener("load", (function(e) {
@@ -6220,7 +6193,7 @@
                 smoothingAmount: 0,
                 hoverStart: true,
                 verticalMode: false,
-                startingPoint: 45.6,
+                startingPoint: 46.2,
                 fluidMode: true
             }).mount();
         }
@@ -7762,7 +7735,7 @@
             ScrollTrigger.refresh(true);
             breakpointGsapAnimChecker();
             window.scrollTo(0, 0);
-        }), 100);
+        }), 500);
     }));
     function showContentOnScroll(elem, duration, delay, direction) {
         if (document.querySelectorAll(elem)) {
@@ -8066,22 +8039,35 @@
         showContentOnScroll(".rs-project__item", .3, .15, "bottom-up--every");
         if (document.querySelector(".rs-features__slide")) {
             const cards = gsap.utils.toArray(".rs-features__slide");
-            cards.forEach(((card, index) => {
-                gsap.to(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: `top-=${index * 20} top+=10px`,
-                        end: `bottom-=10px bottom`,
-                        endTrigger: ".rs-features__swiper",
-                        pin: true,
-                        pinSpacing: false,
-                        scrub: true,
-                        invalidateOnRefresh: true
-                    },
-                    ease: "none",
-                    scale: () => 1 - (cards.length - index) * .025
+            const stagger = .5;
+            setTimeout((() => {
+                gsap.set(".rs-features__slide:not(:first-child)", {
+                    yPercent: index => 0,
+                    scale: index => 1
                 });
-            }));
+            }), 100);
+            const pinBlock = gsap.timeline({
+                defaults: {
+                    ease: "none"
+                },
+                scrollTrigger: {
+                    trigger: ".rs-features__swiper",
+                    start: "top-=10% top",
+                    end: "bottom+=300% top",
+                    scrub: true,
+                    pin: true,
+                    id: "pin-block",
+                    invalidateOnRefresh: true
+                }
+            });
+            pinBlock.to(".rs-features__slide", {
+                yPercent: index => -100 * index,
+                stagger
+            });
+            pinBlock.to(".rs-features__slide:not(:last-child)", {
+                scale: index => 1 - (cards.length - index) * .025,
+                stagger
+            }, stagger);
         }
         if (document.querySelector(".rs-main__project_item")) {
             const stagger = .5;
@@ -8146,46 +8132,6 @@
                 link.classList.add("_active");
             }
         }
-        if (document.querySelector(".rs-main__title")) gsap.to(".rs-main__title", {
-            scrollTrigger: {
-                trigger: ".rs-main__title",
-                start: `top top`,
-                end: `bottom bottom`,
-                endTrigger: ".rs-main__pins",
-                pin: true,
-                pinSpacing: false,
-                scrub: true,
-                invalidateOnRefresh: true
-            }
-        });
-        if (document.querySelector(".rs-main__video")) {
-            gsap.to(".rs-main__video", {
-                scrollTrigger: {
-                    trigger: ".rs-main__video",
-                    start: `top top`,
-                    end: `bottom bottom+=1%`,
-                    endTrigger: ".rs-main__pins",
-                    pin: true,
-                    pinSpacing: false,
-                    scrub: true,
-                    invalidateOnRefresh: true
-                }
-            });
-            gsap.set(".rs-main__video", {
-                scale: .819,
-                borderRadius: "70px"
-            });
-            gsap.to(".rs-main__video", {
-                scale: 1,
-                borderRadius: "0px",
-                scrollTrigger: {
-                    start: `top+=10% top`,
-                    end: `bottom bottom`,
-                    endTrigger: ".rs-main__video",
-                    scrub: true
-                }
-            });
-        }
         if (document.querySelector(".rs-steps-algorithm .rs-steps__text")) {
             gsap.to(".rs-steps-algorithm .rs-steps__text", {
                 scrollTrigger: {
@@ -8219,6 +8165,38 @@
     }
     function animMobile() {
         showContentOnScroll(".rs-project__slider", .5, .3, "bottom-up");
+        if (document.querySelector(".rs-features__slide")) {
+            const cards = gsap.utils.toArray(".rs-features__slide");
+            const stagger = .5;
+            setTimeout((() => {
+                gsap.set(".rs-features__slide:not(:first-child)", {
+                    yPercent: index => 0,
+                    scale: index => 1
+                });
+            }), 100);
+            const pinBlock = gsap.timeline({
+                defaults: {
+                    ease: "none"
+                },
+                scrollTrigger: {
+                    trigger: ".rs-features__swiper",
+                    start: "top0 top",
+                    end: "bottom+=100% top",
+                    scrub: true,
+                    pin: true,
+                    id: "pin-block",
+                    invalidateOnRefresh: true
+                }
+            });
+            pinBlock.to(".rs-features__slide", {
+                yPercent: index => -100 * index,
+                stagger
+            });
+            pinBlock.to(".rs-features__slide:not(:last-child)", {
+                scale: index => 1 - (cards.length - index) * .025,
+                stagger
+            }, stagger);
+        }
     }
     function animCommon() {
         showContentOnScroll(".mrp-med-65", .8, .5, "bottom-up");
@@ -8256,6 +8234,7 @@
         showContentOnScroll(".rs-reviews__sticker", .5, .2, "right-left");
         showContentOnScroll(".rs-services__slide", .5, .2, "right-left--every");
         showContentOnScroll(".rs-services__icon", .5, .15, "bottom-up--every");
+        showContentOnScroll(".rs-footer .rs-breadcrumbs", .5, .2, "bottom-up");
         showContentOnScroll(".rs-footer__phone", .5, .2, "bottom-up");
         showContentOnScroll(".rs-footer__links ul li", .5, .15, "bottom-up--every");
         showContentOnScroll(".rs-footer__social", .5, .5, "bottom-up");
@@ -8288,10 +8267,39 @@
         showContentOnScroll(".rs-services-about__item", .5, .5, "bottom-up--every");
         showContentOnScroll(".rs-task__item", .5, .5, "bottom-up--every");
         showContentOnScroll(".rs-why-block__bg", 1, .3, "width-100");
-        showContentOnScroll(".rs-main__title h1", .5, .3, "scale");
+        showContentOnScroll(".rs-main__title_video", 1, .3, "width-100");
+        showContentOnScroll(".rs-main__title h1", .5, 1, "scale");
         showContentOnScroll(".rs-logo__slide", .5, .2, "right-left--every");
         showContentOnScroll(".rs-error-block", .8, .5, "bottom-up");
         horizontalScroll(".rs-slider-block-pins .rs-slider-block__swiper", ".rs-slider-block-pins", ".rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill");
+        if (document.querySelector(".rs-main__title h1")) {
+            gsap.to(".rs-main__title h1", {
+                scrollTrigger: {
+                    trigger: ".rs-main__title",
+                    start: `top top`,
+                    end: `bottom bottom`,
+                    endTrigger: ".rs-main__pins",
+                    pin: true,
+                    pinSpacing: false,
+                    scrub: true,
+                    invalidateOnRefresh: true
+                }
+            });
+            gsap.set(".rs-main__title h1", {
+                scale: 0,
+                opacity: 0
+            });
+            gsap.to(".rs-main__title h1", {
+                scale: 1,
+                opacity: 1,
+                scrollTrigger: {
+                    start: `top+=50% top`,
+                    end: `bottom=+50% bottom`,
+                    endTrigger: ".rs-main__title",
+                    scrub: true
+                }
+            });
+        }
     }
     const breakpoint = window.matchMedia("(min-width: 991.98px)");
     const breakpointGsapAnimChecker = function() {

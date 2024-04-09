@@ -32,7 +32,7 @@ export function initComparison(id) {
 			// Other options
 			hoverStart: true,
 			verticalMode: false,
-			startingPoint: 45.6,
+			startingPoint: 46.2,
 			fluidMode: true,
 		}).mount();
 	}

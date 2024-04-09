@@ -180,6 +180,25 @@ export let bodyLock = (delay = 500) => {
 */
 export function spollers() {
 	const spollersArray = document.querySelectorAll('[data-spollers]');
+
+	function spollerClassInit() {
+		spollersArray.forEach(spoller => {
+			const spollersItem = spoller.querySelectorAll('[class*="_item"]')
+
+			spoller.classList.add('spollers')
+
+			spollersItem.forEach(item => {
+				const spollerTitle = item.querySelector('[class*="_title"]')
+				const spollerBody = item.querySelector('[class*="_body"]')
+
+				item.classList.add('spollers__item')
+				spollerTitle.classList.add('spollers__title')
+				spollerBody.classList.add('spollers__body')
+			});
+		});
+	}
+	spollerClassInit()
+
 	if (spollersArray.length > 0) {
 		// Получение обычных слойлеров
 		const spollersRegular = Array.from(spollersArray).filter(function (item, index, self) {
@@ -224,11 +243,11 @@ export function spollers() {
 					if (hideSpollerBody) {
 						spollerTitle.removeAttribute('tabindex');
 						if (!spollerTitle.classList.contains('_spoller-active')) {
-							spollerTitle.nextElementSibling.hidden = true;
+							spollerTitle.closest('.spollers__item').querySelector('.spollers__body').hidden = true;
 						}
 					} else {
 						spollerTitle.setAttribute('tabindex', '-1');
-						spollerTitle.nextElementSibling.hidden = false;
+						spollerTitle.closest('.spollers__item').querySelector('.spollers__body').hidden = false;
 					}
 				});
 			}
@@ -245,7 +264,7 @@ export function spollers() {
 						hideSpollersBody(spollersBlock);
 					}
 					spollerTitle.classList.toggle('_spoller-active');
-					_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
+					_slideToggle(spollerTitle.closest('.spollers__item').querySelector('.spollers__body'), spollerSpeed);
 				}
 				e.preventDefault();
 			}

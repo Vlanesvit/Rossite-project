@@ -5,6 +5,7 @@ const branchData = [
 		location: [55.708521, 37.653510],
 	},
 ]
+ymaps.ready(init);
 function init() {
 	if (document.getElementById('map')) {
 		ymaps.ready();
@@ -55,4 +56,3 @@ function init() {
 		map.events.add('click', e => e.get('target').balloon.close());
 	}
 }
-init()

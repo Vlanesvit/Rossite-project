@@ -27,9 +27,9 @@
 		overflow: visible;
 		position: relative;
 		// min-height: 934px;
-		padding-bottom: 48.65%;
 		// right: -80px;
-		right: -4.4%;
+		padding-bottom: 43.45%;
+		right: -3.8%;
 
 		.icv__control-line {
 			width: 8px !important;
@@ -56,7 +56,9 @@
 				width: 0px;
 				height: 0px;
 				opacity: 0;
-				transition: opacity 0.3s ease-in-out, height 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656),
+				transition:
+					opacity 0.3s ease-in-out,
+					height 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656),
 					width 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656);
 
 				&.cursor__active {
@@ -84,6 +86,11 @@
 
 		.icv__arrow-wrapper {
 			display: none;
+		}
+
+		.icv__wrapper,
+		.icv__fluidwrapper {
+			background-size: contain !important;
 		}
 	}
 }

@@ -1,6 +1,5 @@
 .rs-slider-block {
 	margin-bottom: 95px;
-	overflow: hidden;
 
 	@media (max-width: 991.98px) {
 		margin-bottom: 56px;
@@ -10,14 +9,6 @@
 		&:not(.rs-slider-block-pins) {
 			margin-top: 60px;
 			margin-bottom: 60px;
-		}
-	}
-
-	&.rs-slider-block-pins {
-		padding-top: 10px;
-
-		@media (max-width: 991.98px) {
-			padding-top: 0px;
 		}
 	}
 
@@ -134,6 +125,24 @@
 
 			@media (max-width: 991.98px) {
 				max-height: 401px;
+			}
+		}
+
+		&.rs-slider-block__gif {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translateX(-50%);
+			padding: 0% 89.4% 65.1% 0%;
+			width: auto;
+			height: auto;
+
+			img {
+				position: absolute;
+				max-height: auto;
+				border-radius: 15px;
+				top: 0;
+				left: 0;
 			}
 		}
 	}

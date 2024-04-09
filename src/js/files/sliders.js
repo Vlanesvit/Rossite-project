@@ -18,7 +18,7 @@ EffectFade, Lazy, Manipulation
 
 // Стили Swiper
 // Базовые стили
-import "../../scss/base/swiper.scss";
+// import "../../scss/base/swiper.scss";
 // Полный набор стилей из scss/libs/swiper.scss
 // import "../../scss/libs/swiper.scss";
 // Полный набор стилей из node_modules
@@ -262,6 +262,7 @@ export function initSliders() {
 		const sliderBlocks = document.querySelectorAll('.rs-reviews');
 		sliderBlocks.forEach(sliderBlock => {
 			const slider = sliderBlock.querySelector('.rs-reviews__slider');
+			const slides = sliderBlock.querySelectorAll('.rs-reviews__slide');
 			const arrowNext = sliderBlock.querySelector('.rs-reviews__button-next');
 			const arrowPrev = sliderBlock.querySelector('.rs-reviews__button-prev');
 
@@ -323,6 +324,14 @@ export function initSliders() {
 						spaceBetween: 30,
 					},
 				},
+			});
+
+			// Если отзыв большой
+			slides.forEach(slide => {
+				const reviewsDesc = slide.querySelector('.rs-reviews .rs-reviews__description p');
+				if (reviewsDesc.clientHeight > 175) {
+					reviewsDesc.closest('.rs-reviews__description').classList.add('_large-reviews');
+				}
 			});
 		});
 	}
@@ -631,101 +640,6 @@ export function initSliders() {
 				},
 			});
 		});
-	}
-
-	if (document.querySelector('.rs-features__slider')) {
-		'use strict';
-		// До этой ширины слайдер будет неактивным
-		const breakpoint = window.matchMedia('(min-width: 991.98px)');
-
-		let features;
-
-		const breakpointChecker = function () {
-			if (breakpoint.matches === true) {
-				// Выключаем слайдер
-				if (features !== undefined) features.destroy(true, true);
-				return;
-			} else if (breakpoint.matches === false) {
-				// Включаем слайдер
-				return enableSwiper();
-			}
-		};
-
-		// Инициализация слайдера
-		const enableSwiper = function () {
-			const sliderFeatures = document.querySelectorAll('.rs-features');
-
-			sliderFeatures.forEach(sliderFeature => {
-				const slider = sliderFeature.querySelector('.rs-features__slider');
-				const arrowNext = sliderFeature.querySelector('.rs-features__button-next');
-				const arrowPrev = sliderFeature.querySelector('.rs-features__button-prev');
-
-				// Перечень слайдеров
-				new Swiper(slider, {
-					modules: [Navigation, Pagination, Autoplay],
-
-					// // Автопрокрутка
-					// autoplay: {
-					// 	// Пауза между прокруткой
-					// 	delay: 10000,
-					// 	// Закончить на последнем слайде
-					// 	stopOnLastSlide: false,
-					// 	// Отключить после ручного переключения
-					// 	disableOnInteraction: false,
-					// },
-
-					// Обновить свайпер
-					// при изменении элементов слайдера
-					observer: true,
-					// при изменении родительских элементов слайдера
-					observeParents: true,
-					// при изменении дочерних элементов слайдера
-					observeSlideChildren: true,
-
-					// Скорость смены слайдов
-					speed: 500,
-
-					// Включение/отключение
-					// перетаскивание на ПК
-					simulateTouch: true,
-					// Чувствительность свайпа
-					touchRadio: 1,
-					// Угол срабатывания свайпа/перетаскивания
-					touchAngle: 45,
-
-					// Курсор
-					grabCursor: true,
-
-					// // Стрелки
-					// navigation: {
-					// 	nextEl: arrowNext,
-					// 	prevEl: arrowPrev,
-					// },
-
-					// loop: true,
-
-					// Брейкпоинты(адаптив)
-					// Шрина экрана
-					breakpoints: {
-						320: {
-							slidesPerView: 1.22,
-							spaceBetween: 20,
-						},
-						768: {
-							slidesPerView: 2.4,
-							spaceBetween: 25,
-						},
-						992: {
-							slidesPerView: 1,
-							spaceBetween: 30,
-						},
-					},
-				});
-			});
-		};
-
-		breakpoint.addListener(breakpointChecker);
-		breakpointChecker();
 	}
 }
 

@@ -209,6 +209,25 @@
 
 		a {
 			color: var(--primary-color);
+			display: none;
+			align-items: center;
+
+			&::after {
+				content: "\e904";
+				font-family: "icons" !important;
+				speak: never;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				transform: rotate(-90deg);
+				display: block;
+				font-size: 25px;
+
+			}
 		}
 
 		@media (max-width: 991.98px) {
@@ -219,12 +238,18 @@
 				overflow-y: hidden;
 			}
 		}
-	}
 
-	// .rs-reviews__read-more
-	&__read-more {
-		@media (min-width: 991.98px) {
-			display: none;
+		&._large-reviews {
+			p {
+				display: -webkit-box;
+				-webkit-line-clamp: 5;
+				-webkit-box-orient: vertical;
+				overflow-y: hidden;
+			}
+
+			a {
+				display: flex;
+			}
 		}
 	}
 

@@ -169,10 +169,8 @@
 	&__item {
 		@media (any-hover: hover) {
 			&:hover {
-				.rs-project__img {
-					&::after {
-						opacity: 1;
-					}
+				.rs-project__img img {
+					transform: scale(1.1);
 				}
 			}
 		}
@@ -185,6 +183,7 @@
 		position: relative;
 		max-height: 617px;
 		overflow: hidden;
+		border-radius: 10px;
 
 		.rs-case & {
 			max-height: 300px;

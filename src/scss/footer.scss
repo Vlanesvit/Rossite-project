@@ -2,6 +2,25 @@
 	// .rs-footer__top
 	&__top {
 		background-color: #f6f5f8;
+
+		@media (max-width: 991.98px) {
+			.rs-footer__container {
+				display: flex;
+				flex-direction: column;
+
+				.rs-breadcrumbs {
+					order: 1;
+				}
+
+				.rs-footer__head {
+					order: 2;
+				}
+
+				.rs-footer__body {
+					order: 3;
+				}
+			}
+		}
 	}
 
 	// .rs-footer__container
@@ -203,7 +222,7 @@
 	}
 	// .rs-footer__body
 	&__body {
-		padding: 50px 0px 60px;
+		padding: 0px 0px 60px;
 
 		@media (max-width: 991.98px) {
 			padding: 0;
