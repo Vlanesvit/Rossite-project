@@ -415,8 +415,6 @@ section {
 
 	@media (any-hover: hover) {
 		&:hover {
-			transform: scale(1.05);
-
 			.btn-hover {
 				&:after {
 					opacity: 1;

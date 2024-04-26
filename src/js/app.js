@@ -13,7 +13,7 @@
 */
 
 // Включить/выключить vnv (Full Logging System) (в работе)
-window['vnv'] = true;
+window['vnv'] = false;
 
 // Подключение основного файла стилей
 import "../scss/style.scss";

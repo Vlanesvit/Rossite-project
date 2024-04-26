@@ -8308,7 +8308,7 @@
         if (breakpoint.matches === true) return animDesktop(); else if (breakpoint.matches === false) return animMobile();
     };
     breakpoint.addListener(breakpointGsapAnimChecker);
-    window["vnv"] = true;
+    window["vnv"] = false;
     isWebp();
     addTouchClass();
     addLoadedClass();
