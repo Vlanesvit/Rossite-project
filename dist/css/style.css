@@ -2440,28 +2440,33 @@ textarea.rs-input {
   z-index: 999;
   -webkit-transition: 0.3s ease 0s, top 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0s;
   transition: 0.3s ease 0s, top 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0s;
-  -webkit-transition-property: margin, top, background-color, -webkit-backdrop-filter;
-  transition-property: margin, top, background-color, -webkit-backdrop-filter;
-  transition-property: margin, top, background-color, backdrop-filter;
-  transition-property: margin, top, background-color, backdrop-filter, -webkit-backdrop-filter;
+  -webkit-transition-property: padding-top, top, background-color, -webkit-backdrop-filter;
+  transition-property: padding-top, top, background-color, -webkit-backdrop-filter;
+  transition-property: padding-top, top, background-color, backdrop-filter;
+  transition-property: padding-top, top, background-color, backdrop-filter, -webkit-backdrop-filter;
   background-color: transparent;
+}
+
+.rs-header._header-white {
+  color: #fff;
+}
+
+.rs-header._header-hover {
+  color: #141517;
 }
 
 .rs-header._header-scroll {
   top: -500px;
-  margin-top: 0px;
-  -webkit-transition: 0.3s ease 0s, top 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1s;
-  transition: 0.3s ease 0s, top 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1s;
+  padding-top: 0px;
+  color: #141517;
 }
 
 .rs-header._header-scroll._header-show {
   top: 0px;
-  -webkit-transition: 0.3s ease 0s, top 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0s;
-  transition: 0.3s ease 0s, top 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0s;
 }
 
 .rs-header.margin-0 {
-  margin: 0px;
+  padding-top: 0px;
 }
 
 .rs-header.border-bottom {
@@ -2695,6 +2700,21 @@ textarea.rs-input {
   transition: all 0.3s ease 0s;
 }
 
+._header-white .rs-header__logo {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+._header-hover .rs-header__logo {
+  -webkit-filter: invert(0);
+          filter: invert(0);
+}
+
+._header-scroll .rs-header__logo {
+  -webkit-filter: invert(0);
+          filter: invert(0);
+}
+
 .rs-header__logo a {
   display: block;
   width: 100%;
@@ -2734,6 +2754,33 @@ textarea.rs-input {
 .menu-open .rs-header__actions_item a svg path,
 .menu-open .rs-header__actions_item a svg circle {
   stroke: #fff;
+}
+
+._header-white .rs-header__actions_item a {
+  color: #fff;
+}
+
+._header-white .rs-header__actions_item a svg path,
+._header-white .rs-header__actions_item a svg circle {
+  stroke: #fff;
+}
+
+._header-hover .rs-header__actions_item a {
+  color: #141517;
+}
+
+._header-hover .rs-header__actions_item a svg path,
+._header-hover .rs-header__actions_item a svg circle {
+  stroke: #141517;
+}
+
+._header-scroll .rs-header__actions_item a {
+  color: #141517;
+}
+
+._header-scroll .rs-header__actions_item a svg path,
+._header-scroll .rs-header__actions_item a svg circle {
+  stroke: #141517;
 }
 
 .rs-header__actions_item a svg {
@@ -2807,12 +2854,64 @@ textarea.rs-input {
   line-height: 130%;
 }
 
-.rs-header__call .rs-btn > .btn-text::before {
+.rs-header__call .rs-btn:not(:hover) > .btn-text {
   color: #000;
 }
 
-.rs-header__call .rs-btn > .btn-text svg path {
+.rs-header__call .rs-btn:not(:hover) > .btn-text::before {
+  color: #000;
+}
+
+.rs-header__call .rs-btn:not(:hover) > .btn-text svg path {
   stroke: #000;
+}
+
+._header-white .rs-header__call .rs-btn:not(:hover) > .btn-text {
+  color: #fff;
+}
+
+._header-white .rs-header__call .rs-btn:not(:hover) > .btn-text::before {
+  color: #fff;
+}
+
+._header-white .rs-header__call .rs-btn:not(:hover) > .btn-text svg path {
+  stroke: #fff;
+}
+
+._header-hover .rs-header__call .rs-btn:not(:hover) > .btn-text {
+  color: #000;
+}
+
+._header-hover .rs-header__call .rs-btn:not(:hover) > .btn-text::before {
+  color: #000;
+}
+
+._header-hover .rs-header__call .rs-btn:not(:hover) > .btn-text svg path {
+  stroke: #000;
+}
+
+._header-scroll .rs-header__call .rs-btn:not(:hover) > .btn-text {
+  color: #000;
+}
+
+._header-scroll .rs-header__call .rs-btn:not(:hover) > .btn-text::before {
+  color: #000;
+}
+
+._header-scroll .rs-header__call .rs-btn:not(:hover) > .btn-text svg path {
+  stroke: #000;
+}
+
+._header-white .rs-header__call .rs-btn:not(:hover)._btn-gray-border {
+  border-color: rgba(212, 215, 229, 0.45);
+}
+
+._header-hover .rs-header__call .rs-btn:not(:hover)._btn-gray-border {
+  border-color: var(--light-gray-border);
+}
+
+._header-scroll .rs-header__call .rs-btn:not(:hover)._btn-gray-border {
+  border-color: var(--light-gray-border);
 }
 
 .rs-header__region {
@@ -2933,37 +3032,6 @@ textarea.rs-input {
 
 .rs-header__region_list li a {
   color: var(--primary-color-btn);
-}
-
-html:not(.menu-open) ._header-white:not(._header-scroll) {
-  border-color: transparent;
-  color: #fff;
-}
-
-html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__actions_item a svg circle,
-html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__actions_item a svg path {
-  stroke: #fff;
-}
-
-html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__logo {
-  -webkit-filter: invert(1);
-          filter: invert(1);
-}
-
-html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-btn._btn-gray-border {
-  border-color: rgba(212, 215, 229, 0.45);
-}
-
-html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-btn > .btn-text {
-  color: #fff;
-}
-
-html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-btn > .btn-text::before {
-  color: #fff;
-}
-
-html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-btn > .btn-text svg path {
-  stroke: #fff;
 }
 
 .rs-footer {
@@ -6765,6 +6833,22 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
           align-items: center;
 }
 
+.rs-reviews__description a span {
+  position: relative;
+}
+
+.rs-reviews__description a span::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0%;
+  height: 1px;
+  background-color: var(--primary-color-btn);
+  -webkit-transition: width 0.3s ease 0s;
+  transition: width 0.3s ease 0s;
+}
+
 .rs-reviews__description a::after {
   content: "\e904";
   font-family: "icons" !important;
@@ -6791,9 +6875,9 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
 }
 
 .rs-reviews__description._large-reviews a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .rs-reviews__footer {
@@ -6811,6 +6895,22 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
 
 .rs-reviews__footer p {
   margin-bottom: -10px;
+}
+
+.rs-reviews__footer p a span {
+  position: relative;
+}
+
+.rs-reviews__footer p a span::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0%;
+  height: 1px;
+  background-color: var(--primary-color-btn);
+  -webkit-transition: width 0.3s ease 0s;
+  transition: width 0.3s ease 0s;
 }
 
 .rs-reviews .swiper-button-next,
@@ -10154,7 +10254,25 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
     pointer-events: none;
   }
 
+  .rs-header._header-hover::before {
+    -webkit-transform: translate3d(0, 0%, 0);
+            transform: translate3d(0, 0%, 0);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+    transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s, -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+  }
+
   .rs-header._header-scroll::before {
+    -webkit-transform: translate3d(0, 0%, 0);
+            transform: translate3d(0, 0%, 0);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+    transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s, -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+  }
+
+  .rs-header._header-scroll._header-show::before {
     -webkit-transform: translate3d(0, 0%, 0);
             transform: translate3d(0, 0%, 0);
     -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
@@ -10202,8 +10320,8 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
   .rs-header__region_body {
     padding: 33px 0px 30px;
     border-radius: 0 0 30px 30px;
-    -webkit-box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
-            box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+    -webkit-box-shadow: 0px 15px 15px 0 rgba(125, 138, 152, 0.15);
+            box-shadow: 0px 15px 15px 0 rgba(125, 138, 152, 0.15);
   }
 
   .rs-header__region_close {
@@ -10391,7 +10509,7 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
   }
 
   .rs-header {
-    margin-top: 22px;
+    padding-top: 22px;
   }
 
   .lock .rs-header {
@@ -10489,8 +10607,8 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
   .rs-header .menu__dropdown_body {
     border-radius: 0 0 30px 30px;
     padding: 46px;
-    -webkit-box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
-            box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+    -webkit-box-shadow: 0px 15px 15px 0 rgba(125, 138, 152, 0.15);
+            box-shadow: 0px 15px 15px 0 rgba(125, 138, 152, 0.15);
   }
 
   .rs-header .menu__dropdown_head {
@@ -16130,7 +16248,7 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
 
 @media (min-width: 991.98px) and (max-width: 1439.98px) {
   .rs-header {
-    margin-top: 10px;
+    padding-top: 10px;
   }
 
   .rs-header .menu__list > li:not(:last-child) {
@@ -16552,6 +16670,16 @@ html:not(.menu-open) ._header-white:not(._header-scroll) .rs-header__call .rs-bt
         -ms-transform: translateX(0%);
             transform: translateX(0%);
     opacity: 1;
+  }
+
+  .rs-reviews__description a:hover span::before {
+    width: 100%;
+    left: 0;
+  }
+
+  .rs-reviews__footer p a:hover span::before {
+    width: 100%;
+    left: 0;
   }
 
   .rs-steps__navigation_list li a:hover .split-text-origin > span {

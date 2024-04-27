@@ -506,12 +506,10 @@ export function menu() {
 
 		menuItemDropdowns.forEach(item => {
 			item.addEventListener('mouseenter', function () {
-				item.closest('.rs-header').classList.add('_header-scroll')
-				item.closest('.rs-header').classList.add('_header-show')
+				item.closest('.rs-header').classList.add('_header-hover')
 			})
 			item.addEventListener('mouseleave', function () {
-				item.closest('.rs-header').classList.remove('_header-scroll')
-				item.closest('.rs-header').classList.remove('_header-show')
+				item.closest('.rs-header').classList.remove('_header-hover')
 			})
 		});
 
@@ -597,8 +595,7 @@ export function regionMenu() {
 
 				if (!document.documentElement.classList.contains('region-menu-open')) {
 					regionMenuOpen()
-					regionBtn.closest('.rs-header').classList.add('_header-scroll')
-					regionBtn.closest('.rs-header').classList.add('_header-show')
+					regionBtn.closest('.rs-header').classList.add('_header-hover')
 				}
 			})
 		});
@@ -612,8 +609,7 @@ export function regionMenu() {
 				// Закрывает модальное окно выбора региона
 				if (document.documentElement.classList.contains('region-menu-open')) {
 					regionMenuClose()
-					close.closest('.rs-header').classList.remove('_header-scroll')
-					close.closest('.rs-header').classList.remove('_header-show')
+					close.closest('.rs-header').classList.remove('_header-hover')
 				}
 			});
 		})
@@ -642,23 +638,38 @@ export function regionMenu() {
 	}
 
 	// Поиск по регионам
-	const listRegion = document.querySelectorAll('.rs-header__region_list li');
-	const inputRegion = document.querySelector('.rs-header__region_field input');
-	if (listRegion.length > 0) {
-		let arr = [], i = -1, l = listRegion.length;
-		while (++i < l) {
-			arr.push(listRegion[i].textContent.trim());
-		}
-		if (inputRegion) {
+	function searchRegion() {
+		const regionBlock = document.querySelectorAll('.rs-header__region');
+		regionBlock.forEach(region => {
+			const listRegion = region.querySelectorAll('.rs-header__region_select .rs-header__region_list li');
+			const inputRegion = region.querySelector('.rs-header__region_field input');
+
 			inputRegion.addEventListener('input', function () {
-				let rgx = new RegExp(this.value, 'i');
-				arr.forEach(function (el, idx) {
-					if (rgx.test(el)) listRegion[idx].closest('.rs-header__region_select ul li').classList.remove('hidden');
-					else listRegion[idx].closest('.rs-header__region_select ul li').classList.add('hidden');
-				})
-			})
-		}
+				const filterRegion = inputRegion.value.toUpperCase();
+
+				listRegion.forEach(item => {
+					const textValue = item.textContent;
+
+					if (textValue.toUpperCase().indexOf(filterRegion) === 0) {
+						console.log(textValue.toUpperCase().indexOf(filterRegion) === 0);
+						item.classList.remove('hidden');
+						item.parentElement.parentElement.classList.remove('hidden');
+
+					} else {
+						item.classList.add('hidden');
+						item.parentElement.parentElement.classList.add('hidden');
+					}
+
+					const listRegionShow = region.querySelectorAll('.rs-header__region_select .rs-header__region_list li:not(.hidden)');
+					listRegionShow.forEach(itemShow => {
+						itemShow.parentElement.parentElement.classList.remove('hidden');
+					});
+				});
+			});
+		});
 	}
+	searchRegion()
+
 }
 
 // Модуль "показать еще" =======================================================================================================================================================================================================================

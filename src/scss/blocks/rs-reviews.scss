@@ -212,6 +212,21 @@
 			display: none;
 			align-items: center;
 
+			span {
+				position: relative;
+
+				&::before {
+					content: "";
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					width: 0%;
+					height: 1px;
+					background-color: var(--primary-color-btn);
+					transition: width 0.3s ease 0s;
+				}
+			}
+
 			&::after {
 				content: "\e904";
 				font-family: "icons" !important;
@@ -226,7 +241,17 @@
 				transform: rotate(-90deg);
 				display: block;
 				font-size: 25px;
+			}
 
+			@media (any-hover: hover) {
+				&:hover {
+					span {
+						&::before {
+							width: 100%;
+							left: 0;
+						}
+					}
+				}
 			}
 		}
 
@@ -248,7 +273,7 @@
 			}
 
 			a {
-				display: flex;
+				display: inline-flex;
 			}
 		}
 	}
@@ -267,6 +292,34 @@
 				font-size: 16px;
 				line-height: 130%;
 				margin: 0px;
+			}
+
+			a {
+				span {
+					position: relative;
+
+					&::before {
+						content: "";
+						position: absolute;
+						bottom: 0;
+						right: 0;
+						width: 0%;
+						height: 1px;
+						background-color: var(--primary-color-btn);
+						transition: width 0.3s ease 0s;
+					}
+				}
+
+				@media (any-hover: hover) {
+					&:hover {
+						span {
+							&::before {
+								width: 100%;
+								left: 0;
+							}
+						}
+					}
+				}
 			}
 		}
 

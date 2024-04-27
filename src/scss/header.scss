@@ -7,7 +7,7 @@
 	transition:
 		0.3s ease 0s,
 		top 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0s;
-	transition-property: margin, top, background-color, backdrop-filter;
+	transition-property: padding-top, top, background-color, backdrop-filter;
 	background-color: transparent;
 
 	@media (min-width: 767.98px) {
@@ -26,12 +26,25 @@
 		}
 	}
 
+	&._header-white {
+		color: #fff;
+	}
+
+	&._header-hover {
+		color: #141517;
+
+		@media (min-width: 767.98px) {
+			&::before {
+				transform: translate3d(0, 0%, 0);
+				transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+			}
+		}
+	}
+
 	&._header-scroll {
 		top: -500px;
-		margin-top: 0px;
-		transition:
-			0.3s ease 0s,
-			top 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1s;
+		padding-top: 0px;
+		color: #141517;
 
 		@media (min-width: 767.98px) {
 			&::before {
@@ -43,13 +56,17 @@
 
 	&._header-scroll._header-show {
 		top: -0px;
-		transition:
-			0.3s ease 0s,
-			top 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0s;
+
+		@media (min-width: 767.98px) {
+			&::before {
+				transform: translate3d(0, 0%, 0);
+				transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+			}
+		}
 	}
 
 	&.margin-0 {
-		margin: 0px;
+		padding-top: 0px;
 	}
 
 	&.border-bottom {
@@ -57,14 +74,14 @@
 	}
 
 	@media (min-width: 991.98px) {
-		margin-top: 22px;
+		padding-top: 22px;
 
 		.lock & {
 			padding-right: 6px;
 		}
 
 		@media (max-width: 1439.98px) {
-			margin-top: 10px;
+			padding-top: 10px;
 		}
 	}
 
@@ -638,7 +655,7 @@
 				@media (min-width: 991.98px) {
 					border-radius: 0 0 30px 30px;
 					padding: 46px;
-					box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+					box-shadow: 0px 15px 15px 0 rgba(125, 138, 152, 0.15);
 
 					@media (max-width: 1439.98px) {
 						padding: 35px;
@@ -925,6 +942,18 @@
 		max-width: 145px;
 		transition: all 0.3s ease 0s;
 
+		._header-white & {
+			filter: invert(1);
+		}
+
+		._header-hover & {
+			filter: invert(0);
+		}
+
+		._header-scroll & {
+			filter: invert(0);
+		}
+
 		@media (max-width: 1439.98px) {
 			max-width: 120px;
 		}
@@ -1031,6 +1060,39 @@
 						path,
 						circle {
 							stroke: #fff;
+						}
+					}
+				}
+
+				._header-white & {
+					color: #fff;
+
+					svg {
+						path,
+						circle {
+							stroke: #fff;
+						}
+					}
+				}
+
+				._header-hover & {
+					color: #141517;
+
+					svg {
+						path,
+						circle {
+							stroke: #141517;
+						}
+					}
+				}
+
+				._header-scroll & {
+					color: #141517;
+
+					svg {
+						path,
+						circle {
+							stroke: #141517;
 						}
 					}
 				}
@@ -1159,13 +1221,71 @@
 		}
 
 		.rs-btn {
-			& > .btn-text {
-				&::before {
+			&:not(:hover) {
+				& > .btn-text {
 					color: #000;
+
+					&::before {
+						color: #000;
+					}
+
+					svg {
+						path {
+							stroke: #000;
+						}
+					}
+
+					._header-white & {
+						color: #fff;
+
+						&::before {
+							color: #fff;
+						}
+						svg {
+							path {
+								stroke: #fff;
+							}
+						}
+					}
+
+					._header-hover & {
+						color: #000;
+
+						&::before {
+							color: #000;
+						}
+						svg {
+							path {
+								stroke: #000;
+							}
+						}
+					}
+
+					._header-scroll & {
+						color: #000;
+
+						&::before {
+							color: #000;
+						}
+						svg {
+							path {
+								stroke: #000;
+							}
+						}
+					}
 				}
-				svg {
-					path {
-						stroke: #000;
+
+				&._btn-gray-border {
+					._header-white & {
+						border-color: rgba(212, 215, 229, 0.45);
+					}
+
+					._header-hover & {
+						border-color: var(--light-gray-border);
+					}
+
+					._header-scroll & {
+						border-color: var(--light-gray-border);
 					}
 				}
 			}
@@ -1260,7 +1380,7 @@
 			@media (min-width: 767.98px) {
 				padding: 33px 0px 30px;
 				border-radius: 0 0 30px 30px;
-				box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+				box-shadow: 0px 15px 15px 0 rgba(125, 138, 152, 0.15);
 
 				@media (max-width: 991.98px) {
 					padding: 17px 0px;
@@ -1604,40 +1724,6 @@
 
 				a {
 					color: var(--primary-color-btn);
-				}
-			}
-		}
-	}
-}
-
-html:not(.menu-open) {
-	._header-white {
-		&:not(._header-scroll) {
-			border-color: transparent;
-			color: #fff;
-
-			.rs-header__actions_item a svg circle,
-			.rs-header__actions_item a svg path {
-				stroke: #fff;
-			}
-
-			.rs-header__logo {
-				filter: invert(1);
-			}
-
-			.rs-header__call .rs-btn._btn-gray-border {
-				border-color: rgba(212, 215, 229, 0.45);
-			}
-
-			.rs-header__call .rs-btn > .btn-text {
-				color: #fff;
-
-				&::before {
-					color: #fff;
-				}
-
-				svg path {
-					stroke: #fff;
 				}
 			}
 		}

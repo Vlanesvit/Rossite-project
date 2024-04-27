@@ -326,7 +326,9 @@ function animDesktop() {
 			gsap.set('.rs-main__project_item', {
 				// y: (index) => 20 * index,
 				zIndex: (index, target, targets) => targets.length - index,
-				// scale: (index) => 1 - (index * 0.05),
+			})
+			gsap.set('.rs-main__project_item:not(:first-child)', {
+				scale: (index) => 1 - (1 * 0.05),
 			})
 		}, 100);
 
@@ -349,10 +351,11 @@ function animDesktop() {
 		})
 
 		pinBlock.to('.rs-main__project_item', {
-			// scale: 1,
+			scale: 1,
 			// y: 0,
 			stagger: stagger,
 		})
+
 		pinBlock.to('.rs-main__project_item:not(:last-child)', {
 			yPercent: -125,
 			stagger: stagger,
