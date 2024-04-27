@@ -162,15 +162,19 @@
         const spollersArray = document.querySelectorAll("[data-spollers]");
         function spollerClassInit() {
             spollersArray.forEach((spoller => {
-                const spollersItem = spoller.querySelectorAll('[class*="_item"]');
-                spoller.classList.add("spollers");
-                spollersItem.forEach((item => {
-                    const spollerTitle = item.querySelector('[class*="_title"]');
-                    const spollerBody = item.querySelector('[class*="_body"]');
-                    item.classList.add("spollers__item");
-                    spollerTitle.classList.add("spollers__title");
-                    spollerBody.classList.add("spollers__body");
-                }));
+                if (spoller) {
+                    const spollersItem = spoller.querySelectorAll('[class*="_item"]');
+                    spoller.classList.add("spollers");
+                    spollersItem.forEach((item => {
+                        if (item) {
+                            const spollerTitle = item.querySelector('[class*="_title"]');
+                            const spollerBody = item.querySelector('[class*="_body"]');
+                            item.classList.add("spollers__item");
+                            if (spollerTitle) spollerTitle.classList.add("spollers__title");
+                            if (spollerBody) spollerBody.classList.add("spollers__body");
+                        }
+                    }));
+                }
             }));
         }
         spollerClassInit();
@@ -391,6 +395,16 @@
                 let iconDropdown = document.createElement("i");
                 menuLinkDropdowns.append(iconDropdown);
             }));
+            menuItemDropdowns.forEach((item => {
+                item.addEventListener("mouseenter", (function() {
+                    item.closest(".rs-header").classList.add("_header-scroll");
+                    item.closest(".rs-header").classList.add("_header-show");
+                }));
+                item.addEventListener("mouseleave", (function() {
+                    item.closest(".rs-header").classList.remove("_header-scroll");
+                    item.closest(".rs-header").classList.remove("_header-show");
+                }));
+            }));
             function openLvlMenu(li, ul) {
                 li.forEach((item => {
                     const menuItemIcons = item.querySelector("a > i");
@@ -441,13 +455,21 @@
             regionBtn.addEventListener("click", (function(e) {
                 e.preventDefault();
                 if (document.documentElement.classList.contains("location-modal-open")) document.documentElement.classList.remove("location-modal-open");
-                if (!document.documentElement.classList.contains("region-menu-open")) regionMenuOpen();
+                if (!document.documentElement.classList.contains("region-menu-open")) {
+                    regionMenuOpen();
+                    regionBtn.closest(".rs-header").classList.add("_header-scroll");
+                    regionBtn.closest(".rs-header").classList.add("_header-show");
+                }
             }));
         }));
         if (regionBlockClose.length > 0) regionBlockClose.forEach((close => {
             close.addEventListener("click", (function(e) {
                 e.preventDefault();
-                if (document.documentElement.classList.contains("region-menu-open")) regionMenuClose();
+                if (document.documentElement.classList.contains("region-menu-open")) {
+                    regionMenuClose();
+                    close.closest(".rs-header").classList.remove("_header-scroll");
+                    close.closest(".rs-header").classList.remove("_header-show");
+                }
             }));
         }));
         if (regionVerf.length > 0) regionVerf.forEach((verf => {
@@ -462,6 +484,18 @@
             menuOpen();
             regionMenuOpen();
         }));
+        const listRegion = document.querySelectorAll(".rs-header__region_list li");
+        const inputRegion = document.querySelector(".rs-header__region_field input");
+        if (listRegion.length > 0) {
+            let arr = [], i = -1, l = listRegion.length;
+            while (++i < l) arr.push(listRegion[i].textContent.trim());
+            if (inputRegion) inputRegion.addEventListener("input", (function() {
+                let rgx = new RegExp(this.value, "i");
+                arr.forEach((function(el, idx) {
+                    if (rgx.test(el)) listRegion[idx].closest(".rs-header__region_select ul li").classList.remove("hidden"); else listRegion[idx].closest(".rs-header__region_select ul li").classList.add("hidden");
+                }));
+            }));
+        }
     }
     function showMore() {
         window.addEventListener("load", (function(e) {
@@ -4858,9 +4892,16 @@
         });
     }
     function initSliders() {
-        if (document.querySelector(".rs-slider-block:not(.rs-slider-block-pins)")) {
-            const sliderBlocks = document.querySelectorAll(".rs-slider-block:not(.rs-slider-block-pins)");
+        if (document.querySelector(".rs-slider-block")) {
+            const sliderBlocks = document.querySelectorAll(".rs-slider-block");
             sliderBlocks.forEach((sliderBlock => {
+                if (!sliderBlock.classList.contains("rs-slider-block-pins")) sliderBlockSwiperSettings(sliderBlock);
+                if (window.innerWidth <= 991.98 && sliderBlock.classList.contains("rs-slider-block-pins")) {
+                    sliderBlock.classList.remove("rs-slider-block-pins");
+                    sliderBlockSwiperSettings(sliderBlock);
+                }
+            }));
+            function sliderBlockSwiperSettings(sliderBlock) {
                 const slider = sliderBlock.querySelector(".rs-slider-block__slider");
                 const pagination = sliderBlock.querySelector(".rs-slider-block__pagination");
                 const arrowNext = sliderBlock.querySelector(".rs-slider-block__button-next");
@@ -4915,7 +4956,7 @@
                         }
                     }
                 });
-            }));
+            }
         }
         if (document.querySelector(".rs-services")) {
             const sliderBlocks = document.querySelectorAll(".rs-services");
@@ -5680,7 +5721,6 @@
     function filterClear() {
         const filterItem = document.querySelectorAll(".rs-case .filter__item");
         const filterBtn = document.querySelector(".rs-case .filter__btn");
-        document.querySelector(".filter__reset .filter__title");
         function outputCountActiveFilter(where_find, where_output) {
             if (where_output) {
                 let filterCount = document.createElement("span");
@@ -5733,7 +5773,7 @@
                             if (item.classList.contains("_open-filter")) item.classList.remove("_open-filter");
                         }));
                         this.closest(".filter__item").classList.add("_open-filter");
-                    }
+                    } else this.closest(".filter__item").classList.remove("_open-filter");
                 }));
                 filter.addEventListener("click", (function(e) {
                     e.stopPropagation();
@@ -7737,6 +7777,31 @@
             window.scrollTo(0, 0);
         }), 500);
     }));
+    function moveSvgDashed(dashed, mask, trigger, top = 50, end = 500, markers = 0) {
+        if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
+            gsap.from(mask, {
+                drawSVG: "0%",
+                scrollTrigger: {
+                    trigger,
+                    start: `top-=50% top`,
+                    end: `bottom+=50% bottom`,
+                    scrub: 1
+                }
+            });
+            gsap.from(dashed, {
+                "--dashOffset": 1e3,
+                delay: 5,
+                scrollTrigger: {
+                    trigger,
+                    start: `top-=${top}% top`,
+                    end: `bottom+=${end}% bottom`,
+                    scrub: 1
+                }
+            });
+            ScrollTrigger.refresh();
+            document.querySelector(dashed).setAttribute("stroke-dashoffset", "var(--dashOffset)");
+        }
+    }
     function showContentOnScroll(elem, duration, delay, direction) {
         if (document.querySelectorAll(elem)) {
             const elems = gsap.utils.toArray(elem);
@@ -7926,7 +7991,7 @@
                 ease: "linear",
                 scrollTrigger: {
                     trigger,
-                    start: "top-=10% top",
+                    start: "top-=12% top",
                     end: "bottom+=200% bottom",
                     scrub: true,
                     pin: true,
@@ -7942,7 +8007,7 @@
                 ease: "linear",
                 scrollTrigger: {
                     trigger,
-                    start: "top-=10% top",
+                    start: "top-=12% top",
                     end: "bottom+=200% bottom",
                     scrub: true,
                     invalidateOnRefresh: true,
@@ -7963,6 +8028,7 @@
         }
     }
     function animDesktop() {
+        horizontalScroll(".rs-slider-block-pins .rs-slider-block__swiper", ".rs-slider-block-pins", ".rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill");
         const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
         if (scrollColorElems) scrollColorElems.forEach(((colorSection, i) => {
             const prevBg = i === 0 ? "" : scrollColorElems[i - 1].dataset.bgcolor;
@@ -8073,9 +8139,7 @@
             const stagger = .5;
             setTimeout((() => {
                 gsap.set(".rs-main__project_item", {
-                    y: index => 20 * index,
-                    zIndex: (index, target, targets) => targets.length - index,
-                    scale: index => 1 - index * .05
+                    zIndex: (index, target, targets) => targets.length - index
                 });
             }), 100);
             const pinBlock = gsap.timeline({
@@ -8092,9 +8156,10 @@
                     invalidateOnRefresh: true
                 }
             });
+            pinBlock.to(".rs-main__project", {
+                borderRadius: 0
+            });
             pinBlock.to(".rs-main__project_item", {
-                scale: 1,
-                y: 0,
                 stagger
             });
             pinBlock.to(".rs-main__project_item:not(:last-child)", {
@@ -8199,6 +8264,22 @@
         }
     }
     function animCommon() {
+        moveSvgDashed(".rs-slider-block__line #dashed-about", ".rs-slider-block__line #mask-about", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-1", ".rs-slider-block__line #mask-about-1", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-2", ".rs-slider-block__line #mask-about-2", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-3", ".rs-slider-block__line #mask-about-3", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-4", ".rs-slider-block__line #mask-about-4", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-5", ".rs-slider-block__line #mask-about-5", ".rs-slider-block");
+        moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews");
+        moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-4", ".rs-services__line #mask-services-4", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-5", ".rs-services__line #mask-services-5", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-6", ".rs-services__line #mask-services-6", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-7", ".rs-services__line #mask-services-7", ".rs-services");
+        moveSvgDashed(".rs-task__line #dashed-task1", ".rs-task__line #mask-task1", ".rs-task");
+        moveSvgDashed(".rs-task__line #dashed-task2", ".rs-task__line #mask-task2", ".rs-task");
         showContentOnScroll(".mrp-med-65", .8, .5, "bottom-up");
         showContentOnScroll(".mrp-med-50", .8, .5, "bottom-up");
         showContentOnScroll(".mrp-med-45", .8, .5, "bottom-up");
@@ -8271,7 +8352,6 @@
         showContentOnScroll(".rs-main__title h1", .5, 1, "scale");
         showContentOnScroll(".rs-logo__slide", .5, .2, "right-left--every");
         showContentOnScroll(".rs-error-block", .8, .5, "bottom-up");
-        horizontalScroll(".rs-slider-block-pins .rs-slider-block__swiper", ".rs-slider-block-pins", ".rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill");
         if (document.querySelector(".rs-main__title h1")) {
             gsap.to(".rs-main__title h1", {
                 scrollTrigger: {

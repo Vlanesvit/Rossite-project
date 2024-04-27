@@ -103,7 +103,7 @@
 }
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-	background: var(--primary-color);
+	background: var(--primary-color-btn);
 	position: absolute;
 	bottom: 0px;
 	top: auto;
@@ -123,7 +123,7 @@
 // 	background: var(--light-gray-border);
 
 // 	&_fill {
-// 		background: var(--primary-color);
+// 		background: var(--primary-color-btn);
 // 		left: 0;
 // 		top: 0;
 // 		height: 100%;
@@ -147,7 +147,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: var(--primary-color);
+	background: var(--primary-color-btn);
 	border-radius: 100%;
 	transition: all 0.3s ease 0s;
 	min-width: 51px;

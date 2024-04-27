@@ -1,4 +1,7 @@
 .rs-footer {
+	position: relative;
+	z-index: 11;
+
 	// .rs-footer__top
 	&__top {
 		background-color: #f6f5f8;
@@ -68,7 +71,7 @@
 
 			@media (any-hover: hover) {
 				&:hover {
-					color: var(--primary-color);
+					color: var(--primary-color-btn);
 				}
 			}
 		}
@@ -161,7 +164,7 @@
 							-moz-osx-font-smoothing: grayscale;
 							margin-right: 8px;
 							font-size: 20px;
-							color: var(--primary-color);
+							color: var(--primary-color-btn);
 						}
 					}
 				}
@@ -209,7 +212,7 @@
 
 					@media (any-hover: hover) {
 						&:hover {
-							background-color: var(--primary-color);
+							background-color: var(--primary-color-btn);
 
 							&::before {
 								color: #fff;
@@ -222,7 +225,11 @@
 	}
 	// .rs-footer__body
 	&__body {
-		padding: 0px 0px 60px;
+		padding: 50px 0px 60px;
+
+		.rs-footer__top & {
+			padding-top: 0px;
+		}
 
 		@media (max-width: 991.98px) {
 			padding: 0;
@@ -335,7 +342,6 @@
 			position: relative;
 
 			@media (max-width: 991.98px) {
-				text-transform: lowercase;
 				letter-spacing: normal;
 
 				&::after {
@@ -452,9 +458,9 @@
 				}
 
 				a {
-					color: var(--primary-color);
+					color: var(--primary-color-btn);
 					line-height: 160%;
-					border-bottom: 1px solid var(--primary-color);
+					border-bottom: 1px solid var(--primary-color-btn);
 				}
 
 				@media (max-width: 991.98px) {
@@ -504,7 +510,7 @@
 						top: 8px;
 						width: 7px;
 						height: 7px;
-						background-color: var(--primary-color);
+						background-color: var(--primary-color-btn);
 						border-radius: 50%;
 						opacity: 0;
 						visibility: hidden;
@@ -580,14 +586,14 @@
 					transition: all 0.3s ease 0s;
 
 					&._active-city {
-						border-color: var(--primary-color);
-						color: var(--primary-color);
+						border-color: var(--primary-color-btn);
+						color: var(--primary-color-btn);
 					}
 
 					@media (any-hover: hover) {
 						&:hover {
-							border-color: var(--primary-color);
-							color: var(--primary-color);
+							border-color: var(--primary-color-btn);
+							color: var(--primary-color-btn);
 						}
 					}
 				}

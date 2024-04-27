@@ -26,6 +26,36 @@ window.addEventListener('load', function () {
 })
 
 //========================================================================================================================================================
+/* MOVE SVG LINE */
+function moveSvgDashed(dashed, mask, trigger, top = 50, end = 500, markers = 0) {
+	if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
+		gsap.from(mask, {
+			drawSVG: "0%",
+			scrollTrigger: {
+				trigger: trigger,
+				start: `top-=50% top`,
+				end: `bottom+=50% bottom`,
+				scrub: 1,
+				// markers: 1,
+			},
+		});
+
+		gsap.from(dashed, {
+			"--dashOffset": 1000,
+			delay: 5,
+			scrollTrigger: {
+				trigger: trigger,
+				start: `top-=${top}% top`,
+				end: `bottom+=${end}% bottom`,
+				scrub: 1,
+				// markers: 1,
+			}
+		});
+		ScrollTrigger.refresh()
+		document.querySelector(dashed).setAttribute("stroke-dashoffset", "var(--dashOffset)");
+	}
+}
+
 /* REVEAL ANIMATION */
 function showContentOnScroll(elem, duration, delay, direction) {
 	if (document.querySelectorAll(elem)) {
@@ -105,7 +135,7 @@ function horizontalScroll(block, trigger, progress) {
 			ease: "linear",
 			scrollTrigger: {
 				trigger: trigger,
-				start: "top-=10% top",
+				start: "top-=12% top",
 				end: "bottom+=200% bottom",
 				scrub: true,
 				pin: true,
@@ -122,7 +152,7 @@ function horizontalScroll(block, trigger, progress) {
 			ease: 'linear',
 			scrollTrigger: {
 				trigger: trigger,
-				start: "top-=10% top",
+				start: "top-=12% top",
 				end: "bottom+=200% bottom",
 				scrub: true,
 				invalidateOnRefresh: true,
@@ -153,6 +183,9 @@ function horizontalScroll(block, trigger, progress) {
 
 //========================================================================================================================================================
 function animDesktop() {
+	/* HORIZONTAL SCROLL */
+	horizontalScroll('.rs-slider-block-pins .rs-slider-block__swiper', '.rs-slider-block-pins', '.rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill')
+
 	/* BG-COLOR CHANGER */
 	const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
 	if (scrollColorElems) {
@@ -291,9 +324,9 @@ function animDesktop() {
 		const stagger = 0.5;
 		setTimeout(() => {
 			gsap.set('.rs-main__project_item', {
-				y: (index) => 20 * index,
+				// y: (index) => 20 * index,
 				zIndex: (index, target, targets) => targets.length - index,
-				scale: (index) => 1 - (index * 0.05),
+				// scale: (index) => 1 - (index * 0.05),
 			})
 		}, 100);
 
@@ -310,9 +343,14 @@ function animDesktop() {
 				invalidateOnRefresh: true,
 			}
 		});
+
+		pinBlock.to('.rs-main__project', {
+			borderRadius: 0,
+		})
+
 		pinBlock.to('.rs-main__project_item', {
-			scale: 1,
-			y: 0,
+			// scale: 1,
+			// y: 0,
 			stagger: stagger,
 		})
 		pinBlock.to('.rs-main__project_item:not(:last-child)', {
@@ -413,6 +451,7 @@ function animDesktop() {
 }
 
 function animMobile() {
+
 	/* REVEAL ANIMATION */
 	// project
 	showContentOnScroll('.rs-project__slider', 0.5, 0.3, 'bottom-up');
@@ -457,6 +496,24 @@ function animMobile() {
 }
 
 function animCommon() {
+	/* MOVE SVG LINE */
+	moveSvgDashed(".rs-slider-block__line #dashed-about", ".rs-slider-block__line #mask-about", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-1", ".rs-slider-block__line #mask-about-1", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-2", ".rs-slider-block__line #mask-about-2", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-3", ".rs-slider-block__line #mask-about-3", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-4", ".rs-slider-block__line #mask-about-4", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-5", ".rs-slider-block__line #mask-about-5", ".rs-slider-block");
+	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews");
+	moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-4", ".rs-services__line #mask-services-4", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-5", ".rs-services__line #mask-services-5", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-6", ".rs-services__line #mask-services-6", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-7", ".rs-services__line #mask-services-7", ".rs-services");
+	moveSvgDashed(".rs-task__line #dashed-task1", ".rs-task__line #mask-task1", ".rs-task");
+	moveSvgDashed(".rs-task__line #dashed-task2", ".rs-task__line #mask-task2", ".rs-task");
+
 	/* REVEAL ANIMATION */
 	// text
 	showContentOnScroll('.mrp-med-65', 0.8, 0.5, 'bottom-up');
@@ -490,6 +547,22 @@ function animCommon() {
 	showContentOnScroll('.rs-steps__item', 0.5, 0.3, 'bottom-up--every');
 	showContentOnScroll('.rs-steps__footer ul li', 0.5, 0.5, 'bottom-up');
 	// compare
+	// ScrollTrigger.create({
+	// 	trigger: '.rs-comparison',
+	// 	animation:
+	// 		gsap.fromTo('.icv__control',
+	// 			{ x: 'calc(100% - 25px)' },
+	// 			{ x: 'calc(46.2% - 25px)', delay: 0.3, duration: 0.5 }),
+	// 	once: true,
+	// });
+	// ScrollTrigger.create({
+	// 	trigger: '.rs-comparison',
+	// 	animation:
+	// 		gsap.fromTo('.icv__wrapper',
+	// 			{ clipPath: 'inset(0px 0px 0px 100%)' },
+	// 			{ clipPath: 'inset(0px 0px 0px 46.2%)', delay: 0.3, duration: 0.5 }),
+	// 	once: true,
+	// });
 	// calc
 	showContentOnScroll('.rs-calc__bg', 0.5, 0.2, 'bottom-up');
 	showContentOnScroll('.rs-calc__settings_wrapper', 0.5, 0.3, 'bottom-up');
@@ -557,8 +630,8 @@ function animCommon() {
 	// 404
 	showContentOnScroll('.rs-error-block', 0.8, 0.5, 'bottom-up');
 
-	/* HORIZONTAL SCROLL */
-	horizontalScroll('.rs-slider-block-pins .rs-slider-block__swiper', '.rs-slider-block-pins', '.rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill')
+
+
 
 	/* PINS BLOCK - MAIN */
 	//========================================================================================================================================================

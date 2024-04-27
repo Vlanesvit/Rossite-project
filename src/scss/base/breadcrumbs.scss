@@ -52,6 +52,15 @@
 
 		& > span {
 			color: #1d1e21;
+			transition: color 0.3s ease 0s;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				& > span {
+					color: var(--primary-color-btn);
+				}
+			}
 		}
 
 		&:after {

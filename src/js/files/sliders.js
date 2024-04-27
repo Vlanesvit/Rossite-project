@@ -27,13 +27,25 @@ EffectFade, Lazy, Manipulation
 // Инициализация слайдеров
 export function initSliders() {
 	// Перечень слайдеров
-	if (document.querySelector('.rs-slider-block:not(.rs-slider-block-pins)')) {
-		const sliderBlocks = document.querySelectorAll('.rs-slider-block:not(.rs-slider-block-pins)');
+	if (document.querySelector('.rs-slider-block')) {
+		const sliderBlocks = document.querySelectorAll('.rs-slider-block');
 		sliderBlocks.forEach(sliderBlock => {
+			if (!sliderBlock.classList.contains('rs-slider-block-pins')) {
+				sliderBlockSwiperSettings(sliderBlock)
+			}
+
+			if (window.innerWidth <= 991.98 && sliderBlock.classList.contains('rs-slider-block-pins')) {
+				sliderBlock.classList.remove('rs-slider-block-pins')
+				sliderBlockSwiperSettings(sliderBlock)
+			}
+		});
+
+		function sliderBlockSwiperSettings(sliderBlock) {
 			const slider = sliderBlock.querySelector('.rs-slider-block__slider');
 			const pagination = sliderBlock.querySelector('.rs-slider-block__pagination');
 			const arrowNext = sliderBlock.querySelector('.rs-slider-block__button-next');
 			const arrowPrev = sliderBlock.querySelector('.rs-slider-block__button-prev');
+
 			const sliderSwiper = new Swiper(slider, {
 				modules: [Navigation, Pagination, Autoplay],
 
@@ -112,7 +124,7 @@ export function initSliders() {
 					},
 				},
 			});
-		});
+		}
 	}
 
 	if (document.querySelector('.rs-services')) {

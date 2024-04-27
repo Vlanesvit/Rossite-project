@@ -113,7 +113,7 @@
 					}
 
 					&._active-step {
-						color: var(--primary-color);
+						color: var(--primary-color-btn);
 
 						span.count {
 							svg {
@@ -137,7 +137,7 @@
 						height: 100%;
 						margin-right: 20px;
 						position: relative;
-						color: var(--primary-color);
+						color: var(--primary-color-btn);
 
 						svg {
 							position: absolute;
@@ -148,7 +148,7 @@
 							height: 100%;
 
 							path.hover {
-								stroke: var(--primary-color);
+								stroke: var(--primary-color-btn);
 								stroke-dasharray: 250px;
 								stroke-dashoffset: 250px;
 								transition: all 0.5s ease 0.2s;
@@ -254,7 +254,7 @@
 					transform: translate(-50%, -50%) rotate(-90deg);
 					width: 2px;
 					height: 12px;
-					background-color: var(--primary-color);
+					background-color: var(--primary-color-btn);
 					transition: all 0.3s ease 0s;
 				}
 
@@ -381,7 +381,7 @@
 					-webkit-font-smoothing: antialiased;
 					-moz-osx-font-smoothing: grayscale;
 					font-size: 20px;
-					color: var(--primary-color);
+					color: var(--primary-color-btn);
 					margin-right: 7px;
 
 					@media (max-width: 991.98px) {
@@ -444,7 +444,7 @@
 		}
 
 		&--design {
-			background-color: var(--primary-color);
+			background-color: var(--primary-color-btn);
 
 			.rs-steps__gallery {
 				left: -76px;
@@ -509,7 +509,7 @@
 		}
 
 		&--develop {
-			background-color: var(--primary-color);
+			background-color: var(--primary-color-btn);
 
 			.rs-steps__gallery {
 				margin: 0;

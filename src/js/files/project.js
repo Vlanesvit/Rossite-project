@@ -4,7 +4,6 @@
 export function filterClear() {
 	const filterItem = document.querySelectorAll('.rs-case .filter__item');
 	const filterBtn = document.querySelector('.rs-case .filter__btn');
-	const clearBtn = document.querySelector('.filter__reset .filter__title');
 
 	function outputCountActiveFilter(where_find, where_output) {
 		if (where_output) {
@@ -77,6 +76,8 @@ export function filterProject() {
 						if (item.classList.contains('_open-filter')) item.classList.remove('_open-filter')
 					});
 					this.closest('.filter__item').classList.add('_open-filter');
+				} else {
+					this.closest('.filter__item').classList.remove('_open-filter');
 				}
 			})
 

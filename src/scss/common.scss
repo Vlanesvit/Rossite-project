@@ -1,4 +1,8 @@
 // Заголовки, общие БЄМ блоки и проче...
+.hidden {
+	display: none !important;
+}
+
 section {
 	position: relative;
 	z-index: 1;
@@ -97,7 +101,7 @@ section {
 	height: 5px;
 	width: 0;
 	border-radius: 0px 2px 2px 0px;
-	background: var(--primary-color);
+	background: var(--primary-color-btn);
 	z-index: 1000;
 }
 
@@ -285,7 +289,7 @@ section {
 	line-height: 160%;
 
 	a {
-		color: var(--primary-color);
+		color: var(--primary-color-btn);
 	}
 
 	@media (max-width: 991.98px) {
@@ -439,7 +443,8 @@ section {
 			}
 
 			svg {
-				path,rect {
+				path,
+				rect {
 					stroke: var(--primary-color-btn-text);
 				}
 			}
@@ -457,7 +462,8 @@ section {
 			}
 
 			svg {
-				path,rect {
+				path,
+				rect {
 					stroke: var(--primary-color-btn);
 				}
 			}
@@ -475,7 +481,8 @@ section {
 					}
 
 					svg {
-						path,rect {
+						path,
+						rect {
 							stroke: #fff;
 						}
 					}
@@ -495,7 +502,8 @@ section {
 			}
 
 			svg {
-				path,rect {
+				path,
+				rect {
 					stroke: var(--primary-color-btn);
 				}
 			}
@@ -519,7 +527,8 @@ section {
 					}
 
 					svg {
-						path,rect {
+						path,
+						rect {
 							stroke: #fff;
 						}
 					}
@@ -535,20 +544,20 @@ section {
 			color: #141517;
 
 			&::before {
-				color: var(--primary-color);
+				color: var(--primary-color-btn);
 			}
 
 			svg {
 				path,
 				rect {
-					stroke: var(--primary-color);
+					stroke: var(--primary-color-btn);
 				}
 			}
 		}
 
 		.btn-hover {
 			&::after {
-				background-color: var(--primary-color);
+				background-color: var(--primary-color-btn);
 			}
 		}
 
@@ -562,7 +571,8 @@ section {
 					}
 
 					svg {
-						path,rect {
+						path,
+						rect {
 							stroke: #fff;
 						}
 					}
@@ -598,7 +608,8 @@ section {
 					}
 				}
 
-				path,rect {
+				path,
+				rect {
 					stroke: #fff;
 					fill: #fff;
 				}
@@ -659,7 +670,8 @@ section {
 				margin-right: 7px;
 			}
 
-			path,rect {
+			path,
+			rect {
 				stroke: #141517;
 				transition: stroke 0.5s cubic-bezier(0.9, 0, 0.2, 1);
 			}

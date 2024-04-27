@@ -183,18 +183,26 @@ export function spollers() {
 
 	function spollerClassInit() {
 		spollersArray.forEach(spoller => {
-			const spollersItem = spoller.querySelectorAll('[class*="_item"]')
+			if (spoller) {
+				const spollersItem = spoller.querySelectorAll('[class*="_item"]')
 
-			spoller.classList.add('spollers')
+				spoller.classList.add('spollers')
 
-			spollersItem.forEach(item => {
-				const spollerTitle = item.querySelector('[class*="_title"]')
-				const spollerBody = item.querySelector('[class*="_body"]')
+				spollersItem.forEach(item => {
+					if (item) {
+						const spollerTitle = item.querySelector('[class*="_title"]')
+						const spollerBody = item.querySelector('[class*="_body"]')
 
-				item.classList.add('spollers__item')
-				spollerTitle.classList.add('spollers__title')
-				spollerBody.classList.add('spollers__body')
-			});
+						item.classList.add('spollers__item')
+						if (spollerTitle) {
+							spollerTitle.classList.add('spollers__title')
+						}
+						if (spollerBody) {
+							spollerBody.classList.add('spollers__body')
+						}
+					}
+				});
+			}
 		});
 	}
 	spollerClassInit()
@@ -496,6 +504,17 @@ export function menu() {
 			menuLinkDropdowns.append(iconDropdown);
 		});
 
+		menuItemDropdowns.forEach(item => {
+			item.addEventListener('mouseenter', function () {
+				item.closest('.rs-header').classList.add('_header-scroll')
+				item.closest('.rs-header').classList.add('_header-show')
+			})
+			item.addEventListener('mouseleave', function () {
+				item.closest('.rs-header').classList.remove('_header-scroll')
+				item.closest('.rs-header').classList.remove('_header-show')
+			})
+		});
+
 		/* Один и тот же код для отдельных уровней меню, 
 		чтобы открывался только один пункт, а открытые - закрывались, кроме тех, кто выше уровнем */
 		function openLvlMenu(li, ul) {
@@ -578,6 +597,8 @@ export function regionMenu() {
 
 				if (!document.documentElement.classList.contains('region-menu-open')) {
 					regionMenuOpen()
+					regionBtn.closest('.rs-header').classList.add('_header-scroll')
+					regionBtn.closest('.rs-header').classList.add('_header-show')
 				}
 			})
 		});
@@ -591,6 +612,8 @@ export function regionMenu() {
 				// Закрывает модальное окно выбора региона
 				if (document.documentElement.classList.contains('region-menu-open')) {
 					regionMenuClose()
+					close.closest('.rs-header').classList.remove('_header-scroll')
+					close.closest('.rs-header').classList.remove('_header-show')
 				}
 			});
 		})
@@ -618,6 +641,24 @@ export function regionMenu() {
 		})
 	}
 
+	// Поиск по регионам
+	const listRegion = document.querySelectorAll('.rs-header__region_list li');
+	const inputRegion = document.querySelector('.rs-header__region_field input');
+	if (listRegion.length > 0) {
+		let arr = [], i = -1, l = listRegion.length;
+		while (++i < l) {
+			arr.push(listRegion[i].textContent.trim());
+		}
+		if (inputRegion) {
+			inputRegion.addEventListener('input', function () {
+				let rgx = new RegExp(this.value, 'i');
+				arr.forEach(function (el, idx) {
+					if (rgx.test(el)) listRegion[idx].closest('.rs-header__region_select ul li').classList.remove('hidden');
+					else listRegion[idx].closest('.rs-header__region_select ul li').classList.add('hidden');
+				})
+			})
+		}
+	}
 }
 
 // Модуль "показать еще" =======================================================================================================================================================================================================================

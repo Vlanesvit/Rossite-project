@@ -5,15 +5,15 @@
 "title":"Веб-сервисы"
 })
 
-<body data-barba="wrapper">
+<body style="
+--primary-color-btn: #25C16F; 
+--primary-color-btn-hover: #4fcb8a; 
+--primary-color-btn-text: #fff; 
+">
 
 	@@include('html/_anim-elements.htm',{})
 
-	<div class="wrapper" style="
-	--primary-color-btn: #25C16F; 
-	--primary-color-btn-hover: #4fcb8a; 
-	--primary-color-btn-text: #fff; 
-	">
+	<div class="wrapper">
 
 		@@include('html/_header.htm',{
 		"addclass":""
@@ -90,14 +90,13 @@
 													<mask id="maskAbout-1" maskUnits="userSpaceOnUse">
 														<path class="mask-path" id="mask-about-1"
 															d="M-372.298 -56.2239C-488.733 131.461 -356.238 481.645 -135.367 530.355C140.118 591.109 112.266 167.493 -29.1567 187.182C-203.816 211.498 -101.704 614.25 248.817 459.614C529.235 335.905 588.803 99.0104 583.535 -3.97334"
-															stroke="var(--primary-color)" stroke-width="3"
-															stroke-dasharray="4 10" />
+															stroke="#fff" stroke-width="3" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-1)">
 													<path class="dashed-path" id="dashed-about-1"
 														d="M-372.298 -56.2239C-488.733 131.461 -356.238 481.645 -135.367 530.355C140.118 591.109 112.266 167.493 -29.1567 187.182C-203.816 211.498 -101.704 614.25 248.817 459.614C529.235 335.905 588.803 99.0104 583.535 -3.97334"
-														stroke="var(--primary-color)" stroke-width="3"
+														stroke="var(--primary-color-btn)" stroke-width="3"
 														stroke-dasharray="4 10" />
 												</g>
 											</svg>
@@ -131,7 +130,7 @@
 													<mask id="maskAbout-2" maskUnits="userSpaceOnUse">
 														<path class="mask-path" id="mask-about-2"
 															d="M1300.45 21.5C1332.06 391 867.506 814.508 499.853 719.5C41.2905 601 405.027 -12 601.756 125C844.718 294.196 385.684 819.5 -21.4555 321.5C-347.167 -76.9 -256.241 -476.833 -170.064 -627"
-															stroke="#FA9D7C" stroke-width="3" stroke-dasharray="4 10" />
+															stroke="#fff" stroke-width="3" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-2)">
@@ -166,7 +165,7 @@
 													<mask id="maskAbout-3" maskUnits="userSpaceOnUse">
 														<path class="mask-path" id="mask-about-3"
 															d="M-1063.46 687.533C-1095.07 318.033 -630.522 -105.474 -262.868 -10.4668C195.694 108.033 -168.042 721.033 -364.771 584.033C-607.733 414.837 -148.699 -110.467 258.44 387.533C584.151 785.933 493.225 1185.87 407.048 1336.03"
-															stroke="#FF8A8A" stroke-width="3" stroke-dasharray="4 10" />
+															stroke="#fff" stroke-width="3" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-3)">
@@ -206,7 +205,7 @@
 													<mask id="maskAbout-4" maskUnits="userSpaceOnUse">
 														<path class="mask-path" id="mask-about-4"
 															d="M-583.056 687.533C-614.665 318.033 -150.113 -105.474 217.54 -10.4667C676.102 108.033 312.366 721.033 115.637 584.033C-127.325 414.837 331.709 -110.467 738.848 387.533C1064.56 785.933 973.633 1185.87 887.456 1336.03"
-															stroke="#FA9D7C" stroke-width="3" stroke-dasharray="4 10" />
+															stroke="#fff" stroke-width="3" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-4)">
@@ -249,7 +248,7 @@
 													<mask id="maskAbout-5" maskUnits="userSpaceOnUse">
 														<path class="mask-path" id="mask-about-5"
 															d="M451.67 -154.686C628.351 -64.4129 689.064 266.38 541.837 406.373C358.206 580.981 182.929 242.299 300.822 191.786C446.421 129.402 554.905 486.514 213.563 530.325C-59.5105 565.375 -215.312 410.861 -259.078 329.223"
-															stroke="#007BFB" stroke-width="3" stroke-dasharray="4 10" />
+															stroke="#fff" stroke-width="3" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-5)">
@@ -286,22 +285,22 @@
 											<svg width="23" height="23" viewBox="0 0 23 23" fill="none">
 												<path
 													d="M8.92183 8.92311C10.8334 8.92311 12.383 7.37332 12.383 5.46155C12.383 3.54979 10.8334 2 8.92183 2C7.0103 2 5.46069 3.54979 5.46069 5.46155C5.46069 7.37332 7.0103 8.92311 8.92183 8.92311Z"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
 												<path
 													d="M15.8445 20.4615H2V18.9231C2 15.0996 5.09919 12 8.92224 12C12.7453 12 15.8445 15.0996 15.8445 18.9231V20.4615Z"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
 												<path
 													d="M14.075 2C15.9865 2 17.5361 3.5498 17.5361 5.46155C17.5361 7.37331 15.9865 8.92311 14.075 8.92311"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
 												<path
 													d="M16.5369 12.2924C19.2195 13.313 20.9941 15.8834 20.9979 18.7539V20.4616H18.6905"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
 											</svg>
@@ -320,10 +319,10 @@
 												xmlns="http://www.w3.org/2000/svg">
 												<path
 													d="M19.9231 21H5.30771C4.0332 21 3 19.9668 3 18.6923C3 17.4178 4.0332 16.3846 5.30771 16.3846H18.3847C19.2343 16.3846 19.9231 15.6958 19.9231 14.8462V2.53846C19.9231 1.6888 19.2343 1 18.3847 1H5.30771C4.05686 0.999533 3.03338 1.99572 3.00004 3.24614V18.6308"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
-												<path d="M18.3848 16.3846V21" stroke="var(--primary-color)"
+												<path d="M18.3848 16.3846V21" stroke="var(--primary-color-btn)"
 													stroke-width="1.5" stroke-miterlimit="171.429"
 													stroke-linecap="round" stroke-linejoin="round" />
 											</svg>
@@ -341,12 +340,12 @@
 												xmlns="http://www.w3.org/2000/svg">
 												<path
 													d="M2 7.27439C2.75001 3.53395 7.20601 0.721048 11.4414 5.69308C17.4857 -1.46846 23.9418 7.41126 19.5593 11.988L11.4414 19.7273L6.69129 15.1658"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
 												<path
 													d="M2 11.2143H5.61108L7.77776 8.22729L10.6666 13.4546L12.8333 10.4676H15"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
 											</svg>
@@ -364,17 +363,17 @@
 												xmlns="http://www.w3.org/2000/svg">
 												<path
 													d="M19.6923 12.7669V9.69001C19.6923 8.84035 19.0035 8.15155 18.1538 8.15155H3.53846C2.6888 8.15155 2 8.84035 2 9.69001V20.4592C2 21.3089 2.6888 21.9977 3.53846 21.9977H18.1538C19.0035 21.9977 19.6923 21.3089 19.6923 20.4592V16.6131"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
 												<path
 													d="M7.13867 4.30538L15.8617 2.02844C16.2625 1.91554 16.6789 2.14887 16.7918 2.5496C16.7948 2.56044 16.7976 2.57132 16.8002 2.5823L17.231 4.30538"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
 												<path
 													d="M17.3845 12.7669H21.2306C21.6555 12.7669 21.9999 13.1113 21.9999 13.5362V15.8439C21.9999 16.2687 21.6555 16.6131 21.2306 16.6131H17.3845C16.9596 16.6131 16.6152 16.2687 16.6152 15.8439V13.5362C16.6152 13.1113 16.9596 12.7669 17.3845 12.7669Z"
-													stroke="var(--primary-color)" stroke-width="1.5"
+													stroke="var(--primary-color-btn)" stroke-width="1.5"
 													stroke-miterlimit="171.429" stroke-linecap="round"
 													stroke-linejoin="round" />
 											</svg>
@@ -505,21 +504,21 @@
 												<g clip-path="url(#clip0_3089_3235)">
 													<path
 														d="M3.4307 8.09058H19.173C19.9637 8.09058 20.6037 8.88444 20.6037 9.86264V20.4985C20.6037 21.4779 19.9628 22.2706 19.173 22.2706H3.4307C2.64 22.2706 2 21.4767 2 20.4985V9.86264C2 8.88444 2.64093 8.09058 3.4307 8.09058Z"
-														stroke="var(--primary-color)" stroke-width="1.5"
+														stroke="var(--primary-color-btn)" stroke-width="1.5"
 														stroke-miterlimit="171.429" stroke-linecap="round"
 														stroke-linejoin="round" />
-													<path d="M5.57812 4.54529V1" stroke="var(--primary-color)"
+													<path d="M5.57812 4.54529V1" stroke="var(--primary-color-btn)"
 														stroke-width="1.5" stroke-miterlimit="171.429"
 														stroke-linecap="round" stroke-linejoin="round" />
-													<path d="M11.3027 4.54529V1" stroke="var(--primary-color)"
+													<path d="M11.3027 4.54529V1" stroke="var(--primary-color-btn)"
 														stroke-width="1.5" stroke-miterlimit="171.429"
 														stroke-linecap="round" stroke-linejoin="round" />
-													<path d="M17.0273 4.54529V1" stroke="var(--primary-color)"
+													<path d="M17.0273 4.54529V1" stroke="var(--primary-color-btn)"
 														stroke-width="1.5" stroke-miterlimit="171.429"
 														stroke-linecap="round" stroke-linejoin="round" />
 													<path
 														d="M20.6047 16.0672H19.8893C18.3088 16.0672 17.027 14.4795 17.027 12.5219C17.027 14.4795 15.7451 16.0672 14.1647 16.0672C12.5842 16.0672 11.3023 14.4795 11.3023 12.5219C11.3023 14.4795 10.0205 16.0672 8.44 16.0672C6.85953 16.0672 5.57767 14.4795 5.57767 12.5219C5.57767 14.4795 4.29581 16.0672 2.71535 16.0672H2"
-														stroke="var(--primary-color)" stroke-width="1.5"
+														stroke="var(--primary-color-btn)" stroke-width="1.5"
 														stroke-miterlimit="171.429" stroke-linecap="round"
 														stroke-linejoin="round" />
 												</g>
@@ -696,7 +695,289 @@
 
 		</main>
 
-		@@include('html/_footer.htm',{})
+		<footer class="rs-footer">
+			<div class="rs-footer__top">
+				<div class="rs-footer__container">
+					<div class="rs-footer__head">
+						<div class="rs-footer__phone">
+							<a href="tel:+78122428072">+7 812 242-80-72 </a>
+							<span>Отдел продаж</span>
+						</div>
+						<div class="rs-footer__links">
+							<ul>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="rs-footer__social social">
+							<ul class="social__list">
+								<li><a href="#" class="_rs-icon-vk"></a></li>
+								<li><a href="#" class="_rs-icon-whatsapp"></a></li>
+								<li><a href="#" class="_rs-icon-telegram"></a></li>
+								<li><a href="#" class="_rs-icon-instagram"></a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="rs-breadcrumbs">
+						<nav class="rs-breadcrumbs__navigation">
+							<ul itemscope itemtype="http://schema.org/BreadcrumbList" class="rs-breadcrumbs__list">
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="home.html" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Главная</span>
+									</a>
+									<meta itemprop="position" content="1">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="#" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Разработка</span>
+									</a>
+									<meta itemprop="position" content="2">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope=""
+									itemtype="http://schema.org/ListItem">
+									<span itemprop="name">Информационный сайт</span>
+									<meta itemprop="position" content="3">
+								</li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Разработка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Веб-сервис и приложение</a></li>
+												<li class="menu-item"><a href="#">Информационный сайт</a></li>
+												<li class="menu-item"><a href="#">Интернет-магазин</a></li>
+												<li class="menu-item"><a href="#">Landing Page</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Дополнительные услуги</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Техническая поддержка</a></li>
+												<li class="menu-item"><a href="#">Продающая страница</a></li>
+												<li class="menu-item"><a href="#">Разработка логотипов</a></li>
+												<li class="menu-item"><a href="#">SEO продвижение сайта</a></li>
+												<li class="menu-item"><a href="#">Контекстная реклама</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Помощь</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Инструкция по Word Press</a></li>
+												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Битриксу</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Яндекс Директ</a></li>
+												<li class="menu-item"><a href="#">Карта сайта</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">О нас</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">О компании</a></li>
+												<li class="menu-item"><a href="#">Кейсы</a></li>
+												<li class="menu-item"><a href="#">Контакты</a></li>
+												<li class="menu-item"><a href="#">Вакансии</a></li>
+												<li class="menu-item"><a href="#">Отзывы</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller
+									class="rs-footer__spollers_title _spoller-active">Контактная
+									информация</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>
+												г. Санкт-Петербург, ш. Революции д.69, оф. 312 бц «Реформа»,
+												3й этаж, офис 312 (м. Ладожская)
+												<span>центральный офис</span>
+											</li>
+											<li>
+												Санкт-Петербург, ш. Революции д.69, оф. 312
+												<span>юридический адрес <a href="#">(учередительные
+														документы)</a></span>
+											</li>
+											<li>
+												пн-пт 09:00-18:00
+												<span>время работы</span>
+											</li>
+											<li>
+												<a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+												<span>e-mail</span>
+											</li>
+											<li>
+												<a href="mailto:support@rosait.ru">support@rosait.ru</a>
+												<span>техническая поддержка</span>
+											</li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="rs-footer__bottom">
+				<div class="rs-footer__container">
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Юридический адрес</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Санкт-Петербург, ш. Революции д.69, <br> оф. 312</li>
+											<li><a href="#">Учредительные документы</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Центральный офис</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>г. Санкт-Петербург, ш. Революции д.69, <br> оф. 312 бц «Реформа», 3й
+												этаж,
+												офис 312 <br> (м. Ладожская)</li>
+											<li>Время работы: пн-пт 09:00-18:00</li>
+											<li><a href="mailto:mail@rosait.ru">mail@rosait.ru</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Скоро открытие</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Ленинский пр., 140И БЦ «Космопро» <br>
+												(м. Ленинский проспект)</li>
+											<li>Коломяжский пр., 13, корп.21 БЦ «Бюси» <br>
+												(м. Пионерская)</li>
+											<li>ул. Садовая, 53 БЦ «на Садовой» (м. Садовая)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Техническая поддержка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li><a href="mailto:support@rosait.ru">support@rosait.ru</a></li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="rs-footer__city">
+						<h6 class="mrp-semibold-18">Вы можете позвонить из любого города:</h6>
+						<ul class="rs-footer__city_list">
+							<li><a href="#" class="_active-city">Москва</a></li>
+							<li><a href="#">Санкт-Петербург</a></li>
+							<li><a href="#">Новосибирск</a></li>
+							<li><a href="#">Казань</a></li>
+							<li><a href="#">Омск</a></li>
+							<li><a href="#">Екатеринбург</a></li>
+							<li><a href="#">Ростов-на-Дону</a></li>
+							<li><a href="#">Нижний Новгород</a></li>
+							<li><a href="#">Самара</a></li>
+							<li><a href="#">Пермь</a></li>
+							<li><a href="#">Волгоград</a></li>
+							<li><a href="#">Иркутск</a></li>
+							<li><a href="#">Красноярск</a></li>
+							<li><a href="#">Воронеж</a></li>
+							<li><a href="#">Саратов</a></li>
+							<li><a href="#">Краснодар</a></li>
+							<li><a href="#">Рязань</a></li>
+							<li><a href="#">Ижевск</a></li>
+							<li><a href="#">Пенза</a></li>
+							<li><a href="#">Челябинск</a></li>
+							<li><a href="#">Ярославль</a></li>
+							<li><a href="#">Барнаул</a></li>
+						</ul>
+					</div>
+
+					<div class="rs-footer__copyright">© 2011—2024 Россайт</div>
+				</div>
+			</div>
+		</footer>
 
 	</div>
 

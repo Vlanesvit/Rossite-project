@@ -14,14 +14,14 @@
 
 	&::-webkit-scrollbar-thumb {
 		cursor: pointer;
-		background: var(--primary-color);
+		background: var(--primary-color-btn);
 		transition: 0.2s ease-in-out;
 		border-radius: 3px;
 	}
 
 	/* Standardized Properties */
 	@supports not selector(::-webkit-scrollbar) {
-		scrollbar-color: var(--primary-color) var(--bg-color);
+		scrollbar-color: var(--primary-color-btn) var(--bg-color);
 		scrollbar-width: thin;
 	}
 
@@ -41,14 +41,14 @@
 
 		&::-webkit-scrollbar-thumb {
 			cursor: pointer;
-			background: var(--primary-color);
+			background: var(--primary-color-btn);
 			transition: 0.2s ease-in-out;
 			border-radius: 3px;
 		}
 
 		/* Standardized Properties */
 		@supports not selector(::-webkit-scrollbar) {
-			scrollbar-color: var(--primary-color) var(--bg-color);
+			scrollbar-color: var(--primary-color-btn) var(--bg-color);
 			scrollbar-width: thin;
 		}
 	}

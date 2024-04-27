@@ -185,10 +185,13 @@
 		overflow: hidden;
 		border-radius: 10px;
 
+		@media (min-width: 767.98px) {
+			border: 1px solid var(--light-gray-border);
+		}
+
 		.rs-case & {
 			max-height: 300px;
 			border-radius: 10px 10px 0px 0px;
-			border: 1px solid var(--light-gray-border);
 		}
 
 		a {
@@ -197,44 +200,11 @@
 			height: 100%;
 		}
 
-		&::after {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: rgba(255, 255, 255, 0.1);
-			backdrop-filter: blur(2px);
-			z-index: 1;
-			opacity: 0;
-			transition: opacity 0.3s ease 0s;
-			border-radius: 10px;
-
-			.rs-case & {
-				display: none;
-			}
-		}
-
 		img {
-			border-radius: 10px;
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 			transition: transform 0.5s cubic-bezier(0.9, 0, 0.2, 1);
-
-			.rs-case & {
-				border-radius: 10px 10px 0px 0px;
-				border: none;
-			}
-
-			@media (min-width: 767.98px) {
-				border: 1px solid var(--light-gray-border);
-			}
-
-			@media (max-width: 767.98px) {
-				border-radius: 0px;
-			}
 
 			&.rs-project__img--desktop {
 				@media (max-width: 767.98px) {
@@ -273,7 +243,7 @@
 			}
 
 			span {
-				color: var(--primary-color);
+				color: var(--primary-color-btn);
 				font-size: 13px;
 				font-style: normal;
 				font-weight: 600;
@@ -399,7 +369,7 @@
 			line-height: 146.25%;
 			padding: 5px 15px;
 			border-radius: 30px;
-			background: var(--primary-color);
+			background: var(--primary-color-btn);
 			transform: scale(0);
 			transition: transform 0.3s ease-in-out;
 		}
@@ -494,7 +464,7 @@
 		&::before {
 			font-size: 28px;
 			margin-right: 14px;
-			color: var(--primary-color);
+			color: var(--primary-color-btn);
 			border-radius: 50%;
 			background-color: rgba(99, 102, 241, 0.1);
 
@@ -541,7 +511,7 @@
 			left: 0px;
 			right: 0px;
 			top: 0px;
-			background-color: var(--primary-color);
+			background-color: var(--primary-color-btn);
 			width: 100%;
 			height: 100%;
 			z-index: -1;
@@ -1176,7 +1146,7 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: 50%;
-		background-color: var(--primary-color);
+		background-color: var(--primary-color-btn);
 		color: #fff;
 
 		&::before,

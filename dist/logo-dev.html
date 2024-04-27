@@ -10,224 +10,224 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="@favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.css?_v=20240426194502" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css?_v=20240426194502" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.css?_v=20240427155550" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css?_v=20240427155550" />
 
-	<link rel="stylesheet" href="css/style.min.css?_v=20240426194502">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240427155550">
 
-	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20240426194502"></script>
+	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20240427155550"></script>
 	<script>
 		ymaps.ready(init);
 
 		function init() {
-			if (document.getElementById('map')) {
-				let map = new ymaps.Map('map', {
-					controls: [],
-					// Координаты центра карты
-					center: branchData[0].location,
-					// Уровень масштабирования
-					zoom: 5,
-				}, {
-					suppressMapOpenBlock: true,
-					balloonMaxWidth: 200,
-					searchControlProvider: 'yandex#search'
+			if (document.querySelector('.map')) {
+				const mapClasses = document.querySelectorAll('.map');
+				mapClasses.forEach(mapClass => {
+					ymaps.ready();
+					let map = new ymaps.Map(mapClass, {
+						controls: [],
+						// Координаты центра карты
+						center: branchData[0].location,
+						// Уровень масштабирования
+						zoom: 15,
+					}, {
+						suppressMapOpenBlock: true,
+						balloonMaxWidth: 200,
+						searchControlProvider: 'yandex#search'
+					});
+
+					let pinsCollection = new ymaps.GeoObjectCollection({}, {
+						preset: 'islands#blueDotIcon', // дефолт метка
+						draggable: false, // метки нельзя перемещать
+						// iconLayout: 'default#imageWithContent', // указать данный тип макета.
+						// iconImageHref: 'img/footer/map-pin.png', // cвоё изображение иконки метки.
+						// iconImageSize: [36, 52], // размеры метки
+						// iconImageOffset: [-18, -26], // смещение левого верхнего угла иконки
+						// iconContentOffset: [0, 0], // cмещение слоя с содержимым относительно слоя с картинкой
+					});
+
+					for (let i = 0; i < branchData.length; i++) {
+						let marks = new ymaps.Placemark(branchData[i].location, {
+							// Зададим содержимое заголовка балуна.
+							balloonContentHeader: `${branchData[i].address}`,
+
+							// Зададим содержимое всплывающей подсказки.
+							hintContent: `${branchData[i].address}`,
+						}, )
+						pinsCollection.add(marks);
+					}
+
+					// Добавим метки на карту.
+					map.geoObjects.add(pinsCollection);
+
+					// Скрываем хинт при открытии балуна.
+					map.events.add('balloonopen', function(e) {
+						Map.hint.close();
+					});
+
+					// Закрываем балун по клику по карте
+					map.events.add('click', e => e.get('target').balloon.close());
 				});
 
-				let pinsCollection = new ymaps.GeoObjectCollection({}, {
-					preset: 'islands#blueDotIcon', // дефолт метка
-					draggable: false, // метки нельзя перемещать
-					// iconLayout: 'default#imageWithContent', // указать данный тип макета.
-					// iconImageHref: 'img/footer/map-pin.png', // cвоё изображение иконки метки.
-					// iconImageSize: [36, 52], // размеры метки
-					// iconImageOffset: [-18, -26], // смещение левого верхнего угла иконки
-					// iconContentOffset: [0, 0], // cмещение слоя с содержимым относительно слоя с картинкой
-				});
 
-				for (let i = 0; i < branchData.length; i++) {
-					let marks = new ymaps.Placemark(branchData[i].location, {
-						// Зададим содержимое заголовка балуна.
-						balloonContentHeader: `${branchData[i].address}`,
-
-						// Зададим содержимое всплывающей подсказки.
-						hintContent: `${branchData[i].address}`,
-					}, )
-					pinsCollection.add(marks);
-				}
-
-				// Добавим метки на карту.
-				map.geoObjects.add(pinsCollection);
-
-				// Скрываем хинт при открытии балуна.
-				map.events.add('balloonopen', function(e) {
-					Map.hint.close();
-				});
-
-				// Закрываем балун по клику по карте
-				map.events.add('click', e => e.get('target').balloon.close());
 			}
 		}
 	</script>
 
 </head>
 
-<body data-barba="wrapper">
+<body data-barba="wrapper" style="
+--primary-color-btn: #6366f1; 
+--primary-color-btn-hover: #8083f2; 
+--primary-color-btn-text: #fff; 
+--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
+">
 
 	<div class="progress-bar" id="progressBar"></div>
 
-	<!-- 
-<style>
-	body [page-transition="component"] {
-		display: block;
-	}
 
-	.w-editor [page-transition="component"] {
-		display: none;
-	}
+	<style>
+		body [page-transition="component"] {
+			display: block;
+		}
+
+		.w-editor [page-transition="component"] {
+			display: none;
+		}
 
 
-	.page-transition_logo-lottie {
-		height: 5rem
-	}
+		.page-transition_logo-lottie {
+			height: 5rem
+		}
 
-	.page-transition_content {
-		width: 100%;
-		height: 100%;
-		justify-content: center;
-		align-items: center;
-		display: flex
-	}
+		.page-transition_content {
+			width: 100%;
+			height: 100%;
+			justify-content: center;
+			align-items: center;
+			display: flex
+		}
 
-	.page-transition_bg-item {
-		flex-direction: column;
-		align-items: center;
-		display: flex;
-		position: absolute;
-		top: 0%;
-		bottom: 0%;
-		left: 0%;
-		right: 0%
-	}
+		.page-transition_bg-item {
+			flex-direction: column;
+			align-items: center;
+			display: flex;
+			position: absolute;
+			top: 0%;
+			bottom: 0%;
+			left: 0%;
+			right: 0%
+		}
 
-	.page-transition_bg,
-	.page-transition-load {
-		width: 100%;
-		height: 100%
-	}
+		.page-transition_bg,
+		.page-transition-load {
+			width: 100%;
+			height: 100%
+		}
 
-	.page-transition_logo {
-		mix-blend-mode: lighten;
-		display: none;
-		position: absolute
-	}
+		.page-transition_logo {
+			mix-blend-mode: lighten;
+			display: none;
+			position: absolute
+		}
 
-	.page-transition-preload {
-		width: 100%;
-		height: 100%
-	}
+		.page-transition-preload {
+			width: 100%;
+			height: 100%
+		}
 
-	.page-transition {
-		z-index: 2000;
-		display: none;
-		position: fixed;
-		top: 0%;
-		bottom: 0%;
-		left: 0%;
-		right: 0%
-	}
+		.page-transition {
+			z-index: 2000;
+			display: none;
+			position: fixed;
+			top: 0%;
+			bottom: 0%;
+			left: 0%;
+			right: 0%
+		}
 
-	.page-transition_bg-item-fill {
-		width: 100%;
-		height: 52%;
-		position: absolute;
-		bottom: 0%;
-		left: 0%;
-		right: 0%
-	}
+		.page-transition_bg-item-fill {
+			width: 100%;
+			height: 52%;
+			position: absolute;
+			bottom: 0%;
+			left: 0%;
+			right: 0%
+		}
 
-	.page-transition_bg-item-fill.is-01 {
-		background-color: #fff;
-	}
+		.page-transition_bg-item-fill.is-01 {
+			background-color: #fff;
+		}
 
-	.page-transition_bg-item-fill.is-01.is-top {
-		width: 150%;
-		height: 50%;
-		top: 0%;
-		bottom: auto;
-		left: auto;
-		right: auto
-	}
+		.page-transition_bg-item-fill.is-01.is-top {
+			width: 150%;
+			height: 50%;
+			top: 0%;
+			bottom: auto;
+			left: auto;
+			right: auto
+		}
 
-	.page-transition_bg-item-fill.is-02 {
-		background-color: #6366f1;
-	}
+		.page-transition_bg-item-fill.is-02 {
+			background-color: var(--primary-color-btn);
+		}
 
-	.page-transition_bg-item-fill.is-02.is-top {
-		width: 150%;
-		height: 50%;
-		top: 0%;
-		bottom: auto;
-		left: auto;
-		right: auto
-	}
+		.page-transition_bg-item-fill.is-02.is-top {
+			width: 150%;
+			height: 50%;
+			top: 0%;
+			bottom: auto;
+			left: auto;
+			right: auto
+		}
 
-	/* Prevent all click and hover interaction with an element */
-	.pointer-events-off {
-		pointer-events: none;
-	}
+		/* Prevent all click and hover interaction with an element */
+		.pointer-events-off {
+			pointer-events: none;
+		}
 
-	/* Enables all click and hover interaction with an element */
-	.pointer-events-on {
-		pointer-events: auto;
-	}
-</style>
+		/* Enables all click and hover interaction with an element */
+		.pointer-events-on {
+			pointer-events: auto;
+		}
+	</style>
 
-<div class="page-transition_wrapper pointer-events-off">
-	<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100"
-		class="page-transition is-preload">
-		<div class="page-transition-preload">
-			<div class="page-transition_content">
-				<div class="page-transition_bg">
-					<div class="page-transition_bg-item is-01 is-preload">
-						<div page-preload-bg-radius="target" page-transition-bg-radius="target"
-							class="page-transition_bg-item-fill is-02 is-top"></div>
-						<div class="page-transition_bg-item-fill is-02"></div>
+	<div class="page-transition_wrapper pointer-events-off">
+		<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100" class="page-transition is-preload">
+			<div class="page-transition-preload">
+				<div class="page-transition_content">
+					<div class="page-transition_bg">
+						<div class="page-transition_bg-item is-01 is-preload">
+							<div page-preload-bg-radius="target" page-transition-bg-radius="target" class="page-transition_bg-item-fill is-02 is-top"></div>
+							<div class="page-transition_bg-item-fill is-02"></div>
+						</div>
+						<div class="page-transition_bg-item is-02 is-preload">
+							<div page-preload-bg-radius="target" page-transition-bg-radius="target" class="page-transition_bg-item-fill is-01 is-top"></div>
+							<div class="page-transition_bg-item-fill is-01"></div>
+						</div>
 					</div>
-					<div class="page-transition_bg-item is-02 is-preload">
-						<div page-preload-bg-radius="target" page-transition-bg-radius="target"
-							class="page-transition_bg-item-fill is-01 is-top"></div>
-						<div class="page-transition_bg-item-fill is-01"></div>
+				</div>
+			</div>
+		</div>
+		<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100" class="page-transition is-load">
+			<div class="page-transition-load">
+				<div class="page-transition_content">
+					<div class="page-transition_bg">
+						<div class="page-transition_bg-item is-01 is-load">
+							<div page-load-bg-radius="target" page-transition-bg-radius="target" class="page-transition_bg-item-fill is-02 is-top"></div>
+							<div class="page-transition_bg-item-fill is-02"></div>
+						</div>
+						<div class="page-transition_bg-item is-02 is-load">
+							<div page-load-bg-radius="target" page-transition-bg-radius="target" class="page-transition_bg-item-fill is-01 is-top"></div>
+							<div class="page-transition_bg-item-fill is-01"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100"
-		class="page-transition is-load">
-		<div class="page-transition-load">
-			<div class="page-transition_content">
-				<div class="page-transition_bg">
-					<div class="page-transition_bg-item is-01 is-load">
-						<div page-load-bg-radius="target" page-transition-bg-radius="target"
-							class="page-transition_bg-item-fill is-02 is-top"></div>
-						<div class="page-transition_bg-item-fill is-02"></div>
-					</div>
-					<div class="page-transition_bg-item is-02 is-load">
-						<div page-load-bg-radius="target" page-transition-bg-radius="target"
-							class="page-transition_bg-item-fill is-01 is-top"></div>
-						<div class="page-transition_bg-item-fill is-01"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
 
-	<div class="wrapper" style="
-	--primary-color-btn: #6366f1; 
-	--primary-color-btn-hover: #8083f2; 
-	--primary-color-btn-text: #fff; 
-	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
-	">
+	<div class="wrapper">
 
 		<header class="rs-header " data-scroll-show>
 			<div class="rs-header__container">
@@ -491,7 +491,7 @@
 												</div>
 												<div class="rs-header__region_field">
 													<button type="button" class="rs-header__region_close"></button>
-													<input autocomplete="off" placeholder="Поиск города" type="text" name="form[]" spellcheck="false" value="" class="rs-input">
+													<input placeholder="Поиск города" type="text" name="form[]" class="rs-input">
 												</div>
 												<div class="rs-header__region_select">
 													<ul>
@@ -1839,122 +1839,122 @@
 			</div>
 		</div>
 	</div>
-	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js?_v=20240426194502"></script>
-<script>
-	const pageTransition01 = document.querySelectorAll('.page-transition_bg-item.is-01');
-	const pageTransition02 = document.querySelectorAll('.page-transition_bg-item.is-02');
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js?_v=20240427155550"></script>
+	<script>
+		const pageTransition01 = document.querySelectorAll('.page-transition_bg-item.is-01');
+		const pageTransition02 = document.querySelectorAll('.page-transition_bg-item.is-02');
 
-	function loaderAnimFrom() {
-		pageTransition01.forEach(page01 => {
-			gsap.to(page01, {
-				yPercent: 0,
-				delay: 0.2,
-				duration: 0.6,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+		function loaderAnimFrom() {
+			pageTransition01.forEach(page01 => {
+				gsap.to(page01, {
+					yPercent: 0,
+					delay: 0.2,
+					duration: 0.6,
+					ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+				});
 			});
-		});
 
-		pageTransition02.forEach(page02 => {
-			gsap.to(page02, {
-				yPercent: 0,
-				delay: 0.4,
-				duration: 0.6,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+			pageTransition02.forEach(page02 => {
+				gsap.to(page02, {
+					yPercent: 0,
+					delay: 0.4,
+					duration: 0.6,
+					ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+				});
 			});
-		});
-	}
-
-	function loaderAnimTo() {
-		pageTransition01.forEach(page01 => {
-			gsap.to(page01, {
-				yPercent: 100,
-				delay: 0.4,
-				duration: 0.6,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-			});
-		});
-
-		pageTransition02.forEach(page02 => {
-			gsap.to(page02, {
-				yPercent: 100,
-				delay: 0.2,
-				duration: 0.6,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-			});
-		});
-	}
-
-	$(document).on('click', 'a', function (e) {
-		loaderAnimFrom()
-
-		var $this = $(this);
-		var pageTransition = $this.attr("page-transition");
-
-		// Check als de transitie genegeerd moet worden
-		if (pageTransition === "ignore") {
-			return false;
 		}
 
-		// Check voor dezelfde host en afwezigheid van '#'
-		if (this.host !== window.location.host || $this.attr("href").indexOf("#") !== -1) {
+		function loaderAnimTo() {
+			pageTransition01.forEach(page01 => {
+				gsap.to(page01, {
+					yPercent: 100,
+					delay: 0.4,
+					duration: 0.6,
+					ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+				});
+			});
+
+			pageTransition02.forEach(page02 => {
+				gsap.to(page02, {
+					yPercent: 100,
+					delay: 0.2,
+					duration: 0.6,
+					ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+				});
+			});
+		}
+
+		$(document).on('click', 'a', function(e) {
+			loaderAnimFrom()
+
+			var $this = $(this);
+			var pageTransition = $this.attr("page-transition");
+
+			// Check als de transitie genegeerd moet worden
+			if (pageTransition === "ignore") {
+				return false;
+			}
+
+			// Check voor dezelfde host en afwezigheid van '#'
+			if (this.host !== window.location.host || $this.attr("href").indexOf("#") !== -1) {
+				loaderAnimTo()
+				return true; // Geen interne link, dus geen page transition.
+			}
+
+			e.preventDefault();
+
+			var moduleURL = $this.attr("href");
+			var transitionTime = 1500; // Gebruik van .data() voor data attributen
+
+			$('[page-transition="component"]').trigger('click'); // Veranderd naar trigger voor consistentie
+			$(document).trigger("page-transition");
+
+			// Gebruik van setTimeout om de redirect te vertragen
+			setTimeout(function() {
+				window.location = moduleURL;
+			}, transitionTime);
+		});
+
+		// Verwijder oude event handlers om dubbele bindingen te voorkomen
+		$(window).off("pageshow").on("pageshow", function(event) {
+			if (event.originalEvent.persisted) {
+				window.location.reload();
+			}
+		});
+	</script>
+
+	<script>
+		function checkPageTransition() {
+			var visited = sessionStorage.getItem("visited") === "true";
 			loaderAnimTo()
-			return true; // Geen interne link, dus geen page transition.
+
+			if (!visited) {
+				$(".page-transition.is-load").hide();
+				sessionStorage.setItem("visited", "true");
+			} else {
+				$(".page-transition.is-preload").hide();
+			}
 		}
 
-		e.preventDefault();
+		// Wacht tot het document volledig geladen is voordat je de check uitvoert
+		if (document.readyState === 'loading') {
 
-		var moduleURL = $this.attr("href");
-		var transitionTime = 1500; // Gebruik van .data() voor data attributen
+			// Het document is nog aan het laden, wacht op het event
+			document.addEventListener('DOMContentLoaded', checkPageTransition);
 
-		$('[page-transition="component"]').trigger('click'); // Veranderd naar trigger voor consistentie
-		$(document).trigger("page-transition");
-
-		// Gebruik van setTimeout om de redirect te vertragen
-		setTimeout(function () {
-			window.location = moduleURL;
-		}, transitionTime);
-	});
-
-	// Verwijder oude event handlers om dubbele bindingen te voorkomen
-	$(window).off("pageshow").on("pageshow", function (event) {
-		if (event.originalEvent.persisted) {
-			window.location.reload();
-		}
-	});
-</script>
-
-<script>
-	function checkPageTransition() {
-		var visited = sessionStorage.getItem("visited") === "true";
-		loaderAnimTo()
-
-		if (!visited) {
-			$(".page-transition.is-load").hide();
-			sessionStorage.setItem("visited", "true");
 		} else {
-			$(".page-transition.is-preload").hide();
+			// `DOMContentLoaded` is al afgevuurd, voer de check direct uit
+			checkPageTransition();
+
 		}
-	}
+	</script>
 
-	// Wacht tot het document volledig geladen is voordat je de check uitvoert
-	if (document.readyState === 'loading') {
-
-		// Het document is nog aan het laden, wacht op het event
-		document.addEventListener('DOMContentLoaded', checkPageTransition);
-
-	} else {
-		// `DOMContentLoaded` is al afgevuurd, voer de check direct uit
-		checkPageTransition();
-
-	}
-</script> -->
-
-	<script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240426194502"></script>
-	<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240426194502"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240426194502"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240426194502"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240426194502"></script>
-	<script src="js/app.min.js?_v=20240426194502"></script>
+	<script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240427155550"></script>
+	<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240427155550"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240427155550"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240427155550"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240427155550"></script>
+	<script src="js/app.min.js?_v=20240427155550"></script>
 
 </body>
 
