@@ -353,7 +353,7 @@
 						}
 
 						&._active {
-							color: var(--primary-color-btn);
+							color: var(--primary-color);
 
 							&::before {
 								opacity: 1;
@@ -531,7 +531,7 @@
 				}
 
 				span {
-					color: var(--primary-color-btn);
+					color: var(--primary-color);
 					font-size: 13px;
 					font-style: normal;
 					font-weight: 600;

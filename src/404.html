@@ -5,15 +5,15 @@
 "title":"404"
 })
 
-<body style="
---primary-color-btn: #6366f1; 
---primary-color-btn-hover: #8083f2; 
---primary-color-btn-text: #fff; 
-">
+<body data-barba="wrapper">
 
 	@@include('html/_anim-elements.htm',{})
 
-	<div class="wrapper">
+	<div class="wrapper" data-barba="container" data-barba-namespace="404" style="
+	--primary-color: #6366f1; 
+	--primary-color-hover: #8083f2; 
+	--primary-color-text: #fff; 
+	">
 
 		@@include('html/_header.htm',{
 		"addclass":""
@@ -332,9 +332,10 @@
 			</div>
 		</footer>
 
+		@@include('html/_popup.htm',{})
+
 	</div>
 
-	@@include('html/_popup.htm',{})
 	@@include('html/_js.htm',{})
 
 </body>

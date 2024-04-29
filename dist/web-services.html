@@ -10,229 +10,29 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="@favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.css?_v=20240427215328" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css?_v=20240427215328" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.css?_v=20240430074920" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css?_v=20240430074920" />
 
-	<link rel="stylesheet" href="css/style.min.css?_v=20240427215328">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240430074920">
 
-	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20240427215328"></script>
-	<script>
-		ymaps.ready(init);
-
-		function init() {
-			if (document.querySelector('.map')) {
-				const mapClasses = document.querySelectorAll('.map');
-				mapClasses.forEach(mapClass => {
-					ymaps.ready();
-					let map = new ymaps.Map(mapClass, {
-						controls: [],
-						// Координаты центра карты
-						center: branchData[0].location,
-						// Уровень масштабирования
-						zoom: 15,
-					}, {
-						suppressMapOpenBlock: true,
-						balloonMaxWidth: 200,
-						searchControlProvider: 'yandex#search'
-					});
-
-					let pinsCollection = new ymaps.GeoObjectCollection({}, {
-						preset: 'islands#blueDotIcon', // дефолт метка
-						draggable: false, // метки нельзя перемещать
-						// iconLayout: 'default#imageWithContent', // указать данный тип макета.
-						// iconImageHref: 'img/footer/map-pin.png', // cвоё изображение иконки метки.
-						// iconImageSize: [36, 52], // размеры метки
-						// iconImageOffset: [-18, -26], // смещение левого верхнего угла иконки
-						// iconContentOffset: [0, 0], // cмещение слоя с содержимым относительно слоя с картинкой
-					});
-
-					for (let i = 0; i < branchData.length; i++) {
-						let marks = new ymaps.Placemark(branchData[i].location, {
-							// Зададим содержимое заголовка балуна.
-							balloonContentHeader: `${branchData[i].address}`,
-
-							// Зададим содержимое всплывающей подсказки.
-							hintContent: `${branchData[i].address}`,
-						}, )
-						pinsCollection.add(marks);
-					}
-
-					// Добавим метки на карту.
-					map.geoObjects.add(pinsCollection);
-
-					// Скрываем хинт при открытии балуна.
-					map.events.add('balloonopen', function(e) {
-						Map.hint.close();
-					});
-
-					// Закрываем балун по клику по карте
-					map.events.add('click', e => e.get('target').balloon.close());
-				});
-
-
-			}
-		}
-	</script>
+	<!-- <script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20240430074920"></script> -->
 
 </head>
 
-<body style="
---primary-color-btn: #25C16F; 
---primary-color-btn-hover: #4fcb8a; 
---primary-color-btn-text: #fff; 
-">
+<body data-barba="wrapper">
 
 	<div class="progress-bar" id="progressBar"></div>
 
-
-	<!-- <style>
-	body [page-transition="component"] {
-		display: block;
-	}
-
-	.w-editor [page-transition="component"] {
-		display: none;
-	}
-
-
-	.page-transition_logo-lottie {
-		height: 5rem
-	}
-
-	.page-transition_content {
-		width: 100%;
-		height: 100%;
-		justify-content: center;
-		align-items: center;
-		display: flex
-	}
-
-	.page-transition_bg-item {
-		flex-direction: column;
-		align-items: center;
-		display: flex;
-		position: absolute;
-		top: 0%;
-		bottom: 0%;
-		left: 0%;
-		right: 0%
-	}
-
-	.page-transition_bg,
-	.page-transition-load {
-		width: 100%;
-		height: 100%
-	}
-
-	.page-transition_logo {
-		mix-blend-mode: lighten;
-		display: none;
-		position: absolute
-	}
-
-	.page-transition-preload {
-		width: 100%;
-		height: 100%
-	}
-
-	.page-transition {
-		z-index: 2000;
-		display: none;
-		position: fixed;
-		top: 0%;
-		bottom: 0%;
-		left: 0%;
-		right: 0%
-	}
-
-	.page-transition_bg-item-fill {
-		width: 100%;
-		height: 52%;
-		position: absolute;
-		bottom: 0%;
-		left: 0%;
-		right: 0%
-	}
-
-	.page-transition_bg-item-fill.is-01 {
-		background-color: #fff;
-	}
-
-	.page-transition_bg-item-fill.is-01.is-top {
-		width: 150%;
-		height: 50%;
-		top: 0%;
-		bottom: auto;
-		left: auto;
-		right: auto
-	}
-
-	.page-transition_bg-item-fill.is-02 {
-		background-color: var(--primary-color-btn);
-	}
-
-	.page-transition_bg-item-fill.is-02.is-top {
-		width: 150%;
-		height: 50%;
-		top: 0%;
-		bottom: auto;
-		left: auto;
-		right: auto
-	}
-
-	/* Prevent all click and hover interaction with an element */
-	.pointer-events-off {
-		pointer-events: none;
-	}
-
-	/* Enables all click and hover interaction with an element */
-	.pointer-events-on {
-		pointer-events: auto;
-	}
-</style>
-
-<div class="page-transition_wrapper pointer-events-off">
-	<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100"
-		class="page-transition is-preload">
-		<div class="page-transition-preload">
-			<div class="page-transition_content">
-				<div class="page-transition_bg">
-					<div class="page-transition_bg-item is-01 is-preload">
-						<div page-preload-bg-radius="target" page-transition-bg-radius="target"
-							class="page-transition_bg-item-fill is-02 is-top"></div>
-						<div class="page-transition_bg-item-fill is-02"></div>
-					</div>
-					<div class="page-transition_bg-item is-02 is-preload">
-						<div page-preload-bg-radius="target" page-transition-bg-radius="target"
-							class="page-transition_bg-item-fill is-01 is-top"></div>
-						<div class="page-transition_bg-item-fill is-01"></div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="mg-loader">
+		<div class="mg-loader-fill -v1"></div>
+		<div class="mg-loader-fill -v2"></div>
 	</div>
-	<div page-transition-bg-radius="trigger" page-transition="component" page-transition-time="1100"
-		class="page-transition is-load">
-		<div class="page-transition-load">
-			<div class="page-transition_content">
-				<div class="page-transition_bg">
-					<div class="page-transition_bg-item is-01 is-load">
-						<div page-load-bg-radius="target" page-transition-bg-radius="target"
-							class="page-transition_bg-item-fill is-02 is-top"></div>
-						<div class="page-transition_bg-item-fill is-02"></div>
-					</div>
-					<div class="page-transition_bg-item is-02 is-load">
-						<div page-load-bg-radius="target" page-transition-bg-radius="target"
-							class="page-transition_bg-item-fill is-01 is-top"></div>
-						<div class="page-transition_bg-item-fill is-01"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
 
-	<div class="wrapper">
+	<div class="wrapper" data-barba="container" data-barba-namespace="web-services" style="
+	--primary-color: #25C16F; 
+	--primary-color-hover: #4fcb8a; 
+	--primary-color-text: #fff; 
+	">
 
 		<header class="rs-header " data-scroll-show>
 			<div class="rs-header__container">
@@ -253,7 +53,7 @@
 									</li>
 
 									<li class="menu-item menu__dropdown menu__dropdown_block--full">
-										<a href="./develop.html">Pазработка</a>
+										<a href="#">Pазработка</a>
 
 										<div class="menu__dropdown_block">
 											<div class="menu__dropdown_body">
@@ -467,7 +267,7 @@
 									</li>
 
 									<li class="menu-item">
-										<a href="./about.html">О компании</a>
+										<a href="#">О компании</a>
 									</li>
 
 									<li class="menu-item">
@@ -1168,7 +968,7 @@
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout-1)">
-													<path class="dashed-path" id="dashed-about-1" d="M-372.298 -56.2239C-488.733 131.461 -356.238 481.645 -135.367 530.355C140.118 591.109 112.266 167.493 -29.1567 187.182C-203.816 211.498 -101.704 614.25 248.817 459.614C529.235 335.905 588.803 99.0104 583.535 -3.97334" stroke="var(--primary-color-btn)" stroke-width="3" stroke-dasharray="4 10" />
+													<path class="dashed-path" id="dashed-about-1" d="M-372.298 -56.2239C-488.733 131.461 -356.238 481.645 -135.367 530.355C140.118 591.109 112.266 167.493 -29.1567 187.182C-203.816 211.498 -101.704 614.25 248.817 459.614C529.235 335.905 588.803 99.0104 583.535 -3.97334" stroke="var(--primary-color)" stroke-width="3" stroke-dasharray="4 10" />
 												</g>
 											</svg>
 										</div>
@@ -1329,10 +1129,10 @@
 									<a href="#">
 										<div class="rs-list-block__icon">
 											<svg width="23" height="23" viewBox="0 0 23 23" fill="none">
-												<path d="M8.92183 8.92311C10.8334 8.92311 12.383 7.37332 12.383 5.46155C12.383 3.54979 10.8334 2 8.92183 2C7.0103 2 5.46069 3.54979 5.46069 5.46155C5.46069 7.37332 7.0103 8.92311 8.92183 8.92311Z" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M15.8445 20.4615H2V18.9231C2 15.0996 5.09919 12 8.92224 12C12.7453 12 15.8445 15.0996 15.8445 18.9231V20.4615Z" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M14.075 2C15.9865 2 17.5361 3.5498 17.5361 5.46155C17.5361 7.37331 15.9865 8.92311 14.075 8.92311" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M16.5369 12.2924C19.2195 13.313 20.9941 15.8834 20.9979 18.7539V20.4616H18.6905" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M8.92183 8.92311C10.8334 8.92311 12.383 7.37332 12.383 5.46155C12.383 3.54979 10.8334 2 8.92183 2C7.0103 2 5.46069 3.54979 5.46069 5.46155C5.46069 7.37332 7.0103 8.92311 8.92183 8.92311Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M15.8445 20.4615H2V18.9231C2 15.0996 5.09919 12 8.92224 12C12.7453 12 15.8445 15.0996 15.8445 18.9231V20.4615Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M14.075 2C15.9865 2 17.5361 3.5498 17.5361 5.46155C17.5361 7.37331 15.9865 8.92311 14.075 8.92311" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M16.5369 12.2924C19.2195 13.313 20.9941 15.8834 20.9979 18.7539V20.4616H18.6905" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
 											</svg>
 										</div>
 										<div class="rs-list-block__desc">
@@ -1346,8 +1146,8 @@
 										<div class="rs-list-block__icon">
 
 											<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M19.9231 21H5.30771C4.0332 21 3 19.9668 3 18.6923C3 17.4178 4.0332 16.3846 5.30771 16.3846H18.3847C19.2343 16.3846 19.9231 15.6958 19.9231 14.8462V2.53846C19.9231 1.6888 19.2343 1 18.3847 1H5.30771C4.05686 0.999533 3.03338 1.99572 3.00004 3.24614V18.6308" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M18.3848 16.3846V21" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M19.9231 21H5.30771C4.0332 21 3 19.9668 3 18.6923C3 17.4178 4.0332 16.3846 5.30771 16.3846H18.3847C19.2343 16.3846 19.9231 15.6958 19.9231 14.8462V2.53846C19.9231 1.6888 19.2343 1 18.3847 1H5.30771C4.05686 0.999533 3.03338 1.99572 3.00004 3.24614V18.6308" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M18.3848 16.3846V21" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
 											</svg>
 										</div>
 										<div class="rs-list-block__desc">
@@ -1360,8 +1160,8 @@
 									<a href="#">
 										<div class="rs-list-block__icon">
 											<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M2 7.27439C2.75001 3.53395 7.20601 0.721048 11.4414 5.69308C17.4857 -1.46846 23.9418 7.41126 19.5593 11.988L11.4414 19.7273L6.69129 15.1658" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M2 11.2143H5.61108L7.77776 8.22729L10.6666 13.4546L12.8333 10.4676H15" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M2 7.27439C2.75001 3.53395 7.20601 0.721048 11.4414 5.69308C17.4857 -1.46846 23.9418 7.41126 19.5593 11.988L11.4414 19.7273L6.69129 15.1658" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M2 11.2143H5.61108L7.77776 8.22729L10.6666 13.4546L12.8333 10.4676H15" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
 											</svg>
 										</div>
 										<div class="rs-list-block__desc">
@@ -1374,9 +1174,9 @@
 									<a href="#">
 										<div class="rs-list-block__icon">
 											<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M19.6923 12.7669V9.69001C19.6923 8.84035 19.0035 8.15155 18.1538 8.15155H3.53846C2.6888 8.15155 2 8.84035 2 9.69001V20.4592C2 21.3089 2.6888 21.9977 3.53846 21.9977H18.1538C19.0035 21.9977 19.6923 21.3089 19.6923 20.4592V16.6131" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M7.13867 4.30538L15.8617 2.02844C16.2625 1.91554 16.6789 2.14887 16.7918 2.5496C16.7948 2.56044 16.7976 2.57132 16.8002 2.5823L17.231 4.30538" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M17.3845 12.7669H21.2306C21.6555 12.7669 21.9999 13.1113 21.9999 13.5362V15.8439C21.9999 16.2687 21.6555 16.6131 21.2306 16.6131H17.3845C16.9596 16.6131 16.6152 16.2687 16.6152 15.8439V13.5362C16.6152 13.1113 16.9596 12.7669 17.3845 12.7669Z" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M19.6923 12.7669V9.69001C19.6923 8.84035 19.0035 8.15155 18.1538 8.15155H3.53846C2.6888 8.15155 2 8.84035 2 9.69001V20.4592C2 21.3089 2.6888 21.9977 3.53846 21.9977H18.1538C19.0035 21.9977 19.6923 21.3089 19.6923 20.4592V16.6131" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M7.13867 4.30538L15.8617 2.02844C16.2625 1.91554 16.6789 2.14887 16.7918 2.5496C16.7948 2.56044 16.7976 2.57132 16.8002 2.5823L17.231 4.30538" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M17.3845 12.7669H21.2306C21.6555 12.7669 21.9999 13.1113 21.9999 13.5362V15.8439C21.9999 16.2687 21.6555 16.6131 21.2306 16.6131H17.3845C16.9596 16.6131 16.6152 16.2687 16.6152 15.8439V13.5362C16.6152 13.1113 16.9596 12.7669 17.3845 12.7669Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
 											</svg>
 										</div>
 										<div class="rs-list-block__desc">
@@ -1451,11 +1251,11 @@
 										<div class="rs-list-block__icon">
 											<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<g clip-path="url(#clip0_3089_3235)">
-													<path d="M3.4307 8.09058H19.173C19.9637 8.09058 20.6037 8.88444 20.6037 9.86264V20.4985C20.6037 21.4779 19.9628 22.2706 19.173 22.2706H3.4307C2.64 22.2706 2 21.4767 2 20.4985V9.86264C2 8.88444 2.64093 8.09058 3.4307 8.09058Z" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-													<path d="M5.57812 4.54529V1" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-													<path d="M11.3027 4.54529V1" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-													<path d="M17.0273 4.54529V1" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
-													<path d="M20.6047 16.0672H19.8893C18.3088 16.0672 17.027 14.4795 17.027 12.5219C17.027 14.4795 15.7451 16.0672 14.1647 16.0672C12.5842 16.0672 11.3023 14.4795 11.3023 12.5219C11.3023 14.4795 10.0205 16.0672 8.44 16.0672C6.85953 16.0672 5.57767 14.4795 5.57767 12.5219C5.57767 14.4795 4.29581 16.0672 2.71535 16.0672H2" stroke="var(--primary-color-btn)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M3.4307 8.09058H19.173C19.9637 8.09058 20.6037 8.88444 20.6037 9.86264V20.4985C20.6037 21.4779 19.9628 22.2706 19.173 22.2706H3.4307C2.64 22.2706 2 21.4767 2 20.4985V9.86264C2 8.88444 2.64093 8.09058 3.4307 8.09058Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M5.57812 4.54529V1" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M11.3027 4.54529V1" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M17.0273 4.54529V1" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M20.6047 16.0672H19.8893C18.3088 16.0672 17.027 14.4795 17.027 12.5219C17.027 14.4795 15.7451 16.0672 14.1647 16.0672C12.5842 16.0672 11.3023 14.4795 11.3023 12.5219C11.3023 14.4795 10.0205 16.0672 8.44 16.0672C6.85953 16.0672 5.57767 14.4795 5.57767 12.5219C5.57767 14.4795 4.29581 16.0672 2.71535 16.0672H2" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="171.429" stroke-linecap="round" stroke-linejoin="round" />
 												</g>
 												<defs>
 													<clipPath id="clip0_3089_3235">
@@ -1909,301 +1709,193 @@
 			</div>
 		</footer>
 
-	</div>
+		<div id="letter-manager" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close _rs-icon-close"></button>
+					<div class="popup__text">
+						<h4>Написать письмо руководителю</h4>
 
-	<div id="letter-manager" aria-hidden="true" class="popup">
-		<div class="popup__wrapper">
-			<div class="popup__content">
-				<button data-close type="button" class="popup__close _rs-icon-close"></button>
-				<div class="popup__text">
-					<h4>Написать письмо руководителю</h4>
-
-					<div class="form">
-						<form action="#">
-							<div class="form__wrapper">
-								<div class="form__block">
-									<div class="form__line">
-										<label class="rs-input-placeholder">ФИО</label>
-										<input type="text" name="user-name" data-required data-validate data-error="Введите ФИО" class="rs-input">
-										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+						<div class="form">
+							<form action="#">
+								<div class="form__wrapper">
+									<div class="form__block">
+										<div class="form__line">
+											<label class="rs-input-placeholder">ФИО</label>
+											<input type="text" name="user-name" data-required data-validate data-error="Введите ФИО" class="rs-input">
+											<button type="button" class="rs-input-clear _rs-icon-close"></button>
+										</div>
+										<div class="form__line">
+											<label class="rs-input-placeholder">Телефон</label>
+											<input type="tel" name="user-phone" data-required="tel" data-validate data-error="Введите телефон" class="rs-input">
+											<button type="button" class="rs-input-clear _rs-icon-close"></button>
+										</div>
+										<div class="form__line">
+											<label class="rs-input-placeholder">Введите ваше
+												сообщение</label>
+											<textarea name="user-message" class="rs-input"></textarea>
+											<button type="button" class="rs-input-clear _rs-icon-close"></button>
+										</div>
 									</div>
-									<div class="form__line">
-										<label class="rs-input-placeholder">Телефон</label>
-										<input type="tel" name="user-phone" data-required="tel" data-validate data-error="Введите телефон" class="rs-input">
-										<button type="button" class="rs-input-clear _rs-icon-close"></button>
-									</div>
-									<div class="form__line">
-										<label class="rs-input-placeholder">Введите ваше
-											сообщение</label>
-										<textarea name="user-message" class="rs-input"></textarea>
-										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									<div class="form__footer">
+										<div class="form__agreement">Нажимая на кнопку «Отправить сообщение»,
+											вы соглашаетесь на обработку персональных данных в соответствии
+											с <a href="#">пользовательским соглашением</a>
+										</div>
+										<div class="form__button">
+											<button type="submit" class="rs-btn _btn-primary">
+												<span class="btn-text _rs-icon-call">Отправить сообщение</span>
+												<span class="btn-hover"></span>
+											</button>
+										</div>
 									</div>
 								</div>
-								<div class="form__footer">
-									<div class="form__agreement">Нажимая на кнопку «Отправить сообщение»,
-										вы соглашаетесь на обработку персональных данных в соответствии
-										с <a href="#">пользовательским соглашением</a>
-									</div>
-									<div class="form__button">
-										<button type="submit" class="rs-btn _btn-primary">
-											<span class="btn-text _rs-icon-call">Отправить сообщение</span>
-											<span class="btn-hover"></span>
-										</button>
-									</div>
-								</div>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div id="feedback" aria-hidden="true" class="popup popup-right">
-		<div class="popup__wrapper">
-			<div class="popup__content">
-				<button data-close type="button" class="popup__close _rs-icon-close"></button>
-				<div class="popup__text">
-					<h4>Свяжитесь с нами </h4>
-					<p>Оставьте заявку, наш менеджер свяжется с вами в ближайшее время</p>
+		<div id="feedback" aria-hidden="true" class="popup popup-right">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close _rs-icon-close"></button>
+					<div class="popup__text">
+						<h4>Свяжитесь с нами </h4>
+						<p>Оставьте заявку, наш менеджер свяжется с вами в ближайшее время</p>
 
-					<div class="form">
-						<form action="#">
-							<div class="form__wrapper">
-								<div class="form__block">
-									<div class="form__line">
-										<label class="rs-input-placeholder">ФИО</label>
-										<input type="text" name="user-name" data-required data-validate data-error="Введите ФИО" class="rs-input">
-										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+						<div class="form">
+							<form action="#">
+								<div class="form__wrapper">
+									<div class="form__block">
+										<div class="form__line">
+											<label class="rs-input-placeholder">ФИО</label>
+											<input type="text" name="user-name" data-required data-validate data-error="Введите ФИО" class="rs-input">
+											<button type="button" class="rs-input-clear _rs-icon-close"></button>
+										</div>
+										<div class="form__line">
+											<label class="rs-input-placeholder">Телефон</label>
+											<input type="tel" name="user-phone" data-required="tel" data-validate data-error="Введите телефон" class="rs-input">
+											<button type="button" class="rs-input-clear _rs-icon-close"></button>
+										</div>
+										<div class="form__line">
+											<label class="rs-input-placeholder">Введите ваше
+												сообщение</label>
+											<textarea name="user-message" class="rs-input"></textarea>
+											<button type="button" class="rs-input-clear _rs-icon-close"></button>
+										</div>
 									</div>
-									<div class="form__line">
-										<label class="rs-input-placeholder">Телефон</label>
-										<input type="tel" name="user-phone" data-required="tel" data-validate data-error="Введите телефон" class="rs-input">
-										<button type="button" class="rs-input-clear _rs-icon-close"></button>
-									</div>
-									<div class="form__line">
-										<label class="rs-input-placeholder">Введите ваше
-											сообщение</label>
-										<textarea name="user-message" class="rs-input"></textarea>
-										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									<div class="form__footer">
+										<div class="form__agreement">Нажимая на кнопку «Отправить сообщение»,
+											вы соглашаетесь на обработку персональных данных в соответствии
+											с <a href="#">пользовательским соглашением</a>
+										</div>
+										<div class="form__button">
+											<button type="submit" class="rs-btn _btn-primary">
+												<span class="btn-text _rs-icon-message">отправить сообщение</span>
+												<span class="btn-hover"></span>
+											</button>
+										</div>
 									</div>
 								</div>
-								<div class="form__footer">
-									<div class="form__agreement">Нажимая на кнопку «Отправить сообщение»,
-										вы соглашаетесь на обработку персональных данных в соответствии
-										с <a href="#">пользовательским соглашением</a>
-									</div>
-									<div class="form__button">
-										<button type="submit" class="rs-btn _btn-primary">
-											<span class="btn-text _rs-icon-message">отправить сообщение</span>
-											<span class="btn-hover"></span>
-										</button>
-									</div>
-								</div>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<script>
-		const branchData = [{
-			address: 'ул. Ленинская Слобода, д.19, БЦ «Omega Plaza», офис 348.1',
-			location: [55.708521, 37.653510],
-		}, ]
-	</script>
-	<div id="contact" aria-hidden="true" class="popup popup-contact popup-right">
-		<div class="popup__wrapper">
-			<div class="popup__content">
-				<button data-close type="button" class="popup__close _rs-icon-close"></button>
-				<div class="popup__text">
-					<div class="popup__contact">
-						<div class="popup__contact_wrapper">
-							<div class="popup__contact_item">
-								<h5>Отдел продаж</h5>
-								<ul class="popup__contact_list">
-									<li>Телефон: <a href="74951506441">+7 495 150-64-41</a></li>
-									<li class="popup__contact_email">
-										Email: <a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
-									</li>
-									<li>Режим работы: 9:00 до 18:00 по рабочим дням</li>
-								</ul>
-							</div>
-
-							<div class="popup__contact_item">
-								<h5>Центральный офис</h5>
-								<ul class="popup__contact_list">
-									<li>ул. Ленинская Слобода, д. 19, БЦ «Omega Plaza», офис 348.1</li>
-									<li class="popup__contact_green"><span>МЦК Автозаводская:</span> 7 минут пешком</li>
-									<li class="popup__contact_red"><span>Автозаводская:</span> 4 мин пешком. Выход в сторону
-										улицы Мастеркова</li>
-								</ul>
-
-								<div class="popup__contact_map">
-									<div class="map"></div>
+		<script>
+			const branchData = [{
+				address: 'ул. Ленинская Слобода, д.19, БЦ «Omega Plaza», офис 348.1',
+				location: [55.708521, 37.653510],
+			}, ]
+		</script>
+		<div id="contact" aria-hidden="true" class="popup popup-contact popup-right">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close _rs-icon-close"></button>
+					<div class="popup__text">
+						<div class="popup__contact">
+							<div class="popup__contact_wrapper">
+								<div class="popup__contact_item">
+									<h5>Отдел продаж</h5>
+									<ul class="popup__contact_list">
+										<li>Телефон: <a href="74951506441">+7 495 150-64-41</a></li>
+										<li class="popup__contact_email">
+											Email: <a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+										</li>
+										<li>Режим работы: 9:00 до 18:00 по рабочим дням</li>
+									</ul>
 								</div>
 
-								<div class="popup__contact_btn">
-									<a href="#" class="rs-btn _btn-gray-border">
-										<span class="btn-text">
-											<svg viewBox="0 0 20 21" fill="none">
-												<path d="M14.0039 8.5H6.00391M14.0039 12.5H6.00391M1 10.5C1 15.4706 5.02944 19.5 10 19.5C12.0364 19.5 18.9993 19.5 18.9993 19.5C18.9993 19.5 17.4401 15.7561 18.0641 14.5008C18.6631 13.2956 19 11.9372 19 10.5C19 5.52944 14.9706 1.5 10 1.5C5.02944 1.5 1 5.52944 1 10.5Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
-											</svg>
-											задать вопрос
-										</span>
-										<span class="btn-hover"></span>
-									</a>
+								<div class="popup__contact_item">
+									<h5>Центральный офис</h5>
+									<ul class="popup__contact_list">
+										<li>ул. Ленинская Слобода, д. 19, БЦ «Omega Plaza», офис 348.1</li>
+										<li class="popup__contact_green"><span>МЦК Автозаводская:</span> 7 минут пешком</li>
+										<li class="popup__contact_red"><span>Автозаводская:</span> 4 мин пешком. Выход в сторону
+											улицы Мастеркова</li>
+									</ul>
 
-									<a href="#" class="rs-link">
-										<span class="btn-text">
-											<svg viewBox="0 0 20 20" fill="none">
-												<path d="M5.09062 5.35183L6.83779 3.60488C7.63434 2.80842 8.03262 2.41019 8.49188 2.26099C8.89586 2.12974 9.33103 2.12974 9.73501 2.26099C10.1943 2.41019 10.5925 2.80842 11.3891 3.60487L12.1305 4.34637M8.10774 8.36858L12.1306 12.3909M7.60491 16.9163C8.26668 16.2546 14.7896 9.73245 18.1688 6.35366C19.2797 5.24288 19.2757 3.44599 18.1648 2.33518C17.0539 1.22432 15.2567 1.22026 14.1457 2.33109C10.7665 5.70993 4.24376 12.2319 3.58196 12.8936C1.78719 14.688 0.712189 19.0744 1.06769 19.4299C1.4232 19.7853 5.75503 18.7659 7.60491 16.9163Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
-											</svg>
-											<span>
-												оставить отзыв
-												<svg class="link__slide" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-													<path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">
-													</path>
+									<div class="popup__contact_map">
+										<div class="map"></div>
+									</div>
+
+									<div class="popup__contact_btn">
+										<a href="#" class="rs-btn _btn-gray-border">
+											<span class="btn-text">
+												<svg viewBox="0 0 20 21" fill="none">
+													<path d="M14.0039 8.5H6.00391M14.0039 12.5H6.00391M1 10.5C1 15.4706 5.02944 19.5 10 19.5C12.0364 19.5 18.9993 19.5 18.9993 19.5C18.9993 19.5 17.4401 15.7561 18.0641 14.5008C18.6631 13.2956 19 11.9372 19 10.5C19 5.52944 14.9706 1.5 10 1.5C5.02944 1.5 1 5.52944 1 10.5Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
 												</svg>
+												задать вопрос
 											</span>
-										</span>
-									</a>
-								</div>
-							</div>
+											<span class="btn-hover"></span>
+										</a>
 
-							<div class="popup__contact_item">
-								<h5>Нужна помощь?</h5>
-								<ul class="popup__contact_list">
-									<li>Техническая поддержка: круглосуточно.</li>
-									<li class="popup__contact_email">
-										Email: <a href="mailto:support@rosait.ru">support@rosait.ru</a>
-									</li>
-								</ul>
+										<a href="#" class="rs-link">
+											<span class="btn-text">
+												<svg viewBox="0 0 20 20" fill="none">
+													<path d="M5.09062 5.35183L6.83779 3.60488C7.63434 2.80842 8.03262 2.41019 8.49188 2.26099C8.89586 2.12974 9.33103 2.12974 9.73501 2.26099C10.1943 2.41019 10.5925 2.80842 11.3891 3.60487L12.1305 4.34637M8.10774 8.36858L12.1306 12.3909M7.60491 16.9163C8.26668 16.2546 14.7896 9.73245 18.1688 6.35366C19.2797 5.24288 19.2757 3.44599 18.1648 2.33518C17.0539 1.22432 15.2567 1.22026 14.1457 2.33109C10.7665 5.70993 4.24376 12.2319 3.58196 12.8936C1.78719 14.688 0.712189 19.0744 1.06769 19.4299C1.4232 19.7853 5.75503 18.7659 7.60491 16.9163Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+												</svg>
+												<span>
+													оставить отзыв
+													<svg class="link__slide" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+														<path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">
+														</path>
+													</svg>
+												</span>
+											</span>
+										</a>
+									</div>
+								</div>
+
+								<div class="popup__contact_item">
+									<h5>Нужна помощь?</h5>
+									<ul class="popup__contact_list">
+										<li>Техническая поддержка: круглосуточно.</li>
+										<li class="popup__contact_email">
+											Email: <a href="mailto:support@rosait.ru">support@rosait.ru</a>
+										</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
-	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js?_v=20240427215328"></script>
-<script>
-	const pageTransition01 = document.querySelectorAll('.page-transition_bg-item.is-01');
-	const pageTransition02 = document.querySelectorAll('.page-transition_bg-item.is-02');
 
-	function loaderAnimFrom() {
-		pageTransition01.forEach(page01 => {
-			gsap.to(page01, {
-				yPercent: 0,
-				delay: 0.2,
-				duration: 0.6,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-			});
-		});
-
-		pageTransition02.forEach(page02 => {
-			gsap.to(page02, {
-				yPercent: 0,
-				delay: 0.4,
-				duration: 0.6,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-			});
-		});
-	}
-
-	function loaderAnimTo() {
-		pageTransition01.forEach(page01 => {
-			gsap.to(page01, {
-				yPercent: 100,
-				delay: 0.4,
-				duration: 0.6,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-			});
-		});
-
-		pageTransition02.forEach(page02 => {
-			gsap.to(page02, {
-				yPercent: 100,
-				delay: 0.2,
-				duration: 0.6,
-				ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
-			});
-		});
-	}
-
-	$(document).on('click', 'a', function (e) {
-		loaderAnimFrom()
-
-		var $this = $(this);
-		var pageTransition = $this.attr("page-transition");
-
-		// Check als de transitie genegeerd moet worden
-		if (pageTransition === "ignore") {
-			return false;
-		}
-
-		// Check voor dezelfde host en afwezigheid van '#'
-		if (this.host !== window.location.host || $this.attr("href").indexOf("#") !== -1) {
-			loaderAnimTo()
-			return true; // Geen interne link, dus geen page transition.
-		}
-
-		e.preventDefault();
-
-		var moduleURL = $this.attr("href");
-		var transitionTime = 1500; // Gebruik van .data() voor data attributen
-
-		$('[page-transition="component"]').trigger('click'); // Veranderd naar trigger voor consistentie
-		$(document).trigger("page-transition");
-
-		// Gebruik van setTimeout om de redirect te vertragen
-		setTimeout(function () {
-			window.location = moduleURL;
-		}, transitionTime);
-	});
-
-	// Verwijder oude event handlers om dubbele bindingen te voorkomen
-	$(window).off("pageshow").on("pageshow", function (event) {
-		if (event.originalEvent.persisted) {
-			window.location.reload();
-		}
-	});
-</script>
-
-<script>
-	function checkPageTransition() {
-		var visited = sessionStorage.getItem("visited") === "true";
-		loaderAnimTo()
-
-		if (!visited) {
-			$(".page-transition.is-load").hide();
-			sessionStorage.setItem("visited", "true");
-		} else {
-			$(".page-transition.is-preload").hide();
-		}
-	}
-
-	// Wacht tot het document volledig geladen is voordat je de check uitvoert
-	if (document.readyState === 'loading') {
-
-		// Het document is nog aan het laden, wacht op het event
-		document.addEventListener('DOMContentLoaded', checkPageTransition);
-
-	} else {
-		// `DOMContentLoaded` is al afgevuurd, voer de check direct uit
-		checkPageTransition();
-
-	}
-</script> -->
-
-	<script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240427215328"></script>
-	<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240427215328"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240427215328"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240427215328"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240427215328"></script>
-	<script src="js/app.min.js?_v=20240427215328"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@barba/core?_v=20240430074920"></script>
+	<script src="https://cdn.jsdelivr.net/npm/image-compare-viewer@1.6.2/dist/image-compare-viewer.min.js?_v=20240430074920"></script>
+	<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js?_v=20240430074920"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?_v=20240430074920"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?_v=20240430074920"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js?_v=20240430074920"></script>
+	<script src="js/app.min.js?_v=20240430074920"></script>
 
 </body>
 

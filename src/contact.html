@@ -5,16 +5,16 @@
 "title":"Контакты"
 })
 
-<body style="
---primary-color-btn: #007BFB; 
---primary-color-btn-hover: #3193fa; 
---primary-color-btn-text: #fff; 
---primary-gradient: linear-gradient(90deg, #01FF7F 5.91%, #55CBFA 47.98%, #25C16F 91.83%, #00FFD8 91.83%);
-">
+<body data-barba="wrapper">
 
 	@@include('html/_anim-elements.htm',{})
 
-	<div class="wrapper">
+	<div class="wrapper" data-barba="container" data-barba-namespace="contact" style="
+	--primary-color: #007BFB; 
+	--primary-color-hover: #3193fa; 
+	--primary-color-text: #fff; 
+	--primary-gradient: linear-gradient(90deg, #01FF7F 5.91%, #55CBFA 47.98%, #25C16F 91.83%, #00FFD8 91.83%);
+	">
 
 		@@include('html/_header.htm',{
 		"addclass":"_header-white margin-0"
@@ -602,9 +602,10 @@
 			</div>
 		</footer>
 
+		@@include('html/_popup.htm',{})
+
 	</div>
 
-	@@include('html/_popup.htm',{})
 	@@include('html/_js.htm',{})
 
 </body>

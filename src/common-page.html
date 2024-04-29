@@ -5,16 +5,16 @@
 "title":"Общая страница"
 })
 
-<body style="
---primary-color-btn: #007BFB; 
---primary-color-btn-hover: #3193fa; 
---primary-color-btn-text: #fff; 
---primary-gradient: linear-gradient(91deg, #007BFB 57.82%, #55CDF3 98.66%);
-">
+<body data-barba="wrapper">
 
 	@@include('html/_anim-elements.htm',{})
 
-	<div class="wrapper">
+	<div class="wrapper" data-barba="container" data-barba-namespace="common-page" style="
+	--primary-color: #007BFB; 
+	--primary-color-hover: #3193fa; 
+	--primary-color-text: #fff; 
+	--primary-gradient: linear-gradient(91deg, #007BFB 57.82%, #55CDF3 98.66%);
+	">
 
 		@@include('html/_header.htm',{
 		"addclass":""
@@ -1229,9 +1229,10 @@
 			</div>
 		</footer>
 
+		@@include('html/_popup.htm',{})
+
 	</div>
 
-	@@include('html/_popup.htm',{})
 	@@include('html/_js.htm',{})
 
 </body>

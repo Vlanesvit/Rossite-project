@@ -129,7 +129,7 @@
 				max-height: 20px;
 				max-width: 20px;
 				background-color: transparent;
-				border: 1.35px solid var(--primary-color-btn);
+				border: 1.35px solid var(--primary-color);
 				border-radius: 50%;
 				margin-right: 9px;
 				transition: all 0.3s ease 0s;
@@ -145,7 +145,7 @@
 					content: "";
 					display: block;
 					position: absolute;
-					background-color: var(--primary-color-btn);
+					background-color: var(--primary-color);
 					top: 50%;
 					left: 50%;
 					opacity: 0;
@@ -202,7 +202,7 @@
 				// .range__tooltip_btn
 				&_btn {
 					font-size: 24px;
-					color: var(--primary-color-btn);
+					color: var(--primary-color);
 					margin-left: 8px;
 
 					@media (max-width: 1750px) {
@@ -281,14 +281,14 @@
 
 				&.active-pip-1 {
 					*:nth-child(2) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
 				&.active-pip-2 {
 					*:nth-child(2),
 					*:nth-child(4) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -296,7 +296,7 @@
 					*:nth-child(2),
 					*:nth-child(4),
 					*:nth-child(6) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -305,7 +305,7 @@
 					*:nth-child(4),
 					*:nth-child(6),
 					*:nth-child(8) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -315,7 +315,7 @@
 					*:nth-child(6),
 					*:nth-child(8),
 					*:nth-child(10) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -326,7 +326,7 @@
 					*:nth-child(8),
 					*:nth-child(10),
 					*:nth-child(12) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -338,7 +338,7 @@
 					*:nth-child(10),
 					*:nth-child(12),
 					*:nth-child(14) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -351,7 +351,7 @@
 					*:nth-child(12),
 					*:nth-child(14),
 					*:nth-child(16) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -365,7 +365,7 @@
 					*:nth-child(14),
 					*:nth-child(16),
 					*:nth-child(18) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -380,7 +380,7 @@
 					*:nth-child(16),
 					*:nth-child(18),
 					*:nth-child(20) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -396,7 +396,7 @@
 					*:nth-child(18),
 					*:nth-child(20),
 					*:nth-child(22) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -413,7 +413,7 @@
 					*:nth-child(20),
 					*:nth-child(22),
 					*:nth-child(24) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -431,7 +431,7 @@
 					*:nth-child(22),
 					*:nth-child(24),
 					*:nth-child(26) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -450,7 +450,7 @@
 					*:nth-child(24),
 					*:nth-child(26),
 					*:nth-child(28) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 
@@ -470,13 +470,13 @@
 					*:nth-child(26),
 					*:nth-child(28),
 					*:nth-child(30) {
-						color: var(--primary-color-btn);
+						color: var(--primary-color);
 					}
 				}
 			}
 
 			.range__input .noUi-connect {
-				background: var(--primary-color-btn);
+				background: var(--primary-color);
 				cursor: pointer;
 			}
 
@@ -488,7 +488,7 @@
 				border-radius: 50%;
 				border: none;
 				box-shadow: none;
-				background: var(--primary-color-btn);
+				background: var(--primary-color);
 				cursor: ew-resize;
 
 				&::before,
@@ -528,7 +528,7 @@
 				}
 
 				&.active-pip {
-					color: var(--primary-color-btn);
+					color: var(--primary-color);
 				}
 			}
 		}

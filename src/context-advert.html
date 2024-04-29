@@ -5,15 +5,15 @@
 "title":"Контекстная реклама"
 })
 
-<body style="
---primary-color-btn: #25C16F; 
---primary-color-btn-hover: #4fcb8a; 
---primary-color-btn-text: #fff; 
-">
+<body data-barba="wrapper">
 
 	@@include('html/_anim-elements.htm',{})
 
-	<div class="wrapper">
+	<div class="wrapper" data-barba="container" data-barba-namespace="context-advert" style="
+	--primary-color: #25C16F; 
+	--primary-color-hover: #4fcb8a; 
+	--primary-color-text: #fff; 
+	">
 
 		@@include('html/_header.htm',{
 		"addclass":""
@@ -65,7 +65,8 @@
 							<div class="rs-task__description">
 								<h4 class="mrp-med-25">Не раздуваем рекламные бюджеты</h4>
 								<p class="mrp-reg-18">Рекламируем те направления, которые вам интересны и приносят
-									целевых посетителей. Эффективно ведём контекстную рекламу с бюджетом от 5 000 рублей
+									целевых посетителей. Эффективно ведём контекстную рекламу с бюджетом от 5 000
+									рублей
 									в месяц.</p>
 							</div>
 							<div class="rs-task__icons">
@@ -103,9 +104,11 @@
 							</div>
 							<div class="rs-task__description">
 								<h4 class="mrp-med-25">Контролируйте свои расходы</h4>
-								<p class="mrp-reg-18">Вы платите только за нашу работу или выбранный тариф. Мы не берём
+								<p class="mrp-reg-18">Вы платите только за нашу работу или выбранный тариф. Мы не
+									берём
 									процент от вашего рекламного бюджета. Расходы на рекламу вы увидите в личном
-									кабинете, через стороннюю аналитику (Яндекс.Метрика) и в наших ежемесячных отчётах.
+									кабинете, через стороннюю аналитику (Яндекс.Метрика) и в наших ежемесячных
+									отчётах.
 								</p>
 							</div>
 							<div class="rs-task__icons">
@@ -267,7 +270,8 @@
 													consectetur adipisicing elit. Voluptate, nihil?</div>
 											</div>
 										</div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
@@ -285,7 +289,8 @@
 													consectetur adipisicing elit. Voluptate, nihil?</div>
 											</div>
 										</div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
@@ -303,8 +308,10 @@
 													consectetur adipisicing elit. Voluptate, nihil?</div>
 											</div>
 										</div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
@@ -315,8 +322,10 @@
 										<div class="rs-tariff__about_item">
 											Сортировка товаров
 										</div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
@@ -327,7 +336,8 @@
 										<div class="rs-tariff__about_item">
 											Согласование дизайна внутренних страниц
 										</div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
@@ -548,7 +558,8 @@
 								<li>Настройка дополнительного рекламного канала — 5&nbsp;000&nbsp;₽</li>
 								<li>Настройка ретаргетинга — 2&nbsp;500&nbsp;₽</li>
 								<li>Настройка РСЯ — 5&nbsp;000&nbsp;₽</li>
-								<li>Настройка баннера на поиске (Яндекс) с отрисовкой баннера — 5&nbsp;000&nbsp;₽</li>
+								<li>Настройка баннера на поиске (Яндекс) с отрисовкой баннера — 5&nbsp;000&nbsp;₽
+								</li>
 								<li>Отрисовка креативов для РСЯ — от 5&nbsp;000&nbsp;₽</li>
 								<li>Перенос настроенной рекламы на аккаунт заказчика — 2&nbsp;000&nbsp;₽</li>
 							</ul>
@@ -654,7 +665,8 @@
 													consectetur adipisicing elit. Voluptate, nihil?</div>
 											</div>
 										</div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
@@ -672,8 +684,10 @@
 													consectetur adipisicing elit. Voluptate, nihil?</div>
 											</div>
 										</div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
@@ -746,8 +760,10 @@
 										<div class="rs-tariff__about_item">
 											Сортировка товаров
 										</div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
@@ -758,7 +774,8 @@
 										<div class="rs-tariff__about_item">
 											Согласование дизайна внутренних страниц
 										</div>
-										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _green"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-green-check"></i>
@@ -1123,7 +1140,8 @@
 												<li class="menu-item"><a href="#">Инструкция по Word Press</a></li>
 												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a></li>
 												<li class="menu-item"><a href="#">Инструкция по Битриксу</a></li>
-												<li class="menu-item"><a href="#">Инструкция по Яндекс Директ</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Яндекс Директ</a>
+												</li>
 												<li class="menu-item"><a href="#">Карта сайта</a></li>
 											</ul>
 										</nav>
@@ -1292,9 +1310,10 @@
 			</div>
 		</footer>
 
+		@@include('html/_popup.htm',{})
+
 	</div>
 
-	@@include('html/_popup.htm',{})
 	@@include('html/_js.htm',{})
 
 </body>

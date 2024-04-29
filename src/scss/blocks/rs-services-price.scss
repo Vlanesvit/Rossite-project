@@ -304,7 +304,7 @@
 		span {
 			display: block;
 			margin-top: 24px;
-			color: var(--primary-color-btn);
+			color: var(--primary-color);
 			font-size: 18px;
 			font-style: normal;
 			font-weight: 500;
@@ -410,7 +410,7 @@
 
 	// .rs-services-price__hit
 	&__hit {
-		border: 1px dashed var(--primary-color-btn);
+		border: 1px dashed var(--primary-color);
 		position: relative;
 
 		&::before {

@@ -5,16 +5,16 @@
 "title":"Продвижение за 10 000 руб."
 })
 
-<body style="
---primary-color-btn: #6366f1; 
---primary-color-btn-hover: #8083f2; 
---primary-color-btn-text: #fff; 
---primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
-">
+<body data-barba="wrapper">
 
 	@@include('html/_anim-elements.htm',{})
 
-	<div class="wrapper">
+	<div class="wrapper" data-barba="container" data-barba-namespace="promotion-10" style="
+	--primary-color: #6366f1; 
+	--primary-color-hover: #8083f2; 
+	--primary-color-text: #fff; 
+	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
+	">
 
 		@@include('html/_header.htm',{
 		"addclass":""
@@ -23,9 +23,9 @@
 		<main class="page">
 
 			<section class="rs-banner" style="
-			--primary-color-btn: #ffe219; 
-			--primary-color-btn-hover: #fce85b; 
-			--primary-color-btn-text: #141517; 
+			--primary-color: #ffe219; 
+			--primary-color-hover: #fce85b; 
+			--primary-color-text: #141517; 
 			">
 				<div class="rs-banner__wrapper">
 					<div class="rs-banner__bg">
@@ -1083,9 +1083,10 @@
 			</div>
 		</footer>
 
+		@@include('html/_popup.htm',{})
+
 	</div>
 
-	@@include('html/_popup.htm',{})
 	@@include('html/_js.htm',{})
 
 </body>

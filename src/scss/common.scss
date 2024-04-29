@@ -101,7 +101,7 @@ section {
 	height: 5px;
 	width: 0;
 	border-radius: 0px 2px 2px 0px;
-	background: var(--primary-color-btn);
+	background: var(--primary-color);
 	z-index: 1000;
 }
 
@@ -289,7 +289,7 @@ section {
 	line-height: 160%;
 
 	a {
-		color: var(--primary-color-btn);
+		color: var(--primary-color);
 	}
 
 	@media (max-width: 991.98px) {
@@ -335,7 +335,7 @@ section {
 
 		&:after {
 			content: "";
-			background-color: var(--primary-color-btn-hover);
+			background-color: var(--primary-color-hover);
 			width: max(100%, 100px);
 			height: 0;
 			padding-top: max(100%, 100px);
@@ -433,38 +433,38 @@ section {
 	}
 
 	&._btn-primary {
-		background-color: var(--primary-color-btn);
+		background-color: var(--primary-color);
 
 		.btn-text {
-			color: var(--primary-color-btn-text);
+			color: var(--primary-color-text);
 
 			&::before {
-				color: var(--primary-color-btn-text);
+				color: var(--primary-color-text);
 			}
 
 			svg {
 				path,
 				rect {
-					stroke: var(--primary-color-btn-text);
+					stroke: var(--primary-color-text);
 				}
 			}
 		}
 	}
 
 	&._btn-primary-border {
-		border-color: var(--primary-color-btn);
+		border-color: var(--primary-color);
 
 		.btn-text {
 			color: #0d0e10;
 
 			&::before {
-				color: var(--primary-color-btn);
+				color: var(--primary-color);
 			}
 
 			svg {
 				path,
 				rect {
-					stroke: var(--primary-color-btn);
+					stroke: var(--primary-color);
 				}
 			}
 		}
@@ -498,20 +498,20 @@ section {
 			color: #0d0e10;
 
 			&::before {
-				color: var(--primary-color-btn);
+				color: var(--primary-color);
 			}
 
 			svg {
 				path,
 				rect {
-					stroke: var(--primary-color-btn);
+					stroke: var(--primary-color);
 				}
 			}
 		}
 
 		.btn-hover {
 			&::after {
-				background-color: var(--primary-color-btn);
+				background-color: var(--primary-color);
 			}
 		}
 
@@ -544,20 +544,20 @@ section {
 			color: #141517;
 
 			&::before {
-				color: var(--primary-color-btn);
+				color: var(--primary-color);
 			}
 
 			svg {
 				path,
 				rect {
-					stroke: var(--primary-color-btn);
+					stroke: var(--primary-color);
 				}
 			}
 		}
 
 		.btn-hover {
 			&::after {
-				background-color: var(--primary-color-btn);
+				background-color: var(--primary-color);
 			}
 		}
 

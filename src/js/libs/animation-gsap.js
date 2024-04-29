@@ -346,9 +346,6 @@ function animDesktop() {
 			}
 		});
 
-		pinBlock.to('.rs-main__project', {
-			borderRadius: 0,
-		})
 
 		pinBlock.to('.rs-main__project_item', {
 			scale: 1,
@@ -360,6 +357,10 @@ function animDesktop() {
 			yPercent: -125,
 			stagger: stagger,
 		}, stagger)
+
+		pinBlock.to('.rs-main__project', {
+			borderRadius: 0,
+		})
 
 		ScrollTrigger.refresh(); // Refresh ScrollTrigger settings
 		const start = pinBlock.scrollTrigger.start;
@@ -454,7 +455,6 @@ function animDesktop() {
 }
 
 function animMobile() {
-
 	/* REVEAL ANIMATION */
 	// project
 	showContentOnScroll('.rs-project__slider', 0.5, 0.3, 'bottom-up');
@@ -680,3 +680,165 @@ const breakpointGsapAnimChecker = function () {
 	}
 };
 breakpoint.addListener(breakpointGsapAnimChecker);
+
+//========================================================================================================================================================
+/*
+Документация: https://barba.js.org/
+*/
+// Подключаем из node_modules
+// import barba from '@barba/core';
+
+// Импорт функций инициализации библиотек для повторной инициализации в барбе
+import { initSliders } from "../files/sliders.js"
+// import { initYaMap } from "../files/map.js"
+import { initComparison } from "../libs/imagecompare.js";
+import { initNoUiField } from "../libs/nouislider.js";
+import { filterClear, filterProject, imitationProductLoad } from "../files/project.js";
+import { sidebarNavigation } from "../files/steps.js";
+import { openFullList } from "../files/tariff.js";
+import * as vnvFunctions from "../files/functions.js";
+import * as vnvForms from "../files/forms/forms.js";
+import * as vnvScroll from "../files/scroll/scroll.js";
+import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
+
+//========================================================================================================================================================
+function initBarba() {
+	const loader = document.querySelector('.mg-loader');
+	const loaderFill = loader.querySelectorAll('.mg-loader-fill');
+	const loaderFillv1 = document.querySelector('.mg-loader-fill.-v1');
+	const loaderFillv2 = document.querySelector('.mg-loader-fill.-v2');
+
+	loaderFill.forEach((fill, index) => {
+		setTimeout(() => {
+			gsap.set(fill, {
+				yPercent: 100,
+				// zIndex: loaderFill.length - index,
+			})
+		}, 100);
+	});
+
+	function loaderAnimFrom() {
+		gsap.to(loaderFillv1, {
+			yPercent: 0,
+			delay: 0.2,
+			duration: 0.6,
+			ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+		});
+
+		gsap.to(loaderFillv2, {
+			yPercent: 0,
+			delay: 0.4,
+			duration: 0.6,
+			ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+		});
+	}
+
+	function loaderAnimTo() {
+		gsap.to(loaderFillv1, {
+			yPercent: 100,
+			delay: 0.4,
+			duration: 0.6,
+			ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+		});
+
+		gsap.to(loaderFillv2, {
+			yPercent: 100,
+			delay: 0.2,
+			duration: 0.6,
+			ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
+		});
+	}
+	loaderAnimTo()
+
+
+
+	barba.init({
+		transitions: [{
+			leave({ current }) {
+				// Переход
+				loaderAnimFrom()
+
+				return gsap.to(current.container, {
+					// opacity: 0,
+					delay: 0.5,
+				});
+			},
+
+			after({ next }) {
+
+
+				// Переход
+				loaderAnimTo()
+				ScrollTrigger.refresh(true);
+				breakpointGsapAnimChecker();
+
+				return gsap.from(next.container, {
+					// opacity: 0,
+					delay: 0.5,
+
+					onComplete: function () {
+						// Получаем цвет страницы из блока, который меняется с помощью барбы, и переносим его в body
+						let wrapper = window.getComputedStyle(document.querySelector('.wrapper'));
+						let primaryColor = wrapper.getPropertyValue('--primary-color');
+						document.body.style.setProperty('--primary-color', primaryColor);
+
+						ScrollTrigger.refresh(true);
+						setTimeout(() => {
+							// Повторная инициализация библиотек
+							initSliders();
+							// initYaMap();
+							initComparison('image-compare');
+							initNoUiField('styles-page', 'styles-page-count')
+							initNoUiField('fill-page', 'fill-page-count')
+							// Инициализация отдельного функицонала на сайте
+							vnvFunctions.spollers();
+							vnvFunctions.tabs();
+							vnvFunctions.menuInit();
+							vnvFunctions.menu();
+							vnvFunctions.regionMenu();
+							vnvFunctions.showMore();
+							vnvForms.formFieldsInit();
+							vnvForms.formSubmit();
+							vnvForms.formQuantity();
+							vnvForms.formRating();
+							vnvScroll.pageNavigation();
+							vnvScroll.headerScroll();
+							filterClear();
+							filterProject();
+							imitationProductLoad();
+							sidebarNavigation();
+							openFullList();
+							addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
+							addCursorMove(".rs-project__slide", ".cursor__circle");
+							addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
+							addCursorMove(".rs-comparison__compare", ".icv__circle");
+						}, 100);
+					}
+				});
+			},
+		}]
+	});
+
+	barba.hooks.afterLeave((data) => {
+		let triggers = ScrollTrigger.getAll();
+		triggers.forEach(trigger => {
+			trigger.kill();
+		});
+	});
+
+	barba.hooks.leave((data) => {
+	});
+
+	barba.hooks.enter((data) => {
+		window.scrollTo(0, 0);
+		ScrollTrigger.refresh(true);
+	});
+
+	barba.hooks.afterEnter((data) => {
+		// Повторная инициализация библиотек
+		setTimeout(() => {
+
+		}, 100);
+	});
+}
+initBarba();

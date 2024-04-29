@@ -501,6 +501,7 @@ export function menu() {
 		menuItems.forEach(item => {
 			const menuLinkDropdowns = item.querySelector('a');
 			let iconDropdown = document.createElement('i');
+			iconDropdown.classList.add('menu__dropdown-arrow')
 			menuLinkDropdowns.append(iconDropdown);
 		});
 
@@ -517,7 +518,7 @@ export function menu() {
 		чтобы открывался только один пункт, а открытые - закрывались, кроме тех, кто выше уровнем */
 		function openLvlMenu(li, ul) {
 			li.forEach(item => {
-				const menuItemIcons = item.querySelector('a > i');
+				const menuItemIcons = item.querySelector('a > .menu__dropdown-arrow');
 				const menuItemBack = item.querySelector('.menu__dropdown_back');
 
 				if (menuItemBack) {
@@ -529,9 +530,18 @@ export function menu() {
 					})
 				}
 
+				if (window.innerWidth <= 991.98) {
+					const menuItemLink = item.querySelector('a');
+					console.log('2');
+					menuItemLink.addEventListener('click', function (e) {
+						e.preventDefault();
+					})
+				}
+
 				// Открытие меню при клике на иконку
 				menuItemIcons.addEventListener('click', (e) => {
 					e.preventDefault();
+
 					// Проходимся по всем пунктам и ищем активные классы, убираем их и добавляем активный класс кликнутому пункту
 					if (!menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
 						li.forEach(itemDrop => {

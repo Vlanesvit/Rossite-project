@@ -87,7 +87,7 @@
 		align-items: center;
 		margin: 7.5px;
 		border-radius: 50px;
-		border: 1px solid var(--primary-color-btn);
+		border: 1px solid var(--primary-color);
 		transition: all 0.3s ease 0s;
 
 		a {
@@ -108,7 +108,7 @@
 
 		@media (any-hover: hover) {
 			&:hover {
-				background-color: var(--primary-color-btn);
+				background-color: var(--primary-color);
 				color: #fff;
 
 				svg {

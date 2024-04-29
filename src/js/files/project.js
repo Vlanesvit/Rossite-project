@@ -1,3 +1,8 @@
+import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
+// Инициализация курсора
+addCursorHover(".rs-project__slide", ".cursor", "cursor__active");
+addCursorMove(".rs-project__slide", ".cursor__circle")
+
 /* ====================================
 Подсчет активных фильтров и отчистка
 ==================================== */
@@ -153,8 +158,3 @@ export function imitationProductLoad() {
 if (document.querySelector('.rs-project')) {
 	imitationProductLoad()
 }
-
-// Инициализация курсора
-import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
-addCursorHover(".rs-project__slide", ".cursor", "cursor__active");
-addCursorMove(".rs-project__slide", ".cursor__circle")

@@ -71,7 +71,7 @@
 
 			@media (any-hover: hover) {
 				&:hover {
-					color: var(--primary-color-btn);
+					color: var(--primary-color);
 				}
 			}
 		}
@@ -164,7 +164,7 @@
 							-moz-osx-font-smoothing: grayscale;
 							margin-right: 8px;
 							font-size: 20px;
-							color: var(--primary-color-btn);
+							color: var(--primary-color);
 						}
 					}
 				}
@@ -212,7 +212,7 @@
 
 					@media (any-hover: hover) {
 						&:hover {
-							background-color: var(--primary-color-btn);
+							background-color: var(--primary-color);
 
 							&::before {
 								color: #fff;
@@ -458,9 +458,9 @@
 				}
 
 				a {
-					color: var(--primary-color-btn);
+					color: var(--primary-color);
 					line-height: 160%;
-					border-bottom: 1px solid var(--primary-color-btn);
+					border-bottom: 1px solid var(--primary-color);
 				}
 
 				@media (max-width: 991.98px) {
@@ -510,7 +510,7 @@
 						top: 8px;
 						width: 7px;
 						height: 7px;
-						background-color: var(--primary-color-btn);
+						background-color: var(--primary-color);
 						border-radius: 50%;
 						opacity: 0;
 						visibility: hidden;
@@ -586,14 +586,14 @@
 					transition: all 0.3s ease 0s;
 
 					&._active-city {
-						border-color: var(--primary-color-btn);
-						color: var(--primary-color-btn);
+						border-color: var(--primary-color);
+						color: var(--primary-color);
 					}
 
 					@media (any-hover: hover) {
 						&:hover {
-							border-color: var(--primary-color-btn);
-							color: var(--primary-color-btn);
+							border-color: var(--primary-color);
+							color: var(--primary-color);
 						}
 					}
 				}

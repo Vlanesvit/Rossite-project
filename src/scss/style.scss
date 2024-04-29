@@ -30,9 +30,8 @@ $mainColor: #1d1e21; // Цвет шрифта по умолчанию
 :root {
 	--bg-color: #fff;
 	--primary-color: #6366f1;
-	--primary-color-btn: #6366f1;
-	--primary-color-btn-hover: #8083f2;
-	--primary-color-btn-text: #fff;
+	--primary-color-hover: #8083f2;
+	--primary-color-text: #fff;
 	--gray-color-btn: #eff2ff;
 	--light-gray-border: #d4d7e5;
 	--font-color: #1d1e21;
@@ -207,4 +206,4 @@ body {
 @import "blocks/rs-text-block";
 @import "blocks/rs-why-block";
 @import "blocks/rs-error-block";
-// @import "anim-go-page";
+@import "anim-go-page";

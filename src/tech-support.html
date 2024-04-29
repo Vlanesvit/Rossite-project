@@ -5,15 +5,15 @@
 "title":"Техническая поддержка"
 })
 
-<body style="
---primary-color-btn: #25C16F; 
---primary-color-btn-hover: #4fcb8a; 
---primary-color-btn-text: #fff; 
-">
+<body data-barba="wrapper">
 
 	@@include('html/_anim-elements.htm',{})
 
-	<div class="wrapper">
+	<div class="wrapper" data-barba="container" data-barba-namespace="tech-support" style="
+	--primary-color: #25C16F; 
+	--primary-color-hover: #4fcb8a; 
+	--primary-color-text: #fff; 
+	">
 
 		@@include('html/_header.htm',{
 		"addclass":""
@@ -64,8 +64,10 @@
 										</div>
 										<div class="rs-task__features_desc">
 											<h6 class="mrp-med-18">Защита от вирусов</h6>
-											<p class="mrp-reg-18">Детектирование любых типов вредоносных скриптов:
-												бэкдоров, веб-шеллов, троянов, «чёрного» seo, фишинговых страниц и др.
+											<p class="mrp-reg-18">Детектирование любых типов вредоносных
+												скриптов:
+												бэкдоров, веб-шеллов, троянов, «чёрного» seo, фишинговых страниц
+												и др.
 											</p>
 										</div>
 									</div>
@@ -75,7 +77,8 @@
 										</div>
 										<div class="rs-task__features_desc">
 											<h6 class="mrp-med-18">Оперативное «лечение» сайтов</h6>
-											<p class="mrp-reg-18">Удаление вирусов и вредоносного кода происходит
+											<p class="mrp-reg-18">Удаление вирусов и вредоносного кода
+												происходит
 												в автоматическом режиме. В редких случаях лечение выполняется
 												техническим специалистом тултип Для тарифов «Старт» и «Бизнес»
 											</p>
@@ -87,7 +90,8 @@
 										</div>
 										<div class="rs-task__features_desc">
 											<h6 class="mrp-med-18">Восстановление сайта</h6>
-											<p class="mrp-reg-18">Восстановление из резервной копии сайта, сданного
+											<p class="mrp-reg-18">Восстановление из резервной копии сайта,
+												сданного
 												при разработке. Восстановление актуальной версии сайта
 											</p>
 										</div>
@@ -105,7 +109,8 @@
 										</div>
 										<div class="rs-task__features_desc">
 											<h6 class="mrp-med-18">Быстрая загрузка вашего сайта</h6>
-											<p class="mrp-reg-18">Загрузка страницы сайта с оптимизацией до 1 секунды,
+											<p class="mrp-reg-18">Загрузка страницы сайта с оптимизацией до 1
+												секунды,
 												без оптимизации 1–2 секунды
 											</p>
 										</div>
@@ -116,8 +121,10 @@
 										</div>
 										<div class="rs-task__features_desc">
 											<h6 class="mrp-med-18">Поддержка любых сайтов</h6>
-											<p class="mrp-reg-18">Поддержка всех типов CMS, написанных на php, включая
-												WordPress, Joomla!, Magento, Drupal, MODx, Bitrix, а также статических
+											<p class="mrp-reg-18">Поддержка всех типов CMS, написанных на php,
+												включая
+												WordPress, Joomla!, Magento, Drupal, MODx, Bitrix, а также
+												статических
 												html-сайтов
 											</p>
 										</div>
@@ -128,7 +135,8 @@
 										</div>
 										<div class="rs-task__features_desc">
 											<h6 class="mrp-med-18">Современный VPS хостинг</h6>
-											<p class="mrp-reg-18">32 гб оперативной памяти, 8 ядер AMD EPYC™ vCPU core,
+											<p class="mrp-reg-18">32 гб оперативной памяти, 8 ядер AMD EPYC™
+												vCPU core,
 												диск NVMe
 											</p>
 										</div>
@@ -215,7 +223,8 @@
 										<div class="rs-tariff__about_item">
 											SSL-сертификат
 										</div>
-										<div class="rs-tariff__about_item _blue">+/- (в некоторых компаниях отдельная
+										<div class="rs-tariff__about_item _blue">+/- (в некоторых компаниях
+											отдельная
 											платная услуга)</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
 										</div>
@@ -227,7 +236,8 @@
 										<div class="rs-tariff__about_item">
 											Панель управления хостингом (ISP панель)
 										</div>
-										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
@@ -238,7 +248,8 @@
 										<div class="rs-tariff__about_item">
 											Ежедневный антивирусный мониторинг(2)
 										</div>
-										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
@@ -249,7 +260,8 @@
 										<div class="rs-tariff__about_item">
 											Процессор AMD EPYC 8 vCPU core
 										</div>
-										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-close"></i></div>
+										<div class="rs-tariff__about_item _blue"><i class="_rs-icon-close"></i>
+										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
 										</div>
 										<div class="rs-tariff__about_item _green"><i class="_rs-icon-green-check"></i>
@@ -464,7 +476,8 @@
 								<li>Консультирование по электронной почте</li>
 								<li>Обработка заявок в порядке очереди</li>
 								<li>Консультация по работе с CMS</li>
-								<li>Восстановление из бэкапа сданной версии сайта (бэкап хранится 1 год после сдачи
+								<li>Восстановление из бэкапа сданной версии сайта (бэкап хранится 1 год после
+									сдачи
 									проекта)</li>
 							</ul>
 						</div>
@@ -498,17 +511,20 @@
 									Кому принадлежит сайт, хостинг и домен?
 								</button>
 								<div class="rs-faq__spollers_body">
-									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.</p>
+									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.
+									</p>
 								</div>
 							</div>
 							<div class="rs-faq__spollers_item">
 								<button type="button" data-spoller class="rs-faq__spollers_title">
-									Могу ли я перенести сайт на сторонний хостинг или вы навсегда привязываете меня
+									Могу ли я перенести сайт на сторонний хостинг или вы навсегда привязываете
+									меня
 									к вашей компании?
 								</button>
 								<div class="rs-faq__spollers_body">
 									<p>Все наши сайты сдаются с открытым кодом.</p>
-									<p>У вас будет полный доступ к файловой системе сайта и базам данных, и вы в любой
+									<p>У вас будет полный доступ к файловой системе сайта и базам данных, и вы в
+										любой
 										момент можете перенести ваш сайт на сторонний хостинг.</p>
 								</div>
 							</div>
@@ -517,7 +533,8 @@
 									А мне хватит места на хостинге, которые вы предоставляете?
 								</button>
 								<div class="rs-faq__spollers_body">
-									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.</p>
+									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.
+									</p>
 								</div>
 							</div>
 							<div class="rs-faq__spollers_item">
@@ -525,7 +542,8 @@
 									Где находятся сервера и какой хостинговой компании они принадлежат?
 								</button>
 								<div class="rs-faq__spollers_body">
-									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.</p>
+									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.
+									</p>
 								</div>
 							</div>
 							<div class="rs-faq__spollers_item">
@@ -533,7 +551,8 @@
 									Предоставляется ли тестовый период?
 								</button>
 								<div class="rs-faq__spollers_body">
-									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.</p>
+									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, fuga.
+									</p>
 								</div>
 							</div>
 						</div>
@@ -638,7 +657,8 @@
 									<div class="rs-footer__menu menu">
 										<nav class="menu__body">
 											<ul class="menu__list">
-												<li class="menu-item"><a href="#">Веб-сервис и приложение</a></li>
+												<li class="menu-item"><a href="#">Веб-сервис и приложение</a>
+												</li>
 												<li class="menu-item"><a href="#">Информационный сайт</a></li>
 												<li class="menu-item"><a href="#">Интернет-магазин</a></li>
 												<li class="menu-item"><a href="#">Landing Page</a></li>
@@ -672,10 +692,14 @@
 									<div class="rs-footer__menu menu">
 										<nav class="menu__body">
 											<ul class="menu__list">
-												<li class="menu-item"><a href="#">Инструкция по Word Press</a></li>
-												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a></li>
-												<li class="menu-item"><a href="#">Инструкция по Битриксу</a></li>
-												<li class="menu-item"><a href="#">Инструкция по Яндекс Директ</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Word Press</a>
+												</li>
+												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a>
+												</li>
+												<li class="menu-item"><a href="#">Инструкция по Битриксу</a>
+												</li>
+												<li class="menu-item"><a href="#">Инструкция по Яндекс
+														Директ</a></li>
 												<li class="menu-item"><a href="#">Карта сайта</a></li>
 											</ul>
 										</nav>
@@ -684,7 +708,8 @@
 							</div>
 
 							<div class="rs-footer__spollers_item">
-								<button type="button" data-spoller class="rs-footer__spollers_title">О нас</button>
+								<button type="button" data-spoller class="rs-footer__spollers_title">О
+									нас</button>
 								<div class="rs-footer__spollers_body">
 									<div class="rs-footer__menu menu">
 										<nav class="menu__body">
@@ -766,7 +791,8 @@
 								<div class="rs-footer__spollers_body">
 									<div class="rs-footer__contact contact">
 										<ul class="contact__list">
-											<li>г. Санкт-Петербург, ш. Революции д.69, <br> оф. 312 бц «Реформа», 3й
+											<li>г. Санкт-Петербург, ш. Революции д.69, <br> оф. 312 бц
+												«Реформа», 3й
 												этаж,
 												офис 312 <br> (м. Ладожская)</li>
 											<li>Время работы: пн-пт 09:00-18:00</li>
@@ -844,9 +870,10 @@
 			</div>
 		</footer>
 
+		@@include('html/_popup.htm',{})
+
 	</div>
 
-	@@include('html/_popup.htm',{})
 	@@include('html/_js.htm',{})
 
 </body>

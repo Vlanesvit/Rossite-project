@@ -208,7 +208,7 @@
 		}
 
 		a {
-			color: var(--primary-color-btn);
+			color: var(--primary-color);
 			display: none;
 			align-items: center;
 
@@ -222,7 +222,7 @@
 					right: 0;
 					width: 0%;
 					height: 1px;
-					background-color: var(--primary-color-btn);
+					background-color: var(--primary-color);
 					transition: width 0.3s ease 0s;
 				}
 			}
@@ -305,7 +305,7 @@
 						right: 0;
 						width: 0%;
 						height: 1px;
-						background-color: var(--primary-color-btn);
+						background-color: var(--primary-color);
 						transition: width 0.3s ease 0s;
 					}
 				}
