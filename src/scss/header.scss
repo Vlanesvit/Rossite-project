@@ -1393,8 +1393,8 @@
 
 		&_body {
 			background: #fff;
-			min-height: calc(100vh - (102px + 33px));
-			max-height: calc(100vh - (102px + 33px));
+			min-height: calc(100vh - 102px);
+			max-height: calc(100vh - 102px);
 			transition:
 				min-height 0.3s ease 0s,
 				max-height 0.3s ease 0s;
@@ -1410,8 +1410,8 @@
 			}
 
 			@media (max-width: 1439.98px) {
-				min-height: calc(100vh - (83px + 33px));
-				max-height: calc(100vh - (83px + 33px));
+				min-height: calc(100vh - 83px);
+				max-height: calc(100vh - 83px);
 			}
 
 			@media (max-width: 767.98px) {
@@ -1419,18 +1419,33 @@
 				max-height: 100%;
 			}
 
-			._header-scroll & {
-				min-height: calc(100vh - (85px + 33px));
-				max-height: calc(100vh - (85px + 33px));
+			.margin-0 & {
+				min-height: calc(100vh - 82px);
+				max-height: calc(100vh - 82px);
 
 				@media (max-width: 1439.98px) {
-					min-height: calc(100vh - (73px + 33px));
-					max-height: calc(100vh - (73px + 33px));
+					min-height: calc(100vh - 71px);
+					max-height: calc(100vh - 71px);
+				}
+
+				@media (max-width: 767.98px) {
+					min-height: 100%;
+					max-height: 100%;
+				}
+			}
+
+			._header-scroll & {
+				min-height: calc(100vh - 85px);
+				max-height: calc(100vh - 85px);
+
+				@media (max-width: 1439.98px) {
+					min-height: calc(100vh - 73px);
+					max-height: calc(100vh - 73px);
 				}
 
 				@media (max-width: 991.98px) {
-					min-height: calc(100vh - (67px + 55px));
-					max-height: calc(100vh - (67px + 55px));
+					min-height: calc(100vh - 67px);
+					max-height: calc(100vh - 67px);
 				}
 
 				@media (max-width: 767.98px) {
@@ -1571,20 +1586,20 @@
 			margin-top: 20px;
 			overflow-y: auto;
 			overflow-x: hidden;
-			min-height: calc(100vh - (262px + 63px));
-			max-height: calc(100vh - (262px + 63px));
+			min-height: calc(100vh - 262px);
+			max-height: calc(100vh - 262px);
 			transition:
 				min-height 0.3s ease 0s,
 				max-height 0.3s ease 0s;
 
 			@media (max-width: 1439.98px) {
-				min-height: calc(100vh - (250px + 33px));
-				max-height: calc(100vh - (250px + 33px));
+				min-height: calc(100vh - 250px);
+				max-height: calc(100vh - 250px);
 			}
 
 			@media (max-width: 991.98px) {
-				min-height: calc(100vh - (221px + 55px));
-				max-height: calc(100vh - (221px + 55px));
+				min-height: calc(100vh - 221px);
+				max-height: calc(100vh - 221px);
 			}
 
 			@media (max-width: 767.98px) {
@@ -1596,17 +1611,17 @@
 
 			@media (min-width: 767.98px) {
 				._header-scroll & {
-					min-height: calc(100vh - (240px + 63px));
-					max-height: calc(100vh - (240px + 63px));
+					min-height: calc(100vh - 240px);
+					max-height: calc(100vh - 240px);
 
 					@media (max-width: 1439.98px) {
-						min-height: calc(100vh - (240px + 33px));
-						max-height: calc(100vh - (240px + 33px));
+						min-height: calc(100vh - 240px);
+						max-height: calc(100vh - 240px);
 					}
 
 					@media (max-width: 991.98px) {
-						min-height: calc(100vh - (221px + 55px));
-						max-height: calc(100vh - (221px + 55px));
+						min-height: calc(100vh - 221px);
+						max-height: calc(100vh - 221px);
 					}
 				}
 			}

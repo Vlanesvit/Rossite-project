@@ -5968,6 +5968,43 @@
         }
     }
     if (document.querySelector(".rs-steps__spollers_item") && document.querySelector(".rs-steps__navigation_list a")) sidebarNavigation();
+    function map_initYaMap() {
+        ymaps.ready(init);
+        function init() {
+            if (document.querySelector(".map")) {
+                const mapClasses = document.querySelectorAll(".map");
+                mapClasses.forEach((mapClass => {
+                    ymaps.ready();
+                    let map = new ymaps.Map(mapClass, {
+                        controls: [],
+                        center: branchData[0].location,
+                        zoom: 15
+                    }, {
+                        suppressMapOpenBlock: true,
+                        balloonMaxWidth: 200,
+                        searchControlProvider: "yandex#search"
+                    });
+                    let pinsCollection = new ymaps.GeoObjectCollection({}, {
+                        preset: "islands#blueDotIcon",
+                        draggable: false
+                    });
+                    for (let i = 0; i < branchData.length; i++) {
+                        let marks = new ymaps.Placemark(branchData[i].location, {
+                            balloonContentHeader: `${branchData[i].address}`,
+                            hintContent: `${branchData[i].address}`
+                        });
+                        pinsCollection.add(marks);
+                    }
+                    map.geoObjects.add(pinsCollection);
+                    map.events.add("balloonopen", (function(e) {
+                        Map.hint.close();
+                    }));
+                    map.events.add("click", (e => e.get("target").balloon.close()));
+                }));
+            }
+        }
+    }
+    map_initYaMap();
     function _toConsumableArray(arr) {
         if (Array.isArray(arr)) {
             for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
@@ -7877,7 +7914,7 @@
             ScrollTrigger.refresh(true);
             breakpointGsapAnimChecker();
             window.scrollTo(0, 0);
-        }), 500);
+        }), 300);
     }));
     function moveSvgDashed(dashed, mask, trigger, top = 50, end = 500, markers = 0) {
         if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
@@ -8207,7 +8244,7 @@
         showContentOnScroll(".rs-project__item", .3, .15, "bottom-up--every");
         if (document.querySelector(".rs-features__slide")) {
             const cards = gsap.utils.toArray(".rs-features__slide");
-            const stagger = .5;
+            const stagger = .3;
             setTimeout((() => {
                 gsap.set(".rs-features__slide:not(:first-child)", {
                     yPercent: index => 0,
@@ -8241,10 +8278,9 @@
             const stagger = .5;
             setTimeout((() => {
                 gsap.set(".rs-main__project_item", {
-                    zIndex: (index, target, targets) => targets.length - index
-                });
-                gsap.set(".rs-main__project_item:not(:first-child)", {
-                    scale: index => 1 - 1 * .05
+                    y: index => 0 * index,
+                    zIndex: (index, target, targets) => targets.length - index,
+                    scale: index => 1 - index * .05
                 });
             }), 100);
             const pinBlock = gsap.timeline({
@@ -8263,15 +8299,14 @@
             });
             pinBlock.to(".rs-main__project_item", {
                 scale: 1,
+                y: 0,
+                webkitFilter: "blur(" + 0 + "px)",
                 stagger
             });
             pinBlock.to(".rs-main__project_item:not(:last-child)", {
                 yPercent: -125,
                 stagger
             }, stagger);
-            pinBlock.to(".rs-main__project", {
-                borderRadius: 0
-            });
             ScrollTrigger.refresh();
             const start = pinBlock.scrollTrigger.start;
             const end = pinBlock.scrollTrigger.end;
@@ -8544,6 +8579,8 @@
                     });
                 },
                 after({next}) {
+                    window.scrollTo(0, 0);
+                    ScrollTrigger.refresh(true);
                     loaderAnimTo();
                     ScrollTrigger.refresh(true);
                     breakpointGsapAnimChecker();
@@ -8556,6 +8593,7 @@
                             ScrollTrigger.refresh(true);
                             setTimeout((() => {
                                 initSliders();
+                                initYaMap();
                                 initComparison("image-compare");
                                 initNoUiField("styles-page", "styles-page-count");
                                 initNoUiField("fill-page", "fill-page-count");

@@ -22,7 +22,7 @@ window.addEventListener('load', function () {
 		ScrollTrigger.refresh(true);
 		breakpointGsapAnimChecker();
 		window.scrollTo(0, 0);
-	}, 500);
+	}, 300);
 })
 
 //========================================================================================================================================================
@@ -284,7 +284,7 @@ function animDesktop() {
 	/* PINS BLOCK - FEATURES */
 	if (document.querySelector('.rs-features__slide')) {
 		const cards = gsap.utils.toArray(".rs-features__slide");
-		const stagger = 0.5;
+		const stagger = 0.3;
 
 		setTimeout(() => {
 			gsap.set('.rs-features__slide:not(:first-child)', {
@@ -324,11 +324,9 @@ function animDesktop() {
 		const stagger = 0.5;
 		setTimeout(() => {
 			gsap.set('.rs-main__project_item', {
-				// y: (index) => 20 * index,
+				y: (index) => 0 * index,
 				zIndex: (index, target, targets) => targets.length - index,
-			})
-			gsap.set('.rs-main__project_item:not(:first-child)', {
-				scale: (index) => 1 - (1 * 0.05),
+				scale: (index) => 1 - (index * 0.05),
 			})
 		}, 100);
 
@@ -345,11 +343,10 @@ function animDesktop() {
 				invalidateOnRefresh: true,
 			}
 		});
-
-
 		pinBlock.to('.rs-main__project_item', {
 			scale: 1,
-			// y: 0,
+			y: 0,
+			webkitFilter: "blur(" + 0 + "px)",
 			stagger: stagger,
 		})
 
@@ -357,10 +354,6 @@ function animDesktop() {
 			yPercent: -125,
 			stagger: stagger,
 		}, stagger)
-
-		pinBlock.to('.rs-main__project', {
-			borderRadius: 0,
-		})
 
 		ScrollTrigger.refresh(); // Refresh ScrollTrigger settings
 		const start = pinBlock.scrollTrigger.start;
@@ -633,9 +626,6 @@ function animCommon() {
 	// 404
 	showContentOnScroll('.rs-error-block', 0.8, 0.5, 'bottom-up');
 
-
-
-
 	/* PINS BLOCK - MAIN */
 	//========================================================================================================================================================
 	if (document.querySelector('.rs-main__title h1')) {
@@ -750,8 +740,6 @@ function initBarba() {
 	}
 	loaderAnimTo()
 
-
-
 	barba.init({
 		transitions: [{
 			leave({ current }) {
@@ -765,7 +753,8 @@ function initBarba() {
 			},
 
 			after({ next }) {
-
+				window.scrollTo(0, 0);
+				ScrollTrigger.refresh(true);
 
 				// Переход
 				loaderAnimTo()
