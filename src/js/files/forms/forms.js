@@ -229,7 +229,8 @@ export function formSubmit() {
 		const error = !form.hasAttribute('data-no-validate') ? formValidate.getErrors(form) : 0;
 		if (error === 0) {
 			const ajax = form.hasAttribute('data-ajax');
-			if (ajax) { // Если режим ajax
+			if (ajax) {
+				// Если режим ajax
 				e.preventDefault();
 				const formAction = form.getAttribute('action') ? form.getAttribute('action').trim() : '#';
 				const formMethod = form.getAttribute('method') ? form.getAttribute('method').trim() : 'GET';

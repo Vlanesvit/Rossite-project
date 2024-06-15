@@ -775,7 +775,7 @@ function initBarba() {
 						setTimeout(() => {
 							// Повторная инициализация библиотек
 							initSliders();
-							// initYaMap();
+							initYaMap();
 							initComparison('image-compare');
 							initNoUiField('styles-page', 'styles-page-count')
 							initNoUiField('fill-page', 'fill-page-count')
