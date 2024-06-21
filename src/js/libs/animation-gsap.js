@@ -509,6 +509,8 @@ function animCommon() {
 	moveSvgDashed(".rs-services__line #dashed-services-7", ".rs-services__line #mask-services-7", ".rs-services");
 	moveSvgDashed(".rs-task__line #dashed-task1", ".rs-task__line #mask-task1", ".rs-task");
 	moveSvgDashed(".rs-task__line #dashed-task2", ".rs-task__line #mask-task2", ".rs-task");
+	moveSvgDashed(".rs-task__line #dashed-task3", ".rs-task__line #mask-task3", ".rs-task");
+	moveSvgDashed(".rs-task__line #dashed-task4", ".rs-task__line #mask-task4", ".rs-task");
 
 	/* REVEAL ANIMATION */
 	// text
@@ -680,7 +682,7 @@ breakpoint.addListener(breakpointGsapAnimChecker);
 
 // Импорт функций инициализации библиотек для повторной инициализации в барбе
 import { initSliders } from "../files/sliders.js"
-// import { initYaMap } from "../files/map.js"
+import { initYaMap } from "../files/map.js"
 import { initComparison } from "../libs/imagecompare.js";
 import { initNoUiField } from "../libs/nouislider.js";
 import { filterClear, filterProject, imitationProductLoad } from "../files/project.js";

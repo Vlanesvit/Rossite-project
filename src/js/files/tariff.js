@@ -5,7 +5,7 @@ export function openFullList() {
 	const tariffs = document.querySelectorAll('.rs-tariff');
 
 	tariffs.forEach(tariff => {
-		const tariffAbout = tariff.querySelector('.rs-tariff__about')
+		const tariffAbout = tariff.querySelector('.rs-tariff__block')
 		const tariffAdd = tariff.querySelector('.rs-tariff__add');
 
 		if (tariffAdd && tariffAbout) {
@@ -16,6 +16,6 @@ export function openFullList() {
 		}
 	});
 }
-if (document.querySelector('.rs-tariff__about') && document.querySelector('.rs-tariff__add')) {
+if (document.querySelector('.rs-tariff__block') && document.querySelector('.rs-tariff__add')) {
 	openFullList()
 }

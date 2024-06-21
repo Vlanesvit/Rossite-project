@@ -226,7 +226,7 @@
 					visibility: hidden;
 					box-shadow: 0px 8px 16px -2px rgba(27, 33, 44, 0.12);
 					z-index: 100;
-					max-width: 292px;
+					min-width: 292px;
 					white-space: nowrap;
 					color: var(--gray-font-color);
 					font-size: 13px;

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('html/_head.htm',{
+"title":"Разработка"
+})
+
+<body data-barba="wrapper">
+
+	@@include('html/_anim-elements.htm',{})
+
+	<div class="wrapper" data-barba="container" data-barba-namespace="develop" style="
+	--primary-color: #6366f1; 
+	--primary-color-hover: #8083f2; 
+	--primary-color-text: #fff; 
+	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
+	">
+
+		@@include('html/_header.htm',{
+		"addclass":""
+		})
+
+		<main class="page">
+
+			<section class="rs-tariff">
+				<div class="section__container">
+					<div class="section__head">
+						<div class="section__head-title">
+							<h2 class="mrp-med-45">Информационные сайты</h2>
+						</div>
+
+						<a href="#" class="rs-btn rs-btn _btn-gray-border">
+							<span class="btn-text">
+								<svg width="18" height="12" viewBox="0 0 18 12" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M1 11V9.8C1 8.11984 1 7.27976 1.32698 6.63803C1.6146 6.07354 2.07354 5.6146 2.63803 5.32698C3.27976 5 4.11984 5 5.8 5H17M17 5L13 1M17 5L13 9"
+										stroke="#6366F1" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+								Подробнее
+							</span>
+							<span class="btn-hover"></span>
+						</a>
+					</div>
+
+					<div class="rs-tariff__desktop">
+						<div class="rs-tariff__block">
+							<table>
+								<thead>
+									<tr>
+										<th rowspan="2"></th>
+										<th colspan="4">
+											На базе готовых блоков
+
+											<div class="tooltip">
+												<button type="button" class="tooltip__btn _rs-icon-question"></button>
+												<div class="tooltip__modal _arrow-top">Сайт из готовых блоков, которые
+													дизайнер подберет под ваш контент и оформит индивидуально под вас.
+													Размер и форму блоков можно менять в рамках доп. соглашения.</div>
+											</div>
+										</th>
+										<th colspan="2">
+											Разработка с нуля
+
+											<div class="tooltip">
+												<button type="button" class="tooltip__btn _rs-icon-question"></button>
+												<div class="tooltip__modal _arrow-top">Сайт из готовых блоков, которые
+													дизайнер подберет под ваш контент и оформит индивидуально под вас.
+													Размер и форму блоков можно менять в рамках доп. соглашения.</div>
+											</div>
+										</th>
+									</tr>
+									<tr>
+										<th>Шаблон <br> за&nbsp;5500₽</th>
+										<th>Лайт <br> за&nbsp;18000₽</th>
+										<th>Старт <br> за&nbsp;29500₽</th>
+										<th>Старт Pro <br> за&nbsp;45000₽</th>
+										<th>Бизнес <br> за&nbsp;110000₽</th>
+										<th>Бизнес Pro <br> за&nbsp;170000₽</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Время на разработку в рабочих днях</td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+									</tr>
+									<tr>
+										<td>Адаптивная версия сайта</td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+									</tr>
+									<tr>
+										<td>Неограниченное количество страниц</td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+									</tr>
+									<tr>
+										<td>Наполнение сайта вашей информацией</td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+									</tr>
+									<tr>
+										<td>Гарантия на сайт 1 год</td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+									</tr>
+									<tr>
+										<td>Хостинг и домен в подарок</td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+									</tr>
+									<tr>
+										<td>Почта от домена</td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+									</tr>
+									<tr>
+										<td>Неограниченное количество категорий и товаров</td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+									</tr>
+									<tr>
+										<td>Сортировка товаров</td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+										<td><img src="@img/icons/check.svg" alt=""></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<button type="button" class="rs-tariff__add rs-btn _btn-gray-border">
+							<span class="btn-text">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<rect x="0.605469" y="1.5" width="18.8947" height="17" rx="2.34211"
+										stroke="#007BFB" />
+									<path
+										d="M10.842 10.474H17.1578M10.842 7.44247H17.1578M10.842 13.5056H17.1578M5.31569 6.68457V14.2635M5.31569 14.2635L2.94727 11.9898M5.31569 14.2635L7.68411 11.9898"
+										stroke="#007BFB" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+								<span>смотреть полностью</span>
+							</span>
+							<span class="btn-hover"></span>
+
+						</button>
+					</div>
+
+					<div class="rs-tariff__mobile">
+						<div data-spollers data-one-spoller class="rs-tariff__spollers">
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Шаблон <span>за 5&nbsp;500&nbsp;₽</span></h4>
+									<p class="mrp-reg-18">На базе готовых блоков</p>
+									<h5 class="mrp-med-21">за 5&nbsp;500&nbsp;₽</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller
+										class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary-border">
+										<span class="btn-text">подробнее</span>
+										<span class="btn-hover"></span>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Лайт <span>за 18&nbsp;000&nbsp;₽</span></h4>
+									<p class="mrp-reg-18">На базе готовых блоков</p>
+									<h5 class="mrp-med-21">за 18&nbsp;000&nbsp;₽</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller
+										class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary-border">
+										<span class="btn-text">подробнее</span>
+										<span class="btn-hover"></span>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Старт <span>за 29&nbsp;500&nbsp;₽</span></h4>
+									<p class="mrp-reg-18">На базе готовых блоков</p>
+									<h5 class="mrp-med-21">за 29&nbsp;500&nbsp;₽</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller
+										class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary-border">
+										<span class="btn-text">подробнее</span>
+										<span class="btn-hover"></span>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Старт Pro <span>за 45&nbsp;000&nbsp;₽</span></h4>
+									<p class="mrp-reg-18">На базе готовых блоков</p>
+									<h5 class="mrp-med-21">за 45&nbsp;000&nbsp;₽</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller
+										class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary-border">
+										<span class="btn-text">подробнее</span>
+										<span class="btn-hover"></span>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Бизнес <span>за 110&nbsp;000&nbsp;₽</span></h4>
+									<p class="mrp-reg-18">На базе готовых блоков</p>
+									<h5 class="mrp-med-21">за 110&nbsp;000&nbsp;₽</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller
+										class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary-border">
+										<span class="btn-text">подробнее</span>
+										<span class="btn-hover"></span>
+									</a>
+								</div>
+							</div>
+
+							<div class="rs-tariff__spollers_item">
+								<div class="rs-tariff__spollers_head">
+									<h4 class="mrp-med-25">Бизнес Pro <span>за 170&nbsp;000&nbsp;₽</span></h4>
+									<p class="mrp-reg-18">На базе готовых блоков</p>
+									<h5 class="mrp-med-21">за 170&nbsp;000&nbsp;₽</h5>
+								</div>
+								<div class="rs-tariff__spollers_body">
+									<ul>
+										<li>Разработка от 33 рабочих дней</li>
+										<li>Наполнение сайта Вашей информацией</li>
+										<li>Адаптивная версия сайта</li>
+										<li>Неограниченное количество страниц</li>
+										<li>Гарантия на сайт 1 год</li>
+										<li>Хостинг и домен в подарок</li>
+										<li>Система управления сайтом WordPress</li>
+										<li>Система управления сайтом 1C Битрикс</li>
+										<li>Подбор и обработка изображений</li>
+										<li>Рерайт текстов</li>
+										<li>Разработка структуры, работа дизайнера и копирайтера</li>
+										<li>Установка Яндекс Метрики</li>
+										<li>Регистрация сайта в поисковых системах</li>
+										<li>Настройка SSL-сертификата</li>
+										<li>Интеграция заявок с CRM</li>
+										<li>Веб-анимация</li>
+										<li>Согласование дизайна главной страницы</li>
+										<li>Разработка главной страницы с нуля</li>
+										<li>Согласование дизайна внутренних страниц</li>
+										<li>Разработка внутренних страниц с нуля</li>
+									</ul>
+								</div>
+								<div class="rs-tariff__spollers_footer">
+									<button type="button" data-spoller
+										class="rs-tariff__spollers_title _rs-icon-circle-arrow-down">описание</button>
+									<a href="#" class="rs-btn _btn-primary-border">
+										<span class="btn-text">подробнее</span>
+										<span class="btn-hover"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="rs-footer">
+			<div class="rs-footer__top">
+				<div class="rs-footer__container">
+					<div class="rs-footer__head">
+						<div class="rs-footer__phone">
+							<a href="tel:+78122428072">+7 812 242-80-72 </a>
+							<span>Отдел продаж</span>
+						</div>
+						<div class="rs-footer__links">
+							<ul>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="rs-footer__social social">
+							<ul class="social__list">
+								<li><a href="#" class="_rs-icon-vk"></a></li>
+								<li><a href="#" class="_rs-icon-whatsapp"></a></li>
+								<li><a href="#" class="_rs-icon-telegram"></a></li>
+								<li><a href="#" class="_rs-icon-instagram"></a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="rs-breadcrumbs">
+						<nav class="rs-breadcrumbs__navigation">
+							<ul itemscope itemtype="http://schema.org/BreadcrumbList" class="rs-breadcrumbs__list">
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="home.html" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Главная</span>
+									</a>
+									<meta itemprop="position" content="1">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="#" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Разработка</span>
+									</a>
+									<meta itemprop="position" content="2">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="#" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Информационный сайт</span>
+									</a>
+									<meta itemprop="position" content="3">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope=""
+									itemtype="http://schema.org/ListItem">
+									<span itemprop="name">Сайт «Бизнес» за 110&nbsp;000&nbsp;₽</span>
+									<meta itemprop="position" content="4">
+								</li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Разработка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Веб-сервис и приложение</a></li>
+												<li class="menu-item"><a href="#">Информационный сайт</a></li>
+												<li class="menu-item"><a href="#">Интернет-магазин</a></li>
+												<li class="menu-item"><a href="#">Landing Page</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Дополнительные услуги</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Техническая поддержка</a></li>
+												<li class="menu-item"><a href="#">Продающая страница</a></li>
+												<li class="menu-item"><a href="#">Разработка логотипов</a></li>
+												<li class="menu-item"><a href="#">SEO продвижение сайта</a></li>
+												<li class="menu-item"><a href="#">Контекстная реклама</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Помощь</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Инструкция по Word Press</a></li>
+												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Битриксу</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Яндекс Директ</a></li>
+												<li class="menu-item"><a href="#">Карта сайта</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">О нас</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">О компании</a></li>
+												<li class="menu-item"><a href="#">Кейсы</a></li>
+												<li class="menu-item"><a href="#">Контакты</a></li>
+												<li class="menu-item"><a href="#">Вакансии</a></li>
+												<li class="menu-item"><a href="#">Отзывы</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller
+									class="rs-footer__spollers_title _spoller-active">Контактная
+									информация</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>
+												г. Санкт-Петербург, ш. Революции д.69, оф. 312 бц «Реформа»,
+												3й этаж, офис 312 (м. Ладожская)
+												<span>центральный офис</span>
+											</li>
+											<li>
+												Санкт-Петербург, ш. Революции д.69, оф. 312
+												<span>юридический адрес <a href="#">(учередительные
+														документы)</a></span>
+											</li>
+											<li>
+												пн-пт 09:00-18:00
+												<span>время работы</span>
+											</li>
+											<li>
+												<a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+												<span>e-mail</span>
+											</li>
+											<li>
+												<a href="mailto:support@rosait.ru">support@rosait.ru</a>
+												<span>техническая поддержка</span>
+											</li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="rs-footer__bottom">
+				<div class="rs-footer__container">
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Юридический адрес</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Санкт-Петербург, ш. Революции д.69, <br> оф. 312</li>
+											<li><a href="#">Учредительные документы</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Центральный офис</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>г. Санкт-Петербург, ш. Революции д.69, <br> оф. 312 бц «Реформа», 3й
+												этаж,
+												офис 312 <br> (м. Ладожская)</li>
+											<li>Время работы: пн-пт 09:00-18:00</li>
+											<li><a href="mailto:mail@rosait.ru">mail@rosait.ru</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Скоро открытие</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Ленинский пр., 140И БЦ «Космопро» <br>
+												(м. Ленинский проспект)</li>
+											<li>Коломяжский пр., 13, корп.21 БЦ «Бюси» <br>
+												(м. Пионерская)</li>
+											<li>ул. Садовая, 53 БЦ «на Садовой» (м. Садовая)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Техническая поддержка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li><a href="mailto:support@rosait.ru">support@rosait.ru</a></li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="rs-footer__city">
+						<h6 class="mrp-semibold-18">Вы можете позвонить из любого города:</h6>
+						<ul class="rs-footer__city_list">
+							<li><a href="#" class="_active-city">Москва</a></li>
+							<li><a href="#">Санкт-Петербург</a></li>
+							<li><a href="#">Новосибирск</a></li>
+							<li><a href="#">Казань</a></li>
+							<li><a href="#">Омск</a></li>
+							<li><a href="#">Екатеринбург</a></li>
+							<li><a href="#">Ростов-на-Дону</a></li>
+							<li><a href="#">Нижний Новгород</a></li>
+							<li><a href="#">Самара</a></li>
+							<li><a href="#">Пермь</a></li>
+							<li><a href="#">Волгоград</a></li>
+							<li><a href="#">Иркутск</a></li>
+							<li><a href="#">Красноярск</a></li>
+							<li><a href="#">Воронеж</a></li>
+							<li><a href="#">Саратов</a></li>
+							<li><a href="#">Краснодар</a></li>
+							<li><a href="#">Рязань</a></li>
+							<li><a href="#">Ижевск</a></li>
+							<li><a href="#">Пенза</a></li>
+							<li><a href="#">Челябинск</a></li>
+							<li><a href="#">Ярославль</a></li>
+							<li><a href="#">Барнаул</a></li>
+						</ul>
+					</div>
+
+					<div class="rs-footer__copyright">© 2011—2024 Россайт</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	@@include('html/_popup.htm',{})
+
+	@@include('html/_js.htm',{})
+
+</body>
+
+</html>

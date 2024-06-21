@@ -13,7 +13,9 @@
 11. [Доп.услуги](https://vlanesvit.github.io/Rossite-project/dist/add-services.html)
 12. [Веб-сервисы](https://vlanesvit.github.io/Rossite-project/dist/web-services.html)
 13. [404](https://vlanesvit.github.io/Rossite-project/dist/404.html)
+14. [Разработка](https://vlanesvit.github.io/Rossite-project/dist/develop.html)
+15. [Общая интернет-магазины](https://vlanesvit.github.io/Rossite-project/dist/develop.html)
 
-14. [Контакты](https://vlanesvit.github.io/Rossite-project/dist/home.html#contact)
-15. [Свяжитесь с нами](https://vlanesvit.github.io/Rossite-project/dist/home.html#feedback)
-16. [Написать письмо руководителю](https://vlanesvit.github.io/Rossite-project/dist/home.html#letter-manager)
+16. [Контакты](https://vlanesvit.github.io/Rossite-project/dist/home.html#contact)
+17. [Свяжитесь с нами](https://vlanesvit.github.io/Rossite-project/dist/home.html#feedback)
+18. [Написать письмо руководителю](https://vlanesvit.github.io/Rossite-project/dist/home.html#letter-manager)

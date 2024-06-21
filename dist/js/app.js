@@ -5918,7 +5918,7 @@
     function openFullList() {
         const tariffs = document.querySelectorAll(".rs-tariff");
         tariffs.forEach((tariff => {
-            const tariffAbout = tariff.querySelector(".rs-tariff__about");
+            const tariffAbout = tariff.querySelector(".rs-tariff__block");
             const tariffAdd = tariff.querySelector(".rs-tariff__add");
             if (tariffAdd && tariffAbout) tariffAdd.addEventListener("click", (function() {
                 tariffAbout.classList.add("_full");
@@ -5926,7 +5926,7 @@
             }));
         }));
     }
-    if (document.querySelector(".rs-tariff__about") && document.querySelector(".rs-tariff__add")) openFullList();
+    if (document.querySelector(".rs-tariff__block") && document.querySelector(".rs-tariff__add")) openFullList();
     function sidebarNavigation() {
         const indicators = document.querySelectorAll(".rs-steps__navigation_list a");
         const sections = document.querySelectorAll(".rs-steps__spollers_item");
@@ -5968,7 +5968,7 @@
         }
     }
     if (document.querySelector(".rs-steps__spollers_item") && document.querySelector(".rs-steps__navigation_list a")) sidebarNavigation();
-    function map_initYaMap() {
+    function initYaMap() {
         ymaps.ready(init);
         function init() {
             if (document.querySelector(".map")) {
@@ -6004,7 +6004,7 @@
             }
         }
     }
-    map_initYaMap();
+    initYaMap();
     function _toConsumableArray(arr) {
         if (Array.isArray(arr)) {
             for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
@@ -8421,6 +8421,8 @@
         moveSvgDashed(".rs-services__line #dashed-services-7", ".rs-services__line #mask-services-7", ".rs-services");
         moveSvgDashed(".rs-task__line #dashed-task1", ".rs-task__line #mask-task1", ".rs-task");
         moveSvgDashed(".rs-task__line #dashed-task2", ".rs-task__line #mask-task2", ".rs-task");
+        moveSvgDashed(".rs-task__line #dashed-task3", ".rs-task__line #mask-task3", ".rs-task");
+        moveSvgDashed(".rs-task__line #dashed-task4", ".rs-task__line #mask-task4", ".rs-task");
         showContentOnScroll(".mrp-med-65", .8, .5, "bottom-up");
         showContentOnScroll(".mrp-med-50", .8, .5, "bottom-up");
         showContentOnScroll(".mrp-med-45", .8, .5, "bottom-up");
