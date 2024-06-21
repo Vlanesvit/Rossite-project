@@ -13330,8 +13330,30 @@ textarea.rs-input {
     margin-top: 25px;
   }
 
+  .rs-about-block__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
   .rs-about-block__item:not(:last-child) {
     margin-bottom: 20px;
+  }
+
+  .rs-about-block__desc {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
   }
 
   .rs-about-block__desc h4 {
@@ -13385,6 +13407,12 @@ textarea.rs-input {
     margin-right: 15px;
     font-size: 23px;
     padding: 9px;
+  }
+
+  .rs-about-block__img {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
   }
 
   .rs-about-block__img_label {
