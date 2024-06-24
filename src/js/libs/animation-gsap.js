@@ -19,11 +19,19 @@ gsap.registerPlugin(
 
 window.addEventListener('load', function () {
 	setTimeout(() => {
+		changeColorPage()
 		ScrollTrigger.refresh(true);
 		breakpointGsapAnimChecker();
 		window.scrollTo(0, 0);
 	}, 300);
 })
+
+function changeColorPage() {
+	// Получаем цвет страницы из блока, который меняется с помощью барбы, и переносим его в body
+	let wrapper = window.getComputedStyle(document.querySelector('.wrapper'));
+	let primaryColor = wrapper.getPropertyValue('--primary-color');
+	document.body.style.setProperty('--primary-color', primaryColor);
+}
 
 //========================================================================================================================================================
 /* MOVE SVG LINE */
@@ -760,6 +768,7 @@ function initBarba() {
 
 				// Переход
 				loaderAnimTo()
+				changeColorPage()
 				ScrollTrigger.refresh(true);
 				breakpointGsapAnimChecker();
 
@@ -768,10 +777,7 @@ function initBarba() {
 					delay: 0.5,
 
 					onComplete: function () {
-						// Получаем цвет страницы из блока, который меняется с помощью барбы, и переносим его в body
-						let wrapper = window.getComputedStyle(document.querySelector('.wrapper'));
-						let primaryColor = wrapper.getPropertyValue('--primary-color');
-						document.body.style.setProperty('--primary-color', primaryColor);
+
 
 						ScrollTrigger.refresh(true);
 						setTimeout(() => {

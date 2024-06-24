@@ -5968,42 +5968,7 @@
         }
     }
     if (document.querySelector(".rs-steps__spollers_item") && document.querySelector(".rs-steps__navigation_list a")) sidebarNavigation();
-    function initYaMap() {
-        ymaps.ready(init);
-        function init() {
-            if (document.querySelector(".map")) {
-                const mapClasses = document.querySelectorAll(".map");
-                mapClasses.forEach((mapClass => {
-                    ymaps.ready();
-                    let map = new ymaps.Map(mapClass, {
-                        controls: [],
-                        center: branchData[0].location,
-                        zoom: 15
-                    }, {
-                        suppressMapOpenBlock: true,
-                        balloonMaxWidth: 200,
-                        searchControlProvider: "yandex#search"
-                    });
-                    let pinsCollection = new ymaps.GeoObjectCollection({}, {
-                        preset: "islands#blueDotIcon",
-                        draggable: false
-                    });
-                    for (let i = 0; i < branchData.length; i++) {
-                        let marks = new ymaps.Placemark(branchData[i].location, {
-                            balloonContentHeader: `${branchData[i].address}`,
-                            hintContent: `${branchData[i].address}`
-                        });
-                        pinsCollection.add(marks);
-                    }
-                    map.geoObjects.add(pinsCollection);
-                    map.events.add("balloonopen", (function(e) {
-                        Map.hint.close();
-                    }));
-                    map.events.add("click", (e => e.get("target").balloon.close()));
-                }));
-            }
-        }
-    }
+    function initYaMap() {}
     initYaMap();
     function _toConsumableArray(arr) {
         if (Array.isArray(arr)) {
@@ -7911,11 +7876,17 @@
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     window.addEventListener("load", (function() {
         setTimeout((() => {
+            changeColorPage();
             ScrollTrigger.refresh(true);
             breakpointGsapAnimChecker();
             window.scrollTo(0, 0);
         }), 300);
     }));
+    function changeColorPage() {
+        let wrapper = window.getComputedStyle(document.querySelector(".wrapper"));
+        let primaryColor = wrapper.getPropertyValue("--primary-color");
+        document.body.style.setProperty("--primary-color", primaryColor);
+    }
     function moveSvgDashed(dashed, mask, trigger, top = 50, end = 500, markers = 0) {
         if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
             gsap.from(mask, {
@@ -8584,14 +8555,12 @@
                     window.scrollTo(0, 0);
                     ScrollTrigger.refresh(true);
                     loaderAnimTo();
+                    changeColorPage();
                     ScrollTrigger.refresh(true);
                     breakpointGsapAnimChecker();
                     return gsap.from(next.container, {
                         delay: .5,
                         onComplete: function() {
-                            let wrapper = window.getComputedStyle(document.querySelector(".wrapper"));
-                            let primaryColor = wrapper.getPropertyValue("--primary-color");
-                            document.body.style.setProperty("--primary-color", primaryColor);
                             ScrollTrigger.refresh(true);
                             setTimeout((() => {
                                 initSliders();
