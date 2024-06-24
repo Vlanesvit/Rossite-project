@@ -247,7 +247,7 @@
 
 *::-webkit-scrollbar {
   cursor: pointer;
-  width: 6px;
+  width: 0px;
   background: transparent;
   border-radius: 3px;
 }
@@ -10696,10 +10696,6 @@ textarea.rs-input {
 
   .rs-header {
     padding-top: 22px;
-  }
-
-  .lock .rs-header {
-    padding-right: 6px;
   }
 
   .rs-header._header-white {
