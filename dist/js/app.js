@@ -5968,7 +5968,42 @@
         }
     }
     if (document.querySelector(".rs-steps__spollers_item") && document.querySelector(".rs-steps__navigation_list a")) sidebarNavigation();
-    function initYaMap() {}
+    function initYaMap() {
+        ymaps.ready(init);
+        function init() {
+            if (document.querySelector(".map")) {
+                const mapClasses = document.querySelectorAll(".map");
+                mapClasses.forEach((mapClass => {
+                    ymaps.ready();
+                    let map = new ymaps.Map(mapClass, {
+                        controls: [],
+                        center: branchData[0].location,
+                        zoom: 15
+                    }, {
+                        suppressMapOpenBlock: true,
+                        balloonMaxWidth: 200,
+                        searchControlProvider: "yandex#search"
+                    });
+                    let pinsCollection = new ymaps.GeoObjectCollection({}, {
+                        preset: "islands#blueDotIcon",
+                        draggable: false
+                    });
+                    for (let i = 0; i < branchData.length; i++) {
+                        let marks = new ymaps.Placemark(branchData[i].location, {
+                            balloonContentHeader: `${branchData[i].address}`,
+                            hintContent: `${branchData[i].address}`
+                        });
+                        pinsCollection.add(marks);
+                    }
+                    map.geoObjects.add(pinsCollection);
+                    map.events.add("balloonopen", (function(e) {
+                        Map.hint.close();
+                    }));
+                    map.events.add("click", (e => e.get("target").balloon.close()));
+                }));
+            }
+        }
+    }
     initYaMap();
     function _toConsumableArray(arr) {
         if (Array.isArray(arr)) {
