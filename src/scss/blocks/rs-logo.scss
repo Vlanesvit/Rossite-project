@@ -3,49 +3,62 @@
 	&__container {
 	}
 
-	.tabs {
-		// .tabs__navigation
-		&__navigation {
+	// .tabs__navigation
+	&__filters {
+		display: flex;
+		align-items: center;
+
+		@media (max-width: 991.98px) {
 			display: flex;
-			align-items: center;
+			overflow-y: hidden;
+			overflow-x: auto;
+			padding: 20px 15px 10px;
+			margin: -10px -15px;
+			max-width: calc(100% + 30px);
+			width: calc(100% + 30px);
 
-			@media (max-width: 767.98px) {
-				display: none;
+			&::-webkit-scrollbar {
+				width: 0px;
+				height: 0px;
 			}
 		}
+	}
 
-		// .tabs__title
-		&__title {
-			font-size: 16px;
-			font-style: normal;
-			font-weight: 500;
-			line-height: 23.4px; /* 146.25% */
-			padding: 11px 25px;
-			border-radius: 40px;
-			background-color: #f5f7fe;
-			transition: all 0.3s ease 0s;
+	// .tabs__title
+	&__filter {
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 23.4px; /* 146.25% */
+		padding: 11px 25px;
+		border-radius: 40px;
+		background-color: #f5f7fe;
+		transition: all 0.3s ease 0s;
 
-			@media (max-width: 1439.98px) {
-				font-size: 14px;
-				padding: 10px 24px;
-			}
-
-			&:not(:last-child) {
-				margin-right: 9px;
-			}
-
-			&._tab-active {
-				color: #fff;
-				background-color: var(--primary-color);
-			}
+		@media (max-width: 1439.98px) {
+			font-size: 14px;
+			padding: 10px 24px;
 		}
 
-		// .tabs__content
-		&__content {
+		@media (max-width: 1169.98px) {
+			padding: 5px 12px;
+			font-size: 13px;
+			border-radius: 20px;
 		}
 
-		// .tabs__body
-		&__body {
+		@media (max-width: 991.98px) {
+			flex: 1 1 auto;
+			min-width: 90px;
+			white-space: nowrap;
+		}
+
+		&:not(:last-child) {
+			margin-right: 9px;
+		}
+
+		&._filter-active {
+			color: #fff;
+			background-color: var(--primary-color);
 		}
 	}
 
@@ -54,6 +67,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+
+		@media (max-width: 991.98px) {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
 	}
 
 	// .rs-logo__slider

@@ -24,6 +24,10 @@ EffectFade, Lazy, Manipulation
 // Полный набор стилей из node_modules
 // import 'swiper/css';
 
+// Импортируем функции gsap для анимации
+import { moveSvgDashed, showContentOnScroll, horizontalScroll } from "../libs/animation-gsap.js";
+
+
 // Инициализация слайдеров
 export function initSliders() {
 	// Перечень слайдеров
@@ -564,92 +568,145 @@ export function initSliders() {
 	}
 
 	if (document.querySelector('.rs-logo')) {
-		const sliderBlocks = document.querySelectorAll('.rs-logo__slider');
+		const sliderBlocks = document.querySelectorAll('.rs-logo');
 
 		sliderBlocks.forEach(sliderBlock => {
-			const pagination = sliderBlock.querySelector('.rs-logo__pagination');
-			const arrowNext = sliderBlock.querySelector('.rs-logo__button-next');
-			const arrowPrev = sliderBlock.querySelector('.rs-logo__button-prev');
+			const sliders = sliderBlock.querySelectorAll('.rs-logo__slider');
 
-			// Перечень слайдеров
-			const sliderSwiper = new Swiper(sliderBlock, {
-				modules: [Navigation, Pagination, Autoplay],
+			sliders.forEach(slider => {
+				const pagination = slider.querySelector('.rs-logo__pagination');
+				const arrowNext = slider.querySelector('.rs-logo__button-next');
+				const arrowPrev = slider.querySelector('.rs-logo__button-prev');
+				const slides = slider.querySelectorAll('.rs-logo__slide');
+				const filters = sliderBlock.querySelectorAll(".rs-logo__filter");
 
-				// // Автопрокрутка
-				// autoplay: {
-				// 	// Пауза между прокруткой
-				// 	delay: 10000,
-				// 	// Закончить на последнем слайде
-				// 	stopOnLastSlide: false,
-				// 	// Отключить после ручного переключения
-				// 	disableOnInteraction: false,
-				// },
+				const sliderSwiper = new Swiper(slider, {
+					modules: [Navigation, Pagination, Autoplay],
 
-				// Обновить свайпер
-				// при изменении элементов слайдера
-				observer: true,
-				// при изменении родительских элементов слайдера
-				observeParents: true,
-				// при изменении дочерних элементов слайдера
-				observeSlideChildren: true,
+					// // Автопрокрутка
+					// autoplay: {
+					// 	// Пауза между прокруткой
+					// 	delay: 10000,
+					// 	// Закончить на последнем слайде
+					// 	stopOnLastSlide: false,
+					// 	// Отключить после ручного переключения
+					// 	disableOnInteraction: false,
+					// },
 
-				// Скорость смены слайдов
-				speed: 1200,
+					// Обновить свайпер
+					// при изменении элементов слайдера
+					observer: true,
+					// при изменении родительских элементов слайдера
+					observeParents: true,
+					// при изменении дочерних элементов слайдера
+					observeSlideChildren: true,
 
-				// Включение/отключение
-				// перетаскивание на ПК
-				simulateTouch: true,
-				// Чувствительность свайпа
-				touchRadio: 1,
-				// Угол срабатывания свайпа/перетаскивания
-				touchAngle: 45,
+					// Скорость смены слайдов
+					speed: 500,
 
-				// Курсор
-				grabCursor: true,
+					// Включение/отключение
+					// перетаскивание на ПК
+					simulateTouch: true,
+					// Чувствительность свайпа
+					touchRadio: 1,
+					// Угол срабатывания свайпа/перетаскивания
+					touchAngle: 45,
 
-				// Пагинация
-				pagination: {
-					el: pagination,
-					// clickable: true,
-					// dynamicBullets: true
-					type: 'progressbar',
-				},
+					// Курсор
+					grabCursor: true,
 
-				// // Управлениее мышью
-				// mousewheel: {
-				// 	enabled: true,
-				// 	sensitivity: 2,
-				// },
-
-				// // Свободный режим
-				// freeMode: {
-				// 	enabled: true,
-				// 	sticky: false,
-				// 	momentumBounce: false,
-				// },
-
-				// Стрелки
-				navigation: {
-					nextEl: arrowNext,
-					prevEl: arrowPrev,
-				},
-
-				// Брейкпоинты(адаптив)
-				// Шрина экрана
-				breakpoints: {
-					320: {
-						slidesPerView: 2,
-						spaceBetween: 20,
+					// Пагинация
+					pagination: {
+						el: pagination,
+						// clickable: true,
+						// dynamicBullets: true
+						type: 'progressbar',
 					},
-					768: {
-						slidesPerView: 2.4,
-						spaceBetween: 24,
+
+					// // Управлениее мышью
+					// mousewheel: {
+					// 	enabled: true,
+					// 	sensitivity: 2,
+					// },
+
+					// // Свободный режим
+					// freeMode: {
+					// 	enabled: true,
+					// 	sticky: false,
+					// 	momentumBounce: false,
+					// },
+
+					// Стрелки
+					navigation: {
+						nextEl: arrowNext,
+						prevEl: arrowPrev,
 					},
-					1170: {
-						slidesPerView: 3,
-						spaceBetween: 30,
+
+					// Брейкпоинты(адаптив)
+					// Шрина экрана
+					breakpoints: {
+						320: {
+							slidesPerView: 2,
+							spaceBetween: 20,
+						},
+						768: {
+							slidesPerView: 2.4,
+							spaceBetween: 24,
+						},
+						1170: {
+							slidesPerView: 3,
+							spaceBetween: 30,
+						},
 					},
-				},
+				});
+
+				function updateFilter(activeFilter) {
+					if (!activeFilter) {
+						filters[0].classList.add("_filter-active");
+						activeFilter = filters[0];
+					}
+					filters.forEach(filter => {
+						if (filter === activeFilter) {
+							filter.classList.add("_filter-active");
+						} else {
+							filter.classList.remove("_filter-active");
+						}
+					});
+				}
+
+				function updateSlider(slider) {
+					slider.updateProgress();
+					slider.updateSize();
+					slider.updateSlides();
+					slider.update();
+				}
+
+				filters.forEach(filter => {
+					filter.addEventListener("click", function (e) {
+						slides.forEach(slide => {
+							if (!filter.classList.contains('_filter-active')) {
+								if (filter.dataset.filter === slide.dataset.filter) {
+									slide.classList.remove("hidden");
+									slide.classList.add("swiper-slide");
+									updateSlider(sliderSwiper)
+									showContentOnScroll('.rs-logo__slide', 0.3, 0, 'right-left--every');
+								} else if (filter.dataset.filter === "All" || filter.dataset.filter === 'all' || filter.textContent === 'Все') {
+									slide.classList.remove("hidden");
+									slide.classList.add("swiper-slide");
+									updateSlider(sliderSwiper)
+									showContentOnScroll('.rs-logo__slide', 0.3, 0, 'right-left--every');
+								} else {
+									slide.classList.add("hidden");
+									slide.classList.remove("swiper-slide");
+									slide.removeAttribute("style");
+									updateSlider(sliderSwiper)
+									showContentOnScroll('.rs-logo__slide', 0.3, 0, 'right-left--every');
+								}
+							}
+						});
+						updateFilter(filter);
+					});
+				});
 			});
 		});
 	}

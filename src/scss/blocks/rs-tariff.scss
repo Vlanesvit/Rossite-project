@@ -51,9 +51,11 @@
 	// .rs-tariff__block
 	&__block {
 		overflow: hidden;
-		max-height: 642px;
+		padding: 0px 100%;
+		margin: 0px -100%;
+		height: 642px;
 		position: relative;
-		transition: max-height 1s ease 0s;
+		transition: height 1s ease 0s;
 
 		&::before {
 			content: "";
@@ -68,7 +70,7 @@
 		}
 
 		&._full {
-			max-height: 1000px;
+			height: 100%;
 
 			&::before {
 				opacity: 0;

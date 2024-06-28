@@ -35,7 +35,7 @@ function changeColorPage() {
 
 //========================================================================================================================================================
 /* MOVE SVG LINE */
-function moveSvgDashed(dashed, mask, trigger, top = 50, end = 500, markers = 0) {
+export function moveSvgDashed(dashed, mask, trigger, top = 50, end = 500, markers = 0) {
 	if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
 		gsap.from(mask, {
 			drawSVG: "0%",
@@ -65,7 +65,7 @@ function moveSvgDashed(dashed, mask, trigger, top = 50, end = 500, markers = 0) 
 }
 
 /* REVEAL ANIMATION */
-function showContentOnScroll(elem, duration, delay, direction) {
+export function showContentOnScroll(elem, duration, delay, direction) {
 	if (document.querySelectorAll(elem)) {
 		const elems = gsap.utils.toArray(elem);
 		elems.forEach((item, i) => {
@@ -133,7 +133,7 @@ function showContentOnScroll(elem, duration, delay, direction) {
 }
 
 /* HORIZONTAL SCROLL */
-function horizontalScroll(block, trigger, progress) {
+export function horizontalScroll(block, trigger, progress) {
 	if (document.querySelector(block) && document.querySelector(trigger) && document.querySelector(progress)) {
 		let container = document.querySelector(block);
 		let containerTrigger = document.querySelector(trigger);

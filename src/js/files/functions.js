@@ -532,7 +532,6 @@ export function menu() {
 
 				if (window.innerWidth <= 991.98) {
 					const menuItemLink = item.querySelector('a');
-					console.log('2');
 					menuItemLink.addEventListener('click', function (e) {
 						e.preventDefault();
 					})
