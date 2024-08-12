@@ -14,97 +14,101 @@ import { gotoBlock } from "../scroll/gotoblock.js";
 // Работа с полями формы. Добавление классов, работа с placeholder
 export function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
 	// Если включено, добавляем функционал "скрыть плейсходлер при фокусе"
-	const formFields = document.querySelectorAll('input[placeholder],textarea[placeholder]');
-	if (formFields.length) {
-		formFields.forEach(formField => {
-			if (!formField.hasAttribute('data-placeholder-nohide')) {
-				formField.dataset.placeholder = formField.placeholder;
-			}
-		});
-	}
-	document.body.addEventListener("focusin", function (e) {
-		const targetElement = e.target;
-		if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
-			if (targetElement.dataset.placeholder) {
-				targetElement.placeholder = '';
-			}
-			if (!targetElement.hasAttribute('data-no-focus-classes')) {
-				targetElement.classList.add('_form-focus');
-				targetElement.parentElement.classList.add('_form-focus');
-			}
-			formValidate.removeError(targetElement);
-		}
-	});
-	document.body.addEventListener("focusout", function (e) {
-		const targetElement = e.target;
-		if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
-			if (targetElement.dataset.placeholder) {
-				targetElement.placeholder = targetElement.dataset.placeholder;
-			}
-			if (!targetElement.hasAttribute('data-no-focus-classes')) {
-				targetElement.classList.remove('_form-focus');
-				targetElement.parentElement.classList.remove('_form-focus');
-			}
-			// Моментальная валидация
-			if (targetElement.hasAttribute('data-validate')) {
-				formValidate.validateInput(targetElement);
-			}
-		}
-	});
-	// Если включено, добавляем функционал "Показать пароль"
-	if (options.viewPass) {
-		document.addEventListener("click", function (e) {
-			let targetElement = e.target;
-			if (targetElement.closest('[class*="__viewpass"]')) {
-				let inputType = targetElement.classList.contains('_viewpass-active') ? "password" : "text";
-				targetElement.parentElement.querySelector('input').setAttribute("type", inputType);
-				targetElement.classList.toggle('_viewpass-active');
-			}
-		});
-	}
-	// Если включено, добавляем функционал "Автовысота"
-	if (options.autoHeight) {
-		const textareas = document.querySelectorAll('textarea[data-autoheight]');
-		if (textareas.length) {
-			textareas.forEach(textarea => {
-				const startHeight = textarea.hasAttribute('data-autoheight-min') ?
-					Number(textarea.dataset.autoheightMin) : Number(textarea.offsetHeight);
-				const maxHeight = textarea.hasAttribute('data-autoheight-max') ?
-					Number(textarea.dataset.autoheightMax) : Infinity;
-				setHeight(textarea, Math.min(startHeight, maxHeight))
-				textarea.addEventListener('input', () => {
-					if (textarea.scrollHeight > startHeight) {
-						textarea.style.height = `auto`;
-						setHeight(textarea, Math.min(Math.max(textarea.scrollHeight, startHeight), maxHeight));
-					}
-				});
+	const forms = document.querySelectorAll('.form');
+	forms.forEach(form => {
+		const formFields = form.querySelectorAll('input[placeholder],textarea[placeholder]');
+		if (formFields.length) {
+			formFields.forEach(formField => {
+				if (!formField.hasAttribute('data-placeholder-nohide')) {
+					formField.dataset.placeholder = formField.placeholder;
+				}
 			});
-			function setHeight(textarea, height) {
-				textarea.style.height = `${height}px`;
+		}
+		document.body.addEventListener("focusin", function (e) {
+			const targetElement = e.target;
+			if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
+				if (targetElement.dataset.placeholder) {
+					targetElement.placeholder = '';
+				}
+				if (!targetElement.hasAttribute('data-no-focus-classes') && targetElement.closest('.form__line')) {
+					targetElement.classList.add('_form-focus');
+					targetElement.closest('.form__line').classList.add('_form-focus');
+				}
+				formValidate.removeError(targetElement);
+			}
+		});
+		document.body.addEventListener("focusout", function (e) {
+			const targetElement = e.target;
+			if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
+				if (targetElement.dataset.placeholder) {
+					targetElement.placeholder = targetElement.dataset.placeholder;
+				}
+				if (!targetElement.hasAttribute('data-no-focus-classes') && targetElement.closest('.form__line')) {
+					targetElement.classList.remove('_form-focus');
+					targetElement.closest('.form__line').classList.remove('_form-focus');
+				}
+				// Моментальная валидация
+				if (targetElement.hasAttribute('data-validate')) {
+					formValidate.validateInput(targetElement);
+				}
+			}
+		});
+		// Если включено, добавляем функционал "Показать пароль"
+		if (options.viewPass) {
+			document.addEventListener("click", function (e) {
+				let targetElement = e.target;
+				if (targetElement.closest('[class*="__viewpass"]')) {
+					let inputType = targetElement.classList.contains('_viewpass-active') ? "password" : "text";
+					targetElement.closest('.form__line').querySelector('input').setAttribute("type", inputType);
+					targetElement.classList.toggle('_viewpass-active');
+				}
+			});
+		}
+		// Если включено, добавляем функционал "Автовысота"
+		if (options.autoHeight) {
+			const textareas = document.querySelectorAll('textarea[data-autoheight]');
+			if (textareas.length) {
+				textareas.forEach(textarea => {
+					const startHeight = textarea.hasAttribute('data-autoheight-min') ?
+						Number(textarea.dataset.autoheightMin) : Number(textarea.offsetHeight);
+					const maxHeight = textarea.hasAttribute('data-autoheight-max') ?
+						Number(textarea.dataset.autoheightMax) : Infinity;
+					setHeight(textarea, Math.min(startHeight, maxHeight))
+					textarea.addEventListener('input', () => {
+						if (textarea.scrollHeight > startHeight) {
+							textarea.style.height = `auto`;
+							setHeight(textarea, Math.min(Math.max(textarea.scrollHeight, startHeight), maxHeight));
+						}
+					});
+				});
+				function setHeight(textarea, height) {
+					textarea.style.height = `${height}px`;
+				}
 			}
 		}
-	}
 
-	const formLines = document.querySelectorAll('.form__line');
-	formLines.forEach(formLine => {
-		const formInput = formLine.querySelector('.rs-input')
-		const formClear = formLine.querySelector('.rs-input-clear')
-		formInput.addEventListener('input', function () {
-			if (formInput.value != '') {
-				formClear.style.display = "block";
-				formInput.parentElement.classList.add('_form-valid')
-			} else {
+		const formLines = document.querySelectorAll('.form__line');
+		formLines.forEach(formLine => {
+			const formInput = formLine.querySelector('.rs-input')
+			const formClear = formLine.querySelector('.rs-input-clear')
+			formInput.addEventListener('input', function () {
+				if (formInput.value != '') {
+					formClear.style.display = "block";
+					formInput.closest('.form__line').classList.add('_form-valid')
+				} else {
+					formClear.style.display = "none";
+					formInput.closest('.form__line').classList.remove('_form-valid')
+				}
+			})
+			formClear.addEventListener('click', function () {
+				formInput.value = '';
 				formClear.style.display = "none";
-				formInput.parentElement.classList.remove('_form-valid')
-			}
-		})
-		formClear.addEventListener('click', function () {
-			formInput.value = '';
-			formClear.style.display = "none";
-			formInput.parentElement.classList.remove('_form-valid')
-			formInput.focus()
-		})
+				formInput.closest('.form__line').classList.remove('_form-valid')
+				formInput.focus()
+			})
+		});
 	});
+
 }
 // Валидация форм
 export let formValidate = {
@@ -150,32 +154,40 @@ export let formValidate = {
 	},
 	addError(formRequiredItem) {
 		formRequiredItem.classList.add('_form-error');
-		formRequiredItem.parentElement.classList.add('_form-error');
-		let inputError = formRequiredItem.parentElement.querySelector('.form__error');
-		if (inputError) formRequiredItem.parentElement.removeChild(inputError);
-		if (formRequiredItem.dataset.error) {
-			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
+		if (formRequiredItem.closest('.form__line')) {
+			formRequiredItem.closest('.form__line').classList.add('_form-error');
+			let inputError = formRequiredItem.closest('.form__line').querySelector('.form__error');
+			if (inputError) formRequiredItem.closest('.form__line').removeChild(inputError);
+			if (formRequiredItem.dataset.error) {
+				formRequiredItem.closest('.form__line').insertAdjacentHTML('beforeend', `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
+			}
 		}
 	},
 	removeError(formRequiredItem) {
 		formRequiredItem.classList.remove('_form-error');
-		formRequiredItem.parentElement.classList.remove('_form-error');
-		if (formRequiredItem.parentElement.querySelector('.form__error')) {
-			formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__error'));
+		if (formRequiredItem.closest('.form__line')) {
+			formRequiredItem.closest('.form__line').classList.remove('_form-error');
+			if (formRequiredItem.closest('.form__line').querySelector('.form__error')) {
+				formRequiredItem.closest('.form__line').removeChild(formRequiredItem.closest('.form__line').querySelector('.form__error'));
+			}
 		}
 	},
 	addRight(formRequiredItem) {
 		formRequiredItem.classList.add('_form-right');
-		formRequiredItem.parentElement.classList.add('_form-right');
-		let inputRight = formRequiredItem.parentElement.querySelector('.form__right');
-		if (inputRight) formRequiredItem.parentElement.removeChild(inputRight);
-		formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__right"></div>`);
+		if (formRequiredItem.closest('.form__line')) {
+			formRequiredItem.closest('.form__line').classList.add('_form-right');
+			let inputRight = formRequiredItem.closest('.form__line').querySelector('.form__right');
+			if (inputRight) formRequiredItem.closest('.form__line').removeChild(inputRight);
+			formRequiredItem.closest('.form__line').insertAdjacentHTML('beforeend', `<div class="form__right"></div>`);
+		}
 	},
 	removeRight(formRequiredItem) {
 		formRequiredItem.classList.remove('_form-right');
-		formRequiredItem.parentElement.classList.remove('_form-right');
-		if (formRequiredItem.parentElement.querySelector('.form__right')) {
-			formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__right'));
+		if (formRequiredItem.closest('.form__line')) {
+			formRequiredItem.closest('.form__line').classList.remove('_form-right');
+			if (formRequiredItem.closest('.form__line').querySelector('.form__right')) {
+				formRequiredItem.closest('.form__line').removeChild(formRequiredItem.closest('.form__line').querySelector('.form__right'));
+			}
 		}
 	},
 	formClean(form) {
@@ -184,7 +196,9 @@ export let formValidate = {
 			let inputs = form.querySelectorAll('input,textarea');
 			for (let index = 0; index < inputs.length; index++) {
 				const el = inputs[index];
-				el.parentElement.classList.remove('_form-focus');
+				if (el.closest('.form__line')) {
+					el.closest('.form__line').classList.remove('_form-focus');
+				}
 				el.classList.remove('_form-focus');
 				formValidate.removeError(el);
 			}

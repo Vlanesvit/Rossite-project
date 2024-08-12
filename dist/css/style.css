@@ -3566,7 +3566,7 @@ textarea.rs-input {
 }
 
 .rs-banner__body > h1 {
-  max-width: 730px;
+  max-width: 780px;
 }
 
 .rs-banner__body > .mrp-med-45 {
@@ -8636,6 +8636,11 @@ textarea.rs-input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: -100px 0px 0px;
+  padding: 100px 0px 0px;
+  background-color: #fff;
+  position: relative;
+  z-index: 10;
 }
 
 .rs-tariff-context .rs-tariff__top {
@@ -10843,7 +10848,11 @@ textarea.rs-input {
     margin-right: 4rem;
   }
 
-  .rs-header .menu__dropdown_columns {
+  .rs-header .menu__dropdown_list {
+    min-width: 18.875rem;
+  }
+
+  .rs-header .menu__dropdown_list#menu-paketnye-predlozheniya {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
@@ -10853,10 +10862,6 @@ textarea.rs-input {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-  }
-
-  .rs-header .menu__dropdown_list {
-    min-width: 18.875rem;
   }
 
   .rs-header .menu__dropdown_list:not(:last-child) {

@@ -26,6 +26,10 @@ window.addEventListener('load', function () {
 	}, 300);
 })
 
+window.addEventListener('resize', function () {
+	ScrollTrigger.refresh(true);
+})
+
 function changeColorPage() {
 	// Получаем цвет страницы из блока, который меняется с помощью барбы, и переносим его в body
 	let wrapper = window.getComputedStyle(document.querySelector('.wrapper'));
@@ -38,7 +42,6 @@ function changeColorPage() {
 export function moveSvgDashed(dashed, mask, trigger, top = 50, end = 500, markers = 0) {
 	if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
 		gsap.from(mask, {
-			drawSVG: "0%",
 			scrollTrigger: {
 				trigger: trigger,
 				start: `top-=50% top`,
@@ -306,7 +309,7 @@ function animDesktop() {
 			scrollTrigger: {
 				trigger: ".rs-features__swiper",
 				start: "top-=10% top",
-				end: "bottom+=300% top",
+				end: "bottom+=50% top",
 				scrub: true,
 				pin: true,
 				// markers: 1,
@@ -324,6 +327,22 @@ function animDesktop() {
 			scale: (index) => 1 - (cards.length - index) * 0.025,
 			stagger: stagger,
 		}, stagger)
+	}
+
+	if (document.querySelector('.rs-tariff__top')) {
+		gsap.to('.rs-tariff__top', {
+			scrollTrigger: {
+				trigger: '.rs-tariff__top',
+				start: `top top`,
+				end: `bottom bottom`,
+				endTrigger: '.rs-tariff',
+				pin: true,
+				pinSpacing: false,
+				scrub: true,
+				invalidateOnRefresh: true,
+				// markers: 1,
+			},
+		});
 	}
 
 	/* PINS BLOCK STACK - MAIN */
@@ -500,26 +519,6 @@ function animMobile() {
 }
 
 function animCommon() {
-	/* MOVE SVG LINE */
-	moveSvgDashed(".rs-slider-block__line #dashed-about", ".rs-slider-block__line #mask-about", ".rs-slider-block");
-	moveSvgDashed(".rs-slider-block__line #dashed-about-1", ".rs-slider-block__line #mask-about-1", ".rs-slider-block");
-	moveSvgDashed(".rs-slider-block__line #dashed-about-2", ".rs-slider-block__line #mask-about-2", ".rs-slider-block");
-	moveSvgDashed(".rs-slider-block__line #dashed-about-3", ".rs-slider-block__line #mask-about-3", ".rs-slider-block");
-	moveSvgDashed(".rs-slider-block__line #dashed-about-4", ".rs-slider-block__line #mask-about-4", ".rs-slider-block");
-	moveSvgDashed(".rs-slider-block__line #dashed-about-5", ".rs-slider-block__line #mask-about-5", ".rs-slider-block");
-	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews");
-	moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-4", ".rs-services__line #mask-services-4", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-5", ".rs-services__line #mask-services-5", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-6", ".rs-services__line #mask-services-6", ".rs-services");
-	moveSvgDashed(".rs-services__line #dashed-services-7", ".rs-services__line #mask-services-7", ".rs-services");
-	moveSvgDashed(".rs-task__line #dashed-task1", ".rs-task__line #mask-task1", ".rs-task");
-	moveSvgDashed(".rs-task__line #dashed-task2", ".rs-task__line #mask-task2", ".rs-task");
-	moveSvgDashed(".rs-task__line #dashed-task3", ".rs-task__line #mask-task3", ".rs-task");
-	moveSvgDashed(".rs-task__line #dashed-task4", ".rs-task__line #mask-task4", ".rs-task");
-
 	/* REVEAL ANIMATION */
 	// text
 	showContentOnScroll('.mrp-med-65', 0.8, 0.5, 'bottom-up');
@@ -635,6 +634,26 @@ function animCommon() {
 	showContentOnScroll('.rs-logo__slide', 0.5, 0.2, 'right-left--every');
 	// 404
 	showContentOnScroll('.rs-error-block', 0.8, 0.5, 'bottom-up');
+
+	/* MOVE SVG LINE */
+	moveSvgDashed(".rs-slider-block__line #dashed-about", ".rs-slider-block__line #mask-about", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-1", ".rs-slider-block__line #mask-about-1", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-2", ".rs-slider-block__line #mask-about-2", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-3", ".rs-slider-block__line #mask-about-3", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-4", ".rs-slider-block__line #mask-about-4", ".rs-slider-block");
+	moveSvgDashed(".rs-slider-block__line #dashed-about-5", ".rs-slider-block__line #mask-about-5", ".rs-slider-block");
+	moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews");
+	moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-4", ".rs-services__line #mask-services-4", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-5", ".rs-services__line #mask-services-5", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-6", ".rs-services__line #mask-services-6", ".rs-services");
+	moveSvgDashed(".rs-services__line #dashed-services-7", ".rs-services__line #mask-services-7", ".rs-services");
+	moveSvgDashed(".rs-task__line #dashed-task1", ".rs-task__line #mask-task1", ".rs-task");
+	moveSvgDashed(".rs-task__line #dashed-task2", ".rs-task__line #mask-task2", ".rs-task");
+	moveSvgDashed(".rs-task__line #dashed-task3", ".rs-task__line #mask-task3", ".rs-task");
+	moveSvgDashed(".rs-task__line #dashed-task4", ".rs-task__line #mask-task4", ".rs-task");
 
 	/* PINS BLOCK - MAIN */
 	//========================================================================================================================================================

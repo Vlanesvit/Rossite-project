@@ -793,12 +793,6 @@
 			// .menu__dropdown_columns
 			&_columns {
 				width: 100%;
-
-				@media (min-width: 991.98px) {
-					display: inline-flex;
-					align-items: flex-start;
-					justify-content: space-between;
-				}
 			}
 
 			// .menu__dropdown_list
@@ -807,6 +801,12 @@
 
 				@media (min-width: 991.98px) {
 					min-width: rem(302);
+
+					&#menu-paketnye-predlozheniya {
+						display: inline-flex;
+						align-items: flex-start;
+						justify-content: space-between;
+					}
 
 					@media (max-width: 1439.98px) {
 						min-width: rem(250);

@@ -181,6 +181,11 @@
 	// .rs-tariff__top
 	&__top {
 		display: flex;
+		margin: -100px 0px 0px;
+		padding: 100px 0px 0px;
+		background-color: #fff;
+		position: relative;
+		z-index: 10;
 
 		.rs-tariff-context & {
 			align-items: center;

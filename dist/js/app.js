@@ -1006,77 +1006,80 @@
         viewPass: false,
         autoHeight: false
     }) {
-        const formFields = document.querySelectorAll("input[placeholder],textarea[placeholder]");
-        if (formFields.length) formFields.forEach((formField => {
-            if (!formField.hasAttribute("data-placeholder-nohide")) formField.dataset.placeholder = formField.placeholder;
-        }));
-        document.body.addEventListener("focusin", (function(e) {
-            const targetElement = e.target;
-            if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
-                if (targetElement.dataset.placeholder) targetElement.placeholder = "";
-                if (!targetElement.hasAttribute("data-no-focus-classes")) {
-                    targetElement.classList.add("_form-focus");
-                    targetElement.parentElement.classList.add("_form-focus");
-                }
-                formValidate.removeError(targetElement);
-            }
-        }));
-        document.body.addEventListener("focusout", (function(e) {
-            const targetElement = e.target;
-            if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
-                if (targetElement.dataset.placeholder) targetElement.placeholder = targetElement.dataset.placeholder;
-                if (!targetElement.hasAttribute("data-no-focus-classes")) {
-                    targetElement.classList.remove("_form-focus");
-                    targetElement.parentElement.classList.remove("_form-focus");
-                }
-                if (targetElement.hasAttribute("data-validate")) formValidate.validateInput(targetElement);
-            }
-        }));
-        if (options.viewPass) document.addEventListener("click", (function(e) {
-            let targetElement = e.target;
-            if (targetElement.closest('[class*="__viewpass"]')) {
-                let inputType = targetElement.classList.contains("_viewpass-active") ? "password" : "text";
-                targetElement.parentElement.querySelector("input").setAttribute("type", inputType);
-                targetElement.classList.toggle("_viewpass-active");
-            }
-        }));
-        if (options.autoHeight) {
-            const textareas = document.querySelectorAll("textarea[data-autoheight]");
-            if (textareas.length) {
-                textareas.forEach((textarea => {
-                    const startHeight = textarea.hasAttribute("data-autoheight-min") ? Number(textarea.dataset.autoheightMin) : Number(textarea.offsetHeight);
-                    const maxHeight = textarea.hasAttribute("data-autoheight-max") ? Number(textarea.dataset.autoheightMax) : 1 / 0;
-                    setHeight(textarea, Math.min(startHeight, maxHeight));
-                    textarea.addEventListener("input", (() => {
-                        if (textarea.scrollHeight > startHeight) {
-                            textarea.style.height = `auto`;
-                            setHeight(textarea, Math.min(Math.max(textarea.scrollHeight, startHeight), maxHeight));
-                        }
-                    }));
-                }));
-                function setHeight(textarea, height) {
-                    textarea.style.height = `${height}px`;
-                }
-            }
-        }
-        const formLines = document.querySelectorAll(".form__line");
-        formLines.forEach((formLine => {
-            const formInput = formLine.querySelector(".rs-input");
-            const formClear = formLine.querySelector(".rs-input-clear");
-            formInput.addEventListener("input", (function() {
-                if (formInput.value != "") {
-                    formClear.style.display = "block";
-                    formInput.parentElement.classList.add("_form-valid");
-                } else {
-                    formClear.style.display = "none";
-                    formInput.parentElement.classList.remove("_form-valid");
+        const forms = document.querySelectorAll(".form");
+        forms.forEach((form => {
+            const formFields = form.querySelectorAll("input[placeholder],textarea[placeholder]");
+            if (formFields.length) formFields.forEach((formField => {
+                if (!formField.hasAttribute("data-placeholder-nohide")) formField.dataset.placeholder = formField.placeholder;
+            }));
+            document.body.addEventListener("focusin", (function(e) {
+                const targetElement = e.target;
+                if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
+                    if (targetElement.dataset.placeholder) targetElement.placeholder = "";
+                    if (!targetElement.hasAttribute("data-no-focus-classes") && targetElement.closest(".form__line")) {
+                        targetElement.classList.add("_form-focus");
+                        targetElement.closest(".form__line").classList.add("_form-focus");
+                    }
+                    formValidate.removeError(targetElement);
                 }
             }));
-            formClear.addEventListener("click", (function() {
-                formInput.value = "";
-                formClear.style.display = "none";
-                formInput.parentElement.classList.remove("_form-valid");
-                formInput.focus();
+            document.body.addEventListener("focusout", (function(e) {
+                const targetElement = e.target;
+                if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
+                    if (targetElement.dataset.placeholder) targetElement.placeholder = targetElement.dataset.placeholder;
+                    if (!targetElement.hasAttribute("data-no-focus-classes") && targetElement.closest(".form__line")) {
+                        targetElement.classList.remove("_form-focus");
+                        targetElement.closest(".form__line").classList.remove("_form-focus");
+                    }
+                    if (targetElement.hasAttribute("data-validate")) formValidate.validateInput(targetElement);
+                }
+            }));
+            if (options.viewPass) document.addEventListener("click", (function(e) {
+                let targetElement = e.target;
+                if (targetElement.closest('[class*="__viewpass"]')) {
+                    let inputType = targetElement.classList.contains("_viewpass-active") ? "password" : "text";
+                    targetElement.closest(".form__line").querySelector("input").setAttribute("type", inputType);
+                    targetElement.classList.toggle("_viewpass-active");
+                }
+            }));
+            if (options.autoHeight) {
+                const textareas = document.querySelectorAll("textarea[data-autoheight]");
+                if (textareas.length) {
+                    textareas.forEach((textarea => {
+                        const startHeight = textarea.hasAttribute("data-autoheight-min") ? Number(textarea.dataset.autoheightMin) : Number(textarea.offsetHeight);
+                        const maxHeight = textarea.hasAttribute("data-autoheight-max") ? Number(textarea.dataset.autoheightMax) : 1 / 0;
+                        setHeight(textarea, Math.min(startHeight, maxHeight));
+                        textarea.addEventListener("input", (() => {
+                            if (textarea.scrollHeight > startHeight) {
+                                textarea.style.height = `auto`;
+                                setHeight(textarea, Math.min(Math.max(textarea.scrollHeight, startHeight), maxHeight));
+                            }
+                        }));
+                    }));
+                    function setHeight(textarea, height) {
+                        textarea.style.height = `${height}px`;
+                    }
+                }
+            }
+            const formLines = document.querySelectorAll(".form__line");
+            formLines.forEach((formLine => {
+                const formInput = formLine.querySelector(".rs-input");
+                const formClear = formLine.querySelector(".rs-input-clear");
+                formInput.addEventListener("input", (function() {
+                    if (formInput.value != "") {
+                        formClear.style.display = "block";
+                        formInput.closest(".form__line").classList.add("_form-valid");
+                    } else {
+                        formClear.style.display = "none";
+                        formInput.closest(".form__line").classList.remove("_form-valid");
+                    }
+                }));
+                formClear.addEventListener("click", (function() {
+                    formInput.value = "";
+                    formClear.style.display = "none";
+                    formInput.closest(".form__line").classList.remove("_form-valid");
+                    formInput.focus();
+                }));
             }));
         }));
     }
@@ -1117,27 +1120,35 @@
         },
         addError(formRequiredItem) {
             formRequiredItem.classList.add("_form-error");
-            formRequiredItem.parentElement.classList.add("_form-error");
-            let inputError = formRequiredItem.parentElement.querySelector(".form__error");
-            if (inputError) formRequiredItem.parentElement.removeChild(inputError);
-            if (formRequiredItem.dataset.error) formRequiredItem.parentElement.insertAdjacentHTML("beforeend", `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
+            if (formRequiredItem.closest(".form__line")) {
+                formRequiredItem.closest(".form__line").classList.add("_form-error");
+                let inputError = formRequiredItem.closest(".form__line").querySelector(".form__error");
+                if (inputError) formRequiredItem.closest(".form__line").removeChild(inputError);
+                if (formRequiredItem.dataset.error) formRequiredItem.closest(".form__line").insertAdjacentHTML("beforeend", `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
+            }
         },
         removeError(formRequiredItem) {
             formRequiredItem.classList.remove("_form-error");
-            formRequiredItem.parentElement.classList.remove("_form-error");
-            if (formRequiredItem.parentElement.querySelector(".form__error")) formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector(".form__error"));
+            if (formRequiredItem.closest(".form__line")) {
+                formRequiredItem.closest(".form__line").classList.remove("_form-error");
+                if (formRequiredItem.closest(".form__line").querySelector(".form__error")) formRequiredItem.closest(".form__line").removeChild(formRequiredItem.closest(".form__line").querySelector(".form__error"));
+            }
         },
         addRight(formRequiredItem) {
             formRequiredItem.classList.add("_form-right");
-            formRequiredItem.parentElement.classList.add("_form-right");
-            let inputRight = formRequiredItem.parentElement.querySelector(".form__right");
-            if (inputRight) formRequiredItem.parentElement.removeChild(inputRight);
-            formRequiredItem.parentElement.insertAdjacentHTML("beforeend", `<div class="form__right"></div>`);
+            if (formRequiredItem.closest(".form__line")) {
+                formRequiredItem.closest(".form__line").classList.add("_form-right");
+                let inputRight = formRequiredItem.closest(".form__line").querySelector(".form__right");
+                if (inputRight) formRequiredItem.closest(".form__line").removeChild(inputRight);
+                formRequiredItem.closest(".form__line").insertAdjacentHTML("beforeend", `<div class="form__right"></div>`);
+            }
         },
         removeRight(formRequiredItem) {
             formRequiredItem.classList.remove("_form-right");
-            formRequiredItem.parentElement.classList.remove("_form-right");
-            if (formRequiredItem.parentElement.querySelector(".form__right")) formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector(".form__right"));
+            if (formRequiredItem.closest(".form__line")) {
+                formRequiredItem.closest(".form__line").classList.remove("_form-right");
+                if (formRequiredItem.closest(".form__line").querySelector(".form__right")) formRequiredItem.closest(".form__line").removeChild(formRequiredItem.closest(".form__line").querySelector(".form__right"));
+            }
         },
         formClean(form) {
             form.reset();
@@ -1145,7 +1156,7 @@
                 let inputs = form.querySelectorAll("input,textarea");
                 for (let index = 0; index < inputs.length; index++) {
                     const el = inputs[index];
-                    el.parentElement.classList.remove("_form-focus");
+                    if (el.closest(".form__line")) el.closest(".form__line").classList.remove("_form-focus");
                     el.classList.remove("_form-focus");
                     formValidate.removeError(el);
                 }
@@ -4992,42 +5003,7 @@
             resume
         });
     }
-    function initYaMap() {
-        ymaps.ready(init);
-        function init() {
-            if (document.querySelector(".map")) {
-                const mapClasses = document.querySelectorAll(".map");
-                mapClasses.forEach((mapClass => {
-                    ymaps.ready();
-                    let map = new ymaps.Map(mapClass, {
-                        controls: [],
-                        center: branchData[0].location,
-                        zoom: 15
-                    }, {
-                        suppressMapOpenBlock: true,
-                        balloonMaxWidth: 200,
-                        searchControlProvider: "yandex#search"
-                    });
-                    let pinsCollection = new ymaps.GeoObjectCollection({}, {
-                        preset: "islands#blueDotIcon",
-                        draggable: false
-                    });
-                    for (let i = 0; i < branchData.length; i++) {
-                        let marks = new ymaps.Placemark(branchData[i].location, {
-                            balloonContentHeader: `${branchData[i].address}`,
-                            hintContent: `${branchData[i].address}`
-                        });
-                        pinsCollection.add(marks);
-                    }
-                    map.geoObjects.add(pinsCollection);
-                    map.events.add("balloonopen", (function(e) {
-                        Map.hint.close();
-                    }));
-                    map.events.add("click", (e => e.get("target").balloon.close()));
-                }));
-            }
-        }
-    }
+    function initYaMap() {}
     initYaMap();
     function _toConsumableArray(arr) {
         if (Array.isArray(arr)) {
@@ -5413,7 +5389,7 @@
                     onHover: false
                 },
                 smoothing: true,
-                smoothingAmount: 0,
+                smoothingAmount: 300,
                 hoverStart: true,
                 verticalMode: false,
                 startingPoint: 46.2,
@@ -7096,6 +7072,7 @@
             if (tariffAdd && tariffAbout) tariffAdd.addEventListener("click", (function() {
                 tariffAbout.classList.add("_full");
                 tariffAdd.classList.add("_hide");
+                ScrollTrigger.refresh(true);
             }));
         }));
     }
@@ -7532,6 +7509,9 @@
             window.scrollTo(0, 0);
         }), 300);
     }));
+    window.addEventListener("resize", (function() {
+        ScrollTrigger.refresh(true);
+    }));
     function changeColorPage() {
         let wrapper = window.getComputedStyle(document.querySelector(".wrapper"));
         let primaryColor = wrapper.getPropertyValue("--primary-color");
@@ -7540,7 +7520,6 @@
     function moveSvgDashed(dashed, mask, trigger, top = 50, end = 500, markers = 0) {
         if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
             gsap.from(mask, {
-                drawSVG: "0%",
                 scrollTrigger: {
                     trigger,
                     start: `top-=50% top`,
@@ -7879,7 +7858,7 @@
                 scrollTrigger: {
                     trigger: ".rs-features__swiper",
                     start: "top-=10% top",
-                    end: "bottom+=300% top",
+                    end: "bottom+=50% top",
                     scrub: true,
                     pin: true,
                     id: "pin-block",
@@ -7895,6 +7874,18 @@
                 stagger
             }, stagger);
         }
+        if (document.querySelector(".rs-tariff__top")) gsap.to(".rs-tariff__top", {
+            scrollTrigger: {
+                trigger: ".rs-tariff__top",
+                start: `top top`,
+                end: `bottom bottom`,
+                endTrigger: ".rs-tariff",
+                pin: true,
+                pinSpacing: false,
+                scrub: true,
+                invalidateOnRefresh: true
+            }
+        });
         if (document.querySelector(".rs-main__project_item")) {
             const stagger = .5;
             setTimeout((() => {
@@ -8026,24 +8017,6 @@
         }
     }
     function animCommon() {
-        moveSvgDashed(".rs-slider-block__line #dashed-about", ".rs-slider-block__line #mask-about", ".rs-slider-block");
-        moveSvgDashed(".rs-slider-block__line #dashed-about-1", ".rs-slider-block__line #mask-about-1", ".rs-slider-block");
-        moveSvgDashed(".rs-slider-block__line #dashed-about-2", ".rs-slider-block__line #mask-about-2", ".rs-slider-block");
-        moveSvgDashed(".rs-slider-block__line #dashed-about-3", ".rs-slider-block__line #mask-about-3", ".rs-slider-block");
-        moveSvgDashed(".rs-slider-block__line #dashed-about-4", ".rs-slider-block__line #mask-about-4", ".rs-slider-block");
-        moveSvgDashed(".rs-slider-block__line #dashed-about-5", ".rs-slider-block__line #mask-about-5", ".rs-slider-block");
-        moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews");
-        moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
-        moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
-        moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
-        moveSvgDashed(".rs-services__line #dashed-services-4", ".rs-services__line #mask-services-4", ".rs-services");
-        moveSvgDashed(".rs-services__line #dashed-services-5", ".rs-services__line #mask-services-5", ".rs-services");
-        moveSvgDashed(".rs-services__line #dashed-services-6", ".rs-services__line #mask-services-6", ".rs-services");
-        moveSvgDashed(".rs-services__line #dashed-services-7", ".rs-services__line #mask-services-7", ".rs-services");
-        moveSvgDashed(".rs-task__line #dashed-task1", ".rs-task__line #mask-task1", ".rs-task");
-        moveSvgDashed(".rs-task__line #dashed-task2", ".rs-task__line #mask-task2", ".rs-task");
-        moveSvgDashed(".rs-task__line #dashed-task3", ".rs-task__line #mask-task3", ".rs-task");
-        moveSvgDashed(".rs-task__line #dashed-task4", ".rs-task__line #mask-task4", ".rs-task");
         showContentOnScroll(".mrp-med-65", .8, .5, "bottom-up");
         showContentOnScroll(".mrp-med-50", .8, .5, "bottom-up");
         showContentOnScroll(".mrp-med-45", .8, .5, "bottom-up");
@@ -8116,6 +8089,24 @@
         showContentOnScroll(".rs-main__title h1", .5, 1, "scale");
         showContentOnScroll(".rs-logo__slide", .5, .2, "right-left--every");
         showContentOnScroll(".rs-error-block", .8, .5, "bottom-up");
+        moveSvgDashed(".rs-slider-block__line #dashed-about", ".rs-slider-block__line #mask-about", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-1", ".rs-slider-block__line #mask-about-1", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-2", ".rs-slider-block__line #mask-about-2", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-3", ".rs-slider-block__line #mask-about-3", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-4", ".rs-slider-block__line #mask-about-4", ".rs-slider-block");
+        moveSvgDashed(".rs-slider-block__line #dashed-about-5", ".rs-slider-block__line #mask-about-5", ".rs-slider-block");
+        moveSvgDashed(".rs-reviews__line #dashed-reviews", ".rs-reviews__line #mask-reviews", ".rs-reviews");
+        moveSvgDashed(".rs-services__line #dashed-services-1", ".rs-services__line #mask-services-1", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-2", ".rs-services__line #mask-services-2", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-3", ".rs-services__line #mask-services-3", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-4", ".rs-services__line #mask-services-4", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-5", ".rs-services__line #mask-services-5", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-6", ".rs-services__line #mask-services-6", ".rs-services");
+        moveSvgDashed(".rs-services__line #dashed-services-7", ".rs-services__line #mask-services-7", ".rs-services");
+        moveSvgDashed(".rs-task__line #dashed-task1", ".rs-task__line #mask-task1", ".rs-task");
+        moveSvgDashed(".rs-task__line #dashed-task2", ".rs-task__line #mask-task2", ".rs-task");
+        moveSvgDashed(".rs-task__line #dashed-task3", ".rs-task__line #mask-task3", ".rs-task");
+        moveSvgDashed(".rs-task__line #dashed-task4", ".rs-task__line #mask-task4", ".rs-task");
         if (document.querySelector(".rs-main__title h1")) {
             gsap.to(".rs-main__title h1", {
                 scrollTrigger: {

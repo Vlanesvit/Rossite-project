@@ -27,7 +27,7 @@ export function initComparison(id) {
 
 			// Smoothing
 			smoothing: true,
-			smoothingAmount: 0,
+			smoothingAmount: 300,
 
 			// Other options
 			hoverStart: true,
