@@ -1,4 +1,6 @@
 .rs-services-price {
+	overflow: visible;
+
 	@media (max-width: 767.98px) {
 		margin-top: 60px;
 	}
@@ -224,8 +226,14 @@
 				width: 100%;
 				height: 75px;
 				background: linear-gradient(180deg, rgba(245, 247, 254, 0) 0%, #f5f7fe 86.54%);
+				transition: all 0.3s ease 0s;
 
 				._showmore-active & {
+					opacity: 0;
+					visibility: hidden;
+				}
+
+				._showmore-nohide & {
 					display: none;
 				}
 			}
@@ -336,6 +344,12 @@
 		}
 
 		&_body {
+			@media (min-width: 991.98px) {
+				position: sticky;
+				top: 150px;
+				right: 0;
+				width: 100%;
+			}
 		}
 	}
 

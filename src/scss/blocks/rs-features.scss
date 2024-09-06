@@ -31,14 +31,14 @@
 
 	&__head {
 		text-align: center;
-		margin-bottom: 60px;
+		margin-bottom: 30px;
 
 		@media (max-width: 1439.98px) {
-			margin-bottom: 45px;
+			margin-bottom: 20px;
 		}
 
 		@media (max-width: 991.98px) {
-			margin-bottom: 30px;
+			margin-bottom: 10px;
 		}
 
 		& > h2 {
@@ -57,7 +57,8 @@
 	// .rs-features__swiper
 	&__swiper {
 		position: relative;
-		height: 81.6vh;
+		height: 100vh;
+		padding: 5vh 0px;
 		// padding-bottom: 50.676%;
 		display: block !important;
 

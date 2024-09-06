@@ -689,18 +689,18 @@ export function initSliders() {
 									slide.classList.remove("hidden");
 									slide.classList.add("swiper-slide");
 									updateSlider(sliderSwiper)
-									showContentOnScroll('.rs-logo__slide', 0.3, 0, 'right-left--every');
+									// showContentOnScroll('.rs-logo__slide', 0.3, 0, 'right-left--every');
 								} else if (filter.dataset.filter === "All" || filter.dataset.filter === 'all' || filter.textContent === 'Все') {
 									slide.classList.remove("hidden");
 									slide.classList.add("swiper-slide");
 									updateSlider(sliderSwiper)
-									showContentOnScroll('.rs-logo__slide', 0.3, 0, 'right-left--every');
+									// showContentOnScroll('.rs-logo__slide', 0.3, 0, 'right-left--every');
 								} else {
 									slide.classList.add("hidden");
 									slide.classList.remove("swiper-slide");
 									slide.removeAttribute("style");
 									updateSlider(sliderSwiper)
-									showContentOnScroll('.rs-logo__slide', 0.3, 0, 'right-left--every');
+									// showContentOnScroll('.rs-logo__slide', 0.3, 0, 'right-left--every');
 								}
 							}
 						});
@@ -710,6 +710,17 @@ export function initSliders() {
 			});
 		});
 	}
+}
+
+// Функция для уничтожения всех слайдеров на странице
+export function destroySliders() {
+	const sliderContainers = document.querySelectorAll('.swiper-container-initialized');
+	sliderContainers.forEach((sliderContainer) => {
+		const swiperInstance = sliderContainer.swiper;
+		if (swiperInstance) {
+			swiperInstance.destroy(true, true);
+		}
+	});
 }
 
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
@@ -741,11 +752,9 @@ function initSlidersScroll() {
 	}
 }
 
-window.addEventListener("load", function (e) {
-	// Запуск инициализации слайдеров
-	if (document.querySelector('.swiper')) {
-		initSliders();
-	}
-	// Запуск инициализации скролла на базе слайдера (по классу swiper_scroll)
-	//initSlidersScroll();
-});
+// Запуск инициализации слайдеров
+if (document.querySelector('.swiper')) {
+	initSliders();
+}
+// Запуск инициализации скролла на базе слайдера (по классу swiper_scroll)
+//initSlidersScroll();

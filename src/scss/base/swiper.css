@@ -1,0 +1,253 @@
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.swiper-vertical .swiper-wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.swiper-autoheight .swiper-wrapper {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.swiper-initialized .swiper-slide {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.swiper-android .swiper-slide,
+.swiper-android .swiper-wrapper {
+  -webkit-transform: translate3d(0px, 0, 0);
+          transform: translate3d(0px, 0, 0);
+}
+
+.swiper-button-lock {
+  display: none !important;
+}
+
+.swiper-button-prev:active, .swiper-button-prev:focus,
+.swiper-button-next:active,
+.swiper-button-next:focus {
+  outline: none !important;
+}
+.swiper-button-prev::-moz-focus-inner,
+.swiper-button-next::-moz-focus-inner {
+  border: 0 !important;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 0px;
+}
+
+.swiper-pagination-bullet:active, .swiper-pagination-bullet:focus {
+  outline: none !important;
+}
+.swiper-pagination-bullet::-moz-focus-inner {
+  border: 0 !important;
+}
+
+.swiper-button-lock {
+  display: none !important;
+}
+
+.swiper-pagination-lock {
+  display: none !important;
+}
+
+.swiper-button-disabled {
+  opacity: 0.3;
+}
+
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal,
+.swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
+.swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+  width: 100%;
+  height: 2px;
+  left: 0;
+  margin-top: 47px;
+}
+@media (max-width: 991.98px) {
+  .swiper-horizontal > .swiper-pagination-progressbar,
+  .swiper-pagination-progressbar.swiper-pagination-horizontal,
+  .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
+  .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+    display: none;
+  }
+}
+
+.swiper-pagination-progressbar {
+  background: var(--light-gray-border);
+  position: relative;
+}
+
+.swiper-initialized .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  width: 100%;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: var(--primary-color);
+  position: absolute;
+  bottom: 0px;
+  top: auto;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  -webkit-transform-origin: left top;
+      -ms-transform-origin: left top;
+          transform-origin: left top;
+  -webkit-transform: translate3d(0px, 0px, 0px) scaleX(1) scaleY(1);
+          transform: translate3d(0px, 0px, 0px) scaleX(1) scaleY(1);
+  display: block;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: relative;
+  overflow: hidden;
+  top: 0%;
+  margin-top: 0;
+  z-index: 10;
+  cursor: pointer;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: var(--primary-color);
+  border-radius: 100%;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  min-width: 51px;
+  min-height: 51px;
+  max-width: 51px;
+  max-height: 51px;
+}
+.swiper-button-next:not(:last-child),
+.swiper-button-prev:not(:last-child) {
+  margin-right: 10px;
+}
+.swiper-button-next::before, .swiper-button-next::after,
+.swiper-button-prev::before,
+.swiper-button-prev::after {
+  position: absolute;
+  font-size: 22px;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icons" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: all 0.15s ease 0s;
+  transition: all 0.15s ease 0s;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  opacity: 0;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: 0px;
+  right: 0px;
+}
+.swiper-button-prev::before, .swiper-button-prev::after,
+.swiper-rtl .swiper-button-next::before,
+.swiper-rtl .swiper-button-next::after {
+  content: "\e901";
+}
+.swiper-button-prev::after,
+.swiper-rtl .swiper-button-next::after {
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+}
+@media (any-hover: hover) {
+  .swiper-button-prev:hover::before,
+  .swiper-rtl .swiper-button-next:hover::before {
+    -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
+    opacity: 0;
+  }
+  .swiper-button-prev:hover::after,
+  .swiper-rtl .swiper-button-next:hover::after {
+    -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: 0px;
+  left: 0px;
+}
+.swiper-button-next::before, .swiper-button-next::after,
+.swiper-rtl .swiper-button-prev::before,
+.swiper-rtl .swiper-button-prev::after {
+  content: "\e900";
+}
+.swiper-button-next::after,
+.swiper-rtl .swiper-button-prev::after {
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+@media (any-hover: hover) {
+  .swiper-button-next:hover::before,
+  .swiper-rtl .swiper-button-prev:hover::before {
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+  }
+  .swiper-button-next:hover::after,
+  .swiper-rtl .swiper-button-prev:hover::after {
+    -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.swiper-navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 991.98px) {
+  .swiper-navigation {
+    display: none;
+  }
+}

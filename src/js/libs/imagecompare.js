@@ -6,9 +6,11 @@
 import ImageCompare from "image-compare-viewer";
 import 'image-compare-viewer/dist/image-compare-viewer.min.css';
 
+import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
+
 // Инициализация сравнения картинок
 export function initComparison(id) {
-	const comparison = document.getElementById(id)
+	const comparison = document.getElementById(id);
 	if (comparison) {
 		const comparisonViewer = new ImageCompare(comparison, {
 			// UI Theme Defaults
@@ -37,9 +39,18 @@ export function initComparison(id) {
 		}).mount();
 	}
 }
-initComparison('image-compare')
+
+// Функция для уничтожения сравнения изображений
+export function destroyComparison(id) {
+	const comparison = document.getElementById(id);
+	if (comparison && comparison.__imageCompare) {
+		comparison.__imageCompare.destroy(); // Предполагается, что ImageCompare экземпляры могут иметь этот метод
+	}
+}
+
+// Инициализация на странице
+initComparison('image-compare');
 
 // Инициализация курсора
-import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
 addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
 addCursorMove(".rs-comparison__compare", ".icv__circle")

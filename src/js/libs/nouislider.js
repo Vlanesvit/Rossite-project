@@ -5,6 +5,7 @@
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 
+// Инициализация noUiSlider
 export function initNoUiField(page, page_count) {
 	const pageItem = document.getElementById(page);
 	const pageCount = document.getElementById(page_count);
@@ -23,19 +24,27 @@ export function initNoUiField(page, page_count) {
 			connect: 'lower',
 			range: { min: 0, max: pageNumber.length - 1 },
 			step: 1,
-			// tooltips: true,
 			format: pageformat,
 			pips: { mode: 'steps', format: pageformat, density: 100 },
 		});
 		pageItem.noUiSlider.on('update', function (values, handle) {
 			pageNumber.forEach(number => {
-				pageItem.classList.remove(`active-pip-${number}`)
+				pageItem.classList.remove(`active-pip-${number}`);
 			});
-			pageItem.classList.add(`active-pip-${values}`)
+			pageItem.classList.add(`active-pip-${values}`);
 			pageCount.textContent = values;
-		});;
+		});
 	}
 }
 
+// Функция для уничтожения noUiSlider
+export function destroyNoUiField(page) {
+	const pageItem = document.getElementById(page);
+	if (pageItem && pageItem.noUiSlider) {
+		pageItem.noUiSlider.destroy();
+	}
+}
+
+// Инициализация на странице
 initNoUiField('styles-page', 'styles-page-count')
 initNoUiField('fill-page', 'fill-page-count')

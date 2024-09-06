@@ -1,3 +1,5 @@
+import { handleReveal } from "../libs/animation-gsap.js";
+
 /* ====================================
 Кнопка "Показать еще"
 ==================================== */
@@ -12,8 +14,8 @@ export function openFullList() {
 			tariffAdd.addEventListener('click', function () {
 				tariffAbout.classList.add('_full')
 				tariffAdd.classList.add('_hide');
-				ScrollTrigger.refresh(true);
-			})
+				handleReveal()  // Обновление ScrollTrigger после появления новых элементов
+			});
 		}
 	});
 }

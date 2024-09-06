@@ -3,6 +3,8 @@ import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js"
 addCursorHover(".rs-project__slide", ".cursor", "cursor__active");
 addCursorMove(".rs-project__slide", ".cursor__circle")
 
+import { handleReveal } from "../libs/animation-gsap.js";
+
 /* ====================================
 Подсчет активных фильтров и отчистка
 ==================================== */
@@ -132,7 +134,7 @@ export function imitationProductLoad() {
 				projectAdd.classList.add('_close-btn');
 			}
 		}
-		checkCurrentItems()
+		checkCurrentItems();
 
 		// Показываем первые {showCount} карточек
 		for (let i = 0; i < showCount; i++) {
@@ -148,11 +150,10 @@ export function imitationProductLoad() {
 				}
 			}
 			showCount += loadCount;
-			checkCurrentItems()
+			checkCurrentItems();
 
-			// ВАЖНО! обновляем старт и конец для анимаций gsap
-			ScrollTrigger.refresh()
-		})
+			handleReveal(); // Обновление ScrollTrigger после появления новых элементов
+		});
 	});
 }
 if (document.querySelector('.rs-project')) {

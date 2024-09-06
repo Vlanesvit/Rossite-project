@@ -6960,19 +6960,6 @@
         }
     }), 0);
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-    const loader = document.querySelector(".mg-loader");
-    const loaderFillv1 = loader.querySelector(".mg-loader-fill.-v1");
-    const loaderFillv2 = loader.querySelector(".mg-loader-fill.-v2");
-    const loaderAnim = (element, yPercent, delay) => {
-        gsap.to(element, {
-            yPercent,
-            delay,
-            duration: .6,
-            ease: "cubic-bezier(0.9, 0, 0.2, 1)"
-        });
-    };
-    loaderAnim(loaderFillv1, 100, .4);
-    loaderAnim(loaderFillv2, 100, .2);
     const handleResize = () => {
         requestAnimationFrame((() => {
             ScrollTrigger.refresh();
@@ -7211,7 +7198,6 @@
         document.querySelectorAll(".pin-spacer, .gsap-pin-spacer").forEach((spacer => {
             spacer.replaceWith(...spacer.childNodes);
         }));
-        console.log("Все анимации и pin-spacer удалены");
     }
     function initAnimationsBasedOnWidth() {
         const width = window.innerWidth;
@@ -7240,13 +7226,9 @@
     window.addEventListener("load", (() => {
         updatePrimaryColor();
         initAnimationsBasedOnWidth();
-        setTimeout((() => {
-            window.scrollTo(0, 0);
-        }), 100);
         handleResize();
     }));
     function initializeCommonAnimations() {
-        console.log("Инициализация общих анимаций");
         animateSvgDashedLine({
             dashedSelector: "section [class*='__line'] .dashed-path"
         });
@@ -7289,12 +7271,12 @@
         });
         revealOnScroll({
             elements: ".rs-header__logo",
-            delay: .3,
+            delay: .75,
             direction: "fade"
         });
         revealOnScroll({
             elements: ".rs-header__actions",
-            delay: .45,
+            delay: 1,
             direction: "fade"
         });
         revealOnScroll({
@@ -7416,7 +7398,7 @@
         });
         revealOnScroll({
             elements: ".rs-footer__spollers_item",
-            delay: .15,
+            delay: .2,
             direction: "bottom-up--every"
         });
         revealOnScroll({
@@ -7575,7 +7557,6 @@
         });
     }
     function initializeDesktopAnimations() {
-        console.log("Инициализация десктопных анимаций");
         horizontalScroll({
             blockSelector: ".rs-slider-block-pins .rs-slider-block__swiper",
             triggerSelector: ".rs-slider-block-pins",
@@ -7819,7 +7800,6 @@
         }
     }
     function initializeMobileAnimations() {
-        console.log("Инициализация мобильных анимаций");
         if (document.querySelector(".rs-features__slide")) setTimeout((() => {
             const stackItems = gsap.utils.toArray(".rs-features__slide");
             gsap.set(stackItems, {
@@ -7880,6 +7860,17 @@
         }
     }
     function initBarba() {
+        const loader = document.querySelector(".mg-loader");
+        const loaderFillv1 = loader.querySelector(".mg-loader-fill.-v1");
+        const loaderFillv2 = loader.querySelector(".mg-loader-fill.-v2");
+        const loaderAnim = (element, yPercent, delay) => {
+            gsap.to(element, {
+                yPercent,
+                delay,
+                duration: .6,
+                ease: "cubic-bezier(0.9, 0, 0.2, 1)"
+            });
+        };
         const initializePage = () => {
             initSliders();
             initComparison("image-compare");
@@ -7913,6 +7904,9 @@
             destroyComparison();
             destroyNoUiField();
         };
+        gsap.set([ loaderFillv1, loaderFillv2 ], {
+            yPercent: 100
+        });
         barba.init({
             transitions: [ {
                 leave({current}) {
