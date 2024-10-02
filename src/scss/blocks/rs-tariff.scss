@@ -71,6 +71,7 @@
 
 		&._full {
 			height: 100%;
+			overflow: visible;
 
 			&::before {
 				opacity: 0;
@@ -376,8 +377,7 @@
 			}
 
 			&:first-child {
-				flex-direction: row;
-				align-items: flex-start;
+				display: block;
 				text-align: left;
 				max-width: 450px;
 				padding-left: 0px;

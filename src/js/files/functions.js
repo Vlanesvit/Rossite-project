@@ -497,7 +497,7 @@ export function menu() {
 		const menuItemDropdownsMenuTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_block > .dropdown__container > .dropdown__columns > .menu__dropdown > .menu__dropdown_block > .menu__dropdown > .menu__dropdown_block');
 
 		// Добавление иконки в пункты с выпадающим меню
-		menuItems.forEach(item => {
+		menuItemDropdowns.forEach(item => {
 			const menuLinkDropdowns = item.querySelector('a');
 			let iconDropdown = document.createElement('i');
 			iconDropdown.classList.add('menu__dropdown-arrow')
@@ -509,7 +509,9 @@ export function menu() {
 				item.closest('.rs-header').classList.add('_header-hover')
 			})
 			item.addEventListener('mouseleave', function () {
-				item.closest('.rs-header').classList.remove('_header-hover')
+				if (!document.documentElement.classList.contains("region-menu-open") || !document.documentElement.classList.contains("region-menu-open")) {
+					item.closest('.rs-header').classList.remove('_header-hover')
+				}
 			})
 		});
 
@@ -523,6 +525,8 @@ export function menu() {
 				if (menuItemBack) {
 					menuItemBack.addEventListener('click', (e) => {
 						e.preventDefault();
+						e.stopPropagation();
+
 						if (menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
 							menuItemIcons.closest('.menu__dropdown').classList.remove('_open-menu');
 						}
@@ -533,12 +537,14 @@ export function menu() {
 					const menuItemLink = item.querySelector('a');
 					menuItemLink.addEventListener('click', function (e) {
 						e.preventDefault();
+						e.stopPropagation();
 					})
 				}
 
 				// Открытие меню при клике на иконку
 				menuItemIcons.addEventListener('click', (e) => {
 					e.preventDefault();
+					e.stopPropagation();
 
 					// Проходимся по всем пунктам и ищем активные классы, убираем их и добавляем активный класс кликнутому пункту
 					if (!menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
@@ -578,10 +584,12 @@ export function menu() {
 }
 
 export function regionMenu() {
-	const regionBtns = document.querySelectorAll('.rs-header__location_show-search');
+	const regionBtns = document.querySelectorAll('.rs-header__actions .rs-header__location_show-search');
+	const regionInnerBtns = document.querySelectorAll('.rs-header .menu__block .rs-header__location	.rs-header__location_show-search');
 	const regionVerf = document.querySelectorAll('.rs-header__location_verification');
 	const regionModal = document.querySelectorAll('.rs-header__location_modal');
-	const regionBlockClose = document.querySelectorAll('.rs-header__region_close');
+	const regionBlockClose = document.querySelectorAll('.rs-header__region .rs-header__region_head .rs-header__region_close');
+	const regionBlockInnerClose = document.querySelectorAll('.rs-header__region .rs-header__region_field .rs-header__region_close');
 	const regionModalInnerMenuBtn = document.querySelector('.rs-header__container > .rs-header__location_modal .rs-header__location_show-search');
 
 	// Открывает модальное окно подтверждение локации
@@ -603,6 +611,25 @@ export function regionMenu() {
 
 				if (!document.documentElement.classList.contains('region-menu-open')) {
 					regionMenuOpen()
+					menuClose();
+					regionBtn.closest('.rs-header').classList.add('_header-hover')
+				}
+			})
+		});
+	}
+
+	if (regionInnerBtns.length > 0) {
+		regionInnerBtns.forEach(regionBtn => {
+			regionBtn.addEventListener('click', function (e) {
+				e.preventDefault();
+
+				// Удаляет класс модального окна подтвеждения локации + открывает модальное окно выбора региона
+				if (document.documentElement.classList.contains('location-modal-open')) {
+					document.documentElement.classList.remove('location-modal-open')
+				}
+
+				if (!document.documentElement.classList.contains('region-menu-open')) {
+					document.documentElement.classList.add("region-menu-open");
 					regionBtn.closest('.rs-header').classList.add('_header-hover')
 				}
 			})
@@ -618,6 +645,18 @@ export function regionMenu() {
 				if (document.documentElement.classList.contains('region-menu-open')) {
 					regionMenuClose()
 					close.closest('.rs-header').classList.remove('_header-hover')
+				}
+			});
+		})
+	}
+
+	if (regionBlockInnerClose.length > 0) {
+		regionBlockInnerClose.forEach(close => {
+			close.addEventListener('click', function (e) {
+				e.preventDefault();
+				// Закрывает модальное окно выбора региона
+				if (document.documentElement.classList.contains('region-menu-open')) {
+					document.documentElement.classList.remove("region-menu-open");
 				}
 			});
 		})
@@ -640,7 +679,7 @@ export function regionMenu() {
 		regionModalInnerMenuBtn.addEventListener('click', function (e) {
 			e.preventDefault();
 			document.querySelector('.rs-header').classList.add('_header-show')
-			menuOpen()
+			menuClose()
 			regionMenuOpen()
 		})
 	}
@@ -673,6 +712,19 @@ export function regionMenu() {
 						itemShow.parentElement.parentElement.classList.remove('hidden');
 					});
 				});
+			});
+
+			listRegion.forEach(item => {
+				const link = item.querySelector('a');
+				if (link) {
+					link.addEventListener('click', function () {
+						// Закрывает модальное окно выбора региона
+						if (document.documentElement.classList.contains('region-menu-open')) {
+							regionMenuClose()
+							link.closest('.rs-header').classList.remove('_header-hover')
+						}
+					})
+				}
 			});
 		});
 	}

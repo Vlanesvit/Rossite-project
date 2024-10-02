@@ -97,7 +97,8 @@ body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
-	// overflow: hidden;
+	overflow: hidden;
+	
 	// Прижимаем footer
 	> main {
 		flex: 1 1 auto;
@@ -206,4 +207,5 @@ body {
 @import "blocks/rs-text-block";
 @import "blocks/rs-why-block";
 @import "blocks/rs-error-block";
+@import "blocks/rs-workflow";
 @import "anim-go-page";

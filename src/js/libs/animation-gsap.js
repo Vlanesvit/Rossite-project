@@ -275,6 +275,26 @@ function initAnimationsBasedOnWidth() {
 	ScrollTrigger.refresh();
 }
 
+/* ====================================
+Воспроизведение видео при загрузке страницы
+==================================== */
+function videoPlay() {
+	console.log('func load');
+
+	const videoElements = document.querySelectorAll('video');
+	if (videoElements.length > 0) {
+
+		videoElements.forEach(videoElement => {
+			console.log(videoElement);
+
+			videoElement.play().catch(function (error) {
+				console.error("Автоматическое воспроизведение видео не удалось: ", error);
+				// Можно обработать ошибку, например, показать сообщение пользователю
+			});
+		});
+	}
+}
+
 // Дебаунсинг события ресайза
 const debouncedInitAnimations = debounce(initAnimationsBasedOnWidth, 100);
 
@@ -292,16 +312,96 @@ window.addEventListener('orientationchange', () => {
 window.addEventListener('load', () => {
 	updatePrimaryColor();
 	initAnimationsBasedOnWidth();
+	handleResize();
+	videoPlay()
+
+	console.log('Load page');
+
 	setTimeout(() => {
 		window.scrollTo(0, 0);
-	}, 100);
-	handleResize();
+	}, 300);
 });
 
 //========================================================================================================================================================
 // Общие анимации
 function initializeCommonAnimations() {
 	console.log("Инициализация общих анимаций");
+
+	//========================================================================================================================================================
+	// Закрепление блоков и последующее складывание в стопку
+	if (document.querySelector('.rs-features__slide')) {
+		setTimeout(() => {
+			const stackItems = gsap.utils.toArray('.rs-features__slide');
+
+			gsap.set(stackItems, {
+				yPercent: (index) => 0,
+				scale: (index) => 1,
+			});
+
+			const stackTimeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: '.rs-features__wrapper',
+					start: 'top top',
+					// end: () => `+=${(stackItems.length - 1) * 100}vh`,
+					end: "bottom+=50% top",
+					// endTrigger: '.rs-features',
+					pin: true,
+					pinSpacing: true,
+					scrub: true,
+					invalidateOnRefresh: true,
+					// markers: true,
+				}
+			});
+
+			stackTimeline
+				.to(stackItems, {
+					yPercent: (index) => -100 * index,
+					duration: 1,
+					ease: "power2.inOut",
+					stagger: stagger,
+				})
+				.to(stackItems, {
+					scale: (index) => 1 - (stackItems.length - index) * 0.025,
+					duration: 1,
+					ease: "power2.inOut",
+					stagger: stagger,
+				}, stagger);
+
+			handleResize()
+		}, 1000);
+	}
+
+	//========================================================================================================================================================
+	// Закрепление заголовка с анимацией при скролле
+	if (document.querySelector('.rs-main__title h1')) {
+		setTimeout(() => {
+			gsap.to('.rs-main__title h1', {
+				scrollTrigger: {
+					trigger: '.rs-main__title',
+					start: `top top`,
+					end: `bottom bottom`,
+					endTrigger: '.rs-main__pins',
+					pin: true,
+					pinSpacing: false,
+					scrub: true,
+					invalidateOnRefresh: true,
+					// markers: 1,
+				},
+			});
+			gsap.set('.rs-main__title h1', { scale: 0, opacity: 0 });
+			gsap.to('.rs-main__title h1', {
+				scale: 1,
+				opacity: 1,
+				scrollTrigger: {
+					start: `top+=50% top`,
+					end: `bottom=+50% bottom`,
+					endTrigger: '.rs-main__title',
+					scrub: true,
+					// markers: 1,
+				}
+			})
+		}, 100);
+	}
 
 	animateSvgDashedLine({ dashedSelector: "section [class*='__line'] .dashed-path" });
 
@@ -366,6 +466,9 @@ function initializeCommonAnimations() {
 	revealOnScroll({ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__icons img', delay: 0.3, direction: 'scale--every' });
 	revealOnScroll({ elements: '.rs-text-block__description ol li', duration: 0.15, delay: 0.3, direction: 'bottom-up--every' });
 	revealOnScroll({ elements: '.rs-text-block__description ul li', duration: 0.15, delay: 0.3, direction: 'bottom-up--every' });
+	// Workflow
+	revealOnScroll({ elements: '.rs-workflow .rs-workflow__img img', delay: 0.3, direction: 'scale--every' });
+	revealOnScroll({ elements: '.rs-workflow .rs-workflow__icon', delay: 0.3, direction: 'scale--every' });
 	// Tariff
 	revealOnScroll({ elements: '.rs-tariff__desktop', duration: 1, delay: 1, direction: 'fade' });
 	revealOnScroll({ elements: '.rs-tariff__mobile .rs-tariff__spollers', duration: 1, delay: 1, direction: 'fade' });
@@ -491,8 +594,8 @@ function initializeDesktopAnimations() {
 				scrollTrigger: {
 					trigger: ".rs-steps",
 					scrub: 1,
-					start: "top-=50% top",
-					end: "bottom+=50% bottom",
+					start: "top-=30% top",
+					end: "bottom+=30% bottom",
 					invalidateOnRefresh: true,
 					// markers: true,
 				}
@@ -547,50 +650,6 @@ function initializeDesktopAnimations() {
 	}
 
 	//========================================================================================================================================================
-	// Закрепление блоков и последующее складывание в стопку
-	if (document.querySelector('.rs-features__slide')) {
-		setTimeout(() => {
-			const stackItems = gsap.utils.toArray('.rs-features__slide');
-
-			gsap.set(stackItems, {
-				yPercent: (index) => 0,
-				scale: (index) => 1,
-			});
-
-			const stackTimeline = gsap.timeline({
-				scrollTrigger: {
-					trigger: '.rs-features__wrapper',
-					start: 'top top',
-					// end: () => `+=${(stackItems.length - 1) * 100}vh`,
-					end: "bottom+=50% top",
-					// endTrigger: '.rs-features',
-					pin: true,
-					pinSpacing: true,
-					scrub: true,
-					invalidateOnRefresh: true,
-					// markers: true,
-				}
-			});
-
-			stackTimeline
-				.to(stackItems, {
-					yPercent: (index) => -100 * index,
-					duration: 1,
-					ease: "power2.inOut",
-					stagger: stagger,
-				})
-				.to(stackItems, {
-					scale: (index) => 1 - (stackItems.length - index) * 0.025,
-					duration: 1,
-					ease: "power2.inOut",
-					stagger: stagger,
-				}, stagger);
-
-			handleResize()
-		}, 1000);
-	}
-
-	//========================================================================================================================================================
 	if (document.querySelector('.rs-tariff__top')) {
 		setTimeout(() => {
 			gsap.to('.rs-tariff__top', {
@@ -611,106 +670,78 @@ function initializeDesktopAnimations() {
 	}
 
 	//========================================================================================================================================================
-	// Закрепление заголовка с анимацией при скролле
-	if (document.querySelector('.rs-main__title h1')) {
-		gsap.to('.rs-main__title h1', {
-			scrollTrigger: {
-				trigger: '.rs-main__title',
-				start: `top top`,
-				end: `bottom bottom`,
-				endTrigger: '.rs-main__pins',
-				pin: true,
-				pinSpacing: false,
-				scrub: true,
-				invalidateOnRefresh: true,
-				// markers: 1,
-			},
-		});
-		gsap.set('.rs-main__title h1', { scale: 0, opacity: 0 });
-		gsap.to('.rs-main__title h1', {
-			scale: 1,
-			opacity: 1,
-			scrollTrigger: {
-				start: `top+=50% top`,
-				end: `bottom=+50% bottom`,
-				endTrigger: '.rs-main__title',
-				scrub: true,
-				// markers: 1,
-			}
-		})
-	}
-
-	//========================================================================================================================================================
 	// Закрепление проектов и установка якорных ссылок на каждый проект
 	if (document.querySelector('.rs-main__project_item')) {
-		gsap.set('.rs-main__project_item', {
-			y: (index) => 0 * index,
-			zIndex: (index, target, targets) => targets.length - index,
-			scale: (index) => 1 - (index * 0.05),
-		})
+		setTimeout(() => {
+			gsap.set('.rs-main__project_item', {
+				y: (index) => 0 * index,
+				zIndex: (index, target, targets) => targets.length - index,
+				scale: (index) => 1 - (index * 0.05),
+			})
 
-		const pinBlock = gsap.timeline({
-			defaults: { ease: "none" },
-			scrollTrigger: {
-				trigger: ".rs-main__project",
-				start: "top top",
-				end: "bottom+=300% top",
-				scrub: true,
-				pin: true,
-				// markers: 1,
-				id: 'pin-block',
-				invalidateOnRefresh: true,
-			}
-		});
-		pinBlock.to('.rs-main__project_item', {
-			scale: 1,
-			y: 0,
-			webkitFilter: "blur(" + 0 + "px)",
-			stagger: stagger,
-		})
-
-		pinBlock.to('.rs-main__project_item:not(:last-child)', {
-			yPercent: -125,
-			stagger: stagger,
-		}, stagger)
-
-		ScrollTrigger.refresh(); // Refresh ScrollTrigger settings
-		const start = pinBlock.scrollTrigger.start;
-		const end = pinBlock.scrollTrigger.end;
-		const totalScroll = end - start;
-		let links = gsap.utils.toArray(".rs-main__project_nav ul li a");
-		const scrollSteps = totalScroll / links.length;
-
-		links.forEach((a, index) => {
-			let element = document.querySelector(a.getAttribute("href"))
-
-			ScrollTrigger.create({
-				trigger: element,
-				start: `${(scrollSteps * (index + 1))} center`,
-				end: `${(scrollSteps * (index + 1)) + (element.clientHeight)} center`,
-				// markers: 1,
-				onEnter: () => setActive(a),
-				onEnterBack: () => setActive(a),
-				onLeave: () => setActive(a),
-				onLeaveBack: () => setActive(a)
+			const pinBlock = gsap.timeline({
+				defaults: { ease: "none" },
+				scrollTrigger: {
+					trigger: ".rs-main__project",
+					start: "top top",
+					end: "bottom+=300% top",
+					scrub: true,
+					pin: true,
+					// markers: 1,
+					id: 'pin-block',
+					invalidateOnRefresh: true,
+				}
 			});
+			pinBlock.to('.rs-main__project_item', {
+				scale: 1,
+				y: 0,
+				webkitFilter: "blur(" + 0 + "px)",
+				stagger: stagger,
+			})
 
-			a.addEventListener("click", (e) => {
-				e.preventDefault();
+			pinBlock.to('.rs-main__project_item:not(:last-child)', {
+				yPercent: -125,
+				stagger: stagger,
+			}, stagger)
 
-				gsap.to(window, {
-					duration: 0.1,
-					// onStart: () => setActive(a),
-					scrollTo: () => scrollSteps * (index + 1) + start,
-					overwrite: "auto"
+			ScrollTrigger.refresh(); // Refresh ScrollTrigger settings
+			const start = pinBlock.scrollTrigger.start;
+			const end = pinBlock.scrollTrigger.end;
+			const totalScroll = end - start;
+			let links = gsap.utils.toArray(".rs-main__project_nav ul li a");
+			const scrollSteps = totalScroll / links.length;
+
+			links.forEach((a, index) => {
+				let element = document.querySelector(a.getAttribute("href"))
+
+				ScrollTrigger.create({
+					trigger: element,
+					start: `${(scrollSteps * (index + 1))} center`,
+					end: `${(scrollSteps * (index + 1)) + (element.clientHeight)} center`,
+					// markers: 1,
+					onEnter: () => setActive(a),
+					onEnterBack: () => setActive(a),
+					onLeave: () => setActive(a),
+					onLeaveBack: () => setActive(a)
+				});
+
+				a.addEventListener("click", (e) => {
+					e.preventDefault();
+
+					gsap.to(window, {
+						duration: 0.1,
+						// onStart: () => setActive(a),
+						scrollTo: () => scrollSteps * (index + 1) + start,
+						overwrite: "auto"
+					});
 				});
 			});
-		});
 
-		function setActive(link) {
-			links.forEach((el) => el.classList.remove("_active"));
-			link.classList.add("_active");
-		}
+			function setActive(link) {
+				links.forEach((el) => el.classList.remove("_active"));
+				link.classList.add("_active");
+			}
+		}, 200);
 	}
 }
 
@@ -718,79 +749,6 @@ function initializeDesktopAnimations() {
 function initializeMobileAnimations() {
 	console.log("Инициализация мобильных анимаций");
 
-	//========================================================================================================================================================
-	// Закрепление блоков и последующее складывание в стопку
-	if (document.querySelector('.rs-features__slide')) {
-		setTimeout(() => {
-			const stackItems = gsap.utils.toArray('.rs-features__slide');
-
-			gsap.set(stackItems, {
-				yPercent: (index) => 0,
-				scale: (index) => 1,
-			});
-
-			const stackTimeline = gsap.timeline({
-				scrollTrigger: {
-					trigger: '.rs-features__wrapper',
-					start: 'top top',
-					// end: () => `+=${(stackItems.length - 1) * 100}vh`,
-					end: "bottom+=50% top",
-					// endTrigger: '.rs-features',
-					pin: true,
-					pinSpacing: true,
-					scrub: true,
-					invalidateOnRefresh: true,
-					// markers: true,
-				}
-			});
-
-			stackTimeline
-				.to(stackItems, {
-					yPercent: (index) => -100 * index,
-					duration: 1,
-					ease: "power2.inOut",
-					stagger: stagger,
-				})
-				.to(stackItems, {
-					scale: (index) => 1 - (stackItems.length - index) * 0.025,
-					duration: 1,
-					ease: "power2.inOut",
-					stagger: stagger,
-				}, stagger);
-
-			handleResize()
-		}, 1000);
-	}
-
-	//========================================================================================================================================================
-	// Закрепление заголовка с анимацией при скролле
-	if (document.querySelector('.rs-main__title h1')) {
-		gsap.to('.rs-main__title h1', {
-			scrollTrigger: {
-				trigger: '.rs-main__title',
-				start: `top top`,
-				end: `bottom bottom`,
-				endTrigger: '.rs-main__pins',
-				pin: true,
-				pinSpacing: false,
-				scrub: true,
-				invalidateOnRefresh: true,
-				// markers: 1,
-			},
-		});
-		gsap.set('.rs-main__title h1', { scale: 0, opacity: 0 });
-		gsap.to('.rs-main__title h1', {
-			scale: 1,
-			opacity: 1,
-			scrollTrigger: {
-				start: `top+=50% top`,
-				end: `bottom=+50% bottom`,
-				endTrigger: '.rs-main__title',
-				scrub: true,
-				// markers: 1,
-			}
-		})
-	}
 }
 
 //========================================================================================================================================================
@@ -815,6 +773,7 @@ import { addCursorHover, addCursorMove } from "../libs/cursor.js";
 function initBarba() {
 	const initializePage = () => {
 		// Инициализация функционала
+		videoPlay();
 		initSliders();
 		initComparison('image-compare');
 		initNoUiField('styles-page', 'styles-page-count');
@@ -827,8 +786,8 @@ function initBarba() {
 		vnvFunctions.regionMenu();
 		vnvFunctions.showMore();
 
-		vnvForms.formFieldsInit();
-		vnvForms.formSubmit();
+		// vnvForms.formFieldsInit();
+		// vnvForms.formSubmit();
 		vnvForms.formQuantity();
 		vnvForms.formRating();
 
@@ -873,7 +832,6 @@ function initBarba() {
 				});
 			},
 
-
 			enter({ current, next, trigger }) {
 				return gsap.from(next.container, {
 					onComplete: () => {
@@ -895,6 +853,9 @@ function initBarba() {
 				return gsap.from(next.container, {
 					delay: 0.5,
 					onComplete: function () {
+						updatePrimaryColor();
+						initAnimationsBasedOnWidth();
+						handleResize(); // Обновляем ScrollTrigger после загрузки новой страницы
 						initializePage();  // Инициализируем функционал после показа страницы
 					},
 				});

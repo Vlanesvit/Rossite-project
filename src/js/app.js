@@ -80,10 +80,10 @@ import * as vnvForms from "./files/forms/forms.js";
 
 /* Работа с полями формы */
 /* Документация: https://template.vnv.guru/template-docs/rabota-s-formami.html */
-vnvForms.formFieldsInit({
-	viewPass: false,
-	autoHeight: false
-});
+// vnvForms.formFieldsInit({
+// 	viewPass: false,
+// 	autoHeight: false
+// });
 
 /* Oтправка формы */
 /* Документация: https://template.vnv.guru/template-docs/rabota-s-formami.html */

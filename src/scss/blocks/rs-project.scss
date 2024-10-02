@@ -146,7 +146,8 @@
 			pointer-events: none;
 			user-select: none;
 
-			&._open-project {
+			&._open-project,
+			&:nth-child(-n + 3) {
 				position: relative;
 				opacity: 1;
 				visibility: visible;

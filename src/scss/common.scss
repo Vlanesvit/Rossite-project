@@ -5,7 +5,7 @@
 
 section {
 	position: relative;
-	overflow: hidden;
+	// overflow: hidden;
 	z-index: 1;
 	margin: 100px 0px;
 
@@ -947,7 +947,8 @@ section {
 			margin-bottom: 11px;
 		}
 
-		&._form-error {
+		&._form-error,
+		&.wpcf7-not-valid {
 			.rs-input-placeholder {
 				font-size: 12px;
 				padding-top: 12.5px;
@@ -957,13 +958,15 @@ section {
 					font-size: 11px;
 				}
 			}
-			.form__right {
+			.form__right,
+			.wpcf7-valid-tip {
 				opacity: 0;
 				visibility: hidden;
 			}
 		}
 
-		&._form-right {
+		&._form-right,
+		&.wpcf7-valid {
 			.rs-input-placeholder {
 				font-size: 12px;
 				padding-top: 12.5px;
@@ -973,13 +976,15 @@ section {
 					font-size: 11px;
 				}
 			}
-			.form__right {
+			.form__right,
+			.wpcf7-valid-tip {
 				opacity: 1;
 				visibility: visible;
 			}
 		}
 
-		&._form-valid {
+		&._form-valid,
+		&.wpcf7-content {
 			.rs-input-placeholder {
 				font-size: 12px;
 				padding-top: 12.5px;
@@ -991,7 +996,8 @@ section {
 			}
 		}
 
-		&._form-focus {
+		&._form-focus,
+		&.wpcf7-focus {
 			.rs-input-placeholder {
 				font-size: 12px;
 				padding-top: 12.5px;
@@ -1001,7 +1007,8 @@ section {
 					font-size: 11px;
 				}
 			}
-			.form__right {
+			.form__right,
+			.wpcf7-valid-tip {
 				opacity: 0;
 				visibility: hidden;
 			}
@@ -1009,6 +1016,11 @@ section {
 	}
 
 	&__error {
+		display: none;
+	}
+
+	&__error,
+	.wpcf7-not-valid-tip {
 		margin-top: 3px;
 		margin-left: 20px;
 		text-align: left;
@@ -1019,7 +1031,8 @@ section {
 		color: #e35255;
 	}
 
-	&__right {
+	&__right,
+	.wpcf7-valid-tip {
 		position: absolute;
 		right: 39px;
 		top: 27px;
@@ -1130,16 +1143,19 @@ section {
 		color: #666a80;
 	}
 
-	&._form-focus {
+	&._form-focus,
+	&.wpcf7-focus {
 		border-color: #6366f1;
 		background-color: #fff;
 	}
 
-	&._form-error {
+	&._form-error,
+	&.wpcf7-not-valid {
 		background-color: #fae5e4;
 	}
 
-	&._form-right {
+	&._form-right,
+	&.wpcf7-valid {
 	}
 }
 

@@ -522,48 +522,28 @@ export function initSliders() {
 
 			// Автопрокрутка
 			autoplay: {
-				// Пауза между прокруткой
-				delay: 1,
-				// delay: 5000,
-				// Закончить на последнем слайде
-				stopOnLastSlide: false,
-				// Отключить после ручного переключения
-				disableOnInteraction: false,
-				// Изменить направление
-				// reverseDirection: true,
+				delay: 1, // Минимальная задержка для непрерывного движения
+				disableOnInteraction: false, // Продолжать прокрутку даже при взаимодействии
 			},
 
-			// Обновить свайпер
-			// при изменении элементов слайдера
-			observer: true,
-			// при изменении родительских элементов слайдера
-			observeParents: true,
-			// при изменении дочерних элементов слайдера
-			observeSlideChildren: true,
-
-			// Скорость смены слайдов
-			speed: 5000,
-
-			// Включение/отключение
-			// перетаскивание на ПК
-			simulateTouch: true,
-			allowTouchMove: true,
-			// Чувствительность свайпа
-			touchRadio: 1,
-			// Угол срабатывания свайпа/перетаскивания
-			touchAngle: 45,
+			// Скорость прокрутки
+			speed: 3000, // Установи высокую скорость для эффекта бегущей ленты
 
 			// Цикличность слайдера
-			loop: true,
+			loop: true, // Для бесшовной прокрутки
+			loopAdditionalSlides: 100, // Добавляем дополнительные слайды
 
-			// Курсор перетаскивания
-			grabCursor: true,
+			// Количество слайдов для показа
+			slidesPerView: 'auto', // Показывать несколько логотипов одновременно
+			spaceBetween: 24, // Промежуток между слайдами
 
-			// Анимация переключения
-			// effect: 'fade',
+			// Отключаем управление пользователем
+			allowTouchMove: false, // Отключить возможность перетаскивания
 
-			slidesPerView: 'auto',
-			spaceBetween: 24,
+			// Обновить свайпер при изменении слайдов
+			observer: true,
+			observeParents: true,
+			observeSlideChildren: true,
 		});
 	}
 
