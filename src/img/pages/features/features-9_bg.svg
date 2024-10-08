@@ -1,9 +1,7 @@
 <svg width="1760" height="740" viewBox="0 0 1760 740" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_4712_7605)">
-<g clip-path="url(#clip1_4712_7605)">
 <g opacity="0.5" filter="url(#filter0_f_4712_7605)">
 <path d="M1005 495.002C1292 727.502 452.692 802.592 275.5 708.502C124.83 640.137 6.41873 546.662 -46.2872 410.025C-100.27 181.969 77.1651 44.7443 333.265 176.732C730.356 463.9 970.897 129.328 1005 495.002Z" fill="url(#paint0_linear_4712_7605)"/>
-</g>
 </g>
 </g>
 <defs>
@@ -19,9 +17,6 @@
 </linearGradient>
 <clipPath id="clip0_4712_7605">
 <rect width="1760" height="740" fill="white"/>
-</clipPath>
-<clipPath id="clip1_4712_7605">
-<rect width="1166.96" height="867" fill="white" transform="translate(-65 -15)"/>
 </clipPath>
 </defs>
 </svg>

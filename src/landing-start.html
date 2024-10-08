@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('html/_head.htm',{
+"title":"Лендинг Старт"
+})
+
+<body data-barba="wrapper">
+
+	@@include('html/_anim-elements.htm',{})
+
+	<div class="wrapper" data-barba="container" data-barba-namespace="landing-start" style="
+	--primary-color: #25C16F; 
+	--primary-color-hover: #4fcb8a; 
+	--primary-color-text: #fff; 
+	">
+
+		@@include('html/_header.htm',{
+		"addclass":""
+		})
+
+		<main class="page">
+
+			<section class="rs-banner" style="
+			--primary-color: #ffe219; 
+			--primary-color-hover: #fce85b; 
+			--primary-color-text: #141517;;
+			">>
+				<div class="rs-banner__wrapper">
+					<div class="rs-banner__bg">
+						<img class="rs-banner__bg--desktop" src=" ./img/pages/banner/banner-img-1.jpg" alt="">
+						<img class="rs-banner__bg--tablet" src=" ./img/pages/banner/banner-img-1--tablet.jpg" alt="">
+						<img class="rs-banner__bg--mobile" src=" ./img/pages/banner/banner-img-1--mobile.jpg" alt="">
+					</div>
+					<div class="rs-banner__content">
+						<div class="rs-banner__container">
+							<div class="rs-banner__body">
+								<h1 class="mrp-med-50">Сайт «Бизнес» за
+									110&nbsp;000&nbsp;₽
+								</h1>
+								<h5 class="mrp-reg-21">Создадим сайт по вашим пожеланиям. Разработка дизайна главной
+									страницы</h5>
+
+								<div class="rs-banner__buttons">
+									<a href="#" class="rs-btn _btn-primary">
+										<span class="btn-text _rs-icon-message">обсудить проект</span>
+										<span class="btn-hover"></span>
+									</a>
+									<a href="#" download="#" class="rs-btn _btn-primary-border">
+										<span class="btn-text _rs-icon-download">скачать КП</span>
+										<span class="btn-hover"></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-workflow">
+				<div class="section__container">
+					<div class="rs-workflow__wrapper">
+						<div class="rs-workflow__text">
+							<h2 class="mrp-med-40">Как мы создаем продающий лендинг?</h2>
+							<h5 class="mrp-reg-21">Маркетолог проанализирует рынок и ваших конкурентов, подготовит
+								извлекающие вопросы, создаст продающую структуру и напишет продающие заголовки и
+								контент.</h5>
+						</div>
+
+						<div class="rs-workflow__imgs">
+							<div class="rs-workflow__img">
+								<img src="@img/pages/text-block/text-block-10__img-1.png" alt="">
+							</div>
+							<div class="rs-workflow__img">
+								<img src="@img/pages/text-block/text-block-10__img-2.png" alt="">
+							</div>
+							<div class="rs-workflow__img" data-prlx-mouse data-prlx-cx="300" data-prlx-cy="200">
+								<img src="@img/pages/text-block/text-block-9__img-3.png" alt="">
+							</div>
+						</div>
+					</div>
+
+
+					<div class="rs-workflow__icons">
+						<div class="rs-workflow__icon" style="bottom: 15%; left: 9%;">
+							<img src="@img/pages/text-block/text-block-9__icon-1.svg" alt="">
+						</div>
+						<div class="rs-workflow__icon" style="top: 37%; left: 39%;">
+							<img src="@img/pages/text-block/text-block-9__icon-2.svg" alt="">
+						</div>
+						<div class="rs-workflow__icon" style="top: 18%; right: 4.2%;">
+							<img src="@img/pages/text-block/text-block-9__icon-3.svg" alt="">
+						</div>
+						<div class="rs-workflow__line">
+							<svg viewBox="0 0 1920 713" fill="none">
+								<defs>
+									<mask id="maskWorkflow" maskUnits="userSpaceOnUse">
+										<path class="mask-path" id="mask-workflow"
+											d="M4 553.589C371.082 639.53 398.588 282.367 813.682 332.241C1117.25 368.716 1248.78 325.246 1389.31 213.823C1576.02 65.7896 1603.48 -9.84602 1926.93 352.227C2063.96 505.622 2210.49 263.289 2234 114.891"
+											stroke="#fff" stroke-width="3" />
+									</mask>
+								</defs>
+								<g mask="url(#maskWorkflow)">
+									<path opacity="0.5" class="dashed-path" id="dashed-workflow"
+										d="M4 553.589C371.082 639.53 398.588 282.367 813.682 332.241C1117.25 368.716 1248.78 325.246 1389.31 213.823C1576.02 65.7896 1603.48 -9.84602 1926.93 352.227C2063.96 505.622 2210.49 263.289 2234 114.891"
+										stroke="var(--primary-color)" stroke-linecap="round" stroke-linejoin="round"
+										stroke-width="3" stroke-dasharray="4 10" />
+								</g>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-steps">
+				<div class="section__container">
+					<div class="rs-steps__wrapper">
+						<div class="rs-steps__navigation">
+							<div class="rs-steps__navigation_body">
+								<h2 class="mrp-med-45">Над сайтом будут работать <br>
+									7 специалистов
+								</h2>
+
+								<ul class="rs-steps__navigation_list">
+									<li>
+										<a href="#prototype" class="_active-step">
+											<span class="count">1
+												<svg viewBox="0 0 73 74" fill="none">
+													<path
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+													<path class="hover"
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+												</svg>
+											</span>
+											<span class="split-text">Разработка прототипа</span>
+										</a>
+									</li>
+									<li>
+										<a href="#design">
+											<span class="count">2
+												<svg viewBox="0 0 73 74" fill="none">
+													<path
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+													<path class="hover"
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+												</svg>
+											</span>
+											<span class="split-text">Дизайн главной</span>
+										</a>
+									</li>
+									<li>
+										<a href="#style-inner">
+											<span class="count">3
+												<svg viewBox="0 0 73 74" fill="none">
+													<path
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+													<path class="hover"
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+												</svg>
+											</span>
+											<span class="split-text">Стилизация внутренних</span>
+										</a>
+									</li>
+									<li>
+										<a href="#develop">
+											<span class="count">4
+												<svg viewBox="0 0 73 74" fill="none">
+													<path
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+													<path class="hover"
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+												</svg>
+											</span>
+											<span class="split-text">Сборка сайта</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div data-spollers="991.98,max" data-one-spoller class="rs-steps__spollers">
+							<div class="rs-steps__spollers_item" id="prototype" data-bgcolor="#fff">
+								<button type="button" data-spoller
+									class="rs-steps__spollers_title mrp-med-25 _spoller-active">
+									Разработка прототипа <i class="rs-steps__spollers_icon"></i>
+								</button>
+								<div class="rs-steps__spollers_body">
+									<p class="mrp-reg-18">Проанализируем полученную от вас информацию и конкурентов.
+										Разработаем структуру и меню, напишем тексты. Создадим прототип главной
+										страницы. Согласуем расположение блоков и информацию в них.</p>
+									<div class="rs-steps__footer">
+										<ul class="rs-steps__list">
+											<li class="rs-steps__time">2 дня</li>
+											<li>контент-менеджер</li>
+											<li>копирайтер</li>
+											<li>младший веб-дизайнер</li>
+										</ul>
+									</div>
+									<div class="rs-steps__picture rs-steps__picture--prototype">
+										<div class="rs-steps__gallery">
+											<div class="rs-steps__column rs-steps__column-bottom">
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-1.1.jpg" alt="">
+												</div>
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-1.2.jpg" alt="">
+												</div>
+											</div>
+											<div class="rs-steps__column rs-steps__column-top">
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-1.3.jpg" alt="">
+												</div>
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-1.3.jpg" alt="">
+												</div>
+											</div>
+											<div class="rs-steps__column rs-steps__column-bottom">
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-1.4.jpg" alt="">
+												</div>
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-1.5.jpg" alt="">
+												</div>
+											</div>
+											<div class="rs-steps__column rs-steps__column-top">
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-1.6.jpg" alt="">
+												</div>
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-1.7.jpg" alt="">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-steps__spollers_item" id="design"
+								data-bgcolor="linear-gradient(135deg, #f4efff 0%, #fff 48.89%, #f0eaff 100%)">
+								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
+									Дизайн главной <i class="rs-steps__spollers_icon"></i>
+								</button>
+								<div class="rs-steps__spollers_body">
+									<p class="mrp-reg-18">После утверждения прототипа создадим дизайн-макет главной
+										страницы. Разработаем концепцию сайта и создадим индивидуальное оформление
+										главной страницы.</p>
+									<div class="rs-steps__footer">
+										<ul class="rs-steps__list">
+											<li class="rs-steps__time">7 дней</li>
+											<li>старший веб-дизайнер</li>
+											<li>веб-дизайнер</li>
+										</ul>
+									</div>
+									<div class="rs-steps__picture rs-steps__picture--design">
+										<div class="rs-steps__gallery">
+											<div class="rs-steps__column rs-steps__column-middle">
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-2.7.jpg" alt="">
+												</div>
+											</div>
+											<div class="rs-steps__column rs-steps__column-middle">
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-2.7.jpg" alt="">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-steps__spollers_item" id="style-inner"
+								data-bgcolor="linear-gradient(137deg, #f8fff3 0%, #fff 49.51%, #f4ffec 100%)">
+								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
+									Стилизация внутренних <i class="rs-steps__spollers_icon"></i>
+								</button>
+								<div class="rs-steps__spollers_body">
+									<p class="mrp-reg-18">После утверждения главной страницы создадим дизайн-макеты
+										4 базовых внутренних страниц, опираясь на разработанную концепцию сайта и
+										используя элементы главной страницы и готовые блоки.</p>
+									<div class="rs-steps__footer">
+										<ul class="rs-steps__list">
+											<li class="rs-steps__time">3 дня</li>
+											<li>веб-дизайнер</li>
+										</ul>
+									</div>
+									<div class="rs-steps__picture rs-steps__picture--style-inner">
+										<div class="rs-steps__gallery">
+											<div class="rs-steps__column rs-steps__column-bottom">
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-3.1.jpg" alt="">
+												</div>
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-3.2.jpg" alt="">
+												</div>
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-3.3.jpg" alt="">
+												</div>
+											</div>
+											<div class="rs-steps__column rs-steps__column-top">
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-3.4.jpg" alt="">
+												</div>
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-3.5.jpg" alt="">
+												</div>
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-3.6.jpg" alt="">
+												</div>
+											</div>
+											<div class="rs-steps__column rs-steps__column-bottom">
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-3.7.jpg" alt="">
+												</div>
+												<div class="rs-steps__img">
+													<img src=" ./img/pages/steps/steps-img-3.8.jpg" alt="">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-steps__spollers_item" id="develop"
+								data-bgcolor="linear-gradient(135deg, #f0f8ff 0%, #fff 50%, #e3fcff 100%)">
+								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
+									Сборка сайта <i class="rs-steps__spollers_icon"></i>
+								</button>
+								<div class="rs-steps__spollers_body">
+									<p class="mrp-reg-18">После утверждения дизайн-макетов главной и 4 внутренних
+										страниц сверстаем их и подключим к CMS. Создадим и наполним до 10 страниц.
+									</p>
+									<div class="rs-steps__footer">
+										<ul class="rs-steps__list">
+											<li class="rs-steps__time">10 дней</li>
+											<li>младший веб-дизайнер</li>
+											<li>верстальщик</li>
+											<li>разработчик</li>
+											<li>контент-редактор</li>
+										</ul>
+									</div>
+									<div class="rs-steps__picture rs-steps__picture--develop">
+										<div class="rs-steps__gallery">
+											<div class="rs-steps__column">
+												<div class="rs-steps__img">
+													<img src="@img/pages/steps/steps-img-4.1.jpg" alt="">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="rs-footer">
+			<div class="rs-footer__top">
+				<div class="rs-footer__container">
+					<div class="rs-footer__head">
+						<div class="rs-footer__phone">
+							<a href="tel:+78122428072">+7 812 242-80-72 </a>
+							<span>Отдел продаж</span>
+						</div>
+						<div class="rs-footer__links">
+							<ul>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="rs-footer__social social">
+							<ul class="social__list">
+								<li><a href="#" class="_rs-icon-vk"></a></li>
+								<li><a href="#" class="_rs-icon-whatsapp"></a></li>
+								<li><a href="#" class="_rs-icon-telegram"></a></li>
+								<li><a href="#" class="_rs-icon-instagram"></a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="rs-breadcrumbs">
+						<nav class="rs-breadcrumbs__navigation">
+							<ul itemscope itemtype="http://schema.org/BreadcrumbList" class="rs-breadcrumbs__list">
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="home.html" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Главная</span>
+									</a>
+									<meta itemprop="position" content="1">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="#" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Разработка</span>
+									</a>
+									<meta itemprop="position" content="2">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="#" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Информационный сайт</span>
+									</a>
+									<meta itemprop="position" content="3">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope=""
+									itemtype="http://schema.org/ListItem">
+									<span itemprop="name">Сайт «Бизнес» за 110&nbsp;000&nbsp;₽</span>
+									<meta itemprop="position" content="4">
+								</li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Разработка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Веб-сервис и приложение</a></li>
+												<li class="menu-item"><a href="#">Информационный сайт</a></li>
+												<li class="menu-item"><a href="#">Интернет-магазин</a></li>
+												<li class="menu-item"><a href="#">Landing Page</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Дополнительные услуги</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Техническая поддержка</a></li>
+												<li class="menu-item"><a href="#">Продающая страница</a></li>
+												<li class="menu-item"><a href="#">Разработка логотипов</a></li>
+												<li class="menu-item"><a href="#">SEO продвижение сайта</a></li>
+												<li class="menu-item"><a href="#">Контекстная реклама</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Помощь</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Инструкция по Word Press</a></li>
+												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Битриксу</a></li>
+												<li class="menu-item"><a href="#">Инструкция по Яндекс Директ</a></li>
+												<li class="menu-item"><a href="#">Карта сайта</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">О нас</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">О компании</a></li>
+												<li class="menu-item"><a href="#">Кейсы</a></li>
+												<li class="menu-item"><a href="#">Контакты</a></li>
+												<li class="menu-item"><a href="#">Вакансии</a></li>
+												<li class="menu-item"><a href="#">Отзывы</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller
+									class="rs-footer__spollers_title _spoller-active">Контактная
+									информация</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>
+												г. Санкт-Петербург, ш. Революции д.69, оф. 312 бц «Реформа»,
+												3й этаж, офис 312 (м. Ладожская)
+												<span>центральный офис</span>
+											</li>
+											<li>
+												Санкт-Петербург, ш. Революции д.69, оф. 312
+												<span>юридический адрес <a href="#">(учередительные
+														документы)</a></span>
+											</li>
+											<li>
+												пн-пт 09:00-18:00
+												<span>время работы</span>
+											</li>
+											<li>
+												<a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+												<span>e-mail</span>
+											</li>
+											<li>
+												<a href="mailto:support@rosait.ru">support@rosait.ru</a>
+												<span>техническая поддержка</span>
+											</li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="rs-footer__bottom">
+				<div class="rs-footer__container">
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Юридический адрес</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Санкт-Петербург, ш. Революции д.69, <br> оф. 312</li>
+											<li><a href="#">Учредительные документы</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Центральный офис</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>г. Санкт-Петербург, ш. Революции д.69, <br> оф. 312 бц «Реформа», 3й
+												этаж,
+												офис 312 <br> (м. Ладожская)</li>
+											<li>Время работы: пн-пт 09:00-18:00</li>
+											<li><a href="mailto:mail@rosait.ru">mail@rosait.ru</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Скоро открытие</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Ленинский пр., 140И БЦ «Космопро» <br>
+												(м. Ленинский проспект)</li>
+											<li>Коломяжский пр., 13, корп.21 БЦ «Бюси» <br>
+												(м. Пионерская)</li>
+											<li>ул. Садовая, 53 БЦ «на Садовой» (м. Садовая)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Техническая поддержка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li><a href="mailto:support@rosait.ru">support@rosait.ru</a></li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="rs-footer__city">
+						<h6 class="mrp-semibold-18">Вы можете позвонить из любого города:</h6>
+						<ul class="rs-footer__city_list">
+							<li><a href="#" class="_active-city">Москва</a></li>
+							<li><a href="#">Санкт-Петербург</a></li>
+							<li><a href="#">Новосибирск</a></li>
+							<li><a href="#">Казань</a></li>
+							<li><a href="#">Омск</a></li>
+							<li><a href="#">Екатеринбург</a></li>
+							<li><a href="#">Ростов-на-Дону</a></li>
+							<li><a href="#">Нижний Новгород</a></li>
+							<li><a href="#">Самара</a></li>
+							<li><a href="#">Пермь</a></li>
+							<li><a href="#">Волгоград</a></li>
+							<li><a href="#">Иркутск</a></li>
+							<li><a href="#">Красноярск</a></li>
+							<li><a href="#">Воронеж</a></li>
+							<li><a href="#">Саратов</a></li>
+							<li><a href="#">Краснодар</a></li>
+							<li><a href="#">Рязань</a></li>
+							<li><a href="#">Ижевск</a></li>
+							<li><a href="#">Пенза</a></li>
+							<li><a href="#">Челябинск</a></li>
+							<li><a href="#">Ярославль</a></li>
+							<li><a href="#">Барнаул</a></li>
+						</ul>
+					</div>
+
+					<div class="rs-footer__copyright">© 2011—2024 Россайт</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	@@include('html/_popup.htm',{})
+
+	@@include('html/_js.htm',{})
+
+</body>
+
+</html>
