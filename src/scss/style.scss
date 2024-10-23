@@ -53,10 +53,10 @@ $minWidth: 320px;
 // Ширина полотна (макета)
 $maxWidth: 1920px;
 // Ширина ограничивающего контейнера (0 = нет ограничения)
-$maxWidthContainer: 1572;
+$maxWidthContainer: 1572px;
 // Общий отступ у контейнера
 // (30 = по 15px слева и справа, 0 = нет отступа)
-$containerPadding: 40;
+$containerPadding: 40px;
 
 // Ширина срабатывания первого брейкпоинта
 $containerWidth: $maxWidthContainer + $containerPadding;
@@ -97,11 +97,25 @@ body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
+	// overflow: hidden;
 
 	// Прижимаем footer
 	> main {
 		flex: 1 1 auto;
+
+		& > * {
+			&:first-child {
+				margin: 150px 0px;
+
+				@media (max-width: 1439.98px) {
+					margin: 125px 0px;
+				}
+
+				@media (max-width: 991.98px) {
+					margin: 100px 0px;
+				}
+			}
+		}
 	}
 	// Фикс для слайдеров
 	> * {
@@ -120,31 +134,31 @@ body {
 	// Отзывчивая
 	[class*="__container"] {
 		@if ($maxWidthContainer>0) {
-			max-width: rem($maxWidthContainer);
+			max-width: $maxWidthContainer;
 			box-sizing: content-box;
 			margin: 0 auto;
 		}
 		@if ($containerPadding>0) {
-			padding: 0 rem(math.div($containerPadding, 2));
+			padding: 0 math.div($containerPadding, 2);
 		}
 	}
 } @else {
 	// По брейк-поинтам
 	[class*="_container"] {
 		margin: 0 auto;
-		max-width: rem($maxWidthContainer);
+		max-width: $maxWidthContainer;
 		box-sizing: content-box;
-		padding: 0 rem(math.div($containerPadding, 2));
+		padding: 0 math.div($containerPadding, 2);
 
 		@media (max-width: $tablet) {
-			max-width: rem(768);
-			padding-left: rem(36);
-			padding-right: rem(36);
+			max-width: 768px;
+			padding-left: 36px;
+			padding-right: 36px;
 		}
 		@media (max-width: $mobile) {
 			max-width: 100%;
-			padding-left: rem(15);
-			padding-right: rem(15);
+			padding-left: 15px;
+			padding-right: 15px;
 		}
 	}
 }

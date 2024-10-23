@@ -401,12 +401,14 @@ document.addEventListener('DOMContentLoaded', function () {
 					formInput.closest('.form__line').classList.remove('wpcf7-content')
 				}
 			})
-			formClear.addEventListener('click', function () {
-				formInput.value = '';
-				formClear.style.display = "none";
-				formInput.closest('.form__line').classList.remove('wpcf7-content')
-				formInput.focus()
-			})
+			if (formClear) {
+				formClear.addEventListener('click', function () {
+					formInput.value = '';
+					formClear.style.display = "none";
+					formInput.closest('.form__line').classList.remove('wpcf7-content')
+					formInput.focus()
+				})
+			}
 		});
 
 		// Удаление всех классов при отправке формы

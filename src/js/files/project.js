@@ -23,6 +23,8 @@ export function filterClear() {
 			checkboxs.forEach(checkbox => {
 				checkbox.addEventListener('input', function () {
 					countChecked()
+
+					handleReveal(); // Обновление ScrollTrigger после появления новых элементов
 				})
 			});
 

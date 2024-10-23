@@ -8,7 +8,7 @@ import { isMobile, bodyLockStatus, bodyLock, bodyUnlock, bodyLockToggle, vnv } f
 import { vnvModules } from "../files/modules.js";
 
 // Класс Popup
-class Popup {
+export class Popup {
 	constructor(options) {
 		let config = {
 			logging: true,
@@ -112,11 +112,11 @@ class Popup {
 			const buttonOpen = e.target.closest(`[${this.options.attributeOpenButton}]`);
 			if (buttonOpen) {
 				e.preventDefault();
-				this._dataValue = buttonOpen.getAttribute(this.options.attributeOpenButton) ?
-					buttonOpen.getAttribute(this.options.attributeOpenButton) :
+				this._dataValue = buttonOpen.getAttribute(this.options.attributeOpenButton) ? 
+					buttonOpen.getAttribute(this.options.attributeOpenButton) : 
 					'error';
-				this.youTubeCode = buttonOpen.getAttribute(this.options.youtubeAttribute) ?
-					buttonOpen.getAttribute(this.options.youtubeAttribute) :
+				this.youTubeCode = buttonOpen.getAttribute(this.options.youtubeAttribute) ? 
+					buttonOpen.getAttribute(this.options.youtubeAttribute) : 
 					null;
 				if (this._dataValue !== 'error') {
 					if (!this.isOpen) this.lastFocusEl = buttonOpen;
@@ -124,19 +124,24 @@ class Popup {
 					this._selectorOpen = true;
 					this.open();
 					return;
-
+	
 				} else this.popupLogging(`Ой ой, не заполнен атрибут у ${buttonOpen.classList}`);
-
+	
 				return;
 			}
-			// Закрытие на пустом месте (popup__wrapper) и кнопки закрытия (popup__close) для закрытия
+	
+			// Закрытие на пустом месте и кнопки закрытия
 			const buttonClose = e.target.closest(`[${this.options.attributeCloseButton}]`);
-			if (buttonClose || !e.target.closest(`.${this.options.classes.popupContent}`) && this.isOpen) {
+			const selectedText = window.getSelection().toString().trim(); // Проверка на выделенный текст
+	
+			if ((buttonClose || (!e.target.closest(`.${this.options.classes.popupContent}`) && this.isOpen)) && !selectedText) {
+				// Закрываем, только если текст не выделен
 				e.preventDefault();
 				this.close();
 				return;
 			}
 		}.bind(this));
+		
 		// Закрытие по ESC
 		document.addEventListener("keydown", function (e) {
 			if (this.options.closeEsc && e.which == 27 && e.code === 'Escape' && this.isOpen) {
@@ -148,25 +153,7 @@ class Popup {
 				this._focusCatch(e);
 				return;
 			}
-		}.bind(this))
-
-		// Открытие по хешу
-		if (this.options.hashSettings.goHash) {
-			// Проверка изменения адресной строки
-			window.addEventListener('hashchange', function () {
-				if (window.location.hash) {
-					this._openToHash();
-				} else {
-					this.close(this.targetOpen.selector);
-				}
-			}.bind(this))
-
-			window.addEventListener('load', function () {
-				if (window.location.hash) {
-					this._openToHash();
-				}
-			}.bind(this))
-		}
+		}.bind(this));
 	}
 	open(selectorValue) {
 		if (bodyLockStatus) {
@@ -305,6 +292,13 @@ class Popup {
 		}, 50);
 
 		this.popupLogging(`Закрыл попап`);
+	}
+	closeAllPopups() {
+		const activePopups = document.querySelectorAll(`.${this.options.classes.popupActive}`);
+		activePopups.forEach(popup => {
+			const popupSelector = `.${popup.classList[0]}`; // Получаем селектор попапа
+			this.close(popupSelector); // Закрываем попап по селектору
+		});
 	}
 	// Получение хэша 
 	_getHash() {

@@ -1,5 +1,4 @@
 .rs-project {
-	margin-top: 0px;
 	overflow: hidden;
 	z-index: 10;
 
@@ -20,6 +19,7 @@
 
 	&.rs-case {
 		margin-top: 140px;
+		min-height: 60vh;
 		padding-top: 0px;
 
 		@media (max-width: 1439.98px) {
@@ -121,6 +121,8 @@
 		.rs-case & {
 			box-shadow: 0px 0px 50px 4px rgba(47, 49, 115, 0);
 			border-radius: 10px;
+			height: auto;
+			min-height: 1px;
 
 			@media (any-hover: hover) {
 				&:hover {
@@ -168,12 +170,24 @@
 
 	// .rs-project__item
 	&__item {
+		height: 100%;
+		width: 100%;
+		border: 1px solid var(--light-gray-border);
+		border-radius: 10px;
+
 		@media (any-hover: hover) {
 			&:hover {
 				.rs-project__img img {
 					transform: scale(1.1);
 				}
 			}
+		}
+
+		& > a {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
 		}
 	}
 
@@ -193,6 +207,11 @@
 		.rs-case & {
 			max-height: 300px;
 			border-radius: 10px 10px 0px 0px;
+			border-bottom: 1px solid var(--light-gray-border);
+
+			img {
+				height: auto;
+			}
 		}
 
 		a {
@@ -203,30 +222,16 @@
 
 		img {
 			width: 100%;
-			height: 100%;
+			// height: 100%;
 			object-fit: cover;
 			transition: transform 0.5s cubic-bezier(0.9, 0, 0.2, 1);
-
-			&.rs-project__img--desktop {
-				@media (max-width: 767.98px) {
-					display: none;
-				}
-			}
-
-			&.rs-project__img--mobile {
-				@media (min-width: 767.98px) {
-					display: none;
-				}
-			}
 		}
 	}
 
 	&__description {
 		.rs-case & {
-			border: 1px solid var(--light-gray-border);
-			border-radius: 0px 0px 10px 10px;
-			border-top: none;
 			padding: 10px 20px 20px;
+			flex-grow: 1;
 
 			@media (max-width: 1439.98px) {
 				padding: 20px;
@@ -284,19 +289,23 @@
 						margin: 4px;
 					}
 
-					&:nth-child(1) {
+					&:nth-child(1),
+					&:nth-child(5n) {
 						background-color: var(--item-orange-bg);
 					}
 
-					&:nth-child(2) {
+					&:nth-child(2),
+					&:nth-child(6n) {
 						background-color: var(--item-green-bg);
 					}
 
-					&:nth-child(3) {
+					&:nth-child(3),
+					&:nth-child(7n) {
 						background-color: var(--item-pink-bg);
 					}
 
-					&:nth-child(4) {
+					&:nth-child(4),
+					&:nth-child(8n) {
 						background-color: var(--item-blue-bg);
 					}
 				}

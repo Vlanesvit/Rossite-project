@@ -1,10 +1,6 @@
 .rs-about-block {
 	@media (max-width: 991.98px) {
-		margin: 50px 0px;
-	}
-
-	@media (max-width: 767.98px) {
-		margin: 61px 0px;
+		margin: 70px 0px;
 	}
 
 	&__head {
@@ -127,6 +123,50 @@
 				font-size: 16px;
 				line-height: 130%;
 				margin: 5px 0px;
+			}
+		}
+
+		& > ol {
+			list-style: none;
+			counter-reset: list-counter;
+			color: var(--gray-font-color);
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 160%;
+
+			@media (max-width: 991.98px) {
+				font-size: 16px;
+				line-height: 130%;
+			}
+
+			& > li {
+				position: relative;
+				padding-left: 25px;
+
+				&::before {
+					content: counter(list-counter) ". ";
+					counter-increment: list-counter;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+
+				& > ul {
+					list-style: none;
+
+					& > li {
+						position: relative;
+						padding-left: 20px;
+
+						&::before {
+							content: "•";
+							position: absolute;
+							left: 0;
+							top: 0;
+						}
+					}
+				}
 			}
 		}
 

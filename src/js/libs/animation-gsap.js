@@ -24,8 +24,6 @@ const loaderAnim = (element, yPercent, delay) => {
 		ease: 'cubic-bezier(0.9, 0, 0.2, 1)',
 	});
 };
-loaderAnim(loaderFillv1, 100, 0.4);
-loaderAnim(loaderFillv2, 100, 0.2);
 
 // Обработка изменений на странице динамически
 export const handleResize = () => {
@@ -35,7 +33,10 @@ export const handleResize = () => {
 };
 
 export const handleReveal = () => {
-	initAnimationsBasedOnWidth();
+	setTimeout(() => {
+		initAnimationsBasedOnWidth();
+	}, 100);
+
 	if (typeof refreshScrollTrigger === 'function') {
 		refreshScrollTrigger();
 	}
@@ -174,8 +175,8 @@ export function horizontalScroll({ blockSelector, triggerSelector, progressSelec
 		// Создаем ScrollTrigger при вызове horizontalScroll
 		createScrollTrigger();
 
-		// Определяем refreshScrollTrigger и сохраняем ссылку на нее вне функции
-		refreshScrollTrigger = () => {
+		// Определяем refreshScrollTrigger
+		const refreshScrollTrigger = () => {
 			createScrollTrigger(); // Повторно создаем ScrollTrigger для горизонтального скролла
 			ScrollTrigger.refresh(); // Обновляем все ScrollTrigger
 		};
@@ -186,24 +187,89 @@ export function horizontalScroll({ blockSelector, triggerSelector, progressSelec
 		let prevButtonClickHandler = null;
 
 		if (nextButton) {
-			nextButton.removeEventListener('click', nextButtonClickHandler);
 			nextButtonClickHandler = () => {
 				let scrollAmount = 300 / document.documentElement.clientHeight;
-				let newScrollPosition = scrollTrigger.progress + scrollAmount;
-				scrollTrigger.scroll(scrollTrigger.start + (newScrollPosition * (scrollTrigger.end - scrollTrigger.start)));
+				let newScrollPosition = scrollTriggerInstance.progress + scrollAmount;
+				scrollTriggerInstance.scroll(scrollTriggerInstance.start + (newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start)));
 			};
 			nextButton.addEventListener('click', nextButtonClickHandler);
 		}
 
 		if (prevButton) {
-			prevButton.removeEventListener('click', prevButtonClickHandler);
 			prevButtonClickHandler = () => {
 				let scrollAmount = 300 / document.documentElement.clientHeight;
-				let newScrollPosition = scrollTrigger.progress - scrollAmount;
-				scrollTrigger.scroll(scrollTrigger.start + (newScrollPosition * (scrollTrigger.end - scrollTrigger.start)));
+				let newScrollPosition = scrollTriggerInstance.progress - scrollAmount;
+				scrollTriggerInstance.scroll(scrollTriggerInstance.start + (newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start)));
 			};
 			prevButton.addEventListener('click', prevButtonClickHandler);
 		}
+	}
+}
+
+// Бегущая строка
+export function marquee() {
+	const marquees = document.querySelectorAll('.marquee');
+
+	if (marquees.length > 0) {
+		marquees.forEach(marquee => {
+			const list = marquee.querySelector('ul');
+			const items = list.querySelectorAll('ul li');
+
+			let scrollAmount = 0; // Переменная для отслеживания текущего смещения
+			const speed = 1; // Скорость прокрутки бегущей строки
+
+			// Клонируем элементы для создания бесшовного эффекта
+			for (let i = 0; i < 5; i++) {
+				items.forEach(item => {
+					const clone = item.cloneNode(true);
+					list.appendChild(clone);
+				});
+			}
+
+			function scrollMarquee() {
+				switch (true) {
+					case marquee.dataset.direction === "left":
+						scrollAmount -= speed;
+
+						const firstItem = list.firstElementChild;
+						const firstItemWidth = firstItem.getBoundingClientRect().width;
+
+						list.style.transform = `translateX(${scrollAmount}px)`;
+
+						if (firstItem.getBoundingClientRect().right <= 0) {
+							list.append(firstItem); // Перемещаем первый элемент в конец списка
+
+							// Пересчитываем смещение, чтобы сделать переход плавным
+							scrollAmount += firstItemWidth + parseFloat(getComputedStyle(firstItem).marginLeft);
+							list.style.transform = `translateX(${scrollAmount}px)`;
+						}
+						break;
+
+					case marquee.dataset.direction === "right":
+						scrollAmount += speed;
+
+						const lastItem = list.lastElementChild;
+						const lastItemWidth = lastItem.getBoundingClientRect().width;
+
+						list.style.transform = `translateX(${scrollAmount}px)`;
+
+						if (lastItem.getBoundingClientRect().left >= window.innerWidth) {
+							list.prepend(lastItem); // Перемещаем последний элемент в начало списка
+
+							// Пересчитываем смещение, чтобы сделать переход плавным
+							scrollAmount -= lastItemWidth + parseFloat(getComputedStyle(lastItem).marginRight);
+							list.style.transform = `translateX(${scrollAmount}px)`;
+						}
+						break;
+
+					default:
+				}
+
+				requestAnimationFrame(scrollMarquee); // Рекурсивно вызываем функцию для плавной анимации
+			}
+
+			scrollMarquee();
+		});
 	}
 }
 
@@ -238,7 +304,7 @@ function clearAnimations() {
 
 	});
 
-	console.log("Все анимации и pin-spacer удалены");
+	// console.log("Все анимации и pin-spacer удалены");
 }
 
 // Инициализация анимаций для разных разрешений
@@ -279,14 +345,10 @@ function initAnimationsBasedOnWidth() {
 Воспроизведение видео при загрузке страницы
 ==================================== */
 function videoPlay() {
-	console.log('func load');
-
 	const videoElements = document.querySelectorAll('video');
 	if (videoElements.length > 0) {
 
 		videoElements.forEach(videoElement => {
-			console.log(videoElement);
-
 			videoElement.play().catch(function (error) {
 				console.error("Автоматическое воспроизведение видео не удалось: ", error);
 				// Можно обработать ошибку, например, показать сообщение пользователю
@@ -315,17 +377,31 @@ window.addEventListener('load', () => {
 	handleResize();
 	videoPlay()
 
-	console.log('Load page');
+	// Проверяем, есть ли якорь в URL
+	if (!window.location.hash) {
+		setTimeout(() => {
+			window.scrollTo(0, 0);
+		}, 300);
+	} else if (window.location.hash) {
+		const targetElement = document.querySelector(window.location.hash);
+		if (targetElement) {
+			window.scrollTo(0, 0);
+			setTimeout(() => {
+				targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+			}, 300);
+		}
+	}
 
 	setTimeout(() => {
-		window.scrollTo(0, 0);
+		loaderAnim(loaderFillv1, 100, 0.4);
+		loaderAnim(loaderFillv2, 100, 0.2);
 	}, 300);
 });
 
 //========================================================================================================================================================
 // Общие анимации
 function initializeCommonAnimations() {
-	console.log("Инициализация общих анимаций");
+	// console.log("Инициализация общих анимаций");
 
 	//========================================================================================================================================================
 	// Закрепление блоков и последующее складывание в стопку
@@ -368,7 +444,7 @@ function initializeCommonAnimations() {
 				}, stagger);
 
 			handleResize()
-		}, 1000);
+		}, 300);
 	}
 
 	//========================================================================================================================================================
@@ -400,8 +476,10 @@ function initializeCommonAnimations() {
 					// markers: 1,
 				}
 			})
-		}, 100);
+		}, 300);
 	}
+
+	marquee();
 
 	animateSvgDashedLine({ dashedSelector: "section [class*='__line'] .dashed-path" });
 
@@ -419,30 +497,30 @@ function initializeCommonAnimations() {
 	revealOnScroll({ elements: 'blockquote', });
 	// Header
 	revealOnScroll({ elements: '.rs-header__menu', direction: 'fade', });
-	revealOnScroll({ elements: '.rs-header__logo', delay: 0.3, direction: 'fade', });
+	revealOnScroll({ elements: '.rs-header__logo', direction: 'fade', });
 	revealOnScroll({ elements: '.rs-header__actions', delay: 0.45, direction: 'fade', });
 	// Banner
 	revealOnScroll({ elements: '.rs-banner__buttons', direction: 'bottom-up--every' });
-	revealOnScroll({ elements: '.rs-banner__body ul', delay: 0.3, });
+	revealOnScroll({ elements: '.rs-banner__body ul', });
 	revealOnScroll({ elements: '.rs-banner__bg', delay: 0.15, direction: 'width-100' });
 	// Slider Block
-	revealOnScroll({ elements: '.rs-slider-block__slide', direction: 'right-left--every' });
+	// revealOnScroll({ elements: '.rs-slider-block__slide', direction: 'right-left--every' });
 	revealOnScroll({ elements: '.rs-slider-block__slider', direction: 'right-left' });
 	revealOnScroll({ elements: '.rs-slider-block__icon', delay: 0.15, direction: 'bottom-up--every' });
 	// Project
-	revealOnScroll({ elements: '.rs-project__item', duration: 0.3, delay: 0.15, direction: 'bottom-up--every', });
-	revealOnScroll({ elements: '.rs-project__filter', delay: 1, direction: 'fade' });
-	revealOnScroll({ elements: '.rs-project__add', direction: 'bottom-up--every' });
+	// revealOnScroll({ elements: '.rs-project__item', duration: 0.3, delay: 0.15, direction: 'bottom-up--every', });
+	// revealOnScroll({ elements: '.rs-project__filter', delay: 1, direction: 'fade' });
+	// revealOnScroll({ elements: '.rs-project__add', direction: 'bottom-up--every' });
 	// Steps
 	revealOnScroll({ elements: '.rs-steps__navigation_list li a', delay: 0.15, direction: 'left-right--every' });
-	revealOnScroll({ elements: '.rs-steps__item', delay: 0.3, direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-steps__item', direction: 'bottom-up--every' });
 	revealOnScroll({ elements: '.rs-steps__footer ul li', });
 	// Calc
 	revealOnScroll({ elements: '.rs-calc__bg', delay: 0.2, });
-	revealOnScroll({ elements: '.rs-calc__settings_wrapper', delay: 0.3, });
+	revealOnScroll({ elements: '.rs-calc__settings_wrapper', });
 	revealOnScroll({ elements: '.rs-calc__cost_img', delay: 0.2, direction: 'right-left' });
 	revealOnScroll({ elements: '.rs-calc__cost_list ul li', delay: 0.15, direction: 'bottom-up--every' });
-	revealOnScroll({ elements: '.rs-calc__cost_footer', delay: 0.3, direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-calc__cost_footer', direction: 'bottom-up--every' });
 	// Reviews
 	revealOnScroll({ elements: '.rs-reviews__bg', delay: 0.2, });
 	revealOnScroll({ elements: '.rs-reviews__slide', delay: 0.2, direction: 'bottom-up--every' });
@@ -456,38 +534,40 @@ function initializeCommonAnimations() {
 	revealOnScroll({ elements: '.rs-footer__links ul li', delay: 0.15, direction: 'bottom-up--every' });
 	revealOnScroll({ elements: '.rs-footer__social', });
 	revealOnScroll({ elements: '.rs-footer__spollers_item', delay: 0.15, direction: 'bottom-up--every' });
-	revealOnScroll({ elements: '.rs-footer__city', delay: 0.3, });
+	revealOnScroll({ elements: '.rs-footer__city', });
 	revealOnScroll({ elements: '.rs-footer__copyright', delay: 0.4, direction: 'left-right' });
 	// Text Block
-	revealOnScroll({ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__img-0 img', delay: 0.3, direction: 'scale' });
+	revealOnScroll({ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__img-0 img', direction: 'scale' });
 	revealOnScroll({ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__img-1 img', delay: 0.6, direction: 'scale' });
 	revealOnScroll({ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__img-2 img', delay: 0.9, direction: 'scale' });
 	revealOnScroll({ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__img-3 img', delay: 1.2, direction: 'scale' });
-	revealOnScroll({ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__icons img', delay: 0.3, direction: 'scale--every' });
-	revealOnScroll({ elements: '.rs-text-block__description ol li', duration: 0.15, delay: 0.3, direction: 'bottom-up--every' });
-	revealOnScroll({ elements: '.rs-text-block__description ul li', duration: 0.15, delay: 0.3, direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__icons img', direction: 'scale--every' });
+	revealOnScroll({ elements: '.rs-text-block__description ol li', duration: 0.15, direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-text-block__description ul li', duration: 0.15, direction: 'bottom-up--every' });
 	// Workflow
-	revealOnScroll({ elements: '.rs-workflow .rs-workflow__img img', delay: 0.3, direction: 'scale--every' });
-	revealOnScroll({ elements: '.rs-workflow .rs-workflow__icon', delay: 0.3, direction: 'scale--every' });
+	revealOnScroll({ elements: '.rs-workflow .rs-workflow__img img', direction: 'scale--every' });
+	revealOnScroll({ elements: '.rs-workflow .rs-workflow__icon', direction: 'scale--every' });
 	// Tariff
 	revealOnScroll({ elements: '.rs-tariff__desktop', duration: 1, delay: 1, direction: 'fade' });
 	revealOnScroll({ elements: '.rs-tariff__mobile .rs-tariff__spollers', duration: 1, delay: 1, direction: 'fade' });
 	// Features
-	revealOnScroll({ elements: '.rs-features-list__icon', delay: 0.3, direction: 'scale--every' });
-	revealOnScroll({ elements: '.rs-features-list__img', delay: 0.3, direction: 'left-right' });
+	revealOnScroll({ elements: '.rs-features__icon', direction: 'scale--every' });
+	revealOnScroll({ elements: '.rs-features__img', direction: 'left-right' });
+	revealOnScroll({ elements: '.rs-features-list__icon', direction: 'scale--every' });
+	revealOnScroll({ elements: '.rs-features-list__img', direction: 'left-right' });
 	// Partners
-	revealOnScroll({ elements: '.section-bg .section__bg', duration: 1, delay: 0.3, direction: 'width-100' });
+	revealOnScroll({ elements: '.section-bg .section__bg', duration: 1, direction: 'width-100' });
 	revealOnScroll({ elements: '.section-bg .section__container', duration: 1, delay: 1, direction: 'fade' });
 	// Services About
 	revealOnScroll({ elements: '.rs-about-block__img', });
-	revealOnScroll({ elements: '.rs-about-block__desc', delay: 0.3, });
+	revealOnScroll({ elements: '.rs-about-block__desc', });
 	// Services Price
-	revealOnScroll({ elements: '.rs-services-price__item', delay: 0.3, });
+	revealOnScroll({ elements: '.rs-services-price__item', });
 	// Feedback
-	revealOnScroll({ elements: '.rs-feedback', delay: 0.3, });
+	revealOnScroll({ elements: '.rs-feedback', });
 	// Contact
 	revealOnScroll({ elements: '.rs-document__spollers_item', delay: 0.2, direction: 'bottom-up--every' });
-	revealOnScroll({ elements: '.rs-contact__info_list li', delay: 0.2, direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-contact__info', delay: 0.2, direction: 'bottom-up' });
 	revealOnScroll({ elements: '.rs-contact__map', direction: 'fade' });
 	// Services About
 	revealOnScroll({ elements: '.rs-services-about__text', direction: 'bottom-up--every' });
@@ -497,9 +577,9 @@ function initializeCommonAnimations() {
 	// Task
 	revealOnScroll({ elements: '.rs-task__item', direction: 'bottom-up--every' });
 	// Parallax
-	revealOnScroll({ elements: '.rs-why-block__bg', duration: 1, delay: 0.3, direction: 'width-100' });
+	revealOnScroll({ elements: '.rs-why-block__bg', duration: 1, direction: 'width-100' });
 	// Main
-	revealOnScroll({ elements: '.rs-main__title_video', duration: 1, delay: 0.3, direction: 'width-100' });
+	revealOnScroll({ elements: '.rs-main__title_video', duration: 1, direction: 'width-100' });
 	revealOnScroll({ elements: '.rs-main__title h1', delay: 1, direction: 'scale' });
 	// Logo
 	revealOnScroll({ elements: '.rs-logo__slide', delay: 0.2, direction: 'right-left--every' });
@@ -529,7 +609,7 @@ function initializeCommonAnimations() {
 
 // Десктопные анимаций
 function initializeDesktopAnimations() {
-	console.log("Инициализация десктопных анимаций");
+	// console.log("Инициализация десктопных анимаций");
 
 	//========================================================================================================================================================
 	// Анимация горизонтального скролла
@@ -549,12 +629,12 @@ function initializeDesktopAnimations() {
 				if (!section) return;
 				sections.forEach((el) => el.classList.remove("_active-step"));
 				section.classList.add("_active-step");
-				console.log(`Активен раздел: ${section.classList}`);
+				// console.log(`Активен раздел: ${section.classList}`);
 			}
 
 			function removeActive() {
 				sections.forEach((el) => el.classList.remove("_active-step"));
-				console.log("Активный раздел удален");
+				// console.log("Активный раздел удален");
 			}
 
 			// Создаем ScrollTrigger для каждого section
@@ -666,17 +746,22 @@ function initializeDesktopAnimations() {
 				},
 			});
 			handleResize()
-		}, 1000);
+		}, 600);
 	}
 
 	//========================================================================================================================================================
 	// Закрепление проектов и установка якорных ссылок на каждый проект
 	if (document.querySelector('.rs-main__project_item')) {
 		setTimeout(() => {
-			gsap.set('.rs-main__project_item', {
+			const projectItems = gsap.utils.toArray('.rs-main__project_item');
+
+			gsap.set(projectItems, {
 				y: (index) => 0 * index,
 				zIndex: (index, target, targets) => targets.length - index,
-				scale: (index) => 1 - (index * 0.05),
+			})
+
+			gsap.set(projectItems.slice(1), {
+				scale: (index) => 0.9,
 			})
 
 			const pinBlock = gsap.timeline({
@@ -684,7 +769,7 @@ function initializeDesktopAnimations() {
 				scrollTrigger: {
 					trigger: ".rs-main__project",
 					start: "top top",
-					end: "bottom+=300% top",
+					end: `bottom+=${projectItems.length * 100}% top`,
 					scrub: true,
 					pin: true,
 					// markers: 1,
@@ -692,14 +777,15 @@ function initializeDesktopAnimations() {
 					invalidateOnRefresh: true,
 				}
 			});
-			pinBlock.to('.rs-main__project_item', {
+
+			pinBlock.to(projectItems, {
 				scale: 1,
 				y: 0,
 				webkitFilter: "blur(" + 0 + "px)",
 				stagger: stagger,
 			})
 
-			pinBlock.to('.rs-main__project_item:not(:last-child)', {
+			pinBlock.to(projectItems.slice(0, -1), {
 				yPercent: -125,
 				stagger: stagger,
 			}, stagger)
@@ -710,6 +796,7 @@ function initializeDesktopAnimations() {
 			const totalScroll = end - start;
 			let links = gsap.utils.toArray(".rs-main__project_nav ul li a");
 			const scrollSteps = totalScroll / links.length;
+			let previousActive = null; // Храним предыдущий активный якорь
 
 			links.forEach((a, index) => {
 				let element = document.querySelector(a.getAttribute("href"))
@@ -740,14 +827,36 @@ function initializeDesktopAnimations() {
 			function setActive(link) {
 				links.forEach((el) => el.classList.remove("_active"));
 				link.classList.add("_active");
+
+				const navBody = document.querySelector('.rs-main__project_nav_body');
+				const linkRect = link.getBoundingClientRect();
+				const navBodyRect = navBody.getBoundingClientRect();
+				const scrollTop = navBody.scrollTop;
+
+				// Определяем, насколько элемент выходит за границы видимой области (если выходит)
+				if (linkRect.bottom > navBodyRect.bottom) {
+					// Если выходит за нижнюю границу, прокручиваем вниз
+					gsap.to(navBody, {
+						scrollTop: scrollTop + (linkRect.bottom - navBodyRect.bottom),
+						duration: 0.3,
+						ease: "power2.out"
+					});
+				} else if (linkRect.top < navBodyRect.top) {
+					// Если выходит за верхнюю границу, прокручиваем вверх
+					gsap.to(navBody, {
+						scrollTop: scrollTop - (navBodyRect.top - linkRect.top),
+						duration: 0.3,
+						ease: "power2.out"
+					});
+				}
 			}
-		}, 200);
+		}, 600);
 	}
 }
 
 // Мобильные анимаций
 function initializeMobileAnimations() {
-	console.log("Инициализация мобильных анимаций");
+	// console.log("Инициализация мобильных анимаций");
 
 }
 
@@ -770,8 +879,15 @@ import * as vnvForms from "../files/forms/forms.js";
 import * as vnvScroll from "../files/scroll/scroll.js";
 import { addCursorHover, addCursorMove } from "../libs/cursor.js";
 
+import { Popup } from '../libs/popup.js';
+// Создаем экземпляр класса
+const popup = new Popup();
+
 function initBarba() {
 	const initializePage = () => {
+		// Закрываем все открытые попапы перед переходом
+		popup.closeAllPopups();
+
 		// Инициализация функционала
 		videoPlay();
 		initSliders();
@@ -804,8 +920,6 @@ function initBarba() {
 		addCursorMove(".rs-project__slide", ".cursor__circle");
 		addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
 		addCursorMove(".rs-comparison__compare", ".icv__circle");
-
-		ScrollTrigger.refresh(true);
 	};
 
 	// Уничтожение предыдущей инициализации (если необходимо)
@@ -819,6 +933,7 @@ function initBarba() {
 	barba.init({
 		transitions: [{
 			leave({ current }) {
+				bodyLock();
 				loaderAnim(loaderFillv1, 0, 0.2);
 				loaderAnim(loaderFillv2, 0, 0.4);
 				destroyPage();  // Уничтожаем предыдущую инициализацию
@@ -832,20 +947,7 @@ function initBarba() {
 				});
 			},
 
-			enter({ current, next, trigger }) {
-				return gsap.from(next.container, {
-					onComplete: () => {
-						updatePrimaryColor();
-						initAnimationsBasedOnWidth();
-						handleResize(); // Обновляем ScrollTrigger после загрузки новой страницы
-					}
-				});
-			},
-
 			after({ next }) {
-				loaderAnim(loaderFillv1, 100, 0.4);
-				loaderAnim(loaderFillv2, 100, 0.2);
-
 				setTimeout(() => {
 					window.scrollTo(0, 0);
 				}, 100);
@@ -857,6 +959,11 @@ function initBarba() {
 						initAnimationsBasedOnWidth();
 						handleResize(); // Обновляем ScrollTrigger после загрузки новой страницы
 						initializePage();  // Инициализируем функционал после показа страницы
+						bodyUnlock();
+						loaderAnim(loaderFillv1, 100, 0.4);
+						loaderAnim(loaderFillv2, 100, 0.2);
+
+						ScrollTrigger.refresh(true);
 					},
 				});
 			},
@@ -870,7 +977,6 @@ function initBarba() {
 
 	barba.hooks.enter(() => {
 		window.scrollTo(0, 0);
-		ScrollTrigger.refresh(true);
 	});
 
 	barba.hooks.afterEnter(() => {

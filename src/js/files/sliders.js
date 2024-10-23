@@ -516,37 +516,6 @@ export function initSliders() {
 		breakpointChecker();
 	}
 
-	if (document.querySelector('.rs-main__logo_slider')) {
-		new Swiper('.rs-main__logo_slider', {
-			modules: [Navigation, Pagination, Autoplay],
-
-			// Автопрокрутка
-			autoplay: {
-				delay: 1, // Минимальная задержка для непрерывного движения
-				disableOnInteraction: false, // Продолжать прокрутку даже при взаимодействии
-			},
-
-			// Скорость прокрутки
-			speed: 3000, // Установи высокую скорость для эффекта бегущей ленты
-
-			// Цикличность слайдера
-			loop: true, // Для бесшовной прокрутки
-			loopAdditionalSlides: 100, // Добавляем дополнительные слайды
-
-			// Количество слайдов для показа
-			slidesPerView: 'auto', // Показывать несколько логотипов одновременно
-			spaceBetween: 24, // Промежуток между слайдами
-
-			// Отключаем управление пользователем
-			allowTouchMove: false, // Отключить возможность перетаскивания
-
-			// Обновить свайпер при изменении слайдов
-			observer: true,
-			observeParents: true,
-			observeSlideChildren: true,
-		});
-	}
-
 	if (document.querySelector('.rs-logo')) {
 		const sliderBlocks = document.querySelectorAll('.rs-logo');
 

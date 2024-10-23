@@ -14,6 +14,7 @@ export function openFullList() {
 			tariffAdd.addEventListener('click', function () {
 				tariffAbout.classList.add('_full')
 				tariffAdd.classList.add('_hide');
+				
 				handleReveal()  // Обновление ScrollTrigger после появления новых элементов
 			});
 		}
