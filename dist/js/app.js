@@ -14716,82 +14716,83 @@
                 }));
             }), 200);
             if (document.querySelector(".rs-main__project_item")) matchMedia.add("(min-width: 991.98px)", (() => {
-                const projectItems = gsapWithCSS.utils.toArray(".rs-main__project_item");
-                gsapWithCSS.set(projectItems, {
-                    y: index => 0 * index,
-                    zIndex: (index, target, targets) => targets.length - index
-                });
-                gsapWithCSS.set(projectItems.slice(1), {
-                    scale: index => .9
-                });
-                const pinBlock = gsapWithCSS.timeline({
-                    defaults: {
-                        ease: "none"
-                    },
-                    scrollTrigger: {
-                        trigger: ".rs-main__project",
-                        start: "top top",
-                        end: `bottom+=${projectItems.length * 100}% top`,
-                        scrub: true,
-                        pin: true,
-                        id: "pin-block",
-                        refreshPriority: -1,
-                        invalidateOnRefresh: true
-                    }
-                });
-                pinBlock.to(projectItems, {
-                    scale: 1,
-                    y: 0,
-                    webkitFilter: "blur(" + 0 + "px)",
-                    stagger
-                });
-                pinBlock.to(projectItems.slice(0, -1), {
-                    yPercent: -125,
-                    stagger
-                }, stagger);
-                ScrollTrigger_ScrollTrigger.refresh();
-                const start = pinBlock.scrollTrigger.start;
-                const end = pinBlock.scrollTrigger.end;
-                const totalScroll = end - start;
-                let links = gsapWithCSS.utils.toArray(".rs-main__project_nav ul li a");
-                const scrollSteps = totalScroll / links.length;
-                links.forEach(((a, index) => {
-                    let element = document.querySelector(a.getAttribute("href"));
-                    ScrollTrigger_ScrollTrigger.create({
-                        trigger: element,
-                        start: `${scrollSteps * (index + 1)} center`,
-                        end: `${scrollSteps * (index + 1) + element.clientHeight} center`,
-                        onEnter: () => setActive(a),
-                        onEnterBack: () => setActive(a),
-                        onLeave: () => setActive(a),
-                        onLeaveBack: () => setActive(a)
+                setTimeout((() => {
+                    const projectItems = gsapWithCSS.utils.toArray(".rs-main__project_item");
+                    gsapWithCSS.set(projectItems, {
+                        y: index => 0 * index,
+                        zIndex: (index, target, targets) => targets.length - index
                     });
-                    a.addEventListener("click", (e => {
-                        e.preventDefault();
-                        gsapWithCSS.to(window, {
-                            duration: .1,
-                            scrollTo: () => scrollSteps * (index + 1) + start,
-                            overwrite: "auto"
+                    gsapWithCSS.set(projectItems.slice(1), {
+                        scale: index => .9
+                    });
+                    const pinBlock = gsapWithCSS.timeline({
+                        defaults: {
+                            ease: "none"
+                        },
+                        scrollTrigger: {
+                            trigger: ".rs-main__project",
+                            start: "top top",
+                            end: `bottom+=${projectItems.length * 100}% top`,
+                            scrub: true,
+                            pin: true,
+                            id: "pin-block",
+                            invalidateOnRefresh: true
+                        }
+                    });
+                    pinBlock.to(projectItems, {
+                        scale: 1,
+                        y: 0,
+                        webkitFilter: "blur(" + 0 + "px)",
+                        stagger
+                    });
+                    pinBlock.to(projectItems.slice(0, -1), {
+                        yPercent: -125,
+                        stagger
+                    }, stagger);
+                    ScrollTrigger_ScrollTrigger.refresh();
+                    const start = pinBlock.scrollTrigger.start;
+                    const end = pinBlock.scrollTrigger.end;
+                    const totalScroll = end - start;
+                    let links = gsapWithCSS.utils.toArray(".rs-main__project_nav ul li a");
+                    const scrollSteps = totalScroll / links.length;
+                    links.forEach(((a, index) => {
+                        let element = document.querySelector(a.getAttribute("href"));
+                        ScrollTrigger_ScrollTrigger.create({
+                            trigger: element,
+                            start: `${scrollSteps * (index + 1)} center`,
+                            end: `${scrollSteps * (index + 1) + element.clientHeight} center`,
+                            onEnter: () => setActive(a),
+                            onEnterBack: () => setActive(a),
+                            onLeave: () => setActive(a),
+                            onLeaveBack: () => setActive(a)
                         });
+                        a.addEventListener("click", (e => {
+                            e.preventDefault();
+                            gsapWithCSS.to(window, {
+                                duration: .1,
+                                scrollTo: () => scrollSteps * (index + 1) + start,
+                                overwrite: "auto"
+                            });
+                        }));
                     }));
-                }));
-                function setActive(link) {
-                    links.forEach((el => el.classList.remove("_active")));
-                    link.classList.add("_active");
-                    const navBody = document.querySelector(".rs-main__project_nav_body");
-                    const linkRect = link.getBoundingClientRect();
-                    const navBodyRect = navBody.getBoundingClientRect();
-                    const scrollTop = navBody.scrollTop;
-                    if (linkRect.bottom > navBodyRect.bottom) gsapWithCSS.to(navBody, {
-                        scrollTop: scrollTop + (linkRect.bottom - navBodyRect.bottom),
-                        duration: .3,
-                        ease: "power2.out"
-                    }); else if (linkRect.top < navBodyRect.top) gsapWithCSS.to(navBody, {
-                        scrollTop: scrollTop - (navBodyRect.top - linkRect.top),
-                        duration: .3,
-                        ease: "power2.out"
-                    });
-                }
+                    function setActive(link) {
+                        links.forEach((el => el.classList.remove("_active")));
+                        link.classList.add("_active");
+                        const navBody = document.querySelector(".rs-main__project_nav_body");
+                        const linkRect = link.getBoundingClientRect();
+                        const navBodyRect = navBody.getBoundingClientRect();
+                        const scrollTop = navBody.scrollTop;
+                        if (linkRect.bottom > navBodyRect.bottom) gsapWithCSS.to(navBody, {
+                            scrollTop: scrollTop + (linkRect.bottom - navBodyRect.bottom),
+                            duration: .3,
+                            ease: "power2.out"
+                        }); else if (linkRect.top < navBodyRect.top) gsapWithCSS.to(navBody, {
+                            scrollTop: scrollTop - (navBodyRect.top - linkRect.top),
+                            duration: .3,
+                            ease: "power2.out"
+                        });
+                    }
+                }), 100);
             }));
         }
         function initializeMobileAnimations() {}
