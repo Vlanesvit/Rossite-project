@@ -389,19 +389,19 @@
 				max-height: 401px;
 			}
 
-			&:nth-child(3) {
+			&.rs-task__img--mob {
 				@media (min-width: 767.98px) {
 					display: none;
 				}
 			}
 
-			&:nth-child(2) {
+			&.rs-task__img--tab {
 				@media (min-width: 991.98px), (max-width: 767.98px) {
 					display: none;
 				}
 			}
 
-			&:nth-child(1) {
+			&.rs-task__img--desc {
 				@media (max-width: 991.98px) {
 					display: none;
 				}

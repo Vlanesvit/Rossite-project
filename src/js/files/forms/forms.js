@@ -320,28 +320,53 @@ export function formSubmit() {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-	const formsBlock = document.querySelectorAll('.form'); // Получаем форму
+// Функция для очистки полей формы
+export function clearForm() {
+	const formsBlock = document.querySelectorAll('.form');
 	formsBlock.forEach(formBlock => {
-		// Получаем все инпуты формы, которые нужно валидировать
-		const form = formBlock.querySelector('form'); // Получаем форму
 		const formLines = document.querySelectorAll('.form__line');
 		const inputs = formBlock.querySelectorAll('.rs-input');
 
-		// Функция добавления/удаления классов при фокусе и анфокусе
 		inputs.forEach(input => {
-			// При фокусе добавляем класс .wpcf7-focus
+			input.classList.remove('wpcf7-focus', 'wpcf7-content', 'wpcf7-not-valid', 'wpcf7-valid');
+			input.closest('.form__line').classList.remove('wpcf7-focus', 'wpcf7-content', 'wpcf7-not-valid', 'wpcf7-valid');
+			input.value = '';
+			const validTip = input.closest('.form__line').querySelector('.wpcf7-valid-tip');
+			if (validTip) validTip.remove();
+			document.querySelectorAll('.wpcf7-not-valid-tip').forEach(tip => {
+				if (tip) {
+					tip.remove();
+				}
+			});
+		});
+
+		formLines.forEach(formLine => {
+			const formClear = formLine.querySelector('.rs-input-clear');
+			if (formClear) {
+				formClear.style.display = "none";
+			}
+		});
+	});
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+	const formsBlock = document.querySelectorAll('.form');
+	formsBlock.forEach(formBlock => {
+		const form = formBlock.querySelector('form');
+		const formLines = document.querySelectorAll('.form__line');
+		const inputs = formBlock.querySelectorAll('.rs-input');
+		const buttons = formBlock.querySelectorAll('.form__button .rs-btn');
+
+		inputs.forEach(input => {
 			input.addEventListener('focus', function () {
 				this.classList.add('wpcf7-focus');
 				this.closest('.form__line').classList.add('wpcf7-focus');
 			});
 
-			// При анфокусе проверяем заполнено ли поле
 			input.addEventListener('blur', function () {
 				this.classList.remove('wpcf7-focus');
 				this.closest('.form__line').classList.remove('wpcf7-focus');
 
-				// Проверяем, заполнено ли поле, чтобы добавить класс .wpcf7-content
 				if (this.value.trim() !== '') {
 					this.classList.add('wpcf7-content');
 					this.closest('.form__line').classList.add('wpcf7-content');
@@ -350,87 +375,76 @@ document.addEventListener('DOMContentLoaded', function () {
 					this.closest('.form__line').classList.remove('wpcf7-content');
 				}
 
-				// Проверяем наличие класса .wpcf7-not-valid, который WP добавляет после валидации
 				if (this.classList.contains('wpcf7-not-valid')) {
 					this.classList.add('wpcf7-not-valid');
 					this.closest('.form__line').classList.add('wpcf7-not-valid');
 					this.classList.remove('wpcf7-valid');
 					this.closest('.form__line').classList.remove('wpcf7-valid');
 
-					// Если был добавлен спан для .wpcf7-valid-tip, удаляем его при ошибке
 					const validTip = this.closest('.form__line').querySelector('.wpcf7-valid-tip');
-					if (validTip) {
-						validTip.remove();
-					}
+					if (validTip) validTip.remove();
 				} else if (this.value.trim() !== '') {
-					// Если поле заполнено и валидно, добавляем класс .wpcf7-valid
 					this.classList.add('wpcf7-valid');
 					this.closest('.form__line').classList.add('wpcf7-valid');
 					this.classList.remove('wpcf7-not-valid');
 					this.closest('.form__line').classList.remove('wpcf7-not-valid');
 
-					// Проверяем, есть ли уже спан .wpcf7-valid-tip. Если нет, добавляем его
 					if (!this.closest('.form__line').querySelector('.wpcf7-valid-tip')) {
 						const validTip = document.createElement('span');
 						validTip.classList.add('wpcf7-valid-tip');
 						this.closest('.form__line').appendChild(validTip);
 					}
 				} else {
-					// Если поле не заполнено или не валидно, убираем классы .wpcf7-valid
 					this.classList.remove('wpcf7-valid');
 					this.closest('.form__line').classList.remove('wpcf7-valid');
 
-					// Если был добавлен спан для .wpcf7-valid-tip, удаляем его
 					const validTip = this.closest('.form__line').querySelector('.wpcf7-valid-tip');
-					if (validTip) {
-						validTip.remove();
-					}
+					if (validTip) validTip.remove();
 				}
 			});
 		});
 
 		formLines.forEach(formLine => {
-			const formInput = formLine.querySelector('.rs-input')
-			const formClear = formLine.querySelector('.rs-input-clear')
+			const formInput = formLine.querySelector('.rs-input');
+			const formClear = formLine.querySelector('.rs-input-clear');
+
 			formInput.addEventListener('input', function () {
 				if (formInput.value != '') {
 					formClear.style.display = "block";
-					formInput.closest('.form__line').classList.add('wpcf7-content')
+					formInput.closest('.form__line').classList.add('wpcf7-content');
 				} else {
 					formClear.style.display = "none";
-					formInput.closest('.form__line').classList.remove('wpcf7-content')
+					formInput.closest('.form__line').classList.remove('wpcf7-content');
 				}
-			})
+			});
+
 			if (formClear) {
 				formClear.addEventListener('click', function () {
 					formInput.value = '';
 					formClear.style.display = "none";
-					formInput.closest('.form__line').classList.remove('wpcf7-content')
-					formInput.focus()
-				})
+					formInput.closest('.form__line').classList.remove('wpcf7-content');
+					formInput.focus();
+				});
 			}
 		});
 
-		// Удаление всех классов при отправке формы
-		form.addEventListener('submit', function () {
-			setTimeout(() => {
-				inputs.forEach(input => {
-					input.classList.remove('wpcf7-focus', 'wpcf7-content', 'wpcf7-not-valid', 'wpcf7-valid');
-					input.closest('.form__line').classList.remove('wpcf7-focus', 'wpcf7-content', 'wpcf7-not-valid', 'wpcf7-valid');
-
-					// Удаление спанов .wpcf7-valid-tip при отправке формы
-					const validTip = input.closest('.form__line').querySelector('.wpcf7-valid-tip');
-					if (validTip) {
-						validTip.remove();
-					}
-				});
-
-				formLines.forEach(formLine => {
-					const formClear = formLine.querySelector('.rs-input-clear')
-					formClear.style.display = "none";
-				});
-			}, 300);
+		buttons.forEach(button => {
+			button.innerHTML += `
+			<div class="spinner-box">
+				<div class="pulse-container">
+					<div class="pulse-bubble pulse-bubble-1"></div>
+					<div class="pulse-bubble pulse-bubble-2"></div>
+					<div class="pulse-bubble pulse-bubble-3"></div>
+				</div>
+			</div>`;
 		});
+
+		form.addEventListener('submit', function () {
+			setTimeout(clearForm, 300);
+		});
+
+		// Экспорт функции очистки формы для использования в модальном окне
+		formBlock.clearForm = clearForm;
 	});
 });
 

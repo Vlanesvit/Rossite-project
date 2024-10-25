@@ -4,7 +4,6 @@
 */
 // Подключаем из node_modules
 import ImageCompare from "image-compare-viewer";
-import 'image-compare-viewer/dist/image-compare-viewer.min.css';
 
 import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
 

@@ -679,7 +679,7 @@ export function regionMenu() {
 		regionModalInnerMenuBtn.addEventListener('click', function (e) {
 			e.preventDefault();
 			document.querySelector('.rs-header').classList.add('_header-show')
-			menuClose()
+			menuOpen()
 			regionMenuOpen()
 		})
 	}

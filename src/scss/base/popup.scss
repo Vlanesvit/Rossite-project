@@ -13,6 +13,10 @@
 	pointer-events: none;
 	z-index: 10502;
 
+	.crm-widget-button-mobile & {
+		z-index: 10499;
+	}
+
 	&::after {
 		content: "";
 		background-color: rgba(4, 4, 34, 0.5);

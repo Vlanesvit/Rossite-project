@@ -275,6 +275,7 @@
 
 		.rs-btn {
 			width: 100%;
+			max-width: 156px;
 			margin: 5px auto 0px;
 
 			.btn-text {
@@ -354,7 +355,6 @@
 		&_row {
 			display: flex;
 			position: relative;
-			z-index: 10;
 
 			&::before {
 				content: "";
@@ -413,7 +413,6 @@
 
 			.rs-btn {
 				width: 100%;
-				max-width: 156px;
 				margin: 5px auto 0px;
 
 				.btn-text {

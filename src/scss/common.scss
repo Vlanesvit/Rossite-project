@@ -328,6 +328,7 @@ section {
 
 // Button ========================================================================================================================================================
 .rs-btn {
+	overflow: hidden;
 	position: relative;
 	display: inline-block;
 	border-radius: 100px;
@@ -927,6 +928,14 @@ section {
 	}
 }
 
+.wpcf7 form:not(.sent) .wpcf7-response-output {
+	display: none;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+	border-radius: 20px;
+}
+
 .form {
 	margin-top: 18px;
 
@@ -1085,6 +1094,64 @@ section {
 
 		.rs-btn {
 			width: 100%;
+
+			.sent & {
+				pointer-events: none;
+				cursor: not-allowed;
+			}
+
+			.pulse-container {
+				background-color: var(--primary-color);
+				z-index: 100;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				pointer-events: none;
+				transition: opacity 0.3s ease 0s;
+				opacity: 0;
+
+				.sent & {
+					opacity: 1;
+				}
+			}
+
+			.pulse-bubble {
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: var(--primary-color-text);
+
+				&:not(:last-child) {
+					margin-right: 15px;
+				}
+			}
+
+			.pulse-bubble-1 {
+				animation: pulse 0.4s ease 0s infinite alternate;
+			}
+			.pulse-bubble-2 {
+				animation: pulse 0.4s ease 0.2s infinite alternate;
+			}
+			.pulse-bubble-3 {
+				animation: pulse 0.4s ease 0.4s infinite alternate;
+			}
+
+			@keyframes pulse {
+				from {
+					opacity: 1;
+					transform: scale(1);
+				}
+				to {
+					opacity: 0.25;
+					transform: scale(0.75);
+				}
+			}
 		}
 	}
 
@@ -1298,6 +1365,12 @@ section {
 
 	&::placeholder {
 		color: #666a80;
+	}
+
+	.sent & {
+		pointer-events: none;
+		cursor: not-allowed;
+		opacity: 0.5;
 	}
 
 	&._form-focus,

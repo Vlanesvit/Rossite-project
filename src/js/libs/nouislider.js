@@ -3,7 +3,7 @@
 */
 // Подключаем из node_modules
 import * as noUiSlider from 'nouislider';
-import 'nouislider/dist/nouislider.css';
+import 'nouislider/dist/nouislider.css'; // Импортируйте стили, чтобы они применились
 
 // Инициализация noUiSlider
 export function initNoUiField(page, page_count) {

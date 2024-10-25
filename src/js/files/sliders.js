@@ -24,10 +24,6 @@ EffectFade, Lazy, Manipulation
 // Полный набор стилей из node_modules
 // import 'swiper/css';
 
-// Импортируем функции gsap для анимации
-import { moveSvgDashed, showContentOnScroll, horizontalScroll } from "../libs/animation-gsap.js";
-
-
 // Инициализация слайдеров
 export function initSliders() {
 	// Перечень слайдеров

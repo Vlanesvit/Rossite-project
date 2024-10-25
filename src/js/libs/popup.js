@@ -6,6 +6,7 @@
 // Подключение функционала "Чертогов Фрилансера"
 import { isMobile, bodyLockStatus, bodyLock, bodyUnlock, bodyLockToggle, vnv } from "../files/functions.js";
 import { vnvModules } from "../files/modules.js";
+import { clearForm } from "../files/forms/forms.js";
 
 // Класс Popup
 export class Popup {
@@ -105,6 +106,14 @@ export class Popup {
 		this.popupLogging(`Проснулся`);
 		this.eventsPopup();
 	}
+	// Метод для очистки формы
+	clearFormFields() {
+		const activePopup = this.targetOpen.element;
+		const form = activePopup.querySelector('.form');
+		if (form) {
+			clearForm(form); // Используем импортированную функцию для очистки
+		}
+	}
 	eventsPopup() {
 		// Клик на всем документе
 		document.addEventListener("click", function (e) {
@@ -112,11 +121,11 @@ export class Popup {
 			const buttonOpen = e.target.closest(`[${this.options.attributeOpenButton}]`);
 			if (buttonOpen) {
 				e.preventDefault();
-				this._dataValue = buttonOpen.getAttribute(this.options.attributeOpenButton) ? 
-					buttonOpen.getAttribute(this.options.attributeOpenButton) : 
+				this._dataValue = buttonOpen.getAttribute(this.options.attributeOpenButton) ?
+					buttonOpen.getAttribute(this.options.attributeOpenButton) :
 					'error';
-				this.youTubeCode = buttonOpen.getAttribute(this.options.youtubeAttribute) ? 
-					buttonOpen.getAttribute(this.options.youtubeAttribute) : 
+				this.youTubeCode = buttonOpen.getAttribute(this.options.youtubeAttribute) ?
+					buttonOpen.getAttribute(this.options.youtubeAttribute) :
 					null;
 				if (this._dataValue !== 'error') {
 					if (!this.isOpen) this.lastFocusEl = buttonOpen;
@@ -124,16 +133,16 @@ export class Popup {
 					this._selectorOpen = true;
 					this.open();
 					return;
-	
+
 				} else this.popupLogging(`Ой ой, не заполнен атрибут у ${buttonOpen.classList}`);
-	
+
 				return;
 			}
-	
+
 			// Закрытие на пустом месте и кнопки закрытия
 			const buttonClose = e.target.closest(`[${this.options.attributeCloseButton}]`);
 			const selectedText = window.getSelection().toString().trim(); // Проверка на выделенный текст
-	
+
 			if ((buttonClose || (!e.target.closest(`.${this.options.classes.popupContent}`) && this.isOpen)) && !selectedText) {
 				// Закрываем, только если текст не выделен
 				e.preventDefault();
@@ -141,7 +150,7 @@ export class Popup {
 				return;
 			}
 		}.bind(this));
-		
+
 		// Закрытие по ESC
 		document.addEventListener("keydown", function (e) {
 			if (this.options.closeEsc && e.which == 27 && e.code === 'Escape' && this.isOpen) {
@@ -243,54 +252,31 @@ export class Popup {
 		}
 	}
 	close(selectorValue) {
-		if (selectorValue && typeof (selectorValue) === "string" && selectorValue.trim() !== "") {
-			this.previousOpen.selector = selectorValue;
-		}
-		if (!this.isOpen || !bodyLockStatus) {
-			return;
-		}
-		// До закрытия
-		this.options.on.beforeClose(this);
-		// Создаем свое событие перед закрытием попапа
-		document.dispatchEvent(new CustomEvent("beforePopupClose", {
-			detail: {
-				popup: this
-			}
-		}));
+		if (!this.isOpen) return;
 
-		// YouTube
-		if (this.youTubeCode) {
-			if (this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`))
-				this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).innerHTML = '';
-		}
-		this.previousOpen.element.classList.remove(this.options.classes.popupActive);
-		// aria-hidden
-		this.previousOpen.element.setAttribute('aria-hidden', 'true');
-		if (!this._reopen) {
-			document.documentElement.classList.remove(this.options.classes.bodyActive);
-			!this.bodyLock ? bodyUnlock() : null;
-			this.isOpen = false;
-		}
-		// Очищение адресной строки
-		this._removeHash();
-		if (this._selectorOpen) {
-			this.lastClosed.selector = this.previousOpen.selector;
-			this.lastClosed.element = this.previousOpen.element;
+		// Вызвать пользовательскую функцию перед закрытием
+		this.options.on.beforeClose ? this.options.on.beforeClose() : null;
 
-		}
-		// После закрытия
-		this.options.on.afterClose(this);
-		// Создаем свое событие после закрытия попапа
-		document.dispatchEvent(new CustomEvent("afterPopupClose", {
-			detail: {
-				popup: this
-			}
-		}));
+		// Закрываем попап
+		this.targetOpen.element.classList.remove(this.options.classes.popupActive);
+		document.documentElement.classList.remove(this.options.classes.bodyActive);
+		this.isOpen = false;
 
-		setTimeout(() => {
-			this._focusTrap();
-		}, 50);
+		// Очистить формы внутри попапа
+		this.clearFormFields();
 
+		// Вызвать пользовательскую функцию после закрытия
+		this.options.on.afterClose ? this.options.on.afterClose() : null;
+
+		this._selectorOpen = false;
+		this._reopen = false;
+		this.previousOpen.selector = this.targetOpen.selector;
+		this.previousOpen.element = this.targetOpen.element;
+		this.lastClosed.selector = this.targetOpen.selector;
+		this.lastClosed.element = this.targetOpen.element;
+		this.targetOpen.selector = false;
+		this.targetOpen.element = false;
+		this.bodyLock ? null : bodyUnlock();
 		this.popupLogging(`Закрыл попап`);
 	}
 	closeAllPopups() {

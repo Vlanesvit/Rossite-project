@@ -10,6 +10,10 @@
 	transition-property: padding-top, top, background-color, backdrop-filter;
 	background-color: transparent;
 
+	.crm-widget-button-mobile & {
+		z-index: 10499;
+	}
+
 	@media (min-width: 991.98px) {
 		padding-top: 22px;
 

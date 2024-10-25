@@ -865,6 +865,10 @@ h6 {
   z-index: 10502;
 }
 
+.crm-widget-button-mobile .popup {
+  z-index: 10499;
+}
+
 .popup::after {
   content: "";
   background-color: rgba(4, 4, 34, 0.5);
@@ -1666,6 +1670,7 @@ section.section-bg {
 }
 
 .rs-btn {
+  overflow: hidden;
   position: relative;
   display: inline-block;
   border-radius: 100px;
@@ -2254,6 +2259,14 @@ section.section-bg {
           transform: translateX(-50%) rotate(-90deg);
 }
 
+.wpcf7 form:not(.sent) .wpcf7-response-output {
+  display: none;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  border-radius: 20px;
+}
+
 .form {
   margin-top: 18px;
 }
@@ -2376,6 +2389,95 @@ section.section-bg {
 
 .form__button .rs-btn {
   width: 100%;
+}
+
+.sent .form__button .rs-btn {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.form__button .rs-btn .pulse-container {
+  background-color: var(--primary-color);
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
+  opacity: 0;
+}
+
+.sent .form__button .rs-btn .pulse-container {
+  opacity: 1;
+}
+
+.form__button .rs-btn .pulse-bubble {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--primary-color-text);
+}
+
+.form__button .rs-btn .pulse-bubble:not(:last-child) {
+  margin-right: 15px;
+}
+
+.form__button .rs-btn .pulse-bubble-1 {
+  -webkit-animation: pulse 0.4s ease 0s infinite alternate;
+          animation: pulse 0.4s ease 0s infinite alternate;
+}
+
+.form__button .rs-btn .pulse-bubble-2 {
+  -webkit-animation: pulse 0.4s ease 0.2s infinite alternate;
+          animation: pulse 0.4s ease 0.2s infinite alternate;
+}
+
+.form__button .rs-btn .pulse-bubble-3 {
+  -webkit-animation: pulse 0.4s ease 0.4s infinite alternate;
+          animation: pulse 0.4s ease 0.4s infinite alternate;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  to {
+    opacity: 0.25;
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  to {
+    opacity: 0.25;
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
 }
 
 .form .codedropz-upload-handler {
@@ -2575,6 +2677,12 @@ section.section-bg {
   color: #666a80;
 }
 
+.sent .rs-input {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .rs-input._form-focus,
 .rs-input.wpcf7-focus {
   border-color: #6366f1;
@@ -2621,6 +2729,10 @@ textarea.rs-input {
   transition-property: padding-top, top, background-color, backdrop-filter;
   transition-property: padding-top, top, background-color, backdrop-filter, -webkit-backdrop-filter;
   background-color: transparent;
+}
+
+.crm-widget-button-mobile .rs-header {
+  z-index: 10499;
 }
 
 .rs-header._header-scroll {
@@ -5989,7 +6101,7 @@ textarea.rs-input {
   transition: all 0.3s ease 0s;
 }
 
-.rs-partners__img img:nth-child(2) {
+.rs-partners__img img.hover {
   position: absolute;
   top: 0;
   left: 0;
@@ -9009,6 +9121,7 @@ textarea.rs-input {
 
 .rs-tariff__head .rs-btn {
   width: 100%;
+  max-width: 156px;
   margin: 5px auto 0px;
 }
 
@@ -9069,7 +9182,6 @@ textarea.rs-input {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  z-index: 10;
 }
 
 .rs-tariff__about_row::before {
@@ -9133,7 +9245,6 @@ textarea.rs-input {
 
 .rs-tariff__about_item .rs-btn {
   width: 100%;
-  max-width: 156px;
   margin: 5px auto 0px;
 }
 
@@ -10117,271 +10228,6 @@ textarea.rs-input {
   background: #fff;
 }
 
-.icv {
-  position: relative;
-  overflow: hidden;
-  cursor: row-resize;
-}
-
-.icv__icv--vertical {
-  cursor: row-resize;
-}
-
-.icv__icv--horizontal {
-  cursor: col-resize;
-}
-
-.icv__img {
-  pointer-events: none;
-  -o-user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  max-width: none;
-  width: 100%;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  top: 0;
-  display: block;
-}
-
-.icv__is--fluid .icv__img {
-  display: none;
-}
-
-.icv__img-a {
-  height: auto;
-  position: static;
-  z-index: 1;
-  left: 0px;
-}
-
-.icv__img-b {
-  height: 100%;
-  position: absolute;
-  z-index: 2;
-  left: auto;
-  right: 0px;
-  width: auto;
-}
-
-.icv__icv--vertical .icv__img-b {
-  width: 100%;
-  height: auto;
-}
-
-.icv__imposter {
-  z-index: 4;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-}
-
-.icv__wrapper {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  right: 0px;
-  top: 0px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center center;
-  z-index: 3;
-}
-
-.icv__is--fluid .icv__wrapper,
-.icv__icv--vertical .icv__wrapper {
-  width: 100% !important;
-}
-
-.icv__is--fluid .icv__wrapper,
-.icv__icv--horizontal .icv__wrapper {
-  height: 100% !important;
-}
-
-.icv__fluidwrapper {
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.icv__control {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 100%;
-  top: 0px;
-  z-index: 5;
-}
-
-.icv__icv--vertical .icv__control {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  left: 0;
-  width: 100%;
-}
-
-.icv__control-line {
-  height: 50%;
-  width: 2px;
-  z-index: 6;
-}
-
-.icv__icv--vertical .icv__control-line {
-  width: 50%;
-}
-
-.icv__theme-wrapper {
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: absolute;
-  -webkit-transition: all 0.1s ease-out 0s;
-  transition: all 0.1s ease-out 0s;
-  z-index: 5;
-}
-
-.icv__icv--vertical .icv__theme-wrapper {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.icv__arrow-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-transition: all 0.1s ease-out 0s;
-  transition: all 0.1s ease-out 0s;
-}
-
-.icv__arrow-a {
-  -webkit-transform: scale(1.5) rotateZ(180deg);
-  -ms-transform: scale(1.5) rotate(180deg);
-      transform: scale(1.5) rotateZ(180deg);
-  height: 20px;
-  width: 20px;
-  -webkit-filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.33));
-  filter: drop-shadow(0px -3px 5px rgba(0, 0, 0, 0.33));
-}
-
-.icv__arrow-b {
-  -webkit-transform: scale(1.5) rotateZ(0deg);
-  -ms-transform: scale(1.5) rotate(0deg);
-      transform: scale(1.5) rotateZ(0deg);
-  height: 20px;
-  width: 20px;
-  -webkit-filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.33));
-  filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.33));
-}
-
-.icv__circle {
-  width: 50px;
-  height: 50px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  border-radius: 999px;
-}
-
-.icv__label {
-  position: absolute;
-  bottom: 1rem;
-  z-index: 12;
-  background: rgba(0, 0, 0, 0.33);
-  color: white;
-  border-radius: 3px;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.85rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.icv__label.vertical {
-  bottom: auto;
-  left: 1rem;
-}
-
-.icv__label.on-hover {
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-      transform: scale(0);
-  -webkit-transition: 0.25s cubic-bezier(0.68, 0.26, 0.58, 1.22);
-  transition: 0.25s cubic-bezier(0.68, 0.26, 0.58, 1.22);
-}
-
-.icv:hover .icv__label.on-hover {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-      transform: scale(1);
-}
-
-.icv__label-before {
-  left: 1rem;
-}
-
-.icv__label-after {
-  right: 1rem;
-}
-
-.icv__label-before.vertical {
-  top: 1rem;
-}
-
-.icv__label-after.vertical {
-  bottom: 1rem;
-  right: auto;
-}
-
-.icv__body {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 /* Functional styling;
  * These styles are required for noUiSlider to function.
  * You don't need to change these rules to apply your design.
@@ -11034,7 +10880,7 @@ textarea.rs-input {
     display: none;
   }
 
-  .rs-task__img img:nth-child(3) {
+  .rs-task__img img.rs-task__img--mob {
     display: none;
   }
 }
@@ -15671,7 +15517,7 @@ textarea.rs-input {
     max-height: 401px;
   }
 
-  .rs-task__img img:nth-child(1) {
+  .rs-task__img img.rs-task__img--desc {
     display: none;
   }
 
@@ -17367,7 +17213,7 @@ textarea.rs-input {
     display: none;
   }
 
-  .rs-task__img img:nth-child(2) {
+  .rs-task__img img.rs-task__img--tab {
     display: none;
   }
 }
@@ -17593,12 +17439,12 @@ textarea.rs-input {
     stroke: #fff;
   }
 
-  .rs-partners__img:hover img:nth-child(1) {
+  .rs-partners__img:hover img {
     opacity: 0;
     visibility: hidden;
   }
 
-  .rs-partners__img:hover img:nth-child(2) {
+  .rs-partners__img:hover img.hover {
     opacity: 1;
     visibility: visible;
   }
