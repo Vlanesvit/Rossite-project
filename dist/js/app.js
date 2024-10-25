@@ -13955,8 +13955,9 @@
         const handleReveal = () => {
             if (typeof refreshScrollTrigger === "function") refreshScrollTrigger();
             initAnimationsBasedOnWidth();
+            clearAnimations();
         };
-        let currentWidthAnimation = null;
+        const matchMedia = gsapWithCSS.matchMedia();
         const stagger = .5;
         function animateSvgDashedLine({dashedSelector, maskSelector, topOffset = 50, endOffset = 500, markers = false}) {
             const dasheds = document.querySelectorAll(dashedSelector);
@@ -14106,58 +14107,60 @@
         }
         let refreshScrollTrigger = null;
         function horizontalScroll({blockSelector, triggerSelector, progressSelector}) {
-            const block = document.querySelector(blockSelector);
-            const trigger = document.querySelector(triggerSelector);
-            const progress = document.querySelector(progressSelector);
-            let scrollTriggerInstance;
-            if (block && trigger && progress) {
-                const createScrollTrigger = () => {
-                    if (scrollTriggerInstance) scrollTriggerInstance.kill();
-                    scrollTriggerInstance = ScrollTrigger_ScrollTrigger.create({
-                        trigger,
-                        start: "top-=10% top",
-                        end: () => `+=${trigger.clientHeight + window.innerHeight}`,
-                        scrub: true,
-                        pin: true,
-                        invalidateOnRefresh: true,
-                        anticipatePin: 1,
-                        onUpdate: self => {
-                            gsapWithCSS.to(block, {
-                                x: () => -self.progress * (block.scrollWidth - block.clientWidth) + "px",
-                                duration: .1,
-                                ease: "power1.inOut"
-                            });
-                            const progressValue = (self.progress * 100).toFixed(2) + "%";
-                            gsapWithCSS.to(progress, {
-                                width: progressValue,
-                                duration: .1,
-                                ease: "power1.inOut"
-                            });
-                        }
-                    });
-                };
-                createScrollTrigger();
-                const nextButton = trigger.querySelector(".swiper-button-next");
-                const prevButton = trigger.querySelector(".swiper-button-prev");
-                let nextButtonClickHandler = null;
-                let prevButtonClickHandler = null;
-                if (nextButton) {
-                    nextButtonClickHandler = () => {
-                        let scrollAmount = 300 / document.documentElement.clientHeight;
-                        let newScrollPosition = scrollTriggerInstance.progress + scrollAmount;
-                        scrollTriggerInstance.scroll(scrollTriggerInstance.start + newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start));
+            matchMedia.add("(min-width: 991.98px)", (() => {
+                const block = document.querySelector(blockSelector);
+                const trigger = document.querySelector(triggerSelector);
+                const progress = document.querySelector(progressSelector);
+                let scrollTriggerInstance;
+                if (block && trigger && progress) {
+                    const createScrollTrigger = () => {
+                        if (scrollTriggerInstance) scrollTriggerInstance.kill();
+                        scrollTriggerInstance = ScrollTrigger_ScrollTrigger.create({
+                            trigger,
+                            start: "top-=10% top",
+                            end: () => `+=${trigger.clientHeight + window.innerHeight}`,
+                            scrub: true,
+                            pin: true,
+                            invalidateOnRefresh: true,
+                            anticipatePin: 1,
+                            onUpdate: self => {
+                                gsapWithCSS.to(block, {
+                                    x: () => -self.progress * (block.scrollWidth - block.clientWidth) + "px",
+                                    duration: .1,
+                                    ease: "power1.inOut"
+                                });
+                                const progressValue = (self.progress * 100).toFixed(2) + "%";
+                                gsapWithCSS.to(progress, {
+                                    width: progressValue,
+                                    duration: .1,
+                                    ease: "power1.inOut"
+                                });
+                            }
+                        });
                     };
-                    nextButton.addEventListener("click", nextButtonClickHandler);
+                    createScrollTrigger();
+                    const nextButton = trigger.querySelector(".swiper-button-next");
+                    const prevButton = trigger.querySelector(".swiper-button-prev");
+                    let nextButtonClickHandler = null;
+                    let prevButtonClickHandler = null;
+                    if (nextButton) {
+                        nextButtonClickHandler = () => {
+                            let scrollAmount = 300 / document.documentElement.clientHeight;
+                            let newScrollPosition = scrollTriggerInstance.progress + scrollAmount;
+                            scrollTriggerInstance.scroll(scrollTriggerInstance.start + newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start));
+                        };
+                        nextButton.addEventListener("click", nextButtonClickHandler);
+                    }
+                    if (prevButton) {
+                        prevButtonClickHandler = () => {
+                            let scrollAmount = 300 / document.documentElement.clientHeight;
+                            let newScrollPosition = scrollTriggerInstance.progress - scrollAmount;
+                            scrollTriggerInstance.scroll(scrollTriggerInstance.start + newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start));
+                        };
+                        prevButton.addEventListener("click", prevButtonClickHandler);
+                    }
                 }
-                if (prevButton) {
-                    prevButtonClickHandler = () => {
-                        let scrollAmount = 300 / document.documentElement.clientHeight;
-                        let newScrollPosition = scrollTriggerInstance.progress - scrollAmount;
-                        scrollTriggerInstance.scroll(scrollTriggerInstance.start + newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start));
-                    };
-                    prevButton.addEventListener("click", prevButtonClickHandler);
-                }
-            }
+            }));
         }
         function marquee() {
             const marquees = document.querySelectorAll(".marquee");
@@ -14208,15 +14211,6 @@
             const primaryColor = wrapperStyles.getPropertyValue("--primary-color");
             document.body.style.setProperty("--primary-color", primaryColor);
         }
-        function debounce(func, wait) {
-            let timeout;
-            return function() {
-                const context = this, args = arguments;
-                clearTimeout(timeout);
-                timeout = setTimeout((() => func.apply(context, args)), wait);
-            };
-        }
-        debounce(initAnimationsBasedOnWidth, 100);
         function clearAnimations() {
             ScrollTrigger_ScrollTrigger.getAll().forEach((trigger => {
                 trigger.kill();
@@ -14226,19 +14220,9 @@
             }));
         }
         function initAnimationsBasedOnWidth() {
-            const scrollPos = window.scrollY || window.pageYOffse;
-            clearAnimations();
-            window.scrollTo(0, scrollPos);
-            if (window.innerWidth >= 991.98) {
-                if (currentWidthAnimation === "mobile") clearAnimations();
-                initializeDesktopAnimations();
-                currentWidthAnimation = "desktop";
-            } else {
-                if (currentWidthAnimation === "desktop") clearAnimations();
-                initializeMobileAnimations();
-                currentWidthAnimation = "mobile";
-            }
             initializeCommonAnimations();
+            initializeDesktopAnimations();
+            initializeMobileAnimations();
             ScrollTrigger_ScrollTrigger.refresh();
         }
         function videoPlay() {
@@ -14250,7 +14234,7 @@
             }));
         }
         function initializeCommonAnimations() {
-            if (document.querySelector(".rs-features__slide")) {
+            if (document.querySelector(".rs-features__slide")) setTimeout((() => {
                 const stackItems = gsapWithCSS.utils.toArray(".rs-features__slide");
                 gsapWithCSS.set(stackItems, {
                     yPercent: index => 0,
@@ -14278,36 +14262,31 @@
                     ease: "power2.inOut",
                     stagger
                 }, stagger);
-            }
+                handleResize();
+            }), 100);
             if (document.querySelector(".rs-main__title h1")) {
-                gsapWithCSS.to(".rs-main__title h1", {
+                const titleTimeline = gsapWithCSS.timeline({
                     scrollTrigger: {
                         trigger: ".rs-main__title",
-                        start: `top top`,
-                        end: `bottom bottom`,
-                        endTrigger: ".rs-main__pins",
-                        pin: true,
-                        pinSpacing: false,
+                        start: "top top",
+                        end: "bottom+=200px top",
                         scrub: true,
-                        invalidateOnRefresh: true
+                        pin: ".rs-main__title",
+                        pinSpacing: false,
+                        invalidateOnRefresh: true,
+                        refreshPriority: 1
                     }
                 });
-                gsapWithCSS.set(".rs-main__title h1", {
-                    scale: 0,
-                    opacity: 0
-                });
-                gsapWithCSS.to(".rs-main__title h1", {
+                titleTimeline.fromTo(".rs-main__title h1", {
                     scale: 1,
-                    opacity: 1,
-                    scrollTrigger: {
-                        start: `top+=50% top`,
-                        end: `bottom=+50% bottom`,
-                        endTrigger: ".rs-main__title",
-                        scrub: true
-                    }
+                    opacity: 1
+                }, {
+                    scale: .5,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power1.out"
                 });
             }
-            marquee();
             animateSvgDashedLine({
                 dashedSelector: "section [class*='__line'] .dashed-path"
             });
@@ -14613,6 +14592,7 @@
             });
         }
         function initializeDesktopAnimations() {
+            marquee();
             horizontalScroll({
                 blockSelector: ".rs-slider-block-pins .rs-slider-block__swiper",
                 triggerSelector: ".rs-slider-block-pins",
@@ -14620,24 +14600,14 @@
             });
             if (document.querySelector(".rs-steps .rs-steps__spollers_item")) {
                 const sections = document.querySelectorAll(".rs-steps .rs-steps__spollers_item");
-                sections.forEach(((section, i) => {
-                    function setActive(section) {
-                        if (!section) return;
-                        sections.forEach((el => el.classList.remove("_active-step")));
-                        section.classList.add("_active-step");
-                    }
-                    function removeActive() {
-                        sections.forEach((el => el.classList.remove("_active-step")));
-                    }
+                sections.forEach((section => {
                     ScrollTrigger_ScrollTrigger.create({
                         trigger: section,
                         start: "top center",
                         end: "bottom center",
                         invalidateOnRefresh: true,
-                        onEnter: () => setActive(section),
-                        onEnterBack: () => setActive(section),
-                        onLeave: () => removeActive(),
-                        onLeaveBack: () => removeActive()
+                        onEnter: () => section.classList.add("_active-step"),
+                        onLeave: () => section.classList.remove("_active-step")
                     });
                 }));
             }
@@ -14675,7 +14645,7 @@
                 }
             } ];
             parallaxItems.forEach((item => {
-                if (document.querySelector(item.selector)) {
+                if (document.querySelector(item.selector)) matchMedia.add("(min-width: 991.98px)", (() => {
                     const parallaxTimeline = gsapWithCSS.timeline({
                         scrollTrigger: {
                             trigger: ".rs-steps",
@@ -14686,59 +14656,66 @@
                         }
                     });
                     if (item.animation.from && item.animation.to) parallaxTimeline.fromTo(item.selector, item.animation.from, item.animation.to); else parallaxTimeline.from(item.selector, item.animation);
-                }
+                }));
             }));
             if (document.querySelector(".rs-steps-algorithm .rs-steps__text")) {
-                gsapWithCSS.to(".rs-steps-algorithm .rs-steps__text", {
-                    scrollTrigger: {
-                        trigger: ".rs-steps-algorithm .rs-steps__text",
-                        start: "top top+=100px",
-                        end: "bottom bottom",
-                        endTrigger: ".rs-steps-algorithm",
-                        pin: true,
-                        pinSpacing: false,
-                        scrub: true,
-                        invalidateOnRefresh: true
-                    }
-                });
-                const cardsSteps = gsapWithCSS.utils.toArray(".rs-steps-algorithm .rs-steps__spollers_item");
-                cardsSteps.forEach(((card, index) => {
-                    gsapWithCSS.to(card, {
+                matchMedia.add("(min-width: 991.98px)", (() => {
+                    gsapWithCSS.to(".rs-steps-algorithm .rs-steps__text", {
                         scrollTrigger: {
-                            trigger: card,
-                            start: `top-=${index * 20} top+=100px`,
-                            end: "bottom+=50px bottom-=50%",
+                            trigger: ".rs-steps-algorithm .rs-steps__text",
+                            start: "top top+=100px",
+                            end: "bottom bottom",
                             endTrigger: ".rs-steps-algorithm",
                             pin: true,
                             pinSpacing: false,
                             scrub: true,
                             invalidateOnRefresh: true
-                        },
-                        ease: "none"
+                        }
                     });
                 }));
-            }
-            if (document.querySelectorAll(".rs-tariff__top")) {
-                const tariffs = document.querySelectorAll(".rs-tariff");
-                tariffs.forEach((tariff => {
-                    const tariffTops = tariff.querySelectorAll(".rs-tariff__top");
-                    tariffTops.forEach((tariffTop => {
-                        gsapWithCSS.to(tariffTop, {
+                const cardsSteps = gsapWithCSS.utils.toArray(".rs-steps-algorithm .rs-steps__spollers_item");
+                cardsSteps.forEach(((card, index) => {
+                    matchMedia.add("(min-width: 991.98px)", (() => {
+                        gsapWithCSS.to(card, {
                             scrollTrigger: {
-                                trigger: tariffTop,
-                                start: "top top",
-                                end: "bottom bottom",
-                                endTrigger: tariff,
+                                trigger: card,
+                                start: `top-=${index * 20} top+=100px`,
+                                end: "bottom+=50px bottom-=50%",
+                                endTrigger: ".rs-steps-algorithm",
                                 pin: true,
                                 pinSpacing: false,
                                 scrub: true,
                                 invalidateOnRefresh: true
-                            }
+                            },
+                            ease: "none"
                         });
                     }));
                 }));
             }
-            if (document.querySelector(".rs-main__project_item")) {
+            if (document.querySelectorAll(".rs-tariff__top")) setTimeout((() => {
+                const tariffs = document.querySelectorAll(".rs-tariff");
+                tariffs.forEach((tariff => {
+                    const tariffTops = tariff.querySelectorAll(".rs-tariff__top");
+                    tariffTops.forEach((tariffTop => {
+                        matchMedia.add("(min-width: 991.98px)", (() => {
+                            gsapWithCSS.to(".rs-tariff__top", {
+                                scrollTrigger: {
+                                    trigger: tariffTop,
+                                    start: "top top",
+                                    end: "bottom bottom",
+                                    endTrigger: tariff,
+                                    pin: true,
+                                    pinSpacing: false,
+                                    scrub: true,
+                                    invalidateOnRefresh: true
+                                }
+                            });
+                            handleResize();
+                        }));
+                    }));
+                }));
+            }), 200);
+            if (document.querySelector(".rs-main__project_item")) matchMedia.add("(min-width: 991.98px)", (() => {
                 const projectItems = gsapWithCSS.utils.toArray(".rs-main__project_item");
                 gsapWithCSS.set(projectItems, {
                     y: index => 0 * index,
@@ -14758,6 +14735,7 @@
                         scrub: true,
                         pin: true,
                         id: "pin-block",
+                        refreshPriority: -1,
                         invalidateOnRefresh: true
                     }
                 });
@@ -14814,7 +14792,7 @@
                         ease: "power2.out"
                     });
                 }
-            }
+            }));
         }
         function initializeMobileAnimations() {}
         function initBarba() {
@@ -14871,6 +14849,7 @@
                         return gsapWithCSS.from(next.container, {
                             delay: .5,
                             onComplete: function() {
+                                clearAnimations();
                                 updatePrimaryColor();
                                 initAnimationsBasedOnWidth();
                                 initializePage();
@@ -14892,8 +14871,14 @@
             barba_umd.hooks.afterEnter((() => {}));
         }
         initBarba();
-        window.addEventListener("resize", initAnimationsBasedOnWidth);
-        window.addEventListener("orientationchange", initAnimationsBasedOnWidth);
+        window.addEventListener("resize", (() => {
+            clearAnimations();
+            initAnimationsBasedOnWidth();
+        }));
+        window.addEventListener("orientationchange", (() => {
+            clearAnimations();
+            initAnimationsBasedOnWidth();
+        }));
         window.addEventListener("load", (() => {
             updatePrimaryColor();
             initAnimationsBasedOnWidth();
@@ -14913,10 +14898,8 @@
                     }), 300);
                 }
             }
-            setTimeout((() => {
-                loaderAnim(loaderFillv1, 100, .4);
-                loaderAnim(loaderFillv2, 100, .2);
-            }), 300);
+            loaderAnim(loaderFillv1, 100, .4);
+            loaderAnim(loaderFillv2, 100, .2);
         }));
         function isWebp() {
             function testWebP(callback) {

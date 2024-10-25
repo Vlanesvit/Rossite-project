@@ -43,21 +43,25 @@ const loaderAnim = (element, yPercent, delay) => {
 };
 
 // Обработка изменений на странице динамически
-export const handleResize = () => {
+const handleResize = () => {
 	requestAnimationFrame(() => {
-		ScrollTrigger.refresh();
+		ScrollTrigger.refresh(); // Обновление всех триггеров при изменении размера окна
 	});
 };
 
-export const handleReveal = () => {
+const handleReveal = () => {
 	if (typeof refreshScrollTrigger === 'function') {
 		refreshScrollTrigger();
 	}
 
 	initAnimationsBasedOnWidth();
+	clearAnimations();
 };
+// Экспорт функций для использования в других модулях
+export { handleReveal };
 
-let currentWidthAnimation = null;
+const matchMedia = gsap.matchMedia();
+// let currentWidthAnimation = null;
 const stagger = 0.5;
 
 //========================================================================================================================================================
@@ -149,74 +153,76 @@ function revealOnScroll({ elements, duration = 0.5, delay = 0.15, direction = 'b
 // Анимация горизонтального скролла
 let refreshScrollTrigger = null; // Объявляем переменную вне функции, чтобы получить к ней доступ позже
 function horizontalScroll({ blockSelector, triggerSelector, progressSelector }) {
-	const block = document.querySelector(blockSelector);
-	const trigger = document.querySelector(triggerSelector);
-	const progress = document.querySelector(progressSelector);
-	let scrollTriggerInstance;
+	matchMedia.add("(min-width: 991.98px)", () => {
+		const block = document.querySelector(blockSelector);
+		const trigger = document.querySelector(triggerSelector);
+		const progress = document.querySelector(progressSelector);
+		let scrollTriggerInstance;
 
-	if (block && trigger && progress) {
-		const createScrollTrigger = () => {
-			if (scrollTriggerInstance) {
-				scrollTriggerInstance.kill(); // Убиваем предыдущий инстанс
+		if (block && trigger && progress) {
+			const createScrollTrigger = () => {
+				if (scrollTriggerInstance) {
+					scrollTriggerInstance.kill(); // Убиваем предыдущий инстанс
+				}
+
+				scrollTriggerInstance = ScrollTrigger.create({
+					trigger: trigger,
+					start: "top-=10% top",
+					end: () => `+=${trigger.clientHeight + window.innerHeight}`,
+					scrub: true,
+					pin: true,
+					invalidateOnRefresh: true,
+					anticipatePin: 1,
+					onUpdate: (self) => {
+						gsap.to(block, {
+							x: () => -(self.progress * (block.scrollWidth - block.clientWidth)) + "px",
+							duration: 0.1,
+							ease: "power1.inOut",
+						});
+
+						const progressValue = (self.progress * 100).toFixed(2) + "%";
+						gsap.to(progress, {
+							width: progressValue,
+							duration: 0.1,
+							ease: "power1.inOut",
+						});
+					},
+				});
+			};
+
+			// Создаем ScrollTrigger при вызове horizontalScroll
+			createScrollTrigger();
+
+			// Определяем refreshScrollTrigger
+			const refreshScrollTrigger = () => {
+				createScrollTrigger(); // Повторно создаем ScrollTrigger для горизонтального скролла
+				ScrollTrigger.refresh(); // Обновляем все ScrollTrigger
+			};
+
+			const nextButton = trigger.querySelector('.swiper-button-next');
+			const prevButton = trigger.querySelector('.swiper-button-prev');
+			let nextButtonClickHandler = null;
+			let prevButtonClickHandler = null;
+
+			if (nextButton) {
+				nextButtonClickHandler = () => {
+					let scrollAmount = 300 / document.documentElement.clientHeight;
+					let newScrollPosition = scrollTriggerInstance.progress + scrollAmount;
+					scrollTriggerInstance.scroll(scrollTriggerInstance.start + (newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start)));
+				};
+				nextButton.addEventListener('click', nextButtonClickHandler);
 			}
 
-			scrollTriggerInstance = ScrollTrigger.create({
-				trigger: trigger,
-				start: "top-=10% top",
-				end: () => `+=${trigger.clientHeight + window.innerHeight}`,
-				scrub: true,
-				pin: true,
-				invalidateOnRefresh: true,
-				anticipatePin: 1,
-				onUpdate: (self) => {
-					gsap.to(block, {
-						x: () => -(self.progress * (block.scrollWidth - block.clientWidth)) + "px",
-						duration: 0.1,
-						ease: "power1.inOut",
-					});
-
-					const progressValue = (self.progress * 100).toFixed(2) + "%";
-					gsap.to(progress, {
-						width: progressValue,
-						duration: 0.1,
-						ease: "power1.inOut",
-					});
-				},
-			});
-		};
-
-		// Создаем ScrollTrigger при вызове horizontalScroll
-		createScrollTrigger();
-
-		// Определяем refreshScrollTrigger
-		const refreshScrollTrigger = () => {
-			createScrollTrigger(); // Повторно создаем ScrollTrigger для горизонтального скролла
-			ScrollTrigger.refresh(); // Обновляем все ScrollTrigger
-		};
-
-		const nextButton = trigger.querySelector('.swiper-button-next');
-		const prevButton = trigger.querySelector('.swiper-button-prev');
-		let nextButtonClickHandler = null;
-		let prevButtonClickHandler = null;
-
-		if (nextButton) {
-			nextButtonClickHandler = () => {
-				let scrollAmount = 300 / document.documentElement.clientHeight;
-				let newScrollPosition = scrollTriggerInstance.progress + scrollAmount;
-				scrollTriggerInstance.scroll(scrollTriggerInstance.start + (newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start)));
-			};
-			nextButton.addEventListener('click', nextButtonClickHandler);
+			if (prevButton) {
+				prevButtonClickHandler = () => {
+					let scrollAmount = 300 / document.documentElement.clientHeight;
+					let newScrollPosition = scrollTriggerInstance.progress - scrollAmount;
+					scrollTriggerInstance.scroll(scrollTriggerInstance.start + (newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start)));
+				};
+				prevButton.addEventListener('click', prevButtonClickHandler);
+			}
 		}
-
-		if (prevButton) {
-			prevButtonClickHandler = () => {
-				let scrollAmount = 300 / document.documentElement.clientHeight;
-				let newScrollPosition = scrollTriggerInstance.progress - scrollAmount;
-				scrollTriggerInstance.scroll(scrollTriggerInstance.start + (newScrollPosition * (scrollTriggerInstance.end - scrollTriggerInstance.start)));
-			};
-			prevButton.addEventListener('click', prevButtonClickHandler);
-		}
-	}
+	});
 }
 
 // Бегущая строка
@@ -287,24 +293,12 @@ function marquee() {
 }
 
 //========================================================================================================================================================
-// Функиця переноса основого цвета страницы
+// Функция переноса основого цвета страницы
 function updatePrimaryColor() {
 	const wrapperStyles = window.getComputedStyle(document.querySelector('.wrapper'));
 	const primaryColor = wrapperStyles.getPropertyValue('--primary-color');
 	document.body.style.setProperty('--primary-color', primaryColor);
 }
-
-// Дебаунсинг функции
-function debounce(func, wait) {
-	let timeout;
-	return function () {
-		const context = this, args = arguments;
-		clearTimeout(timeout);
-		timeout = setTimeout(() => func.apply(context, args), wait);
-	};
-}
-// Дебаунсинг события ресайза
-const debouncedInitAnimations = debounce(initAnimationsBasedOnWidth, 100);
 
 // Функция для удаления анимаций
 function clearAnimations() {
@@ -323,32 +317,12 @@ function clearAnimations() {
 
 // Инициализация анимаций для разных разрешений
 function initAnimationsBasedOnWidth() {
-	// Сохраняем текущую позицию скролла
-	const scrollPos = window.scrollY || window.pageYOffse;
-
-	clearAnimations();
-
-	// Восстанавливаем позицию скролла после обновления
-	window.scrollTo(0, scrollPos);
-
-	if (window.innerWidth >= 991.98) {
-		// Если переключаемся с мобильной версии, очищаем мобильные анимации
-		if (currentWidthAnimation === 'mobile') {
-			clearAnimations();
-		}
-		initializeDesktopAnimations();
-		currentWidthAnimation = 'desktop';
-	} else {
-		// Если переключаемся с десктопной версии, очищаем десктопные анимации
-		if (currentWidthAnimation === 'desktop') {
-			clearAnimations();
-		}
-		initializeMobileAnimations();
-		currentWidthAnimation = 'mobile';
-	}
-
 	// Инициализация общих анимаций
 	initializeCommonAnimations();
+	// Инициализация декстопных анимаций
+	initializeDesktopAnimations()
+	// Инициализация мобильных анимаций
+	initializeMobileAnimations()
 
 	// Обновляем точки старта/окончания для всех ScrollTrigger
 	ScrollTrigger.refresh();
@@ -376,74 +350,71 @@ function initializeCommonAnimations() {
 	//========================================================================================================================================================
 	// Закрепление блоков и последующее складывание в стопку
 	if (document.querySelector('.rs-features__slide')) {
-		const stackItems = gsap.utils.toArray('.rs-features__slide');
+		setTimeout(() => {
+			const stackItems = gsap.utils.toArray('.rs-features__slide');
 
-		gsap.set(stackItems, {
-			yPercent: (index) => 0,
-			scale: (index) => 1,
-		});
+			gsap.set(stackItems, {
+				yPercent: (index) => 0,
+				scale: (index) => 1,
+			});
 
-		const stackTimeline = gsap.timeline({
-			scrollTrigger: {
-				trigger: '.rs-features__wrapper',
-				start: 'top top',
-				// end: () => `+=${(stackItems.length - 1) * 100}vh`,
-				end: "bottom+=50% top",
-				// endTrigger: '.rs-features',
-				pin: true,
-				pinSpacing: true,
-				scrub: true,
-				invalidateOnRefresh: true,
-				// markers: true,
-			}
-		});
+			const stackTimeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: '.rs-features__wrapper',
+					start: 'top top',
+					// end: () => `+=${(stackItems.length - 1) * 100}vh`,
+					end: "bottom+=50% top",
+					// endTrigger: '.rs-features',
+					pin: true,
+					pinSpacing: true,
+					scrub: true,
+					invalidateOnRefresh: true,
+					// markers: true,
+				}
+			});
 
-		stackTimeline
-			.to(stackItems, {
-				yPercent: (index) => -100 * index,
-				duration: 1,
-				ease: "power2.inOut",
-				stagger: stagger,
-			})
-			.to(stackItems, {
-				scale: (index) => 1 - (stackItems.length - index) * 0.025,
-				duration: 1,
-				ease: "power2.inOut",
-				stagger: stagger,
-			}, stagger);
+			stackTimeline
+				.to(stackItems, {
+					yPercent: (index) => -100 * index,
+					duration: 1,
+					ease: "power2.inOut",
+					stagger: stagger,
+				})
+				.to(stackItems, {
+					scale: (index) => 1 - (stackItems.length - index) * 0.025,
+					duration: 1,
+					ease: "power2.inOut",
+					stagger: stagger,
+				}, stagger);
+
+			handleResize()
+		}, 100);
 	}
 
 	//========================================================================================================================================================
 	// Закрепление заголовка с анимацией при скролле
 	if (document.querySelector('.rs-main__title h1')) {
-		gsap.to('.rs-main__title h1', {
+		// Создаем таймлайн для анимации масштаба и прозрачности
+		const titleTimeline = gsap.timeline({
 			scrollTrigger: {
 				trigger: '.rs-main__title',
-				start: `top top`,
-				end: `bottom bottom`,
-				endTrigger: '.rs-main__pins',
-				pin: true,
+				start: "top top",
+				end: "bottom+=200px top",
+				scrub: true,
+				pin: '.rs-main__title',
 				pinSpacing: false,
-				scrub: true,
 				invalidateOnRefresh: true,
-				// markers: 1,
-			},
-		});
-		gsap.set('.rs-main__title h1', { scale: 0, opacity: 0 });
-		gsap.to('.rs-main__title h1', {
-			scale: 1,
-			opacity: 1,
-			scrollTrigger: {
-				start: `top+=50% top`,
-				end: `bottom=+50% bottom`,
-				endTrigger: '.rs-main__title',
-				scrub: true,
-				// markers: 1,
+				refreshPriority: 1,
+				// markers: true,
 			}
-		})
-	}
+		});
 
-	marquee();
+		// Добавляем анимацию масштаба и прозрачности к заголовку h1
+		titleTimeline.fromTo('.rs-main__title h1',
+			{ scale: 1, opacity: 1 },  // Начальное состояние
+			{ scale: 0.5, opacity: 0, duration: 1, ease: "power1.out" }  // Конечное состояние
+		);
+	}
 
 	animateSvgDashedLine({ dashedSelector: "section [class*='__line'] .dashed-path" });
 
@@ -555,6 +526,8 @@ function initializeCommonAnimations() {
 function initializeDesktopAnimations() {
 	// console.log("Инициализация десктопных анимаций");
 
+	marquee();
+
 	//========================================================================================================================================================
 	// Анимация горизонтального скролла
 	horizontalScroll({
@@ -567,32 +540,15 @@ function initializeDesktopAnimations() {
 	// Замена фон.цвета при скролле
 	if (document.querySelector(".rs-steps .rs-steps__spollers_item")) {
 		const sections = document.querySelectorAll(".rs-steps .rs-steps__spollers_item");
-
-		sections.forEach((section, i) => {
-			function setActive(section) {
-				if (!section) return;
-				sections.forEach((el) => el.classList.remove("_active-step"));
-				section.classList.add("_active-step");
-				// console.log(`Активен раздел: ${section.classList}`);
-			}
-
-			function removeActive() {
-				sections.forEach((el) => el.classList.remove("_active-step"));
-				// console.log("Активный раздел удален");
-			}
-
-			// Создаем ScrollTrigger для каждого section
+		sections.forEach((section) => {
 			ScrollTrigger.create({
 				trigger: section,
 				start: "top center",
 				end: "bottom center",
 				invalidateOnRefresh: true,
-				onEnter: () => setActive(section),
-				onEnterBack: () => setActive(section),
-				onLeave: () => removeActive(),
-				onLeaveBack: () => removeActive(),
+				onEnter: () => section.classList.add("_active-step"),
+				onLeave: () => section.classList.remove("_active-step"),
 			});
-
 		});
 	}
 
@@ -614,52 +570,37 @@ function initializeDesktopAnimations() {
 	];
 	parallaxItems.forEach(item => {
 		if (document.querySelector(item.selector)) {
-			const parallaxTimeline = gsap.timeline({
-				scrollTrigger: {
-					trigger: ".rs-steps",
-					scrub: 1,
-					start: "top-=30% top",
-					end: "bottom+=30% bottom",
-					invalidateOnRefresh: true,
-					// markers: true,
+			matchMedia.add("(min-width: 991.98px)", () => {
+				const parallaxTimeline = gsap.timeline({
+					scrollTrigger: {
+						trigger: ".rs-steps",
+						scrub: 1,
+						start: "top-=30% top",
+						end: "bottom+=30% bottom",
+						invalidateOnRefresh: true,
+						// markers: true,
+					}
+				});
+
+				// Выбор метода анимации в зависимости от наличия 'from' и 'to' параметров
+				if (item.animation.from && item.animation.to) {
+					parallaxTimeline.fromTo(item.selector, item.animation.from, item.animation.to);
+				} else {
+					parallaxTimeline.from(item.selector, item.animation);
 				}
 			});
-
-			// Выбор метода анимации в зависимости от наличия 'from' и 'to' параметров
-			if (item.animation.from && item.animation.to) {
-				parallaxTimeline.fromTo(item.selector, item.animation.from, item.animation.to);
-			} else {
-				parallaxTimeline.from(item.selector, item.animation);
-			}
 		}
 	});
 
 	//========================================================================================================================================================
 	// Закрепление блоков с текстом при скролле
 	if (document.querySelector('.rs-steps-algorithm .rs-steps__text')) {
-		gsap.to('.rs-steps-algorithm .rs-steps__text', {
-			scrollTrigger: {
-				trigger: '.rs-steps-algorithm .rs-steps__text',
-				start: 'top top+=100px',
-				end: 'bottom bottom',
-				endTrigger: '.rs-steps-algorithm',
-				pin: true,
-				pinSpacing: false,
-				scrub: true,
-				invalidateOnRefresh: true,
-				// markers: true,
-			},
-		});
-
-		// Получение всех карточек для алгоритма
-		const cardsSteps = gsap.utils.toArray('.rs-steps-algorithm .rs-steps__spollers_item');
-		cardsSteps.forEach((card, index) => {
-			// Настройка анимации для каждой карточки
-			gsap.to(card, {
+		matchMedia.add("(min-width: 991.98px)", () => {
+			gsap.to('.rs-steps-algorithm .rs-steps__text', {
 				scrollTrigger: {
-					trigger: card,
-					start: `top-=${index * 20} top+=100px`,
-					end: 'bottom+=50px bottom-=50%',
+					trigger: '.rs-steps-algorithm .rs-steps__text',
+					start: 'top top+=100px',
+					end: 'bottom bottom',
 					endTrigger: '.rs-steps-algorithm',
 					pin: true,
 					pinSpacing: false,
@@ -667,135 +608,164 @@ function initializeDesktopAnimations() {
 					invalidateOnRefresh: true,
 					// markers: true,
 				},
-				ease: 'none',
-				// scale: () => 1 - (cardsSteps.length - index) * 0.025 // Возможное масштабирование элементов
+			});
+		});
+
+		// Получение всех карточек для алгоритма
+		const cardsSteps = gsap.utils.toArray('.rs-steps-algorithm .rs-steps__spollers_item');
+		cardsSteps.forEach((card, index) => {
+			// Настройка анимации для каждой карточки
+			matchMedia.add("(min-width: 991.98px)", () => {
+				gsap.to(card, {
+					scrollTrigger: {
+						trigger: card,
+						start: `top-=${index * 20} top+=100px`,
+						end: 'bottom+=50px bottom-=50%',
+						endTrigger: '.rs-steps-algorithm',
+						pin: true,
+						pinSpacing: false,
+						scrub: true,
+						invalidateOnRefresh: true,
+						// markers: true,
+					},
+					ease: 'none',
+					// scale: () => 1 - (cardsSteps.length - index) * 0.025 // Возможное масштабирование элементов
+				});
 			});
 		});
 	}
 
 	//========================================================================================================================================================
 	if (document.querySelectorAll('.rs-tariff__top')) {
-		const tariffs = document.querySelectorAll('.rs-tariff');
-		tariffs.forEach(tariff => {
-			const tariffTops = tariff.querySelectorAll('.rs-tariff__top');
-			tariffTops.forEach(tariffTop => {
-				gsap.to(tariffTop, {
-					scrollTrigger: {
-						trigger: tariffTop,
-						start: 'top top',
-						end: 'bottom bottom',
-						endTrigger: tariff,
-						pin: true,
-						pinSpacing: false,
-						scrub: true,
-						invalidateOnRefresh: true,
-						// markers: 1,
-					},
+		setTimeout(() => {
+			const tariffs = document.querySelectorAll('.rs-tariff');
+			tariffs.forEach(tariff => {
+				const tariffTops = tariff.querySelectorAll('.rs-tariff__top');
+				tariffTops.forEach(tariffTop => {
+					matchMedia.add("(min-width: 991.98px)", () => {
+						gsap.to('.rs-tariff__top', {
+							scrollTrigger: {
+								trigger: tariffTop,
+								start: 'top top',
+								end: 'bottom bottom',
+								endTrigger: tariff,
+								pin: true,
+								pinSpacing: false,
+								scrub: true,
+								invalidateOnRefresh: true,
+								// markers: 1,
+							},
+						});
+						handleResize()
+					});
 				});
 			});
-		});
+		}, 200);
 	}
 
 	//========================================================================================================================================================
 	// Закрепление проектов и установка якорных ссылок на каждый проект
 	if (document.querySelector('.rs-main__project_item')) {
-		const projectItems = gsap.utils.toArray('.rs-main__project_item');
+		matchMedia.add("(min-width: 991.98px)", () => {
+			const projectItems = gsap.utils.toArray('.rs-main__project_item');
 
-		gsap.set(projectItems, {
-			y: (index) => 0 * index,
-			zIndex: (index, target, targets) => targets.length - index,
-		})
+			gsap.set(projectItems, {
+				y: (index) => 0 * index,
+				zIndex: (index, target, targets) => targets.length - index,
+			})
 
-		gsap.set(projectItems.slice(1), {
-			scale: (index) => 0.9,
-		})
+			gsap.set(projectItems.slice(1), {
+				scale: (index) => 0.9,
+			})
 
-		const pinBlock = gsap.timeline({
-			defaults: { ease: "none" },
-			scrollTrigger: {
-				trigger: ".rs-main__project",
-				start: "top top",
-				end: `bottom+=${projectItems.length * 100}% top`,
-				scrub: true,
-				pin: true,
-				// markers: 1,
-				id: 'pin-block',
-				invalidateOnRefresh: true,
-			}
-		});
-
-		pinBlock.to(projectItems, {
-			scale: 1,
-			y: 0,
-			webkitFilter: "blur(" + 0 + "px)",
-			stagger: stagger,
-		})
-
-		pinBlock.to(projectItems.slice(0, -1), {
-			yPercent: -125,
-			stagger: stagger,
-		}, stagger)
-
-		ScrollTrigger.refresh(); // Refresh ScrollTrigger settings
-		const start = pinBlock.scrollTrigger.start;
-		const end = pinBlock.scrollTrigger.end;
-		const totalScroll = end - start;
-		let links = gsap.utils.toArray(".rs-main__project_nav ul li a");
-		const scrollSteps = totalScroll / links.length;
-		let previousActive = null; // Храним предыдущий активный якорь
-
-		links.forEach((a, index) => {
-			let element = document.querySelector(a.getAttribute("href"))
-
-			ScrollTrigger.create({
-				trigger: element,
-				start: `${(scrollSteps * (index + 1))} center`,
-				end: `${(scrollSteps * (index + 1)) + (element.clientHeight)} center`,
-				// markers: 1,
-				onEnter: () => setActive(a),
-				onEnterBack: () => setActive(a),
-				onLeave: () => setActive(a),
-				onLeaveBack: () => setActive(a)
+			const pinBlock = gsap.timeline({
+				defaults: { ease: "none" },
+				scrollTrigger: {
+					trigger: ".rs-main__project",
+					start: "top top",
+					end: `bottom+=${projectItems.length * 100}% top`,
+					scrub: true,
+					pin: true,
+					// markers: 1,
+					id: 'pin-block',
+					refreshPriority: -1,
+					invalidateOnRefresh: true,
+				}
 			});
 
-			a.addEventListener("click", (e) => {
-				e.preventDefault();
+			pinBlock.to(projectItems, {
+				scale: 1,
+				y: 0,
+				webkitFilter: "blur(" + 0 + "px)",
+				stagger: stagger,
+			})
 
-				gsap.to(window, {
-					duration: 0.1,
-					// onStart: () => setActive(a),
-					scrollTo: () => scrollSteps * (index + 1) + start,
-					overwrite: "auto"
+			pinBlock.to(projectItems.slice(0, -1), {
+				yPercent: -125,
+				stagger: stagger,
+			}, stagger)
+
+			ScrollTrigger.refresh(); // Refresh ScrollTrigger settings
+			const start = pinBlock.scrollTrigger.start;
+			const end = pinBlock.scrollTrigger.end;
+			const totalScroll = end - start;
+			let links = gsap.utils.toArray(".rs-main__project_nav ul li a");
+			const scrollSteps = totalScroll / links.length;
+			let previousActive = null; // Храним предыдущий активный якорь
+
+			links.forEach((a, index) => {
+				let element = document.querySelector(a.getAttribute("href"))
+
+				ScrollTrigger.create({
+					trigger: element,
+					start: `${(scrollSteps * (index + 1))} center`,
+					end: `${(scrollSteps * (index + 1)) + (element.clientHeight)} center`,
+					// markers: 1,
+					onEnter: () => setActive(a),
+					onEnterBack: () => setActive(a),
+					onLeave: () => setActive(a),
+					onLeaveBack: () => setActive(a)
+				});
+
+				a.addEventListener("click", (e) => {
+					e.preventDefault();
+
+					gsap.to(window, {
+						duration: 0.1,
+						// onStart: () => setActive(a),
+						scrollTo: () => scrollSteps * (index + 1) + start,
+						overwrite: "auto"
+					});
 				});
 			});
-		});
 
-		function setActive(link) {
-			links.forEach((el) => el.classList.remove("_active"));
-			link.classList.add("_active");
+			function setActive(link) {
+				links.forEach((el) => el.classList.remove("_active"));
+				link.classList.add("_active");
 
-			const navBody = document.querySelector('.rs-main__project_nav_body');
-			const linkRect = link.getBoundingClientRect();
-			const navBodyRect = navBody.getBoundingClientRect();
-			const scrollTop = navBody.scrollTop;
+				const navBody = document.querySelector('.rs-main__project_nav_body');
+				const linkRect = link.getBoundingClientRect();
+				const navBodyRect = navBody.getBoundingClientRect();
+				const scrollTop = navBody.scrollTop;
 
-			// Определяем, насколько элемент выходит за границы видимой области (если выходит)
-			if (linkRect.bottom > navBodyRect.bottom) {
-				// Если выходит за нижнюю границу, прокручиваем вниз
-				gsap.to(navBody, {
-					scrollTop: scrollTop + (linkRect.bottom - navBodyRect.bottom),
-					duration: 0.3,
-					ease: "power2.out"
-				});
-			} else if (linkRect.top < navBodyRect.top) {
-				// Если выходит за верхнюю границу, прокручиваем вверх
-				gsap.to(navBody, {
-					scrollTop: scrollTop - (navBodyRect.top - linkRect.top),
-					duration: 0.3,
-					ease: "power2.out"
-				});
+				// Определяем, насколько элемент выходит за границы видимой области (если выходит)
+				if (linkRect.bottom > navBodyRect.bottom) {
+					// Если выходит за нижнюю границу, прокручиваем вниз
+					gsap.to(navBody, {
+						scrollTop: scrollTop + (linkRect.bottom - navBodyRect.bottom),
+						duration: 0.3,
+						ease: "power2.out"
+					});
+				} else if (linkRect.top < navBodyRect.top) {
+					// Если выходит за верхнюю границу, прокручиваем вверх
+					gsap.to(navBody, {
+						scrollTop: scrollTop - (navBodyRect.top - linkRect.top),
+						duration: 0.3,
+						ease: "power2.out"
+					});
+				}
 			}
-		}
+		})
 	}
 }
 
@@ -878,6 +848,7 @@ function initBarba() {
 				return gsap.from(next.container, {
 					delay: 0.5,
 					onComplete: function () {
+						clearAnimations();
 						updatePrimaryColor();
 						initAnimationsBasedOnWidth();
 						initializePage();  // Инициализируем функционал после показа страницы
@@ -909,10 +880,16 @@ initBarba();
 
 //========================================================================================================================================================
 // Обработка изменения размера окна с дебаунсом
-window.addEventListener('resize', initAnimationsBasedOnWidth);
+window.addEventListener('resize', () => {
+	clearAnimations();
+	initAnimationsBasedOnWidth();
+});
 
 // Обработка смены ориентации экрана
-window.addEventListener('orientationchange', initAnimationsBasedOnWidth);
+window.addEventListener('orientationchange', () => {
+	clearAnimations();
+	initAnimationsBasedOnWidth();
+});
 
 // Обработка при загрузке страницы
 window.addEventListener('load', () => {
@@ -936,8 +913,6 @@ window.addEventListener('load', () => {
 		}
 	}
 
-	setTimeout(() => {
-		loaderAnim(loaderFillv1, 100, 0.4);
-		loaderAnim(loaderFillv2, 100, 0.2);
-	}, 300);
+	loaderAnim(loaderFillv1, 100, 0.4);
+	loaderAnim(loaderFillv2, 100, 0.2);
 });
