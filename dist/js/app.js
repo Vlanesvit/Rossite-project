@@ -14220,9 +14220,9 @@
             }));
         }
         function initAnimationsBasedOnWidth() {
-            initializeCommonAnimations();
             initializeDesktopAnimations();
             initializeMobileAnimations();
+            initializeCommonAnimations();
             ScrollTrigger_ScrollTrigger.refresh();
         }
         function videoPlay() {
@@ -14715,7 +14715,7 @@
                     }));
                 }));
             }), 200);
-            if (document.querySelector(".rs-main__project_item")) {
+            if (document.querySelector(".rs-main__project_item")) matchMedia.add("(min-width: 991.98px)", (() => {
                 const projectItems = gsapWithCSS.utils.toArray(".rs-main__project_item");
                 gsapWithCSS.set(projectItems, {
                     y: index => 0 * index,
@@ -14735,6 +14735,7 @@
                         scrub: true,
                         pin: true,
                         id: "pin-block",
+                        refreshPriority: -1,
                         invalidateOnRefresh: true
                     }
                 });
@@ -14791,7 +14792,7 @@
                         ease: "power2.out"
                     });
                 }
-            }
+            }));
         }
         function initializeMobileAnimations() {}
         function initBarba() {

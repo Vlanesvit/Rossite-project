@@ -317,12 +317,12 @@ function clearAnimations() {
 
 // Инициализация анимаций для разных разрешений
 function initAnimationsBasedOnWidth() {
+	// Инициализация декстопных анимаций
+	initializeDesktopAnimations();
+	// Инициализация мобильных анимаций
+	initializeMobileAnimations();
 	// Инициализация общих анимаций
 	initializeCommonAnimations();
-	// Инициализация декстопных анимаций
-	initializeDesktopAnimations()
-	// Инициализация мобильных анимаций
-	initializeMobileAnimations()
 
 	// Обновляем точки старта/окончания для всех ScrollTrigger
 	ScrollTrigger.refresh();
