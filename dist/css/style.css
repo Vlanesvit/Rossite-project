@@ -5686,7 +5686,7 @@ textarea.rs-input {
 
 .rs-main__title {
   width: 100%;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   padding: 100px 0px;
@@ -5739,6 +5739,11 @@ textarea.rs-input {
   z-index: 0;
   top: 0;
   left: 0;
+}
+
+.rs-main__title_body {
+  position: relative;
+  z-index: 10;
 }
 
 .rs-main__title h1 {

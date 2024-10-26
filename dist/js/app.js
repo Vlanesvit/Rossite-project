@@ -14164,6 +14164,29 @@
                 }, stagger);
                 handleResize();
             }), 100);
+            if (document.querySelector(".rs-main__title_body")) {
+                const titleTimeline = gsapWithCSS.timeline({
+                    scrollTrigger: {
+                        trigger: ".rs-main__title",
+                        start: "top top",
+                        end: "bottom+=200px top",
+                        scrub: true,
+                        pin: ".rs-main__title",
+                        pinSpacing: false,
+                        invalidateOnRefresh: true,
+                        refreshPriority: 1
+                    }
+                });
+                titleTimeline.fromTo(".rs-main__title_body", {
+                    scale: 1,
+                    opacity: 1
+                }, {
+                    scale: .5,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power1.out"
+                });
+            }
             animateSvgDashedLine({
                 dashedSelector: "section [class*='__line'] .dashed-path"
             });
