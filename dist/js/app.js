@@ -1292,7 +1292,7 @@
         }, _isFuncOrString = function _isFuncOrString(value) {
             return _isFunction(value) || _isString(value);
         }, _isTypedArray = typeof ArrayBuffer === "function" && ArrayBuffer.isView || function() {}, _isArray = Array.isArray, _strictNumExp = /(?:-?\.?\d|\.)+/gi, _numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g, _numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g, _complexStringNumExp = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi, _relExp = /[+-]=-?[.\d]+/, _delimitedValueExp = /[^,'"\[\]\s]+/gi, _unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i, _globals = {}, _installScope = {}, _install = function _install(scope) {
-            return (_installScope = _merge(scope, _globals)) && gsap_core_gsap;
+            return (_installScope = _merge(scope, _globals)) && gsap;
         }, _missingPlugin = function _missingPlugin(property, value) {
             return console.warn("Invalid property", property, "set to", value, "Missing plugin? gsap.registerPlugin()");
         }, _warn = function _warn(message, suppress) {
@@ -1841,7 +1841,7 @@
                     name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin";
                 }
                 _addGlobal(name, Plugin);
-                config.register && config.register(gsap_core_gsap, Plugin, PropTween);
+                config.register && config.register(gsap, Plugin, PropTween);
             } else _registerPluginQueue.push(config);
         }, _255 = 255, _colorLookup = {
             aqua: [ 0, _255, _255 ],
@@ -1996,8 +1996,8 @@
                         if (!_coreInitted && _windowExists()) {
                             _win = _coreInitted = window;
                             _doc = _win.document || {};
-                            _globals.gsap = gsap_core_gsap;
-                            (_win.gsapVersions || (_win.gsapVersions = [])).push(gsap_core_gsap.version);
+                            _globals.gsap = gsap;
+                            (_win.gsapVersions || (_win.gsapVersions = [])).push(gsap.version);
                             _install(_installScope || _win.GreenSockGlobals || !_win.gsap && _win || {});
                             _registerPluginQueue.forEach(_createPlugin);
                         }
@@ -3631,7 +3631,7 @@
                 target = toArray(target);
                 if (target.length > 1) {
                     var setters = target.map((function(t) {
-                        return gsap_core_gsap.quickSetter(t, property, unit);
+                        return gsap.quickSetter(t, property, unit);
                     })), l = setters.length;
                     return function(value) {
                         var i = l;
@@ -3652,8 +3652,8 @@
             },
             quickTo: function quickTo(target, property, vars) {
                 var _merge2;
-                var tween = gsap_core_gsap.to(target, _merge((_merge2 = {}, _merge2[property] = "+=0.1", 
-                _merge2.paused = true, _merge2), vars || {})), func = function func(value, start, startIsRelative) {
+                var tween = gsap.to(target, _merge((_merge2 = {}, _merge2[property] = "+=0.1", _merge2.paused = true, 
+                _merge2), vars || {})), func = function func(value, start, startIsRelative) {
                     return tween.resetTo(property, value, start, startIsRelative);
                 };
                 func.tween = tween;
@@ -3824,7 +3824,7 @@
                 }
             };
         };
-        var gsap_core_gsap = _gsap.registerPlugin({
+        var gsap = _gsap.registerPlugin({
             name: "attr",
             init: function init(target, vars, tween, index, targets) {
                 var p, pt, v;
@@ -3851,7 +3851,7 @@
                 while (i--) this.add(target, i, target[i] || 0, value[i], 0, 0, 0, 0, 0, 1);
             }
         }, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap;
-        Tween.version = Timeline.version = gsap_core_gsap.version = "3.12.5";
+        Tween.version = Timeline.version = gsap.version = "3.12.5";
         _coreReady = 1;
         _windowExists() && _wake();
         _easeMap.Power0, _easeMap.Power1, _easeMap.Power2, _easeMap.Power3, _easeMap.Power4, 
@@ -3957,7 +3957,7 @@
                 revert: _revertStyle,
                 save: _saveStyle
             };
-            target._gsap || gsap_core_gsap.core.getCache(target);
+            target._gsap || gsap.core.getCache(target);
             properties && properties.split(",").forEach((function(p) {
                 return saver.save(p);
             }));
@@ -3987,7 +3987,7 @@
                 _transformOriginProp = _transformProp + "Origin";
                 _tempDiv.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0";
                 _supports3D = !!_checkPropPrefix("perspective");
-                CSSPlugin_reverting = gsap_core_gsap.core.reverting;
+                CSSPlugin_reverting = gsap.core.reverting;
                 _pluginInitted = 1;
             }
         }, _getBBoxHack = function _getBBoxHack(swapIfPossible) {
@@ -4694,8 +4694,8 @@
                 _getMatrix
             }
         };
-        gsap_core_gsap.utils.checkPrefix = _checkPropPrefix;
-        gsap_core_gsap.core.getStyleSaver = _getStyleSaver;
+        gsap.utils.checkPrefix = _checkPropPrefix;
+        gsap.core.getStyleSaver = _getStyleSaver;
         (function(positionAndScale, rotation, others, aliases) {
             var all = _forEachName(positionAndScale + "," + rotation + "," + others, (function(name) {
                 _transformProps[name] = 1;
@@ -4713,8 +4713,8 @@
         _forEachName("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective", (function(name) {
             _config.units[name] = "px";
         }));
-        gsap_core_gsap.registerPlugin(CSSPlugin);
-        var gsapWithCSS = gsap_core_gsap.registerPlugin(CSSPlugin) || gsap_core_gsap;
+        gsap.registerPlugin(CSSPlugin);
+        var gsapWithCSS = gsap.registerPlugin(CSSPlugin) || gsap;
         gsapWithCSS.core.Tween;
         function _defineProperties(target, props) {
             for (var i = 0; i < props.length; i++) {
@@ -4738,12 +4738,12 @@
  * Subject to the terms at https://gsap.com/standard-license or for
  * Club GSAP members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
-*/        var Observer_gsap, Observer_coreInitted, Observer_win, Observer_doc, _docEl, _body, _isTouch, _pointerType, Observer_ScrollTrigger, _root, _normalizer, _eventTypes, Observer_context, _getGSAP = function _getGSAP() {
+*/        var Observer_gsap, Observer_coreInitted, Observer_win, Observer_doc, _docEl, _body, _isTouch, _pointerType, ScrollTrigger, _root, _normalizer, _eventTypes, Observer_context, _getGSAP = function _getGSAP() {
             return Observer_gsap || typeof window !== "undefined" && (Observer_gsap = window.gsap) && Observer_gsap.registerPlugin && Observer_gsap;
         }, _startup = 1, _observers = [], _scrollers = [], _proxies = [], _getTime = Date.now, _bridge = function _bridge(name, value) {
             return value;
         }, _integrate = function _integrate() {
-            var core = Observer_ScrollTrigger.core, data = core.bridge || {}, scrollers = core._scrollers, proxies = core._proxies;
+            var core = ScrollTrigger.core, data = core.bridge || {}, scrollers = core._scrollers, proxies = core._proxies;
             scrollers.push.apply(scrollers, _scrollers);
             proxies.push.apply(proxies, _proxies);
             _scrollers = scrollers;
@@ -4849,8 +4849,8 @@
             var max = Math.max.apply(Math, a), min = Math.min.apply(Math, a);
             return Math.abs(max) >= Math.abs(min) ? max : min;
         }, _setScrollTrigger = function _setScrollTrigger() {
-            Observer_ScrollTrigger = Observer_gsap.core.globals().ScrollTrigger;
-            Observer_ScrollTrigger && Observer_ScrollTrigger.core && _integrate();
+            ScrollTrigger = Observer_gsap.core.globals().ScrollTrigger;
+            ScrollTrigger && ScrollTrigger.core && _integrate();
         }, Observer_initCore = function _initCore(core) {
             Observer_gsap = core || _getGSAP();
             if (!Observer_coreInitted && Observer_gsap && typeof document !== "undefined" && document.body) {
@@ -4881,7 +4881,7 @@
             var _proto = Observer.prototype;
             _proto.init = function init(vars) {
                 Observer_coreInitted || Observer_initCore(Observer_gsap) || console.warn("Please gsap.registerPlugin(Observer)");
-                Observer_ScrollTrigger || _setScrollTrigger();
+                ScrollTrigger || _setScrollTrigger();
                 var tolerance = vars.tolerance, dragMinimum = vars.dragMinimum, type = vars.type, target = vars.target, lineHeight = vars.lineHeight, debounce = vars.debounce, preventDefault = vars.preventDefault, onStop = vars.onStop, onStopDelay = vars.onStopDelay, ignore = vars.ignore, wheelSpeed = vars.wheelSpeed, event = vars.event, onDragStart = vars.onDragStart, onDragEnd = vars.onDragEnd, onDrag = vars.onDrag, onPress = vars.onPress, onRelease = vars.onRelease, onRight = vars.onRight, onLeft = vars.onLeft, onUp = vars.onUp, onDown = vars.onDown, onChangeX = vars.onChangeX, onChangeY = vars.onChangeY, onChange = vars.onChange, onToggleX = vars.onToggleX, onToggleY = vars.onToggleY, onHover = vars.onHover, onHoverEnd = vars.onHoverEnd, onMove = vars.onMove, ignoreCheck = vars.ignoreCheck, isNormalizer = vars.isNormalizer, onGestureStart = vars.onGestureStart, onGestureEnd = vars.onGestureEnd, onWheel = vars.onWheel, onEnable = vars.onEnable, onDisable = vars.onDisable, onClick = vars.onClick, scrollSpeed = vars.scrollSpeed, capture = vars.capture, allowClicks = vars.allowClicks, lockAxis = vars.lockAxis, onLockAxis = vars.onLockAxis;
                 this.target = target = _getTarget(target) || _docEl;
                 this.vars = vars;
@@ -14018,6 +14018,98 @@
                 }
             }));
         }
+        function revealOnScroll({elements, duration = .5, delay = .15, direction = "bottom-up"}) {
+            const items = gsapWithCSS.utils.toArray(elements);
+            if (!items.length) return;
+            const animationSettings = {
+                "bottom-up": {
+                    from: {
+                        autoAlpha: 0,
+                        y: 50
+                    },
+                    to: {
+                        autoAlpha: 1,
+                        y: 0
+                    }
+                },
+                "up-bottom": {
+                    from: {
+                        autoAlpha: 0,
+                        y: -50
+                    },
+                    to: {
+                        autoAlpha: 1,
+                        y: 0
+                    }
+                },
+                "left-right": {
+                    from: {
+                        autoAlpha: 0,
+                        x: -50
+                    },
+                    to: {
+                        autoAlpha: 1,
+                        x: 0
+                    }
+                },
+                "right-left": {
+                    from: {
+                        autoAlpha: 0,
+                        x: 50
+                    },
+                    to: {
+                        autoAlpha: 1,
+                        x: 0
+                    }
+                },
+                fade: {
+                    from: {
+                        autoAlpha: 0
+                    },
+                    to: {
+                        autoAlpha: 1
+                    }
+                },
+                scale: {
+                    from: {
+                        scale: 0,
+                        autoAlpha: 0
+                    },
+                    to: {
+                        scale: 1,
+                        autoAlpha: 1
+                    }
+                },
+                "width-100": {
+                    from: {
+                        width: "0%"
+                    },
+                    to: {
+                        width: "100%",
+                        ease: "cubic-bezier(0.4, 0, 0.2, 1)"
+                    }
+                }
+            };
+            items.forEach(((item, index) => {
+                if (!item.classList.contains("animated")) {
+                    const baseDelay = direction.includes("--every") ? delay * (index + 1) : delay;
+                    const {from, to} = animationSettings[direction.replace("--every", "")] || {};
+                    if (from && to) {
+                        const anim = gsapWithCSS.fromTo(item, from, {
+                            ...to,
+                            duration,
+                            delay: baseDelay
+                        });
+                        ScrollTrigger_ScrollTrigger.create({
+                            trigger: item,
+                            animation: anim,
+                            once: true,
+                            onEnter: () => item.classList.add("animated")
+                        });
+                    }
+                }
+            }));
+        }
         let refreshScrollTrigger = null;
         function horizontalScroll({blockSelector, triggerSelector, progressSelector}) {
             matchMedia.add("(min-width: 991.98px)", (() => {
@@ -14189,6 +14281,36 @@
             }
             animateSvgDashedLine({
                 dashedSelector: "section [class*='__line'] .dashed-path"
+            });
+            revealOnScroll({
+                elements: ".mrp-med-65, .mrp-med-50, .mrp-med-45, .mrp-med-40, .mrp-med-25, .mrp-med-21, .mrp-med-18, .mrp-reg-25, .mrp-reg-21, .mrp-reg-18, blockquote, .rs-steps__item, .rs-steps__footer ul li, .rs-calc__cost_list ul li, .rs-calc__cost_footer, .rs-reviews__slide, .rs-services__icon, .rs-footer__links ul li, .rs-footer__spollers_item, .rs-text-block__description ol li, .rs-text-block__description ul li, .rs-contact__info, .rs-services-about__text, .rs-task__item"
+            });
+            revealOnScroll({
+                elements: ".rs-header__menu, .rs-header__logo, .rs-header__actions, .rs-calc__bg, .rs-footer .rs-breadcrumbs, .rs-footer__phone, .rs-footer__social, .rs-calc__settings_wrapper, .rs-tariff__desktop, .rs-tariff__mobile .rs-tariff__spollers, .rs-contact__map, .rs-logo__slide, .rs-error-block"
+            });
+            revealOnScroll({
+                elements: ".rs-slider-block__slider, .rs-calc__cost_img, .rs-services__slide, .rs-reviews__sticker, .rs-services-about__table, .rs-services-about__hint"
+            });
+            revealOnScroll({
+                elements: ".rs-steps__navigation_list li a, .rs-footer__city, .rs-footer__copyright, .rs-services-price__item"
+            });
+            revealOnScroll({
+                elements: ".rs-banner__body ul, .rs-banner__bg, .section-bg .section__bg, .rs-why-block__bg, .rs-main__title_video"
+            });
+            revealOnScroll({
+                elements: ".rs-text-block .rs-text-block__picture .rs-text-block__img-0 img, .rs-text-block .rs-text-block__picture .rs-text-block__img-1 img, .rs-text-block .rs-text-block__picture .rs-text-block__img-2 img, .rs-text-block .rs-text-block__picture .rs-text-block__img-3 img, .rs-text-block .rs-text-block__picture .rs-text-block__icons img, .rs-features__icon, .rs-features-list__icon"
+            });
+            revealOnScroll({
+                elements: ".rs-banner__buttons, .rs-slider-block__icon, .rs-services__icon, .rs-reviews__slide, .rs-steps__item, .rs-steps__footer ul li, .rs-calc__cost_list ul li, .rs-calc__cost_footer, .rs-services-about__item, .rs-logo__slide"
+            });
+            revealOnScroll({
+                elements: ".rs-services__slide, .rs-services-price__item"
+            });
+            revealOnScroll({
+                elements: ".rs-steps__navigation_list li a"
+            });
+            revealOnScroll({
+                elements: ".rs-footer .rs-breadcrumbs, .rs-footer__phone, .rs-footer__social, .rs-calc__bg, .rs-calc__settings_wrapper"
             });
         }
         function initializeDesktopAnimations() {
