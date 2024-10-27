@@ -6,6 +6,8 @@
 		z-index: -1;
 		animation: rotate var(--speed) var(--easing) alternate infinite;
 
+		display: none;
+
 		@keyframes rotate {
 			0% {
 				transform: rotate(0deg) translateX(0);
@@ -133,7 +135,7 @@
 	// .rs-main__title
 	&__title {
 		width: 100%;
-		position: fixed;
+		position: relative;
 		top: 0;
 		left: 0;
 		padding: 100px 0px;
@@ -176,6 +178,11 @@
 			z-index: 0;
 			top: 0;
 			left: 0;
+		}
+
+		&_body {
+			position: relative;
+			z-index: 10;
 		}
 
 		h1 {
@@ -314,8 +321,7 @@
 		&_nav_body {
 			margin-top: 8.6vh;
 			max-height: 42vh;
-			overflow-y: scroll;
-			overflow-x: hidden;
+			overflow: hidden;
 
 			ul {
 				li {

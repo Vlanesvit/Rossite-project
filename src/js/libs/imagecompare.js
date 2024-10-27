@@ -3,15 +3,15 @@
 Документация: https://image-compare-viewer.netlify.app/
 */
 // Подключаем из node_modules
-import ImageCompare from "image-compare-viewer";
-
+import 'image-compare-viewer/dist/image-compare-viewer.min.css';
+import ImageCompareViewer from 'image-compare-viewer';
 import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
 
 // Инициализация сравнения картинок
 export function initComparison(id) {
 	const comparison = document.getElementById(id);
 	if (comparison) {
-		const comparisonViewer = new ImageCompare(comparison, {
+		const comparisonViewer = new ImageCompareViewer(comparison, {
 			// UI Theme Defaults
 			controlColor: "#FFFFFF",
 			controlShadow: false,

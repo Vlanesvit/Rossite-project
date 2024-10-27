@@ -1,1 +1,32 @@
+<script>
+	// Лоадер
+	const loader = document.querySelector('.mg-loader');
+	const loaderFillv1 = loader.querySelector('.mg-loader-fill.-v1');
+	const loaderFillv2 = loader.querySelector('.mg-loader-fill.-v2');
+
+	// Функция для активации лоадера
+	function showLoader() {
+		loader.classList.add('active');
+		loaderFillv1.classList.add('active');
+		loaderFillv2.classList.add('active');
+	}
+
+	// Функция для скрытия лоадера
+	function hideLoader() {
+		loader.classList.remove('active');
+		loaderFillv1.classList.remove('active');
+		loaderFillv2.classList.remove('active');
+	}
+
+	// Инициализация при загрузке страницы
+	window.addEventListener('DOMContentLoaded', () => {
+		// Активируем лоадер при первой загрузке
+		showLoader();
+
+		setTimeout(() => {
+			hideLoader(); // Скрываем лоадер после завершения CSS-анимации
+		}, 1000); // Время скрытия можно изменить
+	});
+</script>
+
 <script src="js/app.min.js" defer></script>

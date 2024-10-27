@@ -5813,7 +5813,8 @@ textarea.rs-input {
 .rs-main__project_nav_body {
   margin-top: 8.6vh;
   max-height: 42vh;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .rs-main__project_nav_body ul li a {

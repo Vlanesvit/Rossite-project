@@ -679,8 +679,12 @@ export function regionMenu() {
 		regionModalInnerMenuBtn.addEventListener('click', function (e) {
 			e.preventDefault();
 			document.querySelector('.rs-header').classList.add('_header-show')
-			menuOpen()
-			regionMenuOpen()
+			document.documentElement.classList.remove('location-modal-open')
+
+			setTimeout(() => {
+				menuOpen()
+				regionMenuOpen()
+			}, 500);
 		})
 	}
 

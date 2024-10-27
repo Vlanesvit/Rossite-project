@@ -57,18 +57,13 @@
 	// .rs-features__swiper
 	&__swiper {
 		position: relative;
-		padding: 5vh 0px;
 		// padding-bottom: 50.676%;
 		display: block !important;
-		height: 100vh;
 
-		// @media (max-width: 991.98px) {
-		// 	height: 735px;
-		// }
-
-		// @media (max-width: 767.98px) {
-		// 	height: 540px;
-		// }
+		@media (min-width: 991.98px) {
+			height: 100vh;
+			padding: 5vh 0px;
+		}
 	}
 
 	// .rs-features__slide
@@ -93,6 +88,12 @@
 
 		&:nth-child(3) {
 			background-color: var(--item-green-bg);
+		}
+
+		@media (max-width: 991.98px) {
+			&:not(:last-child) {
+				margin-bottom: 30px;
+			}
 		}
 	}
 
