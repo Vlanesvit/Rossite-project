@@ -244,68 +244,135 @@
 								разработали для наших заказчиков, а не шаблоны или красивые картинки.</p>
 						</div>
 
-						<div class="filter__list">
+						<form id="project_filter" action="" method="post" class="filter__list">
+							<input type="hidden" name="project_type" value="[246]">
 							<div class="filter__item">
-								<button type="button" class="filter__title">по отраслям</button>
+								<button type="button" data-title="type" class="filter__title"><span
+										class="filter__count" style="display: none;"></span>продукт</button>
 
 								<div class="filter__modal">
 									<ul class="filter__modal_list">
-										<li><a href="#">Транспорт/Логистика</a></li>
-										<li><a href="#">Туризм/Питание</a></li>
-										<li><a href="#">Красота/Здоровье</a></li>
-										<li><a href="#" class="_flt-active">Госслужба/Общ. организации</a></li>
-										<li><a href="#">Бизнес/Деловые услуги</a></li>
-										<li><a href="#">Услуги населению</a></li>
-										<li><a href="#">Производство/Торговля</a></li>
-										<li><a href="#" class="_flt-active">Строительство/Недвижимость</a></li>
-										<li><a href="#">Все</a></li>
+										<li><label><input type="checkbox" name="type[]" data-title="Сайт «Бизнес»"
+													value="246" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Сайт «Бизнес»</span></label></li>
+										<li><label><input type="checkbox" name="type[]" value="all" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Все</span></label></li>
+									</ul>
+								</div>
+							</div>
+							<div class="filter__item">
+								<button type="button" class="filter__title"><span class="filter__count"
+										style="display: none;"></span>по отраслям</button>
+
+								<div class="filter__modal">
+									<ul class="filter__modal_list">
+										<li><label><input type="checkbox" name="industry[]"
+													value="biznes-delovye-uslugi" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Бизнес/Деловые услуги</span></label></li>
+										<li><label><input type="checkbox" name="industry[]"
+													value="gossluzhba-obshh-organizaczii" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Госслужба/Общ. организации</span></label>
+										</li>
+										<li><label><input type="checkbox" name="industry[]" value="krasota-zdorove" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Красота/Здоровье</span></label></li>
+										<li><label><input type="checkbox" name="industry[]"
+													value="proizvodstvo-torgovlya" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Производство/Торговля</span></label></li>
+										<li><label><input type="checkbox" name="industry[]"
+													value="stroitelstvo-nedvizhimost" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Строительство/Недвижимость</span></label>
+										</li>
+										<li><label><input type="checkbox" name="industry[]"
+													value="transport-logistika" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Транспорт/Логистика</span></label></li>
+										<li><label><input type="checkbox" name="industry[]" value="turizm-pitanie" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Туризм/Питание</span></label></li>
+										<li><label><input type="checkbox" name="industry[]" value="uslugi-naseleniyu" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Услуги населению</span></label></li>
+										<li><label><input type="checkbox" name="industry[]" value="all" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Все</span></label></li>
 									</ul>
 									<button type="button" class="filter__close"></button>
 								</div>
 							</div>
 
 							<div class="filter__item">
-								<button type="button" class="filter__title">по городам</button>
+								<button type="button" class="filter__title"><span class="filter__count"
+										style="display: none;"></span>по городам</button>
 
 								<div class="filter__modal">
 									<ul class="filter__modal_list">
-										<li><a href="#">Пункт 2.1</a></li>
-										<li><a href="#">Пункт 2.2</a></li>
-										<li><a href="#">Пункт 2.3</a></li>
-										<li><a href="#" class="_flt-active">Пункт 2.4</a></li>
-										<li><a href="#">Пункт 2.5</a></li>
-										<li><a href="#">Пункт 2.6</a></li>
-										<li><a href="#">Пункт 2.7</a></li>
-										<li><a href="#" class="_flt-active">Пункт 2.8</a></li>
-										<li><a href="#">Все</a></li>
+										<li><label><input type="checkbox" name="city[]" value="1878" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Москва</span></label></li>
+										<li><label><input type="checkbox" name="city[]" value="1840" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Санкт-Петербург</span></label></li>
+										<li><label><input type="checkbox" name="city[]" value="all" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Все</span></label></li>
 									</ul>
 									<button type="button" class="filter__close"></button>
 								</div>
 							</div>
-
 							<div class="filter__item">
-								<button type="button" class="filter__title">по годам</button>
-
+								<button type="button" class="filter__title"><span class="filter__count"
+										style="display: none;"></span>по годам</button>
 								<div class="filter__modal">
 									<ul class="filter__modal_list">
-										<li><a href="#">Пункт 3.1</a></li>
-										<li><a href="#">Пункт 3.2</a></li>
-										<li><a href="#">Пункт 3.3</a></li>
-										<li><a href="#" class="_flt-active">Пункт 3.4</a></li>
-										<li><a href="#">Пункт 3.5</a></li>
-										<li><a href="#">Пункт 3.6</a></li>
-										<li><a href="#">Пункт 3.7</a></li>
-										<li><a href="#" class="_flt-active">Пункт 3.8</a></li>
-										<li><a href="#">Все</a></li>
+										<li><label><input type="checkbox" name="year[]" value="2015" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2015</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="2016" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2016</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="2017" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2017</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="2018" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2018</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="2019" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2019</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="2020" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2020</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="2021" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2021</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="2022" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2022</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="2023" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2023</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="2024" /><span
+													class="checkbox"></span>
+												<span class="checkbox-label">2024</span></label></li>
+										<li><label><input type="checkbox" name="year[]" value="all" />
+												<span class="checkbox"></span>
+												<span class="checkbox-label">Все</span></label></li>
 									</ul>
 									<button type="button" class="filter__close"></button>
 								</div>
 							</div>
 
 							<div class="filter__reset">
-								<a href="#" class="filter__title _rs-icon-update">сбросить</a>
+								<button type="reset" class="filter__title _rs-icon-update">сбросить</button>
 							</div>
-						</div>
+						</form>
 					</div>
 
 					<div class="rs-project__slider swiper" data-project-load="3" data-project-show="3">
@@ -441,9 +508,9 @@
 
 			<section class="rs-steps">
 				<div class="section__container">
-					<div class="rs-steps__wrapper">
+					<div class="rs-steps__wrapper" data-sticky data-sticky-header>
 						<div class="rs-steps__navigation">
-							<div class="rs-steps__navigation_body">
+							<div class="rs-steps__navigation_body" data-sticky-item>
 								<h2 class="mrp-med-45">Над сайтом будут работать <br>
 									7 специалистов
 								</h2>

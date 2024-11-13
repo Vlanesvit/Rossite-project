@@ -3,6 +3,16 @@
 	display: none !important;
 }
 
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 section {
 	position: relative;
 	overflow: hidden;
@@ -1417,4 +1427,17 @@ textarea.rs-input {
 		font-size: 10px;
 		color: #565973;
 	}
+}
+
+.grecaptcha-badge {
+	display: none !important;
+}
+
+.b24-widget-button-position-bottom-right {
+	bottom: 50px !important;
+	right: 25px !important;
+}
+
+.b24-widget-button-pulse-animate {
+	pointer-events: none !important;
 }

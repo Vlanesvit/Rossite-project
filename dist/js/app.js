@@ -10582,7 +10582,7 @@
                         },
                         breakpoints: {
                             320: {
-                                slidesPerView: 1,
+                                slidesPerView: 1.22,
                                 spaceBetween: 20
                             },
                             540: {
@@ -12912,48 +12912,55 @@
         initNoUiField("fill-page", "fill-page-count");
         addCursorHover(".rs-project__slide", ".cursor", "cursor__active");
         addCursorMove(".rs-project__slide", ".cursor__circle");
+        gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
         function filterClear() {
-            const filterItem = document.querySelectorAll(".rs-case .filter__item");
-            const filterBtn = document.querySelector(".rs-case .filter__btn");
-            function outputCountActiveFilter(where_find, where_output) {
+            const filter = document.querySelector(".rs-project .filter");
+            const filterItems = document.querySelectorAll(".rs-project .filter__item");
+            const filterBtn = document.querySelector(".rs-project .filter__btn");
+            const outputCountActiveFilter = (where_find, where_output) => {
                 if (where_output) {
-                    let filterCount = document.createElement("span");
-                    filterCount.classList.add("filter__count");
-                    where_output.prepend(filterCount);
-                    const checkboxs = where_find.querySelectorAll('input[type="checkbox"]');
-                    checkboxs.forEach((checkbox => {
-                        checkbox.addEventListener("input", (function() {
-                            countChecked();
-                            handleReveal();
-                        }));
-                    }));
-                    function countChecked() {
-                        const activeCheckbox = where_find.querySelectorAll('input[type="checkbox"]:checked');
-                        let numCheckedFilter = activeCheckbox.length;
-                        if (numCheckedFilter > 0) {
-                            where_output.classList.add("_output-count");
-                            filterCount.style.display = "flex";
-                            filterCount.innerHTML = numCheckedFilter;
-                        } else {
-                            where_output.classList.remove("_output-count");
-                            filterCount.style.display = "none";
-                            filterCount.innerHTML = "0";
-                        }
+                    let filterCount = where_output.querySelector(".filter__count");
+                    if (!filterCount) {
+                        filterCount = document.createElement("span");
+                        filterCount.classList.add("filter__count");
+                        where_output.prepend(filterCount);
                     }
+                    countChecked(where_find, where_output, filterCount);
                 }
-            }
-            outputCountActiveFilter(document, filterBtn);
-            filterItem.forEach((filter => {
-                const filterTitle = filter.querySelector(".filter__title");
-                outputCountActiveFilter(filter, filterTitle);
+            };
+            const countChecked = (where_find, where_output, filterCount) => {
+                const activeCheckbox = where_find.querySelectorAll('input[type="checkbox"]:checked');
+                const numCheckedFilter = activeCheckbox.length;
+                console.log("Количество:", numCheckedFilter);
+                console.log("Активные чекбоксы:", activeCheckbox);
+                if (numCheckedFilter > 0) {
+                    where_output.classList.add("_output-count");
+                    filterCount.style.display = "flex";
+                    filterCount.textContent = numCheckedFilter;
+                } else {
+                    where_output.classList.remove("_output-count");
+                    filterCount.style.display = "none";
+                    filterCount.textContent = "0";
+                }
+            };
+            const checkboxes = document.querySelectorAll('.rs-project input[type="checkbox"]');
+            checkboxes.forEach((checkbox => {
+                checkbox.addEventListener("change", (() => {
+                    outputCountActiveFilter(filter, filterBtn);
+                    filterItems.forEach((filterItem => {
+                        const filterTitle = filterItem.querySelector(".filter__title");
+                        outputCountActiveFilter(filterItem, filterTitle);
+                    }));
+                }));
             }));
         }
-        if (document.querySelector(".rs-case .filter")) filterClear();
+        if (document.querySelector(".rs-project .filter")) filterClear();
         function filterProject() {
             const filters = document.querySelectorAll(".filter");
             filters.forEach((filter => {
                 const filterItems = filter.querySelectorAll(".filter__item");
                 const filterBlock = filter.querySelector(".filter__block");
+                const filterList = filter.querySelector(".filter__list");
                 const filterBtn = filter.querySelector(".filter__btn");
                 if (filterBtn) filterBtn.addEventListener("click", (function() {
                     filterBlock.classList.toggle("_open-filter");
@@ -12970,7 +12977,7 @@
                             this.closest(".filter__item").classList.add("_open-filter");
                         } else this.closest(".filter__item").classList.remove("_open-filter");
                     }));
-                    filter.addEventListener("click", (function(e) {
+                    filterList.addEventListener("click", (function(e) {
                         e.stopPropagation();
                     }));
                     document.addEventListener("click", (function(e) {
@@ -12992,16 +12999,15 @@
                 const projectAdd = project.querySelector(".rs-project__add");
                 let showCount = Number(showData.getAttribute("data-project-show"));
                 let loadCount = Number(loadData.getAttribute("data-project-load"));
-                function checkCurrentItems() {
-                    if (showCount >= projectSlide.length) projectAdd.classList.add("_close-btn");
-                }
-                checkCurrentItems();
                 for (let i = 0; i < showCount; i++) if (projectSlide[i]) projectSlide[i].classList.add("_open-project");
                 projectAdd.addEventListener("click", (function() {
                     for (let i = showCount; i < showCount + loadCount; i++) if (projectSlide[i]) projectSlide[i].classList.add("_open-project");
                     showCount += loadCount;
-                    checkCurrentItems();
                     handleReveal();
+                    setTimeout((() => {
+                        addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
+                        addCursorMove(".rs-project__slide", ".cursor__circle");
+                    }), 1e3);
                 }));
             }));
         }
@@ -13047,6 +13053,7 @@
             }
         }
         if (document.querySelector(".rs-steps__spollers_item") && document.querySelector(".rs-steps__navigation_list a")) sidebarNavigation();
+        gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
         function openFullList() {
             const tariffs = document.querySelectorAll(".rs-tariff");
             tariffs.forEach((tariff => {
@@ -13055,7 +13062,7 @@
                 if (tariffAdd && tariffAbout) tariffAdd.addEventListener("click", (function() {
                     tariffAbout.classList.add("_full");
                     tariffAdd.classList.add("_hide");
-                    handleReveal();
+                    ScrollTrigger_ScrollTrigger.refresh();
                 }));
             }));
         }
@@ -13936,21 +13943,35 @@
         modules_vnvModules.popup = new Popup({});
         const popup = new Popup;
         gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger, ScrollToPlugin);
-        const handleResize = () => {
+        const handleReveal = () => {
             requestAnimationFrame((() => {
                 ScrollTrigger_ScrollTrigger.refresh();
             }));
         };
-        const handleReveal = () => {
-            if (typeof refreshScrollTrigger === "function") refreshScrollTrigger();
-            initAnimationsBasedOnWidth();
-            clearAnimations();
-        };
+        window.gsap = gsapWithCSS;
+        window.ScrollTrigger = ScrollTrigger_ScrollTrigger;
+        ScrollTrigger_ScrollTrigger.defaults({
+            refreshInterval: 60
+        });
         const stagger = .5;
         function updatePrimaryColor() {
             const wrapperStyles = window.getComputedStyle(document.querySelector(".wrapper"));
             const primaryColor = wrapperStyles.getPropertyValue("--primary-color");
             document.body.style.setProperty("--primary-color", primaryColor);
+        }
+        function splitTextIntoWords(text) {
+            const containers = document.querySelectorAll(text);
+            containers.forEach((container => {
+                const textContent = container.textContent;
+                container.textContent = "";
+                textContent.split(" ").forEach((word => {
+                    const span = document.createElement("span");
+                    span.classList.add("word");
+                    span.textContent = word;
+                    container.appendChild(span);
+                    container.appendChild(document.createTextNode(" "));
+                }));
+            }));
         }
         function debounce(func, wait) {
             let timeout;
@@ -13971,12 +13992,11 @@
         }
         function initPageAnimations() {
             initAnimationsBasedOnWidth();
-            updatePrimaryColor();
-            videoPlay();
-            marquee();
         }
         let currentWidthAnimation = null;
         function initAnimationsBasedOnWidth() {
+            clearAnimations();
+            initializeCommonAnimations();
             if (window.innerWidth >= 991.98) {
                 if (currentWidthAnimation === "mobile") clearAnimations();
                 initializeDesktopAnimations();
@@ -13987,13 +14007,23 @@
                 currentWidthAnimation = "mobile";
             }
             ScrollTrigger_ScrollTrigger.refresh();
-            initializeCommonAnimations();
         }
         window.addEventListener("load", (() => {
+            updatePrimaryColor();
+            videoPlay();
+            marquee();
             initPageAnimations();
+            animationConfig.forEach((config => {
+                revealOnScroll({
+                    elements: config.elements,
+                    duration: config.duration || .5,
+                    delay: config.delay || .15,
+                    direction: config.direction || "bottom-up"
+                });
+            }));
             if (!window.location.hash) setTimeout((() => {
                 window.scrollTo(0, 0);
-            }), 300); else if (window.location.hash) {
+            }), 100); else if (window.location.hash) {
                 const targetElement = document.querySelector(window.location.hash);
                 if (targetElement) {
                     window.scrollTo(0, 0);
@@ -14002,7 +14032,7 @@
                             behavior: "smooth",
                             block: "start"
                         });
-                    }), 300);
+                    }), 100);
                 }
             }
         }));
@@ -14090,9 +14120,6 @@
             delay: .15,
             direction: "width-100"
         }, {
-            elements: ".rs-slider-block__slide",
-            direction: "right-left--every"
-        }, {
             elements: ".rs-slider-block__slider",
             direction: "right-left"
         }, {
@@ -14100,17 +14127,14 @@
             delay: .15,
             direction: "bottom-up--every"
         }, {
-            elements: ".rs-project__item",
+            elements: ".rs-project__slider",
             duration: .3,
             delay: .15,
-            direction: "bottom-up--every"
+            direction: "bottom-up"
         }, {
             elements: ".rs-project__filter",
             delay: 1,
             direction: "fade"
-        }, {
-            elements: ".rs-project__add",
-            direction: "bottom-up--every"
         }, {
             elements: ".rs-steps__navigation_list li a",
             delay: .15,
@@ -14142,7 +14166,7 @@
             elements: ".rs-reviews__bg",
             delay: .2
         }, {
-            elements: ".rs-reviews__slide",
+            elements: ".rs-reviews__block",
             delay: .2,
             direction: "bottom-up--every"
         }, {
@@ -14150,9 +14174,9 @@
             delay: .2,
             direction: "right-left"
         }, {
-            elements: ".rs-services__slide",
+            elements: ".rs-services__slider",
             delay: .2,
-            direction: "right-left--every"
+            direction: "right-left"
         }, {
             elements: ".rs-services__icon",
             delay: .15,
@@ -14243,12 +14267,6 @@
             delay: 1,
             direction: "fade"
         }, {
-            elements: ".rs-about-block__img",
-            direction: "bottom-up"
-        }, {
-            elements: ".rs-about-block__desc",
-            direction: "bottom-up"
-        }, {
             elements: ".rs-services-price__item",
             direction: "bottom-up"
         }, {
@@ -14293,7 +14311,7 @@
             delay: 1,
             direction: "scale"
         }, {
-            elements: ".rs-logo__slide",
+            elements: ".rs-logo__slider",
             delay: .2,
             direction: "right-left--every"
         }, {
@@ -14377,6 +14395,7 @@
                 threshold: .1
             };
             items.forEach((item => {
+                item.setAttribute("data-original-style", item.getAttribute("style") || "");
                 const {from} = animationPropsMap[direction.replace("--every", "")] || {
                     from: {}
                 };
@@ -14394,7 +14413,10 @@
                                 ...animationProps.to,
                                 duration,
                                 delay: animationDelay,
-                                clearProps: "all"
+                                clearProps: "opacity, transform",
+                                onComplete: () => {
+                                    entry.target.setAttribute("style", entry.target.getAttribute("data-original-style"));
+                                }
                             });
                         }
                         observer.unobserve(entry.target);
@@ -14407,36 +14429,36 @@
         function destroyReveal() {
             if (observerInstance) observerInstance.disconnect();
         }
-        let refreshScrollTrigger = null;
         function horizontalScroll({blockSelector, triggerSelector, progressSelector}) {
             gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
                 const block = document.querySelector(blockSelector);
                 const trigger = document.querySelector(triggerSelector);
                 const progress = document.querySelector(progressSelector);
                 let scrollTriggerInstance;
-                if (block && trigger && progress) {
+                if (block && trigger) {
                     const createScrollTrigger = () => {
                         if (scrollTriggerInstance) scrollTriggerInstance.kill();
                         scrollTriggerInstance = ScrollTrigger_ScrollTrigger.create({
                             trigger,
-                            start: "top-=10% top",
+                            start: "center center",
                             end: () => `+=${trigger.clientHeight + window.innerHeight}`,
-                            scrub: true,
+                            scrub: 1,
                             pin: true,
                             invalidateOnRefresh: true,
-                            anticipatePin: 1,
                             onUpdate: self => {
                                 gsapWithCSS.to(block, {
                                     x: () => -self.progress * (block.scrollWidth - block.clientWidth) + "px",
                                     duration: .1,
-                                    ease: "power1.inOut"
+                                    ease: "power2.out"
                                 });
-                                const progressValue = (self.progress * 100).toFixed(2) + "%";
-                                gsapWithCSS.to(progress, {
-                                    width: progressValue,
-                                    duration: .1,
-                                    ease: "power1.inOut"
-                                });
+                                if (progress) {
+                                    const progressValue = (self.progress * 100).toFixed(2) + "%";
+                                    gsapWithCSS.to(progress, {
+                                        width: progressValue,
+                                        duration: .1,
+                                        ease: "power2.out"
+                                    });
+                                }
                             }
                         });
                     };
@@ -14473,6 +14495,7 @@
                 const speed = 1;
                 let scrollAmount = 0;
                 const totalWidth = items.reduce(((acc, item) => acc + item.offsetWidth), 0);
+                const resetOffset = totalWidth + 215;
                 list.style.width = `${totalWidth * 2}px`;
                 items.forEach((item => {
                     const clone = item.cloneNode(true);
@@ -14482,7 +14505,7 @@
                     if (window.innerWidth <= 991.98) return;
                     if (marquee.dataset.direction === "left") scrollAmount -= speed; else if (marquee.dataset.direction === "right") scrollAmount += speed;
                     list.style.transform = `translateX(${scrollAmount}px)`;
-                    if (Math.abs(scrollAmount) >= totalWidth) scrollAmount = 0;
+                    if (Math.abs(scrollAmount) >= resetOffset) scrollAmount = 0;
                     requestAnimationFrame(scrollMarquee);
                 }
                 scrollMarquee();
@@ -14500,14 +14523,51 @@
             animateSvgDashedLine({
                 dashedSelector: "section [class*='__line'] .dashed-path"
             });
-            animationConfig.forEach((config => {
-                revealOnScroll({
-                    elements: config.elements,
-                    duration: config.duration || .5,
-                    delay: config.delay || .15,
-                    direction: config.direction || "bottom-up"
+            if (document.querySelector(".rs-cards__item")) {
+                const cards = gsapWithCSS.utils.toArray(".rs-cards__item");
+                cards.forEach(((card, i) => {
+                    gsapWithCSS.set(card, {
+                        rotate: -90,
+                        y: 800
+                    });
+                }));
+                const stackTimeline = gsapWithCSS.timeline({
+                    scrollTrigger: {
+                        trigger: ".rs-cards",
+                        start: "top top",
+                        end: "bottom+=100%",
+                        pin: true,
+                        pinSpacing: true,
+                        scrub: 1,
+                        invalidateOnRefresh: true,
+                        anticipatePin: 1
+                    }
                 });
-            }));
+                stackTimeline.to(cards, {
+                    y: 0,
+                    rotate: i => 10 - i * 5,
+                    duration: 1.5,
+                    ease: "power2.out",
+                    stagger: i => i === 0 ? 0 : i * 2
+                });
+            }
+            if (document.querySelector(".rs-text .rs-text__right h2")) {
+                splitTextIntoWords(".rs-text .rs-text__right h2");
+                const words = document.querySelectorAll(".rs-text .rs-text__right h2 .word");
+                gsapWithCSS.fromTo(words, {
+                    opacity: .2
+                }, {
+                    opacity: 1,
+                    stagger: .15,
+                    scrollTrigger: {
+                        trigger: ".rs-text",
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        scrub: 1,
+                        anticipatePin: 1
+                    }
+                });
+            }
         }
         function initializeDesktopAnimations() {
             horizontalScroll({
@@ -14515,37 +14575,69 @@
                 triggerSelector: ".rs-slider-block-pins",
                 progressSelector: ".rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill"
             });
+            horizontalScroll({
+                blockSelector: ".rs-services-slider .rs-services-slider__wrapper",
+                triggerSelector: ".rs-services-slider"
+            });
             if (document.querySelector(".rs-features__slide")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
-                setTimeout((() => {
-                    const stackItems = gsapWithCSS.utils.toArray(".rs-features__slide");
-                    gsapWithCSS.set(stackItems, {
-                        yPercent: index => 0,
-                        scale: index => 1
-                    });
-                    const stackTimeline = gsapWithCSS.timeline({
-                        scrollTrigger: {
-                            trigger: ".rs-features__wrapper",
-                            start: "top top",
-                            end: "bottom+=50% top",
-                            pin: true,
-                            pinSpacing: true,
-                            scrub: true,
-                            invalidateOnRefresh: true
-                        }
-                    });
-                    stackTimeline.to(stackItems, {
-                        yPercent: index => -100 * index,
-                        duration: 1,
-                        ease: "power2.inOut",
-                        stagger
-                    }).to(stackItems, {
-                        scale: index => 1 - (stackItems.length - index) * .025,
-                        duration: 1,
-                        ease: "power2.inOut",
-                        stagger
-                    }, stagger);
-                    handleResize();
-                }), 100);
+                const stackItems = gsapWithCSS.utils.toArray(".rs-features__slide");
+                gsapWithCSS.set(stackItems, {
+                    yPercent: index => 0,
+                    scale: index => 1
+                });
+                const stackTimeline = gsapWithCSS.timeline({
+                    scrollTrigger: {
+                        trigger: ".rs-features__wrapper",
+                        start: "top top",
+                        end: "bottom+=50% top",
+                        pin: true,
+                        pinSpacing: true,
+                        scrub: 1,
+                        invalidateOnRefresh: true
+                    }
+                });
+                stackTimeline.to(stackItems, {
+                    yPercent: index => -100 * index,
+                    duration: 1,
+                    ease: "power2.inOut",
+                    stagger
+                }).to(stackItems, {
+                    scale: index => 1 - (stackItems.length - index) * .025,
+                    duration: 1,
+                    ease: "power2.inOut",
+                    stagger
+                }, stagger);
+                handleReveal();
+            }));
+            if (document.querySelector(".rs-our-project__item")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
+                const stackItems = gsapWithCSS.utils.toArray(".rs-our-project__item");
+                gsapWithCSS.set(stackItems, {
+                    yPercent: index => index === 0 ? 0 : 105,
+                    scale: 1,
+                    opacity: 1
+                });
+                const stackTimeline = gsapWithCSS.timeline({
+                    scrollTrigger: {
+                        trigger: ".rs-our-project",
+                        start: "top top",
+                        end: `bottom+=${stackItems.length * 100}% top`,
+                        pin: true,
+                        pinSpacing: true,
+                        scrub: 1,
+                        invalidateOnRefresh: true
+                    }
+                });
+                stackTimeline.to(stackItems, {
+                    yPercent: index => 0,
+                    ease: "power2.inOut",
+                    stagger
+                }).to(stackItems.slice(0, -1), {
+                    scale: index => 1 - (stackItems.length - index) * .025,
+                    opacity: 0,
+                    ease: "power2.inOut",
+                    stagger
+                }, stagger);
+                handleReveal();
             }));
             if (document.querySelector(".rs-steps .rs-steps__spollers_item")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
                 const sections = document.querySelectorAll(".rs-steps .rs-steps__spollers_item");
@@ -14556,7 +14648,9 @@
                         end: "bottom center",
                         invalidateOnRefresh: true,
                         onEnter: () => section.classList.add("_active-step"),
-                        onLeave: () => section.classList.remove("_active-step")
+                        onLeave: () => section.classList.remove("_active-step"),
+                        onEnterBack: () => section.classList.add("_active-step"),
+                        onLeaveBack: () => section.classList.remove("_active-step")
                     });
                 }));
                 const parallaxItems = [ {
@@ -14593,7 +14687,7 @@
                     }
                 } ];
                 parallaxItems.forEach((item => {
-                    if (document.querySelector(item.selector)) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
+                    if (document.querySelector(item.selector)) {
                         const parallaxTimeline = gsapWithCSS.timeline({
                             scrollTrigger: {
                                 trigger: ".rs-steps",
@@ -14604,7 +14698,7 @@
                             }
                         });
                         if (item.animation.from && item.animation.to) parallaxTimeline.fromTo(item.selector, item.animation.from, item.animation.to); else parallaxTimeline.from(item.selector, item.animation);
-                    }));
+                    }
                 }));
             }));
             if (document.querySelector(".rs-steps-algorithm .rs-steps__text")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
@@ -14616,7 +14710,7 @@
                         endTrigger: ".rs-steps-algorithm",
                         pin: true,
                         pinSpacing: false,
-                        scrub: true,
+                        scrub: 1,
                         invalidateOnRefresh: true
                     }
                 });
@@ -14630,7 +14724,7 @@
                             endTrigger: ".rs-steps-algorithm",
                             pin: true,
                             pinSpacing: false,
-                            scrub: true,
+                            scrub: 1,
                             invalidateOnRefresh: true
                         },
                         ease: "none"
@@ -14638,27 +14732,25 @@
                 }));
             }));
             if (document.querySelectorAll(".rs-tariff__top")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
-                setTimeout((() => {
-                    const tariffs = document.querySelectorAll(".rs-tariff");
-                    tariffs.forEach((tariff => {
-                        const tariffTops = tariff.querySelectorAll(".rs-tariff__top");
-                        tariffTops.forEach((tariffTop => {
-                            gsapWithCSS.to(".rs-tariff__top", {
-                                scrollTrigger: {
-                                    trigger: tariffTop,
-                                    start: "top top",
-                                    end: "bottom bottom",
-                                    endTrigger: tariff,
-                                    pin: true,
-                                    pinSpacing: false,
-                                    scrub: true,
-                                    invalidateOnRefresh: true
-                                }
-                            });
-                            handleResize();
-                        }));
+                const tariffs = document.querySelectorAll(".rs-tariff");
+                tariffs.forEach((tariff => {
+                    const tariffTops = tariff.querySelectorAll(".rs-tariff__top");
+                    tariffTops.forEach((tariffTop => {
+                        gsapWithCSS.to(".rs-tariff__top", {
+                            scrollTrigger: {
+                                trigger: tariffTop,
+                                start: "top top",
+                                end: "bottom bottom",
+                                endTrigger: tariff,
+                                pin: true,
+                                pinSpacing: false,
+                                scrub: 1,
+                                invalidateOnRefresh: true
+                            }
+                        });
+                        handleReveal();
                     }));
-                }), 200);
+                }));
             }));
             if (document.querySelector(".rs-main__title_body")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
                 const titleTimeline = gsapWithCSS.timeline({
@@ -14666,7 +14758,7 @@
                         trigger: ".rs-main__title",
                         start: "top top",
                         end: "bottom+=200px top",
-                        scrub: true,
+                        scrub: 1,
                         pin: true,
                         pinSpacing: false,
                         invalidateOnRefresh: true,
@@ -14700,7 +14792,7 @@
                         trigger: ".rs-main__project",
                         start: "top top",
                         end: `bottom+=${projectItems.length * 100}% top`,
-                        scrub: true,
+                        scrub: 1,
                         pin: true,
                         id: "pin-block",
                         refreshPriority: -1,
@@ -14802,6 +14894,7 @@
         }
         function initBarba() {
             const initializePage = () => {
+                menuClose();
                 popup.closeAllPopups();
                 videoPlay();
                 initSliders();
@@ -14827,6 +14920,7 @@
                 addCursorMove(".rs-project__slide", ".cursor__circle");
                 addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
                 addCursorMove(".rs-comparison__compare", ".icv__circle");
+                manageScripts();
             };
             const destroyPage = () => {
                 destroySliders();
@@ -14835,31 +14929,51 @@
             };
             barba_umd.init({
                 transitions: [ {
-                    leave({current}) {
+                    async leave({current}) {
                         showLoader();
-                        destroyPage();
-                        clearAnimations();
+                        resourcesToLoad = 0;
+                        resourcesLoaded = 0;
+                        percentageDisplay.textContent = "0%";
+                        await new Promise((resolve => setTimeout(resolve, 500)));
                         return gsapWithCSS.to(current.container, {
-                            delay: .5
+                            opacity: 0,
+                            duration: .5,
+                            onComplete: function() {
+                                destroyPage();
+                                clearAnimations();
+                            }
                         });
                     },
-                    after({next}) {
-                        setTimeout((() => {
-                            window.scrollTo(0, 0);
-                        }), 100);
-                        menuClose();
-                        return gsapWithCSS.from(next.container, {
+                    async after({next}) {
+                        await gsapWithCSS.from(next.container, {
                             delay: .5,
+                            opacity: 0,
                             onComplete: function() {
+                                window.scrollTo(0, 0);
+                                loadResources();
+                                initHeaderHeight();
+                                updatePrimaryColor();
                                 initializePage();
+                                videoPlay();
+                                marquee();
                                 initPageAnimations();
-                                hideLoader();
-                                if (!window.location.hash) setTimeout((() => window.scrollTo(0, 0)), 300); else {
+                                animationConfig.forEach((config => {
+                                    revealOnScroll({
+                                        elements: config.elements,
+                                        duration: config.duration || .5,
+                                        delay: config.delay || .15,
+                                        direction: config.direction || "bottom-up"
+                                    });
+                                }));
+                                resourcesToLoad = 0;
+                                resourcesLoaded = 0;
+                                percentageDisplay.textContent = "0%";
+                                if (!window.location.hash) setTimeout((() => window.scrollTo(0, 0)), 100); else {
                                     const targetElement = document.querySelector(window.location.hash);
                                     if (targetElement) setTimeout((() => targetElement.scrollIntoView({
                                         behavior: "smooth",
                                         block: "start"
-                                    })), 300);
+                                    })), 100);
                                 }
                             }
                         });
@@ -14872,9 +14986,46 @@
             barba_umd.hooks.enter((() => {
                 window.scrollTo(0, 0);
             }));
-            barba_umd.hooks.afterEnter((() => {}));
         }
         initBarba();
+        document.addEventListener("click", (function(event) {
+            const link = event.target.closest("a");
+            if (link) if (link.href === window.location.href) {
+                event.preventDefault();
+                return false;
+            }
+        }));
+        function manageScripts() {
+            const projectElements = document.querySelectorAll(".rs-project:not(.rs-case)");
+            const caseElements = document.querySelectorAll(".rs-project.rs-case");
+            if (projectElements.length > 0) loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter.js`, "rs-filter").then((() => loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter-case.js`, "rs-filter-case"))).then((() => {
+                if (typeof window.filter_projects === "function") window.filter_projects(); else console.error("Функция filter_projects не загружена.");
+            })).catch((error => console.error(error))); else removeScript("rs-filter-page");
+            if (caseElements.length > 0) loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter.js`, "rs-filter").then((() => loadScriptIfNotLoaded(`${themeData.themeUri}/js/project-filter.js`, "rs-filter-page"))).then((() => {
+                if (typeof window.filter_case === "function") window.filter_case(); else console.error("Функция filter_case не загружена.");
+            })).catch((error => console.error(error))); else removeScript("rs-filter-case");
+        }
+        function loadScriptIfNotLoaded(src, id) {
+            return new Promise(((resolve, reject) => {
+                if (!document.getElementById(id)) {
+                    const script = document.createElement("script");
+                    script.src = src;
+                    script.id = id;
+                    script.onload = () => {
+                        resolve();
+                    };
+                    script.onerror = () => {
+                        console.error(`Ошибка загрузки скрипта: ${src}`);
+                        reject(new Error(`Ошибка загрузки скрипта: ${src}`));
+                    };
+                    document.body.appendChild(script);
+                } else resolve();
+            }));
+        }
+        function removeScript(id) {
+            const script = document.getElementById(id);
+            if (script) script.remove();
+        }
         function isWebp() {
             function testWebP(callback) {
                 let webP = new Image;
@@ -15251,6 +15402,7 @@
             document.documentElement.classList.remove("region-menu-open");
         }
         function menu() {
+            document.querySelector(".rs-header");
             const menus = document.querySelectorAll(".rs-header .menu");
             menus.forEach((menu => {
                 menu.querySelectorAll(".menu__list li.menu-item");
@@ -15268,14 +15420,6 @@
                     iconDropdown.classList.add("menu__dropdown-arrow");
                     menuLinkDropdowns.append(iconDropdown);
                 }));
-                menuItemDropdowns.forEach((item => {
-                    item.addEventListener("mouseenter", (function() {
-                        item.closest(".rs-header").classList.add("_header-hover");
-                    }));
-                    item.addEventListener("mouseleave", (function() {
-                        if (!document.documentElement.classList.contains("region-menu-open") || !document.documentElement.classList.contains("region-menu-open")) item.closest(".rs-header").classList.remove("_header-hover");
-                    }));
-                }));
                 function openLvlMenu(li, ul) {
                     li.forEach((item => {
                         const menuItemIcons = item.querySelector("a > .menu__dropdown-arrow");
@@ -15285,13 +15429,6 @@
                             e.stopPropagation();
                             if (menuItemIcons.closest(".menu__dropdown").classList.contains("_open-menu")) menuItemIcons.closest(".menu__dropdown").classList.remove("_open-menu");
                         }));
-                        if (window.innerWidth <= 991.98) {
-                            const menuItemLink = item.querySelector("a");
-                            menuItemLink.addEventListener("click", (function(e) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                            }));
-                        }
                         menuItemIcons.addEventListener("click", (e => {
                             e.preventDefault();
                             e.stopPropagation();

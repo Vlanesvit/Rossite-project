@@ -50,6 +50,11 @@
 		}
 	}
 
+	&__wrapper {
+		max-width: $maxWidth;
+		margin: 0 auto;
+	}
+
 	// .rs-features__slider
 	&__slider {
 	}
@@ -61,7 +66,7 @@
 		display: block !important;
 
 		@media (min-width: 991.98px) {
-			height: 100vh;
+			height: 100svh;
 			padding: 5vh 0px;
 		}
 	}

@@ -30,22 +30,21 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 //========================================================================================================================================================
 // Обработка изменений на странице динамически
-const handleResize = () => {
+const handleReveal = () => {
 	requestAnimationFrame(() => {
-		ScrollTrigger.refresh(); // Обновление всех триггеров при изменении размера окна
+		ScrollTrigger.refresh()
 	});
 };
 
-const handleReveal = () => {
-	if (typeof refreshScrollTrigger === 'function') {
-		refreshScrollTrigger();
-	}
-
-	initAnimationsBasedOnWidth();
-	clearAnimations();
-};
+// Экспортируем gsap, ScrollTrigger и barba
+window.gsap = gsap;
+window.ScrollTrigger = ScrollTrigger;
 // Экспорт функций для использования в других модулях
 export { handleReveal };
+
+ScrollTrigger.defaults({
+	refreshInterval: 60, // Уменьшает интервал обновления
+});
 
 const stagger = 0.5;
 
@@ -55,6 +54,27 @@ function updatePrimaryColor() {
 	const wrapperStyles = window.getComputedStyle(document.querySelector('.wrapper'));
 	const primaryColor = wrapperStyles.getPropertyValue('--primary-color');
 	document.body.style.setProperty('--primary-color', primaryColor);
+}
+
+// Функция для разбиения текста на слова
+function splitTextIntoWords(text) {
+	const containers = document.querySelectorAll(text);
+
+	containers.forEach(container => {
+		const textContent = container.textContent;
+		container.textContent = '';
+
+		// Для каждого слова создаем span с классом 'word'
+		textContent.split(' ').forEach(word => {
+			const span = document.createElement('span');
+			span.classList.add('word');
+			span.textContent = word;
+			container.appendChild(span);
+
+			// Добавляем пробел после каждого слова, кроме последнего
+			container.appendChild(document.createTextNode(' '));
+		});
+	});
 }
 
 // Дебаунсинг функции
@@ -81,20 +101,21 @@ function clearAnimations() {
 	});
 
 	destroyReveal();
-
-	// console.log("Все анимации и pin-spacer удалены");
 }
+
 // Инициализация анимаций при загрузке страницы
 function initPageAnimations() {
 	initAnimationsBasedOnWidth();
-	updatePrimaryColor();
-	videoPlay();
-	marquee();
 }
 
 // Инициализация анимаций для разных разрешений
 let currentWidthAnimation = null;
 function initAnimationsBasedOnWidth() {
+	clearAnimations();
+
+	// Инициализация общих анимаций
+	initializeCommonAnimations();
+
 	if (window.innerWidth >= 991.98) {
 		// Если переключаемся с мобильной версии, очищаем мобильные анимации
 		if (currentWidthAnimation === 'mobile') {
@@ -113,9 +134,6 @@ function initAnimationsBasedOnWidth() {
 
 	// Обновляем точки старта/окончания для всех ScrollTrigger
 	ScrollTrigger.refresh();
-
-	// Инициализация общих анимаций
-	initializeCommonAnimations();
 }
 
 // window.addEventListener('resize', resizeHandler);
@@ -123,20 +141,34 @@ function initAnimationsBasedOnWidth() {
 
 // Обработка при загрузке страницы
 window.addEventListener('load', () => {
+	updatePrimaryColor();
+	videoPlay();
+	marquee();
 	initPageAnimations();
+	// manageScripts();
+
+	// Запуск анимаций по конфигурации
+	animationConfig.forEach(config => {
+		revealOnScroll({
+			elements: config.elements,
+			duration: config.duration || 0.5,
+			delay: config.delay || 0.15,
+			direction: config.direction || 'bottom-up',
+		});
+	});
 
 	// Проверяем, есть ли якорь в URL
 	if (!window.location.hash) {
 		setTimeout(() => {
 			window.scrollTo(0, 0);
-		}, 300);
+		}, 100);
 	} else if (window.location.hash) {
 		const targetElement = document.querySelector(window.location.hash);
 		if (targetElement) {
 			window.scrollTo(0, 0);
 			setTimeout(() => {
 				targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-			}, 300);
+			}, 100);
 		}
 	}
 });
@@ -201,13 +233,11 @@ const animationConfig = [
 	{ elements: '.rs-banner__body ul', direction: 'bottom-up' },
 	{ elements: '.rs-banner__bg', delay: 0.15, direction: 'width-100' },
 	// Slider Block
-	{ elements: '.rs-slider-block__slide', direction: 'right-left--every' },
 	{ elements: '.rs-slider-block__slider', direction: 'right-left' },
 	{ elements: '.rs-slider-block__icon', delay: 0.15, direction: 'bottom-up--every' },
 	// Project
-	{ elements: '.rs-project__item', duration: 0.3, delay: 0.15, direction: 'bottom-up--every' },
+	{ elements: '.rs-project__slider', duration: 0.3, delay: 0.15, direction: 'bottom-up' },
 	{ elements: '.rs-project__filter', delay: 1, direction: 'fade' },
-	{ elements: '.rs-project__add', direction: 'bottom-up--every' },
 	// Steps
 	{ elements: '.rs-steps__navigation_list li a', delay: 0.15, direction: 'left-right--every' },
 	{ elements: '.rs-steps__item', direction: 'bottom-up--every' },
@@ -220,10 +250,10 @@ const animationConfig = [
 	{ elements: '.rs-calc__cost_footer', direction: 'bottom-up--every' },
 	// Reviews
 	{ elements: '.rs-reviews__bg', delay: 0.2 },
-	{ elements: '.rs-reviews__slide', delay: 0.2, direction: 'bottom-up--every' },
+	{ elements: '.rs-reviews__block', delay: 0.2, direction: 'bottom-up--every' },
 	{ elements: '.rs-reviews__sticker', delay: 0.2, direction: 'right-left' },
 	// Services
-	{ elements: '.rs-services__slide', delay: 0.2, direction: 'right-left--every' },
+	{ elements: '.rs-services__slider', delay: 0.2, direction: 'right-left' },
 	{ elements: '.rs-services__icon', delay: 0.15, direction: 'bottom-up--every' },
 	// Footer
 	{ elements: '.rs-footer .rs-breadcrumbs', delay: 0.2 },
@@ -256,8 +286,8 @@ const animationConfig = [
 	{ elements: '.section-bg .section__bg', duration: 1, direction: 'width-100' },
 	{ elements: '.section-bg .section__container', duration: 1, delay: 1, direction: 'fade' },
 	// Services About
-	{ elements: '.rs-about-block__img', direction: 'bottom-up' },
-	{ elements: '.rs-about-block__desc', direction: 'bottom-up' },
+	// { elements: '.rs-about-block__img', direction: 'bottom-up' },
+	// { elements: '.rs-about-block__desc', direction: 'bottom-up' },
 	// Services Price
 	{ elements: '.rs-services-price__item', direction: 'bottom-up' },
 	// Feedback
@@ -279,7 +309,7 @@ const animationConfig = [
 	{ elements: '.rs-main__title_video', duration: 1, direction: 'width-100' },
 	{ elements: '.rs-main__title h1', delay: 1, direction: 'scale' },
 	// Logo
-	{ elements: '.rs-logo__slide', delay: 0.2, direction: 'right-left--every' },
+	{ elements: '.rs-logo__slider', delay: 0.2, direction: 'right-left--every' },
 	// 404
 	{ elements: '.rs-error-block', duration: 0.8, direction: 'bottom-up' },
 ];
@@ -298,7 +328,10 @@ function revealOnScroll({ elements, duration = 0.5, delay = 0.15, direction = 'b
 
 	const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 }; // Уменьшил threshold
 
+
 	items.forEach(item => {
+		// Сохраняем исходные инлайн-стили для последующего восстановления
+		item.setAttribute('data-original-style', item.getAttribute('style') || '');
 		const { from } = animationPropsMap[direction.replace('--every', '')] || { from: {} };
 		Object.assign(item.style, from);
 		item.setAttribute('data-animation', 'false');
@@ -311,18 +344,21 @@ function revealOnScroll({ elements, duration = 0.5, delay = 0.15, direction = 'b
 
 				const animationProps = animationPropsMap[direction.replace('--every', '')];
 				if (animationProps) {
-					// Убираем задержку, если direction не содержит '--every'
 					const animationDelay = direction.includes('--every') ? delay * (index + 1) : 0;
 
 					gsap.fromTo(entry.target, animationProps.from, {
 						...animationProps.to,
 						duration,
 						delay: animationDelay,
-						clearProps: "all",
+						// Указываем сброс только анимационных свойств для сохранения исходных стилей
+						clearProps: "opacity, transform",
+						onComplete: () => {
+							// Восстанавливаем исходные инлайн-стили
+							entry.target.setAttribute('style', entry.target.getAttribute('data-original-style'));
+						},
 					});
 				}
 
-				// Прекращаем наблюдение за элементом, если анимация уже запустилась
 				observer.unobserve(entry.target);
 			}
 		});
@@ -349,7 +385,7 @@ function horizontalScroll({ blockSelector, triggerSelector, progressSelector }) 
 		const progress = document.querySelector(progressSelector);
 		let scrollTriggerInstance;
 
-		if (block && trigger && progress) {
+		if (block && trigger) {
 			const createScrollTrigger = () => {
 				if (scrollTriggerInstance) {
 					scrollTriggerInstance.kill(); // Убиваем предыдущий инстанс
@@ -357,26 +393,29 @@ function horizontalScroll({ blockSelector, triggerSelector, progressSelector }) 
 
 				scrollTriggerInstance = ScrollTrigger.create({
 					trigger: trigger,
-					start: "top-=10% top",
+					start: "center center",
 					end: () => `+=${trigger.clientHeight + window.innerHeight}`,
-					scrub: true,
+					scrub: 1,
 					pin: true,
 					invalidateOnRefresh: true,
-					anticipatePin: 1,
+					// anticipatePin: 1,
+					// markers: true,
 					onUpdate: (self) => {
 						gsap.to(block, {
 							x: () => -(self.progress * (block.scrollWidth - block.clientWidth)) + "px",
 							duration: 0.1,
-							ease: "power1.inOut",
+							ease: "power2.out"
 						});
 
-						const progressValue = (self.progress * 100).toFixed(2) + "%";
-						gsap.to(progress, {
-							width: progressValue,
-							duration: 0.1,
-							ease: "power1.inOut",
-						});
-					},
+						if (progress) {
+							const progressValue = (self.progress * 100).toFixed(2) + "%";
+							gsap.to(progress, {
+								width: progressValue,
+								duration: 0.1,
+								ease: "power2.out"
+							});
+						}
+					}
 				});
 			};
 
@@ -430,6 +469,7 @@ function marquee() {
 
 		// Вычисляем общую ширину всех элементов для создания бесшовного эффекта
 		const totalWidth = items.reduce((acc, item) => acc + item.offsetWidth, 0);
+		const resetOffset = totalWidth + 215; // Добавляем смещение для плавного сброса
 
 		// Дублируем элементы один раз для создания бесшовного эффекта, добавляя их в конец списка
 		list.style.width = `${totalWidth * 2}px`;
@@ -442,22 +482,22 @@ function marquee() {
 			// Останавливаем анимацию при изменении ширины окна
 			if (window.innerWidth <= 991.98) return;
 
-			// Определяем направление
+			// Определяем направление и обновляем смещение
 			if (marquee.dataset.direction === "left") {
 				scrollAmount -= speed;
 			} else if (marquee.dataset.direction === "right") {
 				scrollAmount += speed;
 			}
 
-			// Применяем трансформацию для бесшовного эффекта
+			// Применяем трансформацию для плавной прокрутки
 			list.style.transform = `translateX(${scrollAmount}px)`;
 
-			// Сбрасываем прокрутку для плавного цикла, когда конец достигнут
-			if (Math.abs(scrollAmount) >= totalWidth) {
-				scrollAmount = 0;
+			// Сбрасываем прокрутку, добавляя смещение 215px для плавного эффекта
+			if (Math.abs(scrollAmount) >= resetOffset) {
+				scrollAmount = 0; // Смещение после сброса, чтобы избежать резкого скачка
 			}
 
-			requestAnimationFrame(scrollMarquee); // Рекурсивно вызываем функцию для плавной анимации
+			requestAnimationFrame(scrollMarquee); // Рекурсивный вызов для плавной анимации
 		}
 
 		scrollMarquee();
@@ -481,25 +521,62 @@ function videoPlay() {
 //========================================================================================================================================================
 // Общие анимации
 function initializeCommonAnimations() {
-	// console.log("Инициализация общих анимаций");
-
 	animateSvgDashedLine({ dashedSelector: "section [class*='__line'] .dashed-path" });
 
-	// Запуск анимаций по конфигурации
-	animationConfig.forEach(config => {
-		revealOnScroll({
-			elements: config.elements,
-			duration: config.duration || 0.5,
-			delay: config.delay || 0.15,
-			direction: config.direction || 'bottom-up',
+	if (document.querySelector('.rs-cards__item')) {
+		const cards = gsap.utils.toArray(".rs-cards__item");
+		cards.forEach((card, i) => {
+			gsap.set(card, {
+				rotate: -90,
+				y: 800,
+			});
 		});
-	});
+
+		const stackTimeline = gsap.timeline({
+			scrollTrigger: {
+				trigger: ".rs-cards",
+				start: "top top",
+				end: "bottom+=100%",
+				pin: true,
+				pinSpacing: true,
+				scrub: 1,
+				invalidateOnRefresh: true, anticipatePin: 1
+				// markers: true,
+			},
+		});
+
+		stackTimeline.to(cards, {
+			y: 0,
+			rotate: (i) => 10 - i * 5,
+			duration: 1.5,
+			ease: "power2.out",
+			stagger: (i) => i === 0 ? 0 : i * 2
+		});
+	}
+
+	if (document.querySelector('.rs-text .rs-text__right h2')) {
+		splitTextIntoWords('.rs-text .rs-text__right h2');
+		const words = document.querySelectorAll('.rs-text .rs-text__right h2 .word');
+		gsap.fromTo(words,
+			{ opacity: 0.2 }, // Начальная прозрачность
+			{
+				opacity: 1, // Конечная непрозрачность
+				stagger: 0.15,
+				scrollTrigger: {
+					trigger: '.rs-text',
+					start: 'top 80%',
+					end: 'bottom 20%',
+					scrub: 1,
+					anticipatePin: 1
+					// markers: 1,
+				}
+			}
+		);
+	}
 }
 
 // Десктопные анимаций
 function initializeDesktopAnimations() {
-	// console.log("Инициализация десктопных анимаций");
-
 	//========================================================================================================================================================
 	// Анимация горизонтального скролла
 	horizontalScroll({
@@ -508,51 +585,100 @@ function initializeDesktopAnimations() {
 		progressSelector: '.rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill',
 	});
 
+	horizontalScroll({
+		blockSelector: '.rs-services-slider .rs-services-slider__wrapper',
+		triggerSelector: '.rs-services-slider',
+	});
+
 	//========================================================================================================================================================
 	// Закрепление блоков и последующее складывание в стопку
 	if (document.querySelector('.rs-features__slide')) {
 		gsap.matchMedia().add("(min-width: 991.98px)", () => {
-			setTimeout(() => {
-				const stackItems = gsap.utils.toArray('.rs-features__slide');
+			const stackItems = gsap.utils.toArray('.rs-features__slide');
 
-				gsap.set(stackItems, {
-					yPercent: (index) => 0,
-					scale: (index) => 1,
-				});
+			gsap.set(stackItems, {
+				yPercent: (index) => 0,
+				scale: (index) => 1,
+			});
 
-				const stackTimeline = gsap.timeline({
-					scrollTrigger: {
-						trigger: '.rs-features__wrapper',
-						start: 'top top',
-						// end: () => `+=${(stackItems.length - 1) * 100}vh`,
-						end: "bottom+=50% top",
-						// endTrigger: '.rs-features',
-						pin: true,
-						pinSpacing: true,
-						scrub: true,
-						invalidateOnRefresh: true,
-						// markers: true,
-					}
-				});
+			const stackTimeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: '.rs-features__wrapper',
+					start: 'top top',
+					// end: () => `+=${(stackItems.length - 1) * 100}vh`,
+					end: "bottom+=50% top",
+					// endTrigger: '.rs-features',
+					pin: true,
+					pinSpacing: true,
+					scrub: 1,
+					// anticipatePin: 1,
+					invalidateOnRefresh: true,
+					// markers: true,
+				}
+			});
 
-				stackTimeline
-					.to(stackItems, {
-						yPercent: (index) => -100 * index,
-						duration: 1,
-						ease: "power2.inOut",
-						stagger: stagger,
-					})
-					.to(stackItems, {
-						scale: (index) => 1 - (stackItems.length - index) * 0.025,
-						duration: 1,
-						ease: "power2.inOut",
-						stagger: stagger,
-					}, stagger);
+			stackTimeline
+				.to(stackItems, {
+					yPercent: (index) => -100 * index,
+					duration: 1,
+					ease: "power2.inOut",
+					stagger: stagger,
+				})
+				.to(stackItems, {
+					scale: (index) => 1 - (stackItems.length - index) * 0.025,
+					duration: 1,
+					ease: "power2.inOut",
+					stagger: stagger,
+				}, stagger);
 
-				handleResize()
-			}, 100);
+			handleReveal()
+
 		});
 	}
+
+	if (document.querySelector('.rs-our-project__item')) {
+		gsap.matchMedia().add("(min-width: 991.98px)", () => {
+			const stackItems = gsap.utils.toArray('.rs-our-project__item');
+
+			// Начальные настройки для всех блоков, кроме первого
+			gsap.set(stackItems, {
+				yPercent: (index) => index === 0 ? 0 : 105, // Первый блок уже на месте
+				scale: 1,
+				opacity: 1,
+			});
+
+			const stackTimeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: '.rs-our-project', // Изменен триггер на нужный класс
+					start: 'top top',
+					end: `bottom+=${stackItems.length * 100}% top`,
+					pin: true,
+					pinSpacing: true,
+					scrub: 1,
+					// anticipatePin: 1,
+					invalidateOnRefresh: true,
+					// markers: true,
+				}
+			});
+
+			// Анимация для каждой карточки
+			stackTimeline
+				.to(stackItems, {
+					yPercent: (index) => 0,
+					ease: "power2.inOut",
+					stagger: stagger,
+				})
+				.to(stackItems.slice(0, -1), {
+					scale: (index) => 1 - (stackItems.length - index) * 0.025,
+					opacity: 0,
+					ease: "power2.inOut",
+					stagger: stagger,
+				}, stagger);
+
+			handleReveal()
+		});
+	}
+
 
 	//========================================================================================================================================================
 	// Замена фон.цвета при скролле
@@ -567,6 +693,8 @@ function initializeDesktopAnimations() {
 					invalidateOnRefresh: true,
 					onEnter: () => section.classList.add("_active-step"),
 					onLeave: () => section.classList.remove("_active-step"),
+					onEnterBack: () => section.classList.add("_active-step"),
+					onLeaveBack: () => section.classList.remove("_active-step"),
 				});
 			});
 
@@ -583,30 +711,28 @@ function initializeDesktopAnimations() {
 				{
 					selector: '.rs-steps__column-bottom',
 					animation: { from: { y: '-200px' }, to: { y: '200px' } }
-
 				}
 			];
+
 			parallaxItems.forEach(item => {
 				if (document.querySelector(item.selector)) {
-					gsap.matchMedia().add("(min-width: 991.98px)", () => {
-						const parallaxTimeline = gsap.timeline({
-							scrollTrigger: {
-								trigger: ".rs-steps",
-								scrub: 1,
-								start: "top-=30% top",
-								end: "bottom+=30% bottom",
-								invalidateOnRefresh: true,
-								// markers: true,
-							}
-						});
-
-						// Выбор метода анимации в зависимости от наличия 'from' и 'to' параметров
-						if (item.animation.from && item.animation.to) {
-							parallaxTimeline.fromTo(item.selector, item.animation.from, item.animation.to);
-						} else {
-							parallaxTimeline.from(item.selector, item.animation);
+					const parallaxTimeline = gsap.timeline({
+						scrollTrigger: {
+							trigger: ".rs-steps",
+							scrub: 1,
+							start: "top-=30% top",
+							end: "bottom+=30% bottom",
+							// anticipatePin: 1,
+							invalidateOnRefresh: true,
+							// markers: true,
 						}
 					});
+
+					if (item.animation.from && item.animation.to) {
+						parallaxTimeline.fromTo(item.selector, item.animation.from, item.animation.to);
+					} else {
+						parallaxTimeline.from(item.selector, item.animation);
+					}
 				}
 			});
 		});
@@ -624,7 +750,8 @@ function initializeDesktopAnimations() {
 					endTrigger: '.rs-steps-algorithm',
 					pin: true,
 					pinSpacing: false,
-					scrub: true,
+					scrub: 1,
+					// anticipatePin: 1,
 					invalidateOnRefresh: true,
 					// markers: true,
 				},
@@ -642,7 +769,8 @@ function initializeDesktopAnimations() {
 						endTrigger: '.rs-steps-algorithm',
 						pin: true,
 						pinSpacing: false,
-						scrub: true,
+						scrub: 1,
+						// anticipatePin: 1,
 						invalidateOnRefresh: true,
 						// markers: true,
 					},
@@ -656,28 +784,27 @@ function initializeDesktopAnimations() {
 	//========================================================================================================================================================
 	if (document.querySelectorAll('.rs-tariff__top')) {
 		gsap.matchMedia().add("(min-width: 991.98px)", () => {
-			setTimeout(() => {
-				const tariffs = document.querySelectorAll('.rs-tariff');
-				tariffs.forEach(tariff => {
-					const tariffTops = tariff.querySelectorAll('.rs-tariff__top');
-					tariffTops.forEach(tariffTop => {
-						gsap.to('.rs-tariff__top', {
-							scrollTrigger: {
-								trigger: tariffTop,
-								start: 'top top',
-								end: 'bottom bottom',
-								endTrigger: tariff,
-								pin: true,
-								pinSpacing: false,
-								scrub: true,
-								invalidateOnRefresh: true,
-								// markers: 1,
-							},
-						});
-						handleResize()
+			const tariffs = document.querySelectorAll('.rs-tariff');
+			tariffs.forEach(tariff => {
+				const tariffTops = tariff.querySelectorAll('.rs-tariff__top');
+				tariffTops.forEach(tariffTop => {
+					gsap.to('.rs-tariff__top', {
+						scrollTrigger: {
+							trigger: tariffTop,
+							start: 'top top',
+							end: 'bottom bottom',
+							endTrigger: tariff,
+							pin: true,
+							pinSpacing: false,
+							scrub: 1,
+							// anticipatePin: 1,
+							invalidateOnRefresh: true,
+							// markers: 1,
+						},
 					});
+					handleReveal()
 				});
-			}, 200);
+			});
 		});
 	}
 
@@ -691,9 +818,10 @@ function initializeDesktopAnimations() {
 					trigger: '.rs-main__title',
 					start: "top top",
 					end: "bottom+=200px top",
-					scrub: true,
+					scrub: 1,
 					pin: true,
 					pinSpacing: false,
+					// anticipatePin: 1,
 					invalidateOnRefresh: true,
 					refreshPriority: 1,
 					// markers: true,
@@ -729,10 +857,11 @@ function initializeDesktopAnimations() {
 					trigger: ".rs-main__project",
 					start: "top top",
 					end: `bottom+=${projectItems.length * 100}% top`,
-					scrub: true,
+					scrub: 1,
 					pin: true,
 					// markers: 1,
 					id: 'pin-block',
+					// anticipatePin: 1,
 					refreshPriority: -1,
 					invalidateOnRefresh: true,
 				}
@@ -816,8 +945,6 @@ function initializeDesktopAnimations() {
 
 // Мобильные анимаций
 function initializeMobileAnimations() {
-	// console.log("Инициализация мобильных анимаций");
-
 	if (document.querySelector('.rs-main__project-all')) {
 		// Создаем таймлайн для анимации прозрачности и перемещения
 		gsap.matchMedia().add("(max-width: 991.98px)", () => {
@@ -827,6 +954,7 @@ function initializeMobileAnimations() {
 					start: "top top",
 					end: "bottom bottom",
 					pinSpacing: false,
+					// anticipatePin: 1,
 					invalidateOnRefresh: true,
 					refreshPriority: 1,
 					// markers: true,
@@ -857,6 +985,7 @@ function initializeMobileAnimations() {
 //========================================================================================================================================================
 function initBarba() {
 	const initializePage = () => {
+		vnvFunctions.menuClose();
 		// Закрываем все открытые попапы перед переходом
 		popup.closeAllPopups();
 
@@ -892,6 +1021,9 @@ function initBarba() {
 		addCursorMove(".rs-project__slide", ".cursor__circle");
 		addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
 		addCursorMove(".rs-comparison__compare", ".icv__circle");
+
+		// Подключение скриптов
+		manageScripts();
 	};
 
 	// Уничтожение предыдущей инициализации (если необходимо)
@@ -904,42 +1036,62 @@ function initBarba() {
 
 	barba.init({
 		transitions: [{
-			leave({ current }) {
-				// Показ лоадера при переходе
+			async leave({ current }) {
 				showLoader();
-				destroyPage();  // Уничтожаем предыдущую инициализацию
-				clearAnimations();
+				resourcesToLoad = 0;
+				resourcesLoaded = 0;
+				percentageDisplay.textContent = "0%";
+				await new Promise(resolve => setTimeout(resolve, 500));
 
 				return gsap.to(current.container, {
-					delay: 0.5,
+					opacity: 0,
+					duration: 0.5,
+					onComplete: function () {
+						destroyPage();
+						clearAnimations();
+					}
 				});
 			},
 
-			after({ next }) {
-				setTimeout(() => {
-					window.scrollTo(0, 0);
-				}, 100);
-				vnvFunctions.menuClose();
-
-				return gsap.from(next.container, {
+			async after({ next }) {
+				await gsap.from(next.container, {
 					delay: 0.5,
+					opacity: 0,
 					onComplete: function () {
-						initializePage();  // Инициализируем функционал после показа страницы
+						window.scrollTo(0, 0);
+						loadResources();
+						initHeaderHeight();
+						updatePrimaryColor();
+						initializePage();
+						videoPlay();
+						marquee();
 						initPageAnimations();
-						hideLoader(); // Скрываем лоадер после загрузки новой страницы
 
-						// Проверка для якорей в URL
+						// Запуск анимаций по конфигурации
+						animationConfig.forEach(config => {
+							revealOnScroll({
+								elements: config.elements,
+								duration: config.duration || 0.5,
+								delay: config.delay || 0.15,
+								direction: config.direction || 'bottom-up',
+							});
+						});
+
+						resourcesToLoad = 0;
+						resourcesLoaded = 0;
+						percentageDisplay.textContent = "0%";
+
 						if (!window.location.hash) {
-							setTimeout(() => window.scrollTo(0, 0), 300);
+							setTimeout(() => window.scrollTo(0, 0), 100);
 						} else {
 							const targetElement = document.querySelector(window.location.hash);
 							if (targetElement) {
-								setTimeout(() => targetElement.scrollIntoView({ behavior: "smooth", block: "start" }), 300);
+								setTimeout(() => targetElement.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
 							}
 						}
 					},
 				});
-			},
+			}
 		}]
 	});
 
@@ -951,9 +1103,85 @@ function initBarba() {
 	barba.hooks.enter(() => {
 		window.scrollTo(0, 0);
 	});
-
-	barba.hooks.afterEnter(() => {
-		// Никаких дополнительных инициализаций здесь не нужно
-	});
 }
 initBarba();
+
+// Предотвращение перезагрузки страницы при клике на ту же ссылку
+document.addEventListener('click', function (event) {
+	const link = event.target.closest('a');
+	if (link) {
+		// Проверяем, что ссылка ведет на текущий URL
+		if (link.href === window.location.href) {
+			event.preventDefault(); // Блокируем действие перехода
+			return false; // Прекращаем выполнение
+		}
+	}
+});
+
+// Функция управления загрузкой скриптов
+function manageScripts() {
+	const projectElements = document.querySelectorAll('.rs-project:not(.rs-case)');
+	const caseElements = document.querySelectorAll('.rs-project.rs-case');
+
+	if (projectElements.length > 0) {
+		loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter.js`, 'rs-filter')
+			.then(() => loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter-case.js`, 'rs-filter-case'))
+			.then(() => {
+				if (typeof window.filter_projects === "function") {
+					window.filter_projects();
+				} else {
+					console.error("Функция filter_projects не загружена.");
+				}
+			})
+			.catch(error => console.error(error));
+	} else {
+		removeScript('rs-filter-page');
+	}
+
+	if (caseElements.length > 0) {
+		loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter.js`, 'rs-filter')
+			.then(() => loadScriptIfNotLoaded(`${themeData.themeUri}/js/project-filter.js`, 'rs-filter-page'))
+			.then(() => {
+				if (typeof window.filter_case === "function") {
+					window.filter_case();
+				} else {
+					console.error("Функция filter_case не загружена.");
+				}
+			})
+			.catch(error => console.error(error));
+	} else {
+		removeScript('rs-filter-case');
+	}
+}
+
+// Функция для загрузки скрипта с поддержкой обратного вызова и обработкой ошибок
+function loadScriptIfNotLoaded(src, id) {
+	return new Promise((resolve, reject) => {
+		if (!document.getElementById(id)) {
+			const script = document.createElement('script');
+			script.src = src;
+			script.id = id;
+
+			script.onload = () => {
+				resolve();
+			};
+
+			script.onerror = () => {
+				console.error(`Ошибка загрузки скрипта: ${src}`);
+				reject(new Error(`Ошибка загрузки скрипта: ${src}`));
+			};
+
+			document.body.appendChild(script);
+		} else {
+			resolve();
+		}
+	});
+}
+
+// Вспомогательная функция для удаления загруженного скрипта
+function removeScript(id) {
+	const script = document.getElementById(id);
+	if (script) {
+		script.remove();
+	}
+}

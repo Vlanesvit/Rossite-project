@@ -1,39 +1,139 @@
+/* CSS (дополните по необходимости) */
 .mg-loader {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 100vh;
+	height: 100svh;
 	z-index: 99999999;
 	transform: translateZ(0);
 	pointer-events: none;
+	overflow: hidden;
+}
+
+.mg-intro {
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+
+	.mg-counter,
+	.mg-text {
+		position: absolute;
+		overflow: hidden;
+		padding: 10px;
+		margin: -10px;
+		color: #141517;
+
+		span {
+			display: block;
+			transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.4s;
+
+			.show & {
+				transform: translateY(0);
+				transition-delay: 0.4s;
+			}
+
+			.hide & {
+				transform: translateY(-200%);
+				transition-delay: 0s;
+			}
+		}
+	}
+
+	.mg-text {
+		top: 30px;
+		left: 80px;
+		font-weight: 400;
+		font-size: 65px;
+		// line-height: 75px;
+		line-height: 116%;
+		letter-spacing: -0.02em;
+
+		@media (max-width: 1439.98px) {
+			font-size: 50px;
+			top: 30px;
+			left: 30px;
+		}
+
+		@media (max-width: 1169.98px) {
+			font-size: 35px;
+		}
+
+		@media (max-width: 991.98px) {
+			font-size: 25px;
+			top: 16px;
+			left: 16px;
+		}
+	}
+
+	.mg-counter {
+		position: absolute;
+		bottom: 40px;
+		right: 80px;
+		font-weight: 500;
+		font-size: 250px;
+		// line-height: 237px;
+		line-height: 95%;
+		letter-spacing: -0.1em;
+
+		@media (max-width: 1439.98px) {
+			font-size: 200px;
+			bottom: 30px;
+			right: 30px;
+		}
+
+		@media (max-width: 1169.98px) {
+			font-size: 150px;
+		}
+
+		@media (max-width: 991.98px) {
+			right: 16px;
+			bottom: 16px;
+			font-size: 100px;
+		}
+	}
 }
 
 .mg-loader-fill {
+	width: 100%;
+	height: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: var(--primary-color);
+	z-index: 99;
+	background: #fff;
+	pointer-events: all;
 }
 
 .mg-loader-fill:nth-child(even) {
-	background: #fff;
+	background: var(--primary-color);
 }
 
 /* Анимация заполнения лоадера */
 .mg-loader-fill {
-	transform: translateY(100%); /* Исходное положение */
-	transition: transform 0.6s cubic-bezier(0.9, 0, 0.2, 1);
-}
+	transform: translateY(200%); /* Исходное положение */
+	transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0s;
 
-.mg-loader-fill.-v1.active {
-	transform: translateY(0);
-	transition-delay: 0.2s;
-}
+	.show & {
+		transform: translateY(0);
+		transition-delay: 0.4s;
 
-.mg-loader-fill.-v2.active {
-	transform: translateY(0);
-	transition-delay: 0.4s;
+		&:nth-child(even) {
+			transition-delay: 0.2s;
+		}
+	}
+
+	.hide & {
+		transform: translateY(200%);
+		transition-delay: 0.2s;
+
+		&:nth-child(even) {
+			transition-delay: 0.4s;
+		}
+	}
 }

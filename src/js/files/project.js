@@ -5,54 +5,64 @@ addCursorMove(".rs-project__slide", ".cursor__circle")
 
 import { handleReveal } from "../libs/animation-gsap.js";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+gsap.registerPlugin(ScrollTrigger);
+
 /* ====================================
 Подсчет активных фильтров и отчистка
 ==================================== */
 export function filterClear() {
-	const filterItem = document.querySelectorAll('.rs-case .filter__item');
-	const filterBtn = document.querySelector('.rs-case .filter__btn');
+	const filter = document.querySelector('.rs-project .filter');
+	const filterItems = document.querySelectorAll('.rs-project .filter__item');
+	const filterBtn = document.querySelector('.rs-project .filter__btn');
 
-	function outputCountActiveFilter(where_find, where_output) {
+	// Функция для обновления счетчика активных фильтров
+	const outputCountActiveFilter = (where_find, where_output) => {
 		if (where_output) {
-			let filterCount = document.createElement('span');
-			filterCount.classList.add('filter__count');
-			where_output.prepend(filterCount);
-
-			const checkboxs = where_find.querySelectorAll('input[type="checkbox"]');
-
-			checkboxs.forEach(checkbox => {
-				checkbox.addEventListener('input', function () {
-					countChecked()
-
-					handleReveal(); // Обновление ScrollTrigger после появления новых элементов
-				})
-			});
-
-			function countChecked() {
-				const activeCheckbox = where_find.querySelectorAll('input[type="checkbox"]:checked');
-				let numCheckedFilter = activeCheckbox.length;
-				if (numCheckedFilter > 0) {
-					where_output.classList.add('_output-count');
-					filterCount.style.display = "flex";
-					filterCount.innerHTML = numCheckedFilter;
-				} else {
-					where_output.classList.remove('_output-count');
-					filterCount.style.display = "none";
-					filterCount.innerHTML = "0";
-				}
+			let filterCount = where_output.querySelector('.filter__count');
+			if (!filterCount) {
+				filterCount = document.createElement('span');
+				filterCount.classList.add('filter__count');
+				where_output.prepend(filterCount);
 			}
+			countChecked(where_find, where_output, filterCount);
 		}
-	}
-	outputCountActiveFilter(document, filterBtn)
+	};
 
+	// Функция подсчета активных чекбоксов
+	const countChecked = (where_find, where_output, filterCount) => {
+		const activeCheckbox = where_find.querySelectorAll('input[type="checkbox"]:checked');
+		const numCheckedFilter = activeCheckbox.length;
 
-	filterItem.forEach(filter => {
-		const filterTitle = filter.querySelector('.filter__title');
+		// Убедимся, что счетчик начинается с правильного значения
+		console.log("Количество:", numCheckedFilter);
+		console.log("Активные чекбоксы:", activeCheckbox);
 
-		outputCountActiveFilter(filter, filterTitle)
+		if (numCheckedFilter > 0) {
+			where_output.classList.add('_output-count');
+			filterCount.style.display = "flex";
+			filterCount.textContent = numCheckedFilter;
+		} else {
+			where_output.classList.remove('_output-count');
+			filterCount.style.display = "none";
+			filterCount.textContent = "0";
+		}
+	};
+
+	// Устанавливаем обработчик событий для всех чекбоксов только один раз
+	const checkboxes = document.querySelectorAll('.rs-project input[type="checkbox"]');
+	checkboxes.forEach(checkbox => {
+		checkbox.addEventListener('change', () => {
+			outputCountActiveFilter(filter, filterBtn);
+			filterItems.forEach(filterItem => {
+				const filterTitle = filterItem.querySelector('.filter__title');
+				outputCountActiveFilter(filterItem, filterTitle);
+			});
+		});
 	});
 }
-if (document.querySelector('.rs-case .filter')) {
+if (document.querySelector('.rs-project .filter')) {
 	filterClear();
 }
 
@@ -65,6 +75,7 @@ export function filterProject() {
 	filters.forEach(filter => {
 		const filterItems = filter.querySelectorAll('.filter__item')
 		const filterBlock = filter.querySelector('.filter__block');
+		const filterList = filter.querySelector('.filter__list');
 		const filterBtn = filter.querySelector('.filter__btn');
 
 		if (filterBtn) {
@@ -91,7 +102,7 @@ export function filterProject() {
 			})
 
 			// Закрытие фильтров при клике вне блока фильтра
-			filter.addEventListener('click', function (e) {
+			filterList.addEventListener('click', function (e) {
 				e.stopPropagation();
 			});
 			document.addEventListener('click', function (e) {
@@ -130,14 +141,6 @@ export function imitationProductLoad() {
 		let showCount = Number(showData.getAttribute('data-project-show'));
 		let loadCount = Number(loadData.getAttribute('data-project-load'));
 
-		function checkCurrentItems() {
-			// Скрываем кнопку, если карточки все открыты
-			if (showCount >= projectSlide.length) {
-				projectAdd.classList.add('_close-btn');
-			}
-		}
-		checkCurrentItems();
-
 		// Показываем первые {showCount} карточек
 		for (let i = 0; i < showCount; i++) {
 			if (projectSlide[i]) {
@@ -152,9 +155,13 @@ export function imitationProductLoad() {
 				}
 			}
 			showCount += loadCount;
-			checkCurrentItems();
 
 			handleReveal(); // Обновление ScrollTrigger после появления новых элементов
+
+			setTimeout(() => {
+				addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
+				addCursorMove(".rs-project__slide", ".cursor__circle");
+			}, 1000);
 		});
 	});
 }

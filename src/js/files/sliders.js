@@ -99,7 +99,7 @@ export function initSliders() {
 				// Шрина экрана
 				breakpoints: {
 					320: {
-						slidesPerView: 1,
+						slidesPerView: 1.22,
 						spaceBetween: 20,
 					},
 					540: {

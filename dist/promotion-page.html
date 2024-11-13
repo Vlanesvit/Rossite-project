@@ -10,9 +10,9 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="@favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" href="css/style.min.css?_v=20241027190219">
+	<link rel="stylesheet" href="css/style.min.css?_v=20241113144210">
 
-	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20241027190219" type="text/javascript"></script>
+	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20241113144210" type="text/javascript"></script>
 
 </head>
 
@@ -20,10 +20,18 @@
 
 	<div class="progress-bar" id="progressBar"></div>
 
-	<div class="mg-loader">
-		<div class="mg-loader-fill -v1"></div>
-		<div class="mg-loader-fill -v2"></div>
+	<!-- <div class="mg-loader">
+	<div class="mg-intro">
+		<div class="mg-text">
+			<span>россайт загружается ...</span>
+		</div>
+		<div class="mg-counter">
+			<span id="mg-percentage">0%</span>
+		</div>
 	</div>
+	<div class="mg-loader-fill active-in"></div>
+	<div class="mg-loader-fill active-in"></div>
+</div> -->
 
 	<div class="wrapper" data-barba="container" data-barba-namespace="promotion-page" style="
 	--primary-color: #6366f1; 
@@ -898,9 +906,9 @@
 			">
 				<div class="rs-banner__wrapper">
 					<div class="rs-banner__bg">
-						<img class="rs-banner__bg--desktop" src="img/pages/banner/banner-img-3.jpg" alt="">
-						<img class="rs-banner__bg--tablet" src="img/pages/banner/banner-img-3--tablet.jpg" alt="">
-						<img class="rs-banner__bg--mobile" src="img/pages/banner/banner-img-3--mobile.jpg" alt="">
+						<picture><source srcset="img/pages/banner/banner-img-3.webp" type="image/webp"><img class="rs-banner__bg--desktop" src="img/pages/banner/banner-img-3.jpg" alt=""></picture>
+						<picture><source srcset="img/pages/banner/banner-img-3--tablet.webp" type="image/webp"><img class="rs-banner__bg--tablet" src="img/pages/banner/banner-img-3--tablet.jpg" alt=""></picture>
+						<picture><source srcset="img/pages/banner/banner-img-3--mobile.webp" type="image/webp"><img class="rs-banner__bg--mobile" src="img/pages/banner/banner-img-3--mobile.jpg" alt=""></picture>
 					</div>
 					<div class="rs-banner__content">
 						<div class="rs-banner__container">
@@ -963,7 +971,7 @@
 								</div>
 							</div>
 							<div class="rs-about-block__img">
-								<img src="img/pages/services-about/about-img-1.jpg" alt="">
+								<picture><source srcset="img/pages/services-about/about-img-1.webp" type="image/webp"><img src="img/pages/services-about/about-img-1.jpg" alt=""></picture>
 								<div class="rs-about-block__img_label">Рис.1 Позиции контекстной рекламы</div>
 							</div>
 						</div>
@@ -993,7 +1001,7 @@
 								</div>
 							</div>
 							<div class="rs-about-block__img">
-								<img src="img/pages/services-about/about-img-2.jpg" alt="">
+								<picture><source srcset="img/pages/services-about/about-img-2.webp" type="image/webp"><img src="img/pages/services-about/about-img-2.jpg" alt=""></picture>
 								<div class="rs-about-block__img_label">Рис.2 Позиции SEO-продвижения</div>
 							</div>
 						</div>
@@ -1034,7 +1042,7 @@
 								</div>
 							</div>
 							<div class="rs-about-block__img">
-								<img src="img/pages/services-about/about-img-3.jpg" alt="">
+								<picture><source srcset="img/pages/services-about/about-img-3.webp" type="image/webp"><img src="img/pages/services-about/about-img-3.jpg" alt=""></picture>
 								<div class="rs-about-block__img_label">Рис.2 Позиции SEO-продвижения</div>
 							</div>
 						</div>
@@ -1044,7 +1052,7 @@
 
 			<section class="rs-features-list section-bg">
 				<div class="section__wrapper">
-					<div class="section__bg"><img src="img/pages/features/features__bg.jpg" alt=""></div>
+					<div class="section__bg"><picture><source srcset="img/pages/features/features__bg.webp" type="image/webp"><img src="img/pages/features/features__bg.jpg" alt=""></picture></div>
 					<div class="section__container">
 						<h2 class="mrp-med-45">Почему продвижение именно с нами</h2>
 						<div class="rs-features-list__blocks">
@@ -1570,110 +1578,110 @@
 							<div class="rs-partners__swiper swiper-wrapper">
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-1.png" alt="">
-										<img src="img/pages/partners/partners-img-1--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-1.webp" type="image/webp"><img src="img/pages/partners/partners-img-1.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-1--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-1--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-2.png" alt="">
-										<img src="img/pages/partners/partners-img-2--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-2.webp" type="image/webp"><img src="img/pages/partners/partners-img-2.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-2--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-2--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-3.png" alt="">
-										<img src="img/pages/partners/partners-img-3--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-3.webp" type="image/webp"><img src="img/pages/partners/partners-img-3.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-3--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-3--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-4.png" alt="">
-										<img src="img/pages/partners/partners-img-4--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-4.webp" type="image/webp"><img src="img/pages/partners/partners-img-4.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-4--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-4--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-5.png" alt="">
-										<img src="img/pages/partners/partners-img-5--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-5.webp" type="image/webp"><img src="img/pages/partners/partners-img-5.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-5--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-5--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-6.png" alt="">
-										<img src="img/pages/partners/partners-img-6--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-6.webp" type="image/webp"><img src="img/pages/partners/partners-img-6.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-6--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-6--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-7.png" alt="">
-										<img src="img/pages/partners/partners-img-7--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-7.webp" type="image/webp"><img src="img/pages/partners/partners-img-7.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-7--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-7--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-8.png" alt="">
-										<img src="img/pages/partners/partners-img-8--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-8.webp" type="image/webp"><img src="img/pages/partners/partners-img-8.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-8--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-8--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-9.png" alt="">
-										<img src="img/pages/partners/partners-img-9--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-9.webp" type="image/webp"><img src="img/pages/partners/partners-img-9.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-9--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-9--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-10.png" alt="">
-										<img src="img/pages/partners/partners-img-10--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-10.webp" type="image/webp"><img src="img/pages/partners/partners-img-10.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-10--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-10--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-11.png" alt="">
-										<img src="img/pages/partners/partners-img-11--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-11.webp" type="image/webp"><img src="img/pages/partners/partners-img-11.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-11--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-11--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-12.png" alt="">
-										<img src="img/pages/partners/partners-img-12--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-12.webp" type="image/webp"><img src="img/pages/partners/partners-img-12.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-12--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-12--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-13.png" alt="">
-										<img src="img/pages/partners/partners-img-13--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-13.webp" type="image/webp"><img src="img/pages/partners/partners-img-13.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-13--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-13--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-14.png" alt="">
-										<img src="img/pages/partners/partners-img-14--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-14.webp" type="image/webp"><img src="img/pages/partners/partners-img-14.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-14--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-14--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-15.png" alt="">
-										<img src="img/pages/partners/partners-img-15--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-15.webp" type="image/webp"><img src="img/pages/partners/partners-img-15.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-15--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-15--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-16.png" alt="">
-										<img src="img/pages/partners/partners-img-16--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-16.webp" type="image/webp"><img src="img/pages/partners/partners-img-16.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-16--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-16--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-17.png" alt="">
-										<img src="img/pages/partners/partners-img-17--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-17.webp" type="image/webp"><img src="img/pages/partners/partners-img-17.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-17--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-17--hover.png" alt=""></picture>
 									</div>
 								</div>
 								<div class="rs-partners__slide swiper-slide">
 									<div class="rs-partners__img">
-										<img src="img/pages/partners/partners-img-18.png" alt="">
-										<img src="img/pages/partners/partners-img-18--hover.png" alt="">
+										<picture><source srcset="img/pages/partners/partners-img-18.webp" type="image/webp"><img src="img/pages/partners/partners-img-18.png" alt=""></picture>
+										<picture><source srcset="img/pages/partners/partners-img-18--hover.webp" type="image/webp"><img src="img/pages/partners/partners-img-18--hover.png" alt=""></picture>
 									</div>
 								</div>
 							</div>
@@ -1685,8 +1693,8 @@
 			<section class="rs-reviews section-bg">
 				<div class="section__wrapper">
 					<div class="section__bg">
-						<img class="section__bg--desktop" src="img/pages/reviews/reviews-bg.jpg" alt="">
-						<img class="section__bg--mobile" src="img/pages/calc/calc-bg.jpg" alt="">
+						<picture><source srcset="img/pages/reviews/reviews-bg.webp" type="image/webp"><img class="section__bg--desktop" src="img/pages/reviews/reviews-bg.jpg" alt=""></picture>
+						<picture><source srcset="img/pages/calc/calc-bg.webp" type="image/webp"><img class="section__bg--mobile" src="img/pages/calc/calc-bg.jpg" alt=""></picture>
 					</div>
 
 					<div class="rs-reviews__sticker">
@@ -1722,7 +1730,7 @@
 												<div class="rs-reviews__item">
 													<div class="rs-reviews__header">
 														<div class="rs-reviews__avatar">
-															<img src="img/pages/reviews/reviews-avatar-1.png" alt="">
+															<picture><source srcset="img/pages/reviews/reviews-avatar-1.webp" type="image/webp"><img src="img/pages/reviews/reviews-avatar-1.png" alt=""></picture>
 														</div>
 														<div class="rs-reviews__title">
 															<div class="rs-reviews__title_name">
@@ -1767,7 +1775,7 @@
 												<div class="rs-reviews__item">
 													<div class="rs-reviews__header">
 														<div class="rs-reviews__avatar">
-															<img src="img/pages/reviews/reviews-avatar-1.png" alt="">
+															<picture><source srcset="img/pages/reviews/reviews-avatar-1.webp" type="image/webp"><img src="img/pages/reviews/reviews-avatar-1.png" alt=""></picture>
 														</div>
 														<div class="rs-reviews__title">
 															<div class="rs-reviews__title_name">
@@ -1808,7 +1816,7 @@
 												<div class="rs-reviews__item">
 													<div class="rs-reviews__header">
 														<div class="rs-reviews__avatar">
-															<img src="img/pages/reviews/reviews-avatar-1.png" alt="">
+															<picture><source srcset="img/pages/reviews/reviews-avatar-1.webp" type="image/webp"><img src="img/pages/reviews/reviews-avatar-1.png" alt=""></picture>
 														</div>
 														<div class="rs-reviews__title">
 															<div class="rs-reviews__title_name">
@@ -2307,7 +2315,7 @@
 
 			<section class="rs-feedback">
 				<div class="rs-feedback__bg">
-					<img src="img/pages/feedback/feedback-bg-1.png" alt="">
+					<picture><source srcset="img/pages/feedback/feedback-bg-1.webp" type="image/webp"><img src="img/pages/feedback/feedback-bg-1.png" alt=""></picture>
 				</div>
 				<div class="rs-feedback__container">
 					<h2 class="mrp-med-50">Получите консультацию маркетолога по поводу продвижения вашего сайта</h2>
@@ -2785,38 +2793,168 @@
 		</div>
 	</div>
 
-	<script>
-		// Лоадер
-		const loader = document.querySelector('.mg-loader');
-		const loaderFillv1 = loader.querySelector('.mg-loader-fill.-v1');
-		const loaderFillv2 = loader.querySelector('.mg-loader-fill.-v2');
+	<!-- <script>
+	function initHeaderHeight() {
+		const header = document.querySelector(".rs-header");
+		const menuItemDropdowns = header.querySelectorAll(".menu__list .menu__dropdown");
 
-		// Функция для активации лоадера
-		function showLoader() {
-			loader.classList.add('active');
-			loaderFillv1.classList.add('active');
-			loaderFillv2.classList.add('active');
+		// Функция для обновления CSS переменной
+		function updateHeaderHeight(includeDropdown = false) {
+			// Если активен hover, не изменять высоту при скролле
+			if (header.classList.contains("_header-hover") && !includeDropdown) {
+				return;
+			}
+
+			let totalHeight = header.clientHeight;
+			if (includeDropdown) {
+				// Найти максимальную высоту .menu__dropdown_block
+				const maxDropdownHeight = Math.max(
+					...Array.from(document.querySelectorAll(".menu__dropdown_block")).map(block => block.clientHeight)
+				);
+				totalHeight += maxDropdownHeight;
+			}
+			header.style.setProperty("--header-height", `${totalHeight}px`);
 		}
 
-		// Функция для скрытия лоадера
-		function hideLoader() {
-			loader.classList.remove('active');
-			loaderFillv1.classList.remove('active');
-			loaderFillv2.classList.remove('active');
-		}
-
-		// Инициализация при загрузке страницы
-		window.addEventListener('DOMContentLoaded', () => {
-			// Активируем лоадер при первой загрузке
-			showLoader();
-
-			setTimeout(() => {
-				hideLoader(); // Скрываем лоадер после завершения CSS-анимации
-			}, 1000); // Время скрытия можно изменить
+		menuItemDropdowns.forEach(item => {
+			item.addEventListener("mouseenter", function () {
+				header.classList.add("_header-hover");
+				updateHeaderHeight(true);
+			});
+			item.addEventListener("mouseleave", function () {
+				if (!document.documentElement.classList.contains("region-menu-open")) {
+					header.classList.remove("_header-hover");
+				}
+				updateHeaderHeight();
+			});
 		});
-	</script>
 
-	<script src="js/app.min.js?_v=20241027190219" defer></script>
+		// Вызов функции один раз для установки начальной высоты
+		updateHeaderHeight();
+
+		// Обновление высоты при изменении размера и прокрутке страницы, только если hover не активен
+		function handleResizeAndScroll() {
+			updateHeaderHeight();
+		}
+
+		window.addEventListener("resize", handleResizeAndScroll);
+		window.addEventListener("scroll", handleResizeAndScroll);
+	}
+
+	// Вызов функции при загрузке страницы
+	window.addEventListener("DOMContentLoaded", initHeaderHeight);
+</script>
+
+<script>
+	const loader = document.querySelector(".mg-loader");
+	const percentageDisplay = document.getElementById("mg-percentage");
+
+	let resourcesToLoad = 0;
+	let resourcesLoaded = 0;
+	let targetPercentage = 0;
+
+	function showLoader() {
+		loader.classList.add("show");
+		loader.classList.remove("hide");
+	}
+
+	function hideLoader() {
+		loader.classList.add("hide");
+		loader.classList.remove("show");
+	}
+
+	function updatePercentage() {
+		targetPercentage = resourcesToLoad > 0
+			? Math.min(Math.floor((resourcesLoaded / resourcesToLoad) * 100), 100)
+			: 100;
+
+		let currentPercentage = parseInt(percentageDisplay.textContent) || 0;
+
+		const animate = () => {
+			if (currentPercentage < targetPercentage) {
+				currentPercentage++; percentageDisplay.textContent = currentPercentage + "%";
+				requestAnimationFrame(animate);
+			} else if (currentPercentage > targetPercentage) {
+				currentPercentage--;
+				percentageDisplay.textContent = currentPercentage + "%";
+				requestAnimationFrame(animate);
+			} else if (currentPercentage === 100 && document.readyState === "complete") {
+				hideLoader();
+			}
+		};
+		animate();
+	}
+
+	function trackResourceLoad() {
+		resourcesLoaded++;
+		updatePercentage();
+
+		if (resourcesLoaded >= resourcesToLoad) {
+			if (document.readyState === "complete") {
+				if (parseInt(percentageDisplay.textContent) === 100) {
+					hideLoader();
+				}
+			} else {
+				window.addEventListener("load", () => {
+					if (parseInt(percentageDisplay.textContent) === 100) {
+						hideLoader();
+					}
+				});
+			}
+		}
+	}
+
+	function loadResources() {
+		resourcesToLoad = 0;
+		resourcesLoaded = 0;
+		percentageDisplay.textContent = "0%";
+
+		// Отслеживание изображений
+		const images = document.querySelectorAll("img");
+		resourcesToLoad += images.length;
+
+		images.forEach(img => {
+			if (img.complete) {
+				trackResourceLoad();
+			} else {
+				img.addEventListener("load", trackResourceLoad);
+				img.addEventListener("error", trackResourceLoad);
+			}
+		});
+
+		// Отслеживание видео
+		const videos = document.querySelectorAll("video");
+		resourcesToLoad += videos.length;
+
+		videos.forEach(video => {
+			if (video.readyState >= 3) {
+				trackResourceLoad();
+			} else {
+				video.addEventListener("loadeddata", trackResourceLoad);
+				video.addEventListener("error", trackResourceLoad);
+			}
+		});
+
+		// Отслеживание скриптов
+		const scriptToLoad = document.querySelector("script[src*=\'app.min.js\'], script[src*=\'app.js\']");
+		if (scriptToLoad) {
+			scriptToLoad.addEventListener("load", trackResourceLoad);
+			scriptToLoad.addEventListener("error", trackResourceLoad);
+		}
+
+		// Если ресурсов нет, скрываем загрузчик
+		if (resourcesToLoad === 0) {
+			hideLoader();
+		}
+	}
+
+	window.addEventListener("DOMContentLoaded", () => {
+		showLoader();
+		loadResources();
+	});
+</script> -->
+
+	<script src="js/app.min.js?_v=20241113144210" defer></script>
 
 </body>
 

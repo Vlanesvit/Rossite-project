@@ -475,6 +475,7 @@ export function regionMenuToggle() {
 
 // Меню
 export function menu() {
+	const header = document.querySelector('.rs-header');
 	const menus = document.querySelectorAll('.rs-header .menu');
 
 	menus.forEach(menu => {
@@ -504,17 +505,6 @@ export function menu() {
 			menuLinkDropdowns.append(iconDropdown);
 		});
 
-		menuItemDropdowns.forEach(item => {
-			item.addEventListener('mouseenter', function () {
-				item.closest('.rs-header').classList.add('_header-hover')
-			})
-			item.addEventListener('mouseleave', function () {
-				if (!document.documentElement.classList.contains("region-menu-open") || !document.documentElement.classList.contains("region-menu-open")) {
-					item.closest('.rs-header').classList.remove('_header-hover')
-				}
-			})
-		});
-
 		/* Один и тот же код для отдельных уровней меню, 
 		чтобы открывался только один пункт, а открытые - закрывались, кроме тех, кто выше уровнем */
 		function openLvlMenu(li, ul) {
@@ -530,14 +520,6 @@ export function menu() {
 						if (menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
 							menuItemIcons.closest('.menu__dropdown').classList.remove('_open-menu');
 						}
-					})
-				}
-
-				if (window.innerWidth <= 991.98) {
-					const menuItemLink = item.querySelector('a');
-					menuItemLink.addEventListener('click', function (e) {
-						e.preventDefault();
-						e.stopPropagation();
 					})
 				}
 
