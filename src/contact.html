@@ -23,8 +23,11 @@
 		<main class="page">
 
 			<section class="rs-document">
-				<div class="rs-document__bg">
-					<img src="@img/pages/document/doc_bg.jpg" alt="">
+				<div class="rs-document__bg" style="--gradient-bg: linear-gradient(180deg, #020a1a 0%, #0051ae 100%);">
+					<div class="rs-document__img"
+						style="--gradient-img: linear-gradient(180deg, #0050ac 0%, rgba(0, 80, 172, 0.7) 75.36%, rgba(0, 80, 172, 0) 100%)">
+						<img src="@img/pages/document/doc_bg.jpg" alt="">
+					</div>
 				</div>
 				<div class="rs-document__container">
 					<h1 class="mrp-med-65">Постройте свой бизнес по–новому
@@ -603,7 +606,7 @@
 		</footer>
 
 	</div>
-	
+
 	@@include('html/_popup.htm',{})
 
 	@@include('html/_js.htm',{})

@@ -4753,9 +4753,42 @@ textarea.rs-input {
   width: 100%;
   height: 100%;
   z-index: -1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.rs-document__bg img {
+.rs-document__bg::before {
+  content: "";
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-bg);
+}
+
+.rs-document__img {
+  position: relative;
+}
+
+.rs-document__img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-img);
+}
+
+.rs-document__img img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -10146,6 +10179,13 @@ textarea.rs-input {
   aspect-ratio: 1;
 }
 
+.rs-cards__bg-2 {
+  bottom: -35.99vw;
+  left: -5.156vw;
+  width: 66.458vw;
+  aspect-ratio: 1;
+}
+
 .rs-cards__container {
   height: 100%;
 }
@@ -10198,10 +10238,77 @@ textarea.rs-input {
 
 .rs-cards__scroll {
   position: absolute;
+  z-index: 10;
   bottom: 0;
   left: 0;
   width: 66px;
   height: 66px;
+  -webkit-animation: MoveUpDown 1s linear infinite;
+          animation: MoveUpDown 1s linear infinite;
+}
+
+@-webkit-keyframes MoveUpDown {
+  0% {
+    -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+  }
+
+  10% {
+    -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+  }
+
+  40% {
+    -webkit-transform: translateY(0.5rem);
+            transform: translateY(0.5rem);
+  }
+
+  60% {
+    -webkit-transform: translateY(0.5rem);
+            transform: translateY(0.5rem);
+  }
+
+  90% {
+    -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+  }
+
+  to {
+    -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+  }
+}
+
+@keyframes MoveUpDown {
+  0% {
+    -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+  }
+
+  10% {
+    -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+  }
+
+  40% {
+    -webkit-transform: translateY(0.5rem);
+            transform: translateY(0.5rem);
+  }
+
+  60% {
+    -webkit-transform: translateY(0.5rem);
+            transform: translateY(0.5rem);
+  }
+
+  90% {
+    -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+  }
+
+  to {
+    -webkit-transform: translateY(-0.5rem);
+            transform: translateY(-0.5rem);
+  }
 }
 
 .rs-cards__scroll svg {
@@ -10226,6 +10333,7 @@ textarea.rs-input {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 40px;
+  pointer-events: none;
 }
 
 .rs-cards__list {
@@ -10340,13 +10448,6 @@ textarea.rs-input {
 }
 
 .rs-text__bg-1 {
-  top: -35.99vw;
-  left: -5.156vw;
-  width: 66.458vw;
-  aspect-ratio: 1;
-}
-
-.rs-text__bg-2 {
   top: 4.792vw;
   left: -17.292vw;
   width: 70.729vw;
@@ -13495,6 +13596,10 @@ textarea.rs-input {
     font-size: 50px;
   }
 
+  .rs-cards__block {
+    padding: 30px;
+  }
+
   .rs-cards__item {
     padding: 50px;
     min-height: 520px;
@@ -13921,6 +14026,10 @@ textarea.rs-input {
   .rs-cards__title h2 {
     margin-top: 50px;
     font-size: 37px;
+  }
+
+  .rs-cards__block {
+    padding: 20px;
   }
 
   .rs-cards__item {
@@ -16869,6 +16978,18 @@ textarea.rs-input {
     height: 65px;
   }
 
+  .rs-cards__bg-1 {
+    width: 180.989vw;
+    top: -42.933vw;
+    right: -109.867vw;
+  }
+
+  .rs-cards__bg-2 {
+    bottom: -46.4vw;
+    left: -35.733vw;
+    width: 115.291vw;
+  }
+
   .rs-cards__title h1 {
     font-size: 60px;
     line-height: 106%;
@@ -18260,7 +18381,7 @@ textarea.rs-input {
   }
 
   .rs-our-project__desc span {
-    color: var(--primary-color);
+    color: #7269e0;
     font-size: 13px;
     font-style: normal;
     font-weight: 600;
@@ -18435,6 +18556,14 @@ textarea.rs-input {
 @media (max-width: 374.98px) {
   .rs-case .filter__list {
     padding: 13px 20px;
+  }
+
+  .rs-cards__title h1 {
+    font-size: 50px;
+  }
+
+  .rs-cards__block {
+    padding: 10px;
   }
 }
 

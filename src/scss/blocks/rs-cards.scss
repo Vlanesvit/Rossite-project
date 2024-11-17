@@ -19,6 +19,25 @@
 		right: -35.885vw;
 		width: 77.969vw;
 		aspect-ratio: 1;
+
+		@media (max-width: 991.98px) {
+			width: 180.989vw;
+			top: -42.933vw;
+			right: -109.867vw;
+		}
+	}
+
+	&__bg-2 {
+		bottom: -35.99vw;
+		left: -5.156vw;
+		width: 66.458vw;
+		aspect-ratio: 1;
+
+		@media (max-width: 991.98px) {
+			bottom: -46.4vw;
+			left: -35.733vw;
+			width: 115.291vw;
+		}
 	}
 
 	// .rs-cards__container
@@ -69,6 +88,10 @@
 				// line-height: 64px;
 				line-height: 106%;
 			}
+
+			@media (max-width: 374.98px) {
+				font-size: 50px;
+			}
 		}
 
 		h2 {
@@ -103,10 +126,38 @@
 
 	&__scroll {
 		position: absolute;
+		z-index: 10;
 		bottom: 0;
 		left: 0;
 		width: 66px;
 		height: 66px;
+		animation: MoveUpDown 1s linear infinite;
+
+		@keyframes MoveUpDown {
+			0% {
+				transform: translateY(-0.5rem);
+			}
+
+			10% {
+				transform: translateY(-0.5rem);
+			}
+
+			40% {
+				transform: translateY(0.5rem);
+			}
+
+			60% {
+				transform: translateY(0.5rem);
+			}
+
+			90% {
+				transform: translateY(-0.5rem);
+			}
+
+			to {
+				transform: translateY(-0.5rem);
+			}
+		}
 
 		svg {
 			width: 100%;
@@ -132,6 +183,19 @@
 		align-items: center;
 		justify-content: center;
 		padding: 40px;
+		pointer-events: none;
+
+		@media (max-width: 1439.98px) {
+			padding: 30px;
+		}
+
+		@media (max-width: 1169.98px) {
+			padding: 20px;
+		}
+
+		@media (max-width: 374.98px) {
+			padding: 10px;
+		}
 	}
 
 	// .rs-cards__list

@@ -10,9 +10,9 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="@favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" href="css/style.min.css?_v=20241113144210">
+	<link rel="stylesheet" href="css/style.min.css?_v=20241118024654">
 
-	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20241113144210" type="text/javascript"></script>
+	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20241118024654" type="text/javascript"></script>
 
 </head>
 
@@ -20,18 +20,18 @@
 
 	<div class="progress-bar" id="progressBar"></div>
 
-	<!-- <div class="mg-loader">
-	<div class="mg-intro">
-		<div class="mg-text">
-			<span>россайт загружается ...</span>
+	<div class="mg-loader">
+		<div class="mg-intro">
+			<div class="mg-text">
+				<span>россайт загружается ...</span>
+			</div>
+			<div class="mg-counter">
+				<span id="mg-percentage">0%</span>
+			</div>
 		</div>
-		<div class="mg-counter">
-			<span id="mg-percentage">0%</span>
-		</div>
+		<div class="mg-loader-fill active-in"></div>
+		<div class="mg-loader-fill active-in"></div>
 	</div>
-	<div class="mg-loader-fill active-in"></div>
-	<div class="mg-loader-fill active-in"></div>
-</div> -->
 
 	<div class="wrapper" data-barba="container" data-barba-namespace="add-services" style="
 	--primary-color: #6366f1; 
@@ -1607,168 +1607,169 @@
 		</div>
 	</div>
 
-	<!-- <script>
-	function initHeaderHeight() {
-		const header = document.querySelector(".rs-header");
-		const menuItemDropdowns = header.querySelectorAll(".menu__list .menu__dropdown");
+	<script>
+		function initHeaderHeight() {
+			const header = document.querySelector(".rs-header");
+			const menuItemDropdowns = header.querySelectorAll(".menu__list .menu__dropdown");
 
-		// Функция для обновления CSS переменной
-		function updateHeaderHeight(includeDropdown = false) {
-			// Если активен hover, не изменять высоту при скролле
-			if (header.classList.contains("_header-hover") && !includeDropdown) {
-				return;
-			}
-
-			let totalHeight = header.clientHeight;
-			if (includeDropdown) {
-				// Найти максимальную высоту .menu__dropdown_block
-				const maxDropdownHeight = Math.max(
-					...Array.from(document.querySelectorAll(".menu__dropdown_block")).map(block => block.clientHeight)
-				);
-				totalHeight += maxDropdownHeight;
-			}
-			header.style.setProperty("--header-height", `${totalHeight}px`);
-		}
-
-		menuItemDropdowns.forEach(item => {
-			item.addEventListener("mouseenter", function () {
-				header.classList.add("_header-hover");
-				updateHeaderHeight(true);
-			});
-			item.addEventListener("mouseleave", function () {
-				if (!document.documentElement.classList.contains("region-menu-open")) {
-					header.classList.remove("_header-hover");
+			// Функция для обновления CSS переменной
+			function updateHeaderHeight(includeDropdown = false) {
+				// Если активен hover, не изменять высоту при скролле
+				if (header.classList.contains("_header-hover") && !includeDropdown) {
+					return;
 				}
-				updateHeaderHeight();
+
+				let totalHeight = header.clientHeight;
+				if (includeDropdown) {
+					// Найти максимальную высоту .menu__dropdown_block
+					const maxDropdownHeight = Math.max(
+						...Array.from(document.querySelectorAll(".menu__dropdown_block")).map(block => block.clientHeight)
+					);
+					totalHeight += maxDropdownHeight;
+				}
+				header.style.setProperty("--header-height", `${totalHeight}px`);
+			}
+
+			menuItemDropdowns.forEach(item => {
+				item.addEventListener("mouseenter", function() {
+					header.classList.add("_header-hover");
+					updateHeaderHeight(true);
+				});
+				item.addEventListener("mouseleave", function() {
+					if (!document.documentElement.classList.contains("region-menu-open")) {
+						header.classList.remove("_header-hover");
+					}
+					updateHeaderHeight();
+				});
 			});
-		});
 
-		// Вызов функции один раз для установки начальной высоты
-		updateHeaderHeight();
-
-		// Обновление высоты при изменении размера и прокрутке страницы, только если hover не активен
-		function handleResizeAndScroll() {
+			// Вызов функции один раз для установки начальной высоты
 			updateHeaderHeight();
+
+			// Обновление высоты при изменении размера и прокрутке страницы, только если hover не активен
+			function handleResizeAndScroll() {
+				updateHeaderHeight();
+			}
+
+			window.addEventListener("resize", handleResizeAndScroll);
+			window.addEventListener("scroll", handleResizeAndScroll);
 		}
 
-		window.addEventListener("resize", handleResizeAndScroll);
-		window.addEventListener("scroll", handleResizeAndScroll);
-	}
+		// Вызов функции при загрузке страницы
+		window.addEventListener("DOMContentLoaded", initHeaderHeight);
+	</script>
 
-	// Вызов функции при загрузке страницы
-	window.addEventListener("DOMContentLoaded", initHeaderHeight);
-</script>
+	<script>
+		const loader = document.querySelector(".mg-loader");
+		const percentageDisplay = document.getElementById("mg-percentage");
 
-<script>
-	const loader = document.querySelector(".mg-loader");
-	const percentageDisplay = document.getElementById("mg-percentage");
+		let resourcesToLoad = 0;
+		let resourcesLoaded = 0;
+		let targetPercentage = 0;
 
-	let resourcesToLoad = 0;
-	let resourcesLoaded = 0;
-	let targetPercentage = 0;
+		function showLoader() {
+			loader.classList.add("show");
+			loader.classList.remove("hide");
+		}
 
-	function showLoader() {
-		loader.classList.add("show");
-		loader.classList.remove("hide");
-	}
+		function hideLoader() {
+			loader.classList.add("hide");
+			loader.classList.remove("show");
+		}
 
-	function hideLoader() {
-		loader.classList.add("hide");
-		loader.classList.remove("show");
-	}
+		function updatePercentage() {
+			targetPercentage = resourcesToLoad > 0 ?
+				Math.min(Math.floor((resourcesLoaded / resourcesToLoad) * 100), 100) :
+				100;
 
-	function updatePercentage() {
-		targetPercentage = resourcesToLoad > 0
-			? Math.min(Math.floor((resourcesLoaded / resourcesToLoad) * 100), 100)
-			: 100;
+			let currentPercentage = parseInt(percentageDisplay.textContent) || 0;
 
-		let currentPercentage = parseInt(percentageDisplay.textContent) || 0;
-
-		const animate = () => {
-			if (currentPercentage < targetPercentage) {
-				currentPercentage++; percentageDisplay.textContent = currentPercentage + "%";
-				requestAnimationFrame(animate);
-			} else if (currentPercentage > targetPercentage) {
-				currentPercentage--;
-				percentageDisplay.textContent = currentPercentage + "%";
-				requestAnimationFrame(animate);
-			} else if (currentPercentage === 100 && document.readyState === "complete") {
-				hideLoader();
-			}
-		};
-		animate();
-	}
-
-	function trackResourceLoad() {
-		resourcesLoaded++;
-		updatePercentage();
-
-		if (resourcesLoaded >= resourcesToLoad) {
-			if (document.readyState === "complete") {
-				if (parseInt(percentageDisplay.textContent) === 100) {
+			const animate = () => {
+				if (currentPercentage < targetPercentage) {
+					currentPercentage++;
+					percentageDisplay.textContent = currentPercentage + "%";
+					requestAnimationFrame(animate);
+				} else if (currentPercentage > targetPercentage) {
+					currentPercentage--;
+					percentageDisplay.textContent = currentPercentage + "%";
+					requestAnimationFrame(animate);
+				} else if (currentPercentage === 100 && document.readyState === "complete") {
 					hideLoader();
 				}
-			} else {
-				window.addEventListener("load", () => {
+			};
+			animate();
+		}
+
+		function trackResourceLoad() {
+			resourcesLoaded++;
+			updatePercentage();
+
+			if (resourcesLoaded >= resourcesToLoad) {
+				if (document.readyState === "complete") {
 					if (parseInt(percentageDisplay.textContent) === 100) {
 						hideLoader();
 					}
-				});
+				} else {
+					window.addEventListener("load", () => {
+						if (parseInt(percentageDisplay.textContent) === 100) {
+							hideLoader();
+						}
+					});
+				}
 			}
 		}
-	}
 
-	function loadResources() {
-		resourcesToLoad = 0;
-		resourcesLoaded = 0;
-		percentageDisplay.textContent = "0%";
+		function loadResources() {
+			resourcesToLoad = 0;
+			resourcesLoaded = 0;
+			percentageDisplay.textContent = "0%";
 
-		// Отслеживание изображений
-		const images = document.querySelectorAll("img");
-		resourcesToLoad += images.length;
+			// Отслеживание изображений
+			const images = document.querySelectorAll("img");
+			resourcesToLoad += images.length;
 
-		images.forEach(img => {
-			if (img.complete) {
-				trackResourceLoad();
-			} else {
-				img.addEventListener("load", trackResourceLoad);
-				img.addEventListener("error", trackResourceLoad);
+			images.forEach(img => {
+				if (img.complete) {
+					trackResourceLoad();
+				} else {
+					img.addEventListener("load", trackResourceLoad);
+					img.addEventListener("error", trackResourceLoad);
+				}
+			});
+
+			// Отслеживание видео
+			const videos = document.querySelectorAll("video");
+			resourcesToLoad += videos.length;
+
+			videos.forEach(video => {
+				if (video.readyState >= 3) {
+					trackResourceLoad();
+				} else {
+					video.addEventListener("loadeddata", trackResourceLoad);
+					video.addEventListener("error", trackResourceLoad);
+				}
+			});
+
+			// Отслеживание скриптов
+			const scriptToLoad = document.querySelector("script[src*=\'app.min.js\'], script[src*=\'app.js\']");
+			if (scriptToLoad) {
+				scriptToLoad.addEventListener("load", trackResourceLoad);
+				scriptToLoad.addEventListener("error", trackResourceLoad);
 			}
+
+			// Если ресурсов нет, скрываем загрузчик
+			if (resourcesToLoad === 0) {
+				hideLoader();
+			}
+		}
+
+		window.addEventListener("DOMContentLoaded", () => {
+			showLoader();
+			loadResources();
 		});
+	</script>
 
-		// Отслеживание видео
-		const videos = document.querySelectorAll("video");
-		resourcesToLoad += videos.length;
-
-		videos.forEach(video => {
-			if (video.readyState >= 3) {
-				trackResourceLoad();
-			} else {
-				video.addEventListener("loadeddata", trackResourceLoad);
-				video.addEventListener("error", trackResourceLoad);
-			}
-		});
-
-		// Отслеживание скриптов
-		const scriptToLoad = document.querySelector("script[src*=\'app.min.js\'], script[src*=\'app.js\']");
-		if (scriptToLoad) {
-			scriptToLoad.addEventListener("load", trackResourceLoad);
-			scriptToLoad.addEventListener("error", trackResourceLoad);
-		}
-
-		// Если ресурсов нет, скрываем загрузчик
-		if (resourcesToLoad === 0) {
-			hideLoader();
-		}
-	}
-
-	window.addEventListener("DOMContentLoaded", () => {
-		showLoader();
-		loadResources();
-	});
-</script> -->
-
-	<script src="js/app.min.js?_v=20241113144210" defer></script>
+	<script src="js/app.min.js?_v=20241118024654" defer></script>
 
 </body>
 

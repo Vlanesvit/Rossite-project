@@ -14013,6 +14013,7 @@
             videoPlay();
             marquee();
             initPageAnimations();
+            manageScripts();
             animationConfig.forEach((config => {
                 revealOnScroll({
                     elements: config.elements,
@@ -14318,6 +14319,13 @@
             elements: ".rs-error-block",
             duration: .8,
             direction: "bottom-up"
+        }, {
+            elements: ".rs-cards__title h1",
+            direction: "bottom-up"
+        }, {
+            elements: ".rs-cards__title h2",
+            delay: .2,
+            direction: "bottom-up"
         } ];
         function revealOnScroll({elements, duration = .5, delay = .15, direction = "bottom-up"}) {
             const items = document.querySelectorAll(elements);
@@ -14528,7 +14536,8 @@
                 cards.forEach(((card, i) => {
                     gsapWithCSS.set(card, {
                         rotate: -90,
-                        y: 800
+                        y: 800,
+                        zIndex: cards.length - i
                     });
                 }));
                 const stackTimeline = gsapWithCSS.timeline({
@@ -14539,17 +14548,27 @@
                         pin: true,
                         pinSpacing: true,
                         scrub: 1,
-                        invalidateOnRefresh: true,
-                        anticipatePin: 1
+                        invalidateOnRefresh: true
                     }
                 });
-                stackTimeline.to(cards, {
-                    y: 0,
-                    rotate: i => 10 - i * 5,
-                    duration: 1.5,
-                    ease: "power2.out",
-                    stagger: i => i === 0 ? 0 : i * 2
-                });
+                cards.forEach(((card, i) => {
+                    stackTimeline.to(card, {
+                        y: 0,
+                        rotate: 0,
+                        duration: 1.5,
+                        ease: "power2.out",
+                        onStart: () => {
+                            gsapWithCSS.set(card, {
+                                zIndex: cards.length
+                            });
+                        }
+                    }, i * 1.5);
+                    if (i > 0) stackTimeline.to(cards.slice(0, i), {
+                        rotate: j => 5 * (cards.length - 1 - j),
+                        duration: 1,
+                        ease: "power1.out"
+                    }, i * 1.5);
+                }));
             }
             if (document.querySelector(".rs-text .rs-text__right h2")) {
                 splitTextIntoWords(".rs-text .rs-text__right h2");
@@ -14568,6 +14587,47 @@
                     }
                 });
             }
+            if (document.querySelector(".rs-cards__bg-2")) gsapWithCSS.to(".rs-cards__bg-2", {
+                scrollTrigger: {
+                    trigger: ".rs-text",
+                    start: "top bottom",
+                    end: "bottom+=100% top",
+                    scrub: 3
+                },
+                transform: "translate(70vw, 70vh)",
+                ease: "power2.out"
+            });
+            if (document.querySelector(".rs-text__right ul li")) {
+                const blocks = gsapWithCSS.utils.toArray(".rs-text").filter((block => block.querySelector(".rs-text__right ul li")));
+                blocks.forEach((block => {
+                    const listItems = gsapWithCSS.utils.toArray(block.querySelectorAll(".rs-text__right ul li"));
+                    listItems.forEach(((item, i) => {
+                        gsapWithCSS.set(item, {
+                            opacity: 0,
+                            x: "100%"
+                        });
+                    }));
+                    const listTimeline = gsapWithCSS.timeline({
+                        scrollTrigger: {
+                            trigger: block,
+                            start: "top 80%",
+                            end: "bottom 20%",
+                            toggleActions: "play reverse play reverse",
+                            scrub: 1,
+                            invalidateOnRefresh: true,
+                            refreshPriority: -1
+                        }
+                    });
+                    listItems.forEach(((item, i) => {
+                        listTimeline.to(item, {
+                            opacity: 1,
+                            x: "0%",
+                            duration: 1,
+                            ease: "power2.out"
+                        }, i * .3);
+                    }));
+                }));
+            }
         }
         function initializeDesktopAnimations() {
             horizontalScroll({
@@ -14575,10 +14635,45 @@
                 triggerSelector: ".rs-slider-block-pins",
                 progressSelector: ".rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill"
             });
-            horizontalScroll({
-                blockSelector: ".rs-services-slider .rs-services-slider__wrapper",
-                triggerSelector: ".rs-services-slider"
-            });
+            if (document.querySelector(".rs-services-slider")) {
+                const block = document.querySelector(".rs-services-slider .rs-services-slider__wrapper");
+                const trigger = document.querySelector(".rs-services-slider");
+                if (block && trigger) {
+                    gsapWithCSS.set(block, {
+                        x: "100%"
+                    });
+                    const entryTimeline = gsapWithCSS.timeline({
+                        scrollTrigger: {
+                            trigger,
+                            start: "top center",
+                            end: "bottom center",
+                            scrub: 1,
+                            toggleActions: "play reverse play reverse",
+                            invalidateOnRefresh: true
+                        }
+                    });
+                    entryTimeline.to(block, {
+                        x: "0%",
+                        duration: 1,
+                        ease: "power3.out"
+                    });
+                    const scrollTimeline = gsapWithCSS.timeline({
+                        scrollTrigger: {
+                            trigger,
+                            start: "center center",
+                            end: () => `+=${trigger.clientHeight + window.innerHeight}`,
+                            pin: true,
+                            scrub: 1,
+                            invalidateOnRefresh: true
+                        }
+                    });
+                    scrollTimeline.to(block, {
+                        x: () => `-${block.scrollWidth - block.clientWidth}px`,
+                        duration: 1,
+                        ease: "power2.out"
+                    });
+                }
+            }
             if (document.querySelector(".rs-features__slide")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
                 const stackItems = gsapWithCSS.utils.toArray(".rs-features__slide");
                 gsapWithCSS.set(stackItems, {

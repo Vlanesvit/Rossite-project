@@ -145,7 +145,7 @@ window.addEventListener('load', () => {
 	videoPlay();
 	marquee();
 	initPageAnimations();
-	// manageScripts();
+	manageScripts();
 
 	// Запуск анимаций по конфигурации
 	animationConfig.forEach(config => {
@@ -312,6 +312,9 @@ const animationConfig = [
 	{ elements: '.rs-logo__slider', delay: 0.2, direction: 'right-left--every' },
 	// 404
 	{ elements: '.rs-error-block', duration: 0.8, direction: 'bottom-up' },
+	// Cards
+	{ elements: '.rs-cards__title h1', direction: 'bottom-up' },
+	{ elements: '.rs-cards__title h2', delay: 0.2, direction: 'bottom-up' },
 ];
 function revealOnScroll({ elements, duration = 0.5, delay = 0.15, direction = 'bottom-up' }) {
 	const items = document.querySelectorAll(elements);
@@ -525,13 +528,16 @@ function initializeCommonAnimations() {
 
 	if (document.querySelector('.rs-cards__item')) {
 		const cards = gsap.utils.toArray(".rs-cards__item");
+		// Начальная установка плашек
 		cards.forEach((card, i) => {
 			gsap.set(card, {
-				rotate: -90,
-				y: 800,
+				rotate: -90,  // Все плашки изначально повернуты
+				y: 800,       // Уходят вниз
+				zIndex: cards.length - i // Устанавливаем порядок наложения
 			});
 		});
 
+		// Таймлайн анимации
 		const stackTimeline = gsap.timeline({
 			scrollTrigger: {
 				trigger: ".rs-cards",
@@ -540,17 +546,32 @@ function initializeCommonAnimations() {
 				pin: true,
 				pinSpacing: true,
 				scrub: 1,
-				invalidateOnRefresh: true, anticipatePin: 1
+				invalidateOnRefresh: true,
 				// markers: true,
 			},
 		});
 
-		stackTimeline.to(cards, {
-			y: 0,
-			rotate: (i) => 10 - i * 5,
-			duration: 1.5,
-			ease: "power2.out",
-			stagger: (i) => i === 0 ? 0 : i * 2
+		// Анимация каждой плашки
+		cards.forEach((card, i) => {
+			// Плашка появляется на месте с `rotate: 0`
+			stackTimeline.to(card, {
+				y: 0,
+				rotate: 0,
+				duration: 1.5,
+				ease: "power2.out",
+				onStart: () => {
+					gsap.set(card, { zIndex: cards.length }); // Поднимаем текущую плашку поверх остальных
+				},
+			}, i * 1.5); // Отступ между появлением плашек
+
+			// Каждая предыдущая плашка поворачивается на нужный угол
+			if (i > 0) {
+				stackTimeline.to(cards.slice(0, i), {
+					rotate: (j) => 5 * (cards.length - 1 - j), // Углы: 10, 5, 0 или 15, 10, 5, 0
+					duration: 1,
+					ease: "power1.out",
+				}, i * 1.5);
+			}
 		});
 	}
 
@@ -573,6 +594,60 @@ function initializeCommonAnimations() {
 			}
 		);
 	}
+
+	if (document.querySelector('.rs-cards__bg-2')) {
+		gsap.to(".rs-cards__bg-2", {
+			scrollTrigger: {
+				trigger: ".rs-text",
+				start: "top bottom",
+				end: "bottom+=100% top",
+				scrub: 3,
+			},
+			transform: "translate(70vw, 70vh)",
+			ease: "power2.out",
+		});
+	}
+
+	if (document.querySelector('.rs-text__right ul li')) {
+		// Получаем все блоки rs-text, которые содержат список rs-text__right ul li
+		const blocks = gsap.utils.toArray('.rs-text').filter(block => block.querySelector('.rs-text__right ul li'));
+
+		// Проходим по каждому найденному блоку
+		blocks.forEach((block) => {
+			const listItems = gsap.utils.toArray(block.querySelectorAll('.rs-text__right ul li'));
+
+			// Устанавливаем начальное состояние для элементов списка
+			listItems.forEach((item, i) => {
+				gsap.set(item, {
+					opacity: 0,
+					x: '100%', // Начальная позиция: за пределами экрана справа
+				});
+			});
+
+			// Таймлайн анимации с ScrollTrigger
+			const listTimeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: block, // Триггер для текущего блока
+					start: 'top 80%', // Начало анимации при достижении 80% от верха блока
+					end: 'bottom 20%', // Конец анимации при достижении 20% от низа блока
+					toggleActions: 'play reverse play reverse', // Повторение анимации при прокрутке вперед и назад
+					scrub: 1, // Синхронизация анимации с прокруткой
+					invalidateOnRefresh: true, // Обновление при изменении размера экрана
+					refreshPriority: -1,
+				},
+			});
+
+			// Анимация каждого элемента списка
+			listItems.forEach((item, i) => {
+				listTimeline.to(item, {
+					opacity: 1,    // Делаем элемент видимым
+					x: '0%',       // Перемещаем его на исходную позицию
+					duration: 1,    // Продолжительность анимации
+					ease: 'power2.out', // Тип анимации
+				}, i * 0.3); // Задержка между анимациями элементов
+			});
+		});
+	}
 }
 
 // Десктопные анимаций
@@ -585,10 +660,54 @@ function initializeDesktopAnimations() {
 		progressSelector: '.rs-slider-block-pins .rs-slider-block__pagination .swiper-pagination-progressbar-fill',
 	});
 
-	horizontalScroll({
-		blockSelector: '.rs-services-slider .rs-services-slider__wrapper',
-		triggerSelector: '.rs-services-slider',
-	});
+	if (document.querySelector('.rs-services-slider')) {
+		const block = document.querySelector('.rs-services-slider .rs-services-slider__wrapper');
+		const trigger = document.querySelector('.rs-services-slider');
+
+		if (block && trigger) {
+			// Установка начального состояния для анимации "выезда"
+			gsap.set(block, {
+				x: '100%',
+			});
+
+			// Анимация "выезда" блока справа налево
+			const entryTimeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: trigger,
+					start: "top center", // Анимация начинается, когда блок появляется в зоне видимости
+					end: "bottom center", // Заканчивается, когда блок достигнет центра экрана
+					scrub: 1, // Прокрутка синхронизирует анимацию
+					toggleActions: "play reverse play reverse", // Анимация проигрывается при прокрутке вниз и назад
+					invalidateOnRefresh: true, // Пересчитывает анимацию при изменении размера экрана
+				}
+			});
+
+			entryTimeline.to(block, {
+				x: '0%',
+				duration: 1,
+				ease: 'power3.out'
+			});
+
+			// Горизонтальный скролл с фиксацией
+			const scrollTimeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: trigger,
+					start: "center center", // Запуск горизонтального скролла, когда блок будет в центре экрана
+					end: () => `+=${trigger.clientHeight + window.innerHeight}`, // Продолжительность прокрутки
+					pin: true,
+					scrub: 1,
+					invalidateOnRefresh: true,
+					// markers: true, // Включите для отладки
+				}
+			});
+
+			scrollTimeline.to(block, {
+				x: () => `-${block.scrollWidth - block.clientWidth}px`,
+				duration: 1,
+				ease: "power2.out"
+			});
+		}
+	}
 
 	//========================================================================================================================================================
 	// Закрепление блоков и последующее складывание в стопку
