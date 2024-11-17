@@ -12,7 +12,9 @@
 
 	<link rel="stylesheet" href="css/style.min.css?_v=20241118024654">
 
-	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20241118024654" type="text/javascript"></script>
+	<script
+		src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20241118024654"
+		type="text/javascript"></script>
 
 </head>
 
@@ -20,7 +22,7 @@
 
 	<div class="progress-bar" id="progressBar"></div>
 
-	<div class="mg-loader">
+	<div class="mg-loader show">
 		<div class="mg-intro">
 			<div class="mg-text">
 				<span>россайт загружается ...</span>
@@ -29,8 +31,8 @@
 				<span id="mg-percentage">0%</span>
 			</div>
 		</div>
-		<div class="mg-loader-fill active-in"></div>
-		<div class="mg-loader-fill active-in"></div>
+		<div class="mg-loader-fill"></div>
+		<div class="mg-loader-fill"></div>
 	</div>
 
 	<div class="wrapper" data-barba="container" data-barba-namespace="site-business" style="
@@ -86,7 +88,8 @@
 														<div class="menu__dropdown_item">
 															<h6>Пакетные предложения</h6>
 															<div class="menu__dropdown_columns">
-																<ul class="menu__dropdown_list" id="menu-paketnye-predlozheniya">
+																<ul class="menu__dropdown_list"
+																	id="menu-paketnye-predlozheniya">
 																	<li class="menu-item">
 																		<a href="#">Информационный сайт</a>
 																		<ul>
@@ -95,7 +98,8 @@
 																					170&nbsp;000&nbsp;руб.</a>
 																			</li>
 																			<li class="menu-item">
-																				<a href="./site-business.html">Сайт «Бизнес» за
+																				<a href="./site-business.html">Сайт
+																					«Бизнес» за
 																					110&nbsp;000&nbsp;руб.</a>
 																			</li>
 																			<li class="menu-item">
@@ -157,7 +161,11 @@
 															<li>
 																<a href="tel:74951506441">
 																	<svg viewBox="0 0 15 15" fill="none">
-																		<path d="M1.54395 3.1986C1.54395 8.86358 6.13632 13.456 11.8013 13.456C12.0569 13.456 12.3103 13.4466 12.5612 13.4282C12.8491 13.4071 12.9931 13.3966 13.1241 13.3212C13.2327 13.2587 13.3356 13.1479 13.39 13.0351C13.4557 12.8989 13.4557 12.74 13.4557 12.4223V10.5579C13.4557 10.2907 13.4557 10.1571 13.4117 10.0426C13.3729 9.94139 13.3098 9.85131 13.228 9.78024C13.1354 9.69977 13.0098 9.65411 12.7587 9.5628L10.6366 8.7911C10.3444 8.68486 10.1983 8.63175 10.0597 8.64076C9.93752 8.64872 9.81992 8.69042 9.72001 8.76124C9.6067 8.84156 9.52673 8.97485 9.36678 9.24142L8.82336 10.1471C7.06977 9.35295 5.64814 7.92947 4.85277 6.17654L5.75848 5.63312C6.02505 5.47317 6.15834 5.3932 6.23866 5.27989C6.30948 5.17998 6.35118 5.06238 6.35914 4.94017C6.36815 4.80157 6.31503 4.65549 6.2088 4.36334L5.4371 2.24117C5.34579 1.99006 5.30013 1.86451 5.21966 1.7719C5.14859 1.6901 5.05851 1.62701 4.95734 1.58816C4.84281 1.54419 4.70922 1.54419 4.44202 1.54419H2.57763C2.25989 1.54419 2.10103 1.54419 1.96481 1.60987C1.852 1.66427 1.74124 1.76721 1.67875 1.87575C1.60329 2.00681 1.59275 2.15078 1.57167 2.43871C1.55329 2.68961 1.54395 2.94301 1.54395 3.1986Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																		<path
+																			d="M1.54395 3.1986C1.54395 8.86358 6.13632 13.456 11.8013 13.456C12.0569 13.456 12.3103 13.4466 12.5612 13.4282C12.8491 13.4071 12.9931 13.3966 13.1241 13.3212C13.2327 13.2587 13.3356 13.1479 13.39 13.0351C13.4557 12.8989 13.4557 12.74 13.4557 12.4223V10.5579C13.4557 10.2907 13.4557 10.1571 13.4117 10.0426C13.3729 9.94139 13.3098 9.85131 13.228 9.78024C13.1354 9.69977 13.0098 9.65411 12.7587 9.5628L10.6366 8.7911C10.3444 8.68486 10.1983 8.63175 10.0597 8.64076C9.93752 8.64872 9.81992 8.69042 9.72001 8.76124C9.6067 8.84156 9.52673 8.97485 9.36678 9.24142L8.82336 10.1471C7.06977 9.35295 5.64814 7.92947 4.85277 6.17654L5.75848 5.63312C6.02505 5.47317 6.15834 5.3932 6.23866 5.27989C6.30948 5.17998 6.35118 5.06238 6.35914 4.94017C6.36815 4.80157 6.31503 4.65549 6.2088 4.36334L5.4371 2.24117C5.34579 1.99006 5.30013 1.86451 5.21966 1.7719C5.14859 1.6901 5.05851 1.62701 4.95734 1.58816C4.84281 1.54419 4.70922 1.54419 4.44202 1.54419H2.57763C2.25989 1.54419 2.10103 1.54419 1.96481 1.60987C1.852 1.66427 1.74124 1.76721 1.67875 1.87575C1.60329 2.00681 1.59275 2.15078 1.57167 2.43871C1.55329 2.68961 1.54395 2.94301 1.54395 3.1986Z"
+																			stroke="#6366F1" stroke-width="1.5"
+																			stroke-linecap="round"
+																			stroke-linejoin="round" />
 																	</svg>
 																	<span>+7 495 150-64-41</span>
 																</a>
@@ -165,20 +173,29 @@
 															<li>
 																<a href="mailto:mail@rosait.ru">
 																	<svg viewBox="0 0 15 15" fill="none">
-																		<path d="M1.125 4.66675L4.98536 7.24032C5.89417 7.8462 6.34858 8.14913 6.83972 8.26683C7.27376 8.37084 7.72624 8.37084 8.16028 8.26683C8.65142 8.14913 9.10583 7.8462 10.0146 7.24032L13.875 4.66675M3.39167 12.4584H11.6083C12.4017 12.4584 12.7984 12.4584 13.1015 12.304C13.368 12.1682 13.5848 11.9515 13.7206 11.6849C13.875 11.3819 13.875 10.9852 13.875 10.1917V4.80841C13.875 4.01501 13.875 3.6183 13.7206 3.31526C13.5848 3.0487 13.368 2.83198 13.1015 2.69616C12.7984 2.54175 12.4017 2.54175 11.6083 2.54175H3.39167C2.59826 2.54175 2.20156 2.54175 1.89851 2.69616C1.63195 2.83198 1.41523 3.0487 1.27941 3.31526C1.125 3.6183 1.125 4.01501 1.125 4.80841V10.1917C1.125 10.9852 1.125 11.3819 1.27941 11.6849C1.41523 11.9515 1.63195 12.1682 1.89851 12.304C2.20156 12.4584 2.59826 12.4584 3.39167 12.4584Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																		<path
+																			d="M1.125 4.66675L4.98536 7.24032C5.89417 7.8462 6.34858 8.14913 6.83972 8.26683C7.27376 8.37084 7.72624 8.37084 8.16028 8.26683C8.65142 8.14913 9.10583 7.8462 10.0146 7.24032L13.875 4.66675M3.39167 12.4584H11.6083C12.4017 12.4584 12.7984 12.4584 13.1015 12.304C13.368 12.1682 13.5848 11.9515 13.7206 11.6849C13.875 11.3819 13.875 10.9852 13.875 10.1917V4.80841C13.875 4.01501 13.875 3.6183 13.7206 3.31526C13.5848 3.0487 13.368 2.83198 13.1015 2.69616C12.7984 2.54175 12.4017 2.54175 11.6083 2.54175H3.39167C2.59826 2.54175 2.20156 2.54175 1.89851 2.69616C1.63195 2.83198 1.41523 3.0487 1.27941 3.31526C1.125 3.6183 1.125 4.01501 1.125 4.80841V10.1917C1.125 10.9852 1.125 11.3819 1.27941 11.6849C1.41523 11.9515 1.63195 12.1682 1.89851 12.304C2.20156 12.4584 2.59826 12.4584 3.39167 12.4584Z"
+																			stroke="#6366F1" stroke-width="1.5"
+																			stroke-linecap="round"
+																			stroke-linejoin="round" />
 																	</svg>
 																	<span>mail@rosait.ru</span>
 																</a>
 															</li>
 															<li>
 																<svg viewBox="0 0 15 15" fill="none">
-																	<path d="M1.59375 3.2751L2.90625 1.9751M13.4062 3.2751L12.0938 1.9751M7.5 5.2251V7.8251L8.8125 9.1251M12.75 7.8251C12.75 10.697 10.3995 13.0251 7.5 13.0251C4.6005 13.0251 2.25 10.697 2.25 7.8251C2.25 4.95322 4.6005 2.6251 7.5 2.6251C10.3995 2.6251 12.75 4.95322 12.75 7.8251Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																	<path
+																		d="M1.59375 3.2751L2.90625 1.9751M13.4062 3.2751L12.0938 1.9751M7.5 5.2251V7.8251L8.8125 9.1251M12.75 7.8251C12.75 10.697 10.3995 13.0251 7.5 13.0251C4.6005 13.0251 2.25 10.697 2.25 7.8251C2.25 4.95322 4.6005 2.6251 7.5 2.6251C10.3995 2.6251 12.75 4.95322 12.75 7.8251Z"
+																		stroke="#6366F1" stroke-width="1.5"
+																		stroke-linecap="round"
+																		stroke-linejoin="round" />
 																</svg>
 																<span>9:00 до 18:00 по рабочим дням</span>
 															</li>
 														</ul>
 														<a href="#" class="rs-btn _btn-primary" data-popup="#feedback">
-															<span class="btn-text _rs-icon-message">связаться с нами</span>
+															<span class="btn-text _rs-icon-message">связаться с
+																нами</span>
 															<span class="btn-hover"></span>
 														</a>
 													</div>
@@ -204,10 +221,12 @@
 															<div class="menu__dropdown_columns">
 																<ul class="menu__dropdown_list">
 																	<li class="menu-item">
-																		<a href="./promotion-10.html">SEO продвижение сайта</a>
+																		<a href="./promotion-10.html">SEO продвижение
+																			сайта</a>
 																	</li>
 																	<li class="menu-item">
-																		<a href="./context-advert.html">Контекстная реклама</a>
+																		<a href="./context-advert.html">Контекстная
+																			реклама</a>
 																	</li>
 																</ul>
 															</div>
@@ -217,13 +236,16 @@
 															<div class="menu__dropdown_columns">
 																<ul class="menu__dropdown_list">
 																	<li class="menu-item">
-																		<a href="./promotion-page.html">Продающая страница</a>
+																		<a href="./promotion-page.html">Продающая
+																			страница</a>
 																	</li>
 																	<li class="menu-item">
-																		<a href="./logo-dev.html">Разработка логотипов</a>
+																		<a href="./logo-dev.html">Разработка
+																			логотипов</a>
 																	</li>
 																	<li class="menu-item">
-																		<a href="./tech-support.html">Техническая поддержка</a>
+																		<a href="./tech-support.html">Техническая
+																			поддержка</a>
 																	</li>
 																</ul>
 															</div>
@@ -236,7 +258,11 @@
 															<li>
 																<a href="tel:74951506441">
 																	<svg viewBox="0 0 15 15" fill="none">
-																		<path d="M1.54395 3.1986C1.54395 8.86358 6.13632 13.456 11.8013 13.456C12.0569 13.456 12.3103 13.4466 12.5612 13.4282C12.8491 13.4071 12.9931 13.3966 13.1241 13.3212C13.2327 13.2587 13.3356 13.1479 13.39 13.0351C13.4557 12.8989 13.4557 12.74 13.4557 12.4223V10.5579C13.4557 10.2907 13.4557 10.1571 13.4117 10.0426C13.3729 9.94139 13.3098 9.85131 13.228 9.78024C13.1354 9.69977 13.0098 9.65411 12.7587 9.5628L10.6366 8.7911C10.3444 8.68486 10.1983 8.63175 10.0597 8.64076C9.93752 8.64872 9.81992 8.69042 9.72001 8.76124C9.6067 8.84156 9.52673 8.97485 9.36678 9.24142L8.82336 10.1471C7.06977 9.35295 5.64814 7.92947 4.85277 6.17654L5.75848 5.63312C6.02505 5.47317 6.15834 5.3932 6.23866 5.27989C6.30948 5.17998 6.35118 5.06238 6.35914 4.94017C6.36815 4.80157 6.31503 4.65549 6.2088 4.36334L5.4371 2.24117C5.34579 1.99006 5.30013 1.86451 5.21966 1.7719C5.14859 1.6901 5.05851 1.62701 4.95734 1.58816C4.84281 1.54419 4.70922 1.54419 4.44202 1.54419H2.57763C2.25989 1.54419 2.10103 1.54419 1.96481 1.60987C1.852 1.66427 1.74124 1.76721 1.67875 1.87575C1.60329 2.00681 1.59275 2.15078 1.57167 2.43871C1.55329 2.68961 1.54395 2.94301 1.54395 3.1986Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																		<path
+																			d="M1.54395 3.1986C1.54395 8.86358 6.13632 13.456 11.8013 13.456C12.0569 13.456 12.3103 13.4466 12.5612 13.4282C12.8491 13.4071 12.9931 13.3966 13.1241 13.3212C13.2327 13.2587 13.3356 13.1479 13.39 13.0351C13.4557 12.8989 13.4557 12.74 13.4557 12.4223V10.5579C13.4557 10.2907 13.4557 10.1571 13.4117 10.0426C13.3729 9.94139 13.3098 9.85131 13.228 9.78024C13.1354 9.69977 13.0098 9.65411 12.7587 9.5628L10.6366 8.7911C10.3444 8.68486 10.1983 8.63175 10.0597 8.64076C9.93752 8.64872 9.81992 8.69042 9.72001 8.76124C9.6067 8.84156 9.52673 8.97485 9.36678 9.24142L8.82336 10.1471C7.06977 9.35295 5.64814 7.92947 4.85277 6.17654L5.75848 5.63312C6.02505 5.47317 6.15834 5.3932 6.23866 5.27989C6.30948 5.17998 6.35118 5.06238 6.35914 4.94017C6.36815 4.80157 6.31503 4.65549 6.2088 4.36334L5.4371 2.24117C5.34579 1.99006 5.30013 1.86451 5.21966 1.7719C5.14859 1.6901 5.05851 1.62701 4.95734 1.58816C4.84281 1.54419 4.70922 1.54419 4.44202 1.54419H2.57763C2.25989 1.54419 2.10103 1.54419 1.96481 1.60987C1.852 1.66427 1.74124 1.76721 1.67875 1.87575C1.60329 2.00681 1.59275 2.15078 1.57167 2.43871C1.55329 2.68961 1.54395 2.94301 1.54395 3.1986Z"
+																			stroke="#6366F1" stroke-width="1.5"
+																			stroke-linecap="round"
+																			stroke-linejoin="round" />
 																	</svg>
 																	<span>+7 495 150-64-41</span>
 																</a>
@@ -244,20 +270,29 @@
 															<li>
 																<a href="mailto:mail@rosait.ru">
 																	<svg viewBox="0 0 15 15" fill="none">
-																		<path d="M1.125 4.66675L4.98536 7.24032C5.89417 7.8462 6.34858 8.14913 6.83972 8.26683C7.27376 8.37084 7.72624 8.37084 8.16028 8.26683C8.65142 8.14913 9.10583 7.8462 10.0146 7.24032L13.875 4.66675M3.39167 12.4584H11.6083C12.4017 12.4584 12.7984 12.4584 13.1015 12.304C13.368 12.1682 13.5848 11.9515 13.7206 11.6849C13.875 11.3819 13.875 10.9852 13.875 10.1917V4.80841C13.875 4.01501 13.875 3.6183 13.7206 3.31526C13.5848 3.0487 13.368 2.83198 13.1015 2.69616C12.7984 2.54175 12.4017 2.54175 11.6083 2.54175H3.39167C2.59826 2.54175 2.20156 2.54175 1.89851 2.69616C1.63195 2.83198 1.41523 3.0487 1.27941 3.31526C1.125 3.6183 1.125 4.01501 1.125 4.80841V10.1917C1.125 10.9852 1.125 11.3819 1.27941 11.6849C1.41523 11.9515 1.63195 12.1682 1.89851 12.304C2.20156 12.4584 2.59826 12.4584 3.39167 12.4584Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																		<path
+																			d="M1.125 4.66675L4.98536 7.24032C5.89417 7.8462 6.34858 8.14913 6.83972 8.26683C7.27376 8.37084 7.72624 8.37084 8.16028 8.26683C8.65142 8.14913 9.10583 7.8462 10.0146 7.24032L13.875 4.66675M3.39167 12.4584H11.6083C12.4017 12.4584 12.7984 12.4584 13.1015 12.304C13.368 12.1682 13.5848 11.9515 13.7206 11.6849C13.875 11.3819 13.875 10.9852 13.875 10.1917V4.80841C13.875 4.01501 13.875 3.6183 13.7206 3.31526C13.5848 3.0487 13.368 2.83198 13.1015 2.69616C12.7984 2.54175 12.4017 2.54175 11.6083 2.54175H3.39167C2.59826 2.54175 2.20156 2.54175 1.89851 2.69616C1.63195 2.83198 1.41523 3.0487 1.27941 3.31526C1.125 3.6183 1.125 4.01501 1.125 4.80841V10.1917C1.125 10.9852 1.125 11.3819 1.27941 11.6849C1.41523 11.9515 1.63195 12.1682 1.89851 12.304C2.20156 12.4584 2.59826 12.4584 3.39167 12.4584Z"
+																			stroke="#6366F1" stroke-width="1.5"
+																			stroke-linecap="round"
+																			stroke-linejoin="round" />
 																	</svg>
 																	<span>mail@rosait.ru</span>
 																</a>
 															</li>
 															<li>
 																<svg viewBox="0 0 15 15" fill="none">
-																	<path d="M1.59375 3.2751L2.90625 1.9751M13.4062 3.2751L12.0938 1.9751M7.5 5.2251V7.8251L8.8125 9.1251M12.75 7.8251C12.75 10.697 10.3995 13.0251 7.5 13.0251C4.6005 13.0251 2.25 10.697 2.25 7.8251C2.25 4.95322 4.6005 2.6251 7.5 2.6251C10.3995 2.6251 12.75 4.95322 12.75 7.8251Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+																	<path
+																		d="M1.59375 3.2751L2.90625 1.9751M13.4062 3.2751L12.0938 1.9751M7.5 5.2251V7.8251L8.8125 9.1251M12.75 7.8251C12.75 10.697 10.3995 13.0251 7.5 13.0251C4.6005 13.0251 2.25 10.697 2.25 7.8251C2.25 4.95322 4.6005 2.6251 7.5 2.6251C10.3995 2.6251 12.75 4.95322 12.75 7.8251Z"
+																		stroke="#6366F1" stroke-width="1.5"
+																		stroke-linecap="round"
+																		stroke-linejoin="round" />
 																</svg>
 																<span>9:00 до 18:00 по рабочим дням</span>
 															</li>
 														</ul>
 														<a href="#" class="rs-btn _btn-primary" data-popup="#feedback">
-															<span class="btn-text _rs-icon-message">связаться с нами</span>
+															<span class="btn-text _rs-icon-message">связаться с
+																нами</span>
 															<span class="btn-hover"></span>
 														</a>
 													</div>
@@ -283,7 +318,10 @@
 							<div class="rs-header__location">
 								<a href="#" class="rs-header__location_link rs-header__location_show-search">
 									<svg viewBox="0 0 15 15" fill="none">
-										<path d="M7.1875 14.25C10.0313 11.55 12.875 9.13234 12.875 6.15C12.875 3.16766 10.3286 0.75 7.1875 0.75C4.04638 0.75 1.5 3.16766 1.5 6.15C1.5 9.13234 4.34375 11.55 7.1875 14.25Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path
+											d="M7.1875 14.25C10.0313 11.55 12.875 9.13234 12.875 6.15C12.875 3.16766 10.3286 0.75 7.1875 0.75C4.04638 0.75 1.5 3.16766 1.5 6.15C1.5 9.13234 4.34375 11.55 7.1875 14.25Z"
+											stroke="#6366F1" stroke-width="1.5" stroke-linecap="round"
+											stroke-linejoin="round" />
 										<circle cx="7.125" cy="5.625" r="1.125" fill="#6366F1" />
 									</svg>
 									<span>Москва</span>
@@ -299,7 +337,8 @@
 												</div>
 												<div class="rs-header__region_field">
 													<button type="button" class="rs-header__region_close"></button>
-													<input placeholder="Поиск города" type="text" name="form[]" class="rs-input">
+													<input placeholder="Поиск города" type="text" name="form[]"
+														class="rs-input">
 												</div>
 												<div class="rs-header__region_select">
 													<ul>
@@ -547,7 +586,10 @@
 									<li>
 										<a href="tel:74951506441">
 											<svg viewBox="0 0 15 15" fill="none">
-												<path d="M1.54395 3.1986C1.54395 8.86358 6.13632 13.456 11.8013 13.456C12.0569 13.456 12.3103 13.4466 12.5612 13.4282C12.8491 13.4071 12.9931 13.3966 13.1241 13.3212C13.2327 13.2587 13.3356 13.1479 13.39 13.0351C13.4557 12.8989 13.4557 12.74 13.4557 12.4223V10.5579C13.4557 10.2907 13.4557 10.1571 13.4117 10.0426C13.3729 9.94139 13.3098 9.85131 13.228 9.78024C13.1354 9.69977 13.0098 9.65411 12.7587 9.5628L10.6366 8.7911C10.3444 8.68486 10.1983 8.63175 10.0597 8.64076C9.93752 8.64872 9.81992 8.69042 9.72001 8.76124C9.6067 8.84156 9.52673 8.97485 9.36678 9.24142L8.82336 10.1471C7.06977 9.35295 5.64814 7.92947 4.85277 6.17654L5.75848 5.63312C6.02505 5.47317 6.15834 5.3932 6.23866 5.27989C6.30948 5.17998 6.35118 5.06238 6.35914 4.94017C6.36815 4.80157 6.31503 4.65549 6.2088 4.36334L5.4371 2.24117C5.34579 1.99006 5.30013 1.86451 5.21966 1.7719C5.14859 1.6901 5.05851 1.62701 4.95734 1.58816C4.84281 1.54419 4.70922 1.54419 4.44202 1.54419H2.57763C2.25989 1.54419 2.10103 1.54419 1.96481 1.60987C1.852 1.66427 1.74124 1.76721 1.67875 1.87575C1.60329 2.00681 1.59275 2.15078 1.57167 2.43871C1.55329 2.68961 1.54395 2.94301 1.54395 3.1986Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M1.54395 3.1986C1.54395 8.86358 6.13632 13.456 11.8013 13.456C12.0569 13.456 12.3103 13.4466 12.5612 13.4282C12.8491 13.4071 12.9931 13.3966 13.1241 13.3212C13.2327 13.2587 13.3356 13.1479 13.39 13.0351C13.4557 12.8989 13.4557 12.74 13.4557 12.4223V10.5579C13.4557 10.2907 13.4557 10.1571 13.4117 10.0426C13.3729 9.94139 13.3098 9.85131 13.228 9.78024C13.1354 9.69977 13.0098 9.65411 12.7587 9.5628L10.6366 8.7911C10.3444 8.68486 10.1983 8.63175 10.0597 8.64076C9.93752 8.64872 9.81992 8.69042 9.72001 8.76124C9.6067 8.84156 9.52673 8.97485 9.36678 9.24142L8.82336 10.1471C7.06977 9.35295 5.64814 7.92947 4.85277 6.17654L5.75848 5.63312C6.02505 5.47317 6.15834 5.3932 6.23866 5.27989C6.30948 5.17998 6.35118 5.06238 6.35914 4.94017C6.36815 4.80157 6.31503 4.65549 6.2088 4.36334L5.4371 2.24117C5.34579 1.99006 5.30013 1.86451 5.21966 1.7719C5.14859 1.6901 5.05851 1.62701 4.95734 1.58816C4.84281 1.54419 4.70922 1.54419 4.44202 1.54419H2.57763C2.25989 1.54419 2.10103 1.54419 1.96481 1.60987C1.852 1.66427 1.74124 1.76721 1.67875 1.87575C1.60329 2.00681 1.59275 2.15078 1.57167 2.43871C1.55329 2.68961 1.54395 2.94301 1.54395 3.1986Z"
+													stroke="#6366F1" stroke-width="1.5" stroke-linecap="round"
+													stroke-linejoin="round" />
 											</svg>
 											<span>+7 495 150-64-41</span>
 										</a>
@@ -555,14 +597,20 @@
 									<li>
 										<a href="mailto:mail@rosait.ru">
 											<svg viewBox="0 0 15 15" fill="none">
-												<path d="M1.125 4.66675L4.98536 7.24032C5.89417 7.8462 6.34858 8.14913 6.83972 8.26683C7.27376 8.37084 7.72624 8.37084 8.16028 8.26683C8.65142 8.14913 9.10583 7.8462 10.0146 7.24032L13.875 4.66675M3.39167 12.4584H11.6083C12.4017 12.4584 12.7984 12.4584 13.1015 12.304C13.368 12.1682 13.5848 11.9515 13.7206 11.6849C13.875 11.3819 13.875 10.9852 13.875 10.1917V4.80841C13.875 4.01501 13.875 3.6183 13.7206 3.31526C13.5848 3.0487 13.368 2.83198 13.1015 2.69616C12.7984 2.54175 12.4017 2.54175 11.6083 2.54175H3.39167C2.59826 2.54175 2.20156 2.54175 1.89851 2.69616C1.63195 2.83198 1.41523 3.0487 1.27941 3.31526C1.125 3.6183 1.125 4.01501 1.125 4.80841V10.1917C1.125 10.9852 1.125 11.3819 1.27941 11.6849C1.41523 11.9515 1.63195 12.1682 1.89851 12.304C2.20156 12.4584 2.59826 12.4584 3.39167 12.4584Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M1.125 4.66675L4.98536 7.24032C5.89417 7.8462 6.34858 8.14913 6.83972 8.26683C7.27376 8.37084 7.72624 8.37084 8.16028 8.26683C8.65142 8.14913 9.10583 7.8462 10.0146 7.24032L13.875 4.66675M3.39167 12.4584H11.6083C12.4017 12.4584 12.7984 12.4584 13.1015 12.304C13.368 12.1682 13.5848 11.9515 13.7206 11.6849C13.875 11.3819 13.875 10.9852 13.875 10.1917V4.80841C13.875 4.01501 13.875 3.6183 13.7206 3.31526C13.5848 3.0487 13.368 2.83198 13.1015 2.69616C12.7984 2.54175 12.4017 2.54175 11.6083 2.54175H3.39167C2.59826 2.54175 2.20156 2.54175 1.89851 2.69616C1.63195 2.83198 1.41523 3.0487 1.27941 3.31526C1.125 3.6183 1.125 4.01501 1.125 4.80841V10.1917C1.125 10.9852 1.125 11.3819 1.27941 11.6849C1.41523 11.9515 1.63195 12.1682 1.89851 12.304C2.20156 12.4584 2.59826 12.4584 3.39167 12.4584Z"
+													stroke="#6366F1" stroke-width="1.5" stroke-linecap="round"
+													stroke-linejoin="round" />
 											</svg>
 											<span>mail@rosait.ru</span>
 										</a>
 									</li>
 									<li>
 										<svg viewBox="0 0 15 15" fill="none">
-											<path d="M1.59375 3.2751L2.90625 1.9751M13.4062 3.2751L12.0938 1.9751M7.5 5.2251V7.8251L8.8125 9.1251M12.75 7.8251C12.75 10.697 10.3995 13.0251 7.5 13.0251C4.6005 13.0251 2.25 10.697 2.25 7.8251C2.25 4.95322 4.6005 2.6251 7.5 2.6251C10.3995 2.6251 12.75 4.95322 12.75 7.8251Z" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											<path
+												d="M1.59375 3.2751L2.90625 1.9751M13.4062 3.2751L12.0938 1.9751M7.5 5.2251V7.8251L8.8125 9.1251M12.75 7.8251C12.75 10.697 10.3995 13.0251 7.5 13.0251C4.6005 13.0251 2.25 10.697 2.25 7.8251C2.25 4.95322 4.6005 2.6251 7.5 2.6251C10.3995 2.6251 12.75 4.95322 12.75 7.8251Z"
+												stroke="#6366F1" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
 										</svg>
 										<span>9:00 до 18:00 по рабочим дням</span>
 									</li>
@@ -582,7 +630,9 @@
 						<div class="rs-header__actions_item rs-header__location">
 							<a href="#" class="rs-header__location_link rs-header__location_show-search">
 								<svg viewBox="0 0 20 21" fill="none">
-									<path d="M9.58333 19.5C13.375 15.9 17.1667 12.6764 17.1667 8.7C17.1667 4.72355 13.7715 1.5 9.58333 1.5C5.39517 1.5 2 4.72355 2 8.7C2 12.6764 5.79167 15.9 9.58333 19.5Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+									<path
+										d="M9.58333 19.5C13.375 15.9 17.1667 12.6764 17.1667 8.7C17.1667 4.72355 13.7715 1.5 9.58333 1.5C5.39517 1.5 2 4.72355 2 8.7C2 12.6764 5.79167 15.9 9.58333 19.5Z"
+										stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
 									<circle cx="9.5" cy="8" r="1" fill="#141517" stroke="#141517" />
 								</svg>
 								<span>Москва</span>
@@ -596,7 +646,8 @@
 											<span class="btn-text">Да, верно</span>
 											<span class="btn-hover"></span>
 										</a>
-										<a href="#" class="rs-btn _btn-gray rs-header__location_link rs-header__location_show-search">
+										<a href="#"
+											class="rs-btn _btn-gray rs-header__location_link rs-header__location_show-search">
 											<span class="btn-text">Нет, другой</span>
 											<span class="btn-hover"></span>
 										</a>
@@ -608,7 +659,9 @@
 						<div class="rs-header__actions_item  rs-header__contact">
 							<a href="#" data-popup="#contact">
 								<svg viewBox="0 0 20 21" fill="none">
-									<path d="M5.09062 5.85183L6.83779 4.10488C7.63434 3.30842 8.03262 2.91019 8.49188 2.76099C8.89586 2.62974 9.33103 2.62974 9.73501 2.76099C10.1943 2.91019 10.5925 3.30842 11.3891 4.10487L12.1305 4.84637M8.10774 8.86858L12.1306 12.8909M7.60491 17.4163C8.26668 16.7546 14.7896 10.2324 18.1688 6.85366C19.2797 5.74288 19.2757 3.94599 18.1648 2.83518C17.0539 1.72432 15.2567 1.72026 14.1457 2.83109C10.7665 6.20993 4.24376 12.7319 3.58196 13.3936C1.78719 15.188 0.712189 19.5744 1.06769 19.9299C1.4232 20.2853 5.75503 19.2659 7.60491 17.4163Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+									<path
+										d="M5.09062 5.85183L6.83779 4.10488C7.63434 3.30842 8.03262 2.91019 8.49188 2.76099C8.89586 2.62974 9.33103 2.62974 9.73501 2.76099C10.1943 2.91019 10.5925 3.30842 11.3891 4.10487L12.1305 4.84637M8.10774 8.86858L12.1306 12.8909M7.60491 17.4163C8.26668 16.7546 14.7896 10.2324 18.1688 6.85366C19.2797 5.74288 19.2757 3.94599 18.1648 2.83518C17.0539 1.72432 15.2567 1.72026 14.1457 2.83109C10.7665 6.20993 4.24376 12.7319 3.58196 13.3936C1.78719 15.188 0.712189 19.5744 1.06769 19.9299C1.4232 20.2853 5.75503 19.2659 7.60491 17.4163Z"
+										stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
 								</svg>
 								<span>Контакты</span>
 							</a>
@@ -618,7 +671,9 @@
 							<a href="#" class="rs-btn _btn-gray-border" data-popup="#feedback">
 								<span class="btn-text">
 									<svg viewBox="0 0 20 21" fill="none">
-										<path d="M14.0039 8.5H6.00391M14.0039 12.5H6.00391M1 10.5C1 15.4706 5.02944 19.5 10 19.5C12.0364 19.5 18.9993 19.5 18.9993 19.5C18.9993 19.5 17.4401 15.7561 18.0641 14.5008C18.6631 13.2956 19 11.9372 19 10.5C19 5.52944 14.9706 1.5 10 1.5C5.02944 1.5 1 5.52944 1 10.5Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+										<path
+											d="M14.0039 8.5H6.00391M14.0039 12.5H6.00391M1 10.5C1 15.4706 5.02944 19.5 10 19.5C12.0364 19.5 18.9993 19.5 18.9993 19.5C18.9993 19.5 17.4401 15.7561 18.0641 14.5008C18.6631 13.2956 19 11.9372 19 10.5C19 5.52944 14.9706 1.5 10 1.5C5.02944 1.5 1 5.52944 1 10.5Z"
+											stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
 									</svg>
 									связаться с нами
 								</span>
@@ -902,9 +957,18 @@
 			<section class="rs-banner">
 				<div class="rs-banner__wrapper">
 					<div class="rs-banner__bg">
-						<picture><source srcset="img/pages/banner/banner-img-1.webp" type="image/webp"><img class="rs-banner__bg--desktop" src="img/pages/banner/banner-img-1.jpg" alt=""></picture>
-						<picture><source srcset="img/pages/banner/banner-img-1--tablet.webp" type="image/webp"><img class="rs-banner__bg--tablet" src="img/pages/banner/banner-img-1--tablet.jpg" alt=""></picture>
-						<picture><source srcset="img/pages/banner/banner-img-1--mobile.webp" type="image/webp"><img class="rs-banner__bg--mobile" src="img/pages/banner/banner-img-1--mobile.jpg" alt=""></picture>
+						<picture>
+							<source srcset="img/pages/banner/banner-img-1.webp" type="image/webp"><img
+								class="rs-banner__bg--desktop" src="img/pages/banner/banner-img-1.jpg" alt="">
+						</picture>
+						<picture>
+							<source srcset="img/pages/banner/banner-img-1--tablet.webp" type="image/webp"><img
+								class="rs-banner__bg--tablet" src="img/pages/banner/banner-img-1--tablet.jpg" alt="">
+						</picture>
+						<picture>
+							<source srcset="img/pages/banner/banner-img-1--mobile.webp" type="image/webp"><img
+								class="rs-banner__bg--mobile" src="img/pages/banner/banner-img-1--mobile.jpg" alt="">
+						</picture>
 					</div>
 					<div class="rs-banner__content">
 						<div class="rs-banner__container">
@@ -944,7 +1008,11 @@
 							<div class="rs-slider-block__slide swiper-slide">
 								<div class="rs-slider-block__item rs-slider-block--green">
 									<div class="rs-slider-block__img">
-										<picture><source srcset="img/pages/slider-block/slider-block-img-1.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-img-1.png" alt=""></picture>
+										<picture>
+											<source srcset="img/pages/slider-block/slider-block-img-1.webp"
+												type="image/webp"><img
+												src="img/pages/slider-block/slider-block-img-1.png" alt="">
+										</picture>
 									</div>
 									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Дизайн главной</h4>
@@ -953,10 +1021,22 @@
 									</div>
 									<div class="rs-slider-block__icons">
 										<div class="rs-slider-block__icon rs-slider-block__icon-1">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-1.1.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-1.1.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-1.1.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-1.1.png"
+													alt="">
+											</picture>
 										</div>
 										<div class="rs-slider-block__icon rs-slider-block__icon-2">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-1.2.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-1.2.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-1.2.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-1.2.png"
+													alt="">
+											</picture>
 										</div>
 									</div>
 								</div>
@@ -965,7 +1045,11 @@
 							<div class="rs-slider-block__slide swiper-slide">
 								<div class="rs-slider-block__item rs-slider-block--blue">
 									<div class="rs-slider-block__img">
-										<picture><source srcset="img/pages/slider-block/slider-block-img-2.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-img-2.png" alt=""></picture>
+										<picture>
+											<source srcset="img/pages/slider-block/slider-block-img-2.webp"
+												type="image/webp"><img
+												src="img/pages/slider-block/slider-block-img-2.png" alt="">
+										</picture>
 									</div>
 									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Дизайн внутренних</h4>
@@ -976,7 +1060,13 @@
 									</div>
 									<div class="rs-slider-block__icons">
 										<div class="rs-slider-block__icon rs-slider-block__icon-3">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-2.1.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-2.1.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-2.1.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-2.1.png"
+													alt="">
+											</picture>
 										</div>
 									</div>
 								</div>
@@ -985,7 +1075,11 @@
 							<div class="rs-slider-block__slide swiper-slide">
 								<div class="rs-slider-block__item rs-slider-block--pink">
 									<div class="rs-slider-block__img">
-										<picture><source srcset="img/pages/slider-block/slider-block-img-3.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-img-3.png" alt=""></picture>
+										<picture>
+											<source srcset="img/pages/slider-block/slider-block-img-3.webp"
+												type="image/webp"><img
+												src="img/pages/slider-block/slider-block-img-3.png" alt="">
+										</picture>
 									</div>
 									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Создадим контент</h4>
@@ -994,23 +1088,44 @@
 									</div>
 									<div class="rs-slider-block__icons">
 										<div class="rs-slider-block__icon rs-slider-block__icon-4">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-3.1.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-3.1.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-3.1.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-3.1.png"
+													alt="">
+											</picture>
 										</div>
 										<div class="rs-slider-block__icon rs-slider-block__icon-5">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-3.2.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-3.2.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-3.2.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-3.2.png"
+													alt="">
+											</picture>
 										</div>
 										<div class="rs-slider-block__line">
 											<svg viewBox="0 0 450 541" fill="none">
 												<defs>
 													<mask id="maskAbout" maskUnits="userSpaceOnUse">
-														<path class="mask-path" id="mask-about" d="M-313.951 193.5C-314.951 227.667 -301.151 316.1 -237.951 396.5C-174.751 476.9 -80.9503 520.667 -41.9502 532.5C-4.61686 550.5 86.5498 571.5 152.55 511.5C218.55 451.5 183.05 349.167 157.05 305.5C128.05 268.167 57.5498 212 7.5498 286C-9.25019 318.4 6.88314 361.5 17.0498 379C30.8831 407 82.5498 464.2 178.55 469C274.55 473.8 359.55 400.333 390.05 363C427.383 324.167 506.55 213 524.55 79" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+														<path class="mask-path" id="mask-about"
+															d="M-313.951 193.5C-314.951 227.667 -301.151 316.1 -237.951 396.5C-174.751 476.9 -80.9503 520.667 -41.9502 532.5C-4.61686 550.5 86.5498 571.5 152.55 511.5C218.55 451.5 183.05 349.167 157.05 305.5C128.05 268.167 57.5498 212 7.5498 286C-9.25019 318.4 6.88314 361.5 17.0498 379C30.8831 407 82.5498 464.2 178.55 469C274.55 473.8 359.55 400.333 390.05 363C427.383 324.167 506.55 213 524.55 79"
+															stroke="#fff" stroke-width="4" stroke-linecap="round"
+															stroke-linejoin="round" />
 													</mask>
 												</defs>
 												<g mask="url(#maskAbout)">
-													<path class="dashed-path" id="dashed-about" d="M-313.951 193.5C-314.951 227.667 -301.151 316.1 -237.951 396.5C-174.751 476.9 -80.9503 520.667 -41.9502 532.5C-4.61686 550.5 86.5498 571.5 152.55 511.5C218.55 451.5 183.05 349.167 157.05 305.5C128.05 268.167 57.5498 212 7.5498 286C-9.25019 318.4 6.88314 361.5 17.0498 379C30.8831 407 82.5498 464.2 178.55 469C274.55 473.8 359.55 400.333 390.05 363C427.383 324.167 506.55 213 524.55 79" stroke="url(#paint0_linear_2471_11753)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 7" />
+													<path class="dashed-path" id="dashed-about"
+														d="M-313.951 193.5C-314.951 227.667 -301.151 316.1 -237.951 396.5C-174.751 476.9 -80.9503 520.667 -41.9502 532.5C-4.61686 550.5 86.5498 571.5 152.55 511.5C218.55 451.5 183.05 349.167 157.05 305.5C128.05 268.167 57.5498 212 7.5498 286C-9.25019 318.4 6.88314 361.5 17.0498 379C30.8831 407 82.5498 464.2 178.55 469C274.55 473.8 359.55 400.333 390.05 363C427.383 324.167 506.55 213 524.55 79"
+														stroke="url(#paint0_linear_2471_11753)" stroke-width="4"
+														stroke-linecap="round" stroke-linejoin="round"
+														stroke-dasharray="7 7" />
 												</g>
 												<defs>
-													<linearGradient id="paint0_linear_2471_11753" x1="-292.575" y1="99.8052" x2="265.829" y2="821.623" gradientUnits="userSpaceOnUse">
+													<linearGradient id="paint0_linear_2471_11753" x1="-292.575"
+														y1="99.8052" x2="265.829" y2="821.623"
+														gradientUnits="userSpaceOnUse">
 														<stop offset="0" stop-color="#9BDBFF" stop-opacity="0.7" />
 														<stop offset="1" stop-color="#C275FF" stop-opacity="0.5" />
 													</linearGradient>
@@ -1033,10 +1148,22 @@
 									</div>
 									<div class="rs-slider-block__icons">
 										<div class="rs-slider-block__icon rs-slider-block__icon-6">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-4.1.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-4.1.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-4.1.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-4.1.png"
+													alt="">
+											</picture>
 										</div>
 										<div class="rs-slider-block__icon rs-slider-block__icon-7">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-4.2.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-4.2.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-4.2.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-4.2.png"
+													alt="">
+											</picture>
 										</div>
 									</div>
 								</div>
@@ -1045,7 +1172,11 @@
 							<div class="rs-slider-block__slide swiper-slide">
 								<div class="rs-slider-block__item rs-slider-block--orange">
 									<div class="rs-slider-block__img">
-										<picture><source srcset="img/pages/slider-block/slider-block-img-5.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-img-5.png" alt=""></picture>
+										<picture>
+											<source srcset="img/pages/slider-block/slider-block-img-5.webp"
+												type="image/webp"><img
+												src="img/pages/slider-block/slider-block-img-5.png" alt="">
+										</picture>
 									</div>
 									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Соответствие стандартам W3C</h4>
@@ -1054,10 +1185,22 @@
 									</div>
 									<div class="rs-slider-block__icons">
 										<div class="rs-slider-block__icon rs-slider-block__icon-8">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-5.1.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-5.1.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-5.1.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-5.1.png"
+													alt="">
+											</picture>
 										</div>
 										<div class="rs-slider-block__icon rs-slider-block__icon-9">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-5.2.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-5.2.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-5.2.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-5.2.png"
+													alt="">
+											</picture>
 										</div>
 									</div>
 								</div>
@@ -1066,7 +1209,11 @@
 							<div class="rs-slider-block__slide swiper-slide">
 								<div class="rs-slider-block__item rs-slider-block--red">
 									<div class="rs-slider-block__img">
-										<picture><source srcset="img/pages/slider-block/slider-block-img-6.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-img-6.png" alt=""></picture>
+										<picture>
+											<source srcset="img/pages/slider-block/slider-block-img-6.webp"
+												type="image/webp"><img
+												src="img/pages/slider-block/slider-block-img-6.png" alt="">
+										</picture>
 									</div>
 									<div class="rs-slider-block__description">
 										<h4 class="mrp-med-25">Свой домен и хостинг</h4>
@@ -1075,13 +1222,20 @@
 									</div>
 									<div class="rs-slider-block__icons">
 										<div class="rs-slider-block__icon rs-slider-block__icon-10">
-											<picture><source srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-6.1.webp" type="image/webp"><img src="img/pages/slider-block/slider-block-icons/slider-block-icon-6.1.png" alt=""></picture>
+											<picture>
+												<source
+													srcset="img/pages/slider-block/slider-block-icons/slider-block-icon-6.1.webp"
+													type="image/webp"><img
+													src="img/pages/slider-block/slider-block-icons/slider-block-icon-6.1.png"
+													alt="">
+											</picture>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="rs-slider-block__pagination swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal">
+						<div
+							class="rs-slider-block__pagination swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal">
 							<span class="swiper-pagination-progressbar-fill"></span>
 						</div>
 					</div>
@@ -1171,8 +1325,16 @@
 								<div class="rs-project__item">
 									<a href="#">
 										<div class="rs-project__img">
-											<picture><source srcset="img/pages/project/project-1.webp" type="image/webp"><img class="rs-project__img--desktop" src="img/pages/project/project-1.jpg" alt=""></picture>
-											<picture><source srcset="img/pages/project/project-1--mob.webp" type="image/webp"><img class="rs-project__img--mobile" src="img/pages/project/project-1--mob.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/project/project-1.webp" type="image/webp"><img
+													class="rs-project__img--desktop"
+													src="img/pages/project/project-1.jpg" alt="">
+											</picture>
+											<picture>
+												<source srcset="img/pages/project/project-1--mob.webp"
+													type="image/webp"><img class="rs-project__img--mobile"
+													src="img/pages/project/project-1--mob.png" alt="">
+											</picture>
 										</div>
 									</a>
 								</div>
@@ -1181,8 +1343,16 @@
 								<div class="rs-project__item">
 									<a href="#">
 										<div class="rs-project__img">
-											<picture><source srcset="img/pages/project/project-2.webp" type="image/webp"><img class="rs-project__img--desktop" src="img/pages/project/project-2.jpg" alt=""></picture>
-											<picture><source srcset="img/pages/project/project-2--mob.webp" type="image/webp"><img class="rs-project__img--mobile" src="img/pages/project/project-2--mob.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/project/project-2.webp" type="image/webp"><img
+													class="rs-project__img--desktop"
+													src="img/pages/project/project-2.jpg" alt="">
+											</picture>
+											<picture>
+												<source srcset="img/pages/project/project-2--mob.webp"
+													type="image/webp"><img class="rs-project__img--mobile"
+													src="img/pages/project/project-2--mob.png" alt="">
+											</picture>
 										</div>
 									</a>
 								</div>
@@ -1191,8 +1361,16 @@
 								<div class="rs-project__item">
 									<a href="#">
 										<div class="rs-project__img">
-											<picture><source srcset="img/pages/project/project-3.webp" type="image/webp"><img class="rs-project__img--desktop" src="img/pages/project/project-3.jpg" alt=""></picture>
-											<picture><source srcset="img/pages/project/project-3--mob.webp" type="image/webp"><img class="rs-project__img--mobile" src="img/pages/project/project-3--mob.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/project/project-3.webp" type="image/webp"><img
+													class="rs-project__img--desktop"
+													src="img/pages/project/project-3.jpg" alt="">
+											</picture>
+											<picture>
+												<source srcset="img/pages/project/project-3--mob.webp"
+													type="image/webp"><img class="rs-project__img--mobile"
+													src="img/pages/project/project-3--mob.png" alt="">
+											</picture>
 										</div>
 									</a>
 								</div>
@@ -1201,8 +1379,16 @@
 								<div class="rs-project__item">
 									<a href="#">
 										<div class="rs-project__img">
-											<picture><source srcset="img/pages/project/project-2.webp" type="image/webp"><img class="rs-project__img--desktop" src="img/pages/project/project-2.jpg" alt=""></picture>
-											<picture><source srcset="img/pages/project/project-2--mob.webp" type="image/webp"><img class="rs-project__img--mobile" src="img/pages/project/project-2--mob.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/project/project-2.webp" type="image/webp"><img
+													class="rs-project__img--desktop"
+													src="img/pages/project/project-2.jpg" alt="">
+											</picture>
+											<picture>
+												<source srcset="img/pages/project/project-2--mob.webp"
+													type="image/webp"><img class="rs-project__img--mobile"
+													src="img/pages/project/project-2--mob.png" alt="">
+											</picture>
 										</div>
 									</a>
 								</div>
@@ -1211,8 +1397,16 @@
 								<div class="rs-project__item">
 									<a href="#">
 										<div class="rs-project__img">
-											<picture><source srcset="img/pages/project/project-3.webp" type="image/webp"><img class="rs-project__img--desktop" src="img/pages/project/project-3.jpg" alt=""></picture>
-											<picture><source srcset="img/pages/project/project-3--mob.webp" type="image/webp"><img class="rs-project__img--mobile" src="img/pages/project/project-3--mob.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/project/project-3.webp" type="image/webp"><img
+													class="rs-project__img--desktop"
+													src="img/pages/project/project-3.jpg" alt="">
+											</picture>
+											<picture>
+												<source srcset="img/pages/project/project-3--mob.webp"
+													type="image/webp"><img class="rs-project__img--mobile"
+													src="img/pages/project/project-3--mob.png" alt="">
+											</picture>
 										</div>
 									</a>
 								</div>
@@ -1221,8 +1415,16 @@
 								<div class="rs-project__item">
 									<a href="#">
 										<div class="rs-project__img">
-											<picture><source srcset="img/pages/project/project-1.webp" type="image/webp"><img class="rs-project__img--desktop" src="img/pages/project/project-1.jpg" alt=""></picture>
-											<picture><source srcset="img/pages/project/project-1--mob.webp" type="image/webp"><img class="rs-project__img--mobile" src="img/pages/project/project-1--mob.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/project/project-1.webp" type="image/webp"><img
+													class="rs-project__img--desktop"
+													src="img/pages/project/project-1.jpg" alt="">
+											</picture>
+											<picture>
+												<source srcset="img/pages/project/project-1--mob.webp"
+													type="image/webp"><img class="rs-project__img--mobile"
+													src="img/pages/project/project-1--mob.png" alt="">
+											</picture>
 										</div>
 									</a>
 								</div>
@@ -1231,8 +1433,16 @@
 								<div class="rs-project__item">
 									<a href="#">
 										<div class="rs-project__img">
-											<picture><source srcset="img/pages/project/project-3.webp" type="image/webp"><img class="rs-project__img--desktop" src="img/pages/project/project-3.jpg" alt=""></picture>
-											<picture><source srcset="img/pages/project/project-3--mob.webp" type="image/webp"><img class="rs-project__img--mobile" src="img/pages/project/project-3--mob.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/project/project-3.webp" type="image/webp"><img
+													class="rs-project__img--desktop"
+													src="img/pages/project/project-3.jpg" alt="">
+											</picture>
+											<picture>
+												<source srcset="img/pages/project/project-3--mob.webp"
+													type="image/webp"><img class="rs-project__img--mobile"
+													src="img/pages/project/project-3--mob.png" alt="">
+											</picture>
 										</div>
 									</a>
 								</div>
@@ -1241,8 +1451,16 @@
 								<div class="rs-project__item">
 									<a href="#">
 										<div class="rs-project__img">
-											<picture><source srcset="img/pages/project/project-1.webp" type="image/webp"><img class="rs-project__img--desktop" src="img/pages/project/project-1.jpg" alt=""></picture>
-											<picture><source srcset="img/pages/project/project-1--mob.webp" type="image/webp"><img class="rs-project__img--mobile" src="img/pages/project/project-1--mob.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/project/project-1.webp" type="image/webp"><img
+													class="rs-project__img--desktop"
+													src="img/pages/project/project-1.jpg" alt="">
+											</picture>
+											<picture>
+												<source srcset="img/pages/project/project-1--mob.webp"
+													type="image/webp"><img class="rs-project__img--mobile"
+													src="img/pages/project/project-1--mob.png" alt="">
+											</picture>
 										</div>
 									</a>
 								</div>
@@ -1251,8 +1469,16 @@
 								<div class="rs-project__item">
 									<a href="#">
 										<div class="rs-project__img">
-											<picture><source srcset="img/pages/project/project-2.webp" type="image/webp"><img class="rs-project__img--desktop" src="img/pages/project/project-2.jpg" alt=""></picture>
-											<picture><source srcset="img/pages/project/project-2--mob.webp" type="image/webp"><img class="rs-project__img--mobile" src="img/pages/project/project-2--mob.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/project/project-2.webp" type="image/webp"><img
+													class="rs-project__img--desktop"
+													src="img/pages/project/project-2.jpg" alt="">
+											</picture>
+											<picture>
+												<source srcset="img/pages/project/project-2--mob.webp"
+													type="image/webp"><img class="rs-project__img--mobile"
+													src="img/pages/project/project-2--mob.png" alt="">
+											</picture>
 										</div>
 									</a>
 								</div>
@@ -1292,8 +1518,12 @@
 										<a href="#prototype" class="_active-step">
 											<span class="count">1
 												<svg viewBox="0 0 73 74" fill="none">
-													<path d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z" stroke="var(--light-gray-border)" />
-													<path class="hover" d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z" stroke="var(--light-gray-border)" />
+													<path
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+													<path class="hover"
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
 												</svg>
 											</span>
 											<span class="split-text">Разработка прототипа</span>
@@ -1303,8 +1533,12 @@
 										<a href="#design">
 											<span class="count">2
 												<svg viewBox="0 0 73 74" fill="none">
-													<path d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z" stroke="var(--light-gray-border)" />
-													<path class="hover" d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z" stroke="var(--light-gray-border)" />
+													<path
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+													<path class="hover"
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
 												</svg>
 											</span>
 											<span class="split-text">Дизайн главной</span>
@@ -1314,8 +1548,12 @@
 										<a href="#style-inner">
 											<span class="count">3
 												<svg viewBox="0 0 73 74" fill="none">
-													<path d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z" stroke="var(--light-gray-border)" />
-													<path class="hover" d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z" stroke="var(--light-gray-border)" />
+													<path
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+													<path class="hover"
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
 												</svg>
 											</span>
 											<span class="split-text">Стилизация внутренних</span>
@@ -1325,8 +1563,12 @@
 										<a href="#develop">
 											<span class="count">4
 												<svg viewBox="0 0 73 74" fill="none">
-													<path d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z" stroke="var(--light-gray-border)" />
-													<path class="hover" d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z" stroke="var(--light-gray-border)" />
+													<path
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
+													<path class="hover"
+														d="M72.5 37C72.5 57.1648 56.3759 73.5 36.5 73.5C16.6241 73.5 0.5 57.1648 0.5 37C0.5 16.8352 16.6241 0.5 36.5 0.5C56.3759 0.5 72.5 16.8352 72.5 37Z"
+														stroke="var(--light-gray-border)" />
 												</svg>
 											</span>
 											<span class="split-text">Сборка сайта</span>
@@ -1338,7 +1580,8 @@
 
 						<div data-spollers="991.98,max" data-one-spoller class="rs-steps__spollers">
 							<div class="rs-steps__spollers_item" id="prototype" data-bgcolor="#fff">
-								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25 _spoller-active">
+								<button type="button" data-spoller
+									class="rs-steps__spollers_title mrp-med-25 _spoller-active">
 									Разработка прототипа <i class="rs-steps__spollers_icon"></i>
 								</button>
 								<div class="rs-steps__spollers_body">
@@ -1357,34 +1600,66 @@
 										<div class="rs-steps__gallery">
 											<div class="rs-steps__column rs-steps__column-bottom">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-1.1.webp" type="image/webp"><img src="img/pages/steps/steps-img-1.1.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-1.1.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-1.1.jpg" alt="">
+													</picture>
 												</div>
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-1.2.webp" type="image/webp"><img src="img/pages/steps/steps-img-1.2.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-1.2.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-1.2.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 											<div class="rs-steps__column rs-steps__column-top">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-1.3.webp" type="image/webp"><img src="img/pages/steps/steps-img-1.3.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-1.3.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-1.3.jpg" alt="">
+													</picture>
 												</div>
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-1.3.webp" type="image/webp"><img src="img/pages/steps/steps-img-1.3.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-1.3.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-1.3.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 											<div class="rs-steps__column rs-steps__column-bottom">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-1.4.webp" type="image/webp"><img src="img/pages/steps/steps-img-1.4.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-1.4.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-1.4.jpg" alt="">
+													</picture>
 												</div>
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-1.5.webp" type="image/webp"><img src="img/pages/steps/steps-img-1.5.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-1.5.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-1.5.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 											<div class="rs-steps__column rs-steps__column-top">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-1.6.webp" type="image/webp"><img src="img/pages/steps/steps-img-1.6.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-1.6.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-1.6.jpg" alt="">
+													</picture>
 												</div>
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-1.7.webp" type="image/webp"><img src="img/pages/steps/steps-img-1.7.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-1.7.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-1.7.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 										</div>
@@ -1392,7 +1667,8 @@
 								</div>
 							</div>
 
-							<div class="rs-steps__spollers_item" id="design" data-bgcolor="linear-gradient(135deg, #f4efff 0%, #fff 48.89%, #f0eaff 100%)">
+							<div class="rs-steps__spollers_item" id="design"
+								data-bgcolor="linear-gradient(135deg, #f4efff 0%, #fff 48.89%, #f0eaff 100%)">
 								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Дизайн главной <i class="rs-steps__spollers_icon"></i>
 								</button>
@@ -1411,12 +1687,20 @@
 										<div class="rs-steps__gallery">
 											<div class="rs-steps__column rs-steps__column-middle">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-2.3.webp" type="image/webp"><img src="img/pages/steps/steps-img-2.3.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-2.3.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-2.3.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 											<div class="rs-steps__column rs-steps__column-middle">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-2.4.webp" type="image/webp"><img src="img/pages/steps/steps-img-2.4.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-2.4.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-2.4.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 										</div>
@@ -1424,7 +1708,8 @@
 								</div>
 							</div>
 
-							<div class="rs-steps__spollers_item" id="style-inner" data-bgcolor="linear-gradient(137deg, #f8fff3 0%, #fff 49.51%, #f4ffec 100%)">
+							<div class="rs-steps__spollers_item" id="style-inner"
+								data-bgcolor="linear-gradient(137deg, #f8fff3 0%, #fff 49.51%, #f4ffec 100%)">
 								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Стилизация внутренних <i class="rs-steps__spollers_icon"></i>
 								</button>
@@ -1442,32 +1727,64 @@
 										<div class="rs-steps__gallery">
 											<div class="rs-steps__column rs-steps__column-bottom">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-3.1.webp" type="image/webp"><img src="img/pages/steps/steps-img-3.1.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-3.1.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-3.1.jpg" alt="">
+													</picture>
 												</div>
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-3.2.webp" type="image/webp"><img src="img/pages/steps/steps-img-3.2.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-3.2.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-3.2.jpg" alt="">
+													</picture>
 												</div>
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-3.3.webp" type="image/webp"><img src="img/pages/steps/steps-img-3.3.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-3.3.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-3.3.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 											<div class="rs-steps__column rs-steps__column-top">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-3.4.webp" type="image/webp"><img src="img/pages/steps/steps-img-3.4.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-3.4.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-3.4.jpg" alt="">
+													</picture>
 												</div>
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-3.5.webp" type="image/webp"><img src="img/pages/steps/steps-img-3.5.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-3.5.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-3.5.jpg" alt="">
+													</picture>
 												</div>
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-3.6.webp" type="image/webp"><img src="img/pages/steps/steps-img-3.6.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-3.6.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-3.6.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 											<div class="rs-steps__column rs-steps__column-bottom">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-3.7.webp" type="image/webp"><img src="img/pages/steps/steps-img-3.7.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-3.7.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-3.7.jpg" alt="">
+													</picture>
 												</div>
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-3.8.webp" type="image/webp"><img src="img/pages/steps/steps-img-3.8.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-3.8.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-3.8.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 										</div>
@@ -1475,7 +1792,8 @@
 								</div>
 							</div>
 
-							<div class="rs-steps__spollers_item" id="develop" data-bgcolor="linear-gradient(135deg, #f0f8ff 0%, #fff 50%, #e3fcff 100%)">
+							<div class="rs-steps__spollers_item" id="develop"
+								data-bgcolor="linear-gradient(135deg, #f0f8ff 0%, #fff 50%, #e3fcff 100%)">
 								<button type="button" data-spoller class="rs-steps__spollers_title mrp-med-25">
 									Сборка сайта <i class="rs-steps__spollers_icon"></i>
 								</button>
@@ -1496,7 +1814,11 @@
 										<div class="rs-steps__gallery">
 											<div class="rs-steps__column">
 												<div class="rs-steps__img">
-													<picture><source srcset="img/pages/steps/steps-img-4.1.webp" type="image/webp"><img src="img/pages/steps/steps-img-4.1.jpg" alt=""></picture>
+													<picture>
+														<source srcset="img/pages/steps/steps-img-4.1.webp"
+															type="image/webp"><img
+															src="img/pages/steps/steps-img-4.1.jpg" alt="">
+													</picture>
 												</div>
 											</div>
 										</div>
@@ -1518,14 +1840,25 @@
 						разработаем концепцию сайта и создадим индивидуальное оформление главной страницы.</p>
 				</div>
 				<div class="rs-comparison__compare" id="image-compare">
-					<picture><source srcset="img/pages/comparison/comparison-img-before.webp" type="image/webp"><img src="img/pages/comparison/comparison-img-before.png" alt="" /></picture>
-					<picture><source srcset="img/pages/comparison/comparison-img-after.webp" type="image/webp"><img src="img/pages/comparison/comparison-img-after.png" alt="" /></picture>
+					<picture>
+						<source srcset="img/pages/comparison/comparison-img-before.webp" type="image/webp"><img
+							src="img/pages/comparison/comparison-img-before.png" alt="" />
+					</picture>
+					<picture>
+						<source srcset="img/pages/comparison/comparison-img-after.webp" type="image/webp"><img
+							src="img/pages/comparison/comparison-img-after.png" alt="" />
+					</picture>
 				</div>
 			</section>
 
 			<section class="rs-calc section-bg">
 				<div class="section__wrapper">
-					<div class="section__bg"><picture><source srcset="img/pages/calc/calc-bg.webp" type="image/webp"><img src="img/pages/calc/calc-bg.jpg" alt=""></picture></div>
+					<div class="section__bg">
+						<picture>
+							<source srcset="img/pages/calc/calc-bg.webp" type="image/webp"><img
+								src="img/pages/calc/calc-bg.jpg" alt="">
+						</picture>
+					</div>
 					<div class="section__content">
 						<div class="section__container">
 							<form action="#" method="POST">
@@ -1549,7 +1882,8 @@
 														<div class="range__header">
 															<h6 class="mrp-reg-18">Стилизация страниц</h6>
 															<div class="tooltip">
-																<button type="button" class="tooltip__btn _rs-icon-question"></button>
+																<button type="button"
+																	class="tooltip__btn _rs-icon-question"></button>
 																<div class="tooltip__modal _arrow-left">Элементами с
 																	главной и
 																	готовыми блоками</div>
@@ -1567,7 +1901,8 @@
 														<div class="range__header">
 															<h6 class="mrp-reg-18">Наполнение страниц</h6>
 															<div class="tooltip">
-																<button type="button" class="tooltip__btn _rs-icon-question"></button>
+																<button type="button"
+																	class="tooltip__btn _rs-icon-question"></button>
 																<div class="tooltip__modal _arrow-left">Без участия
 																	дизайнера
 																</div>
@@ -1687,7 +2022,9 @@
 													</a> </button>
 
 												<svg width="151" height="81" viewBox="0 0 151 81">
-													<path d="M2.25088 38.2535C8.03614 40.2722 13.5736 42.7057 18.9999 45.5398L19.0177 45.5411C19.1025 45.5844 19.1873 45.6278 19.2724 45.6716C20.4668 46.3073 19.3626 47.9656 18.2243 47.6564C14.1078 46.5315 9.68884 43.8553 5.57194 42.7301C18.3511 56.2973 32.6316 71.8193 51.1464 76.7216C69.809 81.664 88.1658 75.5511 97.8004 59.3659C86.9471 47.8582 81.9431 30.4636 84.0501 15.0297C84.9143 8.75088 88.8096 -2.725 97.3136 2.15763C105.337 6.75518 106.78 21.6734 107.048 29.7429C107.384 39.783 105.176 50.1895 100.482 58.9675C101.315 59.8203 102.172 60.6216 103.051 61.3714C110.892 68.0508 122.174 72.2936 132.101 67.3857C144.713 61.1511 147.541 45.4794 149.435 33.0442C149.538 32.375 150.564 32.4685 150.479 33.1393C149.029 44.8828 146.963 57.6863 137.425 65.9067C129.579 72.6651 119.21 72.7467 110.222 68.5076C106.175 66.594 102.544 64.0129 99.3619 60.9637C93.6931 70.4655 84.8937 77.7352 73.0117 79.9914C45.0911 85.2772 22.9081 65.397 5.04293 46.6873L6.83622 53.2526C7.21365 54.6445 4.99061 55.0043 4.61158 53.6305C3.65731 50.1685 2.71292 46.6978 1.76613 43.2453C1.66128 43.1379 1.46353 41.8896 1.36776 41.7736C1.25723 40.5671 1.76613 43.2453 1.35017 41.7073C1.14649 40.9832 0.952676 40.2514 0.748579 39.5278C0.515449 38.6489 1.52799 37.9911 2.25088 38.2535ZM100.74 53.4818C104.377 44.5717 105.529 34.6315 104.458 25.1494C103.916 20.3408 102.859 15.4227 101.053 10.9275C100.34 9.14821 99.464 7.21094 98.1421 5.80463C94.1444 1.5472 89.4624 4.44214 87.6141 9.14895C81.5352 24.5868 87.9901 45.0334 98.9594 57.3375C99.5927 56.1005 100.194 54.8249 100.74 53.4818Z" fill="var(--primary-color)" />
+													<path
+														d="M2.25088 38.2535C8.03614 40.2722 13.5736 42.7057 18.9999 45.5398L19.0177 45.5411C19.1025 45.5844 19.1873 45.6278 19.2724 45.6716C20.4668 46.3073 19.3626 47.9656 18.2243 47.6564C14.1078 46.5315 9.68884 43.8553 5.57194 42.7301C18.3511 56.2973 32.6316 71.8193 51.1464 76.7216C69.809 81.664 88.1658 75.5511 97.8004 59.3659C86.9471 47.8582 81.9431 30.4636 84.0501 15.0297C84.9143 8.75088 88.8096 -2.725 97.3136 2.15763C105.337 6.75518 106.78 21.6734 107.048 29.7429C107.384 39.783 105.176 50.1895 100.482 58.9675C101.315 59.8203 102.172 60.6216 103.051 61.3714C110.892 68.0508 122.174 72.2936 132.101 67.3857C144.713 61.1511 147.541 45.4794 149.435 33.0442C149.538 32.375 150.564 32.4685 150.479 33.1393C149.029 44.8828 146.963 57.6863 137.425 65.9067C129.579 72.6651 119.21 72.7467 110.222 68.5076C106.175 66.594 102.544 64.0129 99.3619 60.9637C93.6931 70.4655 84.8937 77.7352 73.0117 79.9914C45.0911 85.2772 22.9081 65.397 5.04293 46.6873L6.83622 53.2526C7.21365 54.6445 4.99061 55.0043 4.61158 53.6305C3.65731 50.1685 2.71292 46.6978 1.76613 43.2453C1.66128 43.1379 1.46353 41.8896 1.36776 41.7736C1.25723 40.5671 1.76613 43.2453 1.35017 41.7073C1.14649 40.9832 0.952676 40.2514 0.748579 39.5278C0.515449 38.6489 1.52799 37.9911 2.25088 38.2535ZM100.74 53.4818C104.377 44.5717 105.529 34.6315 104.458 25.1494C103.916 20.3408 102.859 15.4227 101.053 10.9275C100.34 9.14821 99.464 7.21094 98.1421 5.80463C94.1444 1.5472 89.4624 4.44214 87.6141 9.14895C81.5352 24.5868 87.9901 45.0334 98.9594 57.3375C99.5927 56.1005 100.194 54.8249 100.74 53.4818Z"
+														fill="var(--primary-color)" />
 												</svg>
 											</div>
 										</div>
@@ -1702,8 +2039,14 @@
 			<section class="rs-reviews section-bg">
 				<div class="section__wrapper">
 					<div class="section__bg">
-						<picture><source srcset="img/pages/reviews/reviews-bg.webp" type="image/webp"><img class="section__bg--desktop" src="img/pages/reviews/reviews-bg.jpg" alt=""></picture>
-						<picture><source srcset="img/pages/calc/calc-bg.webp" type="image/webp"><img class="section__bg--mobile" src="img/pages/calc/calc-bg.jpg" alt=""></picture>
+						<picture>
+							<source srcset="img/pages/reviews/reviews-bg.webp" type="image/webp"><img
+								class="section__bg--desktop" src="img/pages/reviews/reviews-bg.jpg" alt="">
+						</picture>
+						<picture>
+							<source srcset="img/pages/calc/calc-bg.webp" type="image/webp"><img
+								class="section__bg--mobile" src="img/pages/calc/calc-bg.jpg" alt="">
+						</picture>
 					</div>
 
 					<div class="rs-reviews__sticker">
@@ -1716,11 +2059,16 @@
 						<svg width="785" height="841" viewBox="0 0 785 841" fill="none">
 							<defs>
 								<mask id="maskReviews" maskUnits="userSpaceOnUse">
-									<path class="mask-path" id="mask-reviews" d="M3.49008 680.551C93.4892 827.051 430.361 910.657 605.861 751.657C781.361 592.657 473.361 349.657 377.361 498.657C279.427 650.657 788.49 797.551 781.99 294.052C780.036 142.646 746.945 54.2858 707.86 2.7657" stroke="#fff" stroke-width="5" stroke-linecap="round" />
+									<path class="mask-path" id="mask-reviews"
+										d="M3.49008 680.551C93.4892 827.051 430.361 910.657 605.861 751.657C781.361 592.657 473.361 349.657 377.361 498.657C279.427 650.657 788.49 797.551 781.99 294.052C780.036 142.646 746.945 54.2858 707.86 2.7657"
+										stroke="#fff" stroke-width="5" stroke-linecap="round" />
 								</mask>
 							</defs>
 							<g mask="url(#maskReviews)">
-								<path class="dashed-path" id="dashed-reviews" d="M3.49008 680.551C93.4892 827.051 430.361 910.657 605.861 751.657C781.361 592.657 473.361 349.657 377.361 498.657C279.427 650.657 788.49 797.551 781.99 294.052C780.036 142.646 746.945 54.2858 707.86 2.7657" stroke="var(--primary-color)" stroke-width="5" stroke-linecap="round" stroke-dasharray="4 10" />
+								<path class="dashed-path" id="dashed-reviews"
+									d="M3.49008 680.551C93.4892 827.051 430.361 910.657 605.861 751.657C781.361 592.657 473.361 349.657 377.361 498.657C279.427 650.657 788.49 797.551 781.99 294.052C780.036 142.646 746.945 54.2858 707.86 2.7657"
+									stroke="var(--primary-color)" stroke-width="5" stroke-linecap="round"
+									stroke-dasharray="4 10" />
 							</g>
 						</svg>
 					</div>
@@ -1739,7 +2087,11 @@
 												<div class="rs-reviews__item">
 													<div class="rs-reviews__header">
 														<div class="rs-reviews__avatar">
-															<picture><source srcset="img/pages/reviews/reviews-avatar-1.webp" type="image/webp"><img src="img/pages/reviews/reviews-avatar-1.png" alt=""></picture>
+															<picture>
+																<source srcset="img/pages/reviews/reviews-avatar-1.webp"
+																	type="image/webp"><img
+																	src="img/pages/reviews/reviews-avatar-1.png" alt="">
+															</picture>
 														</div>
 														<div class="rs-reviews__title">
 															<div class="rs-reviews__title_name">
@@ -1750,11 +2102,16 @@
 																	<div class="rating__body">
 																		<div class="rating__active"></div>
 																		<div class="rating__items">
-																			<input type="radio" class="rating__item" value="1" name="rating">
-																			<input type="radio" class="rating__item" value="2" name="rating">
-																			<input type="radio" class="rating__item" value="3" name="rating">
-																			<input type="radio" class="rating__item" value="4" name="rating">
-																			<input type="radio" class="rating__item" value="5" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="1" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="2" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="3" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="4" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="5" name="rating">
 																		</div>
 																	</div>
 																	<div class="rating__value">5</div>
@@ -1775,7 +2132,8 @@
 															работу менеджера Евгения Ширшова, который всегда готов
 															прийти на помощь техническим моментам и вопросам оформления
 															информации)</p>
-														<a href="#" class="rs-reviews__read-more"><span>читать целиком</span></a>
+														<a href="#" class="rs-reviews__read-more"><span>читать
+																целиком</span></a>
 													</div>
 												</div>
 											</div>
@@ -1784,7 +2142,11 @@
 												<div class="rs-reviews__item">
 													<div class="rs-reviews__header">
 														<div class="rs-reviews__avatar">
-															<picture><source srcset="img/pages/reviews/reviews-avatar-1.webp" type="image/webp"><img src="img/pages/reviews/reviews-avatar-1.png" alt=""></picture>
+															<picture>
+																<source srcset="img/pages/reviews/reviews-avatar-1.webp"
+																	type="image/webp"><img
+																	src="img/pages/reviews/reviews-avatar-1.png" alt="">
+															</picture>
 														</div>
 														<div class="rs-reviews__title">
 															<div class="rs-reviews__title_name">
@@ -1795,11 +2157,16 @@
 																	<div class="rating__body">
 																		<div class="rating__active"></div>
 																		<div class="rating__items">
-																			<input type="radio" class="rating__item" value="1" name="rating">
-																			<input type="radio" class="rating__item" value="2" name="rating">
-																			<input type="radio" class="rating__item" value="3" name="rating">
-																			<input type="radio" class="rating__item" value="4" name="rating">
-																			<input type="radio" class="rating__item" value="5" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="1" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="2" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="3" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="4" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="5" name="rating">
 																		</div>
 																	</div>
 																	<div class="rating__value">4.5</div>
@@ -1816,7 +2183,8 @@
 															рекомендации.В срок и максимально качественно.За сжатые
 															сроки и с ограниченным бюджетом вывели в топ.Спасибо, от
 															всего коллектива!</p>
-														<a href="#" class="rs-reviews__read-more"><span>читать целиком</span></a>
+														<a href="#" class="rs-reviews__read-more"><span>читать
+																целиком</span></a>
 													</div>
 												</div>
 											</div>
@@ -1825,7 +2193,11 @@
 												<div class="rs-reviews__item">
 													<div class="rs-reviews__header">
 														<div class="rs-reviews__avatar">
-															<picture><source srcset="img/pages/reviews/reviews-avatar-1.webp" type="image/webp"><img src="img/pages/reviews/reviews-avatar-1.png" alt=""></picture>
+															<picture>
+																<source srcset="img/pages/reviews/reviews-avatar-1.webp"
+																	type="image/webp"><img
+																	src="img/pages/reviews/reviews-avatar-1.png" alt="">
+															</picture>
 														</div>
 														<div class="rs-reviews__title">
 															<div class="rs-reviews__title_name">
@@ -1836,11 +2208,16 @@
 																	<div class="rating__body">
 																		<div class="rating__active"></div>
 																		<div class="rating__items">
-																			<input type="radio" class="rating__item" value="1" name="rating">
-																			<input type="radio" class="rating__item" value="2" name="rating">
-																			<input type="radio" class="rating__item" value="3" name="rating">
-																			<input type="radio" class="rating__item" value="4" name="rating">
-																			<input type="radio" class="rating__item" value="5" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="1" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="2" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="3" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="4" name="rating">
+																			<input type="radio" class="rating__item"
+																				value="5" name="rating">
 																		</div>
 																	</div>
 																	<div class="rating__value">4</div>
@@ -1864,7 +2241,8 @@
 															нам его восстановить. Спасибо большое Команде РОССАЙТ
 															особенно тех. поддержке и Евгению Ширшову. Успехов Вам!
 															Рекомендую!</p>
-														<a href="#" class="rs-reviews__read-more"><span>читать целиком</span></a>
+														<a href="#" class="rs-reviews__read-more"><span>читать
+																целиком</span></a>
 													</div>
 												</div>
 											</div>
@@ -1872,7 +2250,8 @@
 									</div>
 
 									<div class="rs-reviews__footer">
-										<p class="mrp-reg-18">Читать больше отзывов о нас на <a href="#"><span>Яндексе</span></a>
+										<p class="mrp-reg-18">Читать больше отзывов о нас на <a
+												href="#"><span>Яндексе</span></a>
 										</p>
 
 										<div class="rs-reviews__navigation swiper-navigation">
@@ -1908,24 +2287,39 @@
 								<a href="#">
 									<div class="rs-services__item rs-services--green">
 										<div class="rs-services__img">
-											<picture><source srcset="img/pages/services/services-img-1.webp" type="image/webp"><img src="img/pages/services/services-img-1.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/services/services-img-1.webp"
+													type="image/webp"><img src="img/pages/services/services-img-1.png"
+													alt="">
+											</picture>
 										</div>
 										<div class="rs-services__description">
 											<h4 class="mrp-med-25">Продающая страница</h4>
 										</div>
 										<div class="rs-services__icons">
 											<div class="rs-services__icon rs-services__icon-1">
-												<picture><source srcset="img/pages/services/services-icons/services-icon-1.1.webp" type="image/webp"><img src="img/pages/services/services-icons/services-icon-1.1.png" alt=""></picture>
+												<picture>
+													<source
+														srcset="img/pages/services/services-icons/services-icon-1.1.webp"
+														type="image/webp"><img
+														src="img/pages/services/services-icons/services-icon-1.1.png"
+														alt="">
+												</picture>
 											</div>
 											<div class="rs-services__line">
 												<svg viewBox="0 0 504 485" fill="none">
 													<defs>
 														<mask id="maskServices-1" maskUnits="userSpaceOnUse">
-															<path class="mask-path" id="mask-services-1" d="M-0.471954 637.516C-32.0404 268.025 431.921 -155.472 799.107 -60.4666C1257.09 58.0304 893.813 671.015 697.334 534.019C454.68 364.826 913.131 -160.464 1319.75 337.524C1645.05 735.914 1554.24 1135.84 1468.17 1286" stroke="#fff" stroke-width="3" />
+															<path class="mask-path" id="mask-services-1"
+																d="M-0.471954 637.516C-32.0404 268.025 431.921 -155.472 799.107 -60.4666C1257.09 58.0304 893.813 671.015 697.334 534.019C454.68 364.826 913.131 -160.464 1319.75 337.524C1645.05 735.914 1554.24 1135.84 1468.17 1286"
+																stroke="#fff" stroke-width="3" />
 														</mask>
 													</defs>
 													<g mask="url(#maskServices-1)">
-														<path opacity="0.5" class="dashed-path" id="dashed-services-1" d="M-0.471954 637.516C-32.0404 268.025 431.921 -155.472 799.107 -60.4666C1257.09 58.0304 893.813 671.015 697.334 534.019C454.68 364.826 913.131 -160.464 1319.75 337.524C1645.05 735.914 1554.24 1135.84 1468.17 1286" stroke="#25C16F" stroke-width="3" stroke-dasharray="4 10" stroke-linecap="round" />
+														<path opacity="0.5" class="dashed-path" id="dashed-services-1"
+															d="M-0.471954 637.516C-32.0404 268.025 431.921 -155.472 799.107 -60.4666C1257.09 58.0304 893.813 671.015 697.334 534.019C454.68 364.826 913.131 -160.464 1319.75 337.524C1645.05 735.914 1554.24 1135.84 1468.17 1286"
+															stroke="#25C16F" stroke-width="3" stroke-dasharray="4 10"
+															stroke-linecap="round" />
 													</g>
 												</svg>
 											</div>
@@ -1938,27 +2332,48 @@
 								<a href="#">
 									<div class="rs-services__item rs-services--blue">
 										<div class="rs-services__img">
-											<picture><source srcset="img/pages/services/services-img-2.webp" type="image/webp"><img src="img/pages/services/services-img-2.png" alt=""></picture>
+											<picture>
+												<source srcset="img/pages/services/services-img-2.webp"
+													type="image/webp"><img src="img/pages/services/services-img-2.png"
+													alt="">
+											</picture>
 										</div>
 										<div class="rs-services__description">
 											<h4 class="mrp-med-25">Продвижение сайта</h4>
 										</div>
 										<div class="rs-services__icons">
 											<div class="rs-services__icon rs-services__icon-2">
-												<picture><source srcset="img/pages/services/services-icons/services-icon-2.1.webp" type="image/webp"><img src="img/pages/services/services-icons/services-icon-2.1.png" alt=""></picture>
+												<picture>
+													<source
+														srcset="img/pages/services/services-icons/services-icon-2.1.webp"
+														type="image/webp"><img
+														src="img/pages/services/services-icons/services-icon-2.1.png"
+														alt="">
+												</picture>
 											</div>
 											<div class="rs-services__icon rs-services__icon-3">
-												<picture><source srcset="img/pages/services/services-icons/services-icon-2.2.webp" type="image/webp"><img src="img/pages/services/services-icons/services-icon-2.2.png" alt=""></picture>
+												<picture>
+													<source
+														srcset="img/pages/services/services-icons/services-icon-2.2.webp"
+														type="image/webp"><img
+														src="img/pages/services/services-icons/services-icon-2.2.png"
+														alt="">
+												</picture>
 											</div>
 											<div class="rs-services__line">
 												<svg viewBox="0 0 504 485" fill="none">
 													<defs>
 														<mask id="maskServices-2" maskUnits="userSpaceOnUse">
-															<path class="mask-path" id="mask-services-2" d="M-533.47 637.516C-565.079 268.025 -100.52 -155.472 267.14 -60.4666C725.711 58.0304 361.968 671.015 165.236 534.019C-77.7308 364.826 381.312 -160.464 788.458 337.524C1114.17 735.914 1023.25 1135.84 937.068 1286" stroke="#fff" stroke-width="3" />
+															<path class="mask-path" id="mask-services-2"
+																d="M-533.47 637.516C-565.079 268.025 -100.52 -155.472 267.14 -60.4666C725.711 58.0304 361.968 671.015 165.236 534.019C-77.7308 364.826 381.312 -160.464 788.458 337.524C1114.17 735.914 1023.25 1135.84 937.068 1286"
+																stroke="#fff" stroke-width="3" />
 														</mask>
 													</defs>
 													<g mask="url(#maskServices-2)">
-														<path opacity="0.5" class="dashed-path" id="dashed-services-2" d="M-533.47 637.516C-565.079 268.025 -100.52 -155.472 267.14 -60.4666C725.711 58.0304 361.968 671.015 165.236 534.019C-77.7308 364.826 381.312 -160.464 788.458 337.524C1114.17 735.914 1023.25 1135.84 937.068 1286" stroke="var(--primary-color)" stroke-width="3" stroke-dasharray="4 10" stroke-linecap="round" />
+														<path opacity="0.5" class="dashed-path" id="dashed-services-2"
+															d="M-533.47 637.516C-565.079 268.025 -100.52 -155.472 267.14 -60.4666C725.711 58.0304 361.968 671.015 165.236 534.019C-77.7308 364.826 381.312 -160.464 788.458 337.524C1114.17 735.914 1023.25 1135.84 937.068 1286"
+															stroke="var(--primary-color)" stroke-width="3"
+															stroke-dasharray="4 10" stroke-linecap="round" />
 													</g>
 												</svg>
 											</div>
@@ -1980,23 +2395,46 @@
 										</div>
 										<div class="rs-services__icons">
 											<div class="rs-services__icon rs-services__icon-4">
-												<picture><source srcset="img/pages/services/services-icons/services-icon-3.2.webp" type="image/webp"><img src="img/pages/services/services-icons/services-icon-3.2.png" alt=""></picture>
+												<picture>
+													<source
+														srcset="img/pages/services/services-icons/services-icon-3.2.webp"
+														type="image/webp"><img
+														src="img/pages/services/services-icons/services-icon-3.2.png"
+														alt="">
+												</picture>
 											</div>
 											<div class="rs-services__icon rs-services__icon-5">
-												<picture><source srcset="img/pages/services/services-icons/services-icon-3.1.webp" type="image/webp"><img src="img/pages/services/services-icons/services-icon-3.1.png" alt=""></picture>
+												<picture>
+													<source
+														srcset="img/pages/services/services-icons/services-icon-3.1.webp"
+														type="image/webp"><img
+														src="img/pages/services/services-icons/services-icon-3.1.png"
+														alt="">
+												</picture>
 											</div>
 											<div class="rs-services__icon rs-services__icon-6">
-												<picture><source srcset="img/pages/services/services-icons/services-icon-3.3.webp" type="image/webp"><img src="img/pages/services/services-icons/services-icon-3.3.png" alt=""></picture>
+												<picture>
+													<source
+														srcset="img/pages/services/services-icons/services-icon-3.3.webp"
+														type="image/webp"><img
+														src="img/pages/services/services-icons/services-icon-3.3.png"
+														alt="">
+												</picture>
 											</div>
 											<div class="rs-services__line">
 												<svg viewBox="0 0 504 485" fill="none">
 													<defs>
 														<mask id="maskServices-3" maskUnits="userSpaceOnUse">
-															<path class="mask-path" id="mask-services-3" d="M-1076.47 637.516C-1108.08 268.025 -643.52 -155.472 -275.86 -60.4666C182.711 58.0304 -181.032 671.015 -377.764 534.019C-620.731 364.826 -161.688 -160.464 245.458 337.524C571.174 735.914 480.247 1135.84 394.068 1286" stroke="#fff" stroke-width="3" />
+															<path class="mask-path" id="mask-services-3"
+																d="M-1076.47 637.516C-1108.08 268.025 -643.52 -155.472 -275.86 -60.4666C182.711 58.0304 -181.032 671.015 -377.764 534.019C-620.731 364.826 -161.688 -160.464 245.458 337.524C571.174 735.914 480.247 1135.84 394.068 1286"
+																stroke="#fff" stroke-width="3" />
 														</mask>
 													</defs>
 													<g mask="url(#maskServices-3)">
-														<path opacity="0.5" class="dashed-path" id="dashed-services-3" d="M-1076.47 637.516C-1108.08 268.025 -643.52 -155.472 -275.86 -60.4666C182.711 58.0304 -181.032 671.015 -377.764 534.019C-620.731 364.826 -161.688 -160.464 245.458 337.524C571.174 735.914 480.247 1135.84 394.068 1286" stroke="#FA9D7C" stroke-width="3" stroke-dasharray="4 10" stroke-linecap="round" />
+														<path opacity="0.5" class="dashed-path" id="dashed-services-3"
+															d="M-1076.47 637.516C-1108.08 268.025 -643.52 -155.472 -275.86 -60.4666C182.711 58.0304 -181.032 671.015 -377.764 534.019C-620.731 364.826 -161.688 -160.464 245.458 337.524C571.174 735.914 480.247 1135.84 394.068 1286"
+															stroke="#FA9D7C" stroke-width="3" stroke-dasharray="4 10"
+															stroke-linecap="round" />
 													</g>
 												</svg>
 											</div>
@@ -2059,25 +2497,29 @@
 					<div class="rs-breadcrumbs">
 						<nav class="rs-breadcrumbs__navigation">
 							<ul itemscope itemtype="http://schema.org/BreadcrumbList" class="rs-breadcrumbs__list">
-								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
 									<a class="rs-breadcrumbs__link" href="home.html" itemprop="item" typeof="WebPage">
 										<span itemprop="name">Главная</span>
 									</a>
 									<meta itemprop="position" content="1">
 								</li>
-								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
 									<a class="rs-breadcrumbs__link" href="#" itemprop="item" typeof="WebPage">
 										<span itemprop="name">Разработка</span>
 									</a>
 									<meta itemprop="position" content="2">
 								</li>
-								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
 									<a class="rs-breadcrumbs__link" href="#" itemprop="item" typeof="WebPage">
 										<span itemprop="name">Информационный сайт</span>
 									</a>
 									<meta itemprop="position" content="3">
 								</li>
-								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope=""
+									itemtype="http://schema.org/ListItem">
 									<span itemprop="name">Сайт «Бизнес» за 110&nbsp;000&nbsp;₽</span>
 									<meta itemprop="position" content="4">
 								</li>
@@ -2156,7 +2598,8 @@
 							</div>
 
 							<div class="rs-footer__spollers_item">
-								<button type="button" data-spoller class="rs-footer__spollers_title _spoller-active">Контактная
+								<button type="button" data-spoller
+									class="rs-footer__spollers_title _spoller-active">Контактная
 									информация</button>
 								<div class="rs-footer__spollers_body">
 									<div class="rs-footer__contact contact">
@@ -2313,12 +2756,14 @@
 								<div class="form__block">
 									<div class="form__line">
 										<label class="rs-input-placeholder">ФИО</label>
-										<input type="text" name="user-name" data-required data-validate data-error="Введите ФИО" class="rs-input">
+										<input type="text" name="user-name" data-required data-validate
+											data-error="Введите ФИО" class="rs-input">
 										<button type="button" class="rs-input-clear _rs-icon-close"></button>
 									</div>
 									<div class="form__line">
 										<label class="rs-input-placeholder">Телефон</label>
-										<input type="tel" name="user-phone" data-required="tel" data-validate data-error="Введите телефон" class="rs-input">
+										<input type="tel" name="user-phone" data-required="tel" data-validate
+											data-error="Введите телефон" class="rs-input">
 										<button type="button" class="rs-input-clear _rs-icon-close"></button>
 									</div>
 									<div class="form__line">
@@ -2362,12 +2807,14 @@
 								<div class="form__block">
 									<div class="form__line">
 										<label class="rs-input-placeholder">ФИО</label>
-										<input type="text" name="user-name" data-required data-validate data-error="Введите ФИО" class="rs-input">
+										<input type="text" name="user-name" data-required data-validate
+											data-error="Введите ФИО" class="rs-input">
 										<button type="button" class="rs-input-clear _rs-icon-close"></button>
 									</div>
 									<div class="form__line">
 										<label class="rs-input-placeholder">Телефон</label>
-										<input type="tel" name="user-phone" data-required="tel" data-validate data-error="Введите телефон" class="rs-input">
+										<input type="tel" name="user-phone" data-required="tel" data-validate
+											data-error="Введите телефон" class="rs-input">
 										<button type="button" class="rs-input-clear _rs-icon-close"></button>
 									</div>
 									<div class="form__line">
@@ -2401,7 +2848,7 @@
 		const branchData = [{
 			address: 'ул. Ленинская Слобода, д.19, БЦ «Omega Plaza», офис 348.1',
 			location: [55.708521, 37.653510],
-		}, ]
+		},]
 	</script>
 	<div id="contact" aria-hidden="true" class="popup popup-contact popup-right">
 		<div class="popup__wrapper">
@@ -2426,7 +2873,8 @@
 								<ul class="popup__contact_list">
 									<li>ул. Ленинская Слобода, д. 19, БЦ «Omega Plaza», офис 348.1</li>
 									<li class="popup__contact_green"><span>МЦК Автозаводская:</span> 7 минут пешком</li>
-									<li class="popup__contact_red"><span>Автозаводская:</span> 4 мин пешком. Выход в сторону
+									<li class="popup__contact_red"><span>Автозаводская:</span> 4 мин пешком. Выход в
+										сторону
 										улицы Мастеркова</li>
 								</ul>
 
@@ -2438,7 +2886,9 @@
 									<a href="#" class="rs-btn _btn-gray-border">
 										<span class="btn-text">
 											<svg viewBox="0 0 20 21" fill="none">
-												<path d="M14.0039 8.5H6.00391M14.0039 12.5H6.00391M1 10.5C1 15.4706 5.02944 19.5 10 19.5C12.0364 19.5 18.9993 19.5 18.9993 19.5C18.9993 19.5 17.4401 15.7561 18.0641 14.5008C18.6631 13.2956 19 11.9372 19 10.5C19 5.52944 14.9706 1.5 10 1.5C5.02944 1.5 1 5.52944 1 10.5Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M14.0039 8.5H6.00391M14.0039 12.5H6.00391M1 10.5C1 15.4706 5.02944 19.5 10 19.5C12.0364 19.5 18.9993 19.5 18.9993 19.5C18.9993 19.5 17.4401 15.7561 18.0641 14.5008C18.6631 13.2956 19 11.9372 19 10.5C19 5.52944 14.9706 1.5 10 1.5C5.02944 1.5 1 5.52944 1 10.5Z"
+													stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
 											</svg>
 											задать вопрос
 										</span>
@@ -2448,12 +2898,16 @@
 									<a href="#" class="rs-link">
 										<span class="btn-text">
 											<svg viewBox="0 0 20 20" fill="none">
-												<path d="M5.09062 5.35183L6.83779 3.60488C7.63434 2.80842 8.03262 2.41019 8.49188 2.26099C8.89586 2.12974 9.33103 2.12974 9.73501 2.26099C10.1943 2.41019 10.5925 2.80842 11.3891 3.60487L12.1305 4.34637M8.10774 8.36858L12.1306 12.3909M7.60491 16.9163C8.26668 16.2546 14.7896 9.73245 18.1688 6.35366C19.2797 5.24288 19.2757 3.44599 18.1648 2.33518C17.0539 1.22432 15.2567 1.22026 14.1457 2.33109C10.7665 5.70993 4.24376 12.2319 3.58196 12.8936C1.78719 14.688 0.712189 19.0744 1.06769 19.4299C1.4232 19.7853 5.75503 18.7659 7.60491 16.9163Z" stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
+												<path
+													d="M5.09062 5.35183L6.83779 3.60488C7.63434 2.80842 8.03262 2.41019 8.49188 2.26099C8.89586 2.12974 9.33103 2.12974 9.73501 2.26099C10.1943 2.41019 10.5925 2.80842 11.3891 3.60487L12.1305 4.34637M8.10774 8.36858L12.1306 12.3909M7.60491 16.9163C8.26668 16.2546 14.7896 9.73245 18.1688 6.35366C19.2797 5.24288 19.2757 3.44599 18.1648 2.33518C17.0539 1.22432 15.2567 1.22026 14.1457 2.33109C10.7665 5.70993 4.24376 12.2319 3.58196 12.8936C1.78719 14.688 0.712189 19.0744 1.06769 19.4299C1.4232 19.7853 5.75503 18.7659 7.60491 16.9163Z"
+													stroke="#141517" stroke-linecap="round" stroke-linejoin="round" />
 											</svg>
 											<span>
 												оставить отзыв
-												<svg class="link__slide" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-													<path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">
+												<svg class="link__slide" width="300%" height="100%"
+													viewBox="0 0 1200 60" preserveAspectRatio="none">
+													<path
+														d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">
 													</path>
 												</svg>
 											</span>
@@ -2502,11 +2956,11 @@
 			}
 
 			menuItemDropdowns.forEach(item => {
-				item.addEventListener("mouseenter", function() {
+				item.addEventListener("mouseenter", function () {
 					header.classList.add("_header-hover");
 					updateHeaderHeight(true);
 				});
-				item.addEventListener("mouseleave", function() {
+				item.addEventListener("mouseleave", function () {
 					if (!document.documentElement.classList.contains("region-menu-open")) {
 						header.classList.remove("_header-hover");
 					}
