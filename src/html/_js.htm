@@ -53,19 +53,30 @@
 <script>
 	const loader = document.querySelector(".mg-loader");
 	const percentageDisplay = document.getElementById("mg-percentage");
-
+	let hideLoaderCalled = false;
 	let resourcesToLoad = 0;
 	let resourcesLoaded = 0;
 	let targetPercentage = 0;
 
 	function showLoader() {
+		document.body.classList.add("lock");
 		loader.classList.add("show");
 		loader.classList.remove("hide");
 	}
 
 	function hideLoader() {
+		document.body.classList.remove("lock");
+
+		if (hideLoaderCalled) return;
+
 		loader.classList.add("hide");
 		loader.classList.remove("show");
+
+		// Диспатчим пользовательское событие 'loaderEnd'
+		const event = new Event("loaderEnd");
+		document.dispatchEvent(event);
+
+		hideLoaderCalled = true;
 	}
 
 	function updatePercentage() {
@@ -77,10 +88,7 @@
 
 		const animate = () => {
 			if (currentPercentage < targetPercentage) {
-				currentPercentage++; percentageDisplay.textContent = currentPercentage + "%";
-				requestAnimationFrame(animate);
-			} else if (currentPercentage > targetPercentage) {
-				currentPercentage--;
+				currentPercentage++;
 				percentageDisplay.textContent = currentPercentage + "%";
 				requestAnimationFrame(animate);
 			} else if (currentPercentage === 100 && document.readyState === "complete") {
@@ -118,7 +126,7 @@
 		const images = document.querySelectorAll("img");
 		resourcesToLoad += images.length;
 
-		images.forEach(img => {
+		images.forEach((img) => {
 			if (img.complete) {
 				trackResourceLoad();
 			} else {
@@ -131,7 +139,7 @@
 		const videos = document.querySelectorAll("video");
 		resourcesToLoad += videos.length;
 
-		videos.forEach(video => {
+		videos.forEach((video) => {
 			if (video.readyState >= 3) {
 				trackResourceLoad();
 			} else {
@@ -140,8 +148,19 @@
 			}
 		});
 
+		// // Отслеживание шрифтов (для Safari)
+		// if (document.fonts) {
+		// 	const fontLoadPromises = Array.from(document.fonts).map((font) =>
+		// 		font.status === "loaded" ? Promise.resolve() : font.load()
+		// 	);
+		// 	Promise.all(fontLoadPromises).then(trackResourceLoad);
+		// 	resourcesToLoad += fontLoadPromises.length;
+		// }
+
 		// Отслеживание скриптов
-		const scriptToLoad = document.querySelector("script[src*=\'app.min.js\'], script[src*=\'app.js\']");
+		const scriptToLoad = document.querySelector(
+			"script[src*='app.min.js'], script[src*='app.js']"
+		);
 		if (scriptToLoad) {
 			scriptToLoad.addEventListener("load", trackResourceLoad);
 			scriptToLoad.addEventListener("error", trackResourceLoad);
@@ -153,6 +172,7 @@
 		}
 	}
 
+	// Добавляем обработчики для DOM и загрузки
 	window.addEventListener("DOMContentLoaded", () => {
 		showLoader();
 		loadResources();

@@ -107,7 +107,9 @@
 	}
 
 	&.border-bottom {
-		border-bottom: 1px solid var(--light-gray-border);
+		@media (min-width: 991.98px) {
+			border-bottom: 1px solid var(--light-gray-border);
+		}
 	}
 
 	// .rs-header__container

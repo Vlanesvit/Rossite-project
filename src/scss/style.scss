@@ -5,7 +5,7 @@
 
 // Подключение шрифтов ===========================================================================================================================================================================================================================================================================
 //&display=swap - добавить при подключении через плагин
-@import url(https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Manrope:300,regular,500,600,700&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:500italic&display=swap);
 
 // Подключить если есть локальные файлы шрифтов
@@ -226,4 +226,10 @@ body {
 @import "blocks/rs-text";
 @import "blocks/rs-services-slider";
 @import "blocks/rs-our-project";
+@import "blocks/rs-parallax";
+@import "blocks/rs-result";
+@import "blocks/rs-case-comparison";
+@import "blocks/rs-other-project";
+@import "blocks/rs-case-slider";
+@import "blocks/rs-about-case";
 @import "anim-go-page";

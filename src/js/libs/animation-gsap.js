@@ -147,16 +147,6 @@ window.addEventListener('load', () => {
 	initPageAnimations();
 	manageScripts();
 
-	// Запуск анимаций по конфигурации
-	animationConfig.forEach(config => {
-		revealOnScroll({
-			elements: config.elements,
-			duration: config.duration || 0.5,
-			delay: config.delay || 0.15,
-			direction: config.direction || 'bottom-up',
-		});
-	});
-
 	// Проверяем, есть ли якорь в URL
 	if (!window.location.hash) {
 		setTimeout(() => {
@@ -171,6 +161,18 @@ window.addEventListener('load', () => {
 			}, 100);
 		}
 	}
+});
+
+document.addEventListener('loaderEnd', function () {
+	// Запуск анимаций по конфигурации
+	animationConfig.forEach(config => {
+		revealOnScroll({
+			elements: config.elements,
+			duration: config.duration || 0.5,
+			delay: config.delay || 0.15,
+			direction: config.direction || 'bottom-up',
+		});
+	});
 });
 
 //========================================================================================================================================================
@@ -314,7 +316,18 @@ const animationConfig = [
 	{ elements: '.rs-error-block', duration: 0.8, direction: 'bottom-up' },
 	// Cards
 	{ elements: '.rs-cards__title h1', direction: 'bottom-up' },
-	{ elements: '.rs-cards__title h2', delay: 0.2, direction: 'bottom-up' },
+	{ elements: '.rs-cards__title h2', delay: 0.3, direction: 'bottom-up' },
+	{ elements: '.rs-cards__title h3', delay: 0.3, direction: 'bottom-up' },
+	// Text
+	{ elements: '.rs-text__left', direction: 'bottom-up' },
+	{ elements: '.rs-text__right', delay: 0.3, direction: 'bottom-up' },
+	// Result
+	{ elements: '.rs-result__img', direction: 'fade--every' },
+	// Case-slider
+	{ elements: '.rs-case-slider__slide', direction: 'button-up--every' },
+	// Other-project
+	{ elements: '.rs-other-project__slider', direction: 'right-left' },
+
 ];
 function revealOnScroll({ elements, duration = 0.5, delay = 0.15, direction = 'bottom-up' }) {
 	const items = document.querySelectorAll(elements);
@@ -340,36 +353,39 @@ function revealOnScroll({ elements, duration = 0.5, delay = 0.15, direction = 'b
 		item.setAttribute('data-animation', 'false');
 	});
 
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry, index) => {
-			if (entry.isIntersecting && entry.target.getAttribute('data-animation') === 'false') {
-				entry.target.setAttribute('data-animation', 'true');
+	setTimeout(() => {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry, index) => {
+				if (entry.isIntersecting && entry.target.getAttribute('data-animation') === 'false') {
+					entry.target.setAttribute('data-animation', 'true');
 
-				const animationProps = animationPropsMap[direction.replace('--every', '')];
-				if (animationProps) {
-					const animationDelay = direction.includes('--every') ? delay * (index + 1) : 0;
+					const animationProps = animationPropsMap[direction.replace('--every', '')];
+					if (animationProps) {
+						const animationDelay = direction.includes('--every') ? delay * (index + 1) : 0;
 
-					gsap.fromTo(entry.target, animationProps.from, {
-						...animationProps.to,
-						duration,
-						delay: animationDelay,
-						// Указываем сброс только анимационных свойств для сохранения исходных стилей
-						clearProps: "opacity, transform",
-						onComplete: () => {
-							// Восстанавливаем исходные инлайн-стили
-							entry.target.setAttribute('style', entry.target.getAttribute('data-original-style'));
-						},
-					});
+						gsap.fromTo(entry.target, animationProps.from, {
+							...animationProps.to,
+							duration,
+							delay: animationDelay,
+							// Указываем сброс только анимационных свойств для сохранения исходных стилей
+							clearProps: "opacity, transform",
+							onComplete: () => {
+								// Восстанавливаем исходные инлайн-стили
+								entry.target.setAttribute('style', entry.target.getAttribute('data-original-style'));
+							},
+						});
+					}
+
+					observer.unobserve(entry.target);
 				}
+			});
+		}, observerOptions);
 
-				observer.unobserve(entry.target);
-			}
-		});
-	}, observerOptions);
+		items.forEach(item => observer.observe(item));
 
-	items.forEach(item => observer.observe(item));
+		return observer;
+	}, 700);
 
-	return observer;
 }
 
 function destroyReveal() {
@@ -575,7 +591,7 @@ function initializeCommonAnimations() {
 		});
 	}
 
-	if (document.querySelector('.rs-text .rs-text__right h2')) {
+	if (document.querySelector('.rs-text-1 .rs-text__right h2')) {
 		splitTextIntoWords('.rs-text .rs-text__right h2');
 		const words = document.querySelectorAll('.rs-text .rs-text__right h2 .word');
 		gsap.fromTo(words,
@@ -596,21 +612,34 @@ function initializeCommonAnimations() {
 	}
 
 	if (document.querySelector('.rs-cards__bg-2')) {
-		gsap.to(".rs-cards__bg-2", {
+		const timeline = gsap.timeline({
 			scrollTrigger: {
-				trigger: ".rs-text",
+				trigger: ".rs-text-1",
 				start: "top bottom",
-				end: "bottom+=100% top",
-				scrub: 3,
+				end: "bottom+=500% top",
+				scrub: 3, // Сделать scrub более плавным
+				markers: true, // Для отладки
+				pin: false, // Если не нужно фиксировать элемент
 			},
-			transform: "translate(70vw, 70vh)",
-			ease: "power2.out",
+		});
+
+		// Первая часть: движение в правую нижнюю часть
+		timeline.to(".rs-cards__bg-2", {
+			transform: "translate(70vw, 100vh)",
+			ease: "power1.out",
+		});
+
+		// Вторая часть: движение в левую нижнюю часть и дальше вниз
+		timeline.to(".rs-cards__bg-2", {
+			transform: "translate(0vw, 300vh)",
+			ease: "power1.out",
+			duration: 5,
 		});
 	}
 
 	if (document.querySelector('.rs-text__right ul li')) {
 		// Получаем все блоки rs-text, которые содержат список rs-text__right ul li
-		const blocks = gsap.utils.toArray('.rs-text').filter(block => block.querySelector('.rs-text__right ul li'));
+		const blocks = gsap.utils.toArray('.rs-text-2');
 
 		// Проходим по каждому найденному блоку
 		blocks.forEach((block) => {
@@ -648,6 +677,53 @@ function initializeCommonAnimations() {
 			});
 		});
 	}
+
+	if (document.querySelector('.rs-case-comparison')) {
+		const comparisonBlocks = document.querySelectorAll('.rs-case-comparison');
+
+		comparisonBlocks.forEach(block => {
+			const imageBefore = block.querySelector('.section__bg .rs-case-comparison__img:first-child');
+			const imageAfter = block.querySelector('.section__bg .rs-case-comparison__img:last-child');
+
+			if (!imageBefore || !imageAfter) {
+				console.warn('Не найдены необходимые элементы внутри', block);
+				return;
+			}
+
+			// Начальные стили для изображения и полосы
+			gsap.set(imageAfter, {
+				clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)', // Скрываем всю картинку
+			});
+
+			gsap.timeline({
+				scrollTrigger: {
+					trigger: block,
+					scrub: 1,
+					start: 'center center',
+					end: '+=500px',
+					pin: true,
+					markers: false,
+					refreshPriority: -2,
+				},
+			})
+				// Плавное раскрытие второй картинки с углом -45 градусов
+				.to(imageAfter, {
+					clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+					duration: 2,
+					ease: 'power2.inOut',
+				})
+				// Уменьшение opacity первой картинки
+				.to(
+					imageBefore,
+					{
+						opacity: 0.2,
+						duration: 2,
+						ease: 'power2.inOut',
+					},
+					'<'
+				);
+		});
+	}
 }
 
 // Десктопные анимаций
@@ -662,51 +738,162 @@ function initializeDesktopAnimations() {
 
 	if (document.querySelector('.rs-services-slider')) {
 		const block = document.querySelector('.rs-services-slider .rs-services-slider__wrapper');
+		const main = document.querySelector('.rs-services-slider .rs-services-slider__block')
 		const trigger = document.querySelector('.rs-services-slider');
 
-		if (block && trigger) {
-			// Установка начального состояния для анимации "выезда"
-			gsap.set(block, {
-				x: '100%',
-			});
+		// Установка начального состояния для анимации "выезда"
+		gsap.set(main, {
+			x: '100%',
+		});
 
-			// Анимация "выезда" блока справа налево
-			const entryTimeline = gsap.timeline({
+		// Анимация "выезда" блока справа налево
+		const entryTimeline = gsap.timeline({
+			scrollTrigger: {
+				trigger: trigger,
+				start: "top center", // Начало анимации
+				end: "bottom center", // Конец анимации
+				scrub: 1,
+				toggleActions: "play reverse play reverse",
+				invalidateOnRefresh: true, // Пересчёт при изменении экрана
+			},
+		});
+
+		entryTimeline.to(main, {
+			x: '0%',
+			duration: 1.5, // Увеличение времени для плавности
+			ease: 'power1.inOut', // Более мягкая кривая
+		});
+
+		// Горизонтальный скролл с фиксацией
+		const scrollTimeline = gsap.timeline({
+			scrollTrigger: {
+				trigger: trigger,
+				start: "center center", // Запуск горизонтального скролла
+				end: () => `+=${block.scrollWidth - block.clientWidth}`, // Динамическое вычисление
+				pin: true,
+				scrub: 0.5, // Уменьшение задержки для плавности
+				invalidateOnRefresh: true,
+				// markers: true, // Включите для отладки
+			},
+		});
+
+		scrollTimeline.to(block, {
+			x: () => `-${block.scrollWidth - block.clientWidth}px`,
+			duration: 1,
+			ease: "power1.inOut", // Плавный переход
+		});
+	}
+
+	if (document.querySelector('.rs-parallax')) {
+		const parallaxBlocks = document.querySelectorAll('.rs-parallax');
+
+		parallaxBlocks.forEach(block => {
+			const parallaxWrapper = block.querySelector('.section__wrapper ');
+			const parallaxBgImg = block.querySelector('.section__bg > img');
+
+			// Проверяем, существует ли обертка
+			if (!parallaxWrapper) {
+				console.warn('Не найдена .section__wrapper внутри', block);
+				return;
+			}
+
+			// Получаем текущие стили
+			const blockStyles = getComputedStyle(block);
+			const targetPadding = blockStyles.padding;
+			const wrapperStyles = getComputedStyle(parallaxWrapper);
+			const targetBorderRadius = wrapperStyles.borderRadius;
+
+			// Устанавливаем начальные значения
+			gsap.set(block, { padding: targetPadding });
+			gsap.set(parallaxWrapper, { borderRadius: targetBorderRadius });
+			gsap.set(parallaxBgImg, { borderRadius: targetBorderRadius });
+
+			// Создаем анимацию
+			gsap.timeline({
 				scrollTrigger: {
-					trigger: trigger,
-					start: "top center", // Анимация начинается, когда блок появляется в зоне видимости
-					end: "bottom center", // Заканчивается, когда блок достигнет центра экрана
-					scrub: 1, // Прокрутка синхронизирует анимацию
-					toggleActions: "play reverse play reverse", // Анимация проигрывается при прокрутке вниз и назад
-					invalidateOnRefresh: true, // Пересчитывает анимацию при изменении размера экрана
-				}
-			});
-
-			entryTimeline.to(block, {
-				x: '0%',
-				duration: 1,
-				ease: 'power3.out'
-			});
-
-			// Горизонтальный скролл с фиксацией
-			const scrollTimeline = gsap.timeline({
-				scrollTrigger: {
-					trigger: trigger,
-					start: "center center", // Запуск горизонтального скролла, когда блок будет в центре экрана
-					end: () => `+=${trigger.clientHeight + window.innerHeight}`, // Продолжительность прокрутки
-					pin: true,
+					trigger: block,
 					scrub: 1,
-					invalidateOnRefresh: true,
-					// markers: true, // Включите для отладки
+					start: 'center center',
+					end: '+=500px',
+					pin: true,
+					refreshPriority: -1,
 				}
-			});
+			})
+				.to(parallaxWrapper, { borderRadius: '0px', duration: 1 })
+				.to(parallaxBgImg, { borderRadius: '0px', duration: 1 })
+				.to(block, { padding: '0px', duration: 1 }, '<');
+		});
+	}
 
-			scrollTimeline.to(block, {
-				x: () => `-${block.scrollWidth - block.clientWidth}px`,
-				duration: 1,
-				ease: "power2.out"
+	if (document.querySelector('.rs-parallax__column')) {
+		// Находим все блоки, содержащие rs-parallax__column
+		const parallaxContainers = document.querySelectorAll('.rs-parallax');
+
+		parallaxContainers.forEach(container => {
+			const columns = container.querySelectorAll('.rs-parallax__column');
+
+			columns.forEach((column, index) => {
+				const isEven = (index + 1) % 2 === 0;
+				const animationFrom = isEven ? { y: '-500px' } : { y: '500px' };
+				const animationTo = isEven ? { y: '500px' } : { y: '-500px' };
+
+				gsap.timeline({
+					scrollTrigger: {
+						trigger: container,
+						scrub: 1,
+						start: 'top-=100% top',
+						end: 'bottom+=100% bottom',
+						invalidateOnRefresh: true,
+						refreshPriority: -2,
+					}
+				}).fromTo(column, animationFrom, animationTo);
 			});
-		}
+		});
+	}
+
+	if (document.querySelector("[data-change-bg-color]")) {
+		gsap.matchMedia().add("(min-width: 991.98px)", () => {
+			const sections = document.querySelectorAll("[data-change-bg-color]");
+			sections.forEach((section) => {
+				ScrollTrigger.create({
+					trigger: section,
+					start: "top bottom",
+					end: "bottom bottom",
+					invalidateOnRefresh: true,
+					refreshPriority: -5,
+					onEnter: () => section.classList.add("_active-step"),
+					onLeave: () => section.classList.remove("_active-step"),
+					onEnterBack: () => section.classList.add("_active-step"),
+					onLeaveBack: () => section.classList.remove("_active-step"),
+				});
+			});
+		});
+	}
+
+	if (document.querySelector(".rs-case-slider")) {
+		gsap.utils.toArray('.rs-case-slider').forEach(slider => {
+			const slides = gsap.utils.toArray('.rs-case-slider__slide', slider);
+
+			slides.forEach(slide => {
+				gsap.fromTo(
+					slide,
+					{
+						y: gsap.utils.random(300, 600), // начальное случайное смещение по Y
+					},
+					{
+						y: 0, // возвращение к исходному положению
+						duration: gsap.utils.random(0.8, 1.5), // уменьшенная длительность анимации
+						ease: "power3.out", // плавное и быстрое ускорение
+						scrollTrigger: {
+							trigger: slide, // триггер на самих слайдах
+							start: "top-=50% center", // срабатывание раньше, чтобы анимация казалась шустрее
+							end: "bottom+=50% center",
+							scrub: 1, // немного медленнее, чем моментально
+						}
+					}
+				);
+			});
+		});
 	}
 
 	//========================================================================================================================================================
@@ -768,15 +955,13 @@ function initializeDesktopAnimations() {
 
 			const stackTimeline = gsap.timeline({
 				scrollTrigger: {
-					trigger: '.rs-our-project', // Изменен триггер на нужный класс
+					trigger: '.rs-our-project',
 					start: 'top top',
-					end: `bottom+=${stackItems.length * 100}% top`,
+					end: `bottom+=${stackItems.length * 80}% top`, // Более короткий диапазон
 					pin: true,
 					pinSpacing: true,
-					scrub: 1,
-					// anticipatePin: 1,
+					scrub: 1, // Более плавное и быстрое сканирование
 					invalidateOnRefresh: true,
-					// markers: true,
 				}
 			});
 
@@ -784,20 +969,19 @@ function initializeDesktopAnimations() {
 			stackTimeline
 				.to(stackItems, {
 					yPercent: (index) => 0,
-					ease: "power2.inOut",
+					ease: "power1.out",
+					direction: 0.3,
 					stagger: stagger,
 				})
 				.to(stackItems.slice(0, -1), {
 					scale: (index) => 1 - (stackItems.length - index) * 0.025,
 					opacity: 0,
-					ease: "power2.inOut",
+					ease: "power1.out",
+					direction: 0.3,
 					stagger: stagger,
 				}, stagger);
-
-			handleReveal()
 		});
 	}
-
 
 	//========================================================================================================================================================
 	// Замена фон.цвета при скролле
@@ -1157,6 +1341,7 @@ function initBarba() {
 		transitions: [{
 			async leave({ current }) {
 				showLoader();
+				hideLoaderCalled = false;
 				resourcesToLoad = 0;
 				resourcesLoaded = 0;
 				percentageDisplay.textContent = "0%";
@@ -1177,6 +1362,7 @@ function initBarba() {
 					delay: 0.5,
 					opacity: 0,
 					onComplete: function () {
+						hideLoaderCalled = false;
 						window.scrollTo(0, 0);
 						loadResources();
 						initHeaderHeight();
@@ -1185,17 +1371,6 @@ function initBarba() {
 						videoPlay();
 						marquee();
 						initPageAnimations();
-
-						// Запуск анимаций по конфигурации
-						animationConfig.forEach(config => {
-							revealOnScroll({
-								elements: config.elements,
-								duration: config.duration || 0.5,
-								delay: config.delay || 0.15,
-								direction: config.direction || 'bottom-up',
-							});
-						});
-
 						resourcesToLoad = 0;
 						resourcesLoaded = 0;
 						percentageDisplay.textContent = "0%";

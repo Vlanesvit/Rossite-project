@@ -1,0 +1,119 @@
+.rs-parallax {
+	@media (min-width: 991.98px) {
+		height: 880px;
+	}
+
+	@media (max-width: 991.98px) {
+		height: 610px;
+		padding: 0px 36px;
+	}
+
+	@media (max-width: 767.98px) {
+		height: 303px;
+		padding: 0px 16px;
+	}
+
+	.section {
+		// .section__wrapper
+		&__wrapper {
+			overflow: hidden;
+			border-radius: 50px;
+			height: 100%;
+
+			@media (max-width: 1439.98px) {
+				border-radius: 40px;
+			}
+
+			@media (max-width: 991.98px) {
+				border-radius: 30px;
+			}
+
+			@media (max-width: 767.98px) {
+				border-radius: 15px;
+			}
+		}
+
+		&__bg {
+			img {
+				border-radius: 50px;
+
+				@media (max-width: 1439.98px) {
+					border-radius: 40px;
+				}
+
+				@media (max-width: 991.98px) {
+					border-radius: 30px;
+				}
+
+				@media (max-width: 767.98px) {
+					border-radius: 15px;
+				}
+			}
+		}
+	}
+
+	// .rs-parallax__columns
+	&__columns {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		background: #193457;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	// .rs-parallax__column
+	&__column {
+		flex: 0 0 48.64%;
+		padding: 12px;
+
+		@media (max-width: 1439.98px) {
+			padding: 8px;
+		}
+
+		@media (max-width: 991.98px) {
+			padding: 6px;
+		}
+
+		@media (max-width: 767.98px) {
+			padding: 3px;
+		}
+
+		img {
+			border-radius: 30px;
+			width: 100%;
+			object-fit: contain;
+			max-width: 100%;
+
+			@media (max-width: 1439.98px) {
+				border-radius: 24px;
+			}
+
+			@media (max-width: 991.98px) {
+				border-radius: 16px;
+			}
+
+			@media (max-width: 767.98px) {
+				border-radius: 8px;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 24px;
+
+				@media (max-width: 1439.98px) {
+					margin-bottom: 16px;
+				}
+
+				@media (max-width: 991.98px) {
+					margin-bottom: 12px;
+				}
+
+				@media (max-width: 767.98px) {
+					margin-bottom: 6px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('html/_head.htm',{
+"title":"Кейс Эйфман"
+})
+
+<body data-barba="wrapper">
+
+	@@include('html/_anim-elements.htm',{})
+
+	<div class="wrapper" data-barba="container" data-barba-namespace="case-page" style="
+	--primary-color: #6366f1; 
+	--primary-color-hover: #8083f2; 
+	--primary-color-text: #fff; 
+	--primary-gradient: linear-gradient(270deg, rgb(214, 71, 239), rgb(110, 105, 243));
+	">
+
+		@@include('html/_header.htm',{
+		"addclass":"border-bottom margin-0"
+		})
+
+		<main class="page">
+
+			<section class="rs-cards">
+				<div class="rs-cards__container">
+					<div class="rs-cards__wrapper">
+						<div class="rs-cards__title">
+							<h1>Академия танца Бориса Эйфмана</h1>
+							<h3>Санкт-Петербургское государственное бюджетное профессиональное образовательное
+								учреждение, осуществляющее подготовку артистов балета и специалистов
+								художественно-постановочных цехов.</h3>
+							<a href="#" class="rs-cards__scroll">
+								<svg width="66" height="66" viewBox="0 0 66 66" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path d="M50.501 37.1553L33 54.6563L50.501 37.1553Z" fill="black" />
+									<path d="M50.501 37.1553L33 54.6563" stroke="#151614" stroke-width="3.64375"
+										stroke-linecap="round" />
+									<path d="M33 12.375V54.6562V12.375Z" fill="black" />
+									<path d="M33 12.375V54.6562" stroke="#151614" stroke-width="3.64375"
+										stroke-linecap="round" />
+									<path d="M32.9705 54.6256L15.5 37.155L32.9705 54.6256Z" fill="black" />
+									<path d="M32.9705 54.6256L15.5 37.155" stroke="#151614" stroke-width="3.64375"
+										stroke-linecap="round" />
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-parallax section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg"><img src="@img/pages/case-page/case-banner-1.jpg" alt=""></div>
+				</div>
+			</section>
+
+			<section class="rs-text">
+				<div class="rs-text__container">
+					<div class="rs-text__wrapper">
+						<div class="rs-text__left">
+							<h4>Цель разработки</h4>
+						</div>
+						<div class="rs-text__right">
+							<h3>Академия Бориса Эйфмана, известная своим уникальным подходом к обучению и сценическому
+								искусству, приняла решение модернизировать сайт, чтобы соответствовать актуальным
+								тенденциям и улучшить удобство для пользователей. Основная задача — создать современный,
+								интуитивно понятный и визуально привлекательный сайт, который бы отражал новые стандарты
+								и обновлённый облик академии.</h3>
+
+							<a href="#" class="rs-btn _btn-gray-border">
+								<span class="btn-text">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M5.86316 14.9992H7.63158V14.0518H5.86316C4.80788 14.0518 3.79576 13.6026 3.0496 12.8032C2.30342 12.0036 1.88421 10.9193 1.88421 9.78865C1.88421 8.658 2.30342 7.57358 3.0496 6.77413C3.79576 5.97467 4.80788 5.52549 5.86316 5.52549H7.63158V4.57812H5.86316C4.57339 4.57812 3.33644 5.12709 2.42438 6.10427C1.51237 7.08145 1 8.40676 1 9.78865C1 11.1705 1.51237 12.4959 2.42438 13.473C3.33644 14.4502 4.57339 14.9992 5.86316 14.9992Z"
+											stroke="black" stroke-width="0.8" />
+										<path
+											d="M3.1231 6.84275C3.85111 6.06273 4.83711 5.62588 5.86355 5.62588H7.73197V4.47852H5.86355C4.54494 4.47852 3.28186 5.03982 2.35167 6.03643C1.42174 7.03281 0.900391 8.38277 0.900391 9.78904C0.900391 11.1953 1.42174 12.5453 2.35167 13.5417M3.1231 6.84275L3.05189 6.77629M3.1231 6.84275C2.39484 7.623 1.9846 8.68277 1.9846 9.78904C1.9846 10.8953 2.39483 11.955 3.1231 12.7353C3.85111 13.5154 4.83711 13.9522 5.86355 13.9522H7.73197V15.0996H5.86355C4.54494 15.0996 3.28186 14.5383 2.35167 13.5417M2.35167 13.5417L2.42477 13.4734M2.97688 12.8718C3.74118 13.6907 4.77944 14.1522 5.86355 14.1522H7.53197V14.8996H5.86355C4.60262 14.8996 3.3918 14.3629 2.49788 13.4052C1.60379 12.4472 1.10039 11.1466 1.10039 9.78904C1.10039 8.43153 1.60378 7.13088 2.49788 6.1729C3.3918 5.21515 4.60262 4.67852 5.86355 4.67852H7.53197V5.42588H5.86355C4.77944 5.42588 3.74118 5.8874 2.97688 6.70628C2.21278 7.52494 1.7846 8.63401 1.7846 9.78904C1.7846 10.9441 2.21279 12.053 2.97688 12.8718ZM2.97688 12.8718L3.04999 12.8036"
+											stroke="black" stroke-width="0.8" />
+										<path
+											d="M14.1376 4.57812H12.3691V5.52549H14.1376C15.1928 5.52549 16.2048 5.97467 16.9511 6.77413C17.6973 7.57358 18.1165 8.658 18.1165 9.78865C18.1165 10.9193 17.6973 12.0036 16.9511 12.8032C16.2048 13.6026 15.1928 14.0518 14.1376 14.0518H12.3691V14.9992H14.1376C15.4273 14.9992 16.6643 14.4502 17.5763 13.473C18.4883 12.4959 19.0007 11.1705 19.0007 9.78865C19.0007 8.40676 18.4883 7.08145 17.5763 6.10427C16.6643 5.12709 15.4273 4.57812 14.1376 4.57812Z"
+											stroke="black" stroke-width="0.8" />
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M12.2695 4.47852H14.138C15.4566 4.47852 16.7196 5.03982 17.6498 6.03643C18.5798 7.03281 19.1011 8.38277 19.1011 9.78904C19.1011 11.1953 18.5798 12.5453 17.6498 13.5417C16.7196 14.5383 15.4566 15.0996 14.138 15.0996H12.2695V13.9522H14.138C15.1644 13.9522 16.1503 13.5154 16.8784 12.7353C17.6066 11.9549 18.0169 10.8953 18.0169 9.78904C18.0169 8.68277 17.6066 7.62301 16.8784 6.84275C16.1503 6.06273 15.1644 5.62588 14.138 5.62588H12.2695V4.47852ZM12.4695 4.67852V5.42588H14.138C15.2221 5.42588 16.2602 5.8874 17.0246 6.70628C17.7887 7.52493 18.2169 8.63401 18.2169 9.78904C18.2169 10.9441 17.7887 12.053 17.0246 12.8718C16.2602 13.6907 15.2221 14.1522 14.138 14.1522H12.4695V14.8996H14.138C15.3989 14.8996 16.6097 14.3629 17.5036 13.4052C18.3977 12.4472 18.9011 11.1466 18.9011 9.78904C18.9011 8.43153 18.3977 7.13088 17.5036 6.1729C16.6097 5.21515 15.3989 4.67852 14.138 4.67852H12.4695Z"
+											stroke="black" stroke-width="0.8" />
+										<path d="M14.2626 9.31543H5.73633V10.2628H14.2626V9.31543Z" stroke="black"
+											stroke-width="0.8" />
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M5.63672 9.21582H14.363V10.3632H5.63672V9.21582ZM5.83672 9.41582V10.1632H14.163V9.41582H5.83672Z"
+											stroke="black" stroke-width="0.8" />
+									</svg>
+									<span>посмотреть сайт</span>
+								</span>
+								<span class="btn-hover"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-parallax section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg"><img src="@img/pages/case-page/case-banner-2.jpg" alt=""></div>
+				</div>
+			</section>
+
+			<section class="rs-text">
+				<div class="rs-text__container">
+					<div class="rs-text__wrapper">
+						<div class="rs-text__left">
+							<h4>Задачи</h4>
+						</div>
+						<div class="rs-text__right">
+							<h4>Необходимо создать современный и визуально привлекательный дизайн, отражающий имидж
+								Академии. Требуется улучшить навигацию, упростив структуру меню и выстроив логичную
+								иерархию страниц для лёгкого доступа к информации. Сайт должен быть адаптивным
+								и корректно отображаться на любых устройствах, а также подключён к CMS Bitrix
+								для удобного управления. Сейчас сайт выглядит статично, без анимации, и перегружен
+								элементами, что затрудняет восприятие информации.</h4>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-parallax section-bg">
+				<div class="section__wrapper">
+					<div class="rs-parallax__columns">
+						<div class="rs-parallax__column">
+							<img src="@img/pages/case-page/case-parallax-img-1.1.jpg" alt="">
+							<img src="@img/pages/case-page/case-parallax-img-1.2.jpg" alt="">
+							<img src="@img/pages/case-page/case-parallax-img-1.3.jpg" alt="">
+						</div>
+						<div class="rs-parallax__column">
+							<img src="@img/pages/case-page/case-parallax-img-1.4.jpg" alt="">
+							<img src="@img/pages/case-page/case-parallax-img-1.5.jpg" alt="">
+							<img src="@img/pages/case-page/case-parallax-img-1.6.jpg" alt="">
+						</div>
+						<div class="rs-parallax__column">
+							<img src="@img/pages/case-page/case-parallax-img-1.7.jpg" alt="">
+							<img src="@img/pages/case-page/case-parallax-img-1.8.jpg" alt="">
+							<img src="@img/pages/case-page/case-parallax-img-1.9.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-text">
+				<div class="rs-text__container">
+					<div class="rs-text__wrapper">
+						<div class="rs-text__left">
+							<h4>Решения</h4>
+						</div>
+						<div class="rs-text__right">
+							<h4>Структура меню и разделов сайта была переработана для создания интуитивно понятной
+								навигации, обеспечивающей лёгкий доступ к необходимой информации. Статичный баннер
+								был заменён видеороликом, демонстрирующим обновлённую школу и процесс уроков,
+								что создало более динамичное и вовлекающее представление Академии. Интегрированы
+								информационные блоки с актуальными новостями и событиями Академии, а также представлены
+								партнёры и театры, в которых работают выпускники. Для удобства навигации добавлен
+								крупный блок переходов на важнейшие разделы сайта. Разработан адаптивный дизайн,
+								обеспечивающий удобный доступ с мобильных устройств и планшетов. Лёгкие анимационные
+								эффекты улучшили взаимодействие с пользователями, а подключение к CMS Bitrix упростило
+								обновление информации на сайте.</h4>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-result" data-change-bg-color style="--bg-color: #f3f3f3">
+				<div class="rs-result__container">
+					<div class="rs-result__wrapper">
+						<div class="rs-result__img">
+							<img src="@img/pages/case-page/case-desktop-1.1.jpg" alt="">
+						</div>
+						<div class="rs-result__img">
+							<img src="@img/pages/case-page/case-mobile-1.1.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="rs-about-case" data-change-bg-color style="--bg-color: #000">
+
+				<section class="rs-text">
+					<div class="rs-text__bg">
+						<picture>
+							<source srcset="@img/pages/case-page/case-bg-1.jpg" media="(min-width: 991.98px)">
+							<img src="@img/pages/case-page/case-bg-1-mob.jpg" alt="">
+						</picture>
+					</div>
+					<div class="rs-text__container">
+						<div class="rs-text__wrapper">
+							<div class="rs-text__left">
+								<h4>Дизайн страниц</h4>
+							</div>
+							<div class="rs-text__right">
+								<h3>Дизайн основан на минимализме с использованием линий, белого пространства
+									и сдержанной
+									цветовой палитры, что делает интерфейс более приятным для восприятия. Яркие
+									изображения
+									и видеоролики, демонстрирующие занятия, выступления и атмосферу Академии, усиливают
+									эмоциональную связь с пользователем.</h3>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="rs-case-slider rs-case-slider--desk">
+					<div class="rs-case-slider__bg">
+						<picture>
+							<source srcset="@img/pages/case-page/case-bg-2.jpg" media="(min-width: 991.98px)">
+							<img src="@img/pages/case-page/case-bg-2-mob.jpg" alt="">
+						</picture>
+					</div>
+					<div class="rs-case-slider__slider swiper">
+						<div class="rs-case-slider__swiper swiper-wrapper">
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-desk-1.1.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-desk-1.2.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-desk-1.3.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-desk-1.4.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-desk-1.5.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-desk-1.6.png" alt="">
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="rs-text">
+					<div class="rs-text__container">
+						<div class="rs-text__wrapper">
+							<div class="rs-text__left">
+								<h4>Мобильная версия</h4>
+							</div>
+							<div class="rs-text__right">
+								<h3>Была разработана мобильная версия с фокусом на создание современного и удобного
+									интерфейса. Светлые оттенки с яркими акцентами на кнопках улучшили визуальное
+									восприятие
+									и упростили навигацию. В итоге получился интерфейс, соответствующий современным
+									требованиям и обеспечивающий приятное и эффективное взаимодействие с сайтом.</h3>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="rs-case-slider rs-case-slider--mob">
+					<div class="rs-case-slider__img" style="left: 35%; top: 13.5%;">
+						<img src="@img/pages/case-page/case-img-1.4.jpg" alt="">
+					</div>
+					<div class="rs-case-slider__img" style="left: 14.6%; top: 48.5%;">
+						<img src="@img/pages/case-page/case-img-1.5.jpg" alt="">
+					</div>
+					<div class="rs-case-slider__img" style="right: 0%; bottom: 36.8%;">
+						<img src="@img/pages/case-page/case-img-1.6.jpg" alt="">
+					</div>
+					<div class="rs-case-slider__bg">
+						<picture>
+							<source srcset="@img/pages/case-page/case-bg-3.jpg" media="(min-width: 991.98px)">
+							<img src="@img/pages/case-page/case-bg-3-mob.jpg" alt="">
+						</picture>
+					</div>
+					<div class="rs-case-slider__slider swiper">
+						<div class="rs-case-slider__swiper swiper-wrapper">
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.1.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.2.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.3.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.4.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.5.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.7.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.6.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.8.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.9.png" alt="">
+							</div>
+
+							<div class="rs-case-slider__slide swiper-slide">
+								<img src="@img/pages/case-page/case-img-mob-1.10.png" alt="">
+							</div>
+						</div>
+					</div>
+				</section>
+
+			</div>
+
+			<section class="rs-case-comparison section-bg">
+				<div class="section__wrapper">
+					<div class="section__bg">
+						<div class="rs-case-comparison__img">
+							<img src="@img/pages/case-page/case-before-1.1.jpg" alt="">
+						</div>
+						<div class="rs-case-comparison__img">
+							<img src="@img/pages/case-page/case-after-1.1.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-other-project">
+				<div class="section__container">
+					<div class="section__head">
+						<div class="section__head-title">
+							<h2>Другие проекты</h2>
+						</div>
+
+						<a href="#" class="rs-btn _btn-gray-border">
+							<span class="btn-text">
+								<svg width="18" height="12" viewBox="0 0 18 12" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M1 11V9.8C1 8.11984 1 7.27976 1.32698 6.63803C1.6146 6.07354 2.07354 5.6146 2.63803 5.32698C3.27976 5 4.11984 5 5.8 5H17M17 5L13 1M17 5L13 9"
+										stroke="#6366F1" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+								<span>все кейсы</span>
+							</span>
+							<span class="btn-hover"></span>
+						</a>
+					</div>
+
+					<div class="rs-other-project__slider swiper">
+						<div class="rs-other-project__swiper swiper-wrapper">
+							<div class="rs-other-project__slide swiper-slide">
+								<a href="#">
+									<div class="rs-other-project__item">
+										<div class="rs-other-project__img">
+											<img src="@img/pages/case-page/other-project-2.jpg" alt="">
+										</div>
+										<div class="rs-other-project__description">
+											<h4>Go-read</h4>
+										</div>
+									</div>
+								</a>
+							</div>
+
+							<div class="rs-other-project__slide swiper-slide">
+								<a href="#">
+									<div class="rs-other-project__item">
+										<div class="rs-other-project__img">
+											<img src="@img/pages/case-page/other-project-1.jpg" alt="">
+										</div>
+										<div class="rs-other-project__description">
+											<h4>Питерский щит</h4>
+										</div>
+									</div>
+								</a>
+							</div>
+
+							<div class="rs-other-project__slide swiper-slide">
+								<a href="#">
+									<div class="rs-other-project__item">
+										<div class="rs-other-project__img">
+											<img src="@img/pages/case-page/other-project-3.jpg" alt="">
+										</div>
+										<div class="rs-other-project__description">
+											<h4>Росатом</h4>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="rs-footer">
+			<div class="rs-footer__top">
+				<div class="rs-footer__container">
+					<div class="rs-footer__head">
+						<div class="rs-footer__phone">
+							<a href="tel:+78122428072">+7 812 242-80-72 </a>
+							<span>Отдел продаж</span>
+						</div>
+						<div class="rs-footer__links">
+							<ul>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Анкета для разработки сайта
+											«Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Презентация сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+								<li>
+									<a href="#" class="rs-btn _btn-gray-border">
+										<span class="btn-text">Технические характеристики сайта «Бизнес»</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="rs-footer__social social">
+							<ul class="social__list">
+								<li><a href="#" class="_rs-icon-vk"></a></li>
+								<li><a href="#" class="_rs-icon-whatsapp"></a></li>
+								<li><a href="#" class="_rs-icon-telegram"></a></li>
+								<li><a href="#" class="_rs-icon-instagram"></a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="rs-breadcrumbs">
+						<nav class="rs-breadcrumbs__navigation">
+							<ul itemscope itemtype="http://schema.org/BreadcrumbList" class="rs-breadcrumbs__list">
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="home.html" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Главная</span>
+									</a>
+									<meta itemprop="position" content="1">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+									itemtype="http://schema.org/ListItem">
+									<a class="rs-breadcrumbs__link" href="#" itemprop="item" typeof="WebPage">
+										<span itemprop="name">Разработка</span>
+									</a>
+									<meta itemprop="position" content="2">
+								</li>
+								<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope=""
+									itemtype="http://schema.org/ListItem">
+									<span itemprop="name">Информационный сайт</span>
+									<meta itemprop="position" content="3">
+								</li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Разработка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Веб-сервис и приложение</a>
+												</li>
+												<li class="menu-item"><a href="#">Информационный сайт</a></li>
+												<li class="menu-item"><a href="#">Интернет-магазин</a></li>
+												<li class="menu-item"><a href="#">Landing Page</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Дополнительные услуги</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Техническая поддержка</a></li>
+												<li class="menu-item"><a href="#">Продающая страница</a></li>
+												<li class="menu-item"><a href="#">Разработка логотипов</a></li>
+												<li class="menu-item"><a href="#">SEO продвижение сайта</a></li>
+												<li class="menu-item"><a href="#">Контекстная реклама</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">Помощь</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">Инструкция по Word Press</a>
+												</li>
+												<li class="menu-item"><a href="#">Инструкция по WooCommerce</a>
+												</li>
+												<li class="menu-item"><a href="#">Инструкция по Битриксу</a>
+												</li>
+												<li class="menu-item"><a href="#">Инструкция по Яндекс
+														Директ</a></li>
+												<li class="menu-item"><a href="#">Карта сайта</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">О
+									нас</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__menu menu">
+										<nav class="menu__body">
+											<ul class="menu__list">
+												<li class="menu-item"><a href="#">О компании</a></li>
+												<li class="menu-item"><a href="#">Кейсы</a></li>
+												<li class="menu-item"><a href="#">Контакты</a></li>
+												<li class="menu-item"><a href="#">Вакансии</a></li>
+												<li class="menu-item"><a href="#">Отзывы</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller
+									class="rs-footer__spollers_title _spoller-active">Контактная
+									информация</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>
+												г. Санкт-Петербург, ш. Революции д.69, оф. 312 бц «Реформа»,
+												3й этаж, офис 312 (м. Ладожская)
+												<span>центральный офис</span>
+											</li>
+											<li>
+												Санкт-Петербург, ш. Революции д.69, оф. 312
+												<span>юридический адрес <a href="#">(учередительные
+														документы)</a></span>
+											</li>
+											<li>
+												пн-пт 09:00-18:00
+												<span>время работы</span>
+											</li>
+											<li>
+												<a href="mailto:mail@rosait.ru">mail@rosait.ru</a>
+												<span>e-mail</span>
+											</li>
+											<li>
+												<a href="mailto:support@rosait.ru">support@rosait.ru</a>
+												<span>техническая поддержка</span>
+											</li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="rs-footer__bottom">
+				<div class="rs-footer__container">
+					<div class="rs-footer__body">
+						<div data-spollers="991.98,max" data-one-spoller class="rs-footer__spollers">
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Юридический адрес</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Санкт-Петербург, ш. Революции д.69, <br> оф. 312</li>
+											<li><a href="#">Учредительные документы</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Центральный офис</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>г. Санкт-Петербург, ш. Революции д.69, <br> оф. 312 бц
+												«Реформа», 3й
+												этаж,
+												офис 312 <br> (м. Ладожская)</li>
+											<li>Время работы: пн-пт 09:00-18:00</li>
+											<li><a href="mailto:mail@rosait.ru">mail@rosait.ru</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Скоро открытие</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li>Ленинский пр., 140И БЦ «Космопро» <br>
+												(м. Ленинский проспект)</li>
+											<li>Коломяжский пр., 13, корп.21 БЦ «Бюси» <br>
+												(м. Пионерская)</li>
+											<li>ул. Садовая, 53 БЦ «на Садовой» (м. Садовая)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__spollers_item">
+								<button type="button" data-spoller class="rs-footer__spollers_title">
+									Техническая поддержка</button>
+								<div class="rs-footer__spollers_body">
+									<div class="rs-footer__contact contact">
+										<ul class="contact__list">
+											<li><a href="mailto:support@rosait.ru">support@rosait.ru</a></li>
+										</ul>
+									</div>
+									<a href="#" class="rs-btn _btn-white" data-popup="#letter-manager">
+										<span class="btn-text _rs-icon-call">Написать письмо руководителю</span>
+										<span class="btn-hover"></span>
+
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="rs-footer__city">
+						<h6 class="mrp-semibold-18">Вы можете позвонить из любого города:</h6>
+						<ul class="rs-footer__city_list">
+							<li><a href="#" class="_active-city">Москва</a></li>
+							<li><a href="#">Санкт-Петербург</a></li>
+							<li><a href="#">Новосибирск</a></li>
+							<li><a href="#">Казань</a></li>
+							<li><a href="#">Омск</a></li>
+							<li><a href="#">Екатеринбург</a></li>
+							<li><a href="#">Ростов-на-Дону</a></li>
+							<li><a href="#">Нижний Новгород</a></li>
+							<li><a href="#">Самара</a></li>
+							<li><a href="#">Пермь</a></li>
+							<li><a href="#">Волгоград</a></li>
+							<li><a href="#">Иркутск</a></li>
+							<li><a href="#">Красноярск</a></li>
+							<li><a href="#">Воронеж</a></li>
+							<li><a href="#">Саратов</a></li>
+							<li><a href="#">Краснодар</a></li>
+							<li><a href="#">Рязань</a></li>
+							<li><a href="#">Ижевск</a></li>
+							<li><a href="#">Пенза</a></li>
+							<li><a href="#">Челябинск</a></li>
+							<li><a href="#">Ярославль</a></li>
+							<li><a href="#">Барнаул</a></li>
+						</ul>
+					</div>
+
+					<div class="rs-footer__copyright">© 2011—2024 Россайт</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	@@include('html/_popup.htm',{})
+
+	@@include('html/_js.htm',{})
+
+</body>
+
+</html>

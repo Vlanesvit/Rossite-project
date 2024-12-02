@@ -10929,6 +10929,147 @@
                     }));
                 }));
             }
+            if (document.querySelector(".rs-other-project")) {
+                const sliderBlocks = document.querySelectorAll(".rs-other-project");
+                sliderBlocks.forEach((sliderBlock => {
+                    const slider = sliderBlock.querySelector(".rs-other-project__slider");
+                    const pagination = sliderBlock.querySelector(".rs-other-project__pagination");
+                    const arrowNext = sliderBlock.querySelector(".rs-other-project__button-next");
+                    const arrowPrev = sliderBlock.querySelector(".rs-other-project__button-prev");
+                    new swiper_core_Swiper(slider, {
+                        modules: [ Navigation, Pagination, Autoplay ],
+                        autoplay: {
+                            delay: 1e4,
+                            stopOnLastSlide: false,
+                            disableOnInteraction: false
+                        },
+                        observer: true,
+                        observeParents: true,
+                        observeSlideChildren: true,
+                        speed: 500,
+                        simulateTouch: true,
+                        touchRadio: 1,
+                        touchAngle: 45,
+                        grabCursor: true,
+                        pagination: {
+                            el: pagination,
+                            type: "progressbar"
+                        },
+                        navigation: {
+                            nextEl: arrowNext,
+                            prevEl: arrowPrev
+                        },
+                        breakpoints: {
+                            320: {
+                                slidesPerView: 1.22,
+                                spaceBetween: 20
+                            },
+                            767.98: {
+                                slidesPerView: 2.1,
+                                spaceBetween: 24
+                            },
+                            991.98: {
+                                slidesPerView: 3,
+                                spaceBetween: 24
+                            },
+                            1439.98: {
+                                slidesPerView: 3,
+                                spaceBetween: 50
+                            }
+                        }
+                    });
+                }));
+            }
+            if (document.querySelector(".rs-case-slider--desk .rs-case-slider__slider")) {
+                "use strict";
+                const breakpoint = window.matchMedia("(min-width: 991.98px)");
+                let caseDeskSlider;
+                const breakpointChecker = function() {
+                    if (breakpoint.matches === true) {
+                        if (caseDeskSlider !== void 0) caseDeskSlider.destroy(true, true);
+                        return;
+                    } else if (breakpoint.matches === false) return enableSwiper();
+                };
+                const enableSwiper = function() {
+                    caseDeskSlider = new swiper_core_Swiper(".rs-case-slider--desk .rs-case-slider__slider", {
+                        modules: [ Navigation, Pagination, Autoplay ],
+                        autoplay: {
+                            delay: 5e3,
+                            stopOnLastSlide: false,
+                            disableOnInteraction: true
+                        },
+                        observer: true,
+                        observeParents: true,
+                        observeSlideChildren: true,
+                        speed: 500,
+                        simulateTouch: true,
+                        touchRadio: 1,
+                        touchAngle: 45,
+                        touchStartPreventDefault: true,
+                        grabCursor: true,
+                        loop: true,
+                        breakpoints: {
+                            320: {
+                                slidesPerView: 1.05,
+                                spaceBetween: 16,
+                                centeredSlides: true
+                            },
+                            767.98: {
+                                slidesPerView: 1.2,
+                                spaceBetween: 28,
+                                centeredSlides: true
+                            }
+                        }
+                    });
+                };
+                breakpoint.addListener(breakpointChecker);
+                breakpointChecker();
+            }
+            if (document.querySelector(".rs-case-slider--mob .rs-case-slider__slider")) {
+                "use strict";
+                const breakpoint = window.matchMedia("(min-width: 991.98px)");
+                let caseMobSlider;
+                const breakpointChecker = function() {
+                    if (breakpoint.matches === true) {
+                        if (caseMobSlider !== void 0) caseMobSlider.destroy(true, true);
+                        return;
+                    } else if (breakpoint.matches === false) return enableSwiper();
+                };
+                const enableSwiper = function() {
+                    caseMobSlider = new swiper_core_Swiper(".rs-case-slider--mob .rs-case-slider__slider", {
+                        modules: [ Navigation, Pagination, Autoplay ],
+                        autoplay: {
+                            delay: 5e3,
+                            stopOnLastSlide: false,
+                            disableOnInteraction: true
+                        },
+                        observer: true,
+                        observeParents: true,
+                        observeSlideChildren: true,
+                        speed: 500,
+                        simulateTouch: true,
+                        touchRadio: 1,
+                        touchAngle: 45,
+                        touchStartPreventDefault: true,
+                        grabCursor: true,
+                        loop: true,
+                        breakpoints: {
+                            320: {
+                                slidesPerView: 1.4,
+                                spaceBetween: 14,
+                                centeredSlides: true
+                            },
+                            767.98: {
+                                slidesPerView: 2.3,
+                                spaceBetween: 20,
+                                centeredSlides: true
+                            }
+                        }
+                    });
+                };
+                breakpoint.addListener(breakpointChecker);
+                breakpointChecker();
+            }
         }
         function destroySliders() {
             const sliderContainers = document.querySelectorAll(".swiper-container-initialized");
@@ -12965,6 +13106,7 @@
                 if (filterBtn) filterBtn.addEventListener("click", (function() {
                     filterBlock.classList.toggle("_open-filter");
                     document.documentElement.classList.toggle("_open-filter");
+                    bodyLockToggle();
                 }));
                 filterItems.forEach((item => {
                     const filterShow = item.querySelector(".filter__title");
@@ -14014,14 +14156,6 @@
             marquee();
             initPageAnimations();
             manageScripts();
-            animationConfig.forEach((config => {
-                revealOnScroll({
-                    elements: config.elements,
-                    duration: config.duration || .5,
-                    delay: config.delay || .15,
-                    direction: config.direction || "bottom-up"
-                });
-            }));
             if (!window.location.hash) setTimeout((() => {
                 window.scrollTo(0, 0);
             }), 100); else if (window.location.hash) {
@@ -14036,6 +14170,16 @@
                     }), 100);
                 }
             }
+        }));
+        document.addEventListener("loaderEnd", (function() {
+            animationConfig.forEach((config => {
+                revealOnScroll({
+                    elements: config.elements,
+                    duration: config.duration || .5,
+                    delay: config.delay || .15,
+                    direction: config.direction || "bottom-up"
+                });
+            }));
         }));
         function animateSvgDashedLine({dashedSelector, maskSelector, topOffset = 50, endOffset = 500, markers = false}) {
             const dasheds = document.querySelectorAll(dashedSelector);
@@ -14324,8 +14468,28 @@
             direction: "bottom-up"
         }, {
             elements: ".rs-cards__title h2",
-            delay: .2,
+            delay: .3,
             direction: "bottom-up"
+        }, {
+            elements: ".rs-cards__title h3",
+            delay: .3,
+            direction: "bottom-up"
+        }, {
+            elements: ".rs-text__left",
+            direction: "bottom-up"
+        }, {
+            elements: ".rs-text__right",
+            delay: .3,
+            direction: "bottom-up"
+        }, {
+            elements: ".rs-result__img",
+            direction: "fade--every"
+        }, {
+            elements: ".rs-case-slider__slide",
+            direction: "button-up--every"
+        }, {
+            elements: ".rs-other-project__slider",
+            direction: "right-left"
         } ];
         function revealOnScroll({elements, duration = .5, delay = .15, direction = "bottom-up"}) {
             const items = document.querySelectorAll(elements);
@@ -14410,29 +14574,31 @@
                 Object.assign(item.style, from);
                 item.setAttribute("data-animation", "false");
             }));
-            const observer = new IntersectionObserver((entries => {
-                entries.forEach(((entry, index) => {
-                    if (entry.isIntersecting && entry.target.getAttribute("data-animation") === "false") {
-                        entry.target.setAttribute("data-animation", "true");
-                        const animationProps = animationPropsMap[direction.replace("--every", "")];
-                        if (animationProps) {
-                            const animationDelay = direction.includes("--every") ? delay * (index + 1) : 0;
-                            gsapWithCSS.fromTo(entry.target, animationProps.from, {
-                                ...animationProps.to,
-                                duration,
-                                delay: animationDelay,
-                                clearProps: "opacity, transform",
-                                onComplete: () => {
-                                    entry.target.setAttribute("style", entry.target.getAttribute("data-original-style"));
-                                }
-                            });
+            setTimeout((() => {
+                const observer = new IntersectionObserver((entries => {
+                    entries.forEach(((entry, index) => {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-animation") === "false") {
+                            entry.target.setAttribute("data-animation", "true");
+                            const animationProps = animationPropsMap[direction.replace("--every", "")];
+                            if (animationProps) {
+                                const animationDelay = direction.includes("--every") ? delay * (index + 1) : 0;
+                                gsapWithCSS.fromTo(entry.target, animationProps.from, {
+                                    ...animationProps.to,
+                                    duration,
+                                    delay: animationDelay,
+                                    clearProps: "opacity, transform",
+                                    onComplete: () => {
+                                        entry.target.setAttribute("style", entry.target.getAttribute("data-original-style"));
+                                    }
+                                });
+                            }
+                            observer.unobserve(entry.target);
                         }
-                        observer.unobserve(entry.target);
-                    }
-                }));
-            }), observerOptions);
-            items.forEach((item => observer.observe(item)));
-            return observer;
+                    }));
+                }), observerOptions);
+                items.forEach((item => observer.observe(item)));
+                return observer;
+            }), 700);
         }
         function destroyReveal() {
             if (observerInstance) observerInstance.disconnect();
@@ -14570,7 +14736,7 @@
                     }, i * 1.5);
                 }));
             }
-            if (document.querySelector(".rs-text .rs-text__right h2")) {
+            if (document.querySelector(".rs-text-1 .rs-text__right h2")) {
                 splitTextIntoWords(".rs-text .rs-text__right h2");
                 const words = document.querySelectorAll(".rs-text .rs-text__right h2 .word");
                 gsapWithCSS.fromTo(words, {
@@ -14587,18 +14753,29 @@
                     }
                 });
             }
-            if (document.querySelector(".rs-cards__bg-2")) gsapWithCSS.to(".rs-cards__bg-2", {
-                scrollTrigger: {
-                    trigger: ".rs-text",
-                    start: "top bottom",
-                    end: "bottom+=100% top",
-                    scrub: 3
-                },
-                transform: "translate(70vw, 70vh)",
-                ease: "power2.out"
-            });
+            if (document.querySelector(".rs-cards__bg-2")) {
+                const timeline = gsapWithCSS.timeline({
+                    scrollTrigger: {
+                        trigger: ".rs-text-1",
+                        start: "top bottom",
+                        end: "bottom+=500% top",
+                        scrub: 3,
+                        markers: true,
+                        pin: false
+                    }
+                });
+                timeline.to(".rs-cards__bg-2", {
+                    transform: "translate(70vw, 100vh)",
+                    ease: "power1.out"
+                });
+                timeline.to(".rs-cards__bg-2", {
+                    transform: "translate(0vw, 300vh)",
+                    ease: "power1.out",
+                    duration: 5
+                });
+            }
             if (document.querySelector(".rs-text__right ul li")) {
-                const blocks = gsapWithCSS.utils.toArray(".rs-text").filter((block => block.querySelector(".rs-text__right ul li")));
+                const blocks = gsapWithCSS.utils.toArray(".rs-text-2");
                 blocks.forEach((block => {
                     const listItems = gsapWithCSS.utils.toArray(block.querySelectorAll(".rs-text__right ul li"));
                     listItems.forEach(((item, i) => {
@@ -14628,6 +14805,39 @@
                     }));
                 }));
             }
+            if (document.querySelector(".rs-case-comparison")) {
+                const comparisonBlocks = document.querySelectorAll(".rs-case-comparison");
+                comparisonBlocks.forEach((block => {
+                    const imageBefore = block.querySelector(".section__bg .rs-case-comparison__img:first-child");
+                    const imageAfter = block.querySelector(".section__bg .rs-case-comparison__img:last-child");
+                    if (!imageBefore || !imageAfter) {
+                        console.warn("Не найдены необходимые элементы внутри", block);
+                        return;
+                    }
+                    gsapWithCSS.set(imageAfter, {
+                        clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)"
+                    });
+                    gsapWithCSS.timeline({
+                        scrollTrigger: {
+                            trigger: block,
+                            scrub: 1,
+                            start: "center center",
+                            end: "+=500px",
+                            pin: true,
+                            markers: false,
+                            refreshPriority: -2
+                        }
+                    }).to(imageAfter, {
+                        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                        duration: 2,
+                        ease: "power2.inOut"
+                    }).to(imageBefore, {
+                        opacity: .2,
+                        duration: 2,
+                        ease: "power2.inOut"
+                    }, "<");
+                }));
+            }
         }
         function initializeDesktopAnimations() {
             horizontalScroll({
@@ -14637,43 +14847,148 @@
             });
             if (document.querySelector(".rs-services-slider")) {
                 const block = document.querySelector(".rs-services-slider .rs-services-slider__wrapper");
+                const main = document.querySelector(".rs-services-slider .rs-services-slider__block");
                 const trigger = document.querySelector(".rs-services-slider");
-                if (block && trigger) {
-                    gsapWithCSS.set(block, {
-                        x: "100%"
-                    });
-                    const entryTimeline = gsapWithCSS.timeline({
-                        scrollTrigger: {
-                            trigger,
-                            start: "top center",
-                            end: "bottom center",
-                            scrub: 1,
-                            toggleActions: "play reverse play reverse",
-                            invalidateOnRefresh: true
-                        }
-                    });
-                    entryTimeline.to(block, {
-                        x: "0%",
-                        duration: 1,
-                        ease: "power3.out"
-                    });
-                    const scrollTimeline = gsapWithCSS.timeline({
-                        scrollTrigger: {
-                            trigger,
-                            start: "center center",
-                            end: () => `+=${trigger.clientHeight + window.innerHeight}`,
-                            pin: true,
-                            scrub: 1,
-                            invalidateOnRefresh: true
-                        }
-                    });
-                    scrollTimeline.to(block, {
-                        x: () => `-${block.scrollWidth - block.clientWidth}px`,
-                        duration: 1,
-                        ease: "power2.out"
-                    });
-                }
+                gsapWithCSS.set(main, {
+                    x: "100%"
+                });
+                const entryTimeline = gsapWithCSS.timeline({
+                    scrollTrigger: {
+                        trigger,
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: 1,
+                        toggleActions: "play reverse play reverse",
+                        invalidateOnRefresh: true
+                    }
+                });
+                entryTimeline.to(main, {
+                    x: "0%",
+                    duration: 1.5,
+                    ease: "power1.inOut"
+                });
+                const scrollTimeline = gsapWithCSS.timeline({
+                    scrollTrigger: {
+                        trigger,
+                        start: "center center",
+                        end: () => `+=${block.scrollWidth - block.clientWidth}`,
+                        pin: true,
+                        scrub: .5,
+                        invalidateOnRefresh: true
+                    }
+                });
+                scrollTimeline.to(block, {
+                    x: () => `-${block.scrollWidth - block.clientWidth}px`,
+                    duration: 1,
+                    ease: "power1.inOut"
+                });
             }
+            if (document.querySelector(".rs-parallax")) {
+                const parallaxBlocks = document.querySelectorAll(".rs-parallax");
+                parallaxBlocks.forEach((block => {
+                    const parallaxWrapper = block.querySelector(".section__wrapper ");
+                    const parallaxBgImg = block.querySelector(".section__bg > img");
+                    if (!parallaxWrapper) {
+                        console.warn("Не найдена .section__wrapper внутри", block);
+                        return;
+                    }
+                    const blockStyles = getComputedStyle(block);
+                    const targetPadding = blockStyles.padding;
+                    const wrapperStyles = getComputedStyle(parallaxWrapper);
+                    const targetBorderRadius = wrapperStyles.borderRadius;
+                    gsapWithCSS.set(block, {
+                        padding: targetPadding
+                    });
+                    gsapWithCSS.set(parallaxWrapper, {
+                        borderRadius: targetBorderRadius
+                    });
+                    gsapWithCSS.set(parallaxBgImg, {
+                        borderRadius: targetBorderRadius
+                    });
+                    gsapWithCSS.timeline({
+                        scrollTrigger: {
+                            trigger: block,
+                            scrub: 1,
+                            start: "center center",
+                            end: "+=500px",
+                            pin: true,
+                            refreshPriority: -1
+                        }
+                    }).to(parallaxWrapper, {
+                        borderRadius: "0px",
+                        duration: 1
+                    }).to(parallaxBgImg, {
+                        borderRadius: "0px",
+                        duration: 1
+                    }).to(block, {
+                        padding: "0px",
+                        duration: 1
+                    }, "<");
+                }));
+            }
+            if (document.querySelector(".rs-parallax__column")) {
+                const parallaxContainers = document.querySelectorAll(".rs-parallax");
+                parallaxContainers.forEach((container => {
+                    const columns = container.querySelectorAll(".rs-parallax__column");
+                    columns.forEach(((column, index) => {
+                        const isEven = (index + 1) % 2 === 0;
+                        const animationFrom = isEven ? {
+                            y: "-500px"
+                        } : {
+                            y: "500px"
+                        };
+                        const animationTo = isEven ? {
+                            y: "500px"
+                        } : {
+                            y: "-500px"
+                        };
+                        gsapWithCSS.timeline({
+                            scrollTrigger: {
+                                trigger: container,
+                                scrub: 1,
+                                start: "top-=100% top",
+                                end: "bottom+=100% bottom",
+                                invalidateOnRefresh: true,
+                                refreshPriority: -2
+                            }
+                        }).fromTo(column, animationFrom, animationTo);
+                    }));
+                }));
+            }
+            if (document.querySelector("[data-change-bg-color]")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
+                const sections = document.querySelectorAll("[data-change-bg-color]");
+                sections.forEach((section => {
+                    ScrollTrigger_ScrollTrigger.create({
+                        trigger: section,
+                        start: "top bottom",
+                        end: "bottom bottom",
+                        invalidateOnRefresh: true,
+                        refreshPriority: -5,
+                        onEnter: () => section.classList.add("_active-step"),
+                        onLeave: () => section.classList.remove("_active-step"),
+                        onEnterBack: () => section.classList.add("_active-step"),
+                        onLeaveBack: () => section.classList.remove("_active-step")
+                    });
+                }));
+            }));
+            if (document.querySelector(".rs-case-slider")) gsapWithCSS.utils.toArray(".rs-case-slider").forEach((slider => {
+                const slides = gsapWithCSS.utils.toArray(".rs-case-slider__slide", slider);
+                slides.forEach((slide => {
+                    gsapWithCSS.fromTo(slide, {
+                        y: gsapWithCSS.utils.random(300, 600)
+                    }, {
+                        y: 0,
+                        duration: gsapWithCSS.utils.random(.8, 1.5),
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: slide,
+                            start: "top-=50% center",
+                            end: "bottom+=50% center",
+                            scrub: 1
+                        }
+                    });
+                }));
+            }));
             if (document.querySelector(".rs-features__slide")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
                 const stackItems = gsapWithCSS.utils.toArray(".rs-features__slide");
                 gsapWithCSS.set(stackItems, {
@@ -14715,7 +15030,7 @@
                     scrollTrigger: {
                         trigger: ".rs-our-project",
                         start: "top top",
-                        end: `bottom+=${stackItems.length * 100}% top`,
+                        end: `bottom+=${stackItems.length * 80}% top`,
                         pin: true,
                         pinSpacing: true,
                         scrub: 1,
@@ -14724,15 +15039,16 @@
                 });
                 stackTimeline.to(stackItems, {
                     yPercent: index => 0,
-                    ease: "power2.inOut",
+                    ease: "power1.out",
+                    direction: .3,
                     stagger
                 }).to(stackItems.slice(0, -1), {
                     scale: index => 1 - (stackItems.length - index) * .025,
                     opacity: 0,
-                    ease: "power2.inOut",
+                    ease: "power1.out",
+                    direction: .3,
                     stagger
                 }, stagger);
-                handleReveal();
             }));
             if (document.querySelector(".rs-steps .rs-steps__spollers_item")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
                 const sections = document.querySelectorAll(".rs-steps .rs-steps__spollers_item");
@@ -15026,6 +15342,7 @@
                 transitions: [ {
                     async leave({current}) {
                         showLoader();
+                        hideLoaderCalled = false;
                         resourcesToLoad = 0;
                         resourcesLoaded = 0;
                         percentageDisplay.textContent = "0%";
@@ -15044,6 +15361,7 @@
                             delay: .5,
                             opacity: 0,
                             onComplete: function() {
+                                hideLoaderCalled = false;
                                 window.scrollTo(0, 0);
                                 loadResources();
                                 initHeaderHeight();
@@ -15052,14 +15370,6 @@
                                 videoPlay();
                                 marquee();
                                 initPageAnimations();
-                                animationConfig.forEach((config => {
-                                    revealOnScroll({
-                                        elements: config.elements,
-                                        duration: config.duration || .5,
-                                        delay: config.delay || .15,
-                                        direction: config.direction || "bottom-up"
-                                    });
-                                }));
                                 resourcesToLoad = 0;
                                 resourcesLoaded = 0;
                                 percentageDisplay.textContent = "0%";

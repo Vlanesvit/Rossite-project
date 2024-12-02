@@ -1,3 +1,6 @@
+// Подключение функционала "Чертогов Фрилансера"
+import { bodyLockToggle } from "./functions.js";
+
 import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
 // Инициализация курсора
 addCursorHover(".rs-project__slide", ".cursor", "cursor__active");
@@ -82,6 +85,7 @@ export function filterProject() {
 			filterBtn.addEventListener('click', function () {
 				filterBlock.classList.toggle('_open-filter')
 				document.documentElement.classList.toggle('_open-filter');
+				bodyLockToggle();
 			})
 		}
 
