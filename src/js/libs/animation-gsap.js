@@ -1326,9 +1326,9 @@ function initBarba() {
 		addCursorMove(".rs-project__slide", ".rs-project .cursor__circle");
 		addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
 		addCursorMove(".rs-comparison__compare", ".icv__circle");
-		addCursorHover(".rs-other-slider__slide", ".rs-other-slider .cursor", "cursor__active");
-		addCursorMove(".rs-other-slider__slide", ".rs-other-slider .cursor__circle")
-
+		addCursorHover(".rs-other-project__slide", ".rs-other-project .cursor", "cursor__active");
+		addCursorMove(".rs-other-project__slide", ".rs-other-project .cursor__circle")
+		
 		// Подключение скриптов
 		manageScripts();
 	};
