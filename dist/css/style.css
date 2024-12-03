@@ -10796,16 +10796,16 @@ textarea.rs-input {
   padding: 12px;
 }
 
+.rs-parallax__column>*:not(:last-child) {
+  margin-bottom: 24px;
+}
+
 .rs-parallax__column img {
   border-radius: 30px;
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
   max-width: 100%;
-}
-
-.rs-parallax__column img:not(:last-child) {
-  margin-bottom: 24px;
 }
 
 .rs-result {
@@ -14185,12 +14185,12 @@ textarea.rs-input {
     padding: 8px;
   }
 
-  .rs-parallax__column img {
-    border-radius: 24px;
+  .rs-parallax__column>*:not(:last-child) {
+    margin-bottom: 16px;
   }
 
-  .rs-parallax__column img:not(:last-child) {
-    margin-bottom: 16px;
+  .rs-parallax__column img {
+    border-radius: 24px;
   }
 
   .rs-case-comparison .section__wrapper {
@@ -17789,12 +17789,12 @@ textarea.rs-input {
     padding: 6px;
   }
 
-  .rs-parallax__column img {
-    border-radius: 16px;
+  .rs-parallax__column>*:not(:last-child) {
+    margin-bottom: 12px;
   }
 
-  .rs-parallax__column img:not(:last-child) {
-    margin-bottom: 12px;
+  .rs-parallax__column img {
+    border-radius: 16px;
   }
 
   .rs-result__img img {
@@ -19219,12 +19219,12 @@ textarea.rs-input {
     padding: 3px;
   }
 
-  .rs-parallax__column img {
-    border-radius: 8px;
+  .rs-parallax__column>*:not(:last-child) {
+    margin-bottom: 6px;
   }
 
-  .rs-parallax__column img:not(:last-child) {
-    margin-bottom: 6px;
+  .rs-parallax__column img {
+    border-radius: 8px;
   }
 
   .rs-case-comparison {
