@@ -3,8 +3,10 @@ import { bodyLockToggle } from "./functions.js";
 
 import { addCursorHover, addCursorMove, addCursorDrag } from "../libs/cursor.js";
 // Инициализация курсора
-addCursorHover(".rs-project__slide", ".cursor", "cursor__active");
-addCursorMove(".rs-project__slide", ".cursor__circle")
+addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
+addCursorMove(".rs-project__slide", ".rs-project .cursor__circle")
+addCursorHover(".rs-other-project__slide", ".rs-other-project .cursor", "cursor__active");
+addCursorMove(".rs-other-project__slide", ".rs-other-project .cursor__circle")
 
 import { handleReveal } from "../libs/animation-gsap.js";
 

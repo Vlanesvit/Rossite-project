@@ -617,9 +617,9 @@ function initializeCommonAnimations() {
 				trigger: ".rs-text-1",
 				start: "top bottom",
 				end: "bottom+=500% top",
-				scrub: 3, // Сделать scrub более плавным
-				markers: true, // Для отладки
-				pin: false, // Если не нужно фиксировать элемент
+				scrub: 3,
+				// markers: true, 
+				pin: false,
 			},
 		});
 
@@ -784,46 +784,46 @@ function initializeDesktopAnimations() {
 		});
 	}
 
-	if (document.querySelector('.rs-parallax')) {
-		const parallaxBlocks = document.querySelectorAll('.rs-parallax');
+	// if (document.querySelector('.rs-parallax')) {
+	// 	const parallaxBlocks = document.querySelectorAll('.rs-parallax');
 
-		parallaxBlocks.forEach(block => {
-			const parallaxWrapper = block.querySelector('.section__wrapper ');
-			const parallaxBgImg = block.querySelector('.section__bg > img');
+	// 	parallaxBlocks.forEach(block => {
+	// 		const parallaxWrapper = block.querySelector('.section__wrapper ');
+	// 		const parallaxBgImg = block.querySelector('.section__bg > img');
 
-			// Проверяем, существует ли обертка
-			if (!parallaxWrapper) {
-				console.warn('Не найдена .section__wrapper внутри', block);
-				return;
-			}
+	// 		// Проверяем, существует ли обертка
+	// 		if (!parallaxWrapper) {
+	// 			console.warn('Не найдена .section__wrapper внутри', block);
+	// 			return;
+	// 		}
 
-			// Получаем текущие стили
-			const blockStyles = getComputedStyle(block);
-			const targetPadding = blockStyles.padding;
-			const wrapperStyles = getComputedStyle(parallaxWrapper);
-			const targetBorderRadius = wrapperStyles.borderRadius;
+	// 		// Получаем текущие стили
+	// 		const blockStyles = getComputedStyle(block);
+	// 		const targetPadding = blockStyles.padding;
+	// 		const wrapperStyles = getComputedStyle(parallaxWrapper);
+	// 		const targetBorderRadius = wrapperStyles.borderRadius;
 
-			// Устанавливаем начальные значения
-			gsap.set(block, { padding: targetPadding });
-			gsap.set(parallaxWrapper, { borderRadius: targetBorderRadius });
-			gsap.set(parallaxBgImg, { borderRadius: targetBorderRadius });
+	// 		// Устанавливаем начальные значения
+	// 		gsap.set(block, { padding: targetPadding });
+	// 		gsap.set(parallaxWrapper, { borderRadius: targetBorderRadius });
+	// 		gsap.set(parallaxBgImg, { borderRadius: targetBorderRadius });
 
-			// Создаем анимацию
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: block,
-					scrub: 1,
-					start: 'center center',
-					end: '+=500px',
-					pin: true,
-					refreshPriority: -1,
-				}
-			})
-				.to(parallaxWrapper, { borderRadius: '0px', duration: 1 })
-				.to(parallaxBgImg, { borderRadius: '0px', duration: 1 })
-				.to(block, { padding: '0px', duration: 1 }, '<');
-		});
-	}
+	// 		// Создаем анимацию
+	// 		gsap.timeline({
+	// 			scrollTrigger: {
+	// 				trigger: block,
+	// 				scrub: 1,
+	// 				start: 'center center',
+	// 				end: '+=500px',
+	// 				pin: true,
+	// 				refreshPriority: -1,
+	// 			}
+	// 		})
+	// 			.to(parallaxWrapper, { borderRadius: '0px', duration: 1 })
+	// 			.to(parallaxBgImg, { borderRadius: '0px', duration: 1 })
+	// 			.to(block, { padding: '0px', duration: 1 }, '<');
+	// 	});
+	// }
 
 	if (document.querySelector('.rs-parallax__column')) {
 		// Находим все блоки, содержащие rs-parallax__column
@@ -841,8 +841,8 @@ function initializeDesktopAnimations() {
 					scrollTrigger: {
 						trigger: container,
 						scrub: 1,
-						start: 'top-=100% top',
-						end: 'bottom+=100% bottom',
+						start: "top-=30% top",
+						end: "bottom+=30% bottom",
 						invalidateOnRefresh: true,
 						refreshPriority: -2,
 					}
@@ -879,9 +879,11 @@ function initializeDesktopAnimations() {
 					slide,
 					{
 						y: gsap.utils.random(300, 600), // начальное случайное смещение по Y
+						opacity: 0,
 					},
 					{
 						y: 0, // возвращение к исходному положению
+						opacity: 1,
 						duration: gsap.utils.random(0.8, 1.5), // уменьшенная длительность анимации
 						ease: "power3.out", // плавное и быстрое ускорение
 						scrollTrigger: {
@@ -1321,9 +1323,11 @@ function initBarba() {
 		openFullList();
 
 		addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
-		addCursorMove(".rs-project__slide", ".cursor__circle");
+		addCursorMove(".rs-project__slide", ".rs-project .cursor__circle");
 		addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
 		addCursorMove(".rs-comparison__compare", ".icv__circle");
+		addCursorHover(".rs-other-slider__slide", ".rs-other-slider .cursor", "cursor__active");
+		addCursorMove(".rs-other-slider__slide", ".rs-other-slider .cursor__circle")
 
 		// Подключение скриптов
 		manageScripts();

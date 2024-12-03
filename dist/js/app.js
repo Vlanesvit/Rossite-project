@@ -13051,8 +13051,10 @@
         }
         initNoUiField("styles-page", "styles-page-count");
         initNoUiField("fill-page", "fill-page-count");
-        addCursorHover(".rs-project__slide", ".cursor", "cursor__active");
-        addCursorMove(".rs-project__slide", ".cursor__circle");
+        addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
+        addCursorMove(".rs-project__slide", ".rs-project .cursor__circle");
+        addCursorHover(".rs-other-project__slide", ".rs-other-project .cursor", "cursor__active");
+        addCursorMove(".rs-other-project__slide", ".rs-other-project .cursor__circle");
         gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
         function filterClear() {
             const filter = document.querySelector(".rs-project .filter");
@@ -14760,7 +14762,6 @@
                         start: "top bottom",
                         end: "bottom+=500% top",
                         scrub: 3,
-                        markers: true,
                         pin: false
                     }
                 });
@@ -14883,49 +14884,6 @@
                     ease: "power1.inOut"
                 });
             }
-            if (document.querySelector(".rs-parallax")) {
-                const parallaxBlocks = document.querySelectorAll(".rs-parallax");
-                parallaxBlocks.forEach((block => {
-                    const parallaxWrapper = block.querySelector(".section__wrapper ");
-                    const parallaxBgImg = block.querySelector(".section__bg > img");
-                    if (!parallaxWrapper) {
-                        console.warn("Не найдена .section__wrapper внутри", block);
-                        return;
-                    }
-                    const blockStyles = getComputedStyle(block);
-                    const targetPadding = blockStyles.padding;
-                    const wrapperStyles = getComputedStyle(parallaxWrapper);
-                    const targetBorderRadius = wrapperStyles.borderRadius;
-                    gsapWithCSS.set(block, {
-                        padding: targetPadding
-                    });
-                    gsapWithCSS.set(parallaxWrapper, {
-                        borderRadius: targetBorderRadius
-                    });
-                    gsapWithCSS.set(parallaxBgImg, {
-                        borderRadius: targetBorderRadius
-                    });
-                    gsapWithCSS.timeline({
-                        scrollTrigger: {
-                            trigger: block,
-                            scrub: 1,
-                            start: "center center",
-                            end: "+=500px",
-                            pin: true,
-                            refreshPriority: -1
-                        }
-                    }).to(parallaxWrapper, {
-                        borderRadius: "0px",
-                        duration: 1
-                    }).to(parallaxBgImg, {
-                        borderRadius: "0px",
-                        duration: 1
-                    }).to(block, {
-                        padding: "0px",
-                        duration: 1
-                    }, "<");
-                }));
-            }
             if (document.querySelector(".rs-parallax__column")) {
                 const parallaxContainers = document.querySelectorAll(".rs-parallax");
                 parallaxContainers.forEach((container => {
@@ -14946,8 +14904,8 @@
                             scrollTrigger: {
                                 trigger: container,
                                 scrub: 1,
-                                start: "top-=100% top",
-                                end: "bottom+=100% bottom",
+                                start: "top-=30% top",
+                                end: "bottom+=30% bottom",
                                 invalidateOnRefresh: true,
                                 refreshPriority: -2
                             }
@@ -14975,9 +14933,11 @@
                 const slides = gsapWithCSS.utils.toArray(".rs-case-slider__slide", slider);
                 slides.forEach((slide => {
                     gsapWithCSS.fromTo(slide, {
-                        y: gsapWithCSS.utils.random(300, 600)
+                        y: gsapWithCSS.utils.random(300, 600),
+                        opacity: 0
                     }, {
                         y: 0,
+                        opacity: 1,
                         duration: gsapWithCSS.utils.random(.8, 1.5),
                         ease: "power3.out",
                         scrollTrigger: {
@@ -15328,9 +15288,11 @@
                 sidebarNavigation();
                 openFullList();
                 addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
-                addCursorMove(".rs-project__slide", ".cursor__circle");
+                addCursorMove(".rs-project__slide", ".rs-project .cursor__circle");
                 addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
                 addCursorMove(".rs-comparison__compare", ".icv__circle");
+                addCursorHover(".rs-other-slider__slide", ".rs-other-slider .cursor", "cursor__active");
+                addCursorMove(".rs-other-slider__slide", ".rs-other-slider .cursor__circle");
                 manageScripts();
             };
             const destroyPage = () => {
