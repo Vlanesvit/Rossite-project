@@ -14182,6 +14182,9 @@
                     direction: config.direction || "bottom-up"
                 });
             }));
+            strokeTextAnimation(".rs-cards__title h1");
+            strokeTextAnimation(".rs-cards__title h2");
+            strokeTextAnimation(".rs-cards__title h3");
         }));
         function animateSvgDashedLine({dashedSelector, maskSelector, topOffset = 50, endOffset = 500, markers = false}) {
             const dasheds = document.querySelectorAll(dashedSelector);
@@ -14466,17 +14469,6 @@
             duration: .8,
             direction: "bottom-up"
         }, {
-            elements: ".rs-cards__title h1",
-            direction: "bottom-up"
-        }, {
-            elements: ".rs-cards__title h2",
-            delay: .3,
-            direction: "bottom-up"
-        }, {
-            elements: ".rs-cards__title h3",
-            delay: .3,
-            direction: "bottom-up"
-        }, {
             elements: ".rs-text__left",
             direction: "bottom-up"
         }, {
@@ -14695,10 +14687,52 @@
                 }));
             }));
         }
+        function parallaxImage(imageSelector) {
+            gsapWithCSS.utils.toArray(imageSelector).forEach((image => {
+                if (image) gsapWithCSS.fromTo(image, {
+                    y: "0%"
+                }, {
+                    y: "-20%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: image,
+                        start: "top bottom",
+                        end: "bottom bottom",
+                        scrub: 3
+                    }
+                });
+            }));
+        }
+        function strokeTextAnimation(elem) {
+            const text = document.querySelector(elem);
+            if (text) {
+                const lines = text.innerHTML.split("<br>").map((line => line.trim()));
+                text.innerHTML = lines.map((line => `<div style="overflow: hidden;">\n\t\t  <div class="line" style="opacity: 0; transform: translateY(50px);">${line}</div>\n\t\t</div>`)).join("");
+                gsapWithCSS.utils.toArray(".line").forEach(((line, index) => {
+                    gsapWithCSS.fromTo(line, {
+                        opacity: 0,
+                        y: 50
+                    }, {
+                        opacity: 1,
+                        y: 0,
+                        delay: .5 + index * .1,
+                        duration: .9,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: line,
+                            start: "top 80%",
+                            end: "top 30%",
+                            toggleActions: "play none none none"
+                        }
+                    });
+                }));
+            }
+        }
         function initializeCommonAnimations() {
             animateSvgDashedLine({
                 dashedSelector: "section [class*='__line'] .dashed-path"
             });
+            parallaxImage(".rs-parallax .section__bg img");
             if (document.querySelector(".rs-cards__item")) {
                 const cards = gsapWithCSS.utils.toArray(".rs-cards__item");
                 cards.forEach(((card, i) => {
@@ -14809,15 +14843,14 @@
             if (document.querySelector(".rs-case-comparison")) {
                 const comparisonBlocks = document.querySelectorAll(".rs-case-comparison");
                 comparisonBlocks.forEach((block => {
-                    const imageBefore = block.querySelector(".section__bg .rs-case-comparison__img:first-child");
-                    const imageAfter = block.querySelector(".section__bg .rs-case-comparison__img:last-child");
+                    const imageBefore = block.querySelector(".section__bg .rs-case-comparison__img--before");
+                    const imageAfter = block.querySelector(".section__bg .rs-case-comparison__img--after");
+                    const cutLine = block.querySelector(".section__bg .rs-cut-line");
+                    const imageBg = block.querySelector(".section__bg .rs-case-comparison__img--bg");
                     if (!imageBefore || !imageAfter) {
                         console.warn("Не найдены необходимые элементы внутри", block);
                         return;
                     }
-                    gsapWithCSS.set(imageAfter, {
-                        clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)"
-                    });
                     gsapWithCSS.timeline({
                         scrollTrigger: {
                             trigger: block,
@@ -14828,12 +14861,20 @@
                             markers: false,
                             refreshPriority: -2
                         }
-                    }).to(imageAfter, {
-                        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                    }).fromTo(imageBefore, {
+                        clipPath: "polygon(0 0, 100% 0, 100% 100%, -20% 100%)"
+                    }, {
+                        clipPath: "polygon(120% 0, 100% 0, 100% 100%, 100% 100%)",
                         duration: 2,
                         ease: "power2.inOut"
-                    }).to(imageBefore, {
-                        opacity: .2,
+                    }).fromTo(cutLine, {
+                        clipPath: "polygon(0px 0px, 0.5% 0px, -19.5% 100%, -20% 100%)"
+                    }, {
+                        clipPath: "polygon(119.5% 0px, 120% 0px, 100% 100%, 99.5% 100%)",
+                        duration: 2,
+                        ease: "power2.inOut"
+                    }, "<").to(imageBg, {
+                        opacity: .8,
                         duration: 2,
                         ease: "power2.inOut"
                     }, "<");
@@ -14903,9 +14944,9 @@
                         gsapWithCSS.timeline({
                             scrollTrigger: {
                                 trigger: container,
-                                scrub: 1,
-                                start: "top-=30% top",
-                                end: "bottom+=30% bottom",
+                                scrub: 3,
+                                start: "top-=50% top",
+                                end: "bottom+=50% bottom",
                                 invalidateOnRefresh: true,
                                 refreshPriority: -2
                             }
@@ -14933,18 +14974,18 @@
                 const slides = gsapWithCSS.utils.toArray(".rs-case-slider__slide", slider);
                 slides.forEach((slide => {
                     gsapWithCSS.fromTo(slide, {
-                        y: gsapWithCSS.utils.random(300, 600),
+                        y: 200,
                         opacity: 0
                     }, {
                         y: 0,
                         opacity: 1,
-                        duration: gsapWithCSS.utils.random(.8, 1.5),
+                        duration: 1,
                         ease: "power3.out",
                         scrollTrigger: {
                             trigger: slide,
-                            start: "top-=50% center",
-                            end: "bottom+=50% center",
-                            scrub: 1
+                            start: "top bottom ",
+                            end: "bottom bottom",
+                            scrub: true
                         }
                     });
                 }));
