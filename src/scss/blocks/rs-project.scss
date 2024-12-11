@@ -669,8 +669,8 @@
 				bottom: 55px;
 				left: 50%;
 				transform: translateX(-50%) translateY(-30px);
-				min-height: calc(100svh - 88px);
-				max-height: calc(100svh - 88px);
+				min-height: calc(var(--real-height) - 88px);
+				max-height: calc(var(--real-height) - 88px);
 				width: calc(100% + 12px);
 				border-radius: 10px;
 				background: #fff;

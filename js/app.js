@@ -10929,6 +10929,147 @@
                     }));
                 }));
             }
+            if (document.querySelector(".rs-other-project")) {
+                const sliderBlocks = document.querySelectorAll(".rs-other-project");
+                sliderBlocks.forEach((sliderBlock => {
+                    const slider = sliderBlock.querySelector(".rs-other-project__slider");
+                    const pagination = sliderBlock.querySelector(".rs-other-project__pagination");
+                    const arrowNext = sliderBlock.querySelector(".rs-other-project__button-next");
+                    const arrowPrev = sliderBlock.querySelector(".rs-other-project__button-prev");
+                    new swiper_core_Swiper(slider, {
+                        modules: [ Navigation, Pagination, Autoplay ],
+                        autoplay: {
+                            delay: 1e4,
+                            stopOnLastSlide: false,
+                            disableOnInteraction: false
+                        },
+                        observer: true,
+                        observeParents: true,
+                        observeSlideChildren: true,
+                        speed: 500,
+                        simulateTouch: true,
+                        touchRadio: 1,
+                        touchAngle: 45,
+                        grabCursor: true,
+                        pagination: {
+                            el: pagination,
+                            type: "progressbar"
+                        },
+                        navigation: {
+                            nextEl: arrowNext,
+                            prevEl: arrowPrev
+                        },
+                        breakpoints: {
+                            320: {
+                                slidesPerView: 1.22,
+                                spaceBetween: 20
+                            },
+                            767.98: {
+                                slidesPerView: 2.1,
+                                spaceBetween: 24
+                            },
+                            991.98: {
+                                slidesPerView: 3,
+                                spaceBetween: 24
+                            },
+                            1439.98: {
+                                slidesPerView: 3,
+                                spaceBetween: 50
+                            }
+                        }
+                    });
+                }));
+            }
+            if (document.querySelector(".rs-case-slider--desk .rs-case-slider__slider")) {
+                "use strict";
+                const breakpoint = window.matchMedia("(min-width: 991.98px)");
+                let caseDeskSlider;
+                const breakpointChecker = function() {
+                    if (breakpoint.matches === true) {
+                        if (caseDeskSlider !== void 0) caseDeskSlider.destroy(true, true);
+                        return;
+                    } else if (breakpoint.matches === false) return enableSwiper();
+                };
+                const enableSwiper = function() {
+                    caseDeskSlider = new swiper_core_Swiper(".rs-case-slider--desk .rs-case-slider__slider", {
+                        modules: [ Navigation, Pagination, Autoplay ],
+                        autoplay: {
+                            delay: 5e3,
+                            stopOnLastSlide: false,
+                            disableOnInteraction: true
+                        },
+                        observer: true,
+                        observeParents: true,
+                        observeSlideChildren: true,
+                        speed: 500,
+                        simulateTouch: true,
+                        touchRadio: 1,
+                        touchAngle: 45,
+                        touchStartPreventDefault: true,
+                        grabCursor: true,
+                        loop: true,
+                        breakpoints: {
+                            320: {
+                                slidesPerView: 1.05,
+                                spaceBetween: 16,
+                                centeredSlides: true
+                            },
+                            767.98: {
+                                slidesPerView: 1.2,
+                                spaceBetween: 28,
+                                centeredSlides: true
+                            }
+                        }
+                    });
+                };
+                breakpoint.addListener(breakpointChecker);
+                breakpointChecker();
+            }
+            if (document.querySelector(".rs-case-slider--mob .rs-case-slider__slider")) {
+                "use strict";
+                const breakpoint = window.matchMedia("(min-width: 991.98px)");
+                let caseMobSlider;
+                const breakpointChecker = function() {
+                    if (breakpoint.matches === true) {
+                        if (caseMobSlider !== void 0) caseMobSlider.destroy(true, true);
+                        return;
+                    } else if (breakpoint.matches === false) return enableSwiper();
+                };
+                const enableSwiper = function() {
+                    caseMobSlider = new swiper_core_Swiper(".rs-case-slider--mob .rs-case-slider__slider", {
+                        modules: [ Navigation, Pagination, Autoplay ],
+                        autoplay: {
+                            delay: 5e3,
+                            stopOnLastSlide: false,
+                            disableOnInteraction: true
+                        },
+                        observer: true,
+                        observeParents: true,
+                        observeSlideChildren: true,
+                        speed: 500,
+                        simulateTouch: true,
+                        touchRadio: 1,
+                        touchAngle: 45,
+                        touchStartPreventDefault: true,
+                        grabCursor: true,
+                        loop: true,
+                        breakpoints: {
+                            320: {
+                                slidesPerView: 1.4,
+                                spaceBetween: 14,
+                                centeredSlides: true
+                            },
+                            767.98: {
+                                slidesPerView: 2.3,
+                                spaceBetween: 20,
+                                centeredSlides: true
+                            }
+                        }
+                    });
+                };
+                breakpoint.addListener(breakpointChecker);
+                breakpointChecker();
+            }
         }
         function destroySliders() {
             const sliderContainers = document.querySelectorAll(".swiper-container-initialized");
@@ -12910,8 +13051,10 @@
         }
         initNoUiField("styles-page", "styles-page-count");
         initNoUiField("fill-page", "fill-page-count");
-        addCursorHover(".rs-project__slide", ".cursor", "cursor__active");
-        addCursorMove(".rs-project__slide", ".cursor__circle");
+        addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
+        addCursorMove(".rs-project__slide", ".rs-project .cursor__circle");
+        addCursorHover(".rs-other-project__slide", ".rs-other-project .cursor", "cursor__active");
+        addCursorMove(".rs-other-project__slide", ".rs-other-project .cursor__circle");
         gsapWithCSS.registerPlugin(ScrollTrigger_ScrollTrigger);
         function filterClear() {
             const filter = document.querySelector(".rs-project .filter");
@@ -13880,7 +14023,7 @@
                     } else this.popupLogging(`Ой ой, такого попапа нет.Проверьте корректность ввода. `);
                 }
             }
-            close(selectorValue) {
+            close() {
                 if (!this.isOpen) return;
                 this.options.on.beforeClose ? this.options.on.beforeClose() : null;
                 this.targetOpen.element.classList.remove(this.options.classes.popupActive);
@@ -13902,8 +14045,10 @@
             closeAllPopups() {
                 const activePopups = document.querySelectorAll(`.${this.options.classes.popupActive}`);
                 activePopups.forEach((popup => {
-                    const popupSelector = `.${popup.classList[0]}`;
-                    this.close(popupSelector);
+                    this.targetOpen.element = popup;
+                    this.targetOpen.selector = `.${popup.classList[0]}`;
+                    this.targetOpen.element.classList.remove(this.options.classes.popupActive);
+                    document.documentElement.classList.remove(this.options.classes.bodyActive);
                 }));
             }
             _getHash() {
@@ -14030,6 +14175,19 @@
                 }
             }
         }));
+        document.addEventListener("scroll", (() => {
+            const sections = document.querySelectorAll("[data-change-bg-color]");
+            if (sections.length > 0) {
+                const viewportHeight = window.innerHeight;
+                let activeColor = null;
+                sections.forEach((section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const sectionBottom = section.getBoundingClientRect().bottom;
+                    if (sectionTop <= viewportHeight && sectionBottom >= viewportHeight) activeColor = section.getAttribute("data-change-bg-color");
+                }));
+                if (activeColor) document.body.style.background = activeColor; else document.body.style.background = "";
+            }
+        }));
         document.addEventListener("loaderEnd", (function() {
             animationConfig.forEach((config => {
                 revealOnScroll({
@@ -14039,6 +14197,9 @@
                     direction: config.direction || "bottom-up"
                 });
             }));
+            strokeTextAnimation(".rs-cards__title h1");
+            strokeTextAnimation(".rs-cards__title h2");
+            strokeTextAnimation(".rs-cards__title h3");
         }));
         function animateSvgDashedLine({dashedSelector, maskSelector, topOffset = 50, endOffset = 500, markers = false}) {
             const dasheds = document.querySelectorAll(dashedSelector);
@@ -14228,13 +14389,13 @@
             elements: ".rs-text-block .rs-text-block__picture .rs-text-block__icons img",
             direction: "scale--every"
         }, {
-            elements: ".rs-text-block__description ol li",
+            elements: ".rs-text-block__description ol",
             duration: .15,
-            direction: "bottom-up--every"
+            direction: "bottom-up"
         }, {
-            elements: ".rs-text-block__description ul li",
+            elements: ".rs-text-block__description ul",
             duration: .15,
-            direction: "bottom-up--every"
+            direction: "bottom-up"
         }, {
             elements: ".rs-workflow .rs-workflow__img img",
             direction: "scale--every"
@@ -14323,12 +14484,29 @@
             duration: .8,
             direction: "bottom-up"
         }, {
-            elements: ".rs-cards__title h1",
+            elements: ".rs-text__left",
             direction: "bottom-up"
         }, {
-            elements: ".rs-cards__title h2",
-            delay: .2,
+            elements: ".rs-text__right",
+            delay: .3,
             direction: "bottom-up"
+        }, {
+            elements: ".rs-result__img",
+            direction: "fade--every"
+        }, {
+            elements: ".rs-case-slider__slide",
+            direction: "bottom-up--every"
+        }, {
+            elements: ".rs-other-project__slider",
+            direction: "right-left"
+        }, {
+            elements: ".rs-about-case .rs-text__bg",
+            direction: "fade--repeat",
+            delay: .5
+        }, {
+            elements: ".rs-about-case .rs-case-slider__bg",
+            direction: "fade--repeat",
+            delay: .5
         } ];
         function revealOnScroll({elements, duration = .5, delay = .15, direction = "bottom-up"}) {
             const items = document.querySelectorAll(elements);
@@ -14405,34 +14583,40 @@
                 rootMargin: "0px",
                 threshold: .1
             };
+            const repeat = direction.includes("--repeat");
+            const every = direction.includes("--every");
+            const animationType = direction.replace("--repeat", "").replace("--every", "").trim();
+            if (!animationPropsMap[animationType]) {
+                console.error(`Unknown animation type: ${animationType}`);
+                return;
+            }
             items.forEach((item => {
-                item.setAttribute("data-original-style", item.getAttribute("style") || "");
-                const {from} = animationPropsMap[direction.replace("--every", "")] || {
-                    from: {}
-                };
+                const {from} = animationPropsMap[animationType];
                 Object.assign(item.style, from);
                 item.setAttribute("data-animation", "false");
             }));
             setTimeout((() => {
                 const observer = new IntersectionObserver((entries => {
                     entries.forEach(((entry, index) => {
-                        if (entry.isIntersecting && entry.target.getAttribute("data-animation") === "false") {
-                            entry.target.setAttribute("data-animation", "true");
-                            const animationProps = animationPropsMap[direction.replace("--every", "")];
-                            if (animationProps) {
-                                const animationDelay = direction.includes("--every") ? delay * (index + 1) : 0;
-                                gsapWithCSS.fromTo(entry.target, animationProps.from, {
-                                    ...animationProps.to,
-                                    duration,
-                                    delay: animationDelay,
-                                    clearProps: "opacity, transform",
-                                    onComplete: () => {
-                                        entry.target.setAttribute("style", entry.target.getAttribute("data-original-style"));
-                                    }
-                                });
-                            }
-                            observer.unobserve(entry.target);
+                        const item = entry.target;
+                        const isVisible = entry.isIntersecting;
+                        const animationProps = animationPropsMap[animationType];
+                        if (!isVisible && repeat) {
+                            item.setAttribute("data-animation", "false");
+                            Object.assign(item.style, animationProps.from);
+                            return;
                         }
+                        if (isVisible && item.getAttribute("data-animation") === "false") {
+                            item.setAttribute("data-animation", "true");
+                            const animationDelay = every ? delay * index : delay;
+                            gsapWithCSS.fromTo(item, animationProps.from, {
+                                ...animationProps.to,
+                                duration,
+                                delay: animationDelay,
+                                clearProps: "opacity, transform"
+                            });
+                        }
+                        if (!repeat && isVisible) observer.unobserve(item);
                     }));
                 }), observerOptions);
                 items.forEach((item => observer.observe(item)));
@@ -14532,10 +14716,52 @@
                 }));
             }));
         }
+        function parallaxImage(imageSelector) {
+            gsapWithCSS.utils.toArray(imageSelector).forEach((image => {
+                if (image) gsapWithCSS.fromTo(image, {
+                    y: "0%"
+                }, {
+                    y: "-20%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: image,
+                        start: "top bottom",
+                        end: "bottom bottom",
+                        scrub: 3
+                    }
+                });
+            }));
+        }
+        function strokeTextAnimation(elem) {
+            const text = document.querySelector(elem);
+            if (text) {
+                const lines = text.innerHTML.split("<br>").map((line => line.trim()));
+                text.innerHTML = lines.map((line => `<div style="overflow: hidden;">\n\t\t  <div class="line" style="opacity: 0; transform: translateY(50px);">${line}</div>\n\t\t</div>`)).join("");
+                gsapWithCSS.utils.toArray(".line").forEach(((line, index) => {
+                    gsapWithCSS.fromTo(line, {
+                        opacity: 0,
+                        y: 50
+                    }, {
+                        opacity: 1,
+                        y: 0,
+                        delay: .5 + index * .1,
+                        duration: .9,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: line,
+                            start: "top 80%",
+                            end: "top 30%",
+                            toggleActions: "play none none none"
+                        }
+                    });
+                }));
+            }
+        }
         function initializeCommonAnimations() {
             animateSvgDashedLine({
                 dashedSelector: "section [class*='__line'] .dashed-path"
             });
+            parallaxImage(".rs-parallax .section__bg img");
             if (document.querySelector(".rs-cards__item")) {
                 const cards = gsapWithCSS.utils.toArray(".rs-cards__item");
                 cards.forEach(((card, i) => {
@@ -14599,7 +14825,6 @@
                         start: "top bottom",
                         end: "bottom+=500% top",
                         scrub: 3,
-                        markers: true,
                         pin: false
                     }
                 });
@@ -14642,6 +14867,46 @@
                             ease: "power2.out"
                         }, i * .3);
                     }));
+                }));
+            }
+            if (document.querySelector(".rs-case-comparison")) {
+                const comparisonBlocks = document.querySelectorAll(".rs-case-comparison");
+                comparisonBlocks.forEach((block => {
+                    const imageBefore = block.querySelector(".section__bg .rs-case-comparison__img--before");
+                    const imageAfter = block.querySelector(".section__bg .rs-case-comparison__img--after");
+                    const cutLine = block.querySelector(".section__bg .rs-cut-line");
+                    const imageBg = block.querySelector(".section__bg .rs-case-comparison__img--bg");
+                    if (!imageBefore || !imageAfter) {
+                        console.warn("Не найдены необходимые элементы внутри", block);
+                        return;
+                    }
+                    gsapWithCSS.timeline({
+                        scrollTrigger: {
+                            trigger: block,
+                            scrub: 1,
+                            start: "center center",
+                            end: "+=500px",
+                            pin: true,
+                            markers: false,
+                            refreshPriority: -2
+                        }
+                    }).fromTo(imageBefore, {
+                        clipPath: "polygon(0 0, 100% 0, 100% 100%, -20% 100%)"
+                    }, {
+                        clipPath: "polygon(120% 0, 100% 0, 100% 100%, 100% 100%)",
+                        duration: 2,
+                        ease: "power2.inOut"
+                    }).fromTo(cutLine, {
+                        clipPath: "polygon(0px 0px, 0.5% 0px, -19.5% 100%, -20% 100%)"
+                    }, {
+                        clipPath: "polygon(119.5% 0px, 120% 0px, 100% 100%, 99.5% 100%)",
+                        duration: 2,
+                        ease: "power2.inOut"
+                    }, "<").to(imageBg, {
+                        opacity: .8,
+                        duration: 2,
+                        ease: "power2.inOut"
+                    }, "<");
                 }));
             }
         }
@@ -14689,6 +14954,59 @@
                     ease: "power1.inOut"
                 });
             }
+            if (document.querySelector(".rs-parallax__column")) {
+                const parallaxContainers = document.querySelectorAll(".rs-parallax");
+                parallaxContainers.forEach((container => {
+                    const columns = container.querySelectorAll(".rs-parallax__column");
+                    columns.forEach(((column, index) => {
+                        const isEven = (index + 1) % 2 === 0;
+                        const animationFrom = isEven ? {
+                            y: "-500px"
+                        } : {
+                            y: "500px"
+                        };
+                        const animationTo = isEven ? {
+                            y: "500px"
+                        } : {
+                            y: "-500px"
+                        };
+                        gsapWithCSS.timeline({
+                            scrollTrigger: {
+                                trigger: container,
+                                scrub: 10,
+                                start: "top-=200% top",
+                                end: "bottom+=200% bottom",
+                                invalidateOnRefresh: true,
+                                refreshPriority: -2
+                            }
+                        }).fromTo(column, animationFrom, {
+                            ...animationTo,
+                            ease: "power2.out",
+                            duration: 3
+                        });
+                    }));
+                }));
+            }
+            if (document.querySelector(".rs-case-slider")) gsapWithCSS.utils.toArray(".rs-case-slider").forEach((slider => {
+                const slides = gsapWithCSS.utils.toArray(".rs-case-slider__slide", slider);
+                slides.forEach((slide => {
+                    gsapWithCSS.fromTo(slide, {
+                        y: 200,
+                        opacity: 0
+                    }, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: slide,
+                            start: "top bottom ",
+                            end: "bottom bottom",
+                            scrub: true
+                        }
+                    });
+                }));
+            }));
             if (document.querySelector(".rs-features__slide")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
                 const stackItems = gsapWithCSS.utils.toArray(".rs-features__slide");
                 gsapWithCSS.set(stackItems, {
@@ -15028,9 +15346,11 @@
                 sidebarNavigation();
                 openFullList();
                 addCursorHover(".rs-project__slide", ".rs-project .cursor", "cursor__active");
-                addCursorMove(".rs-project__slide", ".cursor__circle");
+                addCursorMove(".rs-project__slide", ".rs-project .cursor__circle");
                 addCursorHover(".rs-comparison__compare", ".rs-comparison .icv__circle", "cursor__active");
                 addCursorMove(".rs-comparison__compare", ".icv__circle");
+                addCursorHover(".rs-other-project__slide", ".rs-other-project .cursor", "cursor__active");
+                addCursorMove(".rs-other-project__slide", ".rs-other-project .cursor__circle");
                 manageScripts();
             };
             const destroyPage = () => {
@@ -15100,9 +15420,16 @@
                 return false;
             }
         }));
+        const themeData = {
+            themeUri: "https://rosait.ru/wp-content/themes/rosait/"
+        };
         function manageScripts() {
             const projectElements = document.querySelectorAll(".rs-project:not(.rs-case)");
             const caseElements = document.querySelectorAll(".rs-project.rs-case");
+            if (!themeData) {
+                console.error("Объект themeData не определён.");
+                return;
+            }
             if (projectElements.length > 0) loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter.js`, "rs-filter").then((() => loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter-case.js`, "rs-filter-case"))).then((() => {
                 if (typeof window.filter_projects === "function") window.filter_projects(); else console.error("Функция filter_projects не загружена.");
             })).catch((error => console.error(error))); else removeScript("rs-filter-page");

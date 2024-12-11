@@ -75,14 +75,14 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		height: 100svh !important;
-		min-height: 100svh !important;
-		max-height: 100svh !important;
+		height: var(--real-height) !important;
+		min-height: var(--real-height) !important;
+		max-height: var(--real-height) !important;
 
 		@supports (-webkit-touch-callout: none) {
-			height: 100svh !important;
-			min-height: 100svh !important;
-			max-height: 100svh !important;
+			height: var(--real-height) !important;
+			min-height: var(--real-height) !important;
+			max-height: var(--real-height) !important;
 		}
 
 		&_video {
@@ -190,8 +190,8 @@
 			max-height: 100vh !important;
 
 			@supports (-webkit-touch-callout: none) {
-				height: 100svh !important;
-				max-height: 100svh !important;
+				height: var(--real-height) !important;
+				max-height: var(--real-height) !important;
 			}
 		}
 

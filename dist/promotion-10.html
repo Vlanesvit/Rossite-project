@@ -10,9 +10,9 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="shortcut icon" href="@favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" href="css/style.min.css?_v=20241206130108">
+	<link rel="stylesheet" href="css/style.min.css?_v=20241211130658">
 
-	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20241206130108" type="text/javascript"></script>
+	<script src="https://api-maps.yandex.ru/2.1?apikey=38863ba5-9462-46dc-940c-d9fed985abff&lang=ru_RU&_v=20241211130658" type="text/javascript"></script>
 
 </head>
 
@@ -1028,7 +1028,7 @@
 								<div class="rs-services-about__hint_content">
 									<h5 class="mrp-reg-18">Доработка сайта</h5>
 									<div class="rs-services-about__hint_img">
-										<script src="https://cdn.lordicon.com/lordicon.js?_v=20241206130108"></script>
+										<script src="https://cdn.lordicon.com/lordicon.js?_v=20241211130658"></script>
 										<lord-icon src="https://cdn.lordicon.com/oqdmuxru.json" trigger="loop" delay="2000" colors="primary:#ffffff" style="width:69px;height:69px">
 										</lord-icon>
 									</div>
@@ -2254,55 +2254,64 @@
 	</div>
 
 	<script>
+		function setRealHeight() {
+			const realHeight = window.innerHeight + "px";
+			document.documentElement.style.setProperty("--real-height", realHeight);
+		}
+
+		window.addEventListener("load", setRealHeight);
+		window.addEventListener("resize", setRealHeight);
+
 		function initHeaderHeight() {
 			const header = document.querySelector(".rs-header");
 			const menuItemDropdowns = header.querySelectorAll(".menu__list .menu__dropdown");
 
-			// Функция для обновления CSS переменной
 			function updateHeaderHeight(includeDropdown = false) {
-				// Если активен hover, не изменять высоту при скролле
-				if (header.classList.contains("_header-hover") && !includeDropdown) {
-					return;
-				}
-
 				let totalHeight = header.clientHeight;
-				if (includeDropdown) {
-					// Найти максимальную высоту .menu__dropdown_block
+				header.style.setProperty("--header-height", `${totalHeight}px`);
+
+				if (!includeDropdown) {
+					return;
+				} else if (includeDropdown) {
 					const maxDropdownHeight = Math.max(
 						...Array.from(document.querySelectorAll(".menu__dropdown_block")).map(block => block.clientHeight)
 					);
 					totalHeight += maxDropdownHeight;
 				}
+
 				header.style.setProperty("--header-height", `${totalHeight}px`);
 			}
 
 			menuItemDropdowns.forEach(item => {
 				item.addEventListener("mouseenter", function() {
-					header.classList.add("_header-hover");
+					header.classList.add("_header-hover", "_header-change-height");
 					updateHeaderHeight(true);
 				});
 				item.addEventListener("mouseleave", function() {
 					if (!document.documentElement.classList.contains("region-menu-open")) {
 						header.classList.remove("_header-hover");
 					}
+					header.classList.remove("_header-change-height");
 					updateHeaderHeight();
 				});
 			});
 
-			// Вызов функции один раз для установки начальной высоты
 			updateHeaderHeight();
 
-			// Обновление высоты при изменении размера и прокрутке страницы, только если hover не активен
 			function handleResizeAndScroll() {
 				updateHeaderHeight();
+
 			}
 
 			window.addEventListener("resize", handleResizeAndScroll);
 			window.addEventListener("scroll", handleResizeAndScroll);
 		}
 
-		// Вызов функции при загрузке страницы
-		window.addEventListener("DOMContentLoaded", initHeaderHeight);
+		window.addEventListener("load", function() {
+			setTimeout(() => {
+				initHeaderHeight();
+			}, 100);
+		});
 	</script>
 
 	<script>
@@ -2313,6 +2322,8 @@
 		let resourcesLoaded = 0;
 		let targetPercentage = 0;
 
+		/*************  ✨ Codeium Command ⭐  *************/
+		/******  85af270f-a02c-4653-afbf-07657dcee47b  *******/
 		function showLoader() {
 			document.body.classList.add("lock");
 			loader.classList.add("show");
@@ -2434,7 +2445,7 @@
 		});
 	</script>
 
-	<script src="js/app.min.js?_v=20241206130108" defer></script>
+	<script src="js/app.min.js?_v=20241211130658" defer></script>
 
 </body>
 

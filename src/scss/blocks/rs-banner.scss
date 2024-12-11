@@ -116,6 +116,10 @@
 		& > h1 {
 			max-width: 780px;
 
+			@media (max-width: 1439.98px) {
+				max-width: 50%;
+			}
+
 			@media (max-width: 991.98px) {
 				max-width: 360px;
 				font-size: 34px;
@@ -178,6 +182,10 @@
 		& > h5 {
 			margin-top: 15px;
 			max-width: 705px;
+
+			@media (max-width: 1439.98px) {
+				max-width: 50%;
+			}
 
 			@media (max-width: 991.98px) {
 				margin-top: 8px;

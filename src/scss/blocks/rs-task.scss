@@ -1,4 +1,6 @@
 .rs-task {
+	overflow: visible;
+	
 	// .rs-task__container
 	&__container {
 	}
@@ -62,18 +64,18 @@
 
 				@media (max-width: 991.98px) {
 					&._arrow-left {
-						top: calc(100% + 12px);
-						bottom: auto;
-						left: auto;
-						right: -10px;
-						transform: translateX(0%) !important;
+						bottom: calc(100% + 12px);
+						top: auto;
+						right: auto;
+						left: 50%;
+						transform: translateX(-50%);
 
 						&::before {
-							top: auto;
-							bottom: calc(100% - 4px);
-							left: auto;
-							right: 12.5px;
-							transform: translateX(0%) rotate(90deg);
+							bottom: auto;
+							top: calc(100% - 4px);
+							right: auto;
+							left: 50%;
+							transform: translateX(-50%) rotate(-90deg);
 						}
 					}
 				}

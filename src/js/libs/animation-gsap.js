@@ -163,6 +163,31 @@ window.addEventListener('load', () => {
 	}
 });
 
+document.addEventListener("scroll", () => {
+	const sections = document.querySelectorAll("[data-change-bg-color]");
+	if (sections.length > 0) {
+		const viewportHeight = window.innerHeight;
+		let activeColor = null;
+
+		sections.forEach((section) => {
+			const sectionTop = section.getBoundingClientRect().top;
+			const sectionBottom = section.getBoundingClientRect().bottom;
+
+			// Проверяем начало и конец секции
+			if (sectionTop <= viewportHeight && sectionBottom >= viewportHeight) {
+				activeColor = section.getAttribute("data-change-bg-color");
+			}
+		});
+
+		// Устанавливаем фон или возвращаем его к исходному
+		if (activeColor) {
+			document.body.style.background = activeColor;
+		} else {
+			document.body.style.background = "";
+		}
+	}
+});
+
 document.addEventListener('loaderEnd', function () {
 	// Запуск анимаций по конфигурации
 	animationConfig.forEach(config => {
@@ -275,8 +300,8 @@ const animationConfig = [
 	{ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__img-2 img', delay: 0.9, direction: 'scale' },
 	{ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__img-3 img', delay: 1.2, direction: 'scale' },
 	{ elements: '.rs-text-block .rs-text-block__picture .rs-text-block__icons img', direction: 'scale--every' },
-	{ elements: '.rs-text-block__description ol li', duration: 0.15, direction: 'bottom-up--every' },
-	{ elements: '.rs-text-block__description ul li', duration: 0.15, direction: 'bottom-up--every' },
+	{ elements: '.rs-text-block__description ol', duration: 0.15, direction: 'bottom-up' },
+	{ elements: '.rs-text-block__description ul', duration: 0.15, direction: 'bottom-up' },
 	// Workflow
 	{ elements: '.rs-workflow .rs-workflow__img img', direction: 'scale--every' },
 	{ elements: '.rs-workflow .rs-workflow__icon', direction: 'scale--every' },
@@ -324,13 +349,17 @@ const animationConfig = [
 	// Result
 	{ elements: '.rs-result__img', direction: 'fade--every' },
 	// Case-slider
-	{ elements: '.rs-case-slider__slide', direction: 'button-up--every' },
+	{ elements: '.rs-case-slider__slide', direction: 'bottom-up--every' },
 	// Other-project
 	{ elements: '.rs-other-project__slider', direction: 'right-left' },
+	// About-case
+	{ elements: '.rs-about-case .rs-text__bg', direction: 'fade--repeat', delay: 0.5 },
+	{ elements: '.rs-about-case .rs-case-slider__bg', direction: 'fade--repeat', delay: 0.5 },
 ];
 function revealOnScroll({ elements, duration = 0.5, delay = 0.15, direction = 'bottom-up' }) {
 	const items = document.querySelectorAll(elements);
 
+	// Карта анимаций
 	const animationPropsMap = {
 		'bottom-up': { from: { opacity: 0, transform: 'translateY(50px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
 		'up-bottom': { from: { opacity: 0, transform: 'translateY(-50px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
@@ -341,51 +370,66 @@ function revealOnScroll({ elements, duration = 0.5, delay = 0.15, direction = 'b
 		'width-100': { from: { width: '0%' }, to: { width: '100%' } },
 	};
 
-	const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 }; // Уменьшил threshold
+	// Настройки наблюдателя
+	const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+	const repeat = direction.includes('--repeat');
+	const every = direction.includes('--every');
+	const animationType = direction.replace('--repeat', '').replace('--every', '').trim();
 
+	// Проверка существования типа анимации
+	if (!animationPropsMap[animationType]) {
+		console.error(`Unknown animation type: ${animationType}`);
+		return;
+	}
 
+	// Инициализация элементов
 	items.forEach(item => {
-		// Сохраняем исходные инлайн-стили для последующего восстановления
-		item.setAttribute('data-original-style', item.getAttribute('style') || '');
-		const { from } = animationPropsMap[direction.replace('--every', '')] || { from: {} };
-		Object.assign(item.style, from);
+		const { from } = animationPropsMap[animationType];
+		Object.assign(item.style, from); // Скрыть элемент изначально
 		item.setAttribute('data-animation', 'false');
 	});
 
+	// Запуск наблюдателя
 	setTimeout(() => {
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry, index) => {
-				if (entry.isIntersecting && entry.target.getAttribute('data-animation') === 'false') {
-					entry.target.setAttribute('data-animation', 'true');
+				const item = entry.target;
+				const isVisible = entry.isIntersecting;
+				const animationProps = animationPropsMap[animationType];
 
-					const animationProps = animationPropsMap[direction.replace('--every', '')];
-					if (animationProps) {
-						const animationDelay = direction.includes('--every') ? delay * (index + 1) : 0;
+				// Сброс при выходе
+				if (!isVisible && repeat) {
+					item.setAttribute('data-animation', 'false');
+					Object.assign(item.style, animationProps.from);
+					return;
+				}
 
-						gsap.fromTo(entry.target, animationProps.from, {
-							...animationProps.to,
-							duration,
-							delay: animationDelay,
-							// Указываем сброс только анимационных свойств для сохранения исходных стилей
-							clearProps: "opacity, transform",
-							onComplete: () => {
-								// Восстанавливаем исходные инлайн-стили
-								entry.target.setAttribute('style', entry.target.getAttribute('data-original-style'));
-							},
-						});
-					}
+				// Воспроизведение анимации
+				if (isVisible && item.getAttribute('data-animation') === 'false') {
+					item.setAttribute('data-animation', 'true');
+					const animationDelay = every ? delay * index : delay;
 
-					observer.unobserve(entry.target);
+					gsap.fromTo(item, animationProps.from, {
+						...animationProps.to,
+						duration,
+						delay: animationDelay,
+						clearProps: "opacity, transform",
+					});
+				}
+
+				// Остановка наблюдения, если повтор выключен
+				if (!repeat && isVisible) {
+					observer.unobserve(item);
 				}
 			});
 		}, observerOptions);
 
+		// Наблюдение за элементами
 		items.forEach(item => observer.observe(item));
-
 		return observer;
 	}, 700);
-
 }
+
 
 function destroyReveal() {
 	// Удаляем предыдущий observer, если он существует
@@ -853,7 +897,6 @@ function initializeDesktopAnimations() {
 	}
 
 	if (document.querySelector('.rs-parallax__column')) {
-		// Находим все блоки, содержащие rs-parallax__column
 		const parallaxContainers = document.querySelectorAll('.rs-parallax');
 
 		parallaxContainers.forEach(container => {
@@ -867,36 +910,21 @@ function initializeDesktopAnimations() {
 				gsap.timeline({
 					scrollTrigger: {
 						trigger: container,
-						scrub: 3,
-						start: "top-=50% top",
-						end: "bottom+=50% bottom",
+						scrub: 10,
+						start: "top-=200% top",
+						end: "bottom+=200% bottom",
 						invalidateOnRefresh: true,
 						refreshPriority: -2,
 					}
-				}).fromTo(column, animationFrom, animationTo);
-			});
-		});
-	}
-
-	if (document.querySelector("[data-change-bg-color]")) {
-		gsap.matchMedia().add("(min-width: 991.98px)", () => {
-			const sections = document.querySelectorAll("[data-change-bg-color]");
-			sections.forEach((section) => {
-				ScrollTrigger.create({
-					trigger: section,
-					start: "top bottom",
-					end: "bottom bottom",
-					invalidateOnRefresh: true,
-					refreshPriority: -5,
-					// markers: true,
-					onEnter: () => section.classList.add("_active-step"),
-					onLeave: () => section.classList.remove("_active-step"),
-					onEnterBack: () => section.classList.add("_active-step"),
-					onLeaveBack: () => section.classList.remove("_active-step"),
+				}).fromTo(column, animationFrom, {
+					...animationTo,
+					ease: "power2.out",
+					duration: 3
 				});
 			});
 		});
 	}
+
 
 	if (document.querySelector(".rs-case-slider")) {
 		gsap.utils.toArray('.rs-case-slider').forEach(slider => {
@@ -1445,9 +1473,17 @@ document.addEventListener('click', function (event) {
 });
 
 // Функция управления загрузкой скриптов
+const themeData = {
+	themeUri: "https://rosait.ru/wp-content/themes/rosait/"
+};
 function manageScripts() {
 	const projectElements = document.querySelectorAll('.rs-project:not(.rs-case)');
 	const caseElements = document.querySelectorAll('.rs-project.rs-case');
+
+	if (!themeData) {
+		console.error("Объект themeData не определён.");
+		return;
+	}
 
 	if (projectElements.length > 0) {
 		loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter.js`, 'rs-filter')

@@ -22,7 +22,7 @@
 	/* Standardized Properties */
 	@supports not selector(::-webkit-scrollbar) {
 		scrollbar-color: var(--primary-color) var(--bg-color);
-		scrollbar-width: thin;
+		scrollbar-width: none;
 	}
 
 	&::before,
@@ -73,13 +73,14 @@ body {
 	line-height: 1;
 	font-family: $fontFamily;
 	font-size: $fontSize;
-	background: var(--bg-color);
+	background-color: var(--bg-color);
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	position: relative;
+	transition: background-color 0.5s ease;
 }
 
 nav,

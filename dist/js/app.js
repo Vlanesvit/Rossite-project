@@ -14023,7 +14023,7 @@
                     } else this.popupLogging(`Ой ой, такого попапа нет.Проверьте корректность ввода. `);
                 }
             }
-            close(selectorValue) {
+            close() {
                 if (!this.isOpen) return;
                 this.options.on.beforeClose ? this.options.on.beforeClose() : null;
                 this.targetOpen.element.classList.remove(this.options.classes.popupActive);
@@ -14045,8 +14045,10 @@
             closeAllPopups() {
                 const activePopups = document.querySelectorAll(`.${this.options.classes.popupActive}`);
                 activePopups.forEach((popup => {
-                    const popupSelector = `.${popup.classList[0]}`;
-                    this.close(popupSelector);
+                    this.targetOpen.element = popup;
+                    this.targetOpen.selector = `.${popup.classList[0]}`;
+                    this.targetOpen.element.classList.remove(this.options.classes.popupActive);
+                    document.documentElement.classList.remove(this.options.classes.bodyActive);
                 }));
             }
             _getHash() {
@@ -14171,6 +14173,19 @@
                         });
                     }), 100);
                 }
+            }
+        }));
+        document.addEventListener("scroll", (() => {
+            const sections = document.querySelectorAll("[data-change-bg-color]");
+            if (sections.length > 0) {
+                const viewportHeight = window.innerHeight;
+                let activeColor = null;
+                sections.forEach((section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const sectionBottom = section.getBoundingClientRect().bottom;
+                    if (sectionTop <= viewportHeight && sectionBottom >= viewportHeight) activeColor = section.getAttribute("data-change-bg-color");
+                }));
+                if (activeColor) document.body.style.background = activeColor; else document.body.style.background = "";
             }
         }));
         document.addEventListener("loaderEnd", (function() {
@@ -14374,13 +14389,13 @@
             elements: ".rs-text-block .rs-text-block__picture .rs-text-block__icons img",
             direction: "scale--every"
         }, {
-            elements: ".rs-text-block__description ol li",
+            elements: ".rs-text-block__description ol",
             duration: .15,
-            direction: "bottom-up--every"
+            direction: "bottom-up"
         }, {
-            elements: ".rs-text-block__description ul li",
+            elements: ".rs-text-block__description ul",
             duration: .15,
-            direction: "bottom-up--every"
+            direction: "bottom-up"
         }, {
             elements: ".rs-workflow .rs-workflow__img img",
             direction: "scale--every"
@@ -14480,10 +14495,18 @@
             direction: "fade--every"
         }, {
             elements: ".rs-case-slider__slide",
-            direction: "button-up--every"
+            direction: "bottom-up--every"
         }, {
             elements: ".rs-other-project__slider",
             direction: "right-left"
+        }, {
+            elements: ".rs-about-case .rs-text__bg",
+            direction: "fade--repeat",
+            delay: .5
+        }, {
+            elements: ".rs-about-case .rs-case-slider__bg",
+            direction: "fade--repeat",
+            delay: .5
         } ];
         function revealOnScroll({elements, duration = .5, delay = .15, direction = "bottom-up"}) {
             const items = document.querySelectorAll(elements);
@@ -14560,34 +14583,40 @@
                 rootMargin: "0px",
                 threshold: .1
             };
+            const repeat = direction.includes("--repeat");
+            const every = direction.includes("--every");
+            const animationType = direction.replace("--repeat", "").replace("--every", "").trim();
+            if (!animationPropsMap[animationType]) {
+                console.error(`Unknown animation type: ${animationType}`);
+                return;
+            }
             items.forEach((item => {
-                item.setAttribute("data-original-style", item.getAttribute("style") || "");
-                const {from} = animationPropsMap[direction.replace("--every", "")] || {
-                    from: {}
-                };
+                const {from} = animationPropsMap[animationType];
                 Object.assign(item.style, from);
                 item.setAttribute("data-animation", "false");
             }));
             setTimeout((() => {
                 const observer = new IntersectionObserver((entries => {
                     entries.forEach(((entry, index) => {
-                        if (entry.isIntersecting && entry.target.getAttribute("data-animation") === "false") {
-                            entry.target.setAttribute("data-animation", "true");
-                            const animationProps = animationPropsMap[direction.replace("--every", "")];
-                            if (animationProps) {
-                                const animationDelay = direction.includes("--every") ? delay * (index + 1) : 0;
-                                gsapWithCSS.fromTo(entry.target, animationProps.from, {
-                                    ...animationProps.to,
-                                    duration,
-                                    delay: animationDelay,
-                                    clearProps: "opacity, transform",
-                                    onComplete: () => {
-                                        entry.target.setAttribute("style", entry.target.getAttribute("data-original-style"));
-                                    }
-                                });
-                            }
-                            observer.unobserve(entry.target);
+                        const item = entry.target;
+                        const isVisible = entry.isIntersecting;
+                        const animationProps = animationPropsMap[animationType];
+                        if (!isVisible && repeat) {
+                            item.setAttribute("data-animation", "false");
+                            Object.assign(item.style, animationProps.from);
+                            return;
                         }
+                        if (isVisible && item.getAttribute("data-animation") === "false") {
+                            item.setAttribute("data-animation", "true");
+                            const animationDelay = every ? delay * index : delay;
+                            gsapWithCSS.fromTo(item, animationProps.from, {
+                                ...animationProps.to,
+                                duration,
+                                delay: animationDelay,
+                                clearProps: "opacity, transform"
+                            });
+                        }
+                        if (!repeat && isVisible) observer.unobserve(item);
                     }));
                 }), observerOptions);
                 items.forEach((item => observer.observe(item)));
@@ -14944,32 +14973,20 @@
                         gsapWithCSS.timeline({
                             scrollTrigger: {
                                 trigger: container,
-                                scrub: 3,
-                                start: "top-=50% top",
-                                end: "bottom+=50% bottom",
+                                scrub: 10,
+                                start: "top-=200% top",
+                                end: "bottom+=200% bottom",
                                 invalidateOnRefresh: true,
                                 refreshPriority: -2
                             }
-                        }).fromTo(column, animationFrom, animationTo);
+                        }).fromTo(column, animationFrom, {
+                            ...animationTo,
+                            ease: "power2.out",
+                            duration: 3
+                        });
                     }));
                 }));
             }
-            if (document.querySelector("[data-change-bg-color]")) gsapWithCSS.matchMedia().add("(min-width: 991.98px)", (() => {
-                const sections = document.querySelectorAll("[data-change-bg-color]");
-                sections.forEach((section => {
-                    ScrollTrigger_ScrollTrigger.create({
-                        trigger: section,
-                        start: "top bottom",
-                        end: "bottom bottom",
-                        invalidateOnRefresh: true,
-                        refreshPriority: -5,
-                        onEnter: () => section.classList.add("_active-step"),
-                        onLeave: () => section.classList.remove("_active-step"),
-                        onEnterBack: () => section.classList.add("_active-step"),
-                        onLeaveBack: () => section.classList.remove("_active-step")
-                    });
-                }));
-            }));
             if (document.querySelector(".rs-case-slider")) gsapWithCSS.utils.toArray(".rs-case-slider").forEach((slider => {
                 const slides = gsapWithCSS.utils.toArray(".rs-case-slider__slide", slider);
                 slides.forEach((slide => {
@@ -15403,9 +15420,16 @@
                 return false;
             }
         }));
+        const themeData = {
+            themeUri: "https://rosait.ru/wp-content/themes/rosait/"
+        };
         function manageScripts() {
             const projectElements = document.querySelectorAll(".rs-project:not(.rs-case)");
             const caseElements = document.querySelectorAll(".rs-project.rs-case");
+            if (!themeData) {
+                console.error("Объект themeData не определён.");
+                return;
+            }
             if (projectElements.length > 0) loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter.js`, "rs-filter").then((() => loadScriptIfNotLoaded(`${themeData.themeUri}/js/filter-case.js`, "rs-filter-case"))).then((() => {
                 if (typeof window.filter_projects === "function") window.filter_projects(); else console.error("Функция filter_projects не загружена.");
             })).catch((error => console.error(error))); else removeScript("rs-filter-page");

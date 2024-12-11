@@ -390,6 +390,8 @@
 						bottom: 1px;
 
 						@media (max-width: 991.98px) {
+							bottom: -3px;
+							
 							&:hover {
 								.tooltip__modal {
 									animation: shakeBottom 500ms ease-in-out forwards;
@@ -403,34 +405,38 @@
 						max-width: 230px;
 
 						@media (max-width: 1794.98px) {
-							bottom: calc(100% + 20px);
-							top: auto;
-							right: auto;
-							left: calc(50% + 8px);
-							transform: translateX(calc(-50% - 4px)) !important;
-
-							&::before {
-								bottom: auto;
-								top: calc(100% - 4px);
+							&._arrow-left {
+								bottom: calc(100% + 20px);
+								top: auto;
 								right: auto;
-								left: 50%;
-								transform: translateX(-50%) rotate(-90deg);
+								left: calc(50% + 8px);
+								transform: translateX(calc(-50% - 4px)) !important;
+
+								&::before {
+									bottom: auto;
+									top: calc(100% - 4px);
+									right: auto;
+									left: 50%;
+									transform: translateX(-50%) rotate(-90deg);
+								}
 							}
 						}
 
 						@media (max-width: 991.98px) {
-							bottom: calc(100% + 12px);
-							top: auto;
-							right: auto;
-							left: 50%;
-							transform: translateX(-50%);
-
-							&::before {
+							&._arrow-left {
+								top: calc(100% + 12px);
 								bottom: auto;
-								top: calc(100% - 4px);
-								right: auto;
-								left: 50%;
-								transform: translateX(-50%) rotate(-90deg);
+								left: auto;
+								right: -10px;
+								transform: translateX(0%) !important;
+
+								&::before {
+									top: auto;
+									bottom: calc(100% - 4px);
+									left: auto;
+									right: 12.5px;
+									transform: translateX(0%) rotate(90deg);
+								}
 							}
 						}
 					}

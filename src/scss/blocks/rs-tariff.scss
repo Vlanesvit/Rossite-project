@@ -276,7 +276,7 @@
 		.rs-btn {
 			width: 100%;
 			max-width: 156px;
-			margin: 5px auto 0px;
+			margin: auto auto 0px;
 
 			.btn-text {
 				padding: 10px 28px;
@@ -301,7 +301,7 @@
 
 		// .rs-tariff__head_desk
 		&_desk {
-			margin-top: 3px;
+			margin: 3px 0px 5px;
 			// display: flex;
 			// align-items: center;
 			// justify-content: center;
@@ -634,6 +634,13 @@
 			&::before {
 				font-size: 20px;
 				margin-right: 5px;
+				transition: transform 0.3s ease 0s;
+			}
+
+			&._spoller-active {
+				&::before {
+					transform: rotate(180deg);
+				}
 			}
 		}
 	}

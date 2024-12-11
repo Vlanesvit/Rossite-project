@@ -251,7 +251,7 @@ export class Popup {
 			} else this.popupLogging(`Ой ой, такого попапа нет.Проверьте корректность ввода. `);
 		}
 	}
-	close(selectorValue) {
+	close() {
 		if (!this.isOpen) return;
 
 		// Вызвать пользовательскую функцию перед закрытием
@@ -282,8 +282,10 @@ export class Popup {
 	closeAllPopups() {
 		const activePopups = document.querySelectorAll(`.${this.options.classes.popupActive}`);
 		activePopups.forEach(popup => {
-			const popupSelector = `.${popup.classList[0]}`; // Получаем селектор попапа
-			this.close(popupSelector); // Закрываем попап по селектору
+			this.targetOpen.element = popup; // Устанавливаем элемент вручную
+			this.targetOpen.selector = `.${popup.classList[0]}`; // Обновляем селектор
+			this.targetOpen.element.classList.remove(this.options.classes.popupActive);
+			document.documentElement.classList.remove(this.options.classes.bodyActive);
 		});
 	}
 	// Получение хэша 

@@ -28,7 +28,7 @@
 	&__wrapper {
 		@media (min-width: 991.98px) {
 			padding: 5vh 0px;
-			height: 100svh;
+			height: var(--real-height);
 		}
 	}
 

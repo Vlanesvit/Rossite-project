@@ -35,55 +35,62 @@ function rs_style_theme() {
     ));
 
 	wp_add_inline_script("app", '
-function initHeaderHeight() {
-    const header = document.querySelector(".rs-header");
-    const menuItemDropdowns = header.querySelectorAll(".menu__list .menu__dropdown");
+function setRealHeight() {
+		const realHeight = window.innerHeight + "px";
+		document.documentElement.style.setProperty("--real-height", realHeight);
+	}
 
-    // Функция для обновления CSS переменной
-    function updateHeaderHeight(includeDropdown = false) {
-        // Если активен hover, не изменять высоту при скролле
-        if (header.classList.contains("_header-hover") && !includeDropdown) {
-            return;
-        }
+	window.addEventListener("load", setRealHeight);
+	window.addEventListener("resize", setRealHeight);
 
-        let totalHeight = header.clientHeight;
-        if (includeDropdown) {
-            // Найти максимальную высоту .menu__dropdown_block
-            const maxDropdownHeight = Math.max(
-                ...Array.from(document.querySelectorAll(".menu__dropdown_block")).map(block => block.clientHeight)
-            );
-            totalHeight += maxDropdownHeight;
-        }
-        header.style.setProperty("--header-height", `${totalHeight}px`);
-    }
+	function initHeaderHeight() {
+		const header = document.querySelector(".rs-header");
+		const menuItemDropdowns = header.querySelectorAll(".menu__list .menu__dropdown");
 
-    menuItemDropdowns.forEach(item => {
-        item.addEventListener("mouseenter", function () {
-            header.classList.add("_header-hover");
-            updateHeaderHeight(true);
-        });
-        item.addEventListener("mouseleave", function () {
-            if (!document.documentElement.classList.contains("region-menu-open")) {
-                header.classList.remove("_header-hover");
-            }
-            updateHeaderHeight();
-        });
-    });
+		function updateHeaderHeight(includeDropdown = false) {
+			if (header.classList.contains("_header-hover") && !includeDropdown) {
+				return;
+			}
 
-    // Вызов функции один раз для установки начальной высоты
-    updateHeaderHeight();
+			setTimeout(() => {
+				let totalHeight = header.clientHeight;
+				if (includeDropdown) {
+					const maxDropdownHeight = Math.max(
+						...Array.from(document.querySelectorAll(".menu__dropdown_block")).map(block => block.clientHeight)
+					);
+					totalHeight += maxDropdownHeight;
+				}
+				header.style.setProperty("--header-height", `${totalHeight}px`);
+			}, 300);
+		}
 
-    // Обновление высоты при изменении размера и прокрутке страницы, только если hover не активен
-    function handleResizeAndScroll() {
-        updateHeaderHeight();
-    }
+		menuItemDropdowns.forEach(item => {
+			item.addEventListener("mouseenter", function () {
+				header.classList.add("_header-hover");
+				updateHeaderHeight(true);
+			});
+			item.addEventListener("mouseleave", function () {
+				if (!document.documentElement.classList.contains("region-menu-open")) {
+					header.classList.remove("_header-hover");
+				}
+				updateHeaderHeight();
+			});
+		});
 
-    window.addEventListener("resize", handleResizeAndScroll);
-    window.addEventListener("scroll", handleResizeAndScroll);
-}
+		updateHeaderHeight();
 
-// Вызов функции при загрузке страницы
-window.addEventListener("DOMContentLoaded", initHeaderHeight);
+		function handleResizeAndScroll() {
+			setTimeout(() => {
+				updateHeaderHeight();
+			}, 300);
+
+		}
+
+		window.addEventListener("resize", handleResizeAndScroll);
+		window.addEventListener("scroll", handleResizeAndScroll);
+	}
+
+	window.addEventListener("load", initHeaderHeight);
 ');
 
 	wp_add_inline_script('app', '
@@ -101,8 +108,6 @@ window.addEventListener("DOMContentLoaded", initHeaderHeight);
 	}
 
 	function hideLoader() {
-		console.log("before" + hideLoaderCalled);
-
 		document.body.classList.remove("lock");
 
 		if (hideLoaderCalled) return;
@@ -115,8 +120,6 @@ window.addEventListener("DOMContentLoaded", initHeaderHeight);
 		document.dispatchEvent(event);
 
 		hideLoaderCalled = true;
-
-		console.log("after" + hideLoaderCalled);
 	}
 
 	function updatePercentage() {

@@ -4,7 +4,7 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 100svh;
+	height: var(--real-height);
 	z-index: 99999999;
 	transform: translateZ(0);
 	pointer-events: none;
