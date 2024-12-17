@@ -1,0 +1,124 @@
+.rs-case-comparison {
+  height: 890px;
+}
+
+.rs-case-comparison .section__wrapper {
+  overflow: hidden;
+  border-radius: 60px;
+  height: 100%;
+}
+
+.rs-case-comparison .section__bg {
+  z-index: 10;
+  border-radius: 60px;
+}
+
+.rs-case-comparison .section__bg .rs-case-comparison__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 60px;
+}
+
+.rs-case-comparison .section__bg .rs-case-comparison__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.rs-case-comparison .section__bg .rs-case-comparison__img--before {
+  z-index: 2;
+}
+
+.rs-case-comparison .section__bg .rs-case-comparison__img--bg {
+  background: #696969;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.rs-case-comparison .section__bg .rs-cut-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-clip-path: polygon(0 0, 0.5% 0, -19.5% 100%, -20% 100%);
+          clip-path: polygon(0 0, 0.5% 0, -19.5% 100%, -20% 100%);
+  z-index: 4;
+  background-color: #0c75af;
+}
+
+@media (min-width: 991.98px) {
+  .rs-case-comparison {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 1439.98px) {
+  .rs-case-comparison .section__wrapper {
+    border-radius: 50px;
+  }
+
+  .rs-case-comparison .section__bg {
+    border-radius: 50px;
+  }
+
+  .rs-case-comparison .section__bg .rs-case-comparison__img {
+    border-radius: 50px;
+  }
+}
+
+@media (max-width: 1169.98px) {
+  .rs-case-comparison .section__wrapper {
+    border-radius: 40px;
+  }
+
+  .rs-case-comparison .section__bg {
+    border-radius: 40px;
+  }
+
+  .rs-case-comparison .section__bg .rs-case-comparison__img {
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .rs-case-comparison {
+    padding: 36px;
+    height: 519px;
+  }
+
+  .rs-case-comparison .section__wrapper {
+    border-radius: 30px;
+  }
+
+  .rs-case-comparison .section__bg {
+    border-radius: 30px;
+  }
+
+  .rs-case-comparison .section__bg .rs-case-comparison__img {
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .rs-case-comparison {
+    padding: 16px;
+  }
+
+  .rs-case-comparison .section__wrapper {
+    border-radius: 15px;
+  }
+
+  .rs-case-comparison .section__bg {
+    border-radius: 15px;
+  }
+
+  .rs-case-comparison .section__bg .rs-case-comparison__img {
+    border-radius: 15px;
+  }
+}

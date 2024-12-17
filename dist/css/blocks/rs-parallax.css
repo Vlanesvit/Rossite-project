@@ -1,0 +1,131 @@
+.rs-parallax .section__wrapper {
+  overflow: hidden;
+  border-radius: 50px;
+  height: 100%;
+}
+
+.rs-parallax .section__bg {
+  border-radius: 50px;
+}
+
+.rs-parallax .section__bg img {
+  height: auto;
+}
+
+.rs-parallax__columns {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #193457;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.rs-parallax__column {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 48.64%;
+          flex: 0 0 48.64%;
+  padding: 12px;
+}
+
+.rs-parallax__column > *:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.rs-parallax__column img {
+  border-radius: 30px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100%;
+}
+
+@media (min-width: 991.98px) {
+  .rs-parallax {
+    height: 880px;
+  }
+}
+
+@media (max-width: 1439.98px) {
+  .rs-parallax .section__wrapper {
+    border-radius: 40px;
+  }
+
+  .rs-parallax .section__bg {
+    border-radius: 40px;
+  }
+
+  .rs-parallax__column {
+    padding: 8px;
+  }
+
+  .rs-parallax__column > *:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .rs-parallax__column img {
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .rs-parallax {
+    height: 610px;
+    padding: 0px 36px;
+  }
+
+  .rs-parallax .section__wrapper {
+    border-radius: 30px;
+  }
+
+  .rs-parallax .section__bg {
+    border-radius: 30px;
+  }
+
+  .rs-parallax__column {
+    padding: 6px;
+  }
+
+  .rs-parallax__column > *:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  .rs-parallax__column img {
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .rs-parallax {
+    height: 303px;
+    padding: 0px 16px;
+  }
+
+  .rs-parallax .section__wrapper {
+    border-radius: 15px;
+  }
+
+  .rs-parallax .section__bg {
+    border-radius: 15px;
+  }
+
+  .rs-parallax__column {
+    padding: 3px;
+  }
+
+  .rs-parallax__column > *:not(:last-child) {
+    margin-bottom: 6px;
+  }
+
+  .rs-parallax__column img {
+    border-radius: 8px;
+  }
+}

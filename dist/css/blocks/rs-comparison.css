@@ -1,0 +1,94 @@
+.rs-comparison {
+  text-align: center;
+  overflow: hidden;
+}
+
+.rs-comparison .section__container > p {
+  max-width: 991.98px;
+  width: 100%;
+  text-wrap: balance;
+  margin: 21px auto 0px;
+}
+
+.rs-comparison__compare {
+  margin-top: 35px;
+  width: 100%;
+  overflow: visible;
+  position: relative;
+  padding-bottom: 43.45%;
+  right: -3.8%;
+}
+
+.rs-comparison__compare .icv__control-line {
+  width: 8px !important;
+}
+
+.rs-comparison__compare .icv__circle {
+  pointer-events: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-radius: 50%;
+  border: none !important;
+  background-image: url("../img/pages/comparison/comparison-btn.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 10;
+}
+
+.rs-comparison__compare .icv__arrow-wrapper {
+  display: none;
+}
+
+.rs-comparison__compare .icv__wrapper,
+.rs-comparison__compare .icv__fluidwrapper {
+  background-size: contain !important;
+}
+
+@media (min-width: 991.98px) {
+  .rs-comparison__compare .icv__circle {
+    position: fixed;
+    left: 0%;
+    top: 0;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out, height 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656), width 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656);
+    transition: opacity 0.3s ease-in-out, height 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656), width 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656);
+  }
+
+  .rs-comparison__compare .icv__circle.cursor__active {
+    width: 76px;
+    height: 76px;
+    opacity: 1;
+  }
+
+  .touch .rs-comparison__compare .icv__circle {
+    width: 76px;
+    height: 76px;
+    -webkit-transform: none !important;
+        -ms-transform: none !important;
+            transform: none !important;
+    position: static;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1439.98px) {
+  .rs-comparison {
+    margin-top: 98px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .rs-comparison {
+    display: none;
+  }
+
+  .rs-comparison__compare .icv__circle {
+    width: 45px;
+    height: 45px;
+  }
+}

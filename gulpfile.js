@@ -12,7 +12,7 @@ global.app = {
 	isWebP: !process.argv.includes('--nowebp'),
 	isFontsReW: process.argv.includes('--rewrite'),
 	gulp: gulp,
-	path: path,
+	path: path,	
 	plugins: plugins
 }
 

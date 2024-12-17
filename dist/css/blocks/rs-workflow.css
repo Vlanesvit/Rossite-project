@@ -1,0 +1,114 @@
+.rs-workflow {
+  overflow: visible;
+}
+
+.rs-workflow__wrapper {
+  position: relative;
+}
+
+.rs-workflow__text h5 {
+  margin-top: 15px;
+  color: #565973;
+}
+
+.rs-workflow__imgs {
+  padding: 0% 74.43% 43.9% 0%;
+  position: relative;
+  z-index: 2;
+  anchor-name: --icons;
+}
+
+.rs-workflow__img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rs-workflow__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.rs-workflow__icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rs-workflow__icon {
+  position: absolute;
+  z-index: 3;
+}
+
+.rs-workflow__icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.rs-workflow__line {
+  position: absolute;
+  top: -3%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+@media (min-width: 991.98px) {
+  .rs-workflow__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .rs-workflow__text {
+    max-width: 770px;
+  }
+
+  .rs-workflow__imgs {
+    margin-left: -24%;
+  }
+
+  .rs-workflow__icons {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1439.98px) {
+  .rs-workflow__icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .rs-workflow__imgs {
+    padding-bottom: 60%;
+  }
+
+  .rs-workflow__icons {
+    padding: 0% 74.43% 43.9% 0%;
+    position-anchor: --icons;
+    top: anchor(top);
+    left: anchor(left);
+  }
+
+  .rs-workflow__icon {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .rs-workflow__icon {
+    width: 45px;
+    height: 45px;
+  }
+}
