@@ -19,9 +19,12 @@
 
 section {
 	position: relative;
-	overflow: hidden;
 	z-index: 1;
 	margin: 150px 0px;
+
+	@media (min-width: 991.98px) {
+		overflow: hidden;
+	}
 
 	@media (max-width: 1439.98px) {
 		margin: 110px 0px;

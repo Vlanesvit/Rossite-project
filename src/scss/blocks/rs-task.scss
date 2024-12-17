@@ -1,6 +1,6 @@
 .rs-task {
 	overflow: visible;
-	
+
 	// .rs-task__container
 	&__container {
 	}
@@ -19,6 +19,12 @@
 
 			@media (max-width: 991.98px) {
 				margin-top: 20px;
+			}
+		}
+
+		& > h2 {
+			@media (max-width: 991.98px) {
+				max-width: calc(320px - (16px * 2));
 			}
 		}
 

@@ -152,7 +152,6 @@
 
 		@media (max-width: 991.98px) {
 			padding: 15px 0px;
-			z-index: 10;
 		}
 
 		@media (max-width: 767.98px) {
@@ -1452,6 +1451,11 @@
 				max-height: calc(var(--real-height) - 83px);
 			}
 
+			@media (max-width: 1439.98px) {
+				min-height: calc(var(--real-height) - 70px);
+				max-height: calc(var(--real-height) - 70px);
+			}
+
 			@media (max-width: 767.98px) {
 				min-height: 100%;
 				max-height: 100%;
@@ -1636,8 +1640,8 @@
 			}
 
 			@media (max-width: 991.98px) {
-				min-height: calc(var(--real-height) - 221px);
-				max-height: calc(var(--real-height) - 221px);
+				min-height: calc(var(--real-height) - 240px);
+				max-height: calc(var(--real-height) - 240px);
 			}
 
 			@media (max-width: 767.98px) {

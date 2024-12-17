@@ -1492,7 +1492,6 @@ h6 {
 
 section {
   position: relative;
-  overflow: hidden;
   z-index: 1;
   margin: 150px 0px;
 }
@@ -10118,6 +10117,10 @@ textarea.rs-input {
   margin-top: 30px;
 }
 
+.rs-workflow {
+  overflow: visible;
+}
+
 .rs-workflow__wrapper {
   position: relative;
 }
@@ -10138,6 +10141,15 @@ textarea.rs-input {
   position: absolute;
   top: 0;
   right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rs-workflow__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .rs-workflow__icons {
@@ -12101,6 +12113,10 @@ textarea.rs-input {
     display: none;
   }
 
+  section {
+    overflow: hidden;
+  }
+
   .section__bg img.section__bg--mobile {
     display: none;
   }
@@ -13650,6 +13666,11 @@ textarea.rs-input {
     max-height: calc(var(--real-height) - 83px);
   }
 
+  .rs-header__region_body {
+    min-height: calc(var(--real-height) - 70px);
+    max-height: calc(var(--real-height) - 70px);
+  }
+
   .margin-0 .rs-header__region_body {
     min-height: calc(var(--real-height) - 71px);
     max-height: calc(var(--real-height) - 71px);
@@ -14753,6 +14774,10 @@ textarea.rs-input {
 }
 
 @media (max-width: 991.98px) {
+  .wrapper {
+    overflow: hidden;
+  }
+
   .wrapper>main>*:first-child {
     margin: 100px 0px;
   }
@@ -14940,7 +14965,6 @@ textarea.rs-input {
 
   .rs-header__wrapper {
     padding: 15px 0px;
-    z-index: 10;
   }
 
   .rs-header__menu {
@@ -15277,8 +15301,8 @@ textarea.rs-input {
   }
 
   .rs-header__region_select {
-    min-height: calc(var(--real-height) - 221px);
-    max-height: calc(var(--real-height) - 221px);
+    min-height: calc(var(--real-height) - 240px);
+    max-height: calc(var(--real-height) - 240px);
   }
 
   .rs-header__region_select>ul {
@@ -17321,6 +17345,10 @@ textarea.rs-input {
     margin-top: 20px;
   }
 
+  .rs-task__head>h2 {
+    max-width: 288px;
+  }
+
   .rs-task__head .tooltip:hover .tooltip__modal._arrow-left {
     -webkit-animation: shakeTop 500ms ease-in-out forwards;
             animation: shakeTop 500ms ease-in-out forwards;
@@ -17593,6 +17621,10 @@ textarea.rs-input {
 
   .rs-why-block__content h5 {
     margin-top: 20px;
+  }
+
+  .rs-workflow__imgs {
+    padding-bottom: 60%;
   }
 
   .rs-workflow__icons {
